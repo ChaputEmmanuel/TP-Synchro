@@ -5,6 +5,8 @@ des tubes de communication (équivalent du pipe Unix) dans "ManuX"
 
    L'implantation des tubes est fournies.
 
+   On implantera, une version bloquante et une version non bloquante.
+
 # Compilation de ManuX
 
    ```
@@ -86,5 +88,3 @@ nous utiliserons les types suivants
    exclusionMutuelle
    condition
 ```
-
-## Bloquant ou non bloquant ?
