@@ -62,7 +62,7 @@ tube (suite à l'utilisation de l'appel système `tube()` par une tâche).
 
    Côté utilisateur (`usr/`) :
 
-   .** Un tube est créé avec
+   * Un tube est créé avec
 
 ```
 int fd[2];
