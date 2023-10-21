@@ -29,7 +29,6 @@ void lecteur()
    char b[TAILLE_BUFFER];
    
    printf("[%d] Je suis un lecteur !\n", identifiantTache());
-   fermer(fd[1]);
    
    do {
       r = lire(fd[0], b, TAILLE_BUFFER - 1);
@@ -53,7 +52,6 @@ void ecrivain()
    char * b = "Bonjour les jeunes ! ";
 
    printf("[%d] Je suis un ecrivain !\n", identifiantTache());
-   fermer(fd[0]);
 
    do {
      printf("[%d] Je vais ecrire %d\n", identifiantTache(), strlen(b));
@@ -67,8 +65,6 @@ void ecrivain()
    } while (r > 0);
 
    printf("[%d] En tout, j'ai ecrit %d !\n", identifiantTache(), c);
-
-   fermer(fd[1]);
 }
 
 void init()
@@ -89,8 +85,7 @@ void init()
          r = creerNouvelleTache(lecteur, FALSE);
       }
    }
-   fermer(fd[0]);
-   fermer(fd[1]);
+
    printf("Voila voila !\n");
    while(1){};
 }
