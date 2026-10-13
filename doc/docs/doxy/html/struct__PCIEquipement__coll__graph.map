@@ -1,0 +1,5 @@
+<map id="_PCIEquipement" name="_PCIEquipement">
+<area shape="rect" id="Node000001" title=": structure permettant d&#39;identifier un équipement PCI" alt="" coords="44,108,172,133"/>
+<area shape="rect" id="Node000002" href="$struct__PCIEquipement_1_1__PCIConfigAddress.html" title=" " alt="" coords="5,5,211,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="111,59,111,108,105,108,105,59"/>
+</map>

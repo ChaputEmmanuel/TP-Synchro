@@ -1,0 +1,146 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>My Project:  Fichier source de /home/manu/PROGRAMMATION/C/ManuX/include/manux/config.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">My Project
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function() { init_codefold(0); });
+/* @license-end */
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_7ae9ae23548caaa7aeb1f148c6e00073.html">manux</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle"><div class="title">config.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="include_2manux_2config_8h.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="preprocessor">#ifdef MANUX_FICHIER_CONFIG</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="preprocessor">#   include MANUX_FICHIER_CONFIG</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="preprocessor">#else</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="preprocessor">#ifndef MANUX_CONFIG</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="preprocessor">#define MANUX_CONFIG</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="preprocessor">#include &lt;<a class="code" href="base_8h.html">config/base.h</a>&gt;</span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="preprocessor">#include &lt;<a class="code" href="pc-i386_8h.html">config/pc-i386.h</a>&gt;</span></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="preprocessor">#include &lt;<a class="code" href="plan-memoire-pc_8h.html">config/plan-memoire-pc.h</a>&gt;</span></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="preprocessor">#include &lt;<a class="code" href="gestion-memoire_8h.html">config/gestion-memoire.h</a>&gt;</span></div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="preprocessor">#include &lt;<a class="code" href="config_2debug_8h.html">config/debug.h</a>&gt;</span></div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="preprocessor">#include &lt;<a class="code" href="config_2bootloader_8h.html">config/bootloader.h</a>&gt;</span>       <span class="comment">// Nécessaire pour construire mon bootloader</span></div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="preprocessor">#include &lt;<a class="code" href="systeme-fichiers_8h.html">config/systeme-fichiers.h</a>&gt;</span>  <span class="comment">// Nécessaire pour consoles virtuelles</span></div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="preprocessor">#include &lt;<a class="code" href="config_2ramdisk_8h.html">config/ramdisk.h</a>&gt;</span></div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="preprocessor">#include &lt;<a class="code" href="appels-systeme_8h.html">config/appels-systeme.h</a>&gt;</span></div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="preprocessor">#include &lt;<a class="code" href="consoles-virtuelles_8h.html">config/consoles-virtuelles.h</a>&gt;</span></div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="preprocessor">#include &lt;<a class="code" href="include_2config_2printk_8h.html">config/printk.h</a>&gt;</span></div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="preprocessor">#include &lt;<a class="code" href="include_2config_2journal_8h.html">config/journal.h</a>&gt;</span></div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="preprocessor">#include &lt;<a class="code" href="include_2config_2registre_8h.html">config/registre.h</a>&gt;</span></div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="preprocessor">#include &lt;<a class="code" href="include_2config_2taches_8h.html">config/taches.h</a>&gt;</span></div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="preprocessor">#include &lt;<a class="code" href="synchronisation_8h.html">config/synchronisation.h</a>&gt;</span></div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="preprocessor">#include &lt;<a class="code" href="include_2config_2kmalloc_8h.html">config/kmalloc.h</a>&gt;</span></div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="preprocessor">#include &lt;<a class="code" href="config_2clavier_8h.html">config/clavier.h</a>&gt;</span></div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="preprocessor">#include &lt;<a class="code" href="config_2reseau_8h.html">config/reseau.h</a>&gt;</span></div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><span class="preprocessor">#include &lt;<a class="code" href="config_2pci_8h.html">config/pci.h</a>&gt;</span></div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="preprocessor">#include &lt;<a class="code" href="config_2virtio_8h.html">config/virtio.h</a>&gt;</span></div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span><span class="preprocessor">#include &lt;<a class="code" href="config_2stdlib_8h.html">config/stdlib.h</a>&gt;</span></div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span><span class="preprocessor">#include &lt;<a class="code" href="usr_8h.html">config/usr.h</a>&gt;</span></div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span><span class="preprocessor">#include &lt;<a class="code" href="verifications_8h.html">config/verifications.h</a>&gt;</span></div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span><span class="preprocessor">#endif  </span><span class="comment">// MANUX_CONFIG</span></div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span><span class="preprocessor">#endif  </span><span class="comment">// MANUX_FICHIER_CONFIG</span></div>
+<div class="ttc" id="aappels-systeme_8h_html"><div class="ttname"><a href="appels-systeme_8h.html">appels-systeme.h</a></div></div>
+<div class="ttc" id="abase_8h_html"><div class="ttname"><a href="base_8h.html">base.h</a></div><div class="ttdoc">Eléments de base de la configuration.</div></div>
+<div class="ttc" id="aconfig_2bootloader_8h_html"><div class="ttname"><a href="config_2bootloader_8h.html">bootloader.h</a></div></div>
+<div class="ttc" id="aconfig_2clavier_8h_html"><div class="ttname"><a href="config_2clavier_8h.html">clavier.h</a></div></div>
+<div class="ttc" id="aconfig_2debug_8h_html"><div class="ttname"><a href="config_2debug_8h.html">debug.h</a></div><div class="ttdoc">Configuration du débugage de ManuX.</div></div>
+<div class="ttc" id="aconfig_2pci_8h_html"><div class="ttname"><a href="config_2pci_8h.html">pci.h</a></div></div>
+<div class="ttc" id="aconfig_2ramdisk_8h_html"><div class="ttname"><a href="config_2ramdisk_8h.html">ramdisk.h</a></div></div>
+<div class="ttc" id="aconfig_2reseau_8h_html"><div class="ttname"><a href="config_2reseau_8h.html">reseau.h</a></div><div class="ttdoc">Paramètrage du sous sytème réseau (C) Manu Chaput 2025.</div></div>
+<div class="ttc" id="aconfig_2stdlib_8h_html"><div class="ttname"><a href="config_2stdlib_8h.html">stdlib.h</a></div></div>
+<div class="ttc" id="aconfig_2virtio_8h_html"><div class="ttname"><a href="config_2virtio_8h.html">virtio.h</a></div></div>
+<div class="ttc" id="aconsoles-virtuelles_8h_html"><div class="ttname"><a href="consoles-virtuelles_8h.html">consoles-virtuelles.h</a></div></div>
+<div class="ttc" id="agestion-memoire_8h_html"><div class="ttname"><a href="gestion-memoire_8h.html">gestion-memoire.h</a></div></div>
+<div class="ttc" id="ainclude_2config_2journal_8h_html"><div class="ttname"><a href="include_2config_2journal_8h.html">journal.h</a></div></div>
+<div class="ttc" id="ainclude_2config_2kmalloc_8h_html"><div class="ttname"><a href="include_2config_2kmalloc_8h.html">kmalloc.h</a></div></div>
+<div class="ttc" id="ainclude_2config_2printk_8h_html"><div class="ttname"><a href="include_2config_2printk_8h.html">printk.h</a></div></div>
+<div class="ttc" id="ainclude_2config_2registre_8h_html"><div class="ttname"><a href="include_2config_2registre_8h.html">registre.h</a></div><div class="ttdoc">Configuration du registre de ManuX.</div></div>
+<div class="ttc" id="ainclude_2config_2taches_8h_html"><div class="ttname"><a href="include_2config_2taches_8h.html">taches.h</a></div></div>
+<div class="ttc" id="apc-i386_8h_html"><div class="ttname"><a href="pc-i386_8h.html">pc-i386.h</a></div></div>
+<div class="ttc" id="aplan-memoire-pc_8h_html"><div class="ttname"><a href="plan-memoire-pc_8h.html">plan-memoire-pc.h</a></div></div>
+<div class="ttc" id="asynchronisation_8h_html"><div class="ttname"><a href="synchronisation_8h.html">synchronisation.h</a></div><div class="ttdoc">Configuration des outils de synchronisation de ManuX.</div></div>
+<div class="ttc" id="asysteme-fichiers_8h_html"><div class="ttname"><a href="systeme-fichiers_8h.html">systeme-fichiers.h</a></div></div>
+<div class="ttc" id="ausr_8h_html"><div class="ttname"><a href="usr_8h.html">usr.h</a></div></div>
+<div class="ttc" id="averifications_8h_html"><div class="ttname"><a href="verifications_8h.html">verifications.h</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

@@ -1,0 +1,121 @@
+\doxysection{Référence du fichier /home/manu/\+PROGRAMMATION/\+C/\+Manu\+X/include/manux/stdlib.h}
+\hypertarget{manux_2stdlib_8h}{}\label{manux_2stdlib_8h}\index{/home/manu/PROGRAMMATION/C/ManuX/include/manux/stdlib.h@{/home/manu/PROGRAMMATION/C/ManuX/include/manux/stdlib.h}}
+
+
+Définition de quelques fonctions de base (C) Manu Chaput 2020-\/2023.  
+
+
+{\ttfamily \#include $<$manux/types.\+h$>$}\newline
+Graphe des dépendances par inclusion de stdlib.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=250pt]{manux_2stdlib_8h__incl}
+\end{center}
+\end{figure}
+Ce graphe montre quels fichiers incluent directement ou indirectement ce fichier \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{manux_2stdlib_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{manux_2stdlib_8h_a690f251553b39fd4f31894826141b61a}{RAND\+\_\+\+MAX}}~32767
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\+\_\+t}} \mbox{\hyperlink{manux_2stdlib_8h_ad6001b066295ad1e959c9501d409bf28}{rand}} (\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}})
+\begin{DoxyCompactList}\small\item\em Génération d\textquotesingle{}un nombre "{}aléatoire"{} entre 0 et RAND\+\_\+\+MAX. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} \mbox{\hyperlink{manux_2stdlib_8h_a04e5a7570081c1690eab05b17421afa1}{srand}} (\mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\+\_\+t}} graine)
+\begin{DoxyCompactList}\small\item\em Modification de la graine du générateur "{}aléatoire"{}. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{manux_2stdlib_8h_a2fcb3e4ef2147f927ecc1e2018d227c0}{atoi}} (char \texorpdfstring{$\ast$}{*}ch)
+\begin{DoxyCompactList}\small\item\em Conversion d\textquotesingle{}une chaîne en entier. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{manux_2stdlib_8h_af7d33f72f92288b6d3d5978e255b2fa9}{atoihex}} (char \texorpdfstring{$\ast$}{*}ch)
+\begin{DoxyCompactList}\small\item\em Version hexadécimale de \doxylink{manux_2stdlib_8h_a2fcb3e4ef2147f927ecc1e2018d227c0}{atoi()} \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Définition de quelques fonctions de base (C) Manu Chaput 2020-\/2023. 
+
+
+
+Définition dans le fichier \mbox{\hyperlink{manux_2stdlib_8h_source}{stdlib.\+h}}.
+
+
+
+\doxysubsection{Documentation des macros}
+\Hypertarget{manux_2stdlib_8h_a690f251553b39fd4f31894826141b61a}\label{manux_2stdlib_8h_a690f251553b39fd4f31894826141b61a} 
+\index{stdlib.h@{stdlib.h}!RAND\_MAX@{RAND\_MAX}}
+\index{RAND\_MAX@{RAND\_MAX}!stdlib.h@{stdlib.h}}
+\doxysubsubsection{\texorpdfstring{RAND\_MAX}{RAND\_MAX}}
+{\footnotesize\ttfamily \#define RAND\+\_\+\+MAX~32767}
+
+
+
+Définition à la ligne \mbox{\hyperlink{manux_2stdlib_8h_source_l00010}{10}} du fichier \mbox{\hyperlink{manux_2stdlib_8h_source}{stdlib.\+h}}.
+
+
+
+\doxysubsection{Documentation des fonctions}
+\Hypertarget{manux_2stdlib_8h_a2fcb3e4ef2147f927ecc1e2018d227c0}\label{manux_2stdlib_8h_a2fcb3e4ef2147f927ecc1e2018d227c0} 
+\index{stdlib.h@{stdlib.h}!atoi@{atoi}}
+\index{atoi@{atoi}!stdlib.h@{stdlib.h}}
+\doxysubsubsection{\texorpdfstring{atoi()}{atoi()}}
+{\footnotesize\ttfamily int atoi (\begin{DoxyParamCaption}\item[{char \texorpdfstring{$\ast$}{*}}]{ch }\end{DoxyParamCaption})}
+
+
+
+Conversion d\textquotesingle{}une chaîne en entier. 
+
+Le début de la chaîne est converti en entier. 0 en cas d\textquotesingle{}erreur 
+
+Définition à la ligne \mbox{\hyperlink{stdlib_8c_source_l00026}{26}} du fichier \mbox{\hyperlink{stdlib_8c_source}{stdlib.\+c}}.
+
+\Hypertarget{manux_2stdlib_8h_af7d33f72f92288b6d3d5978e255b2fa9}\label{manux_2stdlib_8h_af7d33f72f92288b6d3d5978e255b2fa9} 
+\index{stdlib.h@{stdlib.h}!atoihex@{atoihex}}
+\index{atoihex@{atoihex}!stdlib.h@{stdlib.h}}
+\doxysubsubsection{\texorpdfstring{atoihex()}{atoihex()}}
+{\footnotesize\ttfamily int atoihex (\begin{DoxyParamCaption}\item[{char \texorpdfstring{$\ast$}{*}}]{ch }\end{DoxyParamCaption})}
+
+
+
+Version hexadécimale de \doxylink{manux_2stdlib_8h_a2fcb3e4ef2147f927ecc1e2018d227c0}{atoi()} 
+
+La chaîne doit impérativement commencer par 0x 
+
+Définition à la ligne \mbox{\hyperlink{stdlib_8c_source_l00036}{36}} du fichier \mbox{\hyperlink{stdlib_8c_source}{stdlib.\+c}}.
+
+\Hypertarget{manux_2stdlib_8h_ad6001b066295ad1e959c9501d409bf28}\label{manux_2stdlib_8h_ad6001b066295ad1e959c9501d409bf28} 
+\index{stdlib.h@{stdlib.h}!rand@{rand}}
+\index{rand@{rand}!stdlib.h@{stdlib.h}}
+\doxysubsubsection{\texorpdfstring{rand()}{rand()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\+\_\+t}} rand (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}}}]{ }\end{DoxyParamCaption})}
+
+
+
+Génération d\textquotesingle{}un nombre "{}aléatoire"{} entre 0 et RAND\+\_\+\+MAX. 
+
+
+
+Définition à la ligne \mbox{\hyperlink{stdlib_8c_source_l00012}{12}} du fichier \mbox{\hyperlink{stdlib_8c_source}{stdlib.\+c}}.
+
+\Hypertarget{manux_2stdlib_8h_a04e5a7570081c1690eab05b17421afa1}\label{manux_2stdlib_8h_a04e5a7570081c1690eab05b17421afa1} 
+\index{stdlib.h@{stdlib.h}!srand@{srand}}
+\index{srand@{srand}!stdlib.h@{stdlib.h}}
+\doxysubsubsection{\texorpdfstring{srand()}{srand()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} srand (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\+\_\+t}}}]{graine }\end{DoxyParamCaption})}
+
+
+
+Modification de la graine du générateur "{}aléatoire"{}. 
+
+
+
+Définition à la ligne \mbox{\hyperlink{stdlib_8c_source_l00021}{21}} du fichier \mbox{\hyperlink{stdlib_8c_source}{stdlib.\+c}}.
+

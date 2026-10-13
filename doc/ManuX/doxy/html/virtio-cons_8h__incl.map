@@ -1,0 +1,30 @@
+<map id="/home/manu/PROGRAMMATION/C/ManuX/multiconf/virtio&#45;cons.h" name="/home/manu/PROGRAMMATION/C/ManuX/multiconf/virtio&#45;cons.h">
+<area shape="rect" id="Node000001" title="Affichage de messages sur une console virtuelle de type virtio." alt="" coords="745,5,979,45"/>
+<area shape="rect" id="Node000002" href="$base_8h.html" title="Eléments de base de la configuration." alt="" coords="5,93,113,119"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="745,37,467,59,127,96,127,91,467,54,744,32"/>
+<area shape="rect" id="Node000003" href="$config_2bootloader_8h.html" title=" " alt="" coords="138,93,285,119"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="745,43,304,96,299,97,299,91,303,91,744,38"/>
+<area shape="rect" id="Node000004" href="$plan-memoire-pc_8h.html" title=" " alt="" coords="614,167,803,192"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="744,36,625,46,502,59,401,76,367,85,349,95,344,106,349,117,365,129,388,140,451,157,526,167,600,173,600,178,525,172,450,162,386,145,362,134,345,120,339,106,345,92,365,80,399,70,501,54,625,41,744,31"/>
+<area shape="rect" id="Node000005" href="$gestion-memoire_8h.html" title=" " alt="" coords="359,93,549,119"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="765,48,527,93,526,88,764,43"/>
+<area shape="rect" id="Node000006" href="$include_2config_2kmalloc_8h.html" title=" " alt="" coords="573,93,703,119"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="809,48,685,91,683,86,807,43"/>
+<area shape="rect" id="Node000007" href="$include_2config_2console_8h.html" title=" " alt="" coords="727,93,853,119"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="847,47,812,85,808,81,843,44"/>
+<area shape="rect" id="Node000008" href="$include_2config_2printk_8h.html" title=" " alt="" coords="878,93,993,119"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="882,44,917,81,913,85,878,47"/>
+<area shape="rect" id="Node000009" href="$systeme-fichiers_8h.html" title=" " alt="" coords="1017,93,1203,119"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="922,43,1062,87,1060,92,921,48"/>
+<area shape="rect" id="Node000010" href="$pc-i386_8h.html" title=" " alt="" coords="1227,93,1353,119"/>
+<area shape="poly" id="edge9_Node000001_Node000010" title=" " alt="" coords="965,43,1214,88,1214,93,964,48"/>
+<area shape="rect" id="Node000012" href="$config_2pci_8h.html" title=" " alt="" coords="1377,93,1473,119"/>
+<area shape="poly" id="edge12_Node000001_Node000012" title=" " alt="" coords="980,38,1156,60,1363,90,1362,96,1156,66,979,43"/>
+<area shape="rect" id="Node000013" href="$config_2virtio_8h.html" title=" " alt="" coords="1497,93,1608,119"/>
+<area shape="poly" id="edge13_Node000001_Node000013" title=" " alt="" coords="980,35,1209,58,1484,91,1484,96,1208,63,980,40"/>
+<area shape="rect" id="Node000014" href="$verifications_8h.html" title=" " alt="" coords="1633,93,1790,119"/>
+<area shape="poly" id="edge14_Node000001_Node000014" title=" " alt="" coords="980,33,1267,57,1619,91,1619,96,1266,62,980,38"/>
+<area shape="poly" id="edge10_Node000010_Node000004" title=" " alt="" coords="1228,120,1216,121,817,169,817,164,1215,116,1227,114"/>
+<area shape="rect" id="Node000011" href="$config_2intel-8259a_8h.html" title=" " alt="" coords="1215,167,1365,192"/>
+<area shape="poly" id="edge11_Node000010_Node000011" title=" " alt="" coords="1293,119,1293,153,1287,153,1287,119"/>
+</map>

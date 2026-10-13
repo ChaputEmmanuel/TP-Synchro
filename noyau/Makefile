@@ -6,21 +6,25 @@ include ../make.rules    # Les règles les plus génériques
 
 LIBRAIRIES_MANUX = $(LIBI386) $(LIBMANUX) $(LIBUSR)
 LIBRAIRIES_MANUX += $(if  $(MANUX_FICHIER), $(LIBSF))
+LIBRAIRIES_MANUX += $(if  $(MANUX_RESEAU), $(LIBRESEAU))
 
 OBJETS      = 	$(MANUX_FICHIER_MAIN).o
 OBJETS     +=   $(if $(MANUX_BOOTLOADER), bootloader.o)
 OBJETS     +=   $(if $(MANUX_TACHES), listetaches.o tache.o)
 OBJETS     +=   $(if $(MANUX_TACHES), scheduler.o)
+OBJETS     +=   $(if $(MANUX_DUMMY_TASK), dummy-task.o)
 OBJETS     +=   $(if $(MANUX_GESTION_MEMOIRE), memoire.o)
 OBJETS     +=   $(if $(MANUX_PAGINATION), pagination.o)
 OBJETS     +=   $(if $(MANUX_OUTILS_SYNCHRO), semaphore.o)
 OBJETS     +=   $(if $(MANUX_APPELS_SYSTEME), appelsysteme.o)
 OBJETS     +=   $(if $(MANUX_PCI), pci.o)
-OBJETS     +=   $(if $(MANUX_ATOMIQUE), atomique.o)
+OBJETS     +=   $(if $(MANUX_EXCLUSION_MUTUELLE), exclusion-mutuelle.o)
+OBJETS     +=   $(if $(MANUX_CONDITION), condition.o)
 OBJETS     +=   $(if $(MANUX_VIRTIO), virtio.o)
 OBJETS     +=   $(if $(MANUX_VIRTIO_NET), virtio-net.o)
 OBJETS     +=   $(if $(MANUX_VIRTIO_CONSOLE), virtio-console.o)
 OBJETS     +=   $(if $(MANUX_KMALLOC), $(MANUX_KMALLOC).o)
+OBJETS     +=   $(if $(MANUX_DEBUGMASK_VAR), debug.o)
 
 # Une cible pour compiler les binaires, mais sans édition de liens
 binaries :  $(OBJETS)

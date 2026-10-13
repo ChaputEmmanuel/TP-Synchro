@@ -1,0 +1,320 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>My Project:  Fichier source de /home/manu/PROGRAMMATION/C/ManuX/noyau/pci.c</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">My Project
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function() { init_codefold(0); });
+/* @license-end */
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_b49ee5e1e1e78348df5ce57bc52e7bb8.html">noyau</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle"><div class="title">pci.c</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="pci_8c.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &lt;<a class="code" href="manux_2pci_8h.html">manux/pci.h</a>&gt;</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &lt;<a class="code" href="io_8h.html">manux/io.h</a>&gt;</span>      <span class="comment">// inl/outl/...</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#include &lt;<a class="code" href="include_2manux_2memoire_8h.html">manux/memoire.h</a>&gt;</span> <span class="comment">// NULL</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#include &lt;<a class="code" href="manux_2debug_8h.html">manux/debug.h</a>&gt;</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="pci_8c.html#a76d99054f60e8063457ce94102d43e3f">   18</a></span><span class="preprocessor">#define PCI_NB_EQUIP_PAR_BUS 8 </span><span class="comment">//32</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="preprocessor">#ifndef PCI_CONFIG_ADDRESS</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="pci_8c.html#aaa58db8af2d00af66c78624104e1016b">   24</a></span><span class="preprocessor">#   define PCI_CONFIG_ADDRESS  0xCF8</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="preprocessor">#ifndef PCI_CONFIG_DATA</span></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="pci_8c.html#ad1fedcf5fe37518ccc1ddfcb880d1b01">   27</a></span><span class="preprocessor">#   define PCI_CONFIG_DATA     0xCFC</span></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno"><a class="line" href="pci_8c.html#a4f822a1f149cac6db683db4f3c1538d7">   33</a></span><span class="preprocessor">#define MANUX_NB_BUS_PCI 1</span></div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno"><a class="line" href="pci_8c.html#a46eac916776409f9ca95f9ab4557d94e">   38</a></span><span class="preprocessor">#define PCI_ID_VENDEUR    0x00</span></div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno"><a class="line" href="pci_8c.html#a1f1a8ffed01cc77fc4211337005a3299">   39</a></span><span class="preprocessor">#define PCI_ID_EQUIPEMENT 0x02</span></div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno"><a class="line" href="pci_8c.html#aace483a071ea645c25efcc12db5b3729">   40</a></span><span class="preprocessor">#define PCI_REVISION      0x08</span></div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno"><a class="line" href="pci_8c.html#a24d8b91698474af77dc208df68424d64">   41</a></span><span class="preprocessor">#define PCI_INTERRUPTION  0x3C</span></div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno"><a class="line" href="pci_8c.html#ac46c3b0065c7e8e9775dd842af22344c">   42</a></span><span class="preprocessor">#define PCI_BAR_0         0x10   </span><span class="comment">// Base Address Register</span></div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno"><a class="line" href="pci_8c.html#a6ef954b421ae2e15edda17a2cc74474a">   43</a></span><span class="preprocessor">#define PCI_BAR_1         0x14</span></div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno"><a class="line" href="pci_8c.html#a3d75d753130a888886bcd046b87ae434">   44</a></span><span class="preprocessor">#define PCI_BAR_2         0x18</span></div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno"><a class="line" href="pci_8c.html#a7f3bb9c6a8f16029b0bcf5c0b8864b21">   45</a></span><span class="preprocessor">#define PCI_BAR_3         0x1C</span></div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno"><a class="line" href="pci_8c.html#a9ffaecd7d866bf5bfc64e85eecb3067f">   46</a></span><span class="preprocessor">#define PCI_BAR_4         0x20</span></div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno"><a class="line" href="pci_8c.html#a19285f776c8666b2cf999111e7fae165">   47</a></span><span class="preprocessor">#define PCI_BAR_5         0x24</span></div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno"><a class="line" href="pci_8c.html#a959211a91f46ea1222f3f67486db9fd6">   52</a></span><span class="preprocessor">#define PCI_BAR_IO        0x01</span></div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno"><a class="line" href="pci_8c.html#a74e51cf1894682ef1817c6c516f5ef4e">   53</a></span><span class="preprocessor">#define PCI_AUCUN_VENDEUR 0xFFFF</span></div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno"><a class="line" href="pci_8c.html#a278e24c363d5729179619c807001694b">   59</a></span><span class="keywordtype">int</span> <a class="code hl_variable" href="pci_8c.html#a278e24c363d5729179619c807001694b">PCINombreEquipements</a> = 0; <span class="comment">// Le nombre d&#39;équipements détectés</span></div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span> </div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno"><a class="line" href="pci_8c.html#aa6dd82edf1e1673d848dacfcf2b98fea">   61</a></span><a class="code hl_struct" href="struct__PCIEquipement.html">PCIEquipement</a> <a class="code hl_variable" href="pci_8c.html#aa6dd82edf1e1673d848dacfcf2b98fea">PCIEquipements</a>[<a class="code hl_define" href="config_2pci_8h.html#a9a3f40332f0c15b9d84d7b73cf98886d">MANUX_NB_MAX_EQUIPEMENTS_PCI</a>];</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span> </div>
+<div class="foldopen" id="foldopen00075" data-start="{" data-end="}">
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno"><a class="line" href="manux_2pci_8h.html#ae74b8ebfa7614c51d4d85f964b97e19b">   75</a></span><a class="code hl_typedef" href="include_2manux_2types_8h.html#a06896e8c53f721507066c079052171f8">uint32_t</a> <a class="code hl_function" href="pci_8c.html#ae74b8ebfa7614c51d4d85f964b97e19b">PCILireLong</a>(<a class="code hl_typedef" href="include_2manux_2types_8h.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> bus, <a class="code hl_typedef" href="include_2manux_2types_8h.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> slot, <a class="code hl_typedef" href="include_2manux_2types_8h.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> fonction, <a class="code hl_typedef" href="include_2manux_2types_8h.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> offset)</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>{</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>   <a class="code hl_typedef" href="include_2manux_2types_8h.html#a06896e8c53f721507066c079052171f8">uint32_t</a> result;</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>   <a class="code hl_typedef" href="include_2manux_2types_8h.html#a06896e8c53f721507066c079052171f8">uint32_t</a> adresse = (((<a class="code hl_typedef" href="include_2manux_2types_8h.html#a06896e8c53f721507066c079052171f8">uint32_t</a>)bus) &lt;&lt; 16)</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>     | (((<a class="code hl_typedef" href="include_2manux_2types_8h.html#a06896e8c53f721507066c079052171f8">uint32_t</a>)slot) &lt;&lt; 11)</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>     | (((<a class="code hl_typedef" href="include_2manux_2types_8h.html#a06896e8c53f721507066c079052171f8">uint32_t</a>)fonction) &lt;&lt; 8)</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>     | (((<a class="code hl_typedef" href="include_2manux_2types_8h.html#a06896e8c53f721507066c079052171f8">uint32_t</a>)offset) &amp; 0xFC)</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>     | ((<a class="code hl_typedef" href="include_2manux_2types_8h.html#a06896e8c53f721507066c079052171f8">uint32_t</a>)0x80000000);</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span> </div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>   <span class="comment">// On envoie l&#39;adresse qui nous intéresse</span></div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>   <a class="code hl_define" href="io_8h.html#a92a4b4982e75909904a35aef114cc3de">outl</a>((<a class="code hl_typedef" href="include_2manux_2types_8h.html#a273cf69d639a59973b6019625df33e30">uint16_t</a>)<a class="code hl_define" href="pci_8c.html#aaa58db8af2d00af66c78624104e1016b">PCI_CONFIG_ADDRESS</a>, adresse);</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span> </div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>   <span class="comment">// On y lit un long conformément à [1]</span></div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>   <a class="code hl_define" href="io_8h.html#a58dac80d57e8fe473d87545a4d78ad53">inl</a>((<a class="code hl_typedef" href="include_2manux_2types_8h.html#a273cf69d639a59973b6019625df33e30">uint16_t</a>)<a class="code hl_define" href="pci_8c.html#ad1fedcf5fe37518ccc1ddfcb880d1b01">PCI_CONFIG_DATA</a>, result);</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span> </div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>   <span class="keywordflow">return</span> result;</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>}</div>
+</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span> </div>
+<div class="foldopen" id="foldopen00093" data-start="{" data-end="}">
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno"><a class="line" href="manux_2pci_8h.html#a315cad18d567e1dccdfc96fab0a58c49">   93</a></span><a class="code hl_typedef" href="include_2manux_2types_8h.html#a273cf69d639a59973b6019625df33e30">uint16_t</a> <a class="code hl_function" href="pci_8c.html#a315cad18d567e1dccdfc96fab0a58c49">PCILireMot</a>(<a class="code hl_typedef" href="include_2manux_2types_8h.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> bus, <a class="code hl_typedef" href="include_2manux_2types_8h.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> slot, <a class="code hl_typedef" href="include_2manux_2types_8h.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> fonction, <a class="code hl_typedef" href="include_2manux_2types_8h.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> offset)</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>{</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>   <a class="code hl_typedef" href="include_2manux_2types_8h.html#a273cf69d639a59973b6019625df33e30">uint16_t</a> result;</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>  </div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>   <span class="comment">// Si l&#39;offset nous fait pointer sur le mot de poids fort, on décale</span></div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>   <span class="comment">// à gauche d&#39;un mot (2 * 8). Sinon non (0 * 8). Puis on masque car</span></div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>   <span class="comment">// on ne veut qu&#39;un mot</span></div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>   result = (<a class="code hl_typedef" href="include_2manux_2types_8h.html#a273cf69d639a59973b6019625df33e30">uint16_t</a>)(<a class="code hl_function" href="pci_8c.html#ae74b8ebfa7614c51d4d85f964b97e19b">PCILireLong</a>(bus, slot, fonction,</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>                   offset &amp; ((<a class="code hl_typedef" href="include_2manux_2types_8h.html#a273cf69d639a59973b6019625df33e30">uint16_t</a>)~0x3)) &gt;&gt; ((offset &amp; 2) * 8))&amp; 0xFFFF;</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span> </div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>   <span class="keywordflow">return</span> result;</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>}</div>
+</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span> </div>
+<div class="foldopen" id="foldopen00106" data-start="{" data-end="}">
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno"><a class="line" href="manux_2pci_8h.html#a6457a470746af5e05f5b9624f45fda56">  106</a></span><a class="code hl_typedef" href="include_2manux_2types_8h.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> <a class="code hl_function" href="pci_8c.html#a6457a470746af5e05f5b9624f45fda56">PCILireOctet</a>(<a class="code hl_typedef" href="include_2manux_2types_8h.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> bus, <a class="code hl_typedef" href="include_2manux_2types_8h.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> slot, <a class="code hl_typedef" href="include_2manux_2types_8h.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> fonction, <a class="code hl_typedef" href="include_2manux_2types_8h.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> offset)</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>{</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>   <a class="code hl_typedef" href="include_2manux_2types_8h.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> result;</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span> </div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>   <span class="comment">// On décale de 0 à 3 octets en fonction des 3 bits de poids faible</span></div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>   result = (<a class="code hl_typedef" href="include_2manux_2types_8h.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a>)(<a class="code hl_function" href="pci_8c.html#ae74b8ebfa7614c51d4d85f964b97e19b">PCILireLong</a>(bus, slot, fonction, offset &amp; ~0x3) &gt;&gt; ((offset &amp; 3) * 8))&amp; 0xFF;</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span> </div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>   <span class="keywordflow">return</span> result;</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>}</div>
+</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span> </div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span><span class="keyword">static</span></div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span><span class="keywordtype">void</span> PCIEnumerationDesEquipementsDuBus(<a class="code hl_typedef" href="include_2manux_2types_8h.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> bus)</div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>{</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>   <a class="code hl_typedef" href="include_2manux_2types_8h.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a>  numEquipement;  <span class="comment">// Pour boucler</span></div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>   <a class="code hl_typedef" href="include_2manux_2types_8h.html#a273cf69d639a59973b6019625df33e30">uint16_t</a> idVendeur;</div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>   <a class="code hl_typedef" href="include_2manux_2types_8h.html#a273cf69d639a59973b6019625df33e30">uint16_t</a> idEquipement;</div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>   <a class="code hl_typedef" href="include_2manux_2types_8h.html#a06896e8c53f721507066c079052171f8">uint32_t</a> adresse;        <span class="comment">// Pour chercher les adresse d&#39;E/S</span></div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>   <a class="code hl_typedef" href="include_2manux_2types_8h.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a>  bar;            <span class="comment">// Parcourir les BAR</span></div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>   </div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>   <span class="keywordflow">for</span> (numEquipement = 0; numEquipement &lt; <a class="code hl_define" href="pci_8c.html#a76d99054f60e8063457ce94102d43e3f">PCI_NB_EQUIP_PAR_BUS</a>; numEquipement++) {</div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>      <span class="comment">//printk(PRINTK_CRITIQUE&quot;id/nb %3d/%3d\r&quot;, numEquipement, PCI_NB_EQUIP_PAR_BUS);</span></div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span> </div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>      <span class="comment">// Lecture des numéros de vendeur et d&#39;équipement</span></div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>      idVendeur = <a class="code hl_function" href="pci_8c.html#a315cad18d567e1dccdfc96fab0a58c49">PCILireMot</a>(bus, numEquipement, 0, <a class="code hl_define" href="pci_8c.html#a46eac916776409f9ca95f9ab4557d94e">PCI_ID_VENDEUR</a>);</div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span> </div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>      <span class="keywordflow">if</span> (idVendeur != <a class="code hl_define" href="pci_8c.html#a74e51cf1894682ef1817c6c516f5ef4e">PCI_AUCUN_VENDEUR</a>) {</div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>     <span class="keywordflow">if</span> (<a class="code hl_variable" href="pci_8c.html#a278e24c363d5729179619c807001694b">PCINombreEquipements</a> &gt;= <a class="code hl_define" href="config_2pci_8h.html#a9a3f40332f0c15b9d84d7b73cf98886d">MANUX_NB_MAX_EQUIPEMENTS_PCI</a>) {</div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>        <a class="code hl_function" href="include_2manux_2printk_8h.html#a25b30e8bbadd54650c56895999dd808f">printk</a>(<a class="code hl_define" href="include_2manux_2printk_8h.html#a08a69e546e1f4ef9f2e1f3dcd1441ebc">PRINTK_CRITIQUE</a><span class="stringliteral">&quot;Trop d&#39;equipements PCI pour moi (%d vs %d)!\n&quot;</span>,</div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span>           <a class="code hl_variable" href="pci_8c.html#a278e24c363d5729179619c807001694b">PCINombreEquipements</a>, <a class="code hl_define" href="config_2pci_8h.html#a9a3f40332f0c15b9d84d7b73cf98886d">MANUX_NB_MAX_EQUIPEMENTS_PCI</a>);</div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span>            <span class="keywordflow">return</span>;</div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span>     }</div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span>     idEquipement = <a class="code hl_function" href="pci_8c.html#a315cad18d567e1dccdfc96fab0a58c49">PCILireMot</a>(bus, numEquipement, 0, <a class="code hl_define" href="pci_8c.html#a1f1a8ffed01cc77fc4211337005a3299">PCI_ID_EQUIPEMENT</a>);</div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span> </div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>     <span class="comment">// Les identifiants</span></div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>     <a class="code hl_variable" href="pci_8c.html#aa6dd82edf1e1673d848dacfcf2b98fea">PCIEquipements</a>[<a class="code hl_variable" href="pci_8c.html#a278e24c363d5729179619c807001694b">PCINombreEquipements</a>].<a class="code hl_variable" href="struct__PCIEquipement.html#a551234b4f03dbe357bd5465f89ce700f">vendeur</a> = idVendeur;</div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>     <a class="code hl_variable" href="pci_8c.html#aa6dd82edf1e1673d848dacfcf2b98fea">PCIEquipements</a>[<a class="code hl_variable" href="pci_8c.html#a278e24c363d5729179619c807001694b">PCINombreEquipements</a>].<a class="code hl_variable" href="struct__PCIEquipement.html#a22f4d5304467c79d42c4058ce4d7263b">equipement</a> = idEquipement;</div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>     </div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>     <a class="code hl_variable" href="pci_8c.html#aa6dd82edf1e1673d848dacfcf2b98fea">PCIEquipements</a>[<a class="code hl_variable" href="pci_8c.html#a278e24c363d5729179619c807001694b">PCINombreEquipements</a>].<a class="code hl_variable" href="struct__PCIEquipement.html#a0b10bdcfadcb0b14bb757962bbf76e93">configAddress</a>.<a class="code hl_variable" href="struct__PCIEquipement_1_1__PCIConfigAddress.html#abcd4e645c261288ff27fe4402453542f">nul</a> = 0 ;</div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>     <a class="code hl_variable" href="pci_8c.html#aa6dd82edf1e1673d848dacfcf2b98fea">PCIEquipements</a>[<a class="code hl_variable" href="pci_8c.html#a278e24c363d5729179619c807001694b">PCINombreEquipements</a>].<a class="code hl_variable" href="struct__PCIEquipement.html#a0b10bdcfadcb0b14bb757962bbf76e93">configAddress</a>.<a class="code hl_variable" href="struct__PCIEquipement_1_1__PCIConfigAddress.html#a47cfc34e3ebe1fb560235cb68db6f90f">registreOffset</a> = 0 ;</div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>     <a class="code hl_variable" href="pci_8c.html#aa6dd82edf1e1673d848dacfcf2b98fea">PCIEquipements</a>[<a class="code hl_variable" href="pci_8c.html#a278e24c363d5729179619c807001694b">PCINombreEquipements</a>].<a class="code hl_variable" href="struct__PCIEquipement.html#a0b10bdcfadcb0b14bb757962bbf76e93">configAddress</a>.<a class="code hl_variable" href="struct__PCIEquipement_1_1__PCIConfigAddress.html#af1f0aea3000b3b97eea4d3dcdef9715d">numeroFonction</a> = 0 ;</div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>     <a class="code hl_variable" href="pci_8c.html#aa6dd82edf1e1673d848dacfcf2b98fea">PCIEquipements</a>[<a class="code hl_variable" href="pci_8c.html#a278e24c363d5729179619c807001694b">PCINombreEquipements</a>].<a class="code hl_variable" href="struct__PCIEquipement.html#a0b10bdcfadcb0b14bb757962bbf76e93">configAddress</a>.<a class="code hl_variable" href="struct__PCIEquipement_1_1__PCIConfigAddress.html#a477803d27af5a6affc19201c74446de3">numeroEquipement</a> = numEquipement ;</div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>     <a class="code hl_variable" href="pci_8c.html#aa6dd82edf1e1673d848dacfcf2b98fea">PCIEquipements</a>[<a class="code hl_variable" href="pci_8c.html#a278e24c363d5729179619c807001694b">PCINombreEquipements</a>].<a class="code hl_variable" href="struct__PCIEquipement.html#a0b10bdcfadcb0b14bb757962bbf76e93">configAddress</a>.<a class="code hl_variable" href="struct__PCIEquipement_1_1__PCIConfigAddress.html#ab64ba2a35bae48147b3b11f2e90662cf">numeroBus</a> = 0 ;</div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span> </div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span> </div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span>     <span class="comment">// L&#39;interruption</span></div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>     <a class="code hl_variable" href="pci_8c.html#aa6dd82edf1e1673d848dacfcf2b98fea">PCIEquipements</a>[<a class="code hl_variable" href="pci_8c.html#a278e24c363d5729179619c807001694b">PCINombreEquipements</a>].<a class="code hl_variable" href="struct__PCIEquipement.html#a16694af679e00d8362c3e81e911fc672">interruption</a> =</div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>       <a class="code hl_function" href="pci_8c.html#a6457a470746af5e05f5b9624f45fda56">PCILireOctet</a>(bus, numEquipement, 0, <a class="code hl_define" href="pci_8c.html#a24d8b91698474af77dc208df68424d64">PCI_INTERRUPTION</a>);</div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span> </div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>     <span class="comment">// On cherche l&#39;adresse d&#39;E/S</span></div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>     <span class="comment">// On parcourt tous les registres mémoire</span></div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>         <span class="keywordflow">for</span> (bar = <a class="code hl_define" href="pci_8c.html#ac46c3b0065c7e8e9775dd842af22344c">PCI_BAR_0</a>; bar &lt;= <a class="code hl_define" href="pci_8c.html#a19285f776c8666b2cf999111e7fae165">PCI_BAR_5</a>; bar += 4) {</div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span>            adresse = <a class="code hl_function" href="pci_8c.html#ae74b8ebfa7614c51d4d85f964b97e19b">PCILireLong</a>(0, numEquipement, 0, bar);</div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span>        <span class="comment">// Est-ce une adresse d&#39;E/S ?</span></div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span>        <span class="keywordflow">if</span> (adresse &amp; <a class="code hl_define" href="pci_8c.html#a959211a91f46ea1222f3f67486db9fd6">PCI_BAR_IO</a>) {</div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span>               <span class="comment">// On est aligné sur 32 bits, les 2 bits de poids faible sont donc</span></div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span>           <span class="comment">// non signifiants</span></div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span>               <a class="code hl_variable" href="pci_8c.html#aa6dd82edf1e1673d848dacfcf2b98fea">PCIEquipements</a>[<a class="code hl_variable" href="pci_8c.html#a278e24c363d5729179619c807001694b">PCINombreEquipements</a>].<a class="code hl_variable" href="struct__PCIEquipement.html#a169a4bcf976f6b9697627ee6cd6cb4ea">adresseES</a> = adresse &amp; (~0x3);</div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span>        } <span class="keywordflow">else</span> {</div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span>               <a class="code hl_define" href="manux_2debug_8h.html#ad4cabea5084373436d91b5dc4e8d0a49">printk_debug</a>(<a class="code hl_define" href="manux_2debug_8h.html#a8d713d223ce338433fb2b615c5c7bc70">DBG_KERNEL_A_FAIRE</a>, <span class="stringliteral">&quot;Memory BARs a prendre en compte !\n&quot;</span>);</div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span>        }</div>
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span>     }</div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span> </div>
+<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span>         <a class="code hl_define" href="manux_2debug_8h.html#ad4cabea5084373436d91b5dc4e8d0a49">printk_debug</a>(<a class="code hl_define" href="manux_2debug_8h.html#a52bf70fba6e2076903fb1be25cfc90c8">DBG_KERNEL_PCI</a>, <span class="stringliteral">&quot;[%d] Vd/Id 0x%x/0x%x\n&quot;</span>,</div>
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span>              <a class="code hl_variable" href="pci_8c.html#a278e24c363d5729179619c807001694b">PCINombreEquipements</a>, idVendeur, idEquipement);</div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>     <a class="code hl_variable" href="pci_8c.html#a278e24c363d5729179619c807001694b">PCINombreEquipements</a>++;</div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span>      }</div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span>   }</div>
+<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span>}</div>
+<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span> </div>
+<div class="foldopen" id="foldopen00180" data-start="{" data-end="}">
+<div class="line"><a id="l00180" name="l00180"></a><span class="lineno"><a class="line" href="manux_2pci_8h.html#a883b4a272bc719952fa1b66b9faeec2a">  180</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="pci_8c.html#a883b4a272bc719952fa1b66b9faeec2a">PCIEnumerationDesEquipements</a>(<span class="keywordtype">void</span>)</div>
+<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span>{</div>
+<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span>   <a class="code hl_typedef" href="include_2manux_2types_8h.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> bus;</div>
+<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span> </div>
+<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span>   <a class="code hl_define" href="manux_2debug_8h.html#ad4cabea5084373436d91b5dc4e8d0a49">printk_debug</a>(<a class="code hl_define" href="manux_2debug_8h.html#a52bf70fba6e2076903fb1be25cfc90c8">DBG_KERNEL_PCI</a>, <span class="stringliteral">&quot;Enum. des equip. PCI ...\n&quot;</span>);</div>
+<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span>   </div>
+<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span>   <span class="keywordflow">for</span> (bus = 0; bus &lt; <a class="code hl_define" href="pci_8c.html#a4f822a1f149cac6db683db4f3c1538d7">MANUX_NB_BUS_PCI</a>; bus++) {</div>
+<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span>      <a class="code hl_function" href="include_2manux_2printk_8h.html#a25b30e8bbadd54650c56895999dd808f">printk</a>(<a class="code hl_define" href="include_2manux_2printk_8h.html#a08a69e546e1f4ef9f2e1f3dcd1441ebc">PRINTK_CRITIQUE</a><span class="stringliteral">&quot;              - bus %3d/%3d\r&quot;</span>, bus, <a class="code hl_define" href="pci_8c.html#a4f822a1f149cac6db683db4f3c1538d7">MANUX_NB_BUS_PCI</a>);</div>
+<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span>      PCIEnumerationDesEquipementsDuBus(bus);</div>
+<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span>   }</div>
+<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span>   <a class="code hl_function" href="include_2manux_2printk_8h.html#a25b30e8bbadd54650c56895999dd808f">printk</a>(<a class="code hl_define" href="include_2manux_2printk_8h.html#a08a69e546e1f4ef9f2e1f3dcd1441ebc">PRINTK_CRITIQUE</a><span class="stringliteral">&quot;\n&quot;</span>);</div>
+<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span> </div>
+<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span>   <a class="code hl_define" href="manux_2debug_8h.html#ad4cabea5084373436d91b5dc4e8d0a49">printk_debug</a>(<a class="code hl_define" href="manux_2debug_8h.html#a52bf70fba6e2076903fb1be25cfc90c8">DBG_KERNEL_PCI</a>, <span class="stringliteral">&quot;%d equipements PCI\n&quot;</span>, <a class="code hl_variable" href="pci_8c.html#a278e24c363d5729179619c807001694b">PCINombreEquipements</a>);</div>
+<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span>}</div>
+</div>
+<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span> </div>
+<div class="foldopen" id="foldopen00206" data-start="{" data-end="}">
+<div class="line"><a id="l00206" name="l00206"></a><span class="lineno"><a class="line" href="manux_2pci_8h.html#a50c3ecf5057a9dd21f23f92fb9bedd1f">  206</a></span><span class="keywordtype">int</span> <a class="code hl_function" href="pci_8c.html#a50c3ecf5057a9dd21f23f92fb9bedd1f">PCIObtenirProchainEquipement</a>(<a class="code hl_typedef" href="include_2manux_2types_8h.html#a273cf69d639a59973b6019625df33e30">uint16_t</a> vendeur, <a class="code hl_typedef" href="include_2manux_2types_8h.html#a273cf69d639a59973b6019625df33e30">uint16_t</a> equipement, <span class="keywordtype">int</span> precedent)</div>
+<div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span>{</div>
+<div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span>   <span class="keywordtype">int</span> result = precedent;</div>
+<div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span> </div>
+<div class="line"><a id="l00210" name="l00210"></a><span class="lineno">  210</span>   <span class="keywordflow">while</span> ((++result &lt; <a class="code hl_variable" href="pci_8c.html#a278e24c363d5729179619c807001694b">PCINombreEquipements</a>)</div>
+<div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span>      &amp;&amp; ((<a class="code hl_variable" href="pci_8c.html#aa6dd82edf1e1673d848dacfcf2b98fea">PCIEquipements</a>[result].vendeur != vendeur)</div>
+<div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span>          || (<a class="code hl_variable" href="pci_8c.html#aa6dd82edf1e1673d848dacfcf2b98fea">PCIEquipements</a>[result].equipement != equipement))</div>
+<div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span>   ) {}</div>
+<div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span> </div>
+<div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span>   <span class="keywordflow">if</span> (result &gt;= <a class="code hl_variable" href="pci_8c.html#a278e24c363d5729179619c807001694b">PCINombreEquipements</a>)</div>
+<div class="line"><a id="l00216" name="l00216"></a><span class="lineno">  216</span>      result = -1;</div>
+<div class="line"><a id="l00217" name="l00217"></a><span class="lineno">  217</span>   </div>
+<div class="line"><a id="l00218" name="l00218"></a><span class="lineno">  218</span>   <span class="keywordflow">return</span> result;</div>
+<div class="line"><a id="l00219" name="l00219"></a><span class="lineno">  219</span>}</div>
+</div>
+<div class="line"><a id="l00220" name="l00220"></a><span class="lineno">  220</span> </div>
+<div class="foldopen" id="foldopen00226" data-start="{" data-end="}">
+<div class="line"><a id="l00226" name="l00226"></a><span class="lineno"><a class="line" href="manux_2pci_8h.html#a9da90032fa74e35abe5c7156c1542d1e">  226</a></span><a class="code hl_struct" href="struct__PCIEquipement.html">PCIEquipement</a> * <a class="code hl_function" href="pci_8c.html#a9da90032fa74e35abe5c7156c1542d1e">PCIEquipementNumero</a>(<span class="keywordtype">int</span> n)</div>
+<div class="line"><a id="l00227" name="l00227"></a><span class="lineno">  227</span>{</div>
+<div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span>   <span class="keywordflow">if</span> ((n &gt;= 0) &amp;&amp; (n &lt; <a class="code hl_variable" href="pci_8c.html#a278e24c363d5729179619c807001694b">PCINombreEquipements</a>))</div>
+<div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span>      <span class="keywordflow">return</span> &amp;(<a class="code hl_variable" href="pci_8c.html#aa6dd82edf1e1673d848dacfcf2b98fea">PCIEquipements</a>[n]);</div>
+<div class="line"><a id="l00230" name="l00230"></a><span class="lineno">  230</span> </div>
+<div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span>   <span class="keywordflow">return</span> <a class="code hl_define" href="include_2manux_2stddef_8h.html#a070d2ce7b6bb7e5c05602aa8c308d0c4">NULL</a>;</div>
+<div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span>}</div>
+</div>
+<div class="ttc" id="aconfig_2pci_8h_html_a9a3f40332f0c15b9d84d7b73cf98886d"><div class="ttname"><a href="config_2pci_8h.html#a9a3f40332f0c15b9d84d7b73cf98886d">MANUX_NB_MAX_EQUIPEMENTS_PCI</a></div><div class="ttdeci">#define MANUX_NB_MAX_EQUIPEMENTS_PCI</div><div class="ttdef"><b>Definition</b> <a href="config_2pci_8h_source.html#l00012">pci.h:12</a></div></div>
+<div class="ttc" id="ainclude_2manux_2memoire_8h_html"><div class="ttname"><a href="include_2manux_2memoire_8h.html">memoire.h</a></div></div>
+<div class="ttc" id="ainclude_2manux_2printk_8h_html_a08a69e546e1f4ef9f2e1f3dcd1441ebc"><div class="ttname"><a href="include_2manux_2printk_8h.html#a08a69e546e1f4ef9f2e1f3dcd1441ebc">PRINTK_CRITIQUE</a></div><div class="ttdeci">#define PRINTK_CRITIQUE</div><div class="ttdef"><b>Definition</b> <a href="include_2manux_2printk_8h_source.html#l00028">printk.h:28</a></div></div>
+<div class="ttc" id="ainclude_2manux_2printk_8h_html_a25b30e8bbadd54650c56895999dd808f"><div class="ttname"><a href="include_2manux_2printk_8h.html#a25b30e8bbadd54650c56895999dd808f">printk</a></div><div class="ttdeci">void printk(char *format,...)</div><div class="ttdoc">Fonction principale d'affichage dans le noyau.</div><div class="ttdef"><b>Definition</b> <a href="printk_8c_source.html#l00166">printk.c:166</a></div></div>
+<div class="ttc" id="ainclude_2manux_2stddef_8h_html_a070d2ce7b6bb7e5c05602aa8c308d0c4"><div class="ttname"><a href="include_2manux_2stddef_8h.html#a070d2ce7b6bb7e5c05602aa8c308d0c4">NULL</a></div><div class="ttdeci">#define NULL</div><div class="ttdef"><b>Definition</b> <a href="include_2manux_2stddef_8h_source.html#l00010">stddef.h:10</a></div></div>
+<div class="ttc" id="ainclude_2manux_2types_8h_html_a06896e8c53f721507066c079052171f8"><div class="ttname"><a href="include_2manux_2types_8h.html#a06896e8c53f721507066c079052171f8">uint32_t</a></div><div class="ttdeci">unsigned long uint32_t</div><div class="ttdef"><b>Definition</b> <a href="include_2manux_2types_8h_source.html#l00020">types.h:20</a></div></div>
+<div class="ttc" id="ainclude_2manux_2types_8h_html_a273cf69d639a59973b6019625df33e30"><div class="ttname"><a href="include_2manux_2types_8h.html#a273cf69d639a59973b6019625df33e30">uint16_t</a></div><div class="ttdeci">unsigned short uint16_t</div><div class="ttdef"><b>Definition</b> <a href="include_2manux_2types_8h_source.html#l00016">types.h:16</a></div></div>
+<div class="ttc" id="ainclude_2manux_2types_8h_html_aba7bc1797add20fe3efdf37ced1182c5"><div class="ttname"><a href="include_2manux_2types_8h.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a></div><div class="ttdeci">unsigned char uint8_t</div><div class="ttdef"><b>Definition</b> <a href="include_2manux_2types_8h_source.html#l00012">types.h:12</a></div></div>
+<div class="ttc" id="aio_8h_html"><div class="ttname"><a href="io_8h.html">io.h</a></div></div>
+<div class="ttc" id="aio_8h_html_a58dac80d57e8fe473d87545a4d78ad53"><div class="ttname"><a href="io_8h.html#a58dac80d57e8fe473d87545a4d78ad53">inl</a></div><div class="ttdeci">#define inl(port, adresseLong)</div><div class="ttdoc">Lecture d'un long depuis un port.</div><div class="ttdef"><b>Definition</b> <a href="io_8h_source.html#l00043">io.h:43</a></div></div>
+<div class="ttc" id="aio_8h_html_a92a4b4982e75909904a35aef114cc3de"><div class="ttname"><a href="io_8h.html#a92a4b4982e75909904a35aef114cc3de">outl</a></div><div class="ttdeci">#define outl(port, lng)</div><div class="ttdoc">Emission d'un long sur un port.</div><div class="ttdef"><b>Definition</b> <a href="io_8h_source.html#l00037">io.h:37</a></div></div>
+<div class="ttc" id="amanux_2debug_8h_html"><div class="ttname"><a href="manux_2debug_8h.html">debug.h</a></div></div>
+<div class="ttc" id="amanux_2debug_8h_html_a52bf70fba6e2076903fb1be25cfc90c8"><div class="ttname"><a href="manux_2debug_8h.html#a52bf70fba6e2076903fb1be25cfc90c8">DBG_KERNEL_PCI</a></div><div class="ttdeci">#define DBG_KERNEL_PCI</div><div class="ttdef"><b>Definition</b> <a href="manux_2debug_8h_source.html#l00029">debug.h:29</a></div></div>
+<div class="ttc" id="amanux_2debug_8h_html_a8d713d223ce338433fb2b615c5c7bc70"><div class="ttname"><a href="manux_2debug_8h.html#a8d713d223ce338433fb2b615c5c7bc70">DBG_KERNEL_A_FAIRE</a></div><div class="ttdeci">#define DBG_KERNEL_A_FAIRE</div><div class="ttdef"><b>Definition</b> <a href="manux_2debug_8h_source.html#l00032">debug.h:32</a></div></div>
+<div class="ttc" id="amanux_2debug_8h_html_ad4cabea5084373436d91b5dc4e8d0a49"><div class="ttname"><a href="manux_2debug_8h.html#ad4cabea5084373436d91b5dc4e8d0a49">printk_debug</a></div><div class="ttdeci">#define printk_debug(lvl, fmt, args...)</div><div class="ttdef"><b>Definition</b> <a href="manux_2debug_8h_source.html#l00090">debug.h:90</a></div></div>
+<div class="ttc" id="amanux_2pci_8h_html"><div class="ttname"><a href="manux_2pci_8h.html">pci.h</a></div></div>
+<div class="ttc" id="apci_8c_html_a19285f776c8666b2cf999111e7fae165"><div class="ttname"><a href="pci_8c.html#a19285f776c8666b2cf999111e7fae165">PCI_BAR_5</a></div><div class="ttdeci">#define PCI_BAR_5</div><div class="ttdef"><b>Definition</b> <a href="pci_8c_source.html#l00047">pci.c:47</a></div></div>
+<div class="ttc" id="apci_8c_html_a1f1a8ffed01cc77fc4211337005a3299"><div class="ttname"><a href="pci_8c.html#a1f1a8ffed01cc77fc4211337005a3299">PCI_ID_EQUIPEMENT</a></div><div class="ttdeci">#define PCI_ID_EQUIPEMENT</div><div class="ttdef"><b>Definition</b> <a href="pci_8c_source.html#l00039">pci.c:39</a></div></div>
+<div class="ttc" id="apci_8c_html_a24d8b91698474af77dc208df68424d64"><div class="ttname"><a href="pci_8c.html#a24d8b91698474af77dc208df68424d64">PCI_INTERRUPTION</a></div><div class="ttdeci">#define PCI_INTERRUPTION</div><div class="ttdef"><b>Definition</b> <a href="pci_8c_source.html#l00041">pci.c:41</a></div></div>
+<div class="ttc" id="apci_8c_html_a278e24c363d5729179619c807001694b"><div class="ttname"><a href="pci_8c.html#a278e24c363d5729179619c807001694b">PCINombreEquipements</a></div><div class="ttdeci">int PCINombreEquipements</div><div class="ttdoc">: Une structure qui contient la description des équipements PCI détectés</div><div class="ttdef"><b>Definition</b> <a href="pci_8c_source.html#l00059">pci.c:59</a></div></div>
+<div class="ttc" id="apci_8c_html_a315cad18d567e1dccdfc96fab0a58c49"><div class="ttname"><a href="pci_8c.html#a315cad18d567e1dccdfc96fab0a58c49">PCILireMot</a></div><div class="ttdeci">uint16_t PCILireMot(uint8_t bus, uint8_t slot, uint8_t fonction, uint8_t offset)</div><div class="ttdef"><b>Definition</b> <a href="pci_8c_source.html#l00093">pci.c:93</a></div></div>
+<div class="ttc" id="apci_8c_html_a46eac916776409f9ca95f9ab4557d94e"><div class="ttname"><a href="pci_8c.html#a46eac916776409f9ca95f9ab4557d94e">PCI_ID_VENDEUR</a></div><div class="ttdeci">#define PCI_ID_VENDEUR</div><div class="ttdef"><b>Definition</b> <a href="pci_8c_source.html#l00038">pci.c:38</a></div></div>
+<div class="ttc" id="apci_8c_html_a4f822a1f149cac6db683db4f3c1538d7"><div class="ttname"><a href="pci_8c.html#a4f822a1f149cac6db683db4f3c1538d7">MANUX_NB_BUS_PCI</a></div><div class="ttdeci">#define MANUX_NB_BUS_PCI</div><div class="ttdoc">: Le nombre de bus</div><div class="ttdef"><b>Definition</b> <a href="pci_8c_source.html#l00033">pci.c:33</a></div></div>
+<div class="ttc" id="apci_8c_html_a50c3ecf5057a9dd21f23f92fb9bedd1f"><div class="ttname"><a href="pci_8c.html#a50c3ecf5057a9dd21f23f92fb9bedd1f">PCIObtenirProchainEquipement</a></div><div class="ttdeci">int PCIObtenirProchainEquipement(uint16_t vendeur, uint16_t equipement, int precedent)</div><div class="ttdoc">: récuperer l'identifiant du prochain équipement PCI</div><div class="ttdef"><b>Definition</b> <a href="pci_8c_source.html#l00206">pci.c:206</a></div></div>
+<div class="ttc" id="apci_8c_html_a6457a470746af5e05f5b9624f45fda56"><div class="ttname"><a href="pci_8c.html#a6457a470746af5e05f5b9624f45fda56">PCILireOctet</a></div><div class="ttdeci">uint8_t PCILireOctet(uint8_t bus, uint8_t slot, uint8_t fonction, uint8_t offset)</div><div class="ttdef"><b>Definition</b> <a href="pci_8c_source.html#l00106">pci.c:106</a></div></div>
+<div class="ttc" id="apci_8c_html_a74e51cf1894682ef1817c6c516f5ef4e"><div class="ttname"><a href="pci_8c.html#a74e51cf1894682ef1817c6c516f5ef4e">PCI_AUCUN_VENDEUR</a></div><div class="ttdeci">#define PCI_AUCUN_VENDEUR</div><div class="ttdef"><b>Definition</b> <a href="pci_8c_source.html#l00053">pci.c:53</a></div></div>
+<div class="ttc" id="apci_8c_html_a76d99054f60e8063457ce94102d43e3f"><div class="ttname"><a href="pci_8c.html#a76d99054f60e8063457ce94102d43e3f">PCI_NB_EQUIP_PAR_BUS</a></div><div class="ttdeci">#define PCI_NB_EQUIP_PAR_BUS</div><div class="ttdef"><b>Definition</b> <a href="pci_8c_source.html#l00018">pci.c:18</a></div></div>
+<div class="ttc" id="apci_8c_html_a883b4a272bc719952fa1b66b9faeec2a"><div class="ttname"><a href="pci_8c.html#a883b4a272bc719952fa1b66b9faeec2a">PCIEnumerationDesEquipements</a></div><div class="ttdeci">void PCIEnumerationDesEquipements(void)</div><div class="ttdoc">: recherche des équipements PCI disponibles</div><div class="ttdef"><b>Definition</b> <a href="pci_8c_source.html#l00180">pci.c:180</a></div></div>
+<div class="ttc" id="apci_8c_html_a959211a91f46ea1222f3f67486db9fd6"><div class="ttname"><a href="pci_8c.html#a959211a91f46ea1222f3f67486db9fd6">PCI_BAR_IO</a></div><div class="ttdeci">#define PCI_BAR_IO</div><div class="ttdef"><b>Definition</b> <a href="pci_8c_source.html#l00052">pci.c:52</a></div></div>
+<div class="ttc" id="apci_8c_html_a9da90032fa74e35abe5c7156c1542d1e"><div class="ttname"><a href="pci_8c.html#a9da90032fa74e35abe5c7156c1542d1e">PCIEquipementNumero</a></div><div class="ttdeci">PCIEquipement * PCIEquipementNumero(int n)</div><div class="ttdef"><b>Definition</b> <a href="pci_8c_source.html#l00226">pci.c:226</a></div></div>
+<div class="ttc" id="apci_8c_html_aa6dd82edf1e1673d848dacfcf2b98fea"><div class="ttname"><a href="pci_8c.html#aa6dd82edf1e1673d848dacfcf2b98fea">PCIEquipements</a></div><div class="ttdeci">PCIEquipement PCIEquipements[MANUX_NB_MAX_EQUIPEMENTS_PCI]</div><div class="ttdef"><b>Definition</b> <a href="pci_8c_source.html#l00061">pci.c:61</a></div></div>
+<div class="ttc" id="apci_8c_html_aaa58db8af2d00af66c78624104e1016b"><div class="ttname"><a href="pci_8c.html#aaa58db8af2d00af66c78624104e1016b">PCI_CONFIG_ADDRESS</a></div><div class="ttdeci">#define PCI_CONFIG_ADDRESS</div><div class="ttdoc">Les ports d'E/S de configuration du PCI.</div><div class="ttdef"><b>Definition</b> <a href="pci_8c_source.html#l00024">pci.c:24</a></div></div>
+<div class="ttc" id="apci_8c_html_ac46c3b0065c7e8e9775dd842af22344c"><div class="ttname"><a href="pci_8c.html#ac46c3b0065c7e8e9775dd842af22344c">PCI_BAR_0</a></div><div class="ttdeci">#define PCI_BAR_0</div><div class="ttdef"><b>Definition</b> <a href="pci_8c_source.html#l00042">pci.c:42</a></div></div>
+<div class="ttc" id="apci_8c_html_ad1fedcf5fe37518ccc1ddfcb880d1b01"><div class="ttname"><a href="pci_8c.html#ad1fedcf5fe37518ccc1ddfcb880d1b01">PCI_CONFIG_DATA</a></div><div class="ttdeci">#define PCI_CONFIG_DATA</div><div class="ttdef"><b>Definition</b> <a href="pci_8c_source.html#l00027">pci.c:27</a></div></div>
+<div class="ttc" id="apci_8c_html_ae74b8ebfa7614c51d4d85f964b97e19b"><div class="ttname"><a href="pci_8c.html#ae74b8ebfa7614c51d4d85f964b97e19b">PCILireLong</a></div><div class="ttdeci">uint32_t PCILireLong(uint8_t bus, uint8_t slot, uint8_t fonction, uint8_t offset)</div><div class="ttdoc">: Lecture d'un mot sur le registre de config du PCI</div><div class="ttdef"><b>Definition</b> <a href="pci_8c_source.html#l00075">pci.c:75</a></div></div>
+<div class="ttc" id="astruct__PCIEquipement_1_1__PCIConfigAddress_html_a477803d27af5a6affc19201c74446de3"><div class="ttname"><a href="struct__PCIEquipement_1_1__PCIConfigAddress.html#a477803d27af5a6affc19201c74446de3">_PCIEquipement::_PCIConfigAddress::numeroEquipement</a></div><div class="ttdeci">uint8_t numeroEquipement</div><div class="ttdef"><b>Definition</b> <a href="manux_2pci_8h_source.html#l00025">pci.h:25</a></div></div>
+<div class="ttc" id="astruct__PCIEquipement_1_1__PCIConfigAddress_html_a47cfc34e3ebe1fb560235cb68db6f90f"><div class="ttname"><a href="struct__PCIEquipement_1_1__PCIConfigAddress.html#a47cfc34e3ebe1fb560235cb68db6f90f">_PCIEquipement::_PCIConfigAddress::registreOffset</a></div><div class="ttdeci">uint8_t registreOffset</div><div class="ttdef"><b>Definition</b> <a href="manux_2pci_8h_source.html#l00023">pci.h:23</a></div></div>
+<div class="ttc" id="astruct__PCIEquipement_1_1__PCIConfigAddress_html_ab64ba2a35bae48147b3b11f2e90662cf"><div class="ttname"><a href="struct__PCIEquipement_1_1__PCIConfigAddress.html#ab64ba2a35bae48147b3b11f2e90662cf">_PCIEquipement::_PCIConfigAddress::numeroBus</a></div><div class="ttdeci">uint8_t numeroBus</div><div class="ttdef"><b>Definition</b> <a href="manux_2pci_8h_source.html#l00026">pci.h:26</a></div></div>
+<div class="ttc" id="astruct__PCIEquipement_1_1__PCIConfigAddress_html_abcd4e645c261288ff27fe4402453542f"><div class="ttname"><a href="struct__PCIEquipement_1_1__PCIConfigAddress.html#abcd4e645c261288ff27fe4402453542f">_PCIEquipement::_PCIConfigAddress::nul</a></div><div class="ttdeci">uint8_t nul</div><div class="ttdef"><b>Definition</b> <a href="manux_2pci_8h_source.html#l00022">pci.h:22</a></div></div>
+<div class="ttc" id="astruct__PCIEquipement_1_1__PCIConfigAddress_html_af1f0aea3000b3b97eea4d3dcdef9715d"><div class="ttname"><a href="struct__PCIEquipement_1_1__PCIConfigAddress.html#af1f0aea3000b3b97eea4d3dcdef9715d">_PCIEquipement::_PCIConfigAddress::numeroFonction</a></div><div class="ttdeci">uint8_t numeroFonction</div><div class="ttdef"><b>Definition</b> <a href="manux_2pci_8h_source.html#l00024">pci.h:24</a></div></div>
+<div class="ttc" id="astruct__PCIEquipement_html"><div class="ttname"><a href="struct__PCIEquipement.html">_PCIEquipement</a></div><div class="ttdoc">: structure permettant d'identifier un équipement PCI</div><div class="ttdef"><b>Definition</b> <a href="manux_2pci_8h_source.html#l00014">pci.h:14</a></div></div>
+<div class="ttc" id="astruct__PCIEquipement_html_a0b10bdcfadcb0b14bb757962bbf76e93"><div class="ttname"><a href="struct__PCIEquipement.html#a0b10bdcfadcb0b14bb757962bbf76e93">_PCIEquipement::configAddress</a></div><div class="ttdeci">struct _PCIEquipement::_PCIConfigAddress configAddress</div></div>
+<div class="ttc" id="astruct__PCIEquipement_html_a16694af679e00d8362c3e81e911fc672"><div class="ttname"><a href="struct__PCIEquipement.html#a16694af679e00d8362c3e81e911fc672">_PCIEquipement::interruption</a></div><div class="ttdeci">uint8_t interruption</div><div class="ttdef"><b>Definition</b> <a href="manux_2pci_8h_source.html#l00018">pci.h:18</a></div></div>
+<div class="ttc" id="astruct__PCIEquipement_html_a169a4bcf976f6b9697627ee6cd6cb4ea"><div class="ttname"><a href="struct__PCIEquipement.html#a169a4bcf976f6b9697627ee6cd6cb4ea">_PCIEquipement::adresseES</a></div><div class="ttdeci">uint32_t adresseES</div><div class="ttdef"><b>Definition</b> <a href="manux_2pci_8h_source.html#l00019">pci.h:19</a></div></div>
+<div class="ttc" id="astruct__PCIEquipement_html_a22f4d5304467c79d42c4058ce4d7263b"><div class="ttname"><a href="struct__PCIEquipement.html#a22f4d5304467c79d42c4058ce4d7263b">_PCIEquipement::equipement</a></div><div class="ttdeci">uint16_t equipement</div><div class="ttdef"><b>Definition</b> <a href="manux_2pci_8h_source.html#l00016">pci.h:16</a></div></div>
+<div class="ttc" id="astruct__PCIEquipement_html_a551234b4f03dbe357bd5465f89ce700f"><div class="ttname"><a href="struct__PCIEquipement.html#a551234b4f03dbe357bd5465f89ce700f">_PCIEquipement::vendeur</a></div><div class="ttdeci">uint16_t vendeur</div><div class="ttdef"><b>Definition</b> <a href="manux_2pci_8h_source.html#l00015">pci.h:15</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

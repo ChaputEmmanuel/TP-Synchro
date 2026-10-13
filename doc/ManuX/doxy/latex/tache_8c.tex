@@ -1,0 +1,158 @@
+\doxysection{R√©f√©rence du fichier /home/manu/\+PROGRAMMATION/\+C/\+Manu\+X/noyau/tache.c}
+\hypertarget{tache_8c}{}\label{tache_8c}\index{/home/manu/PROGRAMMATION/C/ManuX/noyau/tache.c@{/home/manu/PROGRAMMATION/C/ManuX/noyau/tache.c}}
+
+
+Implantation des sous-\/programmes de gestion des t‚ches.  
+
+
+{\ttfamily \#include $<$manux/tache.\+h$>$}\newline
+{\ttfamily \#include $<$manux/temps.\+h$>$}\newline
+{\ttfamily \#include $<$manux/scheduler.\+h$>$}\newline
+{\ttfamily \#include $<$manux/memoire.\+h$>$}\newline
+{\ttfamily \#include $<$manux/segment.\+h$>$}\newline
+{\ttfamily \#include $<$manux/atomique.\+h$>$}\newline
+{\ttfamily \#include $<$manux/pagination.\+h$>$}\newline
+{\ttfamily \#include $<$manux/fichier.\+h$>$}\newline
+{\ttfamily \#include $<$manux/errno.\+h$>$}\newline
+{\ttfamily \#include $<$manux/string.\+h$>$}\newline
+{\ttfamily \#include $<$manux/printk.\+h$>$}\newline
+{\ttfamily \#include $<$manux/debug.\+h$>$}\newline
+Graphe des d√©pendances par inclusion de tache.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{tache_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{tache_8c_a7d5a6dcede19ea52bd0064cb40d66a25}{printkc}}~\mbox{\hyperlink{include_2manux_2printk_8h_a25b30e8bbadd54650c56895999dd808f}{printk}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} \mbox{\hyperlink{tache_8c_a0ec51dfb4bb630c26867bc04036b99bd}{basculer\+Vers\+Tache}} (\mbox{\hyperlink{tache_8h_a5e93bfec061525341810ac895de87af3}{Tache}} \texorpdfstring{$\ast$}{*}tache)
+\item 
+\mbox{\hyperlink{tache_8h_a5e93bfec061525341810ac895de87af3}{Tache}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{tache_8c_ae73130353eaec375c352eee5e35e19ea}{tache\+Creer}} (Corps\+Tache corps\+Tache)
+\begin{DoxyCompactList}\small\item\em \+: CrÈation d\textquotesingle{}une t‚che. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} \mbox{\hyperlink{tache_8c_af485409e4fc8a5c06ff9e06e50de8647}{afficher\+Etat\+Une\+Tache}} (\mbox{\hyperlink{tache_8h_a5e93bfec061525341810ac895de87af3}{Tache}} \texorpdfstring{$\ast$}{*}tache)
+\begin{DoxyCompactList}\small\item\em Affichage de l\textquotesingle{}Ètat d\textquotesingle{}une t‚che ‡ des fins de debug. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} \mbox{\hyperlink{tache_8c_a86f9c6ef6df4fb54c3cbb5fa14061f63}{afficher\+Etat\+Taches}} (\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}})
+\begin{DoxyCompactList}\small\item\em Affichage des t‚ches. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{include_2manux_2types_8h_a1aa19b97c742cff758e6532b519954c4}{Tache\+ID}} \mbox{\hyperlink{tache_8c_a725a5b194207247d25785e8ec90488d8}{numero\+Prochaine\+Tache}} = 1
+\begin{DoxyCompactList}\small\item\em \+:Le numero de la prochaine tache (WARNING \+: et si on cycle ?) \end{DoxyCompactList}\item 
+unsigned int \mbox{\hyperlink{tache_8c_aa06dc66b4fd87533b96e5b243da58a28}{nb\+Activations}} = 0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description d√©taill√©e}
+Implantation des sous-\/programmes de gestion des t‚ches. 
+
+\begin{DoxyVerb}                                                (C) Manu Chaput 2000-2026
+\end{DoxyVerb}
+ 
+
+D√©finition dans le fichier \mbox{\hyperlink{tache_8c_source}{tache.\+c}}.
+
+
+
+\doxysubsection{Documentation des macros}
+\Hypertarget{tache_8c_a7d5a6dcede19ea52bd0064cb40d66a25}\label{tache_8c_a7d5a6dcede19ea52bd0064cb40d66a25} 
+\index{tache.c@{tache.c}!printkc@{printkc}}
+\index{printkc@{printkc}!tache.c@{tache.c}}
+\doxysubsubsection{\texorpdfstring{printkc}{printkc}}
+{\footnotesize\ttfamily \#define printkc~\mbox{\hyperlink{include_2manux_2printk_8h_a25b30e8bbadd54650c56895999dd808f}{printk}}}
+
+
+
+D√©finition √† la ligne \mbox{\hyperlink{tache_8c_source_l00025}{25}} du fichier \mbox{\hyperlink{tache_8c_source}{tache.\+c}}.
+
+
+
+\doxysubsection{Documentation des fonctions}
+\Hypertarget{tache_8c_a86f9c6ef6df4fb54c3cbb5fa14061f63}\label{tache_8c_a86f9c6ef6df4fb54c3cbb5fa14061f63} 
+\index{tache.c@{tache.c}!afficherEtatTaches@{afficherEtatTaches}}
+\index{afficherEtatTaches@{afficherEtatTaches}!tache.c@{tache.c}}
+\doxysubsubsection{\texorpdfstring{afficherEtatTaches()}{afficherEtatTaches()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} afficher\+Etat\+Taches (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}}}]{ }\end{DoxyParamCaption})}
+
+
+
+Affichage des t‚ches. 
+
+Affichage des t√¢ches. 
+
+D√©finition √† la ligne \mbox{\hyperlink{tache_8c_source_l00373}{373}} du fichier \mbox{\hyperlink{tache_8c_source}{tache.\+c}}.
+
+\Hypertarget{tache_8c_af485409e4fc8a5c06ff9e06e50de8647}\label{tache_8c_af485409e4fc8a5c06ff9e06e50de8647} 
+\index{tache.c@{tache.c}!afficherEtatUneTache@{afficherEtatUneTache}}
+\index{afficherEtatUneTache@{afficherEtatUneTache}!tache.c@{tache.c}}
+\doxysubsubsection{\texorpdfstring{afficherEtatUneTache()}{afficherEtatUneTache()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} afficher\+Etat\+Une\+Tache (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{tache_8h_a5e93bfec061525341810ac895de87af3}{Tache}} \texorpdfstring{$\ast$}{*}}]{tache }\end{DoxyParamCaption})}
+
+
+
+Affichage de l\textquotesingle{}Ètat d\textquotesingle{}une t‚che ‡ des fins de debug. 
+
+Affichage de l\textquotesingle{}√©tat d\textquotesingle{}une t√¢che √† des fins de debug. 
+
+D√©finition √† la ligne \mbox{\hyperlink{tache_8c_source_l00353}{353}} du fichier \mbox{\hyperlink{tache_8c_source}{tache.\+c}}.
+
+\Hypertarget{tache_8c_a0ec51dfb4bb630c26867bc04036b99bd}\label{tache_8c_a0ec51dfb4bb630c26867bc04036b99bd} 
+\index{tache.c@{tache.c}!basculerVersTache@{basculerVersTache}}
+\index{basculerVersTache@{basculerVersTache}!tache.c@{tache.c}}
+\doxysubsubsection{\texorpdfstring{basculerVersTache()}{basculerVersTache()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} basculer\+Vers\+Tache (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{tache_8h_a5e93bfec061525341810ac895de87af3}{Tache}} \texorpdfstring{$\ast$}{*}}]{tache }\end{DoxyParamCaption})}
+
+
+
+D√©finition √† la ligne \mbox{\hyperlink{tache_8c_source_l00038}{38}} du fichier \mbox{\hyperlink{tache_8c_source}{tache.\+c}}.
+
+\Hypertarget{tache_8c_ae73130353eaec375c352eee5e35e19ea}\label{tache_8c_ae73130353eaec375c352eee5e35e19ea} 
+\index{tache.c@{tache.c}!tacheCreer@{tacheCreer}}
+\index{tacheCreer@{tacheCreer}!tache.c@{tache.c}}
+\doxysubsubsection{\texorpdfstring{tacheCreer()}{tacheCreer()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{tache_8h_a5e93bfec061525341810ac895de87af3}{Tache}} \texorpdfstring{$\ast$}{*} tache\+Creer (\begin{DoxyParamCaption}\item[{Corps\+Tache}]{corps\+Tache }\end{DoxyParamCaption})}
+
+
+
+\+: CrÈation d\textquotesingle{}une t‚che. 
+
+Cr√©ation d\textquotesingle{}une nouvelle t√¢che.
+
+Attention, elle n\textquotesingle{}est pas insÈrÈe dans la liste des t‚ches prÍtes, elle ne sera donc pas exÈcutÈe tant que ce ne sera pas fait. 
+
+D√©finition √† la ligne \mbox{\hyperlink{tache_8c_source_l00113}{113}} du fichier \mbox{\hyperlink{tache_8c_source}{tache.\+c}}.
+
+
+
+\doxysubsection{Documentation des variables}
+\Hypertarget{tache_8c_aa06dc66b4fd87533b96e5b243da58a28}\label{tache_8c_aa06dc66b4fd87533b96e5b243da58a28} 
+\index{tache.c@{tache.c}!nbActivations@{nbActivations}}
+\index{nbActivations@{nbActivations}!tache.c@{tache.c}}
+\doxysubsubsection{\texorpdfstring{nbActivations}{nbActivations}}
+{\footnotesize\ttfamily unsigned int nb\+Activations = 0}
+
+
+
+D√©finition √† la ligne \mbox{\hyperlink{tache_8c_source_l00036}{36}} du fichier \mbox{\hyperlink{tache_8c_source}{tache.\+c}}.
+
+\Hypertarget{tache_8c_a725a5b194207247d25785e8ec90488d8}\label{tache_8c_a725a5b194207247d25785e8ec90488d8} 
+\index{tache.c@{tache.c}!numeroProchaineTache@{numeroProchaineTache}}
+\index{numeroProchaineTache@{numeroProchaineTache}!tache.c@{tache.c}}
+\doxysubsubsection{\texorpdfstring{numeroProchaineTache}{numeroProchaineTache}}
+{\footnotesize\ttfamily \mbox{\hyperlink{include_2manux_2types_8h_a1aa19b97c742cff758e6532b519954c4}{Tache\+ID}} numero\+Prochaine\+Tache = 1}
+
+
+
+\+:Le numero de la prochaine tache (WARNING \+: et si on cycle ?) 
+
+
+
+D√©finition √† la ligne \mbox{\hyperlink{tache_8c_source_l00034}{34}} du fichier \mbox{\hyperlink{tache_8c_source}{tache.\+c}}.
+

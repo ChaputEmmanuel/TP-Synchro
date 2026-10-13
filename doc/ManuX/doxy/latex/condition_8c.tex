@@ -1,0 +1,101 @@
+\doxysection{Référence du fichier /home/manu/\+PROGRAMMATION/\+C/\+Manu\+X/noyau/condition.c}
+\hypertarget{condition_8c}{}\label{condition_8c}\index{/home/manu/PROGRAMMATION/C/ManuX/noyau/condition.c@{/home/manu/PROGRAMMATION/C/ManuX/noyau/condition.c}}
+
+
+Implantation des opérations atomiques de ManuX.  
+
+
+{\ttfamily \#include $<$manux/condition.\+h$>$}\newline
+{\ttfamily \#include $<$manux/memoire.\+h$>$}\newline
+{\ttfamily \#include $<$manux/debug.\+h$>$}\newline
+Graphe des dépendances par inclusion de condition.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{condition_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} \mbox{\hyperlink{condition_8c_a3460e36fff72bf9770ab388c1c0fe52a}{condition\+Initialiser}} (\mbox{\hyperlink{condition_8h_ab91c26375b7fadf2f031d6971fb63883}{Condition}} \texorpdfstring{$\ast$}{*}cond)
+\begin{DoxyCompactList}\small\item\em Initialisation d\textquotesingle{}une condition. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} \mbox{\hyperlink{condition_8c_a283dd6896b1ae21d561d22dc15bfabcd}{condition\+Attendre}} (\mbox{\hyperlink{condition_8h_ab91c26375b7fadf2f031d6971fb63883}{Condition}} \texorpdfstring{$\ast$}{*}cond, \mbox{\hyperlink{exclusion-mutuelle_8h_a6db19bcf66a0fdb35100271a766103db}{Exclusion\+Mutuelle}} \texorpdfstring{$\ast$}{*}em)
+\begin{DoxyCompactList}\small\item\em Attente de la prochaine occurence d\textquotesingle{}une condition. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} \mbox{\hyperlink{condition_8c_ad7b5eb5ca0c1862a588861fe17c8bbf3}{condition\+Signaler}} (\mbox{\hyperlink{condition_8h_ab91c26375b7fadf2f031d6971fb63883}{Condition}} \texorpdfstring{$\ast$}{*}cond)
+\begin{DoxyCompactList}\small\item\em Signaler une occurence d\textquotesingle{}une condition. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} \mbox{\hyperlink{condition_8c_aff6ab3bc6f674c26f84cc74475081613}{condition\+Diffuser}} (\mbox{\hyperlink{condition_8h_ab91c26375b7fadf2f031d6971fb63883}{Condition}} \texorpdfstring{$\ast$}{*}cond)
+\begin{DoxyCompactList}\small\item\em Signaler une occurence d\textquotesingle{}une condition à toutes les tâches en attente. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Implantation des opérations atomiques de ManuX. 
+
+\begin{DoxyVerb}                                                (C) Manu Chaput 2000-2024
+\end{DoxyVerb}
+ 
+
+Définition dans le fichier \mbox{\hyperlink{condition_8c_source}{condition.\+c}}.
+
+
+
+\doxysubsection{Documentation des fonctions}
+\Hypertarget{condition_8c_a283dd6896b1ae21d561d22dc15bfabcd}\label{condition_8c_a283dd6896b1ae21d561d22dc15bfabcd} 
+\index{condition.c@{condition.c}!conditionAttendre@{conditionAttendre}}
+\index{conditionAttendre@{conditionAttendre}!condition.c@{condition.c}}
+\doxysubsubsection{\texorpdfstring{conditionAttendre()}{conditionAttendre()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} condition\+Attendre (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{condition_8h_ab91c26375b7fadf2f031d6971fb63883}{Condition}} \texorpdfstring{$\ast$}{*}}]{cond,  }\item[{\mbox{\hyperlink{exclusion-mutuelle_8h_a6db19bcf66a0fdb35100271a766103db}{Exclusion\+Mutuelle}} \texorpdfstring{$\ast$}{*}}]{em }\end{DoxyParamCaption})}
+
+
+
+Attente de la prochaine occurence d\textquotesingle{}une condition. 
+
+La tâche appelante doit être dans l\textquotesingle{}exclusion mutuelle (qui sera automatiquement libérée le temps de l\textquotesingle{}attente puis reprise avant que cette fonction ne rende la main) 
+
+Définition à la ligne \mbox{\hyperlink{condition_8c_source_l00134}{134}} du fichier \mbox{\hyperlink{condition_8c_source}{condition.\+c}}.
+
+\Hypertarget{condition_8c_aff6ab3bc6f674c26f84cc74475081613}\label{condition_8c_aff6ab3bc6f674c26f84cc74475081613} 
+\index{condition.c@{condition.c}!conditionDiffuser@{conditionDiffuser}}
+\index{conditionDiffuser@{conditionDiffuser}!condition.c@{condition.c}}
+\doxysubsubsection{\texorpdfstring{conditionDiffuser()}{conditionDiffuser()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} condition\+Diffuser (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{condition_8h_ab91c26375b7fadf2f031d6971fb63883}{Condition}} \texorpdfstring{$\ast$}{*}}]{cond }\end{DoxyParamCaption})}
+
+
+
+Signaler une occurence d\textquotesingle{}une condition à toutes les tâches en attente. 
+
+Attention, doit être utilisée sous la protection de l\textquotesingle{}exclusion mutuelle détenue par les tâches en attente. Ell est donc inutilisable dans un handler d\textquotesingle{}interruption. 
+
+Définition à la ligne \mbox{\hyperlink{condition_8c_source_l00193}{193}} du fichier \mbox{\hyperlink{condition_8c_source}{condition.\+c}}.
+
+\Hypertarget{condition_8c_a3460e36fff72bf9770ab388c1c0fe52a}\label{condition_8c_a3460e36fff72bf9770ab388c1c0fe52a} 
+\index{condition.c@{condition.c}!conditionInitialiser@{conditionInitialiser}}
+\index{conditionInitialiser@{conditionInitialiser}!condition.c@{condition.c}}
+\doxysubsubsection{\texorpdfstring{conditionInitialiser()}{conditionInitialiser()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} condition\+Initialiser (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{condition_8h_ab91c26375b7fadf2f031d6971fb63883}{Condition}} \texorpdfstring{$\ast$}{*}}]{cond }\end{DoxyParamCaption})}
+
+
+
+Initialisation d\textquotesingle{}une condition. 
+
+
+
+Définition à la ligne \mbox{\hyperlink{condition_8c_source_l00110}{110}} du fichier \mbox{\hyperlink{condition_8c_source}{condition.\+c}}.
+
+\Hypertarget{condition_8c_ad7b5eb5ca0c1862a588861fe17c8bbf3}\label{condition_8c_ad7b5eb5ca0c1862a588861fe17c8bbf3} 
+\index{condition.c@{condition.c}!conditionSignaler@{conditionSignaler}}
+\index{conditionSignaler@{conditionSignaler}!condition.c@{condition.c}}
+\doxysubsubsection{\texorpdfstring{conditionSignaler()}{conditionSignaler()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} condition\+Signaler (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{condition_8h_ab91c26375b7fadf2f031d6971fb63883}{Condition}} \texorpdfstring{$\ast$}{*}}]{cond }\end{DoxyParamCaption})}
+
+
+
+Signaler une occurence d\textquotesingle{}une condition. 
+
+Signaler une occurence d\textquotesingle{}une condition à une tâche en attente.
+
+Attention, doit être utilisée sous la protection de l\textquotesingle{}exclusion mutuelle détenue par les tâches en attente. Elle est donc inutilisable dans un handler d\textquotesingle{}interruption. 
+
+Définition à la ligne \mbox{\hyperlink{condition_8c_source_l00168}{168}} du fichier \mbox{\hyperlink{condition_8c_source}{condition.\+c}}.
+

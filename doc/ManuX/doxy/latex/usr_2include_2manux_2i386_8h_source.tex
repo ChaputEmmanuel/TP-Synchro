@@ -1,0 +1,55 @@
+\doxysection{i386.\+h}
+\hypertarget{usr_2include_2manux_2i386_8h_source}{}\label{usr_2include_2manux_2i386_8h_source}\index{/home/manu/PROGRAMMATION/C/ManuX/usr/include/manux/i386.h@{/home/manu/PROGRAMMATION/C/ManuX/usr/include/manux/i386.h}}
+\mbox{\hyperlink{usr_2include_2manux_2i386_8h}{Aller à la documentation de ce fichier.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{usr_2include_2manux_2i386_8h_source_l00001}00001\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{usr_2include_2manux_2i386_8h_source_l00002}00002\ \textcolor{comment}{/*\ \ \ \ \ \ Définition\ des\ opérations\ spécifiques\ au\ processeur\ Intel.\ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{usr_2include_2manux_2i386_8h_source_l00003}00003\ \textcolor{comment}{/*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{usr_2include_2manux_2i386_8h_source_l00004}00004\ \textcolor{comment}{/*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (C)\ Manu\ Chaput\ 2000-\/2021\ */}}
+\DoxyCodeLine{\Hypertarget{usr_2include_2manux_2i386_8h_source_l00005}00005\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{usr_2include_2manux_2i386_8h_source_l00006}00006\ \textcolor{preprocessor}{\#ifndef\ I386\_DEF}}
+\DoxyCodeLine{\Hypertarget{usr_2include_2manux_2i386_8h_source_l00007}00007\ \textcolor{preprocessor}{\#define\ I386\_DEF}}
+\DoxyCodeLine{\Hypertarget{usr_2include_2manux_2i386_8h_source_l00008}00008\ }
+\DoxyCodeLine{\Hypertarget{usr_2include_2manux_2i386_8h_source_l00009}00009\ \textcolor{preprocessor}{\#include\ <manux/types.h>}}
+\DoxyCodeLine{\Hypertarget{usr_2include_2manux_2i386_8h_source_l00010}00010\ }
+\DoxyCodeLine{\Hypertarget{usr_2include_2manux_2i386_8h_source_l00011}\mbox{\hyperlink{usr_2include_2manux_2i386_8h_aee01d3a42fbcda425a19cbc4bd0194cd}{00011}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{include_2manux_2i386_8h_aee01d3a42fbcda425a19cbc4bd0194cd}{halt}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{usr_2include_2manux_2i386_8h_source_l00012}00012\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{usr_2include_2manux_2i386_8h_source_l00013}00013\ \textcolor{comment}{\ *\ Arret\ complet\ du\ système}}
+\DoxyCodeLine{\Hypertarget{usr_2include_2manux_2i386_8h_source_l00014}00014\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{usr_2include_2manux_2i386_8h_source_l00015}00015\ \textcolor{comment}{\ *\ WARNING\ :\ codé\ dans\ interBasNiveau\ ...\ Est-\/ce\ là\ qu'il\ faut\ le\ coder\ et\ le}}
+\DoxyCodeLine{\Hypertarget{usr_2include_2manux_2i386_8h_source_l00016}00016\ \textcolor{comment}{\ *\ définir\ ?}}
+\DoxyCodeLine{\Hypertarget{usr_2include_2manux_2i386_8h_source_l00017}00017\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{usr_2include_2manux_2i386_8h_source_l00018}00018\ }
+\DoxyCodeLine{\Hypertarget{usr_2include_2manux_2i386_8h_source_l00019}\mbox{\hyperlink{usr_2include_2manux_2i386_8h_a78b6d0d522b49e5b375731d08f4c39fd}{00019}}\ \textcolor{preprocessor}{\#define\ str(tr)\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{usr_2include_2manux_2i386_8h_source_l00020}00020\ \textcolor{preprocessor}{\ \ \ \_\_asm\_\_("{}str\ \%0"{}:\ "{}=g"{}(tr));}}
+\DoxyCodeLine{\Hypertarget{usr_2include_2manux_2i386_8h_source_l00021}00021\ }
+\DoxyCodeLine{\Hypertarget{usr_2include_2manux_2i386_8h_source_l00022}00022\ }
+\DoxyCodeLine{\Hypertarget{usr_2include_2manux_2i386_8h_source_l00023}\mbox{\hyperlink{usr_2include_2manux_2i386_8h_a6cdff266109b11c9b9572cfc4a7aeb0f}{00023}}\ \textcolor{preprocessor}{\#define\ ltr(tr)\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{usr_2include_2manux_2i386_8h_source_l00024}00024\ \textcolor{preprocessor}{\ \ \ \_\_asm\_\_\ \_\_volatile\_\_\ ("{}ltr\ \%\%ax"{}::"{}a"{}(tr));}}
+\DoxyCodeLine{\Hypertarget{usr_2include_2manux_2i386_8h_source_l00025}00025\ }
+\DoxyCodeLine{\Hypertarget{usr_2include_2manux_2i386_8h_source_l00026}\mbox{\hyperlink{usr_2include_2manux_2i386_8h_a13f2b0db4a52c0f033809564cd9830cc}{00026}}\ \textcolor{preprocessor}{\#define\ barriereMemoire()\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{usr_2include_2manux_2i386_8h_source_l00027}00027\ \textcolor{preprocessor}{\ \ \_\_asm\_\_("{}mfence"{});}}
+\DoxyCodeLine{\Hypertarget{usr_2include_2manux_2i386_8h_source_l00028}00028\ }
+\DoxyCodeLine{\Hypertarget{usr_2include_2manux_2i386_8h_source_l00029}00029\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{usr_2include_2manux_2i386_8h_source_l00030}00030\ \textcolor{comment}{\ *\ Description\ du\ processeur\ (d'après\ https://wiki.osdev.org/CPUID)}}
+\DoxyCodeLine{\Hypertarget{usr_2include_2manux_2i386_8h_source_l00031}00031\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{usr_2include_2manux_2i386_8h_source_l00032}00032\ \textcolor{keyword}{static}\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{int}\ descriptionProcesseur(\textcolor{keywordtype}{int}\ code,\ \mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\_t}}\ description[3])\ \{}
+\DoxyCodeLine{\Hypertarget{usr_2include_2manux_2i386_8h_source_l00033}00033\ \ \ \ \mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\_t}}\ result;}
+\DoxyCodeLine{\Hypertarget{usr_2include_2manux_2i386_8h_source_l00034}00034\ \ \ \ \textcolor{keyword}{asm}\ \textcolor{keyword}{volatile}(\textcolor{stringliteral}{"{}cpuid"{}}:\textcolor{stringliteral}{"{}=a"{}}(result),\textcolor{stringliteral}{"{}=b"{}}(*(description)),}
+\DoxyCodeLine{\Hypertarget{usr_2include_2manux_2i386_8h_source_l00035}00035\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}=c"{}}(*(description+2)),\textcolor{stringliteral}{"{}=d"{}}(*(description+1)):\textcolor{stringliteral}{"{}a"{}}(code));}
+\DoxyCodeLine{\Hypertarget{usr_2include_2manux_2i386_8h_source_l00036}00036\ \ \ \ \textcolor{keywordflow}{return}\ (\textcolor{keywordtype}{int})result;}
+\DoxyCodeLine{\Hypertarget{usr_2include_2manux_2i386_8h_source_l00037}00037\ \}}
+\DoxyCodeLine{\Hypertarget{usr_2include_2manux_2i386_8h_source_l00038}00038\ }
+\DoxyCodeLine{\Hypertarget{usr_2include_2manux_2i386_8h_source_l00039}00039\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{usr_2include_2manux_2i386_8h_source_l00040}00040\ \textcolor{comment}{\ *\ Calcul\ du\ numéro\ de\ la\ page\ contenant\ une\ adresse\ linéaire}}
+\DoxyCodeLine{\Hypertarget{usr_2include_2manux_2i386_8h_source_l00041}00041\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{usr_2include_2manux_2i386_8h_source_l00042}\mbox{\hyperlink{usr_2include_2manux_2i386_8h_a7d3db7e7b71d403226d271da40d6101a}{00042}}\ \textcolor{preprocessor}{\#define\ ADDR\_VERS\_PAGE(a)\ ((a)>>12)}}
+\DoxyCodeLine{\Hypertarget{usr_2include_2manux_2i386_8h_source_l00043}00043\ }
+\DoxyCodeLine{\Hypertarget{usr_2include_2manux_2i386_8h_source_l00044}00044\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{usr_2include_2manux_2i386_8h_source_l00045}00045\ \textcolor{comment}{\ *\ Chargement\ effectif\ de\ la\ GDT,\ implanté\ dans\ gestionGDT.nasm}}
+\DoxyCodeLine{\Hypertarget{usr_2include_2manux_2i386_8h_source_l00046}00046\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{usr_2include_2manux_2i386_8h_source_l00047}\mbox{\hyperlink{usr_2include_2manux_2i386_8h_a5ddec76aa3b45e17cc782fa6a0673a6f}{00047}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{include_2manux_2i386_8h_a5ddec76aa3b45e17cc782fa6a0673a6f}{\_chargerGDT}}(\mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\_t}}\ ad,\ \mbox{\hyperlink{include_2manux_2types_8h_a273cf69d639a59973b6019625df33e30}{uint16\_t}}\ limite);}
+\DoxyCodeLine{\Hypertarget{usr_2include_2manux_2i386_8h_source_l00048}00048\ }
+\DoxyCodeLine{\Hypertarget{usr_2include_2manux_2i386_8h_source_l00049}00049\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

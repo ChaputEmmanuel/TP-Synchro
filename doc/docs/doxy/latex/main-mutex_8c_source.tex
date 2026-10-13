@@ -1,0 +1,68 @@
+\doxysection{main-\/mutex.c}
+\hypertarget{main-mutex_8c_source}{}\label{main-mutex_8c_source}\index{/home/manu/PROGRAMMATION/C/ManuX/noyau/main-\/mutex.c@{/home/manu/PROGRAMMATION/C/ManuX/noyau/main-\/mutex.c}}
+\mbox{\hyperlink{main-mutex_8c}{Aller Ã  la documentation de ce fichier.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{main-mutex_8c_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{main-mutex_8c_source_l00007}00007\ \textcolor{preprocessor}{\#include\ <manux/config.h>}}
+\DoxyCodeLine{\Hypertarget{main-mutex_8c_source_l00008}00008\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{include_2manux_2console_8h}{manux/console.h}}>}}
+\DoxyCodeLine{\Hypertarget{main-mutex_8c_source_l00009}00009\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{include_2manux_2interruptions_8h}{manux/interruptions.h}}>}}
+\DoxyCodeLine{\Hypertarget{main-mutex_8c_source_l00010}00010\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{manux_2intel-8259a_8h}{manux/intel-\/8259a.h}}>}}
+\DoxyCodeLine{\Hypertarget{main-mutex_8c_source_l00011}00011\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{tache_8h}{manux/tache.h}}>}}
+\DoxyCodeLine{\Hypertarget{main-mutex_8c_source_l00012}00012\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{include_2manux_2memoire_8h}{manux/memoire.h}}>}}
+\DoxyCodeLine{\Hypertarget{main-mutex_8c_source_l00013}00013\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{manux_2bootloader_8h}{manux/bootloader.h}}>}}
+\DoxyCodeLine{\Hypertarget{main-mutex_8c_source_l00014}00014\ }
+\DoxyCodeLine{\Hypertarget{main-mutex_8c_source_l00015}\mbox{\hyperlink{main-mutex_8c_ad56649bb66e4acafda430941071e9959}{00015}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{main-mutex_8c_ad56649bb66e4acafda430941071e9959}{albert}}()}
+\DoxyCodeLine{\Hypertarget{main-mutex_8c_source_l00016}00016\ \{}
+\DoxyCodeLine{\Hypertarget{main-mutex_8c_source_l00017}00017\ \ \ \textcolor{keywordflow}{while}\ (1)\ \{}
+\DoxyCodeLine{\Hypertarget{main-mutex_8c_source_l00018}00018\ \ \ \ \ \mbox{\hyperlink{include_2manux_2printk_8h_a25b30e8bbadd54650c56895999dd808f}{printk}}(\textcolor{stringliteral}{"{}O"{}});}
+\DoxyCodeLine{\Hypertarget{main-mutex_8c_source_l00019}00019\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{main-mutex_8c_source_l00020}00020\ \}}
+\DoxyCodeLine{\Hypertarget{main-mutex_8c_source_l00021}00021\ }
+\DoxyCodeLine{\Hypertarget{main-mutex_8c_source_l00022}\mbox{\hyperlink{main-mutex_8c_a5b506f29253c28b45ab397562e3136e5}{00022}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{main-mutex_8c_a5b506f29253c28b45ab397562e3136e5}{barnabe}}()}
+\DoxyCodeLine{\Hypertarget{main-mutex_8c_source_l00023}00023\ \{}
+\DoxyCodeLine{\Hypertarget{main-mutex_8c_source_l00024}00024\ \ \ \textcolor{keywordflow}{while}\ (1)\ \{}
+\DoxyCodeLine{\Hypertarget{main-mutex_8c_source_l00025}00025\ \ \ \ \ \mbox{\hyperlink{include_2manux_2printk_8h_a25b30e8bbadd54650c56895999dd808f}{printk}}(\textcolor{stringliteral}{"{}X"{}});}
+\DoxyCodeLine{\Hypertarget{main-mutex_8c_source_l00026}00026\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{main-mutex_8c_source_l00027}00027\ \}}
+\DoxyCodeLine{\Hypertarget{main-mutex_8c_source_l00028}00028\ }
+\DoxyCodeLine{\Hypertarget{main-mutex_8c_source_l00029}\mbox{\hyperlink{main-mutex_8c_a3568df994044ade7d37160ef731c223f}{00029}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{main-mutex_8c_a3568df994044ade7d37160ef731c223f}{startManuX}}()}
+\DoxyCodeLine{\Hypertarget{main-mutex_8c_source_l00030}00030\ \{}
+\DoxyCodeLine{\Hypertarget{main-mutex_8c_source_l00031}00031\ \ \ \ \mbox{\hyperlink{struct__Tache}{Tache}}\ *\ t0,\ *t1;}
+\DoxyCodeLine{\Hypertarget{main-mutex_8c_source_l00032}00032\ }
+\DoxyCodeLine{\Hypertarget{main-mutex_8c_source_l00033}00033\ \ \ \ \textcolor{comment}{//\ Initialisation\ de\ la\ console\ noyau}}
+\DoxyCodeLine{\Hypertarget{main-mutex_8c_source_l00034}00034\ \ \ \ \mbox{\hyperlink{include_2manux_2console_8h_a29466c636bd065544638829883090d54}{consoleInitialisation}}();}
+\DoxyCodeLine{\Hypertarget{main-mutex_8c_source_l00035}00035\ }
+\DoxyCodeLine{\Hypertarget{main-mutex_8c_source_l00036}00036\ \ \ \ \textcolor{comment}{//\ Initialisation\ des\ informations\ depuis\ le\ bootloader}}
+\DoxyCodeLine{\Hypertarget{main-mutex_8c_source_l00037}00037\ \ \ \ \mbox{\hyperlink{manux_2bootloader_8h_ae56092aa42bf357bf0026df0b0808db4}{bootloaderInitialiser}}();}
+\DoxyCodeLine{\Hypertarget{main-mutex_8c_source_l00038}00038\ }
+\DoxyCodeLine{\Hypertarget{main-mutex_8c_source_l00039}00039\ \ \ \ \textcolor{comment}{//\ Affichage\ de\ la\ mémoire\ disponible\ }}
+\DoxyCodeLine{\Hypertarget{main-mutex_8c_source_l00040}00040\ \ \ \ \mbox{\hyperlink{include_2manux_2printk_8h_a25b30e8bbadd54650c56895999dd808f}{printk}}(\textcolor{stringliteral}{"{}Memoire\ :\ \%d\ +\ \%d\ Ko\(\backslash\)n"{}},}
+\DoxyCodeLine{\Hypertarget{main-mutex_8c_source_l00041}00041\ \ \ \ \ \ \ \mbox{\hyperlink{manux_2bootloader_8h_abf4319b3adb9dd5752045f58f65369e6}{infoSysteme}}.\mbox{\hyperlink{struct__InfoSysteme_a6047965dfba552f4957f7df33b777e8c}{memoireDeBase}},}
+\DoxyCodeLine{\Hypertarget{main-mutex_8c_source_l00042}00042\ \ \ \ \ \ \ \mbox{\hyperlink{manux_2bootloader_8h_abf4319b3adb9dd5752045f58f65369e6}{infoSysteme}}.\mbox{\hyperlink{struct__InfoSysteme_aeed4b08b9edfc29ff917ed26d87c9cda}{memoireEtendue}});}
+\DoxyCodeLine{\Hypertarget{main-mutex_8c_source_l00043}00043\ }
+\DoxyCodeLine{\Hypertarget{main-mutex_8c_source_l00044}00044\ \ \ \ \textcolor{comment}{/*\ Initialisation\ de\ la\ gestion\ mémoire\ */}}
+\DoxyCodeLine{\Hypertarget{main-mutex_8c_source_l00045}00045\ \ \ \ \mbox{\hyperlink{include_2manux_2memoire_8h_a4338550e2017b7c95021bdc27e4f3345}{initialiserMemoire}}(\mbox{\hyperlink{manux_2bootloader_8h_abf4319b3adb9dd5752045f58f65369e6}{infoSysteme}}.\mbox{\hyperlink{struct__InfoSysteme_a6047965dfba552f4957f7df33b777e8c}{memoireDeBase}},}
+\DoxyCodeLine{\Hypertarget{main-mutex_8c_source_l00046}00046\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{manux_2bootloader_8h_abf4319b3adb9dd5752045f58f65369e6}{infoSysteme}}.\mbox{\hyperlink{struct__InfoSysteme_aeed4b08b9edfc29ff917ed26d87c9cda}{memoireEtendue}});}
+\DoxyCodeLine{\Hypertarget{main-mutex_8c_source_l00047}00047\ \ \ }
+\DoxyCodeLine{\Hypertarget{main-mutex_8c_source_l00048}00048\ \ \ \ \textcolor{comment}{/*\ Initialisation\ de\ la\ table\ des\ interruptions\ */}}
+\DoxyCodeLine{\Hypertarget{main-mutex_8c_source_l00049}00049\ \ \ \ \mbox{\hyperlink{interruptions_8c_a8bab70dd2ead4ff36a0c2de9b3d3aff8}{initialiserIDT}}();\ \ \ }
+\DoxyCodeLine{\Hypertarget{main-mutex_8c_source_l00050}00050\ }
+\DoxyCodeLine{\Hypertarget{main-mutex_8c_source_l00051}00051\ \ \ \ \mbox{\hyperlink{intel-8259a_8c_ab3ca008de7fbd6c1917bead0ace48463}{i8259aInit}}(\mbox{\hyperlink{pc-i386_8h_aa16fe4051fc8254307ded29de196bbfc}{MANUX\_INT\_BASE\_IRQ}});}
+\DoxyCodeLine{\Hypertarget{main-mutex_8c_source_l00052}00052\ }
+\DoxyCodeLine{\Hypertarget{main-mutex_8c_source_l00053}00053\ \ \ \ \mbox{\hyperlink{scheduler_8h_a32c7cefad94adc3dd3953dc5c71b32ad}{initialiserScheduler}}();}
+\DoxyCodeLine{\Hypertarget{main-mutex_8c_source_l00054}00054\ }
+\DoxyCodeLine{\Hypertarget{main-mutex_8c_source_l00055}00055\ \ \ \ \mbox{\hyperlink{horloge_8c_aec6b6ea786b76653d49b3eb7f6d320c0}{initialiserHorloge}}();}
+\DoxyCodeLine{\Hypertarget{main-mutex_8c_source_l00056}00056\ }
+\DoxyCodeLine{\Hypertarget{main-mutex_8c_source_l00057}00057\ \ \ \ \textcolor{comment}{//\ Affichage\ d'un\ message}}
+\DoxyCodeLine{\Hypertarget{main-mutex_8c_source_l00058}00058\ \ \ \ \mbox{\hyperlink{include_2manux_2console_8h_ae9ea42a9faaae8479fd2c762ddc7d8ae}{consoleNoyauAfficher}}(\textcolor{stringliteral}{"{}La\ console\ vous\ salue\ ...\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{main-mutex_8c_source_l00059}00059\ \ \ \ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{main-mutex_8c_source_l00060}00060\ \textcolor{comment}{\ \ \ t0\ =\ tacheCreer(albert);}}
+\DoxyCodeLine{\Hypertarget{main-mutex_8c_source_l00061}00061\ \textcolor{comment}{\ \ \ t1\ =\ tacheCreer(barnabe);}}
+\DoxyCodeLine{\Hypertarget{main-mutex_8c_source_l00062}00062\ \textcolor{comment}{\ \ while\ (1)\ \{}}
+\DoxyCodeLine{\Hypertarget{main-mutex_8c_source_l00063}00063\ \textcolor{comment}{\ \ \ \ printk("{}."{});}}
+\DoxyCodeLine{\Hypertarget{main-mutex_8c_source_l00064}00064\ \textcolor{comment}{\ \ \}}}
+\DoxyCodeLine{\Hypertarget{main-mutex_8c_source_l00065}00065\ \textcolor{comment}{\ \ \ */}}
+\DoxyCodeLine{\Hypertarget{main-mutex_8c_source_l00066}00066\ \}\ \ \ \textcolor{comment}{/*\ \_startManuX\ */}}
+\DoxyCodeLine{\Hypertarget{main-mutex_8c_source_l00067}00067\ }
+
+\end{DoxyCode}

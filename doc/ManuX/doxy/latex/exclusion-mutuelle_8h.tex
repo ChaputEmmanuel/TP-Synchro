@@ -1,0 +1,110 @@
+\doxysection{Référence du fichier /home/manu/\+PROGRAMMATION/\+C/\+Manu\+X/include/manux/exclusion-\/mutuelle.h}
+\hypertarget{exclusion-mutuelle_8h}{}\label{exclusion-mutuelle_8h}\index{/home/manu/PROGRAMMATION/C/ManuX/include/manux/exclusion-\/mutuelle.h@{/home/manu/PROGRAMMATION/C/ManuX/include/manux/exclusion-\/mutuelle.h}}
+
+
+Définition des exlusions mutuelles.  
+
+
+{\ttfamily \#include $<$manux/types.\+h$>$}\newline
+{\ttfamily \#include $<$manux/atomique.\+h$>$}\newline
+{\ttfamily \#include $<$manux/listetaches.\+h$>$}\newline
+Graphe des dépendances par inclusion de exclusion-\/mutuelle.h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{exclusion-mutuelle_8h__incl}
+\end{center}
+\end{figure}
+Ce graphe montre quels fichiers incluent directement ou indirectement ce fichier \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{exclusion-mutuelle_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct__ExclusionMutuelle}{\+\_\+\+Exclusion\+Mutuelle}}
+\begin{DoxyCompactList}\small\item\em Définition des exclusions mutuelles. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Définitions de type}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \mbox{\hyperlink{struct__ExclusionMutuelle}{\+\_\+\+Exclusion\+Mutuelle}} \mbox{\hyperlink{exclusion-mutuelle_8h_a6db19bcf66a0fdb35100271a766103db}{Exclusion\+Mutuelle}}
+\begin{DoxyCompactList}\small\item\em Définition des exclusions mutuelles. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} \mbox{\hyperlink{exclusion-mutuelle_8h_aadab68f4af630c6abd0ca306539c9d60}{exclusion\+Mutuelle\+Initialiser}} (\mbox{\hyperlink{exclusion-mutuelle_8h_a6db19bcf66a0fdb35100271a766103db}{Exclusion\+Mutuelle}} \texorpdfstring{$\ast$}{*}em)
+\begin{DoxyCompactList}\small\item\em Initialisation d\textquotesingle{}une exclusion mutuelle. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} \mbox{\hyperlink{exclusion-mutuelle_8h_a9b966fcfd5b19565e2734f33eb5bbf1c}{exclusion\+Mutuelle\+Entrer}} (\mbox{\hyperlink{exclusion-mutuelle_8h_a6db19bcf66a0fdb35100271a766103db}{Exclusion\+Mutuelle}} \texorpdfstring{$\ast$}{*}em)
+\begin{DoxyCompactList}\small\item\em Entrée en exclusion mutuelle. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} \mbox{\hyperlink{exclusion-mutuelle_8h_ace5c194a9dd43e021d611e79612d6f13}{exclusion\+Mutuelle\+Sortir}} (\mbox{\hyperlink{exclusion-mutuelle_8h_a6db19bcf66a0fdb35100271a766103db}{Exclusion\+Mutuelle}} \texorpdfstring{$\ast$}{*}em)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Définition des exlusions mutuelles. 
+
+\begin{DoxyVerb}                                               (C) Manu Chaput 2000-2024
+\end{DoxyVerb}
+ 
+
+Définition dans le fichier \mbox{\hyperlink{exclusion-mutuelle_8h_source}{exclusion-\/mutuelle.\+h}}.
+
+
+
+\doxysubsection{Documentation des définitions de type}
+\Hypertarget{exclusion-mutuelle_8h_a6db19bcf66a0fdb35100271a766103db}\label{exclusion-mutuelle_8h_a6db19bcf66a0fdb35100271a766103db} 
+\index{exclusion-\/mutuelle.h@{exclusion-\/mutuelle.h}!ExclusionMutuelle@{ExclusionMutuelle}}
+\index{ExclusionMutuelle@{ExclusionMutuelle}!exclusion-\/mutuelle.h@{exclusion-\/mutuelle.h}}
+\doxysubsubsection{\texorpdfstring{ExclusionMutuelle}{ExclusionMutuelle}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{struct__ExclusionMutuelle}{\+\_\+\+Exclusion\+Mutuelle}} \mbox{\hyperlink{exclusion-mutuelle_8h_a6db19bcf66a0fdb35100271a766103db}{Exclusion\+Mutuelle}}}
+
+
+
+Définition des exclusions mutuelles. 
+
+
+
+\doxysubsection{Documentation des fonctions}
+\Hypertarget{exclusion-mutuelle_8h_a9b966fcfd5b19565e2734f33eb5bbf1c}\label{exclusion-mutuelle_8h_a9b966fcfd5b19565e2734f33eb5bbf1c} 
+\index{exclusion-\/mutuelle.h@{exclusion-\/mutuelle.h}!exclusionMutuelleEntrer@{exclusionMutuelleEntrer}}
+\index{exclusionMutuelleEntrer@{exclusionMutuelleEntrer}!exclusion-\/mutuelle.h@{exclusion-\/mutuelle.h}}
+\doxysubsubsection{\texorpdfstring{exclusionMutuelleEntrer()}{exclusionMutuelleEntrer()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} exclusion\+Mutuelle\+Entrer (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{exclusion-mutuelle_8h_a6db19bcf66a0fdb35100271a766103db}{Exclusion\+Mutuelle}} \texorpdfstring{$\ast$}{*}}]{em }\end{DoxyParamCaption})}
+
+
+
+Entrée en exclusion mutuelle. 
+
+La tâche appelante est éventuellement mise en attente dans une file spécifique. Elle n\textquotesingle{}en sera extraite que par la sortie d\textquotesingle{}une tâche qui est dans la zone d\textquotesingle{}exclusion. 
+
+Définition à la ligne \mbox{\hyperlink{exclusion-mutuelle_8c_source_l00134}{134}} du fichier \mbox{\hyperlink{exclusion-mutuelle_8c_source}{exclusion-\/mutuelle.\+c}}.
+
+\Hypertarget{exclusion-mutuelle_8h_aadab68f4af630c6abd0ca306539c9d60}\label{exclusion-mutuelle_8h_aadab68f4af630c6abd0ca306539c9d60} 
+\index{exclusion-\/mutuelle.h@{exclusion-\/mutuelle.h}!exclusionMutuelleInitialiser@{exclusionMutuelleInitialiser}}
+\index{exclusionMutuelleInitialiser@{exclusionMutuelleInitialiser}!exclusion-\/mutuelle.h@{exclusion-\/mutuelle.h}}
+\doxysubsubsection{\texorpdfstring{exclusionMutuelleInitialiser()}{exclusionMutuelleInitialiser()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} exclusion\+Mutuelle\+Initialiser (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{exclusion-mutuelle_8h_a6db19bcf66a0fdb35100271a766103db}{Exclusion\+Mutuelle}} \texorpdfstring{$\ast$}{*}}]{em }\end{DoxyParamCaption})}
+
+
+
+Initialisation d\textquotesingle{}une exclusion mutuelle. 
+
+
+
+Définition à la ligne \mbox{\hyperlink{exclusion-mutuelle_8c_source_l00109}{109}} du fichier \mbox{\hyperlink{exclusion-mutuelle_8c_source}{exclusion-\/mutuelle.\+c}}.
+
+\Hypertarget{exclusion-mutuelle_8h_ace5c194a9dd43e021d611e79612d6f13}\label{exclusion-mutuelle_8h_ace5c194a9dd43e021d611e79612d6f13} 
+\index{exclusion-\/mutuelle.h@{exclusion-\/mutuelle.h}!exclusionMutuelleSortir@{exclusionMutuelleSortir}}
+\index{exclusionMutuelleSortir@{exclusionMutuelleSortir}!exclusion-\/mutuelle.h@{exclusion-\/mutuelle.h}}
+\doxysubsubsection{\texorpdfstring{exclusionMutuelleSortir()}{exclusionMutuelleSortir()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} exclusion\+Mutuelle\+Sortir (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{exclusion-mutuelle_8h_a6db19bcf66a0fdb35100271a766103db}{Exclusion\+Mutuelle}} \texorpdfstring{$\ast$}{*}}]{em }\end{DoxyParamCaption})}
+
+
+
+Définition à la ligne \mbox{\hyperlink{exclusion-mutuelle_8c_source_l00161}{161}} du fichier \mbox{\hyperlink{exclusion-mutuelle_8c_source}{exclusion-\/mutuelle.\+c}}.
+

@@ -71,7 +71,7 @@ int sys_lire(ParametreAS as, int fd, void * buffer, int nbOctets);
  */
 #endif
 
-void sfInitialiser();
+void sfInitialiser(void);
 /* 
  * Initialisation de tout ce qui est lié au SF
  */

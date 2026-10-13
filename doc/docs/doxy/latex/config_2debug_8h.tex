@@ -1,0 +1,87 @@
+\doxysection{Référence du fichier /home/manu/\+PROGRAMMATION/\+C/\+Manu\+X/include/config/debug.h}
+\hypertarget{config_2debug_8h}{}\label{config_2debug_8h}\index{/home/manu/PROGRAMMATION/C/ManuX/include/config/debug.h@{/home/manu/PROGRAMMATION/C/ManuX/include/config/debug.h}}
+
+
+Configuration du débugage de ManuX.  
+
+
+Ce graphe montre quels fichiers incluent directement ou indirectement ce fichier \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{config_2debug_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{config_2debug_8h_a3ace532714d83dd7ff06885df86bebc3}{MANUX\+\_\+\+DEBUGMASK\+\_\+\+VAR}}
+\begin{DoxyCompactList}\small\item\em Le débugage est-\/il paramétré à la compilation ou à l\textquotesingle{}exécution ? \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{config_2debug_8h_aec0606d3ac1ec4e3671d61486746eecc}{NOM\+\_\+\+MASQUE\+\_\+\+CONSOLE}}~"{}debug.\+masque.\+console"{}
+\item 
+\#define \mbox{\hyperlink{config_2debug_8h_add8b42a7ce719b3a23686a7ab35cacb7}{NOM\+\_\+\+MASQUE\+\_\+\+FICHIER}}~"{}debug.\+masque.\+fichier"{}
+\item 
+\#define \mbox{\hyperlink{config_2debug_8h_a6e1d4c2101698671211a9447c996f889}{MANUX\+\_\+\+ASSERT\+\_\+\+ACTIVES}}
+\begin{DoxyCompactList}\small\item\em Doit-\/on activer les "{}assert"{} ? Si cette macro n\textquotesingle{}est pas définie, les assert ne produisent aucun code. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Configuration du débugage de ManuX. 
+
+\begin{DoxyVerb}                                                 (C) E. Chaput 2022-2026
+\end{DoxyVerb}
+ 
+
+Définition dans le fichier \mbox{\hyperlink{config_2debug_8h_source}{debug.\+h}}.
+
+
+
+\doxysubsection{Documentation des macros}
+\Hypertarget{config_2debug_8h_a6e1d4c2101698671211a9447c996f889}\label{config_2debug_8h_a6e1d4c2101698671211a9447c996f889} 
+\index{debug.h@{debug.h}!MANUX\_ASSERT\_ACTIVES@{MANUX\_ASSERT\_ACTIVES}}
+\index{MANUX\_ASSERT\_ACTIVES@{MANUX\_ASSERT\_ACTIVES}!debug.h@{debug.h}}
+\doxysubsubsection{\texorpdfstring{MANUX\_ASSERT\_ACTIVES}{MANUX\_ASSERT\_ACTIVES}}
+{\footnotesize\ttfamily \#define MANUX\+\_\+\+ASSERT\+\_\+\+ACTIVES}
+
+
+
+Doit-\/on activer les "{}assert"{} ? Si cette macro n\textquotesingle{}est pas définie, les assert ne produisent aucun code. 
+
+
+
+Définition à la ligne \mbox{\hyperlink{config_2debug_8h_source_l00030}{30}} du fichier \mbox{\hyperlink{config_2debug_8h_source}{debug.\+h}}.
+
+\Hypertarget{config_2debug_8h_a3ace532714d83dd7ff06885df86bebc3}\label{config_2debug_8h_a3ace532714d83dd7ff06885df86bebc3} 
+\index{debug.h@{debug.h}!MANUX\_DEBUGMASK\_VAR@{MANUX\_DEBUGMASK\_VAR}}
+\index{MANUX\_DEBUGMASK\_VAR@{MANUX\_DEBUGMASK\_VAR}!debug.h@{debug.h}}
+\doxysubsubsection{\texorpdfstring{MANUX\_DEBUGMASK\_VAR}{MANUX\_DEBUGMASK\_VAR}}
+{\footnotesize\ttfamily \#define MANUX\+\_\+\+DEBUGMASK\+\_\+\+VAR}
+
+
+
+Le débugage est-\/il paramétré à la compilation ou à l\textquotesingle{}exécution ? 
+
+Si cette macro est définie, le masque définissant les messages de débug affichés est stoqué dans une variable, sinon il est stoqué dans une macro. 
+
+Définition à la ligne \mbox{\hyperlink{config_2debug_8h_source_l00015}{15}} du fichier \mbox{\hyperlink{config_2debug_8h_source}{debug.\+h}}.
+
+\Hypertarget{config_2debug_8h_aec0606d3ac1ec4e3671d61486746eecc}\label{config_2debug_8h_aec0606d3ac1ec4e3671d61486746eecc} 
+\index{debug.h@{debug.h}!NOM\_MASQUE\_CONSOLE@{NOM\_MASQUE\_CONSOLE}}
+\index{NOM\_MASQUE\_CONSOLE@{NOM\_MASQUE\_CONSOLE}!debug.h@{debug.h}}
+\doxysubsubsection{\texorpdfstring{NOM\_MASQUE\_CONSOLE}{NOM\_MASQUE\_CONSOLE}}
+{\footnotesize\ttfamily \#define NOM\+\_\+\+MASQUE\+\_\+\+CONSOLE~"{}debug.\+masque.\+console"{}}
+
+Si les masques sont définis dans des variables, elles peuvent être modifiées via le bootloader, au travers du registre ou directement. Les macros ci-\/dessous définissent le nom à affecter. 
+
+Définition à la ligne \mbox{\hyperlink{config_2debug_8h_source_l00022}{22}} du fichier \mbox{\hyperlink{config_2debug_8h_source}{debug.\+h}}.
+
+\Hypertarget{config_2debug_8h_add8b42a7ce719b3a23686a7ab35cacb7}\label{config_2debug_8h_add8b42a7ce719b3a23686a7ab35cacb7} 
+\index{debug.h@{debug.h}!NOM\_MASQUE\_FICHIER@{NOM\_MASQUE\_FICHIER}}
+\index{NOM\_MASQUE\_FICHIER@{NOM\_MASQUE\_FICHIER}!debug.h@{debug.h}}
+\doxysubsubsection{\texorpdfstring{NOM\_MASQUE\_FICHIER}{NOM\_MASQUE\_FICHIER}}
+{\footnotesize\ttfamily \#define NOM\+\_\+\+MASQUE\+\_\+\+FICHIER~"{}debug.\+masque.\+fichier"{}}
+
+
+
+Définition à la ligne \mbox{\hyperlink{config_2debug_8h_source_l00023}{23}} du fichier \mbox{\hyperlink{config_2debug_8h_source}{debug.\+h}}.
+

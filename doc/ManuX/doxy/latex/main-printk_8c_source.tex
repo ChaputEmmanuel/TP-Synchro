@@ -1,0 +1,60 @@
+\doxysection{main-\/printk.c}
+\hypertarget{main-printk_8c_source}{}\label{main-printk_8c_source}\index{/home/manu/PROGRAMMATION/C/ManuX/noyau/main-\/printk.c@{/home/manu/PROGRAMMATION/C/ManuX/noyau/main-\/printk.c}}
+\mbox{\hyperlink{main-printk_8c}{Aller Ã  la documentation de ce fichier.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{main-printk_8c_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{main-printk_8c_source_l00007}00007\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{ascii_8h}{manux/ascii.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{main-printk_8c_source_l00008}00008\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{ecran_8h}{manux/ecran.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{main-printk_8c_source_l00009}00009\ \textcolor{preprocessor}{\#include\ <manux/config.h>}}
+\DoxyCodeLine{\Hypertarget{main-printk_8c_source_l00010}00010\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{include_2manux_2console_8h}{manux/console.h}}>}}
+\DoxyCodeLine{\Hypertarget{main-printk_8c_source_l00011}00011\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{include_2manux_2printk_8h}{manux/printk.h}}>}}
+\DoxyCodeLine{\Hypertarget{main-printk_8c_source_l00012}00012\ }
+\DoxyCodeLine{\Hypertarget{main-printk_8c_source_l00013}\mbox{\hyperlink{main-printk_8c_a3568df994044ade7d37160ef731c223f}{00013}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{main-printk_8c_a3568df994044ade7d37160ef731c223f}{startManuX}}()}
+\DoxyCodeLine{\Hypertarget{main-printk_8c_source_l00014}00014\ \{}
+\DoxyCodeLine{\Hypertarget{main-printk_8c_source_l00015}00015\ \ \ \mbox{\hyperlink{include_2manux_2types_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\_t}}\ fond,\ texte,\ l,\ \mbox{\hyperlink{main-bootreg_8c_add06ad5d8520e7cff4ff84b2811c0982}{c}};}
+\DoxyCodeLine{\Hypertarget{main-printk_8c_source_l00016}00016\ }
+\DoxyCodeLine{\Hypertarget{main-printk_8c_source_l00017}00017\ \ \ \ \textcolor{comment}{//\ Initialisation\ de\ la\ console\ noyau}}
+\DoxyCodeLine{\Hypertarget{main-printk_8c_source_l00018}00018\ \ \ \ \mbox{\hyperlink{include_2manux_2console_8h_a29466c636bd065544638829883090d54}{consoleInitialisation}}();}
+\DoxyCodeLine{\Hypertarget{main-printk_8c_source_l00019}00019\ }
+\DoxyCodeLine{\Hypertarget{main-printk_8c_source_l00020}00020\ \ \ \ \textcolor{comment}{//\ Un\ petit\ message}}
+\DoxyCodeLine{\Hypertarget{main-printk_8c_source_l00021}00021\ \ \ \ \mbox{\hyperlink{include_2manux_2printk_8h_a25b30e8bbadd54650c56895999dd808f}{printk}}(\textcolor{stringliteral}{"{}Printk\ dit\ bonjour\ !\(\backslash\)n\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{main-printk_8c_source_l00022}00022\ }
+\DoxyCodeLine{\Hypertarget{main-printk_8c_source_l00023}00023\ \ \ \ \mbox{\hyperlink{include_2manux_2printk_8h_a25b30e8bbadd54650c56895999dd808f}{printk}}(\textcolor{stringliteral}{"{}Voici\ les\ couleurs\ utilisables\ pour\ le\ fond\ (colonne)\ et\ le\ texte\ (ligne)"{}});}
+\DoxyCodeLine{\Hypertarget{main-printk_8c_source_l00024}00024\ \ \ \ }
+\DoxyCodeLine{\Hypertarget{main-printk_8c_source_l00025}00025\ \ \ \ \textcolor{comment}{//\ On\ affiche\ un\ tableau\ des\ différentes\ couleurs}}
+\DoxyCodeLine{\Hypertarget{main-printk_8c_source_l00026}00026\ \ \ \ \textcolor{comment}{//\ 1\ -\/\ La\ première\ ligne\ des\ couleurs\ de\ fond}}
+\DoxyCodeLine{\Hypertarget{main-printk_8c_source_l00027}00027\ \ \ \ \mbox{\hyperlink{main-bootreg_8c_add06ad5d8520e7cff4ff84b2811c0982}{c}}\ =\ 4;}
+\DoxyCodeLine{\Hypertarget{main-printk_8c_source_l00028}00028\ \ \ \ \textcolor{keywordflow}{for}\ (fond\ =\ 40;\ fond\ <=\ 107;\ fond\ ++)\ \{}
+\DoxyCodeLine{\Hypertarget{main-printk_8c_source_l00029}00029\ \ \ \ \ \ \ \mbox{\hyperlink{include_2manux_2printk_8h_a25b30e8bbadd54650c56895999dd808f}{printk}}(\textcolor{stringliteral}{"{}\%c[\%d;\%dH\%3d"{}},\ \mbox{\hyperlink{ascii_8h_af499a0b34ddf61832ae3dab05677ac7b}{ASCII\_ESC}},\ 4,\ \mbox{\hyperlink{main-bootreg_8c_add06ad5d8520e7cff4ff84b2811c0982}{c}},\ fond);\ \textcolor{comment}{//\ goto\ ligne\ colonne}}
+\DoxyCodeLine{\Hypertarget{main-printk_8c_source_l00030}00030\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (fond\ ==\ 47)\ \{fond\ =\ 99;\}\ \textcolor{comment}{//\ J'ai\ honte\ !}}
+\DoxyCodeLine{\Hypertarget{main-printk_8c_source_l00031}00031\ \ \ \ \ \ \ \mbox{\hyperlink{main-bootreg_8c_add06ad5d8520e7cff4ff84b2811c0982}{c}}+=4;}
+\DoxyCodeLine{\Hypertarget{main-printk_8c_source_l00032}00032\ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{main-printk_8c_source_l00033}00033\ }
+\DoxyCodeLine{\Hypertarget{main-printk_8c_source_l00034}00034\ \ \ \ \textcolor{comment}{//\ 2\ -\/\ La\ colonne\ des\ couleurs\ de\ texte}}
+\DoxyCodeLine{\Hypertarget{main-printk_8c_source_l00035}00035\ \ \ \ l\ =\ 5;}
+\DoxyCodeLine{\Hypertarget{main-printk_8c_source_l00036}00036\ \ \ \ \textcolor{keywordflow}{for}\ (texte\ =\ 30;\ texte\ <=\ 97;\ texte\ ++)\{}
+\DoxyCodeLine{\Hypertarget{main-printk_8c_source_l00037}00037\ \ \ \ \ \ \ \mbox{\hyperlink{include_2manux_2printk_8h_a25b30e8bbadd54650c56895999dd808f}{printk}}(\textcolor{stringliteral}{"{}\%c[\%d;\%dH\%2d"{}},\ \mbox{\hyperlink{ascii_8h_af499a0b34ddf61832ae3dab05677ac7b}{ASCII\_ESC}},\ l,\ 1,\ texte);\ \ \ \textcolor{comment}{//\ goto\ ligne\ colonne}}
+\DoxyCodeLine{\Hypertarget{main-printk_8c_source_l00038}00038\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (texte\ ==\ 37)\ \{texte\ =\ 89;\}\ \textcolor{comment}{//\ J'ai\ honte\ !}}
+\DoxyCodeLine{\Hypertarget{main-printk_8c_source_l00039}00039\ \ \ \ \ \ \ l++;}
+\DoxyCodeLine{\Hypertarget{main-printk_8c_source_l00040}00040\ \ \ \ \}\ \ \ }
+\DoxyCodeLine{\Hypertarget{main-printk_8c_source_l00041}00041\ }
+\DoxyCodeLine{\Hypertarget{main-printk_8c_source_l00042}00042\ \ \ \ l\ =\ 5;}
+\DoxyCodeLine{\Hypertarget{main-printk_8c_source_l00043}00043\ \ \ \ \textcolor{keywordflow}{for}\ (texte\ =\ 30;\ texte\ <=\ 97;\ texte\ ++)\{}
+\DoxyCodeLine{\Hypertarget{main-printk_8c_source_l00044}00044\ \ \ \ \ \ \ \mbox{\hyperlink{main-bootreg_8c_add06ad5d8520e7cff4ff84b2811c0982}{c}}\ =\ 4;}
+\DoxyCodeLine{\Hypertarget{main-printk_8c_source_l00045}00045\ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (fond\ =\ 40;\ fond\ <=\ 107;\ fond\ ++)\ \{}
+\DoxyCodeLine{\Hypertarget{main-printk_8c_source_l00046}00046\ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{include_2manux_2printk_8h_a25b30e8bbadd54650c56895999dd808f}{printk}}(\textcolor{stringliteral}{"{}\%c[\%d;\%dH"{}},\ \mbox{\hyperlink{ascii_8h_af499a0b34ddf61832ae3dab05677ac7b}{ASCII\_ESC}},\ l,\ \mbox{\hyperlink{main-bootreg_8c_add06ad5d8520e7cff4ff84b2811c0982}{c}});\ \ \ \textcolor{comment}{//\ goto\ ligne\ colonne}}
+\DoxyCodeLine{\Hypertarget{main-printk_8c_source_l00047}00047\ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{include_2manux_2printk_8h_a25b30e8bbadd54650c56895999dd808f}{printk}}(\textcolor{stringliteral}{"{}\%c[\%dm"{}},\ \mbox{\hyperlink{ascii_8h_af499a0b34ddf61832ae3dab05677ac7b}{ASCII\_ESC}},\ texte);\ \ \ \ \ \textcolor{comment}{//\ couleur\ de\ texte}}
+\DoxyCodeLine{\Hypertarget{main-printk_8c_source_l00048}00048\ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{include_2manux_2printk_8h_a25b30e8bbadd54650c56895999dd808f}{printk}}(\textcolor{stringliteral}{"{}\%c[\%dm"{}},\ \mbox{\hyperlink{ascii_8h_af499a0b34ddf61832ae3dab05677ac7b}{ASCII\_ESC}},\ fond);\ \ \ \ \ \ \textcolor{comment}{//\ couleur\ de\ fond}}
+\DoxyCodeLine{\Hypertarget{main-printk_8c_source_l00049}00049\ \ \ \ \ \ \mbox{\hyperlink{include_2manux_2printk_8h_a25b30e8bbadd54650c56895999dd808f}{printk}}(\textcolor{stringliteral}{"{}\ XY\ "{}});}
+\DoxyCodeLine{\Hypertarget{main-printk_8c_source_l00050}00050\ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (fond\ ==\ 47)\ \{fond\ =\ 99;\}\ \textcolor{comment}{//\ J'ai\ toujours\ honte\ !}}
+\DoxyCodeLine{\Hypertarget{main-printk_8c_source_l00051}00051\ \ \ \ \ \ \mbox{\hyperlink{main-bootreg_8c_add06ad5d8520e7cff4ff84b2811c0982}{c}}+=4;}
+\DoxyCodeLine{\Hypertarget{main-printk_8c_source_l00052}00052\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{main-printk_8c_source_l00053}00053\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (texte\ ==\ 37)\ \{texte\ =\ 89;\}\ \textcolor{comment}{//\ J'ai\ encore\ honte\ !}}
+\DoxyCodeLine{\Hypertarget{main-printk_8c_source_l00054}00054\ \ \ \ \ \ \ l++;}
+\DoxyCodeLine{\Hypertarget{main-printk_8c_source_l00055}00055\ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{main-printk_8c_source_l00056}00056\ \ \ \ }
+\DoxyCodeLine{\Hypertarget{main-printk_8c_source_l00057}00057\ \}\ \ \ \textcolor{comment}{/*\ startManuX\ */}}
+\DoxyCodeLine{\Hypertarget{main-printk_8c_source_l00058}00058\ }
+\DoxyCodeLine{\Hypertarget{main-printk_8c_source_l00059}00059\ }
+
+\end{DoxyCode}

@@ -1,0 +1,511 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>My Project: RÃ©fÃ©rence du fichier /home/manu/PROGRAMMATION/C/ManuX/noyau/scheduler.c</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">My Project
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- GÃ©nÃ©rÃ© par Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_b49ee5e1e1e78348df5ce57bc52e7bb8.html">noyau</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#define-members">Macros</a> &#124;
+<a href="#func-members">Fonctions</a> &#124;
+<a href="#var-members">Variables</a>  </div>
+  <div class="headertitle"><div class="title">RÃ©fÃ©rence du fichier scheduler.c</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &lt;manux/config.h&gt;</code><br />
+<code>#include &lt;<a class="el" href="scheduler_8h_source.html">manux/scheduler.h</a>&gt;</code><br />
+<code>#include &lt;manux/errno.h&gt;</code><br />
+<code>#include &lt;<a class="el" href="io_8h_source.html">manux/io.h</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="include_2manux_2memoire_8h_source.html">manux/memoire.h</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="include_2manux_2printk_8h_source.html">manux/printk.h</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="manux_2debug_8h_source.html">manux/debug.h</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="include_2manux_2interruptions_8h_source.html">manux/interruptions.h</a>&gt;</code><br />
+<code>#include &lt;manux/i386.h&gt;</code><br />
+<code>#include &lt;manux/appelsysteme.h&gt;</code><br />
+</div><div class="textblock"><div class="dynheader">
+Graphe des dÃ©pendances par inclusion de scheduler.c:</div>
+<div class="dyncontent">
+<div class="center"><img src="scheduler_8c__incl.png" border="0" usemap="#a_2home_2manu_2PROGRAMMATION_2C_2ManuX_2noyau_2scheduler_8c" alt=""/></div>
+<map name="a_2home_2manu_2PROGRAMMATION_2C_2ManuX_2noyau_2scheduler_8c" id="a_2home_2manu_2PROGRAMMATION_2C_2ManuX_2noyau_2scheduler_8c">
+<area shape="rect" title=" " alt="" coords="897,5,1123,45"/>
+<area shape="rect" title=" " alt="" coords="919,313,1042,339"/>
+<area shape="poly" title=" " alt="" coords="1019,45,1036,110,1040,151,1037,192,1018,253,996,302,991,300,1013,251,1031,192,1034,151,1030,111,1014,46"/>
+<area shape="rect" href="scheduler_8h.html" title=" " alt="" coords="340,167,485,192"/>
+<area shape="poly" title=" " alt="" coords="934,48,740,96,470,166,468,161,739,91,932,43"/>
+<area shape="rect" href="include_2manux_2interruptions_8h.html" title=" " alt="" coords="699,313,865,339"/>
+<area shape="poly" title=" " alt="" coords="897,37,867,45,838,57,812,73,791,95,776,119,767,146,763,174,762,202,767,257,777,300,772,301,762,258,756,203,757,173,762,144,772,117,787,92,809,69,836,52,865,40,896,31"/>
+<area shape="rect" title=" " alt="" coords="5,387,180,412"/>
+<area shape="poly" title=" " alt="" coords="896,37,670,55,410,85,292,105,195,127,158,139,130,152,113,165,107,179,107,254,104,319,99,373,93,373,99,318,102,254,102,177,109,162,127,147,156,134,193,122,291,99,409,80,670,50,896,31"/>
+<area shape="rect" title=" " alt="" coords="1135,93,1253,119"/>
+<area shape="poly" title=" " alt="" coords="1055,43,1156,85,1153,90,1053,48"/>
+<area shape="rect" href="io_8h.html" title=" " alt="" coords="1277,93,1372,119"/>
+<area shape="poly" title=" " alt="" coords="1086,43,1266,87,1265,93,1085,48"/>
+<area shape="rect" href="include_2manux_2memoire_8h.html" title=" " alt="" coords="1097,167,1240,192"/>
+<area shape="poly" title=" " alt="" coords="1032,44,1148,155,1145,159,1028,48"/>
+<area shape="rect" href="include_2manux_2printk_8h.html" title="DÃ©finition des fonctions de base d&#39;entrÃ©e&#45;sortie du noyau." alt="" coords="900,167,1021,192"/>
+<area shape="poly" title=" " alt="" coords="1006,47,971,154,966,153,1001,45"/>
+<area shape="rect" href="manux_2debug_8h.html" title=" " alt="" coords="801,93,923,119"/>
+<area shape="poly" title=" " alt="" coords="976,48,897,89,895,84,973,43"/>
+<area shape="rect" title=" " alt="" coords="1396,93,1507,119"/>
+<area shape="poly" title=" " alt="" coords="1116,43,1383,90,1382,95,1115,48"/>
+<area shape="rect" title=" " alt="" coords="493,460,612,485"/>
+<area shape="poly" title=" " alt="" coords="340,189,313,196,286,206,261,221,242,241,239,252,242,265,258,347,274,378,304,410,344,436,390,453,436,463,480,468,480,474,436,469,388,458,342,441,300,414,269,381,253,348,237,266,233,252,237,239,258,217,283,201,311,190,339,184"/>
+<area shape="rect" href="tache_8h.html" title=" " alt="" coords="601,240,720,265"/>
+<area shape="poly" title=" " alt="" coords="453,189,608,234,607,239,452,195"/>
+<area shape="poly" title=" " alt="" coords="341,190,267,207,231,222,197,242,176,265,151,301,107,376,103,373,147,298,172,262,194,238,228,217,266,202,339,185"/>
+<area shape="rect" href="listetaches_8h.html" title=" " alt="" coords="422,240,577,265"/>
+<area shape="poly" title=" " alt="" coords="428,190,476,229,473,233,425,194"/>
+<area shape="rect" href="atomique_8h.html" title="DÃ©finition des opÃ©rations de synchronisation de ManuX." alt="" coords="252,240,397,265"/>
+<area shape="poly" title=" " alt="" coords="393,194,344,233,341,228,390,190"/>
+<area shape="poly" title=" " alt="" coords="713,263,916,308,915,313,712,268"/>
+<area shape="poly" title=" " alt="" coords="664,265,663,331,655,373,638,413,617,437,592,455,589,451,613,433,633,411,650,372,658,331,659,265"/>
+<area shape="poly" title=" " alt="" coords="682,263,752,304,749,309,679,268"/>
+<area shape="rect" href="segment_8h.html" title=" " alt="" coords="483,387,623,412"/>
+<area shape="poly" title=" " alt="" coords="654,267,572,377,567,374,650,264"/>
+<area shape="rect" href="fichier_8h.html" title=" " alt="" coords="334,313,457,339"/>
+<area shape="poly" title=" " alt="" coords="619,268,452,312,451,307,617,263"/>
+<area shape="poly" title=" " alt="" coords="772,341,733,376,681,414,638,438,596,457,594,452,635,433,678,410,729,371,768,337"/>
+<area shape="poly" title=" " alt="" coords="555,412,555,446,550,446,550,412"/>
+<area shape="rect" href="inoeud_8h.html" title=": description des noeuds d&#39;information (C) Manu Chaput 2002&#45;2023" alt="" coords="332,387,459,412"/>
+<area shape="poly" title=" " alt="" coords="398,339,398,373,393,373,393,339"/>
+<area shape="poly" title=" " alt="" coords="347,341,155,386,154,381,346,336"/>
+<area shape="poly" title=" " alt="" coords="422,410,516,452,514,457,420,414"/>
+<area shape="poly" title=" " alt="" coords="344,238,393,199,397,204,347,242"/>
+<area shape="poly" title=" " alt="" coords="322,266,313,295,305,333,306,374,311,393,321,410,345,427,385,441,480,460,479,465,383,446,343,432,317,414,307,395,301,375,300,333,308,293,317,265"/>
+<area shape="poly" title=" " alt="" coords="1190,190,1209,205,1228,223,1238,244,1238,256,1234,267,1217,286,1194,304,1132,338,1053,368,964,395,779,437,626,463,625,458,778,432,962,390,1051,363,1129,333,1191,300,1213,282,1229,264,1233,255,1233,245,1223,226,1206,209,1186,194"/>
+<area shape="rect" title=" " alt="" coords="1097,240,1219,265"/>
+<area shape="poly" title=" " alt="" coords="1170,193,1164,227,1159,226,1164,192"/>
+<area shape="poly" title=" " alt="" coords="969,191,978,213,986,240,988,271,987,300,982,299,983,271,981,240,973,215,964,193"/>
+<area shape="poly" title=" " alt="" coords="993,190,1114,233,1112,238,991,195"/>
+<area shape="rect" href="include_2manux_2stdarg_8h.html" title=" " alt="" coords="847,240,971,265"/>
+<area shape="poly" title=" " alt="" coords="954,194,927,230,923,227,950,191"/>
+<area shape="poly" title=" " alt="" coords="857,120,843,148,830,185,826,226,829,246,838,264,851,280,868,292,907,310,905,315,865,297,848,284,833,267,824,248,820,227,825,184,838,146,853,118"/>
+<area shape="poly" title=" " alt="" coords="801,120,499,167,498,162,800,114"/>
+<area shape="poly" title=" " alt="" coords="879,117,935,156,932,161,876,121"/>
+<area shape="poly" title=" " alt="" coords="868,118,891,191,903,226,898,228,886,193,863,120"/>
+</map>
+</div>
+</div>
+<p><a href="scheduler_8c_source.html">Aller au code source de ce fichier.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:ab4e684e106579094bd79a8171c60090a" id="r_ab4e684e106579094bd79a8171c60090a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="scheduler_8c.html#ab4e684e106579094bd79a8171c60090a">DEBUG_MANUX_SCHEDULER</a></td></tr>
+<tr class="separator:ab4e684e106579094bd79a8171c60090a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Fonctions</h2></td></tr>
+<tr class="memitem:ae00507099d51c08195d42c08daad4f41" id="r_ae00507099d51c08195d42c08daad4f41"><td class="memItemLeft" align="right" valign="top"><a class="el" href="include_2manux_2interruptions_8h.html#a4fda31edc92f8ccd48b6f4bb50f2e7e1">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="scheduler_8c.html#ae00507099d51c08195d42c08daad4f41">ordonnanceur</a> (<a class="el" href="include_2manux_2interruptions_8h.html#a4fda31edc92f8ccd48b6f4bb50f2e7e1">void</a>)</td></tr>
+<tr class="memdesc:ae00507099d51c08195d42c08daad4f41"><td class="mdescLeft">&#160;</td><td class="mdescRight">Le coeur de l'ordonnanceur.  <br /></td></tr>
+<tr class="separator:ae00507099d51c08195d42c08daad4f41"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aef1e54d9e6a32886461b3dc665654748" id="r_aef1e54d9e6a32886461b3dc665654748"><td class="memItemLeft" align="right" valign="top"><a class="el" href="include_2manux_2interruptions_8h.html#a4fda31edc92f8ccd48b6f4bb50f2e7e1">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="scheduler_8c.html#aef1e54d9e6a32886461b3dc665654748">ordonnanceurAddTache</a> (<a class="el" href="tache_8h.html#a5e93bfec061525341810ac895de87af3">Tache</a> *tache)</td></tr>
+<tr class="memdesc:aef1e54d9e6a32886461b3dc665654748"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ajout d'une tâche dans l'ordonnanceur.  <br /></td></tr>
+<tr class="separator:aef1e54d9e6a32886461b3dc665654748"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a32c7cefad94adc3dd3953dc5c71b32ad" id="r_a32c7cefad94adc3dd3953dc5c71b32ad"><td class="memItemLeft" align="right" valign="top"><a class="el" href="include_2manux_2interruptions_8h.html#a4fda31edc92f8ccd48b6f4bb50f2e7e1">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="scheduler_8c.html#a32c7cefad94adc3dd3953dc5c71b32ad">initialiserScheduler</a> (<a class="el" href="include_2manux_2interruptions_8h.html#a4fda31edc92f8ccd48b6f4bb50f2e7e1">void</a>)</td></tr>
+<tr class="memdesc:a32c7cefad94adc3dd3953dc5c71b32ad"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialisation de l'ordonnanceur.  <br /></td></tr>
+<tr class="separator:a32c7cefad94adc3dd3953dc5c71b32ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae922bcf579d9ef3fb82370f3a876029d" id="r_ae922bcf579d9ef3fb82370f3a876029d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="include_2manux_2types_8h.html#a1aa19b97c742cff758e6532b519954c4">TacheID</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="scheduler_8c.html#ae922bcf579d9ef3fb82370f3a876029d">ordonnanceurCreerTacheNoyau</a> (CorpsTache corpsTache)</td></tr>
+<tr class="memdesc:ae922bcf579d9ef3fb82370f3a876029d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Création et ordonnancement d'une tâche noyau.  <br /></td></tr>
+<tr class="separator:ae922bcf579d9ef3fb82370f3a876029d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:a725a5b194207247d25785e8ec90488d8" id="r_a725a5b194207247d25785e8ec90488d8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="include_2manux_2types_8h.html#a1aa19b97c742cff758e6532b519954c4">TacheID</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="scheduler_8c.html#a725a5b194207247d25785e8ec90488d8">numeroProchaineTache</a></td></tr>
+<tr class="memdesc:a725a5b194207247d25785e8ec90488d8"><td class="mdescLeft">&#160;</td><td class="mdescRight">:Le numero de la prochaine tache (WARNING : et si on cycle ?)  <br /></td></tr>
+<tr class="separator:a725a5b194207247d25785e8ec90488d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae9fc05d7baa2e71defadd7a4537eef5a" id="r_ae9fc05d7baa2e71defadd7a4537eef5a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="tache_8h.html#a5e93bfec061525341810ac895de87af3">Tache</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="scheduler_8c.html#ae9fc05d7baa2e71defadd7a4537eef5a">tacheScheduler</a></td></tr>
+<tr class="separator:ae9fc05d7baa2e71defadd7a4537eef5a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac7f7b7ce11b466047d3870130d7b1e6f" id="r_ac7f7b7ce11b466047d3870130d7b1e6f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="include_2manux_2types_8h.html#abe4acab18c967c397d24aa95c2d48b27">Temps</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="scheduler_8c.html#ac7f7b7ce11b466047d3870130d7b1e6f">dateDernierOrdonnancement</a></td></tr>
+<tr class="separator:ac7f7b7ce11b466047d3870130d7b1e6f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a766adafe551d8f3dfb42acf9abc22761" id="r_a766adafe551d8f3dfb42acf9abc22761"><td class="memItemLeft" align="right" valign="top"><a class="el" href="atomique_8h.html#a34aa37778d3701c511b28edcb866cedb">Atomique</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="scheduler_8c.html#a766adafe551d8f3dfb42acf9abc22761">schedulerEnCours</a> = 0</td></tr>
+<tr class="separator:a766adafe551d8f3dfb42acf9abc22761"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac0ad7deba8c8b31a1d9f541aa3ba997f" id="r_ac0ad7deba8c8b31a1d9f541aa3ba997f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="include_2manux_2types_8h.html#a5b7544e51b136e716e4eccc0602bafd7">booleen</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="scheduler_8c.html#ac0ad7deba8c8b31a1d9f541aa3ba997f">basculeConsoleDemandee</a> = <a class="el" href="include_2manux_2types_8h.html#aa93f0eb578d23995850d61f7d61c55c1">FALSE</a></td></tr>
+<tr class="separator:ac0ad7deba8c8b31a1d9f541aa3ba997f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6ab4872c480fd88702e95f13ca8c1bf5" id="r_a6ab4872c480fd88702e95f13ca8c1bf5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="include_2manux_2types_8h.html#a5b7544e51b136e716e4eccc0602bafd7">booleen</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="scheduler_8c.html#a6ab4872c480fd88702e95f13ca8c1bf5">basculerTacheDemande</a> = <a class="el" href="include_2manux_2types_8h.html#aa8cecfc5c5c054d2875c03e77b7be15d">TRUE</a></td></tr>
+<tr class="separator:a6ab4872c480fd88702e95f13ca8c1bf5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a80a9c97323077673833937f0f3cb3059" id="r_a80a9c97323077673833937f0f3cb3059"><td class="memItemLeft" align="right" valign="top"><a class="el" href="listetaches_8h.html#a4f8dc29eb1e6c258afefb6608ce936b5">ListeTache</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="scheduler_8c.html#a80a9c97323077673833937f0f3cb3059">listeTachesPretes</a></td></tr>
+<tr class="memdesc:a80a9c97323077673833937f0f3cb3059"><td class="mdescLeft">&#160;</td><td class="mdescRight">Identifiant de la tâche actuellement en cours d'exécution dans le noyau (0 si aucune)  <br /></td></tr>
+<tr class="separator:a80a9c97323077673833937f0f3cb3059"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0ee9c5d04fc494f6a86b24b993eb30e3" id="r_a0ee9c5d04fc494f6a86b24b993eb30e3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="listetaches_8h.html#a4f8dc29eb1e6c258afefb6608ce936b5">ListeTache</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="scheduler_8c.html#a0ee9c5d04fc494f6a86b24b993eb30e3">listeToutesLesTaches</a></td></tr>
+<tr class="memdesc:a0ee9c5d04fc494f6a86b24b993eb30e3"><td class="mdescLeft">&#160;</td><td class="mdescRight">: La liste de toutes les tâches existant sur le système.  <br /></td></tr>
+<tr class="separator:a0ee9c5d04fc494f6a86b24b993eb30e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a05fd30175a3a21795cc066dab7606b4d" id="r_a05fd30175a3a21795cc066dab7606b4d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="listetaches_8h.html#a4f8dc29eb1e6c258afefb6608ce936b5">ListeTache</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="scheduler_8c.html#a05fd30175a3a21795cc066dab7606b4d">listeTachesTerminees</a></td></tr>
+<tr class="memdesc:a05fd30175a3a21795cc066dab7606b4d"><td class="mdescLeft">&#160;</td><td class="mdescRight">: La liste des tâches achevées.  <br /></td></tr>
+<tr class="separator:a05fd30175a3a21795cc066dab7606b4d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aafdf44b33a86f1bef6141d33a4abb94b" id="r_aafdf44b33a86f1bef6141d33a4abb94b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="tache_8h.html#a5e93bfec061525341810ac895de87af3">Tache</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="scheduler_8c.html#aafdf44b33a86f1bef6141d33a4abb94b">tacheEnCours</a> = <a class="el" href="include_2manux_2stddef_8h.html#a070d2ce7b6bb7e5c05602aa8c308d0c4">NULL</a></td></tr>
+<tr class="memdesc:aafdf44b33a86f1bef6141d33a4abb94b"><td class="mdescLeft">&#160;</td><td class="mdescRight">: La tâche en cours  <br /></td></tr>
+<tr class="separator:aafdf44b33a86f1bef6141d33a4abb94b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Documentation des macros</h2>
+<a id="ab4e684e106579094bd79a8171c60090a" name="ab4e684e106579094bd79a8171c60090a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab4e684e106579094bd79a8171c60090a">&#9670;&#160;</a></span>DEBUG_MANUX_SCHEDULER</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define DEBUG_MANUX_SCHEDULER</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">DÃ©finition Ã  la ligne <a class="el" href="scheduler_8c_source.html#l00012">12</a> du fichier <a class="el" href="scheduler_8c_source.html">scheduler.c</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Documentation des fonctions</h2>
+<a id="a32c7cefad94adc3dd3953dc5c71b32ad" name="a32c7cefad94adc3dd3953dc5c71b32ad"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a32c7cefad94adc3dd3953dc5c71b32ad">&#9670;&#160;</a></span>initialiserScheduler()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="include_2manux_2interruptions_8h.html#a4fda31edc92f8ccd48b6f4bb50f2e7e1">void</a> initialiserScheduler </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="include_2manux_2interruptions_8h.html#a4fda31edc92f8ccd48b6f4bb50f2e7e1">void</a>&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Initialisation de l'ordonnanceur. </p>
+<p>Identifiant de la tÃ¢che actuellement en cours d'exÃ©cution dans le noyau (0 si aucune) </p>
+
+<p class="definition">DÃ©finition Ã  la ligne <a class="el" href="scheduler_8c_source.html#l00181">181</a> du fichier <a class="el" href="scheduler_8c_source.html">scheduler.c</a>.</p>
+
+</div>
+</div>
+<a id="ae00507099d51c08195d42c08daad4f41" name="ae00507099d51c08195d42c08daad4f41"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae00507099d51c08195d42c08daad4f41">&#9670;&#160;</a></span>ordonnanceur()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="include_2manux_2interruptions_8h.html#a4fda31edc92f8ccd48b6f4bb50f2e7e1">void</a> ordonnanceur </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="include_2manux_2interruptions_8h.html#a4fda31edc92f8ccd48b6f4bb50f2e7e1">void</a>&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Le coeur de l'ordonnanceur. </p>
+<p>Basculer vers la prochaine tache Ã  exÃ©cuter.</p>
+<p>C'est cette fonction qui détermine la prochaine tâche à exécuter. </p>
+
+<p class="definition">DÃ©finition Ã  la ligne <a class="el" href="scheduler_8c_source.html#l00098">98</a> du fichier <a class="el" href="scheduler_8c_source.html">scheduler.c</a>.</p>
+
+</div>
+</div>
+<a id="aef1e54d9e6a32886461b3dc665654748" name="aef1e54d9e6a32886461b3dc665654748"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aef1e54d9e6a32886461b3dc665654748">&#9670;&#160;</a></span>ordonnanceurAddTache()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="include_2manux_2interruptions_8h.html#a4fda31edc92f8ccd48b6f4bb50f2e7e1">void</a> ordonnanceurAddTache </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="tache_8h.html#a5e93bfec061525341810ac895de87af3">Tache</a> *&#160;</td>
+          <td class="paramname"><em>tache</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Ajout d'une tâche dans l'ordonnanceur. </p>
+<p>Ajout d'une tÃ¢che dans l'ordonnanceur.</p>
+<p>On se contente de l'insérer dans la liste des tâches de l'ordonnanceur. </p>
+
+<p class="definition">DÃ©finition Ã  la ligne <a class="el" href="scheduler_8c_source.html#l00171">171</a> du fichier <a class="el" href="scheduler_8c_source.html">scheduler.c</a>.</p>
+
+</div>
+</div>
+<a id="ae922bcf579d9ef3fb82370f3a876029d" name="ae922bcf579d9ef3fb82370f3a876029d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae922bcf579d9ef3fb82370f3a876029d">&#9670;&#160;</a></span>ordonnanceurCreerTacheNoyau()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="include_2manux_2types_8h.html#a1aa19b97c742cff758e6532b519954c4">TacheID</a> ordonnanceurCreerTacheNoyau </td>
+          <td>(</td>
+          <td class="paramtype">CorpsTache&#160;</td>
+          <td class="paramname"><em>corpsTache</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Création et ordonnancement d'une tâche noyau. </p>
+<p>CrÃ©ation et ordonnancement d'une tÃ¢che noyau. </p>
+
+<p class="definition">DÃ©finition Ã  la ligne <a class="el" href="scheduler_8c_source.html#l00349">349</a> du fichier <a class="el" href="scheduler_8c_source.html">scheduler.c</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Documentation des variables</h2>
+<a id="ac0ad7deba8c8b31a1d9f541aa3ba997f" name="ac0ad7deba8c8b31a1d9f541aa3ba997f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac0ad7deba8c8b31a1d9f541aa3ba997f">&#9670;&#160;</a></span>basculeConsoleDemandee</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="include_2manux_2types_8h.html#a5b7544e51b136e716e4eccc0602bafd7">booleen</a> basculeConsoleDemandee = <a class="el" href="include_2manux_2types_8h.html#aa93f0eb578d23995850d61f7d61c55c1">FALSE</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">DÃ©finition Ã  la ligne <a class="el" href="scheduler_8c_source.html#l00052">52</a> du fichier <a class="el" href="scheduler_8c_source.html">scheduler.c</a>.</p>
+
+</div>
+</div>
+<a id="a6ab4872c480fd88702e95f13ca8c1bf5" name="a6ab4872c480fd88702e95f13ca8c1bf5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6ab4872c480fd88702e95f13ca8c1bf5">&#9670;&#160;</a></span>basculerTacheDemande</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="include_2manux_2types_8h.html#a5b7544e51b136e716e4eccc0602bafd7">booleen</a> basculerTacheDemande = <a class="el" href="include_2manux_2types_8h.html#aa8cecfc5c5c054d2875c03e77b7be15d">TRUE</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">DÃ©finition Ã  la ligne <a class="el" href="scheduler_8c_source.html#l00054">54</a> du fichier <a class="el" href="scheduler_8c_source.html">scheduler.c</a>.</p>
+
+</div>
+</div>
+<a id="ac7f7b7ce11b466047d3870130d7b1e6f" name="ac7f7b7ce11b466047d3870130d7b1e6f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac7f7b7ce11b466047d3870130d7b1e6f">&#9670;&#160;</a></span>dateDernierOrdonnancement</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="include_2manux_2types_8h.html#abe4acab18c967c397d24aa95c2d48b27">Temps</a> dateDernierOrdonnancement</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">DÃ©finition Ã  la ligne <a class="el" href="scheduler_8c_source.html#l00046">46</a> du fichier <a class="el" href="scheduler_8c_source.html">scheduler.c</a>.</p>
+
+</div>
+</div>
+<a id="a80a9c97323077673833937f0f3cb3059" name="a80a9c97323077673833937f0f3cb3059"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a80a9c97323077673833937f0f3cb3059">&#9670;&#160;</a></span>listeTachesPretes</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="listetaches_8h.html#a4f8dc29eb1e6c258afefb6608ce936b5">ListeTache</a> listeTachesPretes</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Identifiant de la tâche actuellement en cours d'exécution dans le noyau (0 si aucune) </p>
+<p>: La liste des tÃ¢ches prÃªtes sur le systÃ¨me</p>
+<p>C'est une façon d'assurer le fonctionnement d'un noyau non réentrant.</p>
+<p>: La liste des tâches prêtes sur le système</p>
+<p>Ce sont les tâches prêtes à être exécutées. N'y figurent donc pas la tâche en cours d'exécution ni les tâches en attente sur un outil de synchronisation. </p>
+
+<p class="definition">DÃ©finition Ã  la ligne <a class="el" href="scheduler_8c_source.html#l00076">76</a> du fichier <a class="el" href="scheduler_8c_source.html">scheduler.c</a>.</p>
+
+</div>
+</div>
+<a id="a05fd30175a3a21795cc066dab7606b4d" name="a05fd30175a3a21795cc066dab7606b4d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a05fd30175a3a21795cc066dab7606b4d">&#9670;&#160;</a></span>listeTachesTerminees</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="listetaches_8h.html#a4f8dc29eb1e6c258afefb6608ce936b5">ListeTache</a> listeTachesTerminees</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>: La liste des tâches achevées. </p>
+<p>: La liste des tÃ¢ches achevÃ©es </p>
+
+<p class="definition">DÃ©finition Ã  la ligne <a class="el" href="scheduler_8c_source.html#l00086">86</a> du fichier <a class="el" href="scheduler_8c_source.html">scheduler.c</a>.</p>
+
+</div>
+</div>
+<a id="a0ee9c5d04fc494f6a86b24b993eb30e3" name="a0ee9c5d04fc494f6a86b24b993eb30e3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0ee9c5d04fc494f6a86b24b993eb30e3">&#9670;&#160;</a></span>listeToutesLesTaches</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="listetaches_8h.html#a4f8dc29eb1e6c258afefb6608ce936b5">ListeTache</a> listeToutesLesTaches</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>: La liste de toutes les tâches existant sur le système. </p>
+<p>: La liste de toutes les tÃ¢ches existant sur le systÃ¨me. </p>
+
+<p class="definition">DÃ©finition Ã  la ligne <a class="el" href="scheduler_8c_source.html#l00081">81</a> du fichier <a class="el" href="scheduler_8c_source.html">scheduler.c</a>.</p>
+
+</div>
+</div>
+<a id="a725a5b194207247d25785e8ec90488d8" name="a725a5b194207247d25785e8ec90488d8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a725a5b194207247d25785e8ec90488d8">&#9670;&#160;</a></span>numeroProchaineTache</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="include_2manux_2types_8h.html#a1aa19b97c742cff758e6532b519954c4">TacheID</a> numeroProchaineTache</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">extern</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>:Le numero de la prochaine tache (WARNING : et si on cycle ?) </p>
+
+<p class="definition">DÃ©finition Ã  la ligne <a class="el" href="tache_8c_source.html#l00034">34</a> du fichier <a class="el" href="tache_8c_source.html">tache.c</a>.</p>
+
+</div>
+</div>
+<a id="a766adafe551d8f3dfb42acf9abc22761" name="a766adafe551d8f3dfb42acf9abc22761"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a766adafe551d8f3dfb42acf9abc22761">&#9670;&#160;</a></span>schedulerEnCours</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="atomique_8h.html#a34aa37778d3701c511b28edcb866cedb">Atomique</a> schedulerEnCours = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">DÃ©finition Ã  la ligne <a class="el" href="scheduler_8c_source.html#l00047">47</a> du fichier <a class="el" href="scheduler_8c_source.html">scheduler.c</a>.</p>
+
+</div>
+</div>
+<a id="aafdf44b33a86f1bef6141d33a4abb94b" name="aafdf44b33a86f1bef6141d33a4abb94b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aafdf44b33a86f1bef6141d33a4abb94b">&#9670;&#160;</a></span>tacheEnCours</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="tache_8h.html#a5e93bfec061525341810ac895de87af3">Tache</a>* tacheEnCours = <a class="el" href="include_2manux_2stddef_8h.html#a070d2ce7b6bb7e5c05602aa8c308d0c4">NULL</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>: La tâche en cours </p>
+<p>: L'identification de la tÃ¢che en cours </p>
+
+<p class="definition">DÃ©finition Ã  la ligne <a class="el" href="scheduler_8c_source.html#l00091">91</a> du fichier <a class="el" href="scheduler_8c_source.html">scheduler.c</a>.</p>
+
+</div>
+</div>
+<a id="ae9fc05d7baa2e71defadd7a4537eef5a" name="ae9fc05d7baa2e71defadd7a4537eef5a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae9fc05d7baa2e71defadd7a4537eef5a">&#9670;&#160;</a></span>tacheScheduler</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="tache_8h.html#a5e93bfec061525341810ac895de87af3">Tache</a>* tacheScheduler</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">DÃ©finition Ã  la ligne <a class="el" href="scheduler_8c_source.html#l00044">44</a> du fichier <a class="el" href="scheduler_8c_source.html">scheduler.c</a>.</p>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+GÃ©nÃ©rÃ© par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

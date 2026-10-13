@@ -1,0 +1,94 @@
+\doxysection{Référence du fichier /home/manu/\+PROGRAMMATION/\+C/\+Manu\+X/usr/include/unistd.h}
+\hypertarget{unistd_8h}{}\label{unistd_8h}\index{/home/manu/PROGRAMMATION/C/ManuX/usr/include/unistd.h@{/home/manu/PROGRAMMATION/C/ManuX/usr/include/unistd.h}}
+{\ttfamily \#include $<$manux/config.\+h$>$}\newline
+{\ttfamily \#include $<$manux/types.\+h$>$}\newline
+Graphe des dépendances par inclusion de unistd.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=281pt]{unistd_8h__incl}
+\end{center}
+\end{figure}
+Ce graphe montre quels fichiers incluent directement ou indirectement ce fichier \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{unistd_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{unistd_8h_aa504f61bfbbdfa9a463450f8b21db44f}{creer\+Nouvelle\+Tache}} (\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}}(corps()), \mbox{\hyperlink{include_2manux_2types_8h_a5b7544e51b136e716e4eccc0602bafd7}{booleen}} share\+Cons)
+\begin{DoxyCompactList}\small\item\em Création d"{}une nouvelle tâche. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{unistd_8h_a3d9572ab938a72bddfc58ab5f224d831}{basculer\+Tache}} ()
+\begin{DoxyCompactList}\small\item\em Basculer vers une autre tâche. On rend simplement la main, c\textquotesingle{}est du collaboratif. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{unistd_8h_abf637d92e7036ee63342a8693dc9c228}{appel\+Systeme\+Inutile}} ()
+\begin{DoxyCompactList}\small\item\em Un appel système sans intérêt, pour l\textquotesingle{}exemple. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{unistd_8h_a40fbcf01646e76422f8b48f5837996d7}{tube}} (int \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{init-acces-concurrent_8c_a62d2d983a3da1fde907ff0f255bf4956}{fd}})
+\begin{DoxyCompactList}\small\item\em Création d\textquotesingle{}un tube de communication. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{unistd_8h_a321e672f528d0dd0927c93ff3a09c5c7}{identifiant\+Tache}} ()
+\begin{DoxyCompactList}\small\item\em Obtention de l\textquotesingle{}identifiant de la tâche en cours. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Documentation des fonctions}
+\Hypertarget{unistd_8h_abf637d92e7036ee63342a8693dc9c228}\label{unistd_8h_abf637d92e7036ee63342a8693dc9c228} 
+\index{unistd.h@{unistd.h}!appelSystemeInutile@{appelSystemeInutile}}
+\index{appelSystemeInutile@{appelSystemeInutile}!unistd.h@{unistd.h}}
+\doxysubsubsection{\texorpdfstring{appelSystemeInutile()}{appelSystemeInutile()}}
+{\footnotesize\ttfamily int appel\+Systeme\+Inutile (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Un appel système sans intérêt, pour l\textquotesingle{}exemple. 
+
+\Hypertarget{unistd_8h_a3d9572ab938a72bddfc58ab5f224d831}\label{unistd_8h_a3d9572ab938a72bddfc58ab5f224d831} 
+\index{unistd.h@{unistd.h}!basculerTache@{basculerTache}}
+\index{basculerTache@{basculerTache}!unistd.h@{unistd.h}}
+\doxysubsubsection{\texorpdfstring{basculerTache()}{basculerTache()}}
+{\footnotesize\ttfamily int basculer\+Tache (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Basculer vers une autre tâche. On rend simplement la main, c\textquotesingle{}est du collaboratif. 
+
+\Hypertarget{unistd_8h_aa504f61bfbbdfa9a463450f8b21db44f}\label{unistd_8h_aa504f61bfbbdfa9a463450f8b21db44f} 
+\index{unistd.h@{unistd.h}!creerNouvelleTache@{creerNouvelleTache}}
+\index{creerNouvelleTache@{creerNouvelleTache}!unistd.h@{unistd.h}}
+\doxysubsubsection{\texorpdfstring{creerNouvelleTache()}{creerNouvelleTache()}}
+{\footnotesize\ttfamily int creer\+Nouvelle\+Tache (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}}(corps())}]{,  }\item[{\mbox{\hyperlink{include_2manux_2types_8h_a5b7544e51b136e716e4eccc0602bafd7}{booleen}}}]{share\+Cons }\end{DoxyParamCaption})}
+
+
+
+Création d"{}une nouvelle tâche. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em corps} & \+: fonction à exécuter \\
+\hline
+{\em share\+Cons} & \+: partage-\/t-\/on la console de la tâche actuelle ? \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+le numéro de la tâche créée. 
+\end{DoxyReturn}
+\Hypertarget{unistd_8h_a321e672f528d0dd0927c93ff3a09c5c7}\label{unistd_8h_a321e672f528d0dd0927c93ff3a09c5c7} 
+\index{unistd.h@{unistd.h}!identifiantTache@{identifiantTache}}
+\index{identifiantTache@{identifiantTache}!unistd.h@{unistd.h}}
+\doxysubsubsection{\texorpdfstring{identifiantTache()}{identifiantTache()}}
+{\footnotesize\ttfamily int identifiant\+Tache (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Obtention de l\textquotesingle{}identifiant de la tâche en cours. 
+
+\Hypertarget{unistd_8h_a40fbcf01646e76422f8b48f5837996d7}\label{unistd_8h_a40fbcf01646e76422f8b48f5837996d7} 
+\index{unistd.h@{unistd.h}!tube@{tube}}
+\index{tube@{tube}!unistd.h@{unistd.h}}
+\doxysubsubsection{\texorpdfstring{tube()}{tube()}}
+{\footnotesize\ttfamily int tube (\begin{DoxyParamCaption}\item[{int \texorpdfstring{$\ast$}{*}}]{fd }\end{DoxyParamCaption})}
+
+
+
+Création d\textquotesingle{}un tube de communication. 
+

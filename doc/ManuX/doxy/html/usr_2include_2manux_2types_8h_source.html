@@ -1,0 +1,192 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>My Project:  Fichier source de /home/manu/PROGRAMMATION/C/ManuX/usr/include/manux/types.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">My Project
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function() { init_codefold(0); });
+/* @license-end */
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_c4a6f9ef9d60515833db96a1f80ff998.html">usr</a></li><li class="navelem"><a class="el" href="dir_18d8996842d9dfe5b3d94b114df19d72.html">include</a></li><li class="navelem"><a class="el" href="dir_0fe5fea9d3d3699156b465ebd83aceb5.html">manux</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle"><div class="title">types.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="usr_2include_2manux_2types_8h.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno"><a class="line" href="usr_2include_2manux_2types_8h.html#ada78e3124de6adf5a5d212f9ebc4bbe0">    1</a></span> </div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno"><a class="line" href="usr_2include_2manux_2types_8h.html#af2b16bef95c844028dd145264d1d3875">    6</a></span><span class="preprocessor">#ifndef MANUX_TYPES</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno"><a class="line" href="usr_2include_2manux_2types_8h.html#a93d929ad1fc57af9d4f1793c361fb4f2">    7</a></span><span class="preprocessor">#define MANUX_TYPES</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &lt;manux/stddef.h&gt;</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#ifndef uint8_t</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno"><a class="line" href="usr_2include_2manux_2types_8h.html#aba7bc1797add20fe3efdf37ced1182c5">   12</a></span><span class="keyword">typedef</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> <a class="code hl_typedef" href="include_2manux_2types_8h.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a>;</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#ifndef uint16</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="usr_2include_2manux_2types_8h.html#a273cf69d639a59973b6019625df33e30">   16</a></span><span class="keyword">typedef</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> <a class="code hl_typedef" href="include_2manux_2types_8h.html#a273cf69d639a59973b6019625df33e30">uint16_t</a>;</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="preprocessor">#ifndef uint32_t</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="usr_2include_2manux_2types_8h.html#a06896e8c53f721507066c079052171f8">   20</a></span><span class="keyword">typedef</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> <a class="code hl_typedef" href="include_2manux_2types_8h.html#a06896e8c53f721507066c079052171f8">uint32_t</a>;</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="preprocessor">#ifndef int32_t</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="usr_2include_2manux_2types_8h.html#ad362a62f5bae89670bdcd2f18a0a73a8">   24</a></span><span class="keyword">typedef</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> <a class="code hl_typedef" href="include_2manux_2types_8h.html#ad362a62f5bae89670bdcd2f18a0a73a8">int32_t</a>;</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="preprocessor">#ifndef uint64_t</span></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="usr_2include_2manux_2types_8h.html#aaa5d1cd013383c889537491c3cfd9aad">   28</a></span><span class="keyword">typedef</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> <span class="keywordtype">long</span> <a class="code hl_typedef" href="include_2manux_2types_8h.html#aaa5d1cd013383c889537491c3cfd9aad">uint64_t</a>;</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="preprocessor">#ifndef booleen</span></div>
+<div class="foldopen" id="foldopen00032" data-start="{" data-end="}">
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="usr_2include_2manux_2types_8h.html#af01a976fd98057ebc05c08c5b9f6440d">   32</a></span><span class="keyword">typedef</span> <span class="keywordtype">int</span> <a class="code hl_typedef" href="include_2manux_2types_8h.html#a5b7544e51b136e716e4eccc0602bafd7">booleen</a>;</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="preprocessor">#ifndef TRUE</span></div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno"><a class="line" href="usr_2include_2manux_2types_8h.html#aa8cecfc5c5c054d2875c03e77b7be15d">   36</a></span><span class="preprocessor">#   define TRUE 1</span></div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="preprocessor">#ifndef FALSE</span></div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno"><a class="line" href="usr_2include_2manux_2types_8h.html#aa93f0eb578d23995850d61f7d61c55c1">   40</a></span><span class="preprocessor">#   define FALSE 0</span></div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><span class="comment">/*</span></div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="comment"> * Définition de la structure contenant tous les registres et sauvée lors d&#39;un</span></div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span><span class="comment"> * pusha ([3] p 121). WARNING, ce n&#39;est pas le meilleur endroit ...</span></div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span><span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code hl_struct" href="struct__TousRegistres.html">_TousRegistres</a> {</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>   <a class="code hl_typedef" href="include_2manux_2types_8h.html#a06896e8c53f721507066c079052171f8">uint32_t</a> <a class="code hl_variable" href="struct__TousRegistres.html#af9c0facdd2af550d013ae15b2397984e">edi</a>;</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>   <a class="code hl_typedef" href="include_2manux_2types_8h.html#a06896e8c53f721507066c079052171f8">uint32_t</a> <a class="code hl_variable" href="struct__TousRegistres.html#a5d2130c6eb400b62feb52c035000457f">esi</a>;</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>   <a class="code hl_typedef" href="include_2manux_2types_8h.html#a06896e8c53f721507066c079052171f8">uint32_t</a> <a class="code hl_variable" href="struct__TousRegistres.html#a6620671314f5e464e7ab06dcb00cfb5a">ebp</a>;</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>   <a class="code hl_typedef" href="include_2manux_2types_8h.html#a06896e8c53f721507066c079052171f8">uint32_t</a> <a class="code hl_variable" href="struct__TousRegistres.html#a651c6997de4ea992734ad1cbad5f8932">esp</a>;</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>   <a class="code hl_typedef" href="include_2manux_2types_8h.html#a06896e8c53f721507066c079052171f8">uint32_t</a> <a class="code hl_variable" href="struct__TousRegistres.html#ab34dafb9f05985800ab610b3c8b84d52">ebx</a>;</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>   <a class="code hl_typedef" href="include_2manux_2types_8h.html#a06896e8c53f721507066c079052171f8">uint32_t</a> <a class="code hl_variable" href="struct__TousRegistres.html#aa0e579bf54f6876a40238ece4c5fcb2c">edx</a>;</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>   <a class="code hl_typedef" href="include_2manux_2types_8h.html#a06896e8c53f721507066c079052171f8">uint32_t</a> <a class="code hl_variable" href="struct__TousRegistres.html#a7ad889662a393fdc7e2ae3df6e0b6a52">ecx</a>;</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>   <a class="code hl_typedef" href="include_2manux_2types_8h.html#a06896e8c53f721507066c079052171f8">uint32_t</a> <a class="code hl_variable" href="struct__TousRegistres.html#ab8bbb102dc341fb50d59a9f4130e7c44">eax</a>;</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>} <a class="code hl_function" href="include_2manux_2types_8h.html#af01a976fd98057ebc05c08c5b9f6440d">__attribute__</a>((packed)) TousRegistres;</div>
+</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span><span class="comment">/*</span></div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span><span class="comment"> * Type des identificateurs de tâche</span></div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno"><a class="line" href="usr_2include_2manux_2types_8h.html#a1aa19b97c742cff758e6532b519954c4">   61</a></span><span class="keyword">typedef</span> <a class="code hl_typedef" href="include_2manux_2types_8h.html#a273cf69d639a59973b6019625df33e30">uint16_t</a> <a class="code hl_typedef" href="include_2manux_2types_8h.html#a1aa19b97c742cff758e6532b519954c4">TacheID</a>;</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span> </div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span><span class="comment">/*</span></div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span><span class="comment"> * Une page mémoire est simplement vue comme une adresse.</span></div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno"><a class="line" href="usr_2include_2manux_2types_8h.html#a1541e9c22944f11aa406a073c3ddd6ff">   66</a></span><span class="keyword">typedef</span> <span class="keywordtype">void</span> * <a class="code hl_typedef" href="include_2manux_2types_8h.html#a1541e9c22944f11aa406a073c3ddd6ff">Page</a>;</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span> </div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span><span class="comment">/*</span></div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span><span class="comment"> * Un nombre de secondes écoulées</span></div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno"><a class="line" href="usr_2include_2manux_2types_8h.html#abe4acab18c967c397d24aa95c2d48b27">   71</a></span><span class="keyword">typedef</span> <a class="code hl_typedef" href="include_2manux_2types_8h.html#ad362a62f5bae89670bdcd2f18a0a73a8">int32_t</a> <a class="code hl_typedef" href="include_2manux_2types_8h.html#abe4acab18c967c397d24aa95c2d48b27">Temps</a>;</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span> </div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span><span class="comment">/* </span></div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span><span class="comment"> * Une structure permettant de décrire des dates/durées plus précisément</span></div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span><span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code hl_struct" href="struct__ValTemps.html">_ValTemps</a> {</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>  <a class="code hl_typedef" href="include_2manux_2types_8h.html#abe4acab18c967c397d24aa95c2d48b27">Temps</a>  <a class="code hl_variable" href="struct__ValTemps.html#af7fd3e16cfa5f02f09cd619070f49b01">secondes</a>;</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>  <a class="code hl_typedef" href="include_2manux_2types_8h.html#a06896e8c53f721507066c079052171f8">uint32_t</a> <a class="code hl_variable" href="struct__ValTemps.html#a532d69dc4bd5c369d7fd265976e9b336">microSecondes</a>;</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno"><a class="line" href="usr_2include_2manux_2types_8h.html#a78833175b5ae83c50ba74e7d8deffc89">   79</a></span>} <a class="code hl_typedef" href="include_2manux_2types_8h.html#a78833175b5ae83c50ba74e7d8deffc89">ValTemps</a>;</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span> </div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span><span class="preprocessor">#endif</span></div>
+<div class="ttc" id="ainclude_2manux_2types_8h_html_a06896e8c53f721507066c079052171f8"><div class="ttname"><a href="include_2manux_2types_8h.html#a06896e8c53f721507066c079052171f8">uint32_t</a></div><div class="ttdeci">unsigned long uint32_t</div><div class="ttdef"><b>Definition</b> <a href="include_2manux_2types_8h_source.html#l00020">types.h:20</a></div></div>
+<div class="ttc" id="ainclude_2manux_2types_8h_html_a1541e9c22944f11aa406a073c3ddd6ff"><div class="ttname"><a href="include_2manux_2types_8h.html#a1541e9c22944f11aa406a073c3ddd6ff">Page</a></div><div class="ttdeci">void * Page</div><div class="ttdef"><b>Definition</b> <a href="include_2manux_2types_8h_source.html#l00066">types.h:66</a></div></div>
+<div class="ttc" id="ainclude_2manux_2types_8h_html_a1aa19b97c742cff758e6532b519954c4"><div class="ttname"><a href="include_2manux_2types_8h.html#a1aa19b97c742cff758e6532b519954c4">TacheID</a></div><div class="ttdeci">uint16_t TacheID</div><div class="ttdef"><b>Definition</b> <a href="include_2manux_2types_8h_source.html#l00061">types.h:61</a></div></div>
+<div class="ttc" id="ainclude_2manux_2types_8h_html_a273cf69d639a59973b6019625df33e30"><div class="ttname"><a href="include_2manux_2types_8h.html#a273cf69d639a59973b6019625df33e30">uint16_t</a></div><div class="ttdeci">unsigned short uint16_t</div><div class="ttdef"><b>Definition</b> <a href="include_2manux_2types_8h_source.html#l00016">types.h:16</a></div></div>
+<div class="ttc" id="ainclude_2manux_2types_8h_html_a5b7544e51b136e716e4eccc0602bafd7"><div class="ttname"><a href="include_2manux_2types_8h.html#a5b7544e51b136e716e4eccc0602bafd7">booleen</a></div><div class="ttdeci">int booleen</div><div class="ttdef"><b>Definition</b> <a href="include_2manux_2types_8h_source.html#l00032">types.h:32</a></div></div>
+<div class="ttc" id="ainclude_2manux_2types_8h_html_a78833175b5ae83c50ba74e7d8deffc89"><div class="ttname"><a href="include_2manux_2types_8h.html#a78833175b5ae83c50ba74e7d8deffc89">ValTemps</a></div><div class="ttdeci">struct _ValTemps ValTemps</div></div>
+<div class="ttc" id="ainclude_2manux_2types_8h_html_aaa5d1cd013383c889537491c3cfd9aad"><div class="ttname"><a href="include_2manux_2types_8h.html#aaa5d1cd013383c889537491c3cfd9aad">uint64_t</a></div><div class="ttdeci">unsigned long long uint64_t</div><div class="ttdef"><b>Definition</b> <a href="include_2manux_2types_8h_source.html#l00028">types.h:28</a></div></div>
+<div class="ttc" id="ainclude_2manux_2types_8h_html_aba7bc1797add20fe3efdf37ced1182c5"><div class="ttname"><a href="include_2manux_2types_8h.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a></div><div class="ttdeci">unsigned char uint8_t</div><div class="ttdef"><b>Definition</b> <a href="include_2manux_2types_8h_source.html#l00012">types.h:12</a></div></div>
+<div class="ttc" id="ainclude_2manux_2types_8h_html_abe4acab18c967c397d24aa95c2d48b27"><div class="ttname"><a href="include_2manux_2types_8h.html#abe4acab18c967c397d24aa95c2d48b27">Temps</a></div><div class="ttdeci">int32_t Temps</div><div class="ttdef"><b>Definition</b> <a href="include_2manux_2types_8h_source.html#l00071">types.h:71</a></div></div>
+<div class="ttc" id="ainclude_2manux_2types_8h_html_ad362a62f5bae89670bdcd2f18a0a73a8"><div class="ttname"><a href="include_2manux_2types_8h.html#ad362a62f5bae89670bdcd2f18a0a73a8">int32_t</a></div><div class="ttdeci">unsigned long int32_t</div><div class="ttdef"><b>Definition</b> <a href="include_2manux_2types_8h_source.html#l00024">types.h:24</a></div></div>
+<div class="ttc" id="ainclude_2manux_2types_8h_html_af01a976fd98057ebc05c08c5b9f6440d"><div class="ttname"><a href="include_2manux_2types_8h.html#af01a976fd98057ebc05c08c5b9f6440d">__attribute__</a></div><div class="ttdeci">struct _TousRegistres __attribute__((packed)) TousRegistres</div></div>
+<div class="ttc" id="astruct__TousRegistres_html"><div class="ttname"><a href="struct__TousRegistres.html">_TousRegistres</a></div><div class="ttdef"><b>Definition</b> <a href="include_2manux_2types_8h_source.html#l00047">types.h:47</a></div></div>
+<div class="ttc" id="astruct__TousRegistres_html_a5d2130c6eb400b62feb52c035000457f"><div class="ttname"><a href="struct__TousRegistres.html#a5d2130c6eb400b62feb52c035000457f">_TousRegistres::esi</a></div><div class="ttdeci">uint32_t esi</div><div class="ttdef"><b>Definition</b> <a href="include_2manux_2types_8h_source.html#l00049">types.h:49</a></div></div>
+<div class="ttc" id="astruct__TousRegistres_html_a651c6997de4ea992734ad1cbad5f8932"><div class="ttname"><a href="struct__TousRegistres.html#a651c6997de4ea992734ad1cbad5f8932">_TousRegistres::esp</a></div><div class="ttdeci">uint32_t esp</div><div class="ttdef"><b>Definition</b> <a href="include_2manux_2types_8h_source.html#l00051">types.h:51</a></div></div>
+<div class="ttc" id="astruct__TousRegistres_html_a6620671314f5e464e7ab06dcb00cfb5a"><div class="ttname"><a href="struct__TousRegistres.html#a6620671314f5e464e7ab06dcb00cfb5a">_TousRegistres::ebp</a></div><div class="ttdeci">uint32_t ebp</div><div class="ttdef"><b>Definition</b> <a href="include_2manux_2types_8h_source.html#l00050">types.h:50</a></div></div>
+<div class="ttc" id="astruct__TousRegistres_html_a7ad889662a393fdc7e2ae3df6e0b6a52"><div class="ttname"><a href="struct__TousRegistres.html#a7ad889662a393fdc7e2ae3df6e0b6a52">_TousRegistres::ecx</a></div><div class="ttdeci">uint32_t ecx</div><div class="ttdef"><b>Definition</b> <a href="include_2manux_2types_8h_source.html#l00054">types.h:54</a></div></div>
+<div class="ttc" id="astruct__TousRegistres_html_aa0e579bf54f6876a40238ece4c5fcb2c"><div class="ttname"><a href="struct__TousRegistres.html#aa0e579bf54f6876a40238ece4c5fcb2c">_TousRegistres::edx</a></div><div class="ttdeci">uint32_t edx</div><div class="ttdef"><b>Definition</b> <a href="include_2manux_2types_8h_source.html#l00053">types.h:53</a></div></div>
+<div class="ttc" id="astruct__TousRegistres_html_ab34dafb9f05985800ab610b3c8b84d52"><div class="ttname"><a href="struct__TousRegistres.html#ab34dafb9f05985800ab610b3c8b84d52">_TousRegistres::ebx</a></div><div class="ttdeci">uint32_t ebx</div><div class="ttdef"><b>Definition</b> <a href="include_2manux_2types_8h_source.html#l00052">types.h:52</a></div></div>
+<div class="ttc" id="astruct__TousRegistres_html_ab8bbb102dc341fb50d59a9f4130e7c44"><div class="ttname"><a href="struct__TousRegistres.html#ab8bbb102dc341fb50d59a9f4130e7c44">_TousRegistres::eax</a></div><div class="ttdeci">uint32_t eax</div><div class="ttdef"><b>Definition</b> <a href="include_2manux_2types_8h_source.html#l00055">types.h:55</a></div></div>
+<div class="ttc" id="astruct__TousRegistres_html_af9c0facdd2af550d013ae15b2397984e"><div class="ttname"><a href="struct__TousRegistres.html#af9c0facdd2af550d013ae15b2397984e">_TousRegistres::edi</a></div><div class="ttdeci">uint32_t edi</div><div class="ttdef"><b>Definition</b> <a href="include_2manux_2types_8h_source.html#l00048">types.h:48</a></div></div>
+<div class="ttc" id="astruct__ValTemps_html"><div class="ttname"><a href="struct__ValTemps.html">_ValTemps</a></div><div class="ttdef"><b>Definition</b> <a href="include_2manux_2types_8h_source.html#l00076">types.h:76</a></div></div>
+<div class="ttc" id="astruct__ValTemps_html_a532d69dc4bd5c369d7fd265976e9b336"><div class="ttname"><a href="struct__ValTemps.html#a532d69dc4bd5c369d7fd265976e9b336">_ValTemps::microSecondes</a></div><div class="ttdeci">uint32_t microSecondes</div><div class="ttdef"><b>Definition</b> <a href="include_2manux_2types_8h_source.html#l00078">types.h:78</a></div></div>
+<div class="ttc" id="astruct__ValTemps_html_af7fd3e16cfa5f02f09cd619070f49b01"><div class="ttname"><a href="struct__ValTemps.html#af7fd3e16cfa5f02f09cd619070f49b01">_ValTemps::secondes</a></div><div class="ttdeci">Temps secondes</div><div class="ttdef"><b>Definition</b> <a href="include_2manux_2types_8h_source.html#l00077">types.h:77</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

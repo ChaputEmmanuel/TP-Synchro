@@ -1,0 +1,102 @@
+\doxysection{Référence de la structure \+\_\+\+Fichier}
+\hypertarget{struct__Fichier}{}\label{struct__Fichier}\index{\_Fichier@{\_Fichier}}
+
+
+\+: Qu\textquotesingle{}est-\/ce qu\textquotesingle{}un fichier ouvert du point de vue du noyau ?  
+
+
+
+
+{\ttfamily \#include $<$fichier.\+h$>$}
+
+
+
+Graphe de collaboration de \+\_\+\+Fichier\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=326pt]{struct__Fichier__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Attributs publics}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct__Fichier_a39fb043fce9256f50b0db131cd10d814}{prive}}
+\begin{DoxyCompactList}\small\item\em Caractérisation du fichier ouvert. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{inoeud_8h_a27ca90a5da64ab349726ed0513ec6e73}{INoeud}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct__Fichier_a2701084fbf362681f2d2480b1b323de7}{i\+Noeud}}
+\begin{DoxyCompactList}\small\item\em Caractérisation de la structure. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{include_2manux_2types_8h_a273cf69d639a59973b6019625df33e30}{uint16\+\_\+t}} \mbox{\hyperlink{struct__Fichier_ac64af7e18d98ddd6dfa617ea39eff2d2}{mode}}
+\begin{DoxyCompactList}\small\item\em FMODE\+\_\+\+READ, FMODE\+\_\+\+WRITE, ... pour création. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{include_2manux_2types_8h_a273cf69d639a59973b6019625df33e30}{uint16\+\_\+t}} \mbox{\hyperlink{struct__Fichier_a56519e60d0981ec5edef4b0fb0c38010}{fanions}}
+\begin{DoxyCompactList}\small\item\em O\+\_\+\+RDONLY, O\+\_\+\+NONBLOCK, O\+\_\+\+SYNC. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+\+: Qu\textquotesingle{}est-\/ce qu\textquotesingle{}un fichier ouvert du point de vue du noyau ? 
+
+Définition à la ligne \mbox{\hyperlink{fichier_8h_source_l00046}{46}} du fichier \mbox{\hyperlink{fichier_8h_source}{fichier.\+h}}.
+
+
+
+\doxysubsection{Documentation des données membres}
+\Hypertarget{struct__Fichier_a56519e60d0981ec5edef4b0fb0c38010}\label{struct__Fichier_a56519e60d0981ec5edef4b0fb0c38010} 
+\index{\_Fichier@{\_Fichier}!fanions@{fanions}}
+\index{fanions@{fanions}!\_Fichier@{\_Fichier}}
+\doxysubsubsection{\texorpdfstring{fanions}{fanions}}
+{\footnotesize\ttfamily \mbox{\hyperlink{include_2manux_2types_8h_a273cf69d639a59973b6019625df33e30}{uint16\+\_\+t}} \+\_\+\+Fichier\+::fanions}
+
+
+
+O\+\_\+\+RDONLY, O\+\_\+\+NONBLOCK, O\+\_\+\+SYNC. 
+
+
+
+Définition à la ligne \mbox{\hyperlink{fichier_8h_source_l00050}{50}} du fichier \mbox{\hyperlink{fichier_8h_source}{fichier.\+h}}.
+
+\Hypertarget{struct__Fichier_a2701084fbf362681f2d2480b1b323de7}\label{struct__Fichier_a2701084fbf362681f2d2480b1b323de7} 
+\index{\_Fichier@{\_Fichier}!iNoeud@{iNoeud}}
+\index{iNoeud@{iNoeud}!\_Fichier@{\_Fichier}}
+\doxysubsubsection{\texorpdfstring{iNoeud}{iNoeud}}
+{\footnotesize\ttfamily \mbox{\hyperlink{inoeud_8h_a27ca90a5da64ab349726ed0513ec6e73}{INoeud}}\texorpdfstring{$\ast$}{*} \+\_\+\+Fichier\+::i\+Noeud}
+
+
+
+Caractérisation de la structure. 
+
+
+
+Définition à la ligne \mbox{\hyperlink{fichier_8h_source_l00048}{48}} du fichier \mbox{\hyperlink{fichier_8h_source}{fichier.\+h}}.
+
+\Hypertarget{struct__Fichier_ac64af7e18d98ddd6dfa617ea39eff2d2}\label{struct__Fichier_ac64af7e18d98ddd6dfa617ea39eff2d2} 
+\index{\_Fichier@{\_Fichier}!mode@{mode}}
+\index{mode@{mode}!\_Fichier@{\_Fichier}}
+\doxysubsubsection{\texorpdfstring{mode}{mode}}
+{\footnotesize\ttfamily \mbox{\hyperlink{include_2manux_2types_8h_a273cf69d639a59973b6019625df33e30}{uint16\+\_\+t}} \+\_\+\+Fichier\+::mode}
+
+
+
+FMODE\+\_\+\+READ, FMODE\+\_\+\+WRITE, ... pour création. 
+
+
+
+Définition à la ligne \mbox{\hyperlink{fichier_8h_source_l00049}{49}} du fichier \mbox{\hyperlink{fichier_8h_source}{fichier.\+h}}.
+
+\Hypertarget{struct__Fichier_a39fb043fce9256f50b0db131cd10d814}\label{struct__Fichier_a39fb043fce9256f50b0db131cd10d814} 
+\index{\_Fichier@{\_Fichier}!prive@{prive}}
+\index{prive@{prive}!\_Fichier@{\_Fichier}}
+\doxysubsubsection{\texorpdfstring{prive}{prive}}
+{\footnotesize\ttfamily \mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}}\texorpdfstring{$\ast$}{*} \+\_\+\+Fichier\+::prive}
+
+
+
+Caractérisation du fichier ouvert. 
+
+
+
+Définition à la ligne \mbox{\hyperlink{fichier_8h_source_l00047}{47}} du fichier \mbox{\hyperlink{fichier_8h_source}{fichier.\+h}}.
+
+
+
+La documentation de cette structure a été générée à partir du fichier suivant \+:\begin{DoxyCompactItemize}
+\item 
+/home/manu/\+PROGRAMMATION/\+C/\+Manu\+X/include/manux/\mbox{\hyperlink{fichier_8h}{fichier.\+h}}\end{DoxyCompactItemize}

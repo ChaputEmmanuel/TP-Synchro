@@ -1,0 +1,182 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>My Project:  Fichier source de /home/manu/PROGRAMMATION/C/ManuX/include/manux/fichier.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">My Project
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function() { init_codefold(0); });
+/* @license-end */
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_7ae9ae23548caaa7aeb1f148c6e00073.html">manux</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle"><div class="title">fichier.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="fichier_8h.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">/*----------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment">/*      Définition des fichiers de Manux.                                     */</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment">/*                                                                            */</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment">/* Pour le moment très simplifié : on ne se soucis pas d&#39;ouvrir ou de fermer  */</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment">/* par exemple                                                                */</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment">/*                                                  (C) Manu Chaput 2002-2023 */</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="comment">/*----------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#ifndef FICHIER_DEF</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#define FICHIER_DEF</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &lt;<a class="code" href="inoeud_8h.html">manux/inoeud.h</a>&gt;</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#include &lt;manux/appelsysteme.h&gt;</span> <span class="comment">// ParametreAS</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno"><a class="line" href="fichier_8h.html#af21b1af90951b2649333714c85dfe197">   14</a></span><span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code hl_struct" href="struct__Fichier.html">_Fichier</a> <a class="code hl_struct" href="struct__Fichier.html">Fichier</a>;</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="fichier_8h.html#aa4953048861776a86cd387c0d96db449">   19</a></span><span class="preprocessor">#define FMODE_READ   0x0001</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="fichier_8h.html#ae003a38311b8eb87254113b1c57a38f0">   20</a></span><span class="preprocessor">#define FMODE_WRITE  0x0002</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="fichier_8h.html#a7a68c9ffaac7dbcd652225dd7c06a54b">   27</a></span><span class="preprocessor">#define O_RDONLY     0x0001</span></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="fichier_8h.html#a11b644a8526139c4cc1850dac1271ced">   28</a></span><span class="preprocessor">#define O_WRONLY     0x0002</span></div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno"><a class="line" href="fichier_8h.html#abb0586253488ee61072b73557eeb873b">   29</a></span><span class="preprocessor">#define O_RDWR       (O_RDONLY|O_WRONLY)</span></div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno"><a class="line" href="fichier_8h.html#a39d33ce33804efd4d52606d59071c6d8">   30</a></span><span class="preprocessor">#define O_NONBLOCK   0x0004</span></div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="fichier_8h.html#aae85139bfa94236d126bb1e3b772998f">   31</a></span><span class="preprocessor">#define O_SYNC       0x0008</span></div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
+<div class="foldopen" id="foldopen00036" data-start="{" data-end="};">
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno"><a class="line" href="struct__MethodesFichier.html">   36</a></span><span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code hl_struct" href="struct__MethodesFichier.html">_MethodesFichier</a> {</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="struct__MethodesFichier.html#a3e23aaea9f7edd7b7cac7b95cb574d19">   37</a></span>   int (*<a class="code hl_variable" href="struct__MethodesFichier.html#a3e23aaea9f7edd7b7cac7b95cb574d19">ouvrir</a>) (<a class="code hl_struct" href="struct__INoeud.html">INoeud</a> * iNoeud, <a class="code hl_struct" href="struct__Fichier.html">Fichier</a> * f, <a class="code hl_typedef" href="include_2manux_2types_8h.html#a273cf69d639a59973b6019625df33e30">uint16_t</a> fanions, <a class="code hl_typedef" href="include_2manux_2types_8h.html#a273cf69d639a59973b6019625df33e30">uint16_t</a> mode);</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno"><a class="line" href="struct__MethodesFichier.html#a06f81e89f851134e20527a4846781442">   38</a></span>   int (*<a class="code hl_variable" href="struct__MethodesFichier.html#a06f81e89f851134e20527a4846781442">fermer</a>) (<a class="code hl_struct" href="struct__Fichier.html">Fichier</a> * f);</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno"><a class="line" href="struct__MethodesFichier.html#a9c0e50e5e0612aab9df6a94f36947942">   39</a></span>   <a class="code hl_typedef" href="include_2manux_2stddef_8h.html#acf18a0d6c4b39d531e021702e9a77984">size_t</a> (*<a class="code hl_variable" href="struct__MethodesFichier.html#a9c0e50e5e0612aab9df6a94f36947942">ecrire</a>) (<a class="code hl_struct" href="struct__Fichier.html">Fichier</a> * f, <span class="keywordtype">void</span> * buffer, <span class="keywordtype">size_t</span> nbOctets);</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno"><a class="line" href="struct__MethodesFichier.html#a5b1b2c44bada2f0ade23befa3b48834f">   40</a></span>   <a class="code hl_typedef" href="include_2manux_2stddef_8h.html#acf18a0d6c4b39d531e021702e9a77984">size_t</a> (*<a class="code hl_variable" href="struct__MethodesFichier.html#a5b1b2c44bada2f0ade23befa3b48834f">lire</a>) (<a class="code hl_struct" href="struct__Fichier.html">Fichier</a> * f, <span class="keywordtype">void</span> * buffer, <span class="keywordtype">size_t</span> nbOctets);</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno"><a class="line" href="fichier_8h.html#aa50864b665282e0139a9fbea6eab26d4">   41</a></span>} <a class="code hl_typedef" href="fichier_8h.html#aa50864b665282e0139a9fbea6eab26d4">MethodesFichier</a>;</div>
+</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
+<div class="foldopen" id="foldopen00046" data-start="{" data-end="};">
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno"><a class="line" href="struct__Fichier.html">   46</a></span><span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code hl_struct" href="struct__Fichier.html">_Fichier</a> {</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno"><a class="line" href="struct__Fichier.html#a39fb043fce9256f50b0db131cd10d814">   47</a></span>   <span class="keywordtype">void</span>            * <a class="code hl_variable" href="struct__Fichier.html#a39fb043fce9256f50b0db131cd10d814">prive</a>;   </div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno"><a class="line" href="struct__Fichier.html#a2701084fbf362681f2d2480b1b323de7">   48</a></span>   <a class="code hl_struct" href="struct__INoeud.html">INoeud</a>          * <a class="code hl_variable" href="struct__Fichier.html#a2701084fbf362681f2d2480b1b323de7">iNoeud</a>;  </div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno"><a class="line" href="struct__Fichier.html#ac64af7e18d98ddd6dfa617ea39eff2d2">   49</a></span>   <a class="code hl_typedef" href="include_2manux_2types_8h.html#a273cf69d639a59973b6019625df33e30">uint16_t</a>          <a class="code hl_variable" href="struct__Fichier.html#ac64af7e18d98ddd6dfa617ea39eff2d2">mode</a>;    </div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno"><a class="line" href="struct__Fichier.html#a56519e60d0981ec5edef4b0fb0c38010">   50</a></span>   <a class="code hl_typedef" href="include_2manux_2types_8h.html#a273cf69d639a59973b6019625df33e30">uint16_t</a>          <a class="code hl_variable" href="struct__Fichier.html#a56519e60d0981ec5edef4b0fb0c38010">fanions</a>; </div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>  <span class="comment">//   MethodesFichier * methodes;</span></div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>} <a class="code hl_typedef" href="fichier_8h.html#af21b1af90951b2649333714c85dfe197">Fichier</a>;</div>
+</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span> </div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span><span class="keywordtype">int</span> <a class="code hl_function" href="fichier_8h.html#abc65f3c0efeb699107be0fb3dede5098">fichierEcrire</a>(<a class="code hl_struct" href="struct__Fichier.html">Fichier</a> * f, <span class="keywordtype">void</span> * buffer, <span class="keywordtype">int</span> nbOctets);</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span> </div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span><span class="preprocessor">#ifdef MANUX_APPELS_SYSTEME</span></div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span><span class="keywordtype">int</span> sys_fermer(<a class="code hl_struct" href="struct__ParametreAS.html">ParametreAS</a> as, <span class="keywordtype">int</span> <a class="code hl_variable" href="init-acces-concurrent_8c.html#a62d2d983a3da1fde907ff0f255bf4956">fd</a>);</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span> </div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span><span class="keywordtype">int</span> sys_ecrire(<a class="code hl_struct" href="struct__ParametreAS.html">ParametreAS</a> as, <span class="keywordtype">int</span> <a class="code hl_variable" href="init-acces-concurrent_8c.html#a62d2d983a3da1fde907ff0f255bf4956">fd</a>, <span class="keywordtype">void</span> * buffer, <span class="keywordtype">int</span> nbOctets);</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span><span class="keywordtype">int</span> sys_lire(<a class="code hl_struct" href="struct__ParametreAS.html">ParametreAS</a> as, <span class="keywordtype">int</span> <a class="code hl_variable" href="init-acces-concurrent_8c.html#a62d2d983a3da1fde907ff0f255bf4956">fd</a>, <span class="keywordtype">void</span> * buffer, <span class="keywordtype">int</span> nbOctets);</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span> </div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span><span class="keywordtype">void</span> <a class="code hl_function" href="fichier_8h.html#a431c9fdbc351bde6f9c419267bd5adc5">sfInitialiser</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span><span class="comment">/* </span></div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span><span class="comment"> * Initialisation de tout ce qui est lié au SF</span></div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span> </div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span><span class="keywordtype">int</span> <a class="code hl_function" href="fichier_8h.html#ab4279a068c868f6efab9279aa021bc76">fichierOuvrir</a>(<a class="code hl_struct" href="struct__INoeud.html">INoeud</a> * iNoeud, <a class="code hl_struct" href="struct__Fichier.html">Fichier</a> * f, <a class="code hl_typedef" href="include_2manux_2types_8h.html#a273cf69d639a59973b6019625df33e30">uint16_t</a> fanions, <a class="code hl_typedef" href="include_2manux_2types_8h.html#a273cf69d639a59973b6019625df33e30">uint16_t</a> mode);</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span> </div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span><span class="keywordtype">int</span> <a class="code hl_function" href="fichier_8h.html#a00fc4fac4da6a7b5c9206308bc159c9d">fichierFermer</a>(<a class="code hl_struct" href="struct__Fichier.html">Fichier</a> * f);</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span> </div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span><span class="preprocessor">#ifdef MANUX_KMALLOC</span></div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span><a class="code hl_struct" href="struct__Fichier.html">Fichier</a> * fichierDupliquer(<a class="code hl_struct" href="struct__Fichier.html">Fichier</a> * f);</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span> </div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span><a class="code hl_struct" href="struct__Fichier.html">Fichier</a> * fichierCreer(<a class="code hl_struct" href="struct__INoeud.html">INoeud</a> * iNoeud, <a class="code hl_typedef" href="include_2manux_2types_8h.html#a273cf69d639a59973b6019625df33e30">uint16_t</a> fanions, <a class="code hl_typedef" href="include_2manux_2types_8h.html#a273cf69d639a59973b6019625df33e30">uint16_t</a> mode);</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span> </div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span><span class="preprocessor">#endif </span><span class="comment">// MANUX_KMALLOC</span></div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span> </div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span><span class="preprocessor">#endif</span></div>
+<div class="ttc" id="afichier_8h_html_a00fc4fac4da6a7b5c9206308bc159c9d"><div class="ttname"><a href="fichier_8h.html#a00fc4fac4da6a7b5c9206308bc159c9d">fichierFermer</a></div><div class="ttdeci">int fichierFermer(Fichier *f)</div><div class="ttdoc">Fermeture d'un fichier.</div><div class="ttdef"><b>Definition</b> <a href="fichier_8c_source.html#l00168">fichier.c:168</a></div></div>
+<div class="ttc" id="afichier_8h_html_a431c9fdbc351bde6f9c419267bd5adc5"><div class="ttname"><a href="fichier_8h.html#a431c9fdbc351bde6f9c419267bd5adc5">sfInitialiser</a></div><div class="ttdeci">void sfInitialiser(void)</div><div class="ttdef"><b>Definition</b> <a href="fichier_8c_source.html#l00129">fichier.c:129</a></div></div>
+<div class="ttc" id="afichier_8h_html_aa50864b665282e0139a9fbea6eab26d4"><div class="ttname"><a href="fichier_8h.html#aa50864b665282e0139a9fbea6eab26d4">MethodesFichier</a></div><div class="ttdeci">struct _MethodesFichier MethodesFichier</div><div class="ttdoc">: Définition des opérations réalisables sur un fichier</div></div>
+<div class="ttc" id="afichier_8h_html_ab4279a068c868f6efab9279aa021bc76"><div class="ttname"><a href="fichier_8h.html#ab4279a068c868f6efab9279aa021bc76">fichierOuvrir</a></div><div class="ttdeci">int fichierOuvrir(INoeud *iNoeud, Fichier *f, uint16_t fanions, uint16_t mode)</div><div class="ttdoc">: Ouverture d'un fichier.</div><div class="ttdef"><b>Definition</b> <a href="fichier_8c_source.html#l00145">fichier.c:145</a></div></div>
+<div class="ttc" id="afichier_8h_html_abc65f3c0efeb699107be0fb3dede5098"><div class="ttname"><a href="fichier_8h.html#abc65f3c0efeb699107be0fb3dede5098">fichierEcrire</a></div><div class="ttdeci">int fichierEcrire(Fichier *f, void *buffer, int nbOctets)</div><div class="ttdef"><b>Definition</b> <a href="fichier_8c_source.html#l00036">fichier.c:36</a></div></div>
+<div class="ttc" id="afichier_8h_html_af21b1af90951b2649333714c85dfe197"><div class="ttname"><a href="fichier_8h.html#af21b1af90951b2649333714c85dfe197">Fichier</a></div><div class="ttdeci">struct _Fichier Fichier</div><div class="ttdoc">: Qu'est-ce qu'un fichier ouvert du point de vue du noyau ?</div><div class="ttdef"><b>Definition</b> <a href="fichier_8h_source.html#l00014">fichier.h:14</a></div></div>
+<div class="ttc" id="ainclude_2manux_2stddef_8h_html_acf18a0d6c4b39d531e021702e9a77984"><div class="ttname"><a href="include_2manux_2stddef_8h.html#acf18a0d6c4b39d531e021702e9a77984">size_t</a></div><div class="ttdeci">unsigned long size_t</div><div class="ttdef"><b>Definition</b> <a href="include_2manux_2stddef_8h_source.html#l00014">stddef.h:14</a></div></div>
+<div class="ttc" id="ainclude_2manux_2types_8h_html_a273cf69d639a59973b6019625df33e30"><div class="ttname"><a href="include_2manux_2types_8h.html#a273cf69d639a59973b6019625df33e30">uint16_t</a></div><div class="ttdeci">unsigned short uint16_t</div><div class="ttdef"><b>Definition</b> <a href="include_2manux_2types_8h_source.html#l00016">types.h:16</a></div></div>
+<div class="ttc" id="ainit-acces-concurrent_8c_html_a62d2d983a3da1fde907ff0f255bf4956"><div class="ttname"><a href="init-acces-concurrent_8c.html#a62d2d983a3da1fde907ff0f255bf4956">fd</a></div><div class="ttdeci">int fd[2]</div><div class="ttdef"><b>Definition</b> <a href="init-acces-concurrent_8c_source.html#l00024">init-acces-concurrent.c:24</a></div></div>
+<div class="ttc" id="ainoeud_8h_html"><div class="ttname"><a href="inoeud_8h.html">inoeud.h</a></div><div class="ttdoc">: description des noeuds d'information (C) Manu Chaput 2002-2023</div></div>
+<div class="ttc" id="astruct__Fichier_html"><div class="ttname"><a href="struct__Fichier.html">_Fichier</a></div><div class="ttdoc">: Qu'est-ce qu'un fichier ouvert du point de vue du noyau ?</div><div class="ttdef"><b>Definition</b> <a href="fichier_8h_source.html#l00046">fichier.h:46</a></div></div>
+<div class="ttc" id="astruct__Fichier_html_a2701084fbf362681f2d2480b1b323de7"><div class="ttname"><a href="struct__Fichier.html#a2701084fbf362681f2d2480b1b323de7">_Fichier::iNoeud</a></div><div class="ttdeci">INoeud * iNoeud</div><div class="ttdoc">Caractérisation de la structure.</div><div class="ttdef"><b>Definition</b> <a href="fichier_8h_source.html#l00048">fichier.h:48</a></div></div>
+<div class="ttc" id="astruct__Fichier_html_a39fb043fce9256f50b0db131cd10d814"><div class="ttname"><a href="struct__Fichier.html#a39fb043fce9256f50b0db131cd10d814">_Fichier::prive</a></div><div class="ttdeci">void * prive</div><div class="ttdoc">Caractérisation du fichier ouvert.</div><div class="ttdef"><b>Definition</b> <a href="fichier_8h_source.html#l00047">fichier.h:47</a></div></div>
+<div class="ttc" id="astruct__Fichier_html_a56519e60d0981ec5edef4b0fb0c38010"><div class="ttname"><a href="struct__Fichier.html#a56519e60d0981ec5edef4b0fb0c38010">_Fichier::fanions</a></div><div class="ttdeci">uint16_t fanions</div><div class="ttdoc">O_RDONLY, O_NONBLOCK, O_SYNC.</div><div class="ttdef"><b>Definition</b> <a href="fichier_8h_source.html#l00050">fichier.h:50</a></div></div>
+<div class="ttc" id="astruct__Fichier_html_ac64af7e18d98ddd6dfa617ea39eff2d2"><div class="ttname"><a href="struct__Fichier.html#ac64af7e18d98ddd6dfa617ea39eff2d2">_Fichier::mode</a></div><div class="ttdeci">uint16_t mode</div><div class="ttdoc">FMODE_READ, FMODE_WRITE, ... pour création.</div><div class="ttdef"><b>Definition</b> <a href="fichier_8h_source.html#l00049">fichier.h:49</a></div></div>
+<div class="ttc" id="astruct__INoeud_html"><div class="ttname"><a href="struct__INoeud.html">_INoeud</a></div><div class="ttdoc">: Un INoeud représente un fichier, d'un point de vue statique Il s'agit donc de la description d'un f...</div><div class="ttdef"><b>Definition</b> <a href="inoeud_8h_source.html#l00027">inoeud.h:27</a></div></div>
+<div class="ttc" id="astruct__MethodesFichier_html"><div class="ttname"><a href="struct__MethodesFichier.html">_MethodesFichier</a></div><div class="ttdoc">: Définition des opérations réalisables sur un fichier</div><div class="ttdef"><b>Definition</b> <a href="fichier_8h_source.html#l00036">fichier.h:36</a></div></div>
+<div class="ttc" id="astruct__MethodesFichier_html_a06f81e89f851134e20527a4846781442"><div class="ttname"><a href="struct__MethodesFichier.html#a06f81e89f851134e20527a4846781442">_MethodesFichier::fermer</a></div><div class="ttdeci">int(* fermer)(Fichier *f)</div><div class="ttdef"><b>Definition</b> <a href="fichier_8h_source.html#l00038">fichier.h:38</a></div></div>
+<div class="ttc" id="astruct__MethodesFichier_html_a3e23aaea9f7edd7b7cac7b95cb574d19"><div class="ttname"><a href="struct__MethodesFichier.html#a3e23aaea9f7edd7b7cac7b95cb574d19">_MethodesFichier::ouvrir</a></div><div class="ttdeci">int(* ouvrir)(INoeud *iNoeud, Fichier *f, uint16_t fanions, uint16_t mode)</div><div class="ttdef"><b>Definition</b> <a href="fichier_8h_source.html#l00037">fichier.h:37</a></div></div>
+<div class="ttc" id="astruct__MethodesFichier_html_a5b1b2c44bada2f0ade23befa3b48834f"><div class="ttname"><a href="struct__MethodesFichier.html#a5b1b2c44bada2f0ade23befa3b48834f">_MethodesFichier::lire</a></div><div class="ttdeci">size_t(* lire)(Fichier *f, void *buffer, size_t nbOctets)</div><div class="ttdef"><b>Definition</b> <a href="fichier_8h_source.html#l00040">fichier.h:40</a></div></div>
+<div class="ttc" id="astruct__MethodesFichier_html_a9c0e50e5e0612aab9df6a94f36947942"><div class="ttname"><a href="struct__MethodesFichier.html#a9c0e50e5e0612aab9df6a94f36947942">_MethodesFichier::ecrire</a></div><div class="ttdeci">size_t(* ecrire)(Fichier *f, void *buffer, size_t nbOctets)</div><div class="ttdef"><b>Definition</b> <a href="fichier_8h_source.html#l00039">fichier.h:39</a></div></div>
+<div class="ttc" id="astruct__ParametreAS_html"><div class="ttname"><a href="struct__ParametreAS.html">_ParametreAS</a></div><div class="ttdef"><b>Definition</b> <a href="include_2manux_2appelsysteme_8h_source.html#l00030">appelsysteme.h:30</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

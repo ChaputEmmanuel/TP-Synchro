@@ -1,0 +1,21 @@
+<map id="/home/manu/PROGRAMMATION/C/ManuX/usr/init.c" name="/home/manu/PROGRAMMATION/C/ManuX/usr/init.c">
+<area shape="rect" id="Node000001" title="L&#39;init du monde utilisateur." alt="" coords="216,5,443,45"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,93,128,119"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="267,48,119,92,117,87,266,43"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="153,93,271,119"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="302,48,242,88,239,84,299,43"/>
+<area shape="rect" id="Node000004" href="$stdio_8h.html" title=" " alt="" coords="296,93,363,119"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="332,46,332,79,327,79,327,46"/>
+<area shape="rect" id="Node000006" href="$unistd_8h.html" title=" " alt="" coords="387,93,461,119"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="354,43,401,82,397,86,351,48"/>
+<area shape="rect" id="Node000010" title=" " alt="" coords="486,93,597,119"/>
+<area shape="poly" id="edge9_Node000001_Node000010" title=" " alt="" coords="381,43,498,86,496,91,379,48"/>
+<area shape="rect" id="Node000005" href="$usr_2include_2stdarg_8h.html" title=" " alt="" coords="264,167,339,192"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="327,120,313,155,308,153,322,118"/>
+<area shape="rect" id="Node000007" href="$usr_2include_2manux_2config_8h.html" title=" " alt="" coords="363,167,485,192"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="427,119,427,153,421,153,421,119"/>
+<area shape="rect" id="Node000008" href="$usr_2include_2manux_2types_8h.html" title=" " alt="" coords="510,167,629,192"/>
+<area shape="poly" id="edge7_Node000006_Node000008" title=" " alt="" coords="449,116,535,158,532,163,446,121"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="508,240,631,265"/>
+<area shape="poly" id="edge8_Node000008_Node000009" title=" " alt="" coords="572,192,572,226,567,226,567,192"/>
+</map>

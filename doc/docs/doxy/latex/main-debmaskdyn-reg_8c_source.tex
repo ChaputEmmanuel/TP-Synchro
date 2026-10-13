@@ -1,0 +1,57 @@
+\doxysection{main-\/debmaskdyn-\/reg.c}
+\hypertarget{main-debmaskdyn-reg_8c_source}{}\label{main-debmaskdyn-reg_8c_source}\index{/home/manu/PROGRAMMATION/C/ManuX/noyau/main-\/debmaskdyn-\/reg.c@{/home/manu/PROGRAMMATION/C/ManuX/noyau/main-\/debmaskdyn-\/reg.c}}
+\mbox{\hyperlink{main-debmaskdyn-reg_8c}{Aller à la documentation de ce fichier.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{main-debmaskdyn-reg_8c_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{main-debmaskdyn-reg_8c_source_l00020}00020\ \textcolor{preprocessor}{\#include\ <manux/config.h>}}
+\DoxyCodeLine{\Hypertarget{main-debmaskdyn-reg_8c_source_l00021}00021\ \textcolor{preprocessor}{\#include\ <manux/types.h>}\ \ \ \ \ \textcolor{comment}{//\ TRUE}}
+\DoxyCodeLine{\Hypertarget{main-debmaskdyn-reg_8c_source_l00022}00022\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{include_2manux_2console_8h}{manux/console.h}}>}}
+\DoxyCodeLine{\Hypertarget{main-debmaskdyn-reg_8c_source_l00023}00023\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{include_2manux_2printk_8h}{manux/printk.h}}>}}
+\DoxyCodeLine{\Hypertarget{main-debmaskdyn-reg_8c_source_l00024}00024\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{include_2manux_2memoire_8h}{manux/memoire.h}}>}}
+\DoxyCodeLine{\Hypertarget{main-debmaskdyn-reg_8c_source_l00025}00025\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{include_2manux_2kmalloc_8h}{manux/kmalloc.h}}>}}
+\DoxyCodeLine{\Hypertarget{main-debmaskdyn-reg_8c_source_l00026}00026\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{manux_2bootloader_8h}{manux/bootloader.h}}>}}
+\DoxyCodeLine{\Hypertarget{main-debmaskdyn-reg_8c_source_l00027}00027\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{include_2manux_2registre_8h}{manux/registre.h}}>}}
+\DoxyCodeLine{\Hypertarget{main-debmaskdyn-reg_8c_source_l00028}00028\ }
+\DoxyCodeLine{\Hypertarget{main-debmaskdyn-reg_8c_source_l00029}00029\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{manux_2debug_8h}{manux/debug.h}}>}}
+\DoxyCodeLine{\Hypertarget{main-debmaskdyn-reg_8c_source_l00030}00030\ }
+\DoxyCodeLine{\Hypertarget{main-debmaskdyn-reg_8c_source_l00031}\mbox{\hyperlink{main-debmaskdyn-reg_8c_a3568df994044ade7d37160ef731c223f}{00031}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{main-debmaskdyn-reg_8c_a3568df994044ade7d37160ef731c223f}{startManuX}}()}
+\DoxyCodeLine{\Hypertarget{main-debmaskdyn-reg_8c_source_l00032}00032\ \{}
+\DoxyCodeLine{\Hypertarget{main-debmaskdyn-reg_8c_source_l00033}00033\ \ \ \ \textcolor{comment}{//\ Initialisation\ de\ la\ console\ noyau\ (n'utilise\ rien\ !)}}
+\DoxyCodeLine{\Hypertarget{main-debmaskdyn-reg_8c_source_l00034}00034\ \ \ \ \mbox{\hyperlink{include_2manux_2console_8h_a29466c636bd065544638829883090d54}{consoleInitialisation}}();}
+\DoxyCodeLine{\Hypertarget{main-debmaskdyn-reg_8c_source_l00035}00035\ }
+\DoxyCodeLine{\Hypertarget{main-debmaskdyn-reg_8c_source_l00036}00036\ \ \ \ \textcolor{comment}{//\ Initialisation\ de\ infoSysteme\ et\ cmdLine}}
+\DoxyCodeLine{\Hypertarget{main-debmaskdyn-reg_8c_source_l00037}00037\ \ \ \ \mbox{\hyperlink{manux_2bootloader_8h_ae56092aa42bf357bf0026df0b0808db4}{bootloaderInitialiser}}();}
+\DoxyCodeLine{\Hypertarget{main-debmaskdyn-reg_8c_source_l00038}00038\ }
+\DoxyCodeLine{\Hypertarget{main-debmaskdyn-reg_8c_source_l00039}00039\ \ \ \ \textcolor{comment}{//\ Initialisation\ de\ la\ gestion\ des\ pages\ mémoire\ (utilise\ le}}
+\DoxyCodeLine{\Hypertarget{main-debmaskdyn-reg_8c_source_l00040}00040\ \ \ \ \textcolor{comment}{//\ bootloader)}}
+\DoxyCodeLine{\Hypertarget{main-debmaskdyn-reg_8c_source_l00041}00041\ \ \ \ \mbox{\hyperlink{include_2manux_2memoire_8h_a4338550e2017b7c95021bdc27e4f3345}{initialiserMemoire}}(\mbox{\hyperlink{manux_2bootloader_8h_abf4319b3adb9dd5752045f58f65369e6}{infoSysteme}}.\mbox{\hyperlink{struct__InfoSysteme_a6047965dfba552f4957f7df33b777e8c}{memoireDeBase}},}
+\DoxyCodeLine{\Hypertarget{main-debmaskdyn-reg_8c_source_l00042}00042\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{manux_2bootloader_8h_abf4319b3adb9dd5752045f58f65369e6}{infoSysteme}}.\mbox{\hyperlink{struct__InfoSysteme_aeed4b08b9edfc29ff917ed26d87c9cda}{memoireEtendue}});}
+\DoxyCodeLine{\Hypertarget{main-debmaskdyn-reg_8c_source_l00043}00043\ }
+\DoxyCodeLine{\Hypertarget{main-debmaskdyn-reg_8c_source_l00044}00044\ \ \ \ \textcolor{comment}{//\ Initialsation\ du\ système\ kmalloc}}
+\DoxyCodeLine{\Hypertarget{main-debmaskdyn-reg_8c_source_l00045}00045\ \ \ \ \mbox{\hyperlink{kmalloc-zs_8h_a9834d71816871b865956b59d641f602f}{kmallocInitialisation}}();}
+\DoxyCodeLine{\Hypertarget{main-debmaskdyn-reg_8c_source_l00046}00046\ }
+\DoxyCodeLine{\Hypertarget{main-debmaskdyn-reg_8c_source_l00047}00047\ \ \ \ \textcolor{comment}{//\ Initialisation\ du\ registre\ (utilise\ kmalloc)}}
+\DoxyCodeLine{\Hypertarget{main-debmaskdyn-reg_8c_source_l00048}00048\ \ \ \ \mbox{\hyperlink{include_2manux_2registre_8h_a63129c6b1232b7c3a5b4e21103ef0d2c}{registreSystemeInitialiser}}();}
+\DoxyCodeLine{\Hypertarget{main-debmaskdyn-reg_8c_source_l00049}00049\ }
+\DoxyCodeLine{\Hypertarget{main-debmaskdyn-reg_8c_source_l00050}00050\ \ \ \ \textcolor{comment}{//\ Initialisation\ du\ système\ de\ debug\ (utilise\ le\ registre)}}
+\DoxyCodeLine{\Hypertarget{main-debmaskdyn-reg_8c_source_l00051}00051\ \ \ \ \mbox{\hyperlink{manux_2debug_8h_afecb2fc4768dcaba6f0098c4a46bff0c}{debugInitialiser}}();}
+\DoxyCodeLine{\Hypertarget{main-debmaskdyn-reg_8c_source_l00052}00052\ \ \ \ }
+\DoxyCodeLine{\Hypertarget{main-debmaskdyn-reg_8c_source_l00053}00053\ \ \ \ \textcolor{comment}{//\ Analyse\ de\ la\ ligne\ de\ commande\ (utilise\ le\ registre)}}
+\DoxyCodeLine{\Hypertarget{main-debmaskdyn-reg_8c_source_l00054}00054\ \ \ \ \mbox{\hyperlink{manux_2bootloader_8h_a42deb6a81c1a6411ef8390967dddf837}{bootloaderLireLigneCmd}}();}
+\DoxyCodeLine{\Hypertarget{main-debmaskdyn-reg_8c_source_l00055}00055\ }
+\DoxyCodeLine{\Hypertarget{main-debmaskdyn-reg_8c_source_l00056}00056\ \ \ \ \textcolor{comment}{//\ On\ affiche\ le\ registre\ pour\ information}}
+\DoxyCodeLine{\Hypertarget{main-debmaskdyn-reg_8c_source_l00057}00057\ \ \ \ \mbox{\hyperlink{include_2manux_2registre_8h_a6252c3aafdbed147bac05b3556453ac7}{registreSystemeAfficher}}();}
+\DoxyCodeLine{\Hypertarget{main-debmaskdyn-reg_8c_source_l00058}00058\ }
+\DoxyCodeLine{\Hypertarget{main-debmaskdyn-reg_8c_source_l00059}00059\ \ \ \ \textcolor{comment}{//\ Affichage\ desmasque,\ pour\ le\ plaisir}}
+\DoxyCodeLine{\Hypertarget{main-debmaskdyn-reg_8c_source_l00060}00060\ \ \ \ \mbox{\hyperlink{include_2manux_2printk_8h_a25b30e8bbadd54650c56895999dd808f}{printk}}(\textcolor{stringliteral}{"{}Registre\ de\ debug\ :\ 0x\%x\ (console)\ et\ 0x\%x\ (fichier)\(\backslash\)n"{}},}
+\DoxyCodeLine{\Hypertarget{main-debmaskdyn-reg_8c_source_l00061}00061\ \ \ \ \ \ \ \mbox{\hyperlink{manux_2debug_8h_a895b956a2419f199f255ee6542ed1f2d}{masqueDebugageConsole}},\ \mbox{\hyperlink{manux_2debug_8h_a4f75a22599327492938e80d95d6e7805}{masqueDebugageFichier}});}
+\DoxyCodeLine{\Hypertarget{main-debmaskdyn-reg_8c_source_l00062}00062\ }
+\DoxyCodeLine{\Hypertarget{main-debmaskdyn-reg_8c_source_l00063}00063\ \ \ \ \textcolor{comment}{//\ Quelques\ messages\ de\ debug,\ pour\ vérifier}}
+\DoxyCodeLine{\Hypertarget{main-debmaskdyn-reg_8c_source_l00064}00064\ \ \ \ \mbox{\hyperlink{manux_2debug_8h_ad4cabea5084373436d91b5dc4e8d0a49}{printk\_debug}}(\mbox{\hyperlink{manux_2debug_8h_a97cb921ecb429c2c4c3755b2ca69364b}{DBG\_KERNEL\_START}},\ \textcolor{stringliteral}{"{}Message\ de\ start\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{main-debmaskdyn-reg_8c_source_l00065}00065\ \ \ \ \mbox{\hyperlink{manux_2debug_8h_ad4cabea5084373436d91b5dc4e8d0a49}{printk\_debug}}(\mbox{\hyperlink{manux_2debug_8h_adc079ad5469c49710c9f8cc16a9fb223}{DBG\_KERNEL\_BOOTLOADER}},\ \textcolor{stringliteral}{"{}Message\ de\ debug\ du\ bootloader\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{main-debmaskdyn-reg_8c_source_l00066}00066\ \ \ \ \mbox{\hyperlink{manux_2debug_8h_ad4cabea5084373436d91b5dc4e8d0a49}{printk\_debug}}(\mbox{\hyperlink{manux_2debug_8h_a8d713d223ce338433fb2b615c5c7bc70}{DBG\_KERNEL\_A\_FAIRE}},\ \textcolor{stringliteral}{"{}Message\ a\ faire\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{main-debmaskdyn-reg_8c_source_l00067}00067\ \}\ \ \ \textcolor{comment}{/*\ startManuX\ */}}
+\DoxyCodeLine{\Hypertarget{main-debmaskdyn-reg_8c_source_l00068}00068\ }
+\DoxyCodeLine{\Hypertarget{main-debmaskdyn-reg_8c_source_l00069}00069\ }
+
+\end{DoxyCode}

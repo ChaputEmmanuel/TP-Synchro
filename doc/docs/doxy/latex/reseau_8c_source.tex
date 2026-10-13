@@ -1,0 +1,48 @@
+\doxysection{reseau.\+c}
+\hypertarget{reseau_8c_source}{}\label{reseau_8c_source}\index{/home/manu/PROGRAMMATION/C/ManuX/reseau/reseau.c@{/home/manu/PROGRAMMATION/C/ManuX/reseau/reseau.c}}
+\mbox{\hyperlink{reseau_8c}{Aller à la documentation de ce fichier.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{reseau_8c_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{reseau_8c_source_l00007}00007\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{manux_2reseau_8h}{manux/reseau.h}}>}}
+\DoxyCodeLine{\Hypertarget{reseau_8c_source_l00008}00008\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{buffer-reseau_8h}{manux/buffer-\/reseau.h}}>}}
+\DoxyCodeLine{\Hypertarget{reseau_8c_source_l00009}00009\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{manux_2debug_8h}{manux/debug.h}}>}}
+\DoxyCodeLine{\Hypertarget{reseau_8c_source_l00010}00010\ }
+\DoxyCodeLine{\Hypertarget{reseau_8c_source_l00011}00011\ \textcolor{preprocessor}{\#ifdef\ MANUX\_TACHES}}
+\DoxyCodeLine{\Hypertarget{reseau_8c_source_l00012}00012\ \textcolor{preprocessor}{\#\ \ \ include\ <\mbox{\hyperlink{tache_8h}{manux/tache.h}}>}}
+\DoxyCodeLine{\Hypertarget{reseau_8c_source_l00013}00013\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{reseau_8c_source_l00014}00014\ }
+\DoxyCodeLine{\Hypertarget{reseau_8c_source_l00019}\mbox{\hyperlink{manux_2reseau_8h_af36c1bc68d00611a83c96ef02d155bdf}{00019}}\ \mbox{\hyperlink{struct__ListeBufferReseau}{ListeBufferReseau}}\ *\ \mbox{\hyperlink{reseau_8c_af36c1bc68d00611a83c96ef02d155bdf}{listeBuffersRecus}}\ =\ \mbox{\hyperlink{include_2manux_2stddef_8h_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}};}
+\DoxyCodeLine{\Hypertarget{reseau_8c_source_l00020}00020\ }
+\DoxyCodeLine{\Hypertarget{reseau_8c_source_l00021}00021\ \textcolor{keyword}{static}}
+\DoxyCodeLine{\Hypertarget{reseau_8c_source_l00022}00022\ \textcolor{keywordtype}{void}\ reseauTraiterReceptions(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\Hypertarget{reseau_8c_source_l00023}00023\ \{}
+\DoxyCodeLine{\Hypertarget{reseau_8c_source_l00024}00024\ \ \ \ \mbox{\hyperlink{manux_2debug_8h_ad4cabea5084373436d91b5dc4e8d0a49}{printk\_debug}}(\mbox{\hyperlink{manux_2debug_8h_a4f02878f8fb72005eddf2027f869557d}{DBG\_KERNEL\_NET}},\ \textcolor{stringliteral}{"{}A-\/t-\/on\ des\ buffers\ a\ recevoir\ ?\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{reseau_8c_source_l00025}00025\ \ \ \ \textcolor{keywordflow}{while}\ (1)\ \{}
+\DoxyCodeLine{\Hypertarget{reseau_8c_source_l00026}00026\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{buffer-reseau_8h_abe1fa2d4a3d29d7c2a55ee335c23b0c7}{listeBufferReseauVide}}(\mbox{\hyperlink{reseau_8c_af36c1bc68d00611a83c96ef02d155bdf}{listeBuffersRecus}}))\ \{}
+\DoxyCodeLine{\Hypertarget{reseau_8c_source_l00027}00027\ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{manux_2debug_8h_ad4cabea5084373436d91b5dc4e8d0a49}{printk\_debug}}(\mbox{\hyperlink{manux_2debug_8h_a4f02878f8fb72005eddf2027f869557d}{DBG\_KERNEL\_NET}},\ \textcolor{stringliteral}{"{}Buffers\ reseau\ en\ attente\ !\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{reseau_8c_source_l00028}00028\ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{reseau_8c_source_l00029}00029\ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{scheduler_8h_ae00507099d51c08195d42c08daad4f41}{ordonnanceur}}();}
+\DoxyCodeLine{\Hypertarget{reseau_8c_source_l00030}00030\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{reseau_8c_source_l00031}00031\ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{reseau_8c_source_l00032}00032\ \}}
+\DoxyCodeLine{\Hypertarget{reseau_8c_source_l00033}00033\ }
+\DoxyCodeLine{\Hypertarget{reseau_8c_source_l00037}\mbox{\hyperlink{manux_2reseau_8h_acca8d0ddd01a9fcae4b6694a42a6f51f}{00037}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{reseau_8c_acca8d0ddd01a9fcae4b6694a42a6f51f}{reseauInitialiser}}(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\Hypertarget{reseau_8c_source_l00038}00038\ \{}
+\DoxyCodeLine{\Hypertarget{reseau_8c_source_l00039}00039\ \ \ \ \mbox{\hyperlink{manux_2debug_8h_ad4cabea5084373436d91b5dc4e8d0a49}{printk\_debug}}(\mbox{\hyperlink{manux_2debug_8h_a4f02878f8fb72005eddf2027f869557d}{DBG\_KERNEL\_NET}},\ \textcolor{stringliteral}{"{}Initialisation\ du\ sous\ systeme\ reseau\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{reseau_8c_source_l00040}00040\ }
+\DoxyCodeLine{\Hypertarget{reseau_8c_source_l00041}00041\ \ \ \ \mbox{\hyperlink{reseau_8c_af36c1bc68d00611a83c96ef02d155bdf}{listeBuffersRecus}}\ =\ \mbox{\hyperlink{buffer-reseau_8h_af09e9a3dac0065f1944e8bc6063f007e}{listeBufferReseauCreer}}();}
+\DoxyCodeLine{\Hypertarget{reseau_8c_source_l00042}00042\ \ \ \ }
+\DoxyCodeLine{\Hypertarget{reseau_8c_source_l00043}00043\ \textcolor{preprocessor}{\#ifdef\ MANUX\_TACHES}}
+\DoxyCodeLine{\Hypertarget{reseau_8c_source_l00044}00044\ \ \ \ \textcolor{comment}{//\ Lancement\ d'une\ tâche\ de\ traitement\ des\ trames\ reçues}}
+\DoxyCodeLine{\Hypertarget{reseau_8c_source_l00045}00045\ \ \ \ \mbox{\hyperlink{scheduler_8h_ae922bcf579d9ef3fb82370f3a876029d}{ordonnanceurCreerTacheNoyau}}(reseauTraiterReceptions);}
+\DoxyCodeLine{\Hypertarget{reseau_8c_source_l00046}00046\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{reseau_8c_source_l00047}00047\ \ \ \ }
+\DoxyCodeLine{\Hypertarget{reseau_8c_source_l00048}00048\ \ \ \ \mbox{\hyperlink{manux_2debug_8h_ad4cabea5084373436d91b5dc4e8d0a49}{printk\_debug}}(\mbox{\hyperlink{manux_2debug_8h_a4f02878f8fb72005eddf2027f869557d}{DBG\_KERNEL\_NET}},\ \textcolor{stringliteral}{"{}Tache\ de\ traitement\ des\ receptions\ lancee\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{reseau_8c_source_l00049}00049\ \}}
+\DoxyCodeLine{\Hypertarget{reseau_8c_source_l00050}00050\ }
+\DoxyCodeLine{\Hypertarget{reseau_8c_source_l00054}\mbox{\hyperlink{manux_2reseau_8h_ac37f4e261171b60d35a008ed91dcd742}{00054}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{reseau_8c_a73d56fca253dc3bae0d42792ec85f002}{reseauAfficherListeReception}}()}
+\DoxyCodeLine{\Hypertarget{reseau_8c_source_l00055}00055\ \{}
+\DoxyCodeLine{\Hypertarget{reseau_8c_source_l00056}00056\ \ \ \ \mbox{\hyperlink{buffer-reseau_8h_a46dddf58d22c1c39c62a4b948766b91e}{listeBufferReseauAfficher}}(\mbox{\hyperlink{reseau_8c_af36c1bc68d00611a83c96ef02d155bdf}{listeBuffersRecus}});}
+\DoxyCodeLine{\Hypertarget{reseau_8c_source_l00057}00057\ \}}
+
+\end{DoxyCode}

@@ -52,6 +52,8 @@ Fichier * fichierJournal = NULL;
  * fichier
  * WARNING : ne pas utiliser le même nom que sans fichier
  */
+[[maybe_unused]]
+static
 void journalInitialiserInoeud(INoeud * iNoeudConsole)
 {
     //   initialiserExclusionMutuelle(&emj);
@@ -79,7 +81,7 @@ void journalAffecterFichier(Fichier * pc)
 /**
  * @brief Initialisation du journal sans interface fichier
  */
-void journalInitialiser()
+void journalInitialiser(void)
 {
     //   initialiserExclusionMutuelle(&emj);
     //   entrerExclusionMutuelle(&emj);
@@ -98,7 +100,7 @@ void journalInitialiser()
 /**
  * @brief Journalisation d'un message avec un niveau d'urgence
  */
-void journaliserNiveau(booleen console, booleen fichier,
+static void journaliserNiveau(booleen console, booleen fichier,
 		       uint8_t niveau,
 		       char * message)
 {
@@ -135,7 +137,7 @@ void journaliserNiveau(booleen console, booleen fichier,
 /**
  * @brief Gestion des niveaux d'affichage
  */
-void aiguillerMessage(char ** message,
+static void aiguillerMessage(char ** message,
 		      booleen * cons, booleen * fic, uint8_t * niv)
 {
    int longueurPrefixe = 0;
@@ -149,6 +151,7 @@ void aiguillerMessage(char ** message,
       break ;
       case '{' :
          *cons = TRUE;
+	 [[fallthrough]];
       case '(' :
          *fic = TRUE;
       break ;
@@ -191,7 +194,7 @@ void journaliser(char * message)
  * Pour que printk puisse savoir
  * WARINING apparemment inutile
  */
-booleen journalOperationnel()
+booleen journalOperationnel(void)
 {
    return journalInitialise;
 }

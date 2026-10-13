@@ -1,0 +1,83 @@
+\doxysection{main-\/taches.c}
+\hypertarget{main-taches_8c_source}{}\label{main-taches_8c_source}\index{/home/manu/PROGRAMMATION/C/ManuX/noyau/main-\/taches.c@{/home/manu/PROGRAMMATION/C/ManuX/noyau/main-\/taches.c}}
+\mbox{\hyperlink{main-taches_8c}{Aller Ã  la documentation de ce fichier.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{main-taches_8c_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{main-taches_8c_source_l00007}00007\ \textcolor{preprocessor}{\#include\ <manux/config.h>}}
+\DoxyCodeLine{\Hypertarget{main-taches_8c_source_l00008}00008\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{manux_2clavier_8h}{manux/clavier.h}}>}}
+\DoxyCodeLine{\Hypertarget{main-taches_8c_source_l00009}00009\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{include_2manux_2console_8h}{manux/console.h}}>}}
+\DoxyCodeLine{\Hypertarget{main-taches_8c_source_l00010}00010\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{include_2manux_2printk_8h}{manux/printk.h}}>}}
+\DoxyCodeLine{\Hypertarget{main-taches_8c_source_l00011}00011\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{include_2manux_2interruptions_8h}{manux/interruptions.h}}>}}
+\DoxyCodeLine{\Hypertarget{main-taches_8c_source_l00012}00012\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{manux_2intel-8259a_8h}{manux/intel-\/8259a.h}}>}}
+\DoxyCodeLine{\Hypertarget{main-taches_8c_source_l00013}00013\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{tache_8h}{manux/tache.h}}>}}
+\DoxyCodeLine{\Hypertarget{main-taches_8c_source_l00014}00014\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{scheduler_8h}{manux/scheduler.h}}>}}
+\DoxyCodeLine{\Hypertarget{main-taches_8c_source_l00015}00015\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{include_2manux_2memoire_8h}{manux/memoire.h}}>}}
+\DoxyCodeLine{\Hypertarget{main-taches_8c_source_l00016}00016\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{manux_2bootloader_8h}{manux/bootloader.h}}>}}
+\DoxyCodeLine{\Hypertarget{main-taches_8c_source_l00017}00017\ }
+\DoxyCodeLine{\Hypertarget{main-taches_8c_source_l00018}00018\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{main-taches_8c_a21bf9d845e4ae7f33652b85730016a11}{startManuX}}(\textcolor{keywordtype}{void})\ ;}
+\DoxyCodeLine{\Hypertarget{main-taches_8c_source_l00019}00019\ }
+\DoxyCodeLine{\Hypertarget{main-taches_8c_source_l00020}00020\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{main-mutex_8c_ad56649bb66e4acafda430941071e9959}{albert}}(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\Hypertarget{main-taches_8c_source_l00021}00021\ \{}
+\DoxyCodeLine{\Hypertarget{main-taches_8c_source_l00022}00022\ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ n\ =\ 0;\ n\ <\ 10;\ n++)\ \{}
+\DoxyCodeLine{\Hypertarget{main-taches_8c_source_l00023}00023\ \ \ \ \ \ \ \mbox{\hyperlink{include_2manux_2printk_8h_a7d5a6dcede19ea52bd0064cb40d66a25}{printkc}}(\textcolor{stringliteral}{"{}Je\ suis\ albert\ !\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{main-taches_8c_source_l00024}00024\ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{main-taches_8c_source_l00025}00025\ \}}
+\DoxyCodeLine{\Hypertarget{main-taches_8c_source_l00026}00026\ }
+\DoxyCodeLine{\Hypertarget{main-taches_8c_source_l00027}00027\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{main-mutex_8c_a5b506f29253c28b45ab397562e3136e5}{barnabe}}(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\Hypertarget{main-taches_8c_source_l00028}00028\ \{}
+\DoxyCodeLine{\Hypertarget{main-taches_8c_source_l00029}00029\ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ n\ =\ 0;\ n\ <\ 10;\ n++)\ \{}
+\DoxyCodeLine{\Hypertarget{main-taches_8c_source_l00030}00030\ \ \ \ \ \ \ \mbox{\hyperlink{include_2manux_2printk_8h_a7d5a6dcede19ea52bd0064cb40d66a25}{printkc}}(\textcolor{stringliteral}{"{}X"{}});}
+\DoxyCodeLine{\Hypertarget{main-taches_8c_source_l00031}00031\ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{main-taches_8c_source_l00032}00032\ \}}
+\DoxyCodeLine{\Hypertarget{main-taches_8c_source_l00033}00033\ }
+\DoxyCodeLine{\Hypertarget{main-taches_8c_source_l00034}\mbox{\hyperlink{main-taches_8c_a21bf9d845e4ae7f33652b85730016a11}{00034}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{main-taches_8c_a21bf9d845e4ae7f33652b85730016a11}{startManuX}}(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\Hypertarget{main-taches_8c_source_l00035}00035\ \{}
+\DoxyCodeLine{\Hypertarget{main-taches_8c_source_l00036}00036\ \ \ \ \mbox{\hyperlink{struct__Tache}{Tache}}\ *\ t0,\ *t1;}
+\DoxyCodeLine{\Hypertarget{main-taches_8c_source_l00037}00037\ }
+\DoxyCodeLine{\Hypertarget{main-taches_8c_source_l00038}00038\ \ \ \ \textcolor{comment}{//\ Initialisation\ de\ la\ console\ noyau}}
+\DoxyCodeLine{\Hypertarget{main-taches_8c_source_l00039}00039\ \ \ \ \mbox{\hyperlink{include_2manux_2console_8h_a29466c636bd065544638829883090d54}{consoleInitialisation}}();}
+\DoxyCodeLine{\Hypertarget{main-taches_8c_source_l00040}00040\ }
+\DoxyCodeLine{\Hypertarget{main-taches_8c_source_l00041}00041\ \ \ \ \textcolor{comment}{//\ Initialisation\ des\ informations\ depuis\ le\ bootloader}}
+\DoxyCodeLine{\Hypertarget{main-taches_8c_source_l00042}00042\ \ \ \ \mbox{\hyperlink{manux_2bootloader_8h_ae56092aa42bf357bf0026df0b0808db4}{bootloaderInitialiser}}();}
+\DoxyCodeLine{\Hypertarget{main-taches_8c_source_l00043}00043\ }
+\DoxyCodeLine{\Hypertarget{main-taches_8c_source_l00044}00044\ \ \ \ \textcolor{comment}{//\ Affichage\ de\ la\ mémoire\ disponible\ }}
+\DoxyCodeLine{\Hypertarget{main-taches_8c_source_l00045}00045\ \ \ \ \mbox{\hyperlink{include_2manux_2printk_8h_a25b30e8bbadd54650c56895999dd808f}{printk}}(\textcolor{stringliteral}{"{}Memoire\ :\ \%d\ +\ \%d\ Ko\(\backslash\)n"{}},}
+\DoxyCodeLine{\Hypertarget{main-taches_8c_source_l00046}00046\ \ \ \ \ \ \ \mbox{\hyperlink{manux_2bootloader_8h_abf4319b3adb9dd5752045f58f65369e6}{infoSysteme}}.\mbox{\hyperlink{struct__InfoSysteme_a6047965dfba552f4957f7df33b777e8c}{memoireDeBase}},}
+\DoxyCodeLine{\Hypertarget{main-taches_8c_source_l00047}00047\ \ \ \ \ \ \ \mbox{\hyperlink{manux_2bootloader_8h_abf4319b3adb9dd5752045f58f65369e6}{infoSysteme}}.\mbox{\hyperlink{struct__InfoSysteme_aeed4b08b9edfc29ff917ed26d87c9cda}{memoireEtendue}});}
+\DoxyCodeLine{\Hypertarget{main-taches_8c_source_l00048}00048\ }
+\DoxyCodeLine{\Hypertarget{main-taches_8c_source_l00049}00049\ \ \ \ \textcolor{comment}{/*\ Initialisation\ de\ la\ gestion\ mémoire\ */}}
+\DoxyCodeLine{\Hypertarget{main-taches_8c_source_l00050}00050\ \ \ \ \mbox{\hyperlink{include_2manux_2memoire_8h_a4338550e2017b7c95021bdc27e4f3345}{initialiserMemoire}}(\mbox{\hyperlink{manux_2bootloader_8h_abf4319b3adb9dd5752045f58f65369e6}{infoSysteme}}.\mbox{\hyperlink{struct__InfoSysteme_a6047965dfba552f4957f7df33b777e8c}{memoireDeBase}},}
+\DoxyCodeLine{\Hypertarget{main-taches_8c_source_l00051}00051\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{manux_2bootloader_8h_abf4319b3adb9dd5752045f58f65369e6}{infoSysteme}}.\mbox{\hyperlink{struct__InfoSysteme_aeed4b08b9edfc29ff917ed26d87c9cda}{memoireEtendue}});}
+\DoxyCodeLine{\Hypertarget{main-taches_8c_source_l00052}00052\ \ \ }
+\DoxyCodeLine{\Hypertarget{main-taches_8c_source_l00053}00053\ \ \ \ \textcolor{comment}{/*\ Initilisation\ des\ descripteurs\ de\ segments\ */}}
+\DoxyCodeLine{\Hypertarget{main-taches_8c_source_l00054}00054\ \ \ \ \mbox{\hyperlink{segment_8c_ae0e123e68e81d00dad08bd7a0215e9a8}{initialiserGDT}}();}
+\DoxyCodeLine{\Hypertarget{main-taches_8c_source_l00055}00055\ }
+\DoxyCodeLine{\Hypertarget{main-taches_8c_source_l00056}00056\ \ \ \ \textcolor{comment}{/*\ Initialisation\ de\ la\ table\ des\ interruptions\ */}}
+\DoxyCodeLine{\Hypertarget{main-taches_8c_source_l00057}00057\ \ \ \ \mbox{\hyperlink{interruptions_8c_a8bab70dd2ead4ff36a0c2de9b3d3aff8}{initialiserIDT}}();\ \ \ }
+\DoxyCodeLine{\Hypertarget{main-taches_8c_source_l00058}00058\ }
+\DoxyCodeLine{\Hypertarget{main-taches_8c_source_l00059}00059\ \ \ \ \mbox{\hyperlink{manux_2clavier_8h_adeb7648f2d16a4967670148c998f83cc}{initialiserClavier}}();}
+\DoxyCodeLine{\Hypertarget{main-taches_8c_source_l00060}00060\ }
+\DoxyCodeLine{\Hypertarget{main-taches_8c_source_l00061}00061\ \ \ \ \mbox{\hyperlink{horloge_8c_aec6b6ea786b76653d49b3eb7f6d320c0}{initialiserHorloge}}();}
+\DoxyCodeLine{\Hypertarget{main-taches_8c_source_l00062}00062\ }
+\DoxyCodeLine{\Hypertarget{main-taches_8c_source_l00063}00063\ \ \ \ \mbox{\hyperlink{scheduler_8h_a32c7cefad94adc3dd3953dc5c71b32ad}{initialiserScheduler}}();}
+\DoxyCodeLine{\Hypertarget{main-taches_8c_source_l00064}00064\ }
+\DoxyCodeLine{\Hypertarget{main-taches_8c_source_l00065}00065\ \ \ \ \textcolor{comment}{//\ Affichage\ d'un\ message}}
+\DoxyCodeLine{\Hypertarget{main-taches_8c_source_l00066}00066\ \ \ \ \mbox{\hyperlink{include_2manux_2printk_8h_a25b30e8bbadd54650c56895999dd808f}{printk}}(\textcolor{stringliteral}{"{}Creation\ de\ deux\ taches\ ...\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{main-taches_8c_source_l00067}00067\ }
+\DoxyCodeLine{\Hypertarget{main-taches_8c_source_l00068}00068\ \ \ \ t0\ =\ \mbox{\hyperlink{tache_8h_ae73130353eaec375c352eee5e35e19ea}{tacheCreer}}(\mbox{\hyperlink{main-mutex_8c_ad56649bb66e4acafda430941071e9959}{albert}});}
+\DoxyCodeLine{\Hypertarget{main-taches_8c_source_l00069}00069\ \ \ \ tacheSetConsole(t0,\ creerConsoleVirtuelle());}
+\DoxyCodeLine{\Hypertarget{main-taches_8c_source_l00070}00070\ \ \ \ \mbox{\hyperlink{scheduler_8h_aef1e54d9e6a32886461b3dc665654748}{ordonnanceurAddTache}}(t0);}
+\DoxyCodeLine{\Hypertarget{main-taches_8c_source_l00071}00071\ \ \ \ }
+\DoxyCodeLine{\Hypertarget{main-taches_8c_source_l00072}00072\ \ \ \ t1\ =\ \mbox{\hyperlink{tache_8h_ae73130353eaec375c352eee5e35e19ea}{tacheCreer}}(\mbox{\hyperlink{main-mutex_8c_a5b506f29253c28b45ab397562e3136e5}{barnabe}});}
+\DoxyCodeLine{\Hypertarget{main-taches_8c_source_l00073}00073\ \ \ \ tacheSetConsole(t1,\ creerConsoleVirtuelle());}
+\DoxyCodeLine{\Hypertarget{main-taches_8c_source_l00074}00074\ \ \ \ \mbox{\hyperlink{scheduler_8h_aef1e54d9e6a32886461b3dc665654748}{ordonnanceurAddTache}}(t1);}
+\DoxyCodeLine{\Hypertarget{main-taches_8c_source_l00075}00075\ }
+\DoxyCodeLine{\Hypertarget{main-taches_8c_source_l00076}00076\ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ 2;\ i++)\ \{}
+\DoxyCodeLine{\Hypertarget{main-taches_8c_source_l00077}00077\ \ \ \ \ \ \ \mbox{\hyperlink{scheduler_8h_aef1e54d9e6a32886461b3dc665654748}{ordonnanceurAddTache}}(\mbox{\hyperlink{tache_8h_ae73130353eaec375c352eee5e35e19ea}{tacheCreer}}(\mbox{\hyperlink{main-mutex_8c_a5b506f29253c28b45ab397562e3136e5}{barnabe}}));}
+\DoxyCodeLine{\Hypertarget{main-taches_8c_source_l00078}00078\ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{main-taches_8c_source_l00079}00079\ \ \ \ \mbox{\hyperlink{include_2manux_2printk_8h_a25b30e8bbadd54650c56895999dd808f}{printk}}(\textcolor{stringliteral}{"{}FINI\ !\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{main-taches_8c_source_l00080}00080\ \ \ \ \textcolor{keywordflow}{while}(1)\{\};}
+\DoxyCodeLine{\Hypertarget{main-taches_8c_source_l00081}00081\ \}\ \ \ \textcolor{comment}{/*\ startManuX\ */}}
+\DoxyCodeLine{\Hypertarget{main-taches_8c_source_l00082}00082\ }
+
+\end{DoxyCode}

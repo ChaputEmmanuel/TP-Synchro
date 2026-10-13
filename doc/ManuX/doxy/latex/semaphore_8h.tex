@@ -1,0 +1,82 @@
+\doxysection{Référence du fichier /home/manu/\+PROGRAMMATION/\+C/\+Manu\+X/include/manux/semaphore.h}
+\hypertarget{semaphore_8h}{}\label{semaphore_8h}\index{/home/manu/PROGRAMMATION/C/ManuX/include/manux/semaphore.h@{/home/manu/PROGRAMMATION/C/ManuX/include/manux/semaphore.h}}
+{\ttfamily \#include $<$manux/types.\+h$>$}\newline
+{\ttfamily \#include $<$manux/atomique.\+h$>$}\newline
+{\ttfamily \#include $<$manux/listetaches.\+h$>$}\newline
+Graphe des dépendances par inclusion de semaphore.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{semaphore_8h__incl}
+\end{center}
+\end{figure}
+Ce graphe montre quels fichiers incluent directement ou indirectement ce fichier \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=250pt]{semaphore_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct__Semaphore}{\+\_\+\+Semaphore}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Définitions de type}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \mbox{\hyperlink{struct__Semaphore}{\+\_\+\+Semaphore}} \mbox{\hyperlink{semaphore_8h_a8b32b6e6a178bbcab6ee276fb6ed6e02}{Semaphore}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} \mbox{\hyperlink{semaphore_8h_a31f1f455ae7ea7bba94a0fd5a78baf16}{sem\+Init}} (\mbox{\hyperlink{semaphore_8h_a8b32b6e6a178bbcab6ee276fb6ed6e02}{Semaphore}} \texorpdfstring{$\ast$}{*}sem, int val)
+\item 
+\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} \mbox{\hyperlink{semaphore_8h_a8adec18a504ce671493dec9ce2f0c890}{sem\+Obtenir}} (\mbox{\hyperlink{semaphore_8h_a8b32b6e6a178bbcab6ee276fb6ed6e02}{Semaphore}} \texorpdfstring{$\ast$}{*}sem)
+\item 
+\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} \mbox{\hyperlink{semaphore_8h_ac5799c5dd36c1f89079f0f07432830c4}{sem\+Relacher}} (\mbox{\hyperlink{semaphore_8h_a8b32b6e6a178bbcab6ee276fb6ed6e02}{Semaphore}} \texorpdfstring{$\ast$}{*}sem)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Documentation des définitions de type}
+\Hypertarget{semaphore_8h_a8b32b6e6a178bbcab6ee276fb6ed6e02}\label{semaphore_8h_a8b32b6e6a178bbcab6ee276fb6ed6e02} 
+\index{semaphore.h@{semaphore.h}!Semaphore@{Semaphore}}
+\index{Semaphore@{Semaphore}!semaphore.h@{semaphore.h}}
+\doxysubsubsection{\texorpdfstring{Semaphore}{Semaphore}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{struct__Semaphore}{\+\_\+\+Semaphore}} \mbox{\hyperlink{semaphore_8h_a8b32b6e6a178bbcab6ee276fb6ed6e02}{Semaphore}}}
+
+
+
+\doxysubsection{Documentation des fonctions}
+\Hypertarget{semaphore_8h_a31f1f455ae7ea7bba94a0fd5a78baf16}\label{semaphore_8h_a31f1f455ae7ea7bba94a0fd5a78baf16} 
+\index{semaphore.h@{semaphore.h}!semInit@{semInit}}
+\index{semInit@{semInit}!semaphore.h@{semaphore.h}}
+\doxysubsubsection{\texorpdfstring{semInit()}{semInit()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} sem\+Init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{semaphore_8h_a8b32b6e6a178bbcab6ee276fb6ed6e02}{Semaphore}} \texorpdfstring{$\ast$}{*}}]{sem,  }\item[{int}]{val }\end{DoxyParamCaption})}
+
+
+
+Définition à la ligne \mbox{\hyperlink{semaphore_8c_source_l00010}{10}} du fichier \mbox{\hyperlink{semaphore_8c_source}{semaphore.\+c}}.
+
+\Hypertarget{semaphore_8h_a8adec18a504ce671493dec9ce2f0c890}\label{semaphore_8h_a8adec18a504ce671493dec9ce2f0c890} 
+\index{semaphore.h@{semaphore.h}!semObtenir@{semObtenir}}
+\index{semObtenir@{semObtenir}!semaphore.h@{semaphore.h}}
+\doxysubsubsection{\texorpdfstring{semObtenir()}{semObtenir()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} sem\+Obtenir (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{semaphore_8h_a8b32b6e6a178bbcab6ee276fb6ed6e02}{Semaphore}} \texorpdfstring{$\ast$}{*}}]{sem }\end{DoxyParamCaption})}
+
+
+
+Définition à la ligne \mbox{\hyperlink{semaphore_8c_source_l00016}{16}} du fichier \mbox{\hyperlink{semaphore_8c_source}{semaphore.\+c}}.
+
+\Hypertarget{semaphore_8h_ac5799c5dd36c1f89079f0f07432830c4}\label{semaphore_8h_ac5799c5dd36c1f89079f0f07432830c4} 
+\index{semaphore.h@{semaphore.h}!semRelacher@{semRelacher}}
+\index{semRelacher@{semRelacher}!semaphore.h@{semaphore.h}}
+\doxysubsubsection{\texorpdfstring{semRelacher()}{semRelacher()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} sem\+Relacher (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{semaphore_8h_a8b32b6e6a178bbcab6ee276fb6ed6e02}{Semaphore}} \texorpdfstring{$\ast$}{*}}]{sem }\end{DoxyParamCaption})}
+
+
+
+Définition à la ligne \mbox{\hyperlink{semaphore_8c_source_l00024}{24}} du fichier \mbox{\hyperlink{semaphore_8c_source}{semaphore.\+c}}.
+

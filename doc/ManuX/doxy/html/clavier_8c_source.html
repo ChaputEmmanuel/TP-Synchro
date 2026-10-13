@@ -1,0 +1,243 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>My Project:  Fichier source de /home/manu/PROGRAMMATION/C/ManuX/lib/clavier.c</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">My Project
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function() { init_codefold(0); });
+/* @license-end */
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_97aefd0d527b934f1d99a682da8fe6a9.html">lib</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle"><div class="title">clavier.c</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="clavier_8c.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment">/* @file : clavier.c                                                          */</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment">/* @brief: Implantation des sous-programmes de manipulation du clavier.       */</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment">/*                                                                            */</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment">/*                                                  (C) Manu Chaput 2000-2023 */</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment">/*----------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &lt;<a class="code" href="manux_2clavier_8h.html">manux/clavier.h</a>&gt;</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &lt;<a class="code" href="io_8h.html">manux/io.h</a>&gt;</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &lt;<a class="code" href="manux_2intel-8259a_8h.html">manux/intel-8259a.h</a>&gt;</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &lt;<a class="code" href="include_2manux_2printk_8h.html">manux/printk.h</a>&gt;</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#include &lt;<a class="code" href="interBasNiveau_8h.html">manux/interBasNiveau.h</a>&gt;</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#include &lt;<a class="code" href="include_2manux_2memoire_8h.html">manux/memoire.h</a>&gt;</span>           <span class="comment">// NULL</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &lt;<a class="code" href="scheduler_8h.html">manux/scheduler.h</a>&gt;</span>         <span class="comment">// basculeConsoleDemandee</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">#ifdef MANUX_CLAVIER_CONSOLE</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#   include &lt;<a class="code" href="include_2manux_2console_8h.html">manux/console.h</a>&gt;</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="preprocessor">#include &lt;<a class="code" href="french_8h.html">keymaps/french.h</a>&gt;</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="comment">/*</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="comment"> * Description de l&#39;état courant du clavier</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="clavier_8c.html#afb665ec27226cbb78cea21a6e309dea1">   25</a></span><span class="keywordtype">int</span> <a class="code hl_variable" href="clavier_8c.html#afb665ec27226cbb78cea21a6e309dea1">codeClavier</a> = 0; <span class="comment">// Code de la dernière touche manipulée</span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="clavier_8c.html#aea6378db7413868718bfe76a2f3f7c26">   26</a></span><span class="keywordtype">int</span> <a class="code hl_variable" href="clavier_8c.html#aea6378db7413868718bfe76a2f3f7c26">shiftActif</a>  = 0;</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
+<div class="foldopen" id="foldopen00028" data-start="{" data-end="}">
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="manux_2clavier_8h.html#adeb7648f2d16a4967670148c998f83cc">   28</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="clavier_8c.html#adeb7648f2d16a4967670148c998f83cc">initialiserClavier</a>(<span class="keywordtype">void</span>)</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>{</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>   <a class="code hl_variable" href="clavier_8c.html#afb665ec27226cbb78cea21a6e309dea1">codeClavier</a> = 0;</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>   <a class="code hl_function" href="intel-8259a_8c.html#a15912416949d2100da9c775b75457997">i8259aInterdireIRQ</a>(<a class="code hl_define" href="pc-i386_8h.html#a5969b45e9b889e18d3673d8f72a1af1f">IRQ_CLAVIER</a>);</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>   <span class="comment">// On s&#39;enregistre auprès du PIC</span></div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>   <a class="code hl_function" href="intel-8259a_8c.html#a8c849c456bff2b144e72c0d55873647a">i8259aAjouterHandler</a>(<a class="code hl_define" href="pc-i386_8h.html#a5969b45e9b889e18d3673d8f72a1af1f">IRQ_CLAVIER</a>, <a class="code hl_function" href="clavier_8c.html#a21c527b97e8566026400521d3d06ac44">handlerClavier</a>, <a class="code hl_define" href="include_2manux_2stddef_8h.html#a070d2ce7b6bb7e5c05602aa8c308d0c4">NULL</a>);</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>   </div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>   <span class="comment">/* Activation du clavier */</span></div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>   <a class="code hl_define" href="io_8h.html#a01385861b7c9bd988991a73868c29905">outb</a>(<a class="code hl_define" href="manux_2clavier_8h.html#acb5c861fcc9735048eca33e89bdd5f00">portDonneesClavier</a>, 0xf4);</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>   <a class="code hl_define" href="io_8h.html#a01385861b7c9bd988991a73868c29905">outb</a>(<a class="code hl_define" href="manux_2clavier_8h.html#aff224d719b2cf928aa1cf16a843707cd">portCmdClavier</a>, 0xae);</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>   <a class="code hl_function" href="intel-8259a_8c.html#a9b846f608e7cad3491d9bff7e870ef00">i8259aAutoriserIRQ</a>(<a class="code hl_define" href="pc-i386_8h.html#a5969b45e9b889e18d3673d8f72a1af1f">IRQ_CLAVIER</a>);</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>}</div>
+</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno"><a class="line" href="clavier_8c.html#ab63d0f794b5c9fe5ea51d818bc76d142">   44</a></span><span class="preprocessor">#define KEYCODE_ESC  0x01</span></div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno"><a class="line" href="clavier_8c.html#aa07f16e09fb4d04fa51ccb26aff0f2d1">   45</a></span><span class="preprocessor">#define KEYCODE_TAB  0x0F</span></div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno"><a class="line" href="clavier_8c.html#a91d398bb7a3bc5a900f8685a14d177fb">   46</a></span><span class="preprocessor">#define KEYCODE_F1   0x3b</span></div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno"><a class="line" href="clavier_8c.html#aa0dc4252df81cffac8ac155a4837aaff">   47</a></span><span class="preprocessor">#define KEYCODE_F2   0x3c</span></div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno"><a class="line" href="clavier_8c.html#affb3e1f597ef638cf1ca246c19cb73c4">   48</a></span><span class="preprocessor">#define KEYCODE_F3   0x3d</span></div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno"><a class="line" href="clavier_8c.html#a0049ce5464f22e42199869efa01e3e14">   49</a></span><span class="preprocessor">#define KEYCODE_F4   0x3e</span></div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno"><a class="line" href="clavier_8c.html#a563c25a294e5936e1af81ea3c6f8f20f">   50</a></span><span class="preprocessor">#define KEYCODE_F5   0x3f</span></div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno"><a class="line" href="clavier_8c.html#a4e2859d4d3d47c0b5d8b43a4539fd24b">   51</a></span><span class="preprocessor">#define KEYCODE_F6   0x40</span></div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno"><a class="line" href="clavier_8c.html#a6f6d1fdac0129eca5902127c3388f8e5">   52</a></span><span class="preprocessor">#define KEYCODE_F7   0x41</span></div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno"><a class="line" href="clavier_8c.html#a736913c7c5503be488f48c2e368f1c06">   53</a></span><span class="preprocessor">#define KEYCODE_F8   0x42</span></div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno"><a class="line" href="clavier_8c.html#a5ad8cd27506319efd3e46039961c85e0">   54</a></span><span class="preprocessor">#define KEYCODE_F9   0x43</span></div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno"><a class="line" href="clavier_8c.html#a062871ae26949da6b20ae542f684730e">   55</a></span><span class="preprocessor">#define KEYCODE_F10  0x44</span></div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno"><a class="line" href="clavier_8c.html#a1f4467123e8f5b63124ab1ab082c9e43">   57</a></span><span class="preprocessor">#define SC_SHIFT_GAUCHE 0x2a</span></div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span> </div>
+<div class="foldopen" id="foldopen00064" data-start="{" data-end="}">
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno"><a class="line" href="manux_2clavier_8h.html#a21c527b97e8566026400521d3d06ac44">   64</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="clavier_8c.html#a21c527b97e8566026400521d3d06ac44">handlerClavier</a>(<span class="keywordtype">void</span> * toto)</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>{</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>   <a class="code hl_typedef" href="include_2manux_2types_8h.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> etat;</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span> </div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>   (<a class="code hl_function" href="include_2manux_2interruptions_8h.html#a4fda31edc92f8ccd48b6f4bb50f2e7e1">void</a>) toto; <span class="comment">// Présent uniquement pour la signature de la fonction</span></div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>   <a class="code hl_define" href="io_8h.html#a4f4a2af12435f72838eae7049d0ca6ee">inb</a>(0x64, etat);</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span> </div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>   <span class="keywordflow">if</span> (etat &amp; 0x01) {</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>      <a class="code hl_define" href="io_8h.html#a4f4a2af12435f72838eae7049d0ca6ee">inb</a>(0x60, <a class="code hl_variable" href="clavier_8c.html#afb665ec27226cbb78cea21a6e309dea1">codeClavier</a>);</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>      <a class="code hl_variable" href="clavier_8c.html#afb665ec27226cbb78cea21a6e309dea1">codeClavier</a> &amp;= 0xFF;</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span> </div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>      <span class="comment">// Gestion des shifts</span></div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>      <span class="keywordflow">if</span> (<a class="code hl_variable" href="clavier_8c.html#afb665ec27226cbb78cea21a6e309dea1">codeClavier</a> == <a class="code hl_define" href="clavier_8c.html#a1f4467123e8f5b63124ab1ab082c9e43">SC_SHIFT_GAUCHE</a>) {</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>         <a class="code hl_variable" href="clavier_8c.html#aea6378db7413868718bfe76a2f3f7c26">shiftActif</a>++;</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>     <span class="keywordflow">return</span>;</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>      }</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>      <span class="keywordflow">if</span> (<a class="code hl_variable" href="clavier_8c.html#afb665ec27226cbb78cea21a6e309dea1">codeClavier</a> == (<a class="code hl_define" href="clavier_8c.html#a1f4467123e8f5b63124ab1ab082c9e43">SC_SHIFT_GAUCHE</a> | 0x80)) {</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>         <a class="code hl_variable" href="clavier_8c.html#aea6378db7413868718bfe76a2f3f7c26">shiftActif</a>--;</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>     <span class="keywordflow">return</span>;</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>      }</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>      <span class="comment">// printk(&quot;[KBD-0x%x / %d]\n&quot;, codeClavier, shiftActif);</span></div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>      </div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span><span class="preprocessor">#ifdef MANUX_CONSOLES_VIRTUELLES</span></div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>      <span class="keywordflow">if</span> (<a class="code hl_variable" href="clavier_8c.html#afb665ec27226cbb78cea21a6e309dea1">codeClavier</a> == <a class="code hl_define" href="clavier_8c.html#ab63d0f794b5c9fe5ea51d818bc76d142">KEYCODE_ESC</a>) {</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>         <a class="code hl_variable" href="scheduler_8h.html#ac0ad7deba8c8b31a1d9f541aa3ba997f">basculeConsoleDemandee</a> = <a class="code hl_define" href="include_2manux_2types_8h.html#aa8cecfc5c5c054d2875c03e77b7be15d">TRUE</a>;</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>     <span class="keywordflow">return</span>;</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>      }</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span> </div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span><span class="preprocessor">#ifdef MANUX_TACHES</span></div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>      <span class="keywordflow">if</span> (<a class="code hl_variable" href="clavier_8c.html#afb665ec27226cbb78cea21a6e309dea1">codeClavier</a> == <a class="code hl_define" href="clavier_8c.html#a91d398bb7a3bc5a900f8685a14d177fb">KEYCODE_F1</a>) {</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>     <a class="code hl_variable" href="scheduler_8h.html#a6ab4872c480fd88702e95f13ca8c1bf5">basculerTacheDemande</a> = <a class="code hl_define" href="include_2manux_2types_8h.html#aa8cecfc5c5c054d2875c03e77b7be15d">TRUE</a>;</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>     <span class="keywordflow">return</span>;</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>      }</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span><span class="preprocessor">#ifdef MANUX_CLAVIER_CONSOLE</span></div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>      <a class="code hl_struct" href="struct__Console.html">Console</a> * cons;</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span><span class="preprocessor">#   ifdef MANUX_CONSOLES_VIRTUELLES</span></div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>      cons = consoleActive;</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span><span class="preprocessor">#   else</span></div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>      cons = <a class="code hl_function" href="include_2manux_2console_8h.html#abf2f6aca15463bf0f0114531cea39f15">consoleNoyau</a>();</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span><span class="preprocessor">#   endif</span></div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span> </div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>      <span class="keywordflow">if</span> (<a class="code hl_variable" href="clavier_8c.html#afb665ec27226cbb78cea21a6e309dea1">codeClavier</a> &amp; 0x80) {</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>    <span class="comment">//printk(&quot;(up)\n&quot;);</span></div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>      } <span class="keywordflow">else</span> {</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>         <span class="keywordflow">if</span> (cons-&gt;bufferClavier){ </div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>            <span class="keywordflow">if</span> (cons-&gt;nbCarAttente &lt; 4096) {</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>               cons-&gt;bufferClavier[(cons-&gt;indiceProchainCar + cons-&gt;nbCarAttente)%4096] =</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>         <a class="code hl_variable" href="clavier_8c.html#aea6378db7413868718bfe76a2f3f7c26">shiftActif</a> ?<a class="code hl_variable" href="french_8h.html#abbb88b5d7000eac5da3d6cbd46ca0a4c">keymapShift</a>[<a class="code hl_variable" href="clavier_8c.html#afb665ec27226cbb78cea21a6e309dea1">codeClavier</a>]:<a class="code hl_variable" href="french_8h.html#a18042e52df5374d540e3c35c6c6325e7">keymap</a>[<a class="code hl_variable" href="clavier_8c.html#afb665ec27226cbb78cea21a6e309dea1">codeClavier</a>];</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>           cons-&gt;nbCarAttente++;</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>        }</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>     }</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>      }</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>   }</div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>}</div>
+</div>
+<div class="ttc" id="aclavier_8c_html_a1f4467123e8f5b63124ab1ab082c9e43"><div class="ttname"><a href="clavier_8c.html#a1f4467123e8f5b63124ab1ab082c9e43">SC_SHIFT_GAUCHE</a></div><div class="ttdeci">#define SC_SHIFT_GAUCHE</div><div class="ttdef"><b>Definition</b> <a href="clavier_8c_source.html#l00057">clavier.c:57</a></div></div>
+<div class="ttc" id="aclavier_8c_html_a21c527b97e8566026400521d3d06ac44"><div class="ttname"><a href="clavier_8c.html#a21c527b97e8566026400521d3d06ac44">handlerClavier</a></div><div class="ttdeci">void handlerClavier(void *toto)</div><div class="ttdoc">Le handler du clavier.</div><div class="ttdef"><b>Definition</b> <a href="clavier_8c_source.html#l00064">clavier.c:64</a></div></div>
+<div class="ttc" id="aclavier_8c_html_a91d398bb7a3bc5a900f8685a14d177fb"><div class="ttname"><a href="clavier_8c.html#a91d398bb7a3bc5a900f8685a14d177fb">KEYCODE_F1</a></div><div class="ttdeci">#define KEYCODE_F1</div><div class="ttdef"><b>Definition</b> <a href="clavier_8c_source.html#l00046">clavier.c:46</a></div></div>
+<div class="ttc" id="aclavier_8c_html_ab63d0f794b5c9fe5ea51d818bc76d142"><div class="ttname"><a href="clavier_8c.html#ab63d0f794b5c9fe5ea51d818bc76d142">KEYCODE_ESC</a></div><div class="ttdeci">#define KEYCODE_ESC</div><div class="ttdef"><b>Definition</b> <a href="clavier_8c_source.html#l00044">clavier.c:44</a></div></div>
+<div class="ttc" id="aclavier_8c_html_adeb7648f2d16a4967670148c998f83cc"><div class="ttname"><a href="clavier_8c.html#adeb7648f2d16a4967670148c998f83cc">initialiserClavier</a></div><div class="ttdeci">void initialiserClavier(void)</div><div class="ttdef"><b>Definition</b> <a href="clavier_8c_source.html#l00028">clavier.c:28</a></div></div>
+<div class="ttc" id="aclavier_8c_html_aea6378db7413868718bfe76a2f3f7c26"><div class="ttname"><a href="clavier_8c.html#aea6378db7413868718bfe76a2f3f7c26">shiftActif</a></div><div class="ttdeci">int shiftActif</div><div class="ttdef"><b>Definition</b> <a href="clavier_8c_source.html#l00026">clavier.c:26</a></div></div>
+<div class="ttc" id="aclavier_8c_html_afb665ec27226cbb78cea21a6e309dea1"><div class="ttname"><a href="clavier_8c.html#afb665ec27226cbb78cea21a6e309dea1">codeClavier</a></div><div class="ttdeci">int codeClavier</div><div class="ttdef"><b>Definition</b> <a href="clavier_8c_source.html#l00025">clavier.c:25</a></div></div>
+<div class="ttc" id="afrench_8h_html"><div class="ttname"><a href="french_8h.html">french.h</a></div></div>
+<div class="ttc" id="afrench_8h_html_a18042e52df5374d540e3c35c6c6325e7"><div class="ttname"><a href="french_8h.html#a18042e52df5374d540e3c35c6c6325e7">keymap</a></div><div class="ttdeci">uint8_t keymap[128]</div><div class="ttdef"><b>Definition</b> <a href="french_8h_source.html#l00001">french.h:1</a></div></div>
+<div class="ttc" id="afrench_8h_html_abbb88b5d7000eac5da3d6cbd46ca0a4c"><div class="ttname"><a href="french_8h.html#abbb88b5d7000eac5da3d6cbd46ca0a4c">keymapShift</a></div><div class="ttdeci">uint8_t keymapShift[128]</div><div class="ttdef"><b>Definition</b> <a href="french_8h_source.html#l00008">french.h:8</a></div></div>
+<div class="ttc" id="ainclude_2manux_2console_8h_html"><div class="ttname"><a href="include_2manux_2console_8h.html">console.h</a></div><div class="ttdoc">Définition des fonctions de base d'accés à la console.</div></div>
+<div class="ttc" id="ainclude_2manux_2console_8h_html_abf2f6aca15463bf0f0114531cea39f15"><div class="ttname"><a href="include_2manux_2console_8h.html#abf2f6aca15463bf0f0114531cea39f15">consoleNoyau</a></div><div class="ttdeci">Console * consoleNoyau(void)</div><div class="ttdoc">Obtention d'un pointeur sur la console par défaut.</div><div class="ttdef"><b>Definition</b> <a href="console_8c_source.html#l00808">console.c:808</a></div></div>
+<div class="ttc" id="ainclude_2manux_2interruptions_8h_html_a4fda31edc92f8ccd48b6f4bb50f2e7e1"><div class="ttname"><a href="include_2manux_2interruptions_8h.html#a4fda31edc92f8ccd48b6f4bb50f2e7e1">void</a></div><div class="ttdeci">typedef void(Handler(void))</div></div>
+<div class="ttc" id="ainclude_2manux_2memoire_8h_html"><div class="ttname"><a href="include_2manux_2memoire_8h.html">memoire.h</a></div></div>
+<div class="ttc" id="ainclude_2manux_2printk_8h_html"><div class="ttname"><a href="include_2manux_2printk_8h.html">printk.h</a></div><div class="ttdoc">Définition des fonctions de base d'entrée-sortie du noyau.</div></div>
+<div class="ttc" id="ainclude_2manux_2stddef_8h_html_a070d2ce7b6bb7e5c05602aa8c308d0c4"><div class="ttname"><a href="include_2manux_2stddef_8h.html#a070d2ce7b6bb7e5c05602aa8c308d0c4">NULL</a></div><div class="ttdeci">#define NULL</div><div class="ttdef"><b>Definition</b> <a href="include_2manux_2stddef_8h_source.html#l00010">stddef.h:10</a></div></div>
+<div class="ttc" id="ainclude_2manux_2types_8h_html_aa8cecfc5c5c054d2875c03e77b7be15d"><div class="ttname"><a href="include_2manux_2types_8h.html#aa8cecfc5c5c054d2875c03e77b7be15d">TRUE</a></div><div class="ttdeci">#define TRUE</div><div class="ttdef"><b>Definition</b> <a href="include_2manux_2types_8h_source.html#l00036">types.h:36</a></div></div>
+<div class="ttc" id="ainclude_2manux_2types_8h_html_aba7bc1797add20fe3efdf37ced1182c5"><div class="ttname"><a href="include_2manux_2types_8h.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a></div><div class="ttdeci">unsigned char uint8_t</div><div class="ttdef"><b>Definition</b> <a href="include_2manux_2types_8h_source.html#l00012">types.h:12</a></div></div>
+<div class="ttc" id="aintel-8259a_8c_html_a15912416949d2100da9c775b75457997"><div class="ttname"><a href="intel-8259a_8c.html#a15912416949d2100da9c775b75457997">i8259aInterdireIRQ</a></div><div class="ttdeci">void i8259aInterdireIRQ(uint8_t numIRQ)</div><div class="ttdef"><b>Definition</b> <a href="intel-8259a_8c_source.html#l00136">intel-8259a.c:136</a></div></div>
+<div class="ttc" id="aintel-8259a_8c_html_a8c849c456bff2b144e72c0d55873647a"><div class="ttname"><a href="intel-8259a_8c.html#a8c849c456bff2b144e72c0d55873647a">i8259aAjouterHandler</a></div><div class="ttdeci">int i8259aAjouterHandler(int numIRQ, void(*handler)(void *), void *private)</div><div class="ttdoc">Ajout d'un handler.</div><div class="ttdef"><b>Definition</b> <a href="intel-8259a_8c_source.html#l00118">intel-8259a.c:118</a></div></div>
+<div class="ttc" id="aintel-8259a_8c_html_a9b846f608e7cad3491d9bff7e870ef00"><div class="ttname"><a href="intel-8259a_8c.html#a9b846f608e7cad3491d9bff7e870ef00">i8259aAutoriserIRQ</a></div><div class="ttdeci">void i8259aAutoriserIRQ(uint8_t numIRQ)</div><div class="ttdoc">Masquage d'une IRQ.</div><div class="ttdef"><b>Definition</b> <a href="intel-8259a_8c_source.html#l00157">intel-8259a.c:157</a></div></div>
+<div class="ttc" id="ainterBasNiveau_8h_html"><div class="ttname"><a href="interBasNiveau_8h.html">interBasNiveau.h</a></div></div>
+<div class="ttc" id="aio_8h_html"><div class="ttname"><a href="io_8h.html">io.h</a></div></div>
+<div class="ttc" id="aio_8h_html_a01385861b7c9bd988991a73868c29905"><div class="ttname"><a href="io_8h.html#a01385861b7c9bd988991a73868c29905">outb</a></div><div class="ttdeci">#define outb(port, octet)</div><div class="ttdoc">Emission d'un octet sur un port.</div><div class="ttdef"><b>Definition</b> <a href="io_8h_source.html#l00013">io.h:13</a></div></div>
+<div class="ttc" id="aio_8h_html_a4f4a2af12435f72838eae7049d0ca6ee"><div class="ttname"><a href="io_8h.html#a4f4a2af12435f72838eae7049d0ca6ee">inb</a></div><div class="ttdeci">#define inb(port, adresseOctet)</div><div class="ttdoc">Lecture d'un octet depuis un port.</div><div class="ttdef"><b>Definition</b> <a href="io_8h_source.html#l00019">io.h:19</a></div></div>
+<div class="ttc" id="amanux_2clavier_8h_html"><div class="ttname"><a href="manux_2clavier_8h.html">clavier.h</a></div></div>
+<div class="ttc" id="amanux_2clavier_8h_html_acb5c861fcc9735048eca33e89bdd5f00"><div class="ttname"><a href="manux_2clavier_8h.html#acb5c861fcc9735048eca33e89bdd5f00">portDonneesClavier</a></div><div class="ttdeci">#define portDonneesClavier</div><div class="ttdef"><b>Definition</b> <a href="manux_2clavier_8h_source.html#l00011">clavier.h:11</a></div></div>
+<div class="ttc" id="amanux_2clavier_8h_html_aff224d719b2cf928aa1cf16a843707cd"><div class="ttname"><a href="manux_2clavier_8h.html#aff224d719b2cf928aa1cf16a843707cd">portCmdClavier</a></div><div class="ttdeci">#define portCmdClavier</div><div class="ttdef"><b>Definition</b> <a href="manux_2clavier_8h_source.html#l00012">clavier.h:12</a></div></div>
+<div class="ttc" id="amanux_2intel-8259a_8h_html"><div class="ttname"><a href="manux_2intel-8259a_8h.html">intel-8259a.h</a></div></div>
+<div class="ttc" id="apc-i386_8h_html_a5969b45e9b889e18d3673d8f72a1af1f"><div class="ttname"><a href="pc-i386_8h.html#a5969b45e9b889e18d3673d8f72a1af1f">IRQ_CLAVIER</a></div><div class="ttdeci">#define IRQ_CLAVIER</div><div class="ttdef"><b>Definition</b> <a href="pc-i386_8h_source.html#l00058">pc-i386.h:58</a></div></div>
+<div class="ttc" id="ascheduler_8h_html"><div class="ttname"><a href="scheduler_8h.html">scheduler.h</a></div></div>
+<div class="ttc" id="ascheduler_8h_html_a6ab4872c480fd88702e95f13ca8c1bf5"><div class="ttname"><a href="scheduler_8h.html#a6ab4872c480fd88702e95f13ca8c1bf5">basculerTacheDemande</a></div><div class="ttdeci">booleen basculerTacheDemande</div><div class="ttdef"><b>Definition</b> <a href="scheduler_8c_source.html#l00051">scheduler.c:51</a></div></div>
+<div class="ttc" id="ascheduler_8h_html_ac0ad7deba8c8b31a1d9f541aa3ba997f"><div class="ttname"><a href="scheduler_8h.html#ac0ad7deba8c8b31a1d9f541aa3ba997f">basculeConsoleDemandee</a></div><div class="ttdeci">booleen basculeConsoleDemandee</div><div class="ttdef"><b>Definition</b> <a href="scheduler_8c_source.html#l00049">scheduler.c:49</a></div></div>
+<div class="ttc" id="astruct__Console_html"><div class="ttname"><a href="struct__Console.html">_Console</a></div><div class="ttdoc">Structure d'une console.</div><div class="ttdef"><b>Definition</b> <a href="include_2manux_2console_8h_source.html#l00037">console.h:37</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

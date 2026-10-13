@@ -1,0 +1,146 @@
+\doxysection{Référence du fichier /home/manu/\+PROGRAMMATION/\+C/\+Manu\+X/include/manux/arith64.h}
+\hypertarget{arith64_8h}{}\label{arith64_8h}\index{/home/manu/PROGRAMMATION/C/ManuX/include/manux/arith64.h@{/home/manu/PROGRAMMATION/C/ManuX/include/manux/arith64.h}}
+Ce graphe montre quels fichiers incluent directement ou indirectement ce fichier \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{arith64_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+union \mbox{\hyperlink{unionarith64__word}{arith64\+\_\+word}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{arith64_8h_ae5cbcfc8c01a178587935407bbc02a56}{arith64\+\_\+u64}}~unsigned long long int
+\item 
+\#define \mbox{\hyperlink{arith64_8h_aad3271ab92f48b78bca71e2d9f4c1723}{arith64\+\_\+s64}}~signed long long int
+\item 
+\#define \mbox{\hyperlink{arith64_8h_a6571aa5060676d8b0923245ee63a2b46}{arith64\+\_\+u32}}~unsigned int
+\item 
+\#define \mbox{\hyperlink{arith64_8h_ab5b8c8efaac3a3bef707b91ef4bccb62}{arith64\+\_\+s32}}~int
+\item 
+\#define \mbox{\hyperlink{arith64_8h_a7b340ea7ffe2d8397faf257d06ad0499}{arith64\+\_\+hi}}(n)~(\mbox{\hyperlink{unionarith64__word}{arith64\+\_\+word}})\{.u64=n\}.u32.\+hi
+\item 
+\#define \mbox{\hyperlink{arith64_8h_a032b36f0fd9d0392f60e1d831ead8204}{arith64\+\_\+lo}}(n)~(\mbox{\hyperlink{unionarith64__word}{arith64\+\_\+word}})\{.u64=n\}.u32.\+lo
+\item 
+\#define \mbox{\hyperlink{arith64_8h_afff665b35b9678331f4ecd149ddf7629}{arith64\+\_\+neg}}(\mbox{\hyperlink{main-bootreg_8c_acc5bda773ae19389879f3886f8ecf123}{a}},  \mbox{\hyperlink{main-bootreg_8c_a7976cd62f9b61a65e8104a3cf7c15099}{b}})~(((\mbox{\hyperlink{main-bootreg_8c_acc5bda773ae19389879f3886f8ecf123}{a}}) \texorpdfstring{$^\wedge$}{\string^} ((((\mbox{\hyperlink{arith64_8h_aad3271ab92f48b78bca71e2d9f4c1723}{arith64\+\_\+s64}})(\mbox{\hyperlink{main-bootreg_8c_a7976cd62f9b61a65e8104a3cf7c15099}{b}})) $>$= 0) -\/ 1)) + (((\mbox{\hyperlink{arith64_8h_aad3271ab92f48b78bca71e2d9f4c1723}{arith64\+\_\+s64}})(\mbox{\hyperlink{main-bootreg_8c_a7976cd62f9b61a65e8104a3cf7c15099}{b}})) $<$ 0))
+\item 
+\#define \mbox{\hyperlink{arith64_8h_a8f5867e27b915c5eb54ebd57b1ace3f4}{arith64\+\_\+abs}}(\mbox{\hyperlink{main-bootreg_8c_acc5bda773ae19389879f3886f8ecf123}{a}})~\mbox{\hyperlink{arith64_8h_afff665b35b9678331f4ecd149ddf7629}{arith64\+\_\+neg}}(\mbox{\hyperlink{main-bootreg_8c_acc5bda773ae19389879f3886f8ecf123}{a}}, \mbox{\hyperlink{main-bootreg_8c_acc5bda773ae19389879f3886f8ecf123}{a}})
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{arith64_8h_aad3271ab92f48b78bca71e2d9f4c1723}{arith64\+\_\+s64}} \mbox{\hyperlink{arith64_8h_a90102e050c7a459d19f99108d6b4b4c0}{\+\_\+\+\_\+moddi3}} (\mbox{\hyperlink{arith64_8h_aad3271ab92f48b78bca71e2d9f4c1723}{arith64\+\_\+s64}} \mbox{\hyperlink{main-bootreg_8c_acc5bda773ae19389879f3886f8ecf123}{a}}, \mbox{\hyperlink{arith64_8h_aad3271ab92f48b78bca71e2d9f4c1723}{arith64\+\_\+s64}} \mbox{\hyperlink{main-bootreg_8c_a7976cd62f9b61a65e8104a3cf7c15099}{b}})
+\item 
+\mbox{\hyperlink{arith64_8h_aad3271ab92f48b78bca71e2d9f4c1723}{arith64\+\_\+s64}} \mbox{\hyperlink{arith64_8h_a56ea63e25db9445bde46e852a916d0cd}{\+\_\+\+\_\+divdi3}} (\mbox{\hyperlink{arith64_8h_aad3271ab92f48b78bca71e2d9f4c1723}{arith64\+\_\+s64}} \mbox{\hyperlink{main-bootreg_8c_acc5bda773ae19389879f3886f8ecf123}{a}}, \mbox{\hyperlink{arith64_8h_aad3271ab92f48b78bca71e2d9f4c1723}{arith64\+\_\+s64}} \mbox{\hyperlink{main-bootreg_8c_a7976cd62f9b61a65e8104a3cf7c15099}{b}})
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Documentation des macros}
+\Hypertarget{arith64_8h_a8f5867e27b915c5eb54ebd57b1ace3f4}\label{arith64_8h_a8f5867e27b915c5eb54ebd57b1ace3f4} 
+\index{arith64.h@{arith64.h}!arith64\_abs@{arith64\_abs}}
+\index{arith64\_abs@{arith64\_abs}!arith64.h@{arith64.h}}
+\doxysubsubsection{\texorpdfstring{arith64\_abs}{arith64\_abs}}
+{\footnotesize\ttfamily \#define arith64\+\_\+abs(\begin{DoxyParamCaption}\item[{}]{\mbox{\hyperlink{main-bootreg_8c_acc5bda773ae19389879f3886f8ecf123}{a}} }\end{DoxyParamCaption})~\mbox{\hyperlink{arith64_8h_afff665b35b9678331f4ecd149ddf7629}{arith64\+\_\+neg}}(\mbox{\hyperlink{main-bootreg_8c_acc5bda773ae19389879f3886f8ecf123}{a}}, \mbox{\hyperlink{main-bootreg_8c_acc5bda773ae19389879f3886f8ecf123}{a}})}
+
+
+
+Définition à la ligne \mbox{\hyperlink{arith64_8h_source_l00039}{39}} du fichier \mbox{\hyperlink{arith64_8h_source}{arith64.\+h}}.
+
+\Hypertarget{arith64_8h_a7b340ea7ffe2d8397faf257d06ad0499}\label{arith64_8h_a7b340ea7ffe2d8397faf257d06ad0499} 
+\index{arith64.h@{arith64.h}!arith64\_hi@{arith64\_hi}}
+\index{arith64\_hi@{arith64\_hi}!arith64.h@{arith64.h}}
+\doxysubsubsection{\texorpdfstring{arith64\_hi}{arith64\_hi}}
+{\footnotesize\ttfamily \#define arith64\+\_\+hi(\begin{DoxyParamCaption}\item[{}]{n }\end{DoxyParamCaption})~(\mbox{\hyperlink{unionarith64__word}{arith64\+\_\+word}})\{.u64=n\}.u32.\+hi}
+
+
+
+Définition à la ligne \mbox{\hyperlink{arith64_8h_source_l00034}{34}} du fichier \mbox{\hyperlink{arith64_8h_source}{arith64.\+h}}.
+
+\Hypertarget{arith64_8h_a032b36f0fd9d0392f60e1d831ead8204}\label{arith64_8h_a032b36f0fd9d0392f60e1d831ead8204} 
+\index{arith64.h@{arith64.h}!arith64\_lo@{arith64\_lo}}
+\index{arith64\_lo@{arith64\_lo}!arith64.h@{arith64.h}}
+\doxysubsubsection{\texorpdfstring{arith64\_lo}{arith64\_lo}}
+{\footnotesize\ttfamily \#define arith64\+\_\+lo(\begin{DoxyParamCaption}\item[{}]{n }\end{DoxyParamCaption})~(\mbox{\hyperlink{unionarith64__word}{arith64\+\_\+word}})\{.u64=n\}.u32.\+lo}
+
+
+
+Définition à la ligne \mbox{\hyperlink{arith64_8h_source_l00035}{35}} du fichier \mbox{\hyperlink{arith64_8h_source}{arith64.\+h}}.
+
+\Hypertarget{arith64_8h_afff665b35b9678331f4ecd149ddf7629}\label{arith64_8h_afff665b35b9678331f4ecd149ddf7629} 
+\index{arith64.h@{arith64.h}!arith64\_neg@{arith64\_neg}}
+\index{arith64\_neg@{arith64\_neg}!arith64.h@{arith64.h}}
+\doxysubsubsection{\texorpdfstring{arith64\_neg}{arith64\_neg}}
+{\footnotesize\ttfamily \#define arith64\+\_\+neg(\begin{DoxyParamCaption}\item[{}]{\mbox{\hyperlink{main-bootreg_8c_acc5bda773ae19389879f3886f8ecf123}{a}},  }\item[{}]{\mbox{\hyperlink{main-bootreg_8c_a7976cd62f9b61a65e8104a3cf7c15099}{b}} }\end{DoxyParamCaption})~(((\mbox{\hyperlink{main-bootreg_8c_acc5bda773ae19389879f3886f8ecf123}{a}}) \texorpdfstring{$^\wedge$}{\string^} ((((\mbox{\hyperlink{arith64_8h_aad3271ab92f48b78bca71e2d9f4c1723}{arith64\+\_\+s64}})(\mbox{\hyperlink{main-bootreg_8c_a7976cd62f9b61a65e8104a3cf7c15099}{b}})) $>$= 0) -\/ 1)) + (((\mbox{\hyperlink{arith64_8h_aad3271ab92f48b78bca71e2d9f4c1723}{arith64\+\_\+s64}})(\mbox{\hyperlink{main-bootreg_8c_a7976cd62f9b61a65e8104a3cf7c15099}{b}})) $<$ 0))}
+
+
+
+Définition à la ligne \mbox{\hyperlink{arith64_8h_source_l00038}{38}} du fichier \mbox{\hyperlink{arith64_8h_source}{arith64.\+h}}.
+
+\Hypertarget{arith64_8h_ab5b8c8efaac3a3bef707b91ef4bccb62}\label{arith64_8h_ab5b8c8efaac3a3bef707b91ef4bccb62} 
+\index{arith64.h@{arith64.h}!arith64\_s32@{arith64\_s32}}
+\index{arith64\_s32@{arith64\_s32}!arith64.h@{arith64.h}}
+\doxysubsubsection{\texorpdfstring{arith64\_s32}{arith64\_s32}}
+{\footnotesize\ttfamily \#define arith64\+\_\+s32~int}
+
+
+
+Définition à la ligne \mbox{\hyperlink{arith64_8h_source_l00009}{9}} du fichier \mbox{\hyperlink{arith64_8h_source}{arith64.\+h}}.
+
+\Hypertarget{arith64_8h_aad3271ab92f48b78bca71e2d9f4c1723}\label{arith64_8h_aad3271ab92f48b78bca71e2d9f4c1723} 
+\index{arith64.h@{arith64.h}!arith64\_s64@{arith64\_s64}}
+\index{arith64\_s64@{arith64\_s64}!arith64.h@{arith64.h}}
+\doxysubsubsection{\texorpdfstring{arith64\_s64}{arith64\_s64}}
+{\footnotesize\ttfamily \#define arith64\+\_\+s64~signed long long int}
+
+
+
+Définition à la ligne \mbox{\hyperlink{arith64_8h_source_l00007}{7}} du fichier \mbox{\hyperlink{arith64_8h_source}{arith64.\+h}}.
+
+\Hypertarget{arith64_8h_a6571aa5060676d8b0923245ee63a2b46}\label{arith64_8h_a6571aa5060676d8b0923245ee63a2b46} 
+\index{arith64.h@{arith64.h}!arith64\_u32@{arith64\_u32}}
+\index{arith64\_u32@{arith64\_u32}!arith64.h@{arith64.h}}
+\doxysubsubsection{\texorpdfstring{arith64\_u32}{arith64\_u32}}
+{\footnotesize\ttfamily \#define arith64\+\_\+u32~unsigned int}
+
+
+
+Définition à la ligne \mbox{\hyperlink{arith64_8h_source_l00008}{8}} du fichier \mbox{\hyperlink{arith64_8h_source}{arith64.\+h}}.
+
+\Hypertarget{arith64_8h_ae5cbcfc8c01a178587935407bbc02a56}\label{arith64_8h_ae5cbcfc8c01a178587935407bbc02a56} 
+\index{arith64.h@{arith64.h}!arith64\_u64@{arith64\_u64}}
+\index{arith64\_u64@{arith64\_u64}!arith64.h@{arith64.h}}
+\doxysubsubsection{\texorpdfstring{arith64\_u64}{arith64\_u64}}
+{\footnotesize\ttfamily \#define arith64\+\_\+u64~unsigned long long int}
+
+
+
+Définition à la ligne \mbox{\hyperlink{arith64_8h_source_l00006}{6}} du fichier \mbox{\hyperlink{arith64_8h_source}{arith64.\+h}}.
+
+
+
+\doxysubsection{Documentation des fonctions}
+\Hypertarget{arith64_8h_a56ea63e25db9445bde46e852a916d0cd}\label{arith64_8h_a56ea63e25db9445bde46e852a916d0cd} 
+\index{arith64.h@{arith64.h}!\_\_divdi3@{\_\_divdi3}}
+\index{\_\_divdi3@{\_\_divdi3}!arith64.h@{arith64.h}}
+\doxysubsubsection{\texorpdfstring{\_\_divdi3()}{\_\_divdi3()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{arith64_8h_aad3271ab92f48b78bca71e2d9f4c1723}{arith64\+\_\+s64}} \+\_\+\+\_\+divdi3 (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{arith64_8h_aad3271ab92f48b78bca71e2d9f4c1723}{arith64\+\_\+s64}}}]{a,  }\item[{\mbox{\hyperlink{arith64_8h_aad3271ab92f48b78bca71e2d9f4c1723}{arith64\+\_\+s64}}}]{b }\end{DoxyParamCaption})}
+
+
+
+Définition à la ligne \mbox{\hyperlink{arith64_8c_source_l00159}{159}} du fichier \mbox{\hyperlink{arith64_8c_source}{arith64.\+c}}.
+
+\Hypertarget{arith64_8h_a90102e050c7a459d19f99108d6b4b4c0}\label{arith64_8h_a90102e050c7a459d19f99108d6b4b4c0} 
+\index{arith64.h@{arith64.h}!\_\_moddi3@{\_\_moddi3}}
+\index{\_\_moddi3@{\_\_moddi3}!arith64.h@{arith64.h}}
+\doxysubsubsection{\texorpdfstring{\_\_moddi3()}{\_\_moddi3()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{arith64_8h_aad3271ab92f48b78bca71e2d9f4c1723}{arith64\+\_\+s64}} \+\_\+\+\_\+moddi3 (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{arith64_8h_aad3271ab92f48b78bca71e2d9f4c1723}{arith64\+\_\+s64}}}]{a,  }\item[{\mbox{\hyperlink{arith64_8h_aad3271ab92f48b78bca71e2d9f4c1723}{arith64\+\_\+s64}}}]{b }\end{DoxyParamCaption})}
+
+
+
+Définition à la ligne \mbox{\hyperlink{arith64_8c_source_l00192}{192}} du fichier \mbox{\hyperlink{arith64_8c_source}{arith64.\+c}}.
+

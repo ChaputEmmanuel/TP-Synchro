@@ -1,0 +1,183 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>My Project: Référence du fichier /home/manu/PROGRAMMATION/C/ManuX/multiconf/virtio-net.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">My Project
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_c21fac2cced99dbb337da442de42ac95.html">multiconf</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#define-members">Macros</a>  </div>
+  <div class="headertitle"><div class="title">Référence du fichier virtio-net.h</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Utilisation d'une interface réseau de type virtio.  
+<a href="#details">Plus de détails...</a></p>
+<div class="textblock"><code>#include &lt;<a class="el" href="base_8h_source.html">config/base.h</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="config_2bootloader_8h_source.html">config/bootloader.h</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="config_2clavier_8h_source.html">config/clavier.h</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="gestion-memoire_8h_source.html">config/gestion-memoire.h</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="include_2config_2kmalloc_8h_source.html">config/kmalloc.h</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="pc-i386_8h_source.html">config/pc-i386.h</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="synchronisation_8h_source.html">config/synchronisation.h</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="include_2config_2console_8h_source.html">config/console.h</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="consoles-virtuelles_8h_source.html">config/consoles-virtuelles.h</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="include_2config_2printk_8h_source.html">config/printk.h</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="include_2config_2taches_8h_source.html">config/taches.h</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="config_2stdlib_8h_source.html">config/stdlib.h</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="config_2reseau_8h_source.html">config/reseau.h</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="config_2pci_8h_source.html">config/pci.h</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="config_2virtio_8h_source.html">config/virtio.h</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="verifications_8h_source.html">config/verifications.h</a>&gt;</code><br />
+</div><div class="textblock"><div class="dynheader">
+Graphe des dépendances par inclusion de virtio-net.h:</div>
+<div class="dyncontent">
+<div class="center"><img src="multiconf_2virtio-net_8h__incl.png" border="0" usemap="#a_2home_2manu_2PROGRAMMATION_2C_2ManuX_2multiconf_2virtio-net_8h" alt=""/></div>
+<map name="a_2home_2manu_2PROGRAMMATION_2C_2ManuX_2multiconf_2virtio-net_8h" id="a_2home_2manu_2PROGRAMMATION_2C_2ManuX_2multiconf_2virtio-net_8h">
+<area shape="rect" title="Utilisation d&#39;une interface réseau de type virtio." alt="" coords="1143,5,1370,45"/>
+<area shape="rect" href="base_8h.html" title="Eléments de base de la configuration." alt="" coords="5,93,113,119"/>
+<area shape="poly" title=" " alt="" coords="1143,32,702,50,418,69,127,96,127,91,418,63,702,45,1143,27"/>
+<area shape="rect" href="config_2bootloader_8h.html" title=" " alt="" coords="138,93,285,119"/>
+<area shape="poly" title=" " alt="" coords="1143,35,772,57,538,74,299,96,298,91,538,69,772,52,1143,30"/>
+<area shape="rect" href="config_2clavier_8h.html" title=" " alt="" coords="309,93,429,119"/>
+<area shape="poly" title=" " alt="" coords="1143,36,832,58,442,96,442,91,831,53,1143,31"/>
+<area shape="rect" href="gestion-memoire_8h.html" title=" " alt="" coords="453,93,642,119"/>
+<area shape="poly" title=" " alt="" coords="1143,42,656,95,655,90,1143,37"/>
+<area shape="rect" href="include_2config_2kmalloc_8h.html" title=" " alt="" coords="667,93,796,119"/>
+<area shape="poly" title=" " alt="" coords="1144,46,810,96,809,90,1143,41"/>
+<area shape="rect" href="pc-i386_8h.html" title=" " alt="" coords="821,93,946,119"/>
+<area shape="poly" title=" " alt="" coords="1168,48,952,93,951,88,1167,43"/>
+<area shape="rect" href="synchronisation_8h.html" title="Configuration des outils de synchronisation de ManuX." alt="" coords="971,93,1151,119"/>
+<area shape="poly" title=" " alt="" coords="1211,48,1103,91,1101,86,1209,43"/>
+<area shape="rect" href="include_2config_2console_8h.html" title=" " alt="" coords="1220,167,1347,192"/>
+<area shape="poly" title=" " alt="" coords="1239,47,1217,81,1212,99,1215,118,1231,140,1251,157,1248,161,1227,143,1210,120,1206,99,1212,79,1235,44"/>
+<area shape="rect" href="consoles-virtuelles_8h.html" title=" " alt="" coords="1225,93,1424,119"/>
+<area shape="poly" title=" " alt="" coords="1275,44,1308,81,1304,84,1271,47"/>
+<area shape="rect" href="include_2config_2printk_8h.html" title=" " alt="" coords="1449,93,1563,119"/>
+<area shape="poly" title=" " alt="" coords="1317,43,1457,87,1456,92,1316,48"/>
+<area shape="rect" href="include_2config_2taches_8h.html" title=" " alt="" coords="1587,93,1707,119"/>
+<area shape="poly" title=" " alt="" coords="1351,43,1577,88,1576,93,1350,48"/>
+<area shape="rect" href="config_2stdlib_8h.html" title=" " alt="" coords="1732,93,1845,119"/>
+<area shape="poly" title=" " alt="" coords="1371,40,1719,91,1718,96,1370,45"/>
+<area shape="rect" href="config_2reseau_8h.html" title="Paramètrage du sous sytème réseau (C) Manu Chaput 2025." alt="" coords="1869,93,1991,119"/>
+<area shape="poly" title=" " alt="" coords="1371,35,1591,58,1856,90,1856,96,1591,64,1370,40"/>
+<area shape="rect" href="config_2pci_8h.html" title=" " alt="" coords="2015,93,2111,119"/>
+<area shape="poly" title=" " alt="" coords="1370,31,1653,52,1826,69,2002,91,2001,96,1825,74,1653,58,1370,36"/>
+<area shape="rect" href="config_2virtio_8h.html" title=" " alt="" coords="2136,93,2247,119"/>
+<area shape="poly" title=" " alt="" coords="1370,30,1703,51,1911,68,2122,91,2122,96,1910,74,1703,56,1370,35"/>
+<area shape="rect" href="verifications_8h.html" title=" " alt="" coords="2271,93,2429,119"/>
+<area shape="poly" title=" " alt="" coords="1371,29,1759,52,2005,69,2257,91,2257,96,2005,74,1759,57,1370,35"/>
+<area shape="rect" href="plan-memoire-pc_8h.html" title=" " alt="" coords="691,167,881,192"/>
+<area shape="poly" title=" " alt="" coords="869,121,815,160,812,156,866,117"/>
+<area shape="rect" href="config_2intel-8259a_8h.html" title=" " alt="" coords="905,167,1056,192"/>
+<area shape="poly" title=" " alt="" coords="901,117,955,156,952,160,897,121"/>
+<area shape="poly" title=" " alt="" coords="1320,120,1299,156,1295,153,1316,118"/>
+<area shape="rect" href="config_2dummy-task_8h.html" title="Configuration de la dummyTask." alt="" coords="1567,167,1727,192"/>
+<area shape="poly" title=" " alt="" coords="1650,119,1650,153,1645,153,1645,119"/>
+</map>
+</div>
+</div>
+<p><a href="multiconf_2virtio-net_8h_source.html">Aller au code source de ce fichier.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:aa3594499e1eed61df06d17199e875181" id="r_aa3594499e1eed61df06d17199e875181"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="multiconf_2virtio-net_8h.html#aa3594499e1eed61df06d17199e875181">MANUX_FICHIER_MAIN</a>&#160;&#160;&#160;<a class="el" href="makeconfig_8c.html#a0ddf1224851353fc92bfbff6f499fa97">main</a>-virtio-net</td></tr>
+<tr class="separator:aa3594499e1eed61df06d17199e875181"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
+<div class="textblock"><p>Utilisation d'une interface réseau de type virtio. </p>
+<pre class="fragment">                                                (C) Manu Chaput 2000-2026
+</pre> 
+<p class="definition">Définition dans le fichier <a class="el" href="multiconf_2virtio-net_8h_source.html">virtio-net.h</a>.</p>
+</div><h2 class="groupheader">Documentation des macros</h2>
+<a id="aa3594499e1eed61df06d17199e875181" name="aa3594499e1eed61df06d17199e875181"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa3594499e1eed61df06d17199e875181">&#9670;&#160;</a></span>MANUX_FICHIER_MAIN</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define MANUX_FICHIER_MAIN&#160;&#160;&#160;<a class="el" href="makeconfig_8c.html#a0ddf1224851353fc92bfbff6f499fa97">main</a>-virtio-net</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="multiconf_2virtio-net_8h_source.html#l00015">15</a> du fichier <a class="el" href="multiconf_2virtio-net_8h_source.html">virtio-net.h</a>.</p>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

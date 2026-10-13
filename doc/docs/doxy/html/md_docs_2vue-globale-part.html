@@ -1,0 +1,117 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>My Project: La big picture !</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">My Project
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+</div><!-- top -->
+<div><div class="header">
+  <div class="headertitle"><div class="title">La big picture !</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><p><a class="anchor" id="autotoc_md196"></a> Créer un noyau n’est pas une mince affaire, on ne sait donc pas trop comment s’y prendre au début ! Je vous rassure, plus tard on ne sait toujours pas, …</p>
+<p>L’idée de cette section est alors de proposer une vision un peu générale, en survolant les principaux éléments, mais sans rentrer dans le détail d’aucun d’entre eux.</p>
+<h1><a class="anchor" id="autotoc_md197"></a>
+Au commencement, il y a le matériel</h1>
+<p>Lorsqu’on envisage de réaliser un système d’exploitation, c’est que l’on souhaite exploiter un système, non ? Donc la première chose dont on a besoin, c’est d’une bonne connaissance de ce système cible.</p>
+<p>La première (et pour le moment unique) cible de ManuX, c’est un PC à base de microprocesseur Intel i386. Je ne rentrerai pas dans la description de ce système physique, largement documenté de nos jours, et je suppose que vous avez donc une assez bonne connaissance de</p>
+<ul>
+<li>son architecture générale ;</li>
+<li>le fonctionnement de son micro processeur ;</li>
+<li>sa gestion de la mémoire, des entrées-sorties, des périphériques, …</li>
+</ul>
+<p>Nous reparlerons un peu de chacun de ces éléments en temps utiles.</p>
+<p>Grâce à cette connaissance, nous sommes capables d’écrire du code qui permette d’exploiter notre système cible.</p>
+<p><b>Si vous n’avez pas les bases minimales sur l’architecture d’un système informatique classique, allez donc farfouiller le web pour vous faire une culture et revenez plus tard !</b></p>
+<h1><a class="anchor" id="autotoc_md198"></a>
+Ça pourrait glisser, on met les chaînes</h1>
+<p>Un système d’exploitation, c’est du logiciel. Vous allez me dire que “*Real progammers use cat &gt; a.out*” je suppose, mais cette fois je vous propose qu’on se la joue un peu plus confort !</p>
+<p>Nous allons donc faire le choix d’utiliser un langage de programmation de haut niveau pour écrire ce logiciel, et je vous propose (impose ?) le langage C. Comme tout ne peut pas être écrit en C, il nous faudra également utiliser de l’assembleur.</p>
+<p>Il nous faut donc un compilateur C, un assembleur, et un éditeur de liens. Si nous avons peur de devoir déboguer notre code, il nous faudra également des outils pour ça.</p>
+<p>En ce qui concerne ManuX, une chaîne de compilation C fondée sur gcc (ou clang) plus un assembleur comme nasm feront très bien l’affaire. Nous décrirons cela dans la section dédiée aux outils.</p>
+<p>Grâce à ces outils, nous voilà équipés pour compiler le code que nous venons d’écrire afin qu’il puisse être exécuté sur notre système cible.</p>
+<p><b>L’ensemble des outils nécessaires à la compilation et à l’exécution de <em>ManuX</em> sont décrits dans la section “outils”.</b></p>
+<h1><a class="anchor" id="autotoc_md199"></a>
+Chargez !</h1>
+<p>Nous voila bien partis, … nous avons un système matériel et nous savons écrire du code (un noyau, aussi minimaliste soit-il), que nous savons compilé de sorte à l’exécuter sur le système.</p>
+<p>Mais pour cela, il faut “charger le noyau”, c’est-à-dire faire en sorte qu’il se trouve quelque part (<em>a priori</em> dans la mémoire vive du système) pour que le microprocesseur l’exécute.</p>
+<p>Ce travail, peu gratifiant et assez technique, est très dépendant de notre cible matérielle.</p>
+<p>En ce qui concerne ManuX, nous utiliserons deux ou trois méthodes classiques sur un (vieux) PC. Nous décrirons cela plus précisément dans la section <em>Chargement en mémoire et boot</em>.</p>
+<blockquote class="doxtable">
+<p>&zwj;Grâce à cette nouvelle étape, youpi, nous allons enfin pouvoir exécuter notre noyau sur le système cible ! </p>
+</blockquote>
+<h1><a class="anchor" id="autotoc_md200"></a>
+Hello word !</h1>
+<p>Maintenant que nous avons toutes les bases pour que le code de notre noyau soit dans la mémoire de la machine et puisse s’exécuter, nous allons commencer par le doter de fonctions d’affichage.</p>
+<p>La construction de ces outils sera l’objet de la section “Affichage”. </p>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

@@ -1,0 +1,11 @@
+<map id="/home/manu/PROGRAMMATION/C/ManuX/include/config/pci.h" name="/home/manu/PROGRAMMATION/C/ManuX/include/config/pci.h">
+<area shape="rect" id="Node000001" title=" " alt="" coords="387,5,613,45"/>
+<area shape="rect" id="Node000002" href="$include_2manux_2config_8h.html" title=" " alt="" coords="5,93,232,148"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="410,51,226,96,225,91,409,46"/>
+<area shape="rect" id="Node000003" href="$virtio-cons_8h.html" title="Affichage de messages sur une console virtuelle de type virtio." alt="" coords="256,101,491,141"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="465,56,401,103,397,98,462,51"/>
+<area shape="rect" id="Node000004" href="$virtio-journal_8h.html" title=" " alt="" coords="515,93,741,148"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="538,51,594,91,590,95,535,55"/>
+<area shape="rect" id="Node000005" href="$multiconf_2virtio-net_8h.html" title="Utilisation d&#39;une interface réseau de type virtio." alt="" coords="765,101,992,141"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="590,46,803,98,802,103,589,51"/>
+</map>

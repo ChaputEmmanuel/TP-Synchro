@@ -1,0 +1,36 @@
+\doxysection{journal.\+h}
+\hypertarget{include_2manux_2journal_8h_source}{}\label{include_2manux_2journal_8h_source}\index{/home/manu/PROGRAMMATION/C/ManuX/include/manux/journal.h@{/home/manu/PROGRAMMATION/C/ManuX/include/manux/journal.h}}
+\mbox{\hyperlink{include_2manux_2journal_8h}{Aller à la documentation de ce fichier.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{include_2manux_2journal_8h_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{include_2manux_2journal_8h_source_l00009}00009\ \textcolor{preprocessor}{\#ifndef\ JOURNAL\_DEF}}
+\DoxyCodeLine{\Hypertarget{include_2manux_2journal_8h_source_l00010}00010\ \textcolor{preprocessor}{\#define\ JOURNAL\_DEF}}
+\DoxyCodeLine{\Hypertarget{include_2manux_2journal_8h_source_l00011}00011\ }
+\DoxyCodeLine{\Hypertarget{include_2manux_2journal_8h_source_l00012}00012\ \textcolor{preprocessor}{\#include\ <manux/types.h>}}
+\DoxyCodeLine{\Hypertarget{include_2manux_2journal_8h_source_l00013}00013\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fichier_8h}{manux/fichier.h}}>}}
+\DoxyCodeLine{\Hypertarget{include_2manux_2journal_8h_source_l00014}00014\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{include_2manux_2console_8h}{manux/console.h}}>}}
+\DoxyCodeLine{\Hypertarget{include_2manux_2journal_8h_source_l00015}00015\ }
+\DoxyCodeLine{\Hypertarget{include_2manux_2journal_8h_source_l00019}\mbox{\hyperlink{include_2manux_2journal_8h_afe549791082aaa172f869cae54aa0a1a}{00019}}\ \textcolor{preprocessor}{\#define\ MANUX\_JOURNAL\_NIVEAU\_PANIQUE\ \ \ \ \ \ 0}}
+\DoxyCodeLine{\Hypertarget{include_2manux_2journal_8h_source_l00020}\mbox{\hyperlink{include_2manux_2journal_8h_ae09256fc537759eaa110d62fae7f5197}{00020}}\ \textcolor{preprocessor}{\#define\ MANUX\_JOURNAL\_NIVEAU\_URGENCE\ \ \ \ \ \ 1}}
+\DoxyCodeLine{\Hypertarget{include_2manux_2journal_8h_source_l00021}\mbox{\hyperlink{include_2manux_2journal_8h_aba54ae76031b5b429de2cbc8e5d7ffb0}{00021}}\ \textcolor{preprocessor}{\#define\ MANUX\_JOURNAL\_NIVEAU\_CRITIQUE\ \ \ \ \ 2}}
+\DoxyCodeLine{\Hypertarget{include_2manux_2journal_8h_source_l00022}\mbox{\hyperlink{include_2manux_2journal_8h_a55e794e9f785aa6ea21d623656aba088}{00022}}\ \textcolor{preprocessor}{\#define\ MANUX\_JOURNAL\_NIVEAU\_ERREUR\ \ \ \ \ \ \ 3}}
+\DoxyCodeLine{\Hypertarget{include_2manux_2journal_8h_source_l00023}\mbox{\hyperlink{include_2manux_2journal_8h_a64fc2ce2371ea4122ddde50a77e0475a}{00023}}\ \textcolor{preprocessor}{\#define\ MANUX\_JOURNAL\_NIVEAU\_ATTENTION\ \ \ \ 4}}
+\DoxyCodeLine{\Hypertarget{include_2manux_2journal_8h_source_l00024}\mbox{\hyperlink{include_2manux_2journal_8h_a02c7890f509e7ad484db130945658437}{00024}}\ \textcolor{preprocessor}{\#define\ MANUX\_JOURNAL\_NIVEAU\_NOTIFICATION\ 5}}
+\DoxyCodeLine{\Hypertarget{include_2manux_2journal_8h_source_l00025}\mbox{\hyperlink{include_2manux_2journal_8h_a200ede37f963705364654c0546fbfd20}{00025}}\ \textcolor{preprocessor}{\#define\ MANUX\_JOURNAL\_NIVEAU\_INFORMATION\ \ 6}}
+\DoxyCodeLine{\Hypertarget{include_2manux_2journal_8h_source_l00026}\mbox{\hyperlink{include_2manux_2journal_8h_a03c1f304bdcb1cf0cde9bd669b0fa7b4}{00026}}\ \textcolor{preprocessor}{\#define\ MANUX\_JOURNAL\_NIVEAU\_DEBUGAGE\ \ \ \ \ 7}}
+\DoxyCodeLine{\Hypertarget{include_2manux_2journal_8h_source_l00027}00027\ }
+\DoxyCodeLine{\Hypertarget{include_2manux_2journal_8h_source_l00031}00031\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{include_2manux_2journal_8h_ae0b1891a78b329589a71603f76447eb3}{journalInitialiser}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{include_2manux_2journal_8h_source_l00032}00032\ \textcolor{preprocessor}{\#ifdef\ MANUX\_FICHIER}}
+\DoxyCodeLine{\Hypertarget{include_2manux_2journal_8h_source_l00033}00033\ \textcolor{keywordtype}{void}\ journalInitialiserINoeud(\mbox{\hyperlink{struct__INoeud}{INoeud}}\ *\ \mbox{\hyperlink{main-acces-concurrent_8c_a972ff77e8e64fb59c5b315287496a83e}{iNoeudConsole}});}
+\DoxyCodeLine{\Hypertarget{include_2manux_2journal_8h_source_l00034}00034\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{include_2manux_2journal_8h_source_l00035}00035\ }
+\DoxyCodeLine{\Hypertarget{include_2manux_2journal_8h_source_l00040}\mbox{\hyperlink{include_2manux_2journal_8h_aed4c0b68122d57fe6486e4963f38054b}{00040}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{include_2manux_2journal_8h_aed4c0b68122d57fe6486e4963f38054b}{journalAffecterFichier}}(\mbox{\hyperlink{struct__Fichier}{Fichier}}\ *\ pc);}
+\DoxyCodeLine{\Hypertarget{include_2manux_2journal_8h_source_l00041}00041\ }
+\DoxyCodeLine{\Hypertarget{include_2manux_2journal_8h_source_l00045}00045\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{include_2manux_2journal_8h_afa39ebdefcb62878a46fc77263026d93}{journaliser}}(\textcolor{keywordtype}{char}\ *\ message);}
+\DoxyCodeLine{\Hypertarget{include_2manux_2journal_8h_source_l00046}00046\ }
+\DoxyCodeLine{\Hypertarget{include_2manux_2journal_8h_source_l00047}00047\ \mbox{\hyperlink{include_2manux_2types_8h_a5b7544e51b136e716e4eccc0602bafd7}{booleen}}\ \mbox{\hyperlink{include_2manux_2journal_8h_a2689435a6da8a95441492a70e0c7691e}{journalOperationnel}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{include_2manux_2journal_8h_source_l00048}00048\ }
+\DoxyCodeLine{\Hypertarget{include_2manux_2journal_8h_source_l00049}00049\ }
+\DoxyCodeLine{\Hypertarget{include_2manux_2journal_8h_source_l00050}00050\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

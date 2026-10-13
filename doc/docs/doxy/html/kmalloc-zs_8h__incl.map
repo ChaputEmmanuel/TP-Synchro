@@ -1,0 +1,10 @@
+<map id="/home/manu/PROGRAMMATION/C/ManuX/include/manux/kmalloc&#45;zs.h" name="/home/manu/PROGRAMMATION/C/ManuX/include/manux/kmalloc&#45;zs.h">
+<area shape="rect" id="Node000001" title="Une implatation simple de kmalloc fondé sur les zones siamoises (buddy areas) (C) Emmanuel Chaput 202..." alt="" coords="6,5,233,60"/>
+<area shape="rect" id="Node000002" href="$include_2manux_2memoire_8h.html" title=" " alt="" coords="103,108,245,133"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="138,59,161,95,157,98,134,62"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="5,181,124,207"/>
+<area shape="poly" id="edge4_Node000001_Node000003" title=" " alt="" coords="111,61,94,109,75,169,70,167,89,107,106,59"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="158,136,96,176,93,171,155,131"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="149,181,271,207"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="182,132,200,168,196,170,178,135"/>
+</map>

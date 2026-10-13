@@ -1,0 +1,123 @@
+\doxysection{Référence du fichier /home/manu/\+PROGRAMMATION/\+C/\+Manu\+X/noyau/main-\/registre.c}
+\hypertarget{main-registre_8c}{}\label{main-registre_8c}\index{/home/manu/PROGRAMMATION/C/ManuX/noyau/main-\/registre.c@{/home/manu/PROGRAMMATION/C/ManuX/noyau/main-\/registre.c}}
+
+
+\+:  
+
+
+{\ttfamily \#include $<$manux/config.\+h$>$}\newline
+{\ttfamily \#include $<$manux/types.\+h$>$}\newline
+{\ttfamily \#include $<$manux/stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$manux/console.\+h$>$}\newline
+{\ttfamily \#include $<$manux/printk.\+h$>$}\newline
+{\ttfamily \#include $<$manux/memoire.\+h$>$}\newline
+{\ttfamily \#include $<$manux/kmalloc.\+h$>$}\newline
+{\ttfamily \#include $<$manux/bootloader.\+h$>$}\newline
+{\ttfamily \#include $<$manux/registre.\+h$>$}\newline
+{\ttfamily \#include $<$manux/debug.\+h$>$}\newline
+Graphe des dépendances par inclusion de main-\/registre.c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{main-registre_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} \mbox{\hyperlink{main-registre_8c_aa2ad2453d875318793a3f3dfc7464b2f}{mise\+AJour\+Pararametre}} (\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} \texorpdfstring{$\ast$}{*}prive, char \texorpdfstring{$\ast$}{*}valeur)
+\item 
+\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} \mbox{\hyperlink{main-registre_8c_a3568df994044ade7d37160ef731c223f}{start\+ManuX}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{include_2manux_2types_8h_a273cf69d639a59973b6019625df33e30}{uint16\+\_\+t}} \mbox{\hyperlink{main-registre_8c_acc5bda773ae19389879f3886f8ecf123}{a}} = 1
+\begin{DoxyCompactList}\small\item\em Exemple de fonction de mise-\/à-\/jour d\textquotesingle{}un paramètre dans un registre. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{include_2manux_2types_8h_a273cf69d639a59973b6019625df33e30}{uint16\+\_\+t}} \mbox{\hyperlink{main-registre_8c_a7976cd62f9b61a65e8104a3cf7c15099}{b}} = 1
+\item 
+\mbox{\hyperlink{include_2manux_2types_8h_a273cf69d639a59973b6019625df33e30}{uint16\+\_\+t}} \mbox{\hyperlink{main-registre_8c_add06ad5d8520e7cff4ff84b2811c0982}{c}} = 1
+\item 
+\mbox{\hyperlink{include_2manux_2types_8h_a273cf69d639a59973b6019625df33e30}{uint16\+\_\+t}} \mbox{\hyperlink{main-registre_8c_aaa0e9a03072c04ebe2d49f53bc7bc785}{d}} = 1
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+\+: 
+
+\begin{DoxyVerb}                                             (C) Manu Chaput 2024-2025 
+\end{DoxyVerb}
+ 
+
+Définition dans le fichier \mbox{\hyperlink{main-registre_8c_source}{main-\/registre.\+c}}.
+
+
+
+\doxysubsection{Documentation des fonctions}
+\Hypertarget{main-registre_8c_aa2ad2453d875318793a3f3dfc7464b2f}\label{main-registre_8c_aa2ad2453d875318793a3f3dfc7464b2f} 
+\index{main-\/registre.c@{main-\/registre.c}!miseAJourPararametre@{miseAJourPararametre}}
+\index{miseAJourPararametre@{miseAJourPararametre}!main-\/registre.c@{main-\/registre.c}}
+\doxysubsubsection{\texorpdfstring{miseAJourPararametre()}{miseAJourPararametre()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} mise\+AJour\+Pararametre (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} \texorpdfstring{$\ast$}{*}}]{prive,  }\item[{char \texorpdfstring{$\ast$}{*}}]{valeur }\end{DoxyParamCaption})}
+
+
+
+Définition à la ligne \mbox{\hyperlink{main-registre_8c_source_l00024}{24}} du fichier \mbox{\hyperlink{main-registre_8c_source}{main-\/registre.\+c}}.
+
+\Hypertarget{main-registre_8c_a3568df994044ade7d37160ef731c223f}\label{main-registre_8c_a3568df994044ade7d37160ef731c223f} 
+\index{main-\/registre.c@{main-\/registre.c}!startManuX@{startManuX}}
+\index{startManuX@{startManuX}!main-\/registre.c@{main-\/registre.c}}
+\doxysubsubsection{\texorpdfstring{startManuX()}{startManuX()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} start\+ManuX (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}}}]{ }\end{DoxyParamCaption})}
+
+
+
+Définition à la ligne \mbox{\hyperlink{main-registre_8c_source_l00034}{34}} du fichier \mbox{\hyperlink{main-registre_8c_source}{main-\/registre.\+c}}.
+
+
+
+\doxysubsection{Documentation des variables}
+\Hypertarget{main-registre_8c_acc5bda773ae19389879f3886f8ecf123}\label{main-registre_8c_acc5bda773ae19389879f3886f8ecf123} 
+\index{main-\/registre.c@{main-\/registre.c}!a@{a}}
+\index{a@{a}!main-\/registre.c@{main-\/registre.c}}
+\doxysubsubsection{\texorpdfstring{a}{a}}
+{\footnotesize\ttfamily \mbox{\hyperlink{include_2manux_2types_8h_a273cf69d639a59973b6019625df33e30}{uint16\+\_\+t}} a = 1}
+
+
+
+Exemple de fonction de mise-\/à-\/jour d\textquotesingle{}un paramètre dans un registre. 
+
+
+
+Définition à la ligne \mbox{\hyperlink{main-registre_8c_source_l00023}{23}} du fichier \mbox{\hyperlink{main-registre_8c_source}{main-\/registre.\+c}}.
+
+\Hypertarget{main-registre_8c_a7976cd62f9b61a65e8104a3cf7c15099}\label{main-registre_8c_a7976cd62f9b61a65e8104a3cf7c15099} 
+\index{main-\/registre.c@{main-\/registre.c}!b@{b}}
+\index{b@{b}!main-\/registre.c@{main-\/registre.c}}
+\doxysubsubsection{\texorpdfstring{b}{b}}
+{\footnotesize\ttfamily \mbox{\hyperlink{include_2manux_2types_8h_a273cf69d639a59973b6019625df33e30}{uint16\+\_\+t}} b = 1}
+
+
+
+Définition à la ligne \mbox{\hyperlink{main-registre_8c_source_l00023}{23}} du fichier \mbox{\hyperlink{main-registre_8c_source}{main-\/registre.\+c}}.
+
+\Hypertarget{main-registre_8c_add06ad5d8520e7cff4ff84b2811c0982}\label{main-registre_8c_add06ad5d8520e7cff4ff84b2811c0982} 
+\index{main-\/registre.c@{main-\/registre.c}!c@{c}}
+\index{c@{c}!main-\/registre.c@{main-\/registre.c}}
+\doxysubsubsection{\texorpdfstring{c}{c}}
+{\footnotesize\ttfamily \mbox{\hyperlink{include_2manux_2types_8h_a273cf69d639a59973b6019625df33e30}{uint16\+\_\+t}} c = 1}
+
+
+
+Définition à la ligne \mbox{\hyperlink{main-registre_8c_source_l00023}{23}} du fichier \mbox{\hyperlink{main-registre_8c_source}{main-\/registre.\+c}}.
+
+\Hypertarget{main-registre_8c_aaa0e9a03072c04ebe2d49f53bc7bc785}\label{main-registre_8c_aaa0e9a03072c04ebe2d49f53bc7bc785} 
+\index{main-\/registre.c@{main-\/registre.c}!d@{d}}
+\index{d@{d}!main-\/registre.c@{main-\/registre.c}}
+\doxysubsubsection{\texorpdfstring{d}{d}}
+{\footnotesize\ttfamily \mbox{\hyperlink{include_2manux_2types_8h_a273cf69d639a59973b6019625df33e30}{uint16\+\_\+t}} d = 1}
+
+
+
+Définition à la ligne \mbox{\hyperlink{main-registre_8c_source_l00023}{23}} du fichier \mbox{\hyperlink{main-registre_8c_source}{main-\/registre.\+c}}.
+

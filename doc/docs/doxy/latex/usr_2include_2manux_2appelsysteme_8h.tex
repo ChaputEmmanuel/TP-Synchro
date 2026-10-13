@@ -1,0 +1,117 @@
+\doxysection{Référence du fichier /home/manu/\+PROGRAMMATION/\+C/\+Manu\+X/usr/include/manux/appelsysteme.h}
+\hypertarget{usr_2include_2manux_2appelsysteme_8h}{}\label{usr_2include_2manux_2appelsysteme_8h}\index{/home/manu/PROGRAMMATION/C/ManuX/usr/include/manux/appelsysteme.h@{/home/manu/PROGRAMMATION/C/ManuX/usr/include/manux/appelsysteme.h}}
+{\ttfamily \#include $<$manux/appelsystemenum.\+h$>$}\newline
+{\ttfamily \#include $<$manux/types.\+h$>$}\newline
+Graphe des dépendances par inclusion de appelsysteme.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=340pt]{usr_2include_2manux_2appelsysteme_8h__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{usr_2include_2manux_2appelsysteme_8h_a8dd4f42ed253967845eae9fe8bf9980a}{appel\+Systeme0}}(numero,  type\+Retour,  nom)
+\item 
+\#define \mbox{\hyperlink{usr_2include_2manux_2appelsysteme_8h_aa537637276ac00892b710bad5cf28292}{appel\+Systeme1}}(numero,  type\+Retour,  nom,  type\+Argument)
+\item 
+\#define \mbox{\hyperlink{usr_2include_2manux_2appelsysteme_8h_acaae5c8a118b6ba8d8fc01dc8b7fe648}{appel\+Systeme2}}(numero,  type\+Retour,  nom,  type\+Argument1,  type\+Argument2)
+\item 
+\#define \mbox{\hyperlink{usr_2include_2manux_2appelsysteme_8h_ac79254a5f0c355a82f51b90313058041}{appel\+Systeme3}}(numero,  type\+Retour,  nom,  type\+Argument1,  type\+Argument2,  type\+Argument3)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Documentation des macros}
+\Hypertarget{usr_2include_2manux_2appelsysteme_8h_a8dd4f42ed253967845eae9fe8bf9980a}\label{usr_2include_2manux_2appelsysteme_8h_a8dd4f42ed253967845eae9fe8bf9980a} 
+\index{appelsysteme.h@{appelsysteme.h}!appelSysteme0@{appelSysteme0}}
+\index{appelSysteme0@{appelSysteme0}!appelsysteme.h@{appelsysteme.h}}
+\doxysubsubsection{\texorpdfstring{appelSysteme0}{appelSysteme0}}
+{\footnotesize\ttfamily \#define appel\+Systeme0(\begin{DoxyParamCaption}\item[{}]{numero,  }\item[{}]{type\+Retour,  }\item[{}]{nom }\end{DoxyParamCaption})}
+
+{\bfseries Valeur \+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ \mbox{\hyperlink{segment_8c_ad09246453a4dabd919c7541484046a87}{\_\_attribute\_\_}}\ ((noinline))\ \ \ typeRetour\ nom()\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ typeRetour\ resultat;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \_\_asm\_\_\ \_\_volatile\_\_\ (\textcolor{stringliteral}{"{}int\ \%2"{}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ \textcolor{stringliteral}{"{}=a"{}}(resultat)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ \textcolor{stringliteral}{"{}0"{}}\ (numero),\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}N"{}}\ (\mbox{\hyperlink{include_2manux_2appelsystemenum_8h_a3fc58d7ff32f5ecc2964876a070d87bd}{MANUX\_AS\_INT}}));\ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \textcolor{keywordflow}{return}\ resultat;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \}}
+
+\end{DoxyCode}
+
+
+Définition à la ligne \mbox{\hyperlink{usr_2include_2manux_2appelsysteme_8h_source_l00016}{16}} du fichier \mbox{\hyperlink{usr_2include_2manux_2appelsysteme_8h_source}{appelsysteme.\+h}}.
+
+\Hypertarget{usr_2include_2manux_2appelsysteme_8h_aa537637276ac00892b710bad5cf28292}\label{usr_2include_2manux_2appelsysteme_8h_aa537637276ac00892b710bad5cf28292} 
+\index{appelsysteme.h@{appelsysteme.h}!appelSysteme1@{appelSysteme1}}
+\index{appelSysteme1@{appelSysteme1}!appelsysteme.h@{appelsysteme.h}}
+\doxysubsubsection{\texorpdfstring{appelSysteme1}{appelSysteme1}}
+{\footnotesize\ttfamily \#define appel\+Systeme1(\begin{DoxyParamCaption}\item[{}]{numero,  }\item[{}]{type\+Retour,  }\item[{}]{nom,  }\item[{}]{type\+Argument }\end{DoxyParamCaption})}
+
+{\bfseries Valeur \+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ \mbox{\hyperlink{segment_8c_ad09246453a4dabd919c7541484046a87}{\_\_attribute\_\_}}\ ((noinline))\ \ \ typeRetour\ nom(typeArgument\ argument)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ typeRetour\ resultat;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \_\_asm\_\_\ \_\_volatile\_\_\ (\textcolor{stringliteral}{"{}int\ \%2"{}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ \textcolor{stringliteral}{"{}=a"{}}(resultat)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ \textcolor{stringliteral}{"{}0"{}}\ (numero),\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}N"{}}\ (\mbox{\hyperlink{include_2manux_2appelsystemenum_8h_a3fc58d7ff32f5ecc2964876a070d87bd}{MANUX\_AS\_INT}}));\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \textcolor{keywordflow}{return}\ resultat;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \}}
+
+\end{DoxyCode}
+
+
+Définition à la ligne \mbox{\hyperlink{usr_2include_2manux_2appelsysteme_8h_source_l00031}{31}} du fichier \mbox{\hyperlink{usr_2include_2manux_2appelsysteme_8h_source}{appelsysteme.\+h}}.
+
+\Hypertarget{usr_2include_2manux_2appelsysteme_8h_acaae5c8a118b6ba8d8fc01dc8b7fe648}\label{usr_2include_2manux_2appelsysteme_8h_acaae5c8a118b6ba8d8fc01dc8b7fe648} 
+\index{appelsysteme.h@{appelsysteme.h}!appelSysteme2@{appelSysteme2}}
+\index{appelSysteme2@{appelSysteme2}!appelsysteme.h@{appelsysteme.h}}
+\doxysubsubsection{\texorpdfstring{appelSysteme2}{appelSysteme2}}
+{\footnotesize\ttfamily \#define appel\+Systeme2(\begin{DoxyParamCaption}\item[{}]{numero,  }\item[{}]{type\+Retour,  }\item[{}]{nom,  }\item[{}]{type\+Argument1,  }\item[{}]{type\+Argument2 }\end{DoxyParamCaption})}
+
+{\bfseries Valeur \+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ \mbox{\hyperlink{segment_8c_ad09246453a4dabd919c7541484046a87}{\_\_attribute\_\_}}\ ((noinline))\ \ \ typeRetour\ nom(typeArgument1\ arg1,\ typeArgument2\ arg2)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ typeRetour\ resultat;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \_\_asm\_\_\ \_\_volatile\_\_\ (\textcolor{stringliteral}{"{}int\ \%2"{}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ \textcolor{stringliteral}{"{}=a"{}}(resultat)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ \textcolor{stringliteral}{"{}0"{}}\ (numero),\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}N"{}}\ (\mbox{\hyperlink{include_2manux_2appelsystemenum_8h_a3fc58d7ff32f5ecc2964876a070d87bd}{MANUX\_AS\_INT}}));\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \textcolor{keywordflow}{return}\ resultat;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \}}
+
+\end{DoxyCode}
+
+
+Définition à la ligne \mbox{\hyperlink{usr_2include_2manux_2appelsysteme_8h_source_l00046}{46}} du fichier \mbox{\hyperlink{usr_2include_2manux_2appelsysteme_8h_source}{appelsysteme.\+h}}.
+
+\Hypertarget{usr_2include_2manux_2appelsysteme_8h_ac79254a5f0c355a82f51b90313058041}\label{usr_2include_2manux_2appelsysteme_8h_ac79254a5f0c355a82f51b90313058041} 
+\index{appelsysteme.h@{appelsysteme.h}!appelSysteme3@{appelSysteme3}}
+\index{appelSysteme3@{appelSysteme3}!appelsysteme.h@{appelsysteme.h}}
+\doxysubsubsection{\texorpdfstring{appelSysteme3}{appelSysteme3}}
+{\footnotesize\ttfamily \#define appel\+Systeme3(\begin{DoxyParamCaption}\item[{}]{numero,  }\item[{}]{type\+Retour,  }\item[{}]{nom,  }\item[{}]{type\+Argument1,  }\item[{}]{type\+Argument2,  }\item[{}]{type\+Argument3 }\end{DoxyParamCaption})}
+
+{\bfseries Valeur \+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ \mbox{\hyperlink{segment_8c_ad09246453a4dabd919c7541484046a87}{\_\_attribute\_\_}}\ ((noinline))\ typeRetour\ nom(typeArgument1\ arg1,\ typeArgument2\ arg2,\ typeArgument3\ arg3)\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ typeRetour\ resultat;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \_\_asm\_\_\ \_\_volatile\_\_\ (\textcolor{stringliteral}{"{}int\ \%2"{}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ \textcolor{stringliteral}{"{}=a"{}}(resultat)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ \textcolor{stringliteral}{"{}0"{}}\ (numero),\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}N"{}}\ (\mbox{\hyperlink{include_2manux_2appelsystemenum_8h_a3fc58d7ff32f5ecc2964876a070d87bd}{MANUX\_AS\_INT}}));\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \textcolor{keywordflow}{return}\ resultat;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \}}
+
+\end{DoxyCode}
+
+
+Définition à la ligne \mbox{\hyperlink{usr_2include_2manux_2appelsysteme_8h_source_l00061}{61}} du fichier \mbox{\hyperlink{usr_2include_2manux_2appelsysteme_8h_source}{appelsysteme.\+h}}.
+

@@ -1,0 +1,28 @@
+#==========================================================================
+#   Les flags pour clang
+#==========================================================================
+CC	= clang
+CFLAGS   = -fno-pie -m32 -march=i686 -Wall  \
+           -g -ggdb -gdwarf  \
+	   -I$(ROOTDIR)/include  \
+           -nostdinc -fno-builtin -nodefaultlibs -nostartfiles \
+           -fno-stack-protector \
+           -O3 \
+	   -Wimplicit-function-declaration \
+	   -Wall \
+	   -Wextra\
+	   -Werror=implicit-function-declaration \
+ 	   -Wstrict-prototypes \
+	   -Wmissing-prototypes	   \
+
+CFLAGS   +=   $(if $(MANUX_FICHIER_CONFIG), --include $(MANUX_FICHIER_CONFIG))
+
+#..........................................................................
+#   Les flags pour le monde utilisateur
+#..........................................................................
+UCFLAGS   = -fno-pie -m32 -march=i686 -Wall \
+           -I../usr/include \
+           -nostdinc -fno-builtin \
+           -fomit-frame-pointer \
+           -fno-stack-protector \
+           -O2

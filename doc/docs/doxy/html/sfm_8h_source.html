@@ -1,0 +1,201 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>My Project:  Fichier source de /home/manu/PROGRAMMATION/C/ManuX/include/manux/sfm.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">My Project
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function() { init_codefold(0); });
+/* @license-end */
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_7ae9ae23548caaa7aeb1f148c6e00073.html">manux</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle"><div class="title">sfm.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="sfm_8h.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">/*----------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment">/*      Définition de l&#39;interface du Système de Fichier de Manux.             */</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment">/*                                                                            */</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment">/*                                                       (C) Manu Chaput 2000 */</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment">/*----------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#ifndef SFM_DEF</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#define SFM_DEF</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &lt;manux/types.h&gt;</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="comment">/*</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="comment"> * La clef &quot;magique&quot; permettant de reconnaitre un SFM</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno"><a class="line" href="sfm_8h.html#a6f3c71af7b99e53c6a1740e25b3239a3">   14</a></span><span class="preprocessor">#define SFM_MAGIC 0x18273645</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="comment">/*</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="comment"> * Taille d&#39;un bloc</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="sfm_8h.html#ab2e7e3655084d4d572029c1feb3fa158">   19</a></span><span class="preprocessor">#define SFM_TAILLE_BLOC 512</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="comment">/*</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="comment"> * Nombre de blocs en accés direct</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="sfm_8h.html#a4d15907007c27151cada1ce46d54f945">   24</a></span><span class="preprocessor">#define SFM_NB_BLOCS_DIRECTS 8</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="comment">/*</span></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="comment"> * Longueur (maximale) d&#39;un nom de fichier</span></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno"><a class="line" href="sfm_8h.html#a599298c8e02e111219518c88a2e4e0a4">   29</a></span><span class="preprocessor">#define SFM_LONGUEUR_NOM 32</span></div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="comment">/*</span></div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="comment"> * Le superbloc</span></div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="comment"> */</span></div>
+<div class="foldopen" id="foldopen00034" data-start="{" data-end="};">
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="struct__SFMSuperBloc.html">   34</a></span><span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code hl_struct" href="struct__SFMSuperBloc.html">_SFMSuperBloc</a> {</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="struct__SFMSuperBloc.html#a077b6ebb307247405245d0918a91525c">   35</a></span>   <a class="code hl_typedef" href="include_2manux_2types_8h.html#a06896e8c53f721507066c079052171f8">uint32_t</a> <a class="code hl_variable" href="struct__SFMSuperBloc.html#a077b6ebb307247405245d0918a91525c">magic</a>;</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno"><a class="line" href="struct__SFMSuperBloc.html#aa902364d2308cb2f02fb5936f7492ada">   36</a></span>   <a class="code hl_typedef" href="include_2manux_2types_8h.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a>  <a class="code hl_variable" href="struct__SFMSuperBloc.html#aa902364d2308cb2f02fb5936f7492ada">version</a>;</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="struct__SFMSuperBloc.html#aeed253817885f70a1c604a0f7bbe76f3">   37</a></span>   <a class="code hl_typedef" href="include_2manux_2types_8h.html#a06896e8c53f721507066c079052171f8">uint32_t</a> <a class="code hl_variable" href="struct__SFMSuperBloc.html#aeed253817885f70a1c604a0f7bbe76f3">offsetPremierBlocLibre</a>;</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno"><a class="line" href="struct__SFMSuperBloc.html#a5b638d6acff30c9ce32f5f1de317b5d9">   38</a></span>   <a class="code hl_typedef" href="include_2manux_2types_8h.html#a06896e8c53f721507066c079052171f8">uint32_t</a> <a class="code hl_variable" href="struct__SFMSuperBloc.html#a5b638d6acff30c9ce32f5f1de317b5d9">offsetInodeRacine</a>;</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno"><a class="line" href="sfm_8h.html#a202c02081fc4044e6b6032550f4d42d4">   39</a></span>} <a class="code hl_typedef" href="sfm_8h.html#a202c02081fc4044e6b6032550f4d42d4">SFMSuperBloc</a>;</div>
+</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="comment">/*</span></div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="comment"> * Les différents types de fichier</span></div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><span class="comment"> */</span></div>
+<div class="foldopen" id="foldopen00044" data-start="{" data-end="};">
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno"><a class="line" href="sfm_8h.html#aa8b9ef6ee1d79fd0521b27e7e55a0c45">   44</a></span><span class="keyword">typedef</span> <span class="keyword">enum</span> <a class="code hl_enumeration" href="sfm_8h.html#aa8b9ef6ee1d79fd0521b27e7e55a0c45">_SFMTypeFichier</a> {</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno"><a class="line" href="sfm_8h.html#aa8b9ef6ee1d79fd0521b27e7e55a0c45a1516d1e9480d6a7e227ab8b8002840a5">   45</a></span>   <a class="code hl_enumvalue" href="sfm_8h.html#aa8b9ef6ee1d79fd0521b27e7e55a0c45a1516d1e9480d6a7e227ab8b8002840a5">SFM_FICHIER_ELEMENTAIRE</a> = 0,</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>   <a class="code hl_enumvalue" href="sfm_8h.html#aa8b9ef6ee1d79fd0521b27e7e55a0c45af83f3efff8ba9d6133b30f5867dbd13e">SFM_REPERTOIRE</a>          = 1</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno"><a class="line" href="sfm_8h.html#aa8b9ef6ee1d79fd0521b27e7e55a0c45af83f3efff8ba9d6133b30f5867dbd13e">   47</a></span>} <a class="code hl_typedef" href="sfm_8h.html#a7145bba42f429b666618cb9d3ee2ef48">SFMTypeFichier</a>;</div>
+</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span><span class="comment">/*</span></div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span><span class="comment"> * Structure d&#39;un inode</span></div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span><span class="comment"> */</span></div>
+<div class="foldopen" id="foldopen00052" data-start="{" data-end="};">
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno"><a class="line" href="struct__SFMInode.html">   52</a></span><span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code hl_struct" href="struct__SFMInode.html">_SFMInode</a> {</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno"><a class="line" href="struct__SFMInode.html#a651ee577857eec154f1fff840029e5d3">   53</a></span>   <a class="code hl_typedef" href="include_2manux_2types_8h.html#a06896e8c53f721507066c079052171f8">uint32_t</a> <a class="code hl_variable" href="struct__SFMInode.html#a651ee577857eec154f1fff840029e5d3">taille</a>;</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno"><a class="line" href="struct__SFMInode.html#afefa1e7fda0bdd14bb8044127848101a">   54</a></span>   <a class="code hl_typedef" href="sfm_8h.html#a7145bba42f429b666618cb9d3ee2ef48">SFMTypeFichier</a> <a class="code hl_variable" href="struct__SFMInode.html#afefa1e7fda0bdd14bb8044127848101a">type</a>;   </div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno"><a class="line" href="struct__SFMInode.html#ab3c2f692299ee70fbc63a62919a8bc37">   55</a></span>   <a class="code hl_typedef" href="include_2manux_2types_8h.html#a06896e8c53f721507066c079052171f8">uint32_t</a> <a class="code hl_variable" href="struct__SFMInode.html#ab3c2f692299ee70fbc63a62919a8bc37">blocsDirects</a>[<a class="code hl_define" href="sfm_8h.html#a4d15907007c27151cada1ce46d54f945">SFM_NB_BLOCS_DIRECTS</a>];</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno"><a class="line" href="sfm_8h.html#ade2f6eb8932d5d42d06df0b4445bb9a3">   56</a></span>} <a class="code hl_typedef" href="sfm_8h.html#ade2f6eb8932d5d42d06df0b4445bb9a3">SFMInode</a>;</div>
+</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span><span class="comment">/*</span></div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span><span class="comment"> * Structure d&#39;une entrée dans un répertoire</span></div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span><span class="comment"> */</span></div>
+<div class="foldopen" id="foldopen00061" data-start="{" data-end="};">
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno"><a class="line" href="struct__SFMEntreeRepertoire.html">   61</a></span><span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code hl_struct" href="struct__SFMEntreeRepertoire.html">_SFMEntreeRepertoire</a> {</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>   <a class="code hl_typedef" href="include_2manux_2types_8h.html#a06896e8c53f721507066c079052171f8">uint32_t</a> offsetInode</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno"><a class="line" href="struct__SFMEntreeRepertoire.html#aaf701767d007bb2b457536bbdc12391c">   63</a></span>   <span class="keywordtype">char</span> <a class="code hl_variable" href="struct__SFMEntreeRepertoire.html#aaf701767d007bb2b457536bbdc12391c">nomFichier</a>[<a class="code hl_define" href="sfm_8h.html#a599298c8e02e111219518c88a2e4e0a4">SFM_LONGUEUR_NOM</a>];</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno"><a class="line" href="sfm_8h.html#a9e4a7abde846aca4e3ca544292568597">   64</a></span>} <a class="code hl_typedef" href="sfm_8h.html#a9e4a7abde846aca4e3ca544292568597">SFMEntreeRepertoire</a>;</div>
+</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span> </div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span><span class="comment">/*</span></div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span><span class="comment"> * Structure d&#39;un répertoire</span></div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span><span class="comment"> */</span></div>
+<div class="foldopen" id="foldopen00069" data-start="{" data-end="};">
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno"><a class="line" href="struct__SFMRepertoire.html">   69</a></span><span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code hl_struct" href="struct__SFMRepertoire.html">_SFMRepertoire</a> {</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno"><a class="line" href="struct__SFMRepertoire.html#a4ea067a60cd3a53d08b25a76db6f82d1">   70</a></span>   <a class="code hl_typedef" href="include_2manux_2types_8h.html#a06896e8c53f721507066c079052171f8">uint32_t</a> <a class="code hl_variable" href="struct__SFMRepertoire.html#a4ea067a60cd3a53d08b25a76db6f82d1">nombreEntrees</a>;</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno"><a class="line" href="struct__SFMRepertoire.html#af207ce605b3511732dcb65e8a2250453">   71</a></span>   <a class="code hl_struct" href="struct__SFMEntreeRepertoire.html">SFMEntreeRepertoire</a> <a class="code hl_variable" href="struct__SFMRepertoire.html#af207ce605b3511732dcb65e8a2250453">entrees</a>[0];</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno"><a class="line" href="sfm_8h.html#a497ac796fb0bc9c23bb40bddcd394ac4">   72</a></span>} <a class="code hl_typedef" href="sfm_8h.html#a497ac796fb0bc9c23bb40bddcd394ac4">SFMRepertoire</a>;</div>
+</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span> </div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span> </div>
+<div class="ttc" id="ainclude_2manux_2types_8h_html_a06896e8c53f721507066c079052171f8"><div class="ttname"><a href="include_2manux_2types_8h.html#a06896e8c53f721507066c079052171f8">uint32_t</a></div><div class="ttdeci">unsigned long uint32_t</div><div class="ttdef"><b>Definition</b> <a href="include_2manux_2types_8h_source.html#l00020">types.h:20</a></div></div>
+<div class="ttc" id="ainclude_2manux_2types_8h_html_aba7bc1797add20fe3efdf37ced1182c5"><div class="ttname"><a href="include_2manux_2types_8h.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a></div><div class="ttdeci">unsigned char uint8_t</div><div class="ttdef"><b>Definition</b> <a href="include_2manux_2types_8h_source.html#l00012">types.h:12</a></div></div>
+<div class="ttc" id="asfm_8h_html_a202c02081fc4044e6b6032550f4d42d4"><div class="ttname"><a href="sfm_8h.html#a202c02081fc4044e6b6032550f4d42d4">SFMSuperBloc</a></div><div class="ttdeci">struct _SFMSuperBloc SFMSuperBloc</div></div>
+<div class="ttc" id="asfm_8h_html_a497ac796fb0bc9c23bb40bddcd394ac4"><div class="ttname"><a href="sfm_8h.html#a497ac796fb0bc9c23bb40bddcd394ac4">SFMRepertoire</a></div><div class="ttdeci">struct _SFMRepertoire SFMRepertoire</div></div>
+<div class="ttc" id="asfm_8h_html_a4d15907007c27151cada1ce46d54f945"><div class="ttname"><a href="sfm_8h.html#a4d15907007c27151cada1ce46d54f945">SFM_NB_BLOCS_DIRECTS</a></div><div class="ttdeci">#define SFM_NB_BLOCS_DIRECTS</div><div class="ttdef"><b>Definition</b> <a href="sfm_8h_source.html#l00024">sfm.h:24</a></div></div>
+<div class="ttc" id="asfm_8h_html_a599298c8e02e111219518c88a2e4e0a4"><div class="ttname"><a href="sfm_8h.html#a599298c8e02e111219518c88a2e4e0a4">SFM_LONGUEUR_NOM</a></div><div class="ttdeci">#define SFM_LONGUEUR_NOM</div><div class="ttdef"><b>Definition</b> <a href="sfm_8h_source.html#l00029">sfm.h:29</a></div></div>
+<div class="ttc" id="asfm_8h_html_a7145bba42f429b666618cb9d3ee2ef48"><div class="ttname"><a href="sfm_8h.html#a7145bba42f429b666618cb9d3ee2ef48">SFMTypeFichier</a></div><div class="ttdeci">enum _SFMTypeFichier SFMTypeFichier</div></div>
+<div class="ttc" id="asfm_8h_html_a9e4a7abde846aca4e3ca544292568597"><div class="ttname"><a href="sfm_8h.html#a9e4a7abde846aca4e3ca544292568597">SFMEntreeRepertoire</a></div><div class="ttdeci">struct _SFMEntreeRepertoire SFMEntreeRepertoire</div></div>
+<div class="ttc" id="asfm_8h_html_aa8b9ef6ee1d79fd0521b27e7e55a0c45"><div class="ttname"><a href="sfm_8h.html#aa8b9ef6ee1d79fd0521b27e7e55a0c45">_SFMTypeFichier</a></div><div class="ttdeci">_SFMTypeFichier</div><div class="ttdef"><b>Definition</b> <a href="sfm_8h_source.html#l00044">sfm.h:44</a></div></div>
+<div class="ttc" id="asfm_8h_html_aa8b9ef6ee1d79fd0521b27e7e55a0c45a1516d1e9480d6a7e227ab8b8002840a5"><div class="ttname"><a href="sfm_8h.html#aa8b9ef6ee1d79fd0521b27e7e55a0c45a1516d1e9480d6a7e227ab8b8002840a5">SFM_FICHIER_ELEMENTAIRE</a></div><div class="ttdeci">@ SFM_FICHIER_ELEMENTAIRE</div><div class="ttdef"><b>Definition</b> <a href="sfm_8h_source.html#l00045">sfm.h:45</a></div></div>
+<div class="ttc" id="asfm_8h_html_aa8b9ef6ee1d79fd0521b27e7e55a0c45af83f3efff8ba9d6133b30f5867dbd13e"><div class="ttname"><a href="sfm_8h.html#aa8b9ef6ee1d79fd0521b27e7e55a0c45af83f3efff8ba9d6133b30f5867dbd13e">SFM_REPERTOIRE</a></div><div class="ttdeci">@ SFM_REPERTOIRE</div><div class="ttdef"><b>Definition</b> <a href="sfm_8h_source.html#l00047">sfm.h:46</a></div></div>
+<div class="ttc" id="asfm_8h_html_ade2f6eb8932d5d42d06df0b4445bb9a3"><div class="ttname"><a href="sfm_8h.html#ade2f6eb8932d5d42d06df0b4445bb9a3">SFMInode</a></div><div class="ttdeci">struct _SFMInode SFMInode</div></div>
+<div class="ttc" id="astruct__SFMEntreeRepertoire_html"><div class="ttname"><a href="struct__SFMEntreeRepertoire.html">_SFMEntreeRepertoire</a></div><div class="ttdef"><b>Definition</b> <a href="sfm_8h_source.html#l00061">sfm.h:61</a></div></div>
+<div class="ttc" id="astruct__SFMEntreeRepertoire_html_aaf701767d007bb2b457536bbdc12391c"><div class="ttname"><a href="struct__SFMEntreeRepertoire.html#aaf701767d007bb2b457536bbdc12391c">_SFMEntreeRepertoire::nomFichier</a></div><div class="ttdeci">uint32_t offsetInode char nomFichier[SFM_LONGUEUR_NOM]</div><div class="ttdef"><b>Definition</b> <a href="sfm_8h_source.html#l00063">sfm.h:63</a></div></div>
+<div class="ttc" id="astruct__SFMInode_html"><div class="ttname"><a href="struct__SFMInode.html">_SFMInode</a></div><div class="ttdef"><b>Definition</b> <a href="sfm_8h_source.html#l00052">sfm.h:52</a></div></div>
+<div class="ttc" id="astruct__SFMInode_html_a651ee577857eec154f1fff840029e5d3"><div class="ttname"><a href="struct__SFMInode.html#a651ee577857eec154f1fff840029e5d3">_SFMInode::taille</a></div><div class="ttdeci">uint32_t taille</div><div class="ttdef"><b>Definition</b> <a href="sfm_8h_source.html#l00053">sfm.h:53</a></div></div>
+<div class="ttc" id="astruct__SFMInode_html_ab3c2f692299ee70fbc63a62919a8bc37"><div class="ttname"><a href="struct__SFMInode.html#ab3c2f692299ee70fbc63a62919a8bc37">_SFMInode::blocsDirects</a></div><div class="ttdeci">uint32_t blocsDirects[SFM_NB_BLOCS_DIRECTS]</div><div class="ttdef"><b>Definition</b> <a href="sfm_8h_source.html#l00055">sfm.h:55</a></div></div>
+<div class="ttc" id="astruct__SFMInode_html_afefa1e7fda0bdd14bb8044127848101a"><div class="ttname"><a href="struct__SFMInode.html#afefa1e7fda0bdd14bb8044127848101a">_SFMInode::type</a></div><div class="ttdeci">SFMTypeFichier type</div><div class="ttdef"><b>Definition</b> <a href="sfm_8h_source.html#l00054">sfm.h:54</a></div></div>
+<div class="ttc" id="astruct__SFMRepertoire_html"><div class="ttname"><a href="struct__SFMRepertoire.html">_SFMRepertoire</a></div><div class="ttdef"><b>Definition</b> <a href="sfm_8h_source.html#l00069">sfm.h:69</a></div></div>
+<div class="ttc" id="astruct__SFMRepertoire_html_a4ea067a60cd3a53d08b25a76db6f82d1"><div class="ttname"><a href="struct__SFMRepertoire.html#a4ea067a60cd3a53d08b25a76db6f82d1">_SFMRepertoire::nombreEntrees</a></div><div class="ttdeci">uint32_t nombreEntrees</div><div class="ttdef"><b>Definition</b> <a href="sfm_8h_source.html#l00070">sfm.h:70</a></div></div>
+<div class="ttc" id="astruct__SFMRepertoire_html_af207ce605b3511732dcb65e8a2250453"><div class="ttname"><a href="struct__SFMRepertoire.html#af207ce605b3511732dcb65e8a2250453">_SFMRepertoire::entrees</a></div><div class="ttdeci">SFMEntreeRepertoire entrees[0]</div><div class="ttdef"><b>Definition</b> <a href="sfm_8h_source.html#l00071">sfm.h:71</a></div></div>
+<div class="ttc" id="astruct__SFMSuperBloc_html"><div class="ttname"><a href="struct__SFMSuperBloc.html">_SFMSuperBloc</a></div><div class="ttdef"><b>Definition</b> <a href="sfm_8h_source.html#l00034">sfm.h:34</a></div></div>
+<div class="ttc" id="astruct__SFMSuperBloc_html_a077b6ebb307247405245d0918a91525c"><div class="ttname"><a href="struct__SFMSuperBloc.html#a077b6ebb307247405245d0918a91525c">_SFMSuperBloc::magic</a></div><div class="ttdeci">uint32_t magic</div><div class="ttdef"><b>Definition</b> <a href="sfm_8h_source.html#l00035">sfm.h:35</a></div></div>
+<div class="ttc" id="astruct__SFMSuperBloc_html_a5b638d6acff30c9ce32f5f1de317b5d9"><div class="ttname"><a href="struct__SFMSuperBloc.html#a5b638d6acff30c9ce32f5f1de317b5d9">_SFMSuperBloc::offsetInodeRacine</a></div><div class="ttdeci">uint32_t offsetInodeRacine</div><div class="ttdef"><b>Definition</b> <a href="sfm_8h_source.html#l00038">sfm.h:38</a></div></div>
+<div class="ttc" id="astruct__SFMSuperBloc_html_aa902364d2308cb2f02fb5936f7492ada"><div class="ttname"><a href="struct__SFMSuperBloc.html#aa902364d2308cb2f02fb5936f7492ada">_SFMSuperBloc::version</a></div><div class="ttdeci">uint8_t version</div><div class="ttdef"><b>Definition</b> <a href="sfm_8h_source.html#l00036">sfm.h:36</a></div></div>
+<div class="ttc" id="astruct__SFMSuperBloc_html_aeed253817885f70a1c604a0f7bbe76f3"><div class="ttname"><a href="struct__SFMSuperBloc.html#aeed253817885f70a1c604a0f7bbe76f3">_SFMSuperBloc::offsetPremierBlocLibre</a></div><div class="ttdeci">uint32_t offsetPremierBlocLibre</div><div class="ttdef"><b>Definition</b> <a href="sfm_8h_source.html#l00037">sfm.h:37</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

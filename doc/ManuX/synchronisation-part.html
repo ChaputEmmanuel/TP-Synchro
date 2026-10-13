@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://manux.manu-chaput.net/synchronisation-part.html" />
+      <link rel="shortcut icon" href="img/favicon.ico" />
+    <title>Les outils de synchronisation - ManuX</title>
+    <link rel="stylesheet" href="css/theme.css" />
+    <link rel="stylesheet" href="css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="css/pandoc.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Les outils de synchronisation";
+        var mkdocs_page_input_path = "synchronisation-part.md";
+        var mkdocs_page_url = "/synchronisation-part.html";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="index.html" class="icon icon-home"> ManuX
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="./search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="index.html">Home</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Sections</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="vue-globale-part.html">La version courte</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="presentation-part.html">Présentation générale</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="outils-part.html">Les outils</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="boot-part.html">Chargement en mémoire et boot</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="affichage-part.html">Affichage</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="registres-part.html">Registres</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="inter-part.html">Interruptions</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="memoire-part.html">La mémoire</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="appel-systeme-part.html">Les appels système</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="systeme-fichiers-part.html">La gestion des fichiers</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="synchronisation-part.html">Les outils de synchronisation</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#introduction">Introduction</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#remarque-preliminaire">Remarque préliminaire</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#remarque-liminaire">Remarque liminaire</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#quel-est-le-probleme">Quel est le problème ?</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#le-traitement-dune-interruption">Le traitement d’une interruption</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#introduction-du-temps-partage">Introduction du temps partagé</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#premieres-pistes-un-peu-de-civisme">Premières pistes : un peu de civisme</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#gestion-du-multi-taches-un-peu-dorganisation">Gestion du multi tâches : un peu d’organisation</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#et-la-memoire-dans-tout-ca">Et la mémoire dans tout ça ?</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#une-premiere-solution-chacun-chez-soi">Une première solution : chacun chez soi !</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#le-retour-du-civisme">Le retour du civisme</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#quel-modele-choisir">Quel modèle choisir ?</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="userland-part.html">Le mode utilisateur</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Le code</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="doxy/html/index.html">Doxygen</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="https://github.com/ChaputEmmanuel/ManuX">Sur github</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">ManuX</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html" class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Sections</li>
+      <li class="breadcrumb-item active">Les outils de synchronisation</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="les-outils-de-synchronisation">Les outils de synchronisation</h1>
+<h2 id="introduction">Introduction</h2>
+<h3 id="remarque-preliminaire">Remarque préliminaire</h3>
+<p>Avant toute chose, je précise que cette section n’est pas un cours, elle
+ne se veut pas complète, elle est juste là pour vous rafraîchir les
+idées. Pour le dire plus simplement : allez donc voir votre cours de
+systèmes d’exploitation !</p>
+<h3 id="remarque-liminaire">Remarque liminaire</h3>
+<p>Je vais supposer pour le moment que nous utilisons un système
+informatique doté d’un processseur unique, de mémoire, de dispositifs
+d’entrée-sortie. A tout instant le microprocesseur peut exécuter une
+unique instruction et recevoir une interruption.</p>
+<p>Il me semble en effet important de bien connaître et comprendre cette
+configuration simple avant de passer à des choses plus lourdes !</p>
+<p>Je vais donc commencer par amener le problème simplement, en me fondant
+sur une technique élémentaire permettant d’introduire du “pseudo
+parallélisme” grâce à du temps partagé fondé sur quelques outils
+basiques.</p>
+<h2 id="quel-est-le-probleme">Quel est le problème ?</h2>
+<h3 id="le-traitement-dune-interruption">Le traitement d’une interruption</h3>
+<p>Imaginons un programme en cours d’exécution. Nous pouvons le voir comme
+une séquence d’instructions en assembleur exécutées par le processeur.
+Ce dernier utilise pour cela des variables qui sont dans des registres
+et de la mémoire ; une telle exécution est appelée une tâche, et nous
+appellerons celle-ci T1.</p>
+<p>La figure suivante illustre cette exécution, représentée par la flèche
+bleue.</p>
+<p><img alt="image" src="images/une-tache-seule.png" /></p>
+<p>Comme vous le savez, la tâche T1 peut être interrompue, ce qui va
+conduire à l’exécution d’une autre séquence d’instructions, typiquement
+le code la fonction de traitement (le <em>handler</em>) de l’interruption en
+question. À la fin de cette fonction de traitement, l’exécution de la
+séquence initiale reprendra son cours exactement là où il en était. Cela
+se fera probablement parce que la dernière instruction de la fonction de
+traitement est <code>iret</code> ou un équivalent.</p>
+<p>La figure suivante illustre ce principe.</p>
+<p><img alt="image" src="images/une-tache-int.png" /></p>
+<p>Mais comment est-ce possible ? Pour exécuter correctement le programme,
+le microprocesseur utilise des registres et de la mémoire, nous l’avons
+dit, mais la fonction de traitement de l’interruption va faire
+exactement la même chose ! Comment peut-on alors être sûr que le retour
+au programme initial se fera vraiment dans les mêmes conditions, y
+compris avec les valeurs inchangées dans les registres et dans la
+mémoire ?</p>
+<p>Avant de discuter des éléments de réponse, nous allons élargir davantage
+le problème.</p>
+<h3 id="introduction-du-temps-partage">Introduction du temps partagé</h3>
+<p>En effet, puisqu’il est possible d’interrompre la tâche T1 pendant
+quelques temps et d’y revenir ensuite, pourquoi ne oas profiter de ce
+temps pour faire autre chose ? C’est exactement cette idée qui va nous
+permettre de mettre en place du pseudo parallélisme : plutôt que
+reprendre le cours de T1, nous pouvons reprendre le cours d’une autre
+tâche, appelons la T2. Plus tard, l’exécution de T2 sera probablement
+interrompue à son tour, et il sera alors possible de reprendre le cours
+de T1 (ou d’une autre tâche T3 !).</p>
+<p>La figure suivante illustre un tel mécanisme. Les raisons pour
+lesquelles un tel fonctionnement peut êtr intéressant seront décrites
+ailleurs. Les outils et techniques permettant de le réaliser sont
+présentées dans le chapitre lié à l’ordonnancement.</p>
+<p><img alt="image" src="images/deux-taches.png" /></p>
+<p>On comprend alors que la gestion de l’état des registres et de la
+mémoire prend une autre dimension.</p>
+<h2 id="premieres-pistes-un-peu-de-civisme">Premières pistes : un peu de civisme</h2>
+<p>Une première réponse consiste à sauvegarder les registres dans la pile
+(par des instructions <code>push</code>) au début de la fonction de traitement de
+l’interruption et à les restaurer à la fin de cette fonction (grâce à
+des instructions <code>pop</code>). Cela permet donc de rêgler la question des
+registres sans altérer la pile qui est alors elle aussi rendue dans le
+même état qu’avant l’interruption, …</p>
+<p>Qu’en est-il des variables situées en mémoire ? La pile a une gestion un
+peu spécifique, qui permet d’empiler des données durant le traitement de
+l’interruption comme nous venons de l’évoquer. Les données placées dans
+la pile peuve être manipulées sans conséquence pour le programme qui a
+été interrompu, pour peu qu’elles soient empilées puis dépilées par la
+fonction de traitement. La pile pourra donc être utilisée pour stoquer
+des données temporaires durant le traitement de l’interrruption.</p>
+<p>Cette première idée constitue une rêgle de “bonne conduite” que l’on
+devra scrupuleusement respecter pour que le système puisse fonctionner :
+les fonctions de traitement des interruptions devront sauvegarder dans
+la pile les registres qu’elles sont susceptibles de modifier (y compris
+les “flags” bien sûr) et les restaurer avant de rendre la main.</p>
+<h2 id="gestion-du-multi-taches-un-peu-dorganisation">Gestion du multi tâches : un peu d’organisation</h2>
+<p>La bonne conduite des fonctions de traitement des interruptions est donc
+une nécessité pour un bon fonctionnement d’un système monotâche, mais
+elle ne saurait suffir sur un système multitâche. Il faut en effet
+maintenant être capable, avant de reprendre l’exécution de la tâche T2,
+par exemple, de restaurer l’état des registres tel qu’ils étaient
+lorsque cette tâche avait été interrompue, et non tels qu’ils étaient
+lorsque la dernière tâche en cours (la tâche T1 par exemple a été
+interrompue).</p>
+<p>Le noyau va donc devoir mettre en place des techniques (potentiellement
+avec l’aide su matériel) lui permettant de restaurer les registres dans
+l’état convenable avant de reprendre l’exécution d’une tâche. Dans la
+figure précédente, c’est donc avant l’étape 5 que le système doit
+d’assurer que les registres sont bien dans l’état dans lequel les avait
+laissés la tâche T2, et non la tâche T1.</p>
+<h2 id="et-la-memoire-dans-tout-ca">Et la mémoire dans tout ça ?</h2>
+<p>Nous ne nous sommes intéressés jusque là qu’aux variables qui étaient
+contenues dans des registres, mais nos programmes utilisent aussi la
+mémoire pour stocker les variables. Comment la cohérence est-elle
+assurée pour elle ?</p>
+<h3 id="une-premiere-solution-chacun-chez-soi">Une première solution : chacun chez soi !</h3>
+<p>La première idée, bien sûr, est de s’assurer que chaque tâche ait accès
+à une zone mémoire qui lui soit réservée. Si elle et elle seule peut y
+accéder, aucun risque d’incohérence, et tout va bien, ...</p>
+<p>Comment assurer qu’un tel principe fonctionne correctement ? Il y a
+évidemment deux possibilités : on fait confiance aux tâches (à leurs
+auteurs et leurs utilisateurs), ou on met en place des mécanismes de
+protection.</p>
+<p>La première solution peut être acceptable dans des environnements
+maîtrisés : si vous êtes l’auteur de l’intégralité du système, vous
+savez que vous avez programmé vos applications en respectant les rêgles.</p>
+<p>Dans un cadre plus général, il faudra passer par la seconde solution.
+C’est alors le noyau qui va devoir attribuer la mémoire aux différentes
+tâches et les empêcher, avec l’aide du matériel, d’aller lire ou écrire
+ailleurs. Je vous parle de cela dans le chapitre dédié à la gestion de
+la mémoire, …</p>
+<h3 id="le-retour-du-civisme">Le retour du civisme</h3>
+<p>L’autre solution permettant d’assurer la cohérence du contenu de la
+mémoire est à nouveau, comme pour les registres, de définir “quelques
+rêgles simples” et de s’y tenir. L’ensemble des outils de
+synchronisation dont vous avez entendu parlé dans vos cours, et
+notemment ceux dont je vais parler ici, permettent de mettre en place
+ces rêgles simples.</p>
+<p>Il est en revanche cette fois ci plus délicat pour le système de mettre
+en place des outils coercitifs obligeant les tâches à respecter ces
+rêgles. Cependant, comme nous allons le voir, ce n’est généralement pas
+nécessaire, car on va se placer dans des situations dans les lesquelles
+on sait pouvoir faire confiance aux différentes tâches.</p>
+<h3 id="quel-modele-choisir">Quel modèle choisir ?</h3>
+<p>Vous l’avez compris, malin que vous êtes, les deux techniques que je
+viens d’évoquer correspondent à deux modèles de gestion de la mémoire</p>
+<ul>
+<li>
+<p>la mémoire peut être partagée entre les différentes tâches qui
+    s’exécutent sur le système ;</p>
+</li>
+<li>
+<p>la mémoire peut être réservée à chaque tâche.</p>
+</li>
+</ul>
+<p>La mémoire réservée est une façon un peu extrème de répondre aux
+problèmes de cohérence puisqu’ils disparaissent complètement, mais elle
+ne permet pas aux différentes tâches de communiquer (il faudra donc
+trouver d’autres solutions pour cela).</p>
+<p>C’est une technique assez largement utilisée dans les systèmes généraux
+multitâches. Elle est illustrée par la figure suivante.</p>
+<p><img alt="image" src="images/memoire-disjointe.png" /></p>
+<p>La technique de la mémoire partagée est plus simple à mettre en oeuvre,
+et permet aux tâches de communiquer entre elles, mais elle va nécessiter
+la mise en place d’outils de synchronisation pour assurer la cohérence,
+et elle ne permet pas de protéger une tâches contre les actions
+malveillantes ou accidentelles des autres tâches. Elle est illustrée par
+la figure suivante.</p>
+<p><img alt="image" src="images/memoire-partagee.png" /></p>
+<p>Pour marier les avantages des deux techniques, un système de type Unix
+les implante toutes les deux comme illustré par la figure suivante.</p>
+<p><img alt="image" src="images/memoire-disj-et-part.png" /></p>
+<p>L’idée est qu’une tâche (oui, je sais, le terme utilisé ici est
+processus) va disposer d’une partie de la mémoire pour faire ce qu’elle
+veut, et que lorsqu’elle va avoir besoin des services du noyau, elle
+s’exécuter en mode protégé et pouvoir accéder ainsi, via le code du
+noyau, à une zone mémoire commune. C’est donc dans le code du noyau que
+seront utilisés les outils de synchronisation assurant la cohérence.</p>
+<p>Pour résumer, sur un système classique de type Unix utilisant des
+“processus lourds”, seul le code du noyau doit s’inquiéter des problèmes
+de synchronisation. Sur un système sans outils matériel de protection de
+la mémoire, c’est plus compliqué, ...</p>
+<p>Notons tout de même qu’un système de type Unix peut également implanter
+des “processus légers” ou threads (par exemple conformément à la norme
+POSIX dont j’ai oublié le numéro). On se retrouve alors avec une
+situation comme celle de la figure suivante.</p>
+<p><img alt="image" src="images/processus-et-threads.png" /></p>
+<p>Dans ce cas, le code d’une application qui utilise cette fonctionnalité
+doit lui aussi être instrumenté par des outils de synchronisation de
+sorte à assurer la cohérence des données.</p>
+<p>Résumé des situation problématiques sur un système monoprocesseur</p>
+<p>Si nous envisageons un système de type Unix sur une machine
+monoprocesseur, qui implante des processus lourds avec une isolation de
+la mémoire assurée par une MMU, quelles sont finalement les situations à
+prendre en compte ? Il y en a essentiellement deux :</p>
+<p>Un traitement en court peut être préempté par une interruption. Cette
+situation peut être exceptionnellement évitée au besoin (en interdisant
+brièvement certaines interruptions). Ses conséquences peuvent également
+être maîtrisées par le fait que le traitement d’une interruption sera
+aussi limité que possible. Des outils de sycnhronisation restent
+cependant nécessaires, avec une contrainte spécifique : il est
+inenvisageable de mettre en attente le code de traitement d’une
+interruptions !</p>
+<p>Une tâche en train d’effectuer une action dans le noyau (en particulier
+par le biais d’un appel système) peut être interrompue pour passer la
+main à une autre tâche qui va à son tour effectuer un traitement dans le
+noyau. Une première approche, relativement simple, consiste à interdire
+la présence de plus d’une tâche dans le noyau à tout instant (on parle
+de verouillage globale du noyau, ou “big kernel lock”). Une solution
+plus subtile (et bien plus efficace sur un système multiprocesseur) sera
+de protéger chaque variable (ou sous-système) sensible du noyau par des
+outils de synchroniation.</p>
+<h1 id="limplantation-dans-manux">L’implantation dans ManuX</h1>
+<p>ManuX implante et utilise un modèle de mémoire allouée en mode
+utlisateur et partagée dans le noyau. En l’absence de gestion de la
+mémoire fondée sur la MMU, l’usage exclusif de la mémoire allouée en
+mode utilisateur est fondé sur le civisme du code applicatif.</p>
+<p>Dans le noyau, c’est une autre histoire ; les données peuvent être
+manipulées par plusieurs tâches, et des outils de synchronisation
+doivent donc être mis en place.</p>
+<p>Les moyens de synchronisation entre tâches actuellement disponibles sont</p>
+<ul>
+<li>
+<p>les opérations atomiques ;</p>
+</li>
+<li>
+<p>les exclusions mutuelles ;</p>
+</li>
+<li>
+<p>les conditions.</p>
+</li>
+</ul>
+<p>Avant de rentrer dans le détail de ces outils, revenons brièvement sur
+les spécificités des différentes situations.</p>
+<h2 id="les-situations-a-gerer">Les situations à gérer</h2>
+<p>Rappelons-nous que pour le moment ManuX fonctionne sur un système
+mono-processeur. Cela signifie que les seules situations problématiques
+(c’est-à-dire nécessitant la mise en place de mécanismes de
+synchronisation) sont les suivantes</p>
+<ul>
+<li>
+<p>le code de la tâche en cours et le code de traitement de
+    l’interruption manipulent des ressources communes ;</p>
+</li>
+<li>
+<p>la tâche en cours au moment de l’interruption et la nouvelle tâche
+    vers laquelle l’ordonnanceur décide de basculer manipulent des
+    ressources communes.</p>
+</li>
+</ul>
+<p>Ces situations justifient l’utlisation de différents outils.</p>
+<h3 id="synchronisation-entre-une-tache-et-une-interruption">Synchronisation entre une tâche et une interruption</h3>
+<p>Un premier élément important vient des différences fondamentales entre
+une tâche et le traitement d’une interruption.</p>
+<p>L’exécution d’une tâche peut durer longtemps, elle peut être mise en
+pause puis réveillée plus tard, elle est pour cela caractérisée par un
+contexte d’exécution (état des registres, de la pile, …) qui doit être
+sauvegardé lorsqu’elle est mise en pause et restauré lorsqu’elle est
+réveillée. L’exécution d’une tâche ne bloque rien : elle n’empèche pas
+le traitement d’une interruption, ni le basculement vers une autre
+tâche.</p>
+<p>D’un autre côté, le code de traitement d’une interruption est là pour
+gérer une situation particulière, signalée par l’interruption (par
+exemple l’arrivée d’une trame sur une interface réseau). Il n’est lié à
+aucun contexte particulier qui pourrait être sauvegardé et repris. Ce
+code doit s’exécuter rapidement, il doit souvent dialoguer avec le
+matériel pour lui préciser que l’événement est pris en charge.
+L’exécution de ce code est généralement bloquant pour le système : il
+est impossible de basculer vers une tâche, et souvent impossible même de
+traiter une autre interruption. Il est évidemment impossible de mettre
+en pause l’exécution de ce code.</p>
+<p>Les outils de synchronisation utilisables dans une situation impliquant
+une interruption doivent donc être conçus en ce sens.</p>
+<h4 id="masquage-des-interruptions">Masquage des interruptions</h4>
+<p>Une première solution est la possibilité d’interdire les interruptions
+(toutes ou certaines) lorsqu’une tâche manipule une ressource que le
+traitement d’une interruption pourrait manipuler de façon incohérente.</p>
+<h4 id="les-verrous-tournants">Les verrous tournants</h4>
+<p>Les “verrous tournants” (<em>spinlocks</em> en anglais) sont un outil simple
+permettant d’assurer une exclusion mutuelle par le biais d’une
+éventuelle attente active.</p>
+<h3 id="synchronisation-entre-deux-taches">Synchronisation entre deux tâches</h3>
+<h3 id="reentrance-du-noyau">Réentrance du noyau</h3>
+<h2 id="operations-atomiques">Opérations atomiques</h2>
+<p>Les opérations élémentaires de synchronisation sont définies dans le
+fichier <code>atomique.h</code>. Elles se basent sur le type <code>Atomique</code> et les
+opérations qui lui sont associées. A part l’initialisation et la
+consultation, l’opération importante est la suivante</p>
+<pre><code>{}
+booleen atomiqueTestInit(volatile Atomique * atom, uint32 val, uint32 cond);
+</code></pre>
+<p>Elle compare la valeur de l’<code>Atomique</code> avec <code>cond</code> et, en cas d’égalité,
+affecte l’<code>Atomique</code> avec la valeur <code>val</code> et renvoie <code>TRUE</code>, sinon elle
+ne fait rien et renvoie <code>FALSE</code>. Ce qui est important, bien sur, c’est
+que la comparaison et l’éventuelle affectation soient réalisées de façon
+<em>atomique</em>.</p>
+<h2 id="exclusions-mutuelles">Exclusions mutuelles</h2>
+<p>Les variables d’exclusion mutuelle permettent d’assurer que l’accés à
+une ressource (typiquement une section de code critique) se fait de
+façon exclusive entre les tâches.</p>
+<p>Le fichier <code>atomique.h</code> définit le type et les fonctions suivants</p>
+<pre><code>{}
+typedef struct _ExclusionMutuelle {
+   Atomique   verrou;
+   ListeTache tachesEnAttente;
+} ExclusionMutuelle;
+
+void initialiserExclusionMutuelle(ExclusionMutuelle * em);
+void entrerExclusionMutuelle(ExclusionMutuelle * em);
+void sortirExclusionMutuelle(ExclusionMutuelle * em);
+</code></pre>
+<p>Naturellement, comme leurs noms l’indiquent, les trois sous-programmes
+permettent respectivement d’initialiser une variable d’exclusion
+mutuelle, de prendre une exclusion mutuelle et de libérer une exclusion
+mutuelle.</p>
+<h2 id="les-conditions">Les conditions</h2>
+<p>Une condition est un outil permettant d’attendre et de signaler
+l’occurence d’un événement. Dans ManuX, elles sont définies et
+implantées dans les fichiers
+<a href="/doxy/html/atomique_8h_source.html"><code>include/manux/atomique.h</code></a>
+(<a href="/doxy/html/atomique_8h.html">dox</a>) et</p>
+<p><a href="/doxy/html/atomique_8c_source.html"><code>noyau/atomique.c</code></a>
+(<a href="/doxy/html/atomique_8c.html">dox</a>) .</p>
+<p>Les fonctions permettant de les manipuler sont les suivantes</p>
+<pre><code>void conditionInitialiser(Condition * cond);
+void conditionAttendre(Condition * cond, ExclusionMutuelle * em);
+void conditionSignaler(Condition * cond);
+void conditionDiffuser(Condition * cond);
+</code></pre>
+<h3 id="affichage-des-conditions">Affichage des conditions</h3>
+<p>Si la <code>MANUX_ATOMIQUE_AUDIT</code> est définie</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="systeme-fichiers-part.html" class="btn btn-neutral float-left" title="La gestion des fichiers"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="userland-part.html" class="btn btn-neutral float-right" title="Le mode utilisateur">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="systeme-fichiers-part.html" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="userland-part.html" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = ".";</script>
+    <script src="js/theme_extra.js"></script>
+    <script src="js/theme.js"></script>
+      <script src="search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

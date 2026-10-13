@@ -1,0 +1,68 @@
+\doxysection{Référence du fichier /home/manu/\+PROGRAMMATION/\+C/\+Manu\+X/multiconf/reentrance.h}
+\hypertarget{reentrance_8h}{}\label{reentrance_8h}\index{/home/manu/PROGRAMMATION/C/ManuX/multiconf/reentrance.h@{/home/manu/PROGRAMMATION/C/ManuX/multiconf/reentrance.h}}
+
+
+Comparaison noyau réentrant vs non réentrant.  
+
+
+{\ttfamily \#include $<$config/base.\+h$>$}\newline
+{\ttfamily \#include $<$config/bootloader.\+h$>$}\newline
+{\ttfamily \#include $<$config/pc-\/i386.\+h$>$}\newline
+{\ttfamily \#include $<$config/appels-\/systeme.\+h$>$}\newline
+{\ttfamily \#include $<$config/synchronisation.\+h$>$}\newline
+{\ttfamily \#include $<$config/console.\+h$>$}\newline
+{\ttfamily \#include $<$config/printk.\+h$>$}\newline
+{\ttfamily \#include $<$config/taches.\+h$>$}\newline
+{\ttfamily \#include $<$config/gestion-\/memoire.\+h$>$}\newline
+{\ttfamily \#include $<$config/kmalloc.\+h$>$}\newline
+{\ttfamily \#include $<$config/stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$config/usr.\+h$>$}\newline
+{\ttfamily \#include $<$config/verifications.\+h$>$}\newline
+Graphe des dépendances par inclusion de reentrance.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{reentrance_8h__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{reentrance_8h_aa3594499e1eed61df06d17199e875181}{MANUX\+\_\+\+FICHIER\+\_\+\+MAIN}}~\mbox{\hyperlink{makeconfig_8c_a0ddf1224851353fc92bfbff6f499fa97}{main}}-\/reentrance
+\item 
+\#define \mbox{\hyperlink{reentrance_8h_aebb6ade5da1613b93b30fdc922a92f99}{MANUX\+\_\+\+USR\+\_\+\+INIT}}~\mbox{\hyperlink{main-acces-concurrent_8c_a02fd73d861ef2e4aabb38c0c9ff82947}{init}}-\/reentrance.\+o
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Comparaison noyau réentrant vs non réentrant. 
+
+\begin{DoxyVerb}                                                      (C) Manu Chaput 2025
+\end{DoxyVerb}
+ 
+
+Définition dans le fichier \mbox{\hyperlink{reentrance_8h_source}{reentrance.\+h}}.
+
+
+
+\doxysubsection{Documentation des macros}
+\Hypertarget{reentrance_8h_aa3594499e1eed61df06d17199e875181}\label{reentrance_8h_aa3594499e1eed61df06d17199e875181} 
+\index{reentrance.h@{reentrance.h}!MANUX\_FICHIER\_MAIN@{MANUX\_FICHIER\_MAIN}}
+\index{MANUX\_FICHIER\_MAIN@{MANUX\_FICHIER\_MAIN}!reentrance.h@{reentrance.h}}
+\doxysubsubsection{\texorpdfstring{MANUX\_FICHIER\_MAIN}{MANUX\_FICHIER\_MAIN}}
+{\footnotesize\ttfamily \#define MANUX\+\_\+\+FICHIER\+\_\+\+MAIN~\mbox{\hyperlink{makeconfig_8c_a0ddf1224851353fc92bfbff6f499fa97}{main}}-\/reentrance}
+
+
+
+Définition à la ligne \mbox{\hyperlink{reentrance_8h_source_l00015}{15}} du fichier \mbox{\hyperlink{reentrance_8h_source}{reentrance.\+h}}.
+
+\Hypertarget{reentrance_8h_aebb6ade5da1613b93b30fdc922a92f99}\label{reentrance_8h_aebb6ade5da1613b93b30fdc922a92f99} 
+\index{reentrance.h@{reentrance.h}!MANUX\_USR\_INIT@{MANUX\_USR\_INIT}}
+\index{MANUX\_USR\_INIT@{MANUX\_USR\_INIT}!reentrance.h@{reentrance.h}}
+\doxysubsubsection{\texorpdfstring{MANUX\_USR\_INIT}{MANUX\_USR\_INIT}}
+{\footnotesize\ttfamily \#define MANUX\+\_\+\+USR\+\_\+\+INIT~\mbox{\hyperlink{main-acces-concurrent_8c_a02fd73d861ef2e4aabb38c0c9ff82947}{init}}-\/reentrance.\+o}
+
+
+
+Définition à la ligne \mbox{\hyperlink{reentrance_8h_source_l00016}{16}} du fichier \mbox{\hyperlink{reentrance_8h_source}{reentrance.\+h}}.
+

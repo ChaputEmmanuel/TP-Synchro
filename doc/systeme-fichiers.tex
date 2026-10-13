@@ -139,9 +139,9 @@ L'ouverture d'un fichier se fait à l'aide de l'appel système
 L'appel système \lstinline!lire! est défini dans le fichier
 \fichier{usr/include}{stdio}{h} de la façon suivante~:
 
-\begin{lstlistings}
+\begin{lstlisting}
 int lire(int fd, void * buffer, int nb);
-\end{lstlistings}
+\end{lstlisting}
 
 %
 %
@@ -161,7 +161,7 @@ int lire(int fd, void * buffer, int nb);
    L'implantation de l'appel système de lecture est réalisée dans la
 fonction \lstinline!sys_lire()! implantée dans le fichier
 \fichier{sf/fichier}{c}. L'appel système est défini dans la fonction
-\lstinline!sfInitialiser() du même fichier.
+\lstinline!sfInitialiser()! du même fichier.
 
    Cette fonction peut servir en particulier à mettre en place des
 contrôles de sécurité. Elle se contente pour le moment de faire appel
@@ -181,9 +181,9 @@ type fichier.
    Dans le fichier \fichier{lib}{console}{c}, les fonctions de
 manipulation d'une console sont définies de la façon suivante
 
-\begin{lstinline}
+\begin{lstlisting}
 /**
- * @brief Déclaration des méthodes permettant de traiter une console
+ * @brief Declaration des methodes permettant de traiter une console
  * comme un fichier
  */
 MethodesFichier consoleMethodesFichier = {
@@ -191,7 +191,7 @@ MethodesFichier consoleMethodesFichier = {
    .ecrire = consoleEcrire,
    .lire = consoleFichierLire
 };
-\end{lstinline}
+\end{lstlisting}
 
 %-------------------------------------------------------------------------------
 %

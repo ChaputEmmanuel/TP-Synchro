@@ -1,0 +1,161 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>My Project: Introduction</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">My Project
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+</div><!-- top -->
+<div><div class="header">
+  <div class="headertitle"><div class="title">Introduction</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><p><a class="anchor" id="autotoc_md3"></a> Une des premières choses à faire, afin de nous simplifier la vie pour la suite du développement, est de se doter d’un service minimal d’affichage. Nous allons donc mettre en place quelques outils très simples fondés sur ce que nous founit le matériel.</p>
+<p>Nous ne nous intéresserons ici qu’à l’affichage des messages du noyau, pas de ceux des éventuels processus utilisateurs. Nous étendrons cependant un peu ces outils de sorte à nous permettre cela par la suite.</p>
+<p>Nous allons procéder ici en trois étapes principales.</p>
+<ul>
+<li>Dans un premier temps, nous allons écrire le code permettant un accès simple à l’écran et une gestion minimale de ce dernier dans un module “*Console*”. Cet outil est suffisant pour que notre noyau soit capable de nous donner un signe de vie à l’écran. Mais nous n’allons pas nous arrêter en si bon chemin !</li>
+<li>Nous pourrons alors écrire une fonction <code>printk</code> utilisable partout dans le noyau et chargée de mettre en forme des messages riches et de les afficher sur la console, … ou ailleurs.</li>
+<li>Nous construirons là-dessus un “journal” du noyau, c’est-à-dire un outil permettant de rassembler et d’organiser les messages émis par les différents sous-systèmes du noyau au travers de <code>printk</code>. Ils pourront être affichés sur la console, ou conservés pour être stockés/traités d’une autre façon. Nous modifierons alors la fonction <code>printk</code> de sorte à ce qu’elle envoie au journal ce qui doit être affiché. C’est lui qui aiguillera vers la bonne destination.</li>
+</ul>
+<p>L’avantage d’une telle structure est que nous pourrons la faire évoluer. Nous pourrons par exemple créér des consoles virtuelles fournissant le même service que notre outil de gestion de l’écran. Il sera très simple de les intégrer dans le noyau. De même, nous pourrons définir un affichage avec plusieurs niveaux d’importance des messages qui pourront ensuite être aiguillés en fonction de leur criticité.</p>
+<h1><a class="anchor" id="autotoc_md4"></a>
+Gestion de l’écran : la console</h1>
+<p>Les fichiers <a href="/doxy/html/console_8h_source.html"><code>include/manux/console.h</code></a>(<a href="/doxy/html/console_8h.html">dox</a>) et <a href="/doxy/html/console_8c_source.html"><code>lib/console.c</code></a>(<a href="/doxy/html/console_8c.html">dox</a>) définissent et implantent un outil de gestion de base de la console.</p>
+<p>Nous allons pour le moment initialiser et utiliser une console unique, que nous appellerons la “console noyau”. Tous les messages émis par le noyau y seront transmis.</p>
+<p>Nous allons définir essentiellement les éléments suivants</p>
+<ul>
+<li>Le type <code>Console</code> décrit ce qu’est une console.</li>
+<li>La fonction <code><a class="el" href="include_2manux_2console_8h.html#a29466c636bd065544638829883090d54" title="Initialisation du système de console sans notion de fichier.">consoleInitialisation()</a></code> initialise le système de gestion de la console. Elle crée en particulier la console noyau. Cette fonction est invoquée une fois et une seule lors du démarrage du noyau.</li>
+<li>La fonction <code><a class="el" href="include_2manux_2console_8h.html#a20cb38c45f235948ac26cd858a5a6556" title="Affichage d&#39;un message sur une console.">consoleAfficher()</a></code> permet d’afficher une chaîne de caractères sur la console.</li>
+</ul>
+<p>Quelques autres fonctions, de moindre importance, sont également définies.</p>
+<h2><a class="anchor" id="autotoc_md5"></a>
+Fonctionnement de base</h2>
+<p>Il se trouve que l’écran d’un PC peut être utilisé en mode textuel comme un simple tableau de caractères. Ce tableau est situé à une adresse bien connue <em>a</em> et contient <em>l</em> lignes de <em>c</em> caractères. Chaque caractère est codé sur deux octets : l’un définit le code ascii du caractère affiché et l’autre la couleur du texte et du fond.</p>
+<h2><a class="anchor" id="autotoc_md6"></a>
+Définition du type &lt;tt&gt;Console&lt;/tt&gt;</h2>
+<p>Le type permettant de définir une console est défini dans le fichier <a href="/doxy/html/console_8h_source.html"><code>include/manux/console.h</code></a>(<a href="/doxy/html/console_8h.html">dox</a>). Pour le moment nous ne créerons qu’une console, mais lorsque nous allons introduire les consoles virtuelles, nous étendrons ce type.</p>
+<p>Le type <a href="html/console_8h_source.html#l00062"><code>Console</code></a> est donc très simple, il comprend quelques champs décrivant les caractéristiques de l’écran (sa taille, l’adresse de la zone mémoire) et l’état actuel de l’affichage (position du curseur et de l’attribut).</p>
+<h2><a class="anchor" id="autotoc_md7"></a>
+Initialisation de la console</h2>
+<p>L’initialisation du système de gestion de console (assurée par la fonction <code><a class="el" href="include_2manux_2console_8h.html#a29466c636bd065544638829883090d54" title="Initialisation du système de console sans notion de fichier.">consoleInitialisation()</a></code>) consiste essentiellement en l’initialisation de la console noyau.</p>
+<p>La fonction d’initalisation de la console, implantée dans <a href="/doxy/html/console_8c_source.html"><code>lib/console.c</code></a>(<a href="/doxy/html/console_8c.html">dox</a>), est elle aussi très simple. Elle se contente d’une initialisation à des valeurs par défaut des champs du type <code>Console</code>.</p>
+<p>Nous n’utilisons ici pour le moment qu’une seule console, elle sera définie comme une variable statique du fichier <a href="/doxy/html/console_8c_source.html"><code>lib/console.c</code></a>(<a href="/doxy/html/console_8c.html">dox</a>) et pourra être obtenue par la fonction <code><a class="el" href="include_2manux_2console_8h.html#abf2f6aca15463bf0f0114531cea39f15" title="Obtention d&#39;un pointeur sur la console par défaut.">consoleNoyau()</a></code> lorsque n’écessaire.</p>
+<p>En revanche, en prévision de la création de consoles virtuelles, toutes les fonctions d’affichage prennent en première paramètre un pointeur sur la console.</p>
+<h2><a class="anchor" id="autotoc_md8"></a>
+Affichage sur la console</h2>
+<p>On construit ici en particulier la fonction suivante, chargée d’afficher sur la console une chaîne de caractères passée en paramètre : </p><pre class="fragment">void afficherConsole(Console * cons, char * msg);
+</pre><p> Elle prend en paramètre une chaîne de caractères “classique” (terminée par un caractère nul) et l’affiche sur la console sans aucune mise en forme.</p>
+<p>La gestion de la console est une des toutes premières choses initialisées par le noyau, de sorte à pouvoir faire coucou dès que possible.</p>
+<h1><a class="anchor" id="autotoc_md9"></a>
+Un premier &lt;tt&gt;printk()&lt;/tt&gt;</h1>
+<p>Grâce à notre console, l’écriture de <code><a class="el" href="include_2manux_2printk_8h.html#a25b30e8bbadd54650c56895999dd808f" title="Fonction principale d&#39;affichage dans le noyau.">printk()</a></code> est assez simple, puisque cette fonction n’a plus qu’à se préoccuper de créer une chaîne de caractères et de la transmettre au journal (ou directement à la console si on n’utilise pas le journal).</p>
+<p>Elle est définie dans le fichier <a href="/doxy/html/printk_8h_source.html"><code>include/manux/printk.h</code></a>(<a href="/doxy/html/printk_8h.html">dox</a>) et mise en œuvre dans le fichier <a href="/doxy/html/printk_8c_source.html"><code>noyau/printk.c</code></a>(<a href="/doxy/html/printk_8c.html">dox</a>)</p>
+<p>La fonction essentielle est bien sûr : </p><pre class="fragment">   void printk(char * format, ...);
+</pre><p> Dont le rôle est de mettre en forme une chaîne de caractères qu’elle envoie ensuite à la console (ou au journal lorsque nous l’aurons créé). Elle utilise pour cela le code suivant </p><pre class="fragment">   afficherConsoleN(consoleNoyau(), chaine, indice);  
+</pre><p> Le paramètre <code>indice</code> donne la longueur de la chaîne de caractères <code>chaine</code> qui est ainsi affichée sur la console du noyau.</p>
+<h1><a class="anchor" id="autotoc_md10"></a>
+Mise en place d’un journal</h1>
+<p>Le journal est spécifié dans le fichier <a href="/doxy/html/journal_8h_source.html"><code>include/manux/journal.h</code></a>(<a href="/doxy/html/journal_8h.html">dox</a>) et implanté dans le fichier <a href="/doxy/html/journal_8c_source.html"><code>lib/journal.c</code></a>(<a href="/doxy/html/journal_8c.html">dox</a>).</p>
+<p>Nous allons définir un mécanisme de journal permettant de conserver les messages transmis par le noyau. Pour le moment, notre journal se contente de transmettre ces messages sur l’écran physique. Lorsque nous aurons mis en place des outils de gestion mémoire, nous pourrons étoffer ce mécanisme de journal.</p>
+<p>Le journal est implanté dans les fichiers <code><a class="el" href="include_2manux_2journal_8h.html" title="Définition des outils de journalisation des messages du noyau.">manux/journal.h</a></code> et <code><a class="el" href="journal_8c.html" title="Implantation des outils de journalisation des messages du noyau.">lib/journal.c</a></code>. Il propose essentiellement la fonction suivante </p><pre class="fragment">   void journaliser(char * message); 
+</pre><p> Elle utilise la fonction <code>afficherConsoleN()</code> pour envoyer le message à la console.</p>
+<p>La fonction <code><a class="el" href="include_2manux_2printk_8h.html#a25b30e8bbadd54650c56895999dd808f" title="Fonction principale d&#39;affichage dans le noyau.">printk()</a></code> est alors modifiée pour utiliser la fonction <code><a class="el" href="include_2manux_2journal_8h.html#afa39ebdefcb62878a46fc77263026d93" title="Journalisation d&#39;un message.">journaliser()</a></code> plutôt que passer directement par la console.</p>
+<p>Évidemment, le journal est initialisé juste après la console.</p>
+<h2><a class="anchor" id="autotoc_md11"></a>
+Introduction de plusieurs niveaux de messages</h2>
+<p>Maintenant que nous avons un système qui permet à tous les sous-systèmes d’envoyer des messages, essentiellement <em>via</em> la fonction <code><a class="el" href="include_2manux_2printk_8h.html#a25b30e8bbadd54650c56895999dd808f" title="Fonction principale d&#39;affichage dans le noyau.">printk()</a></code>, nous allons mettre en place un système permettra de filtrer un peu tous ces messages.</p>
+<p>Pour cela, l’idée est d’utiliser la fonction <code><a class="el" href="include_2manux_2printk_8h.html#a25b30e8bbadd54650c56895999dd808f" title="Fonction principale d&#39;affichage dans le noyau.">printk()</a></code> de la façon suivante </p><pre class="fragment">   printk("{2} Un message\n");
+</pre><p> Ce sont les trois premiers caractères qui vont permettre de réaliser cet aiguillage.</p>
+<p>C’est plus précisément le chiffre qui va permettre de définir le niveau de criticité du message. Les valeurs suivantes sont définies dans <a href="/doxy/html/journal_8h_source.html"><code>include/manux/journal.h</code></a>(<a href="/doxy/html/journal_8h.html">dox</a>) : </p><pre class="fragment">#define MANUX_JOURNAL_NIVEAU_PANIQUE      0
+#define MANUX_JOURNAL_NIVEAU_URGENCE      1
+#define MANUX_JOURNAL_NIVEAU_CRITIQUE     2
+#define MANUX_JOURNAL_NIVEAU_ERREUR       3
+#define MANUX_JOURNAL_NIVEAU_ATTENTION    4
+#define MANUX_JOURNAL_NIVEAU_NOTIFICATION 5
+#define MANUX_JOURNAL_NIVEAU_INFORMATION  6
+#define MANUX_JOURNAL_NIVEAU_DEBUGAGE     7
+</pre><p> Les caractères qui encadrent le niveau de criticité permettent de définir le comportement. Précisons ici en effet que, dès que nous aurons mis en place des outils le permettant, nous allons associer un fichier au journal. Ce fichier permettra par exemple de conserver les messages du noyau, même après l’arrêt du système (ce qui est affiché sur la console disparait, ce qui nest pas pratique pour une analyse a posteriori).</p>
+<p>La signification de ces caractères est alors la suivante :</p>
+<ul>
+<li><code>[n]</code> et le message sera envoyé sur la console ;</li>
+<li><code>(n)</code> le message sera envoyé sur le fichier associé au journal ;</li>
+<li><code>{n}</code> le message sera transmis sur les deux destinations.</li>
+</ul>
+<p>Le code de la fonction <code><a class="el" href="include_2manux_2journal_8h.html#afa39ebdefcb62878a46fc77263026d93" title="Journalisation d&#39;un message.">journaliser()</a></code> est donc modifier en conséquence. Elle utiliser dans un premier temps la fonction <code>aiguillerMessage()</code> qui traite ce “préfixe” de sorte aue le message soit transmis correctement, puis dans un second temps la fonction <code>journaliserNiveau()</code> qui transmet effectivement le message à la (ou les) bonne(s) destination(s).</p>
+<h1><a class="anchor" id="autotoc_md12"></a>
+Plus de souplesse avec les consoles virtuelles</h1>
+<p>Lorsque nous allons mettre en place la notion de tâches, il sera intéressant d’attribuer à chacune d’entre elles une console virtuelle potentiellement différente des autres. Nous pourrons ainsi basculer de l’une à l’autre pour mieux distinguer ce qu’affiche chaque tâche.</p>
+<h2><a class="anchor" id="autotoc_md13"></a>
+Utilisation des fichiers</h2>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

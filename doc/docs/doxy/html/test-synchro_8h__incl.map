@@ -1,0 +1,29 @@
+<map id="/home/manu/PROGRAMMATION/C/ManuX/multiconf/test&#45;synchro.h" name="/home/manu/PROGRAMMATION/C/ManuX/multiconf/test&#45;synchro.h">
+<area shape="rect" id="Node000001" title="Exemple de besoin de synchronisation dans le noyau." alt="" coords="726,5,953,60"/>
+<area shape="rect" id="Node000002" href="$base_8h.html" title="Eléments de base de la configuration." alt="" coords="5,108,113,133"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="726,46,457,72,128,111,127,105,457,66,725,41"/>
+<area shape="rect" id="Node000003" href="$pc-i386_8h.html" title=" " alt="" coords="138,108,263,133"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="726,51,277,110,276,105,725,46"/>
+<area shape="rect" id="Node000006" href="$appels-systeme_8h.html" title=" " alt="" coords="287,108,469,133"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="726,58,453,108,452,103,725,52"/>
+<area shape="rect" id="Node000007" href="$gestion-memoire_8h.html" title=" " alt="" coords="493,108,682,133"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="763,63,635,106,633,101,762,58"/>
+<area shape="rect" id="Node000008" href="$include_2config_2taches_8h.html" title=" " alt="" coords="706,108,826,133"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="819,62,787,99,783,96,815,58"/>
+<area shape="rect" id="Node000010" href="$include_2config_2console_8h.html" title=" " alt="" coords="851,108,977,133"/>
+<area shape="poly" id="edge9_Node000001_Node000010" title=" " alt="" coords="864,58,897,96,893,99,860,62"/>
+<area shape="rect" id="Node000011" href="$include_2config_2printk_8h.html" title=" " alt="" coords="1002,108,1117,133"/>
+<area shape="poly" id="edge10_Node000001_Node000011" title=" " alt="" coords="908,58,1018,100,1016,105,906,63"/>
+<area shape="rect" id="Node000012" href="$usr_8h.html" title=" " alt="" coords="1141,108,1237,133"/>
+<area shape="poly" id="edge11_Node000001_Node000012" title=" " alt="" coords="947,57,1129,102,1128,107,945,63"/>
+<area shape="rect" id="Node000013" href="$synchronisation_8h.html" title="Configuration des outils de synchronisation de ManuX." alt="" coords="1261,108,1441,133"/>
+<area shape="poly" id="edge12_Node000001_Node000013" title=" " alt="" coords="953,50,1270,103,1269,108,953,56"/>
+<area shape="rect" id="Node000014" href="$verifications_8h.html" title=" " alt="" coords="1466,108,1623,133"/>
+<area shape="poly" id="edge13_Node000001_Node000014" title=" " alt="" coords="954,45,1452,105,1452,110,953,50"/>
+<area shape="rect" id="Node000004" href="$plan-memoire-pc_8h.html" title=" " alt="" coords="9,181,198,207"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="187,136,132,175,129,171,183,131"/>
+<area shape="rect" id="Node000005" href="$config_2intel-8259a_8h.html" title=" " alt="" coords="223,181,373,207"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="218,131,272,171,269,175,215,136"/>
+<area shape="rect" id="Node000009" href="$config_2dummy-task_8h.html" title="Configuration de la dummyTask." alt="" coords="686,181,846,207"/>
+<area shape="poly" id="edge8_Node000008_Node000009" title=" " alt="" coords="769,134,769,168,763,168,763,134"/>
+</map>

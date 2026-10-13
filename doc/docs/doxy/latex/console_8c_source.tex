@@ -1,0 +1,770 @@
+\doxysection{console.\+c}
+\hypertarget{console_8c_source}{}\label{console_8c_source}\index{/home/manu/PROGRAMMATION/C/ManuX/lib/console.c@{/home/manu/PROGRAMMATION/C/ManuX/lib/console.c}}
+\mbox{\hyperlink{console_8c}{Aller à la documentation de ce fichier.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00013}00013\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{ascii_8h}{manux/ascii.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00014}00014\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{ecran_8h}{manux/ecran.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00015}00015\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{include_2manux_2console_8h}{manux/console.h}}>}}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00016}00016\ }
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00017}00017\ \textcolor{preprocessor}{\#include\ <manux/errno.h>}}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00018}00018\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{io_8h}{manux/io.h}}>}}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00019}00019\ \textcolor{preprocessor}{\#include\ <manux/appelsysteme.h>}}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00020}00020\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{include_2manux_2memoire_8h}{manux/memoire.h}}>}\ \ \ \ \ \ \textcolor{comment}{//\ NULL\ }}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00021}00021\ \textcolor{preprocessor}{\#include\ <manux/string.h>}\ \ \ \ \ \ \ \textcolor{comment}{//\ memcpy}}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00022}00022\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{manux_2debug_8h}{manux/debug.h}}>}\ \ \ \ \ \ \ \ \textcolor{comment}{//\ assert}}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00023}00023\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{temps_8h}{manux/temps.h}}>}}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00024}00024\ \textcolor{preprocessor}{\#ifdef\ MANUX\_KMALLOC}}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00025}00025\ \textcolor{preprocessor}{\#\ include\ <\mbox{\hyperlink{include_2manux_2kmalloc_8h}{manux/kmalloc.h}}>}}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00026}00026\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00027}00027\ }
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00028}00028\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00029}00029\ \textcolor{comment}{\ *\ La\ console\ du\ noyau\ est\ celle\ "{}par\ défaut"{},\ sur\ laquelle\ seront}}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00030}00030\ \textcolor{comment}{\ *\ envoyés\ en\ particulier\ les\ messages\ du\ noyau\ (ceux\ affichés\ par}}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00031}00031\ \textcolor{comment}{\ *\ printk).}}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00032}00032\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00033}00033\ \textcolor{keyword}{static}\ \mbox{\hyperlink{struct__Console}{Console}}\ \_consoleNoyau;}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00034}00034\ }
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00035}00035\ \textcolor{preprocessor}{\#ifdef\ MANUX\_CONSOLES\_VIRTUELLES}}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00036}00036\ }
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00040}00040\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{int}\ nombreDeConsoles\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00041}00041\ }
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00047}00047\ \mbox{\hyperlink{struct__Console}{Console}}\ *\ consoleActive;}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00048}00048\ }
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00054}00054\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{char}\ copieEcranConsoleNoyau[2*\mbox{\hyperlink{ecran_8h_a2d2474bd7bcb1773d94f27ce4a99b622}{MANUX\_CON\_COLONNES}}*\mbox{\hyperlink{ecran_8h_a37c13c6455313f3e19c0b21ee08dba5f}{MANUX\_CON\_LIGNES}}];}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00055}00055\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ MANUX\_CONSOLES\_VIRTUELLES}}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00056}00056\ }
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00061}00061\ \textcolor{preprocessor}{\#ifdef\ MANUX\_CLAVIER\_CONSOLE}}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00069}00069\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{char}\ bufferClavierNoyau[4096];\ }
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00070}00070\ }
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00071}00071\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ MANUX\_CLAVIER\_CONSOLE}}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00072}00072\ }
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00073}\mbox{\hyperlink{include_2manux_2console_8h_ab2b3d67e4a76348cb620f82f3d153b46}{00073}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{console_8c_ab2b3d67e4a76348cb620f82f3d153b46}{consoleAffecterCouleurFond}}(\mbox{\hyperlink{struct__Console}{Console}}\ *\ cons,\ \mbox{\hyperlink{ecran_8h_aa304d0ca681f782b1d7735da33037dd7}{Couleur}}\ coul)}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00074}00074\ \{}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00075}00075\ \ \ \ cons-\/>\mbox{\hyperlink{struct__Console_a4a6784763053999b74daae4a88096bf3}{attribut}}\ =\ (cons-\/>\mbox{\hyperlink{struct__Console_a4a6784763053999b74daae4a88096bf3}{attribut}}\ \&\ 0x0F)|(coul);}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00076}00076\ \}}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00077}00077\ }
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00078}\mbox{\hyperlink{include_2manux_2console_8h_a2d75ffed821ea7376eaf5e38ee8c98a4}{00078}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{console_8c_a2d75ffed821ea7376eaf5e38ee8c98a4}{consoleAffecterCouleurTexte}}(\mbox{\hyperlink{struct__Console}{Console}}\ *\ cons,\ \mbox{\hyperlink{ecran_8h_aa304d0ca681f782b1d7735da33037dd7}{Couleur}}\ coul)}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00079}00079\ \{}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00080}00080\ \ \ \ cons-\/>\mbox{\hyperlink{struct__Console_a4a6784763053999b74daae4a88096bf3}{attribut}}\ =\ (cons-\/>\mbox{\hyperlink{struct__Console_a4a6784763053999b74daae4a88096bf3}{attribut}}\ \&\ 0xF0)|(coul);}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00081}00081\ \}}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00082}00082\ }
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00083}\mbox{\hyperlink{include_2manux_2console_8h_a3d6665f65d72e2b02cf10e3baff370b5}{00083}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{console_8c_a3d6665f65d72e2b02cf10e3baff370b5}{consoleEffacer}}(\mbox{\hyperlink{struct__Console}{Console}}\ *\ cons)}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00084}00084\ \{}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00085}00085\ \ \ \ \textcolor{keywordtype}{int}\ l,\ \mbox{\hyperlink{main-bootreg_8c_add06ad5d8520e7cff4ff84b2811c0982}{c}};}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00086}00086\ }
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00087}00087\ \ \ \ \textcolor{keywordflow}{for}\ (l\ =\ 0;\ l\ <\ cons-\/>\mbox{\hyperlink{struct__Console_a7f0656c24f9ba80f2ff63d516afc5367}{nbLignes}};\ l++)\ \{}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00088}00088\ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\mbox{\hyperlink{main-bootreg_8c_add06ad5d8520e7cff4ff84b2811c0982}{c}}\ =\ 0;\ \mbox{\hyperlink{main-bootreg_8c_add06ad5d8520e7cff4ff84b2811c0982}{c}}\ <\ cons-\/>\mbox{\hyperlink{struct__Console_a17cf532467b305ab0e21beee89404fbc}{nbColonnes}};\ \mbox{\hyperlink{main-bootreg_8c_add06ad5d8520e7cff4ff84b2811c0982}{c}}++)\ \{}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00089}00089\ \ \ \ \ \ \ \ \ \ cons-\/>\mbox{\hyperlink{struct__Console_a21cbdd08416fe7843ce4759a42605c5b}{adresseEcran}}[2*(l*cons-\/>\mbox{\hyperlink{struct__Console_a17cf532467b305ab0e21beee89404fbc}{nbColonnes}}+\mbox{\hyperlink{main-bootreg_8c_add06ad5d8520e7cff4ff84b2811c0982}{c}})]\ =\ \textcolor{charliteral}{'\ '};}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00090}00090\ \ \ \ \ \ \ \ \ \ cons-\/>\mbox{\hyperlink{struct__Console_a21cbdd08416fe7843ce4759a42605c5b}{adresseEcran}}[2*(l*cons-\/>\mbox{\hyperlink{struct__Console_a17cf532467b305ab0e21beee89404fbc}{nbColonnes}}+\mbox{\hyperlink{main-bootreg_8c_add06ad5d8520e7cff4ff84b2811c0982}{c}})+1]\ =\ cons-\/>\mbox{\hyperlink{struct__Console_a4a6784763053999b74daae4a88096bf3}{attribut}};}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00091}00091\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00092}00092\ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00093}00093\ \ \ \ cons-\/>\mbox{\hyperlink{struct__Console_aeff356576dc0612e1c92c1d659ded988}{ligne}}\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00094}00094\ \ \ \ cons-\/>\mbox{\hyperlink{struct__Console_a8986488bc079fe4c8fec28a63c0840ea}{colonne}}\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00095}00095\ \}}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00096}00096\ }
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00097}00097\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ scrollUp(\mbox{\hyperlink{struct__Console}{Console}}\ *\ cons)}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00098}00098\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00099}00099\ \textcolor{comment}{\ *\ Remonté\ de\ l'écran\ d'une\ ligne}}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00100}00100\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00101}00101\ \{}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00102}00102\ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{main-bootreg_8c_add06ad5d8520e7cff4ff84b2811c0982}{c}};}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00103}00103\ }
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00104}00104\ \ \ \ \textcolor{comment}{/*\ Remontée\ du\ contenu\ de\ l'écran\ */}}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00105}00105\ \ \ \ \mbox{\hyperlink{include_2manux_2string_8h_aba088e716bccbc96d42da97e96316df1}{memcpy}}(cons-\/>\mbox{\hyperlink{struct__Console_a21cbdd08416fe7843ce4759a42605c5b}{adresseEcran}},}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00106}00106\ \ \ \ \ \ \ cons-\/>\mbox{\hyperlink{struct__Console_a21cbdd08416fe7843ce4759a42605c5b}{adresseEcran}}+2*cons-\/>\mbox{\hyperlink{struct__Console_a17cf532467b305ab0e21beee89404fbc}{nbColonnes}},}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00107}00107\ \ \ \ \ \ \ 2*((cons-\/>\mbox{\hyperlink{struct__Console_a7f0656c24f9ba80f2ff63d516afc5367}{nbLignes}}-\/1)*cons-\/>\mbox{\hyperlink{struct__Console_a17cf532467b305ab0e21beee89404fbc}{nbColonnes}}));}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00108}00108\ \ \ \ }
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00109}00109\ \ \ \ \textcolor{comment}{/*\ On\ place\ une\ ligne\ d'espaces\ en\ bas\ de\ l'écran\ */}}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00110}00110\ \ \ \ \textcolor{keywordflow}{for}\ (\mbox{\hyperlink{main-bootreg_8c_add06ad5d8520e7cff4ff84b2811c0982}{c}}\ =\ 0;\ \mbox{\hyperlink{main-bootreg_8c_add06ad5d8520e7cff4ff84b2811c0982}{c}}\ <\ cons-\/>\mbox{\hyperlink{struct__Console_a17cf532467b305ab0e21beee89404fbc}{nbColonnes}};\ \mbox{\hyperlink{main-bootreg_8c_add06ad5d8520e7cff4ff84b2811c0982}{c}}++)\ \{}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00111}00111\ \ \ \ \ \ \ cons-\/>\mbox{\hyperlink{struct__Console_a21cbdd08416fe7843ce4759a42605c5b}{adresseEcran}}[2*((cons-\/>\mbox{\hyperlink{struct__Console_a7f0656c24f9ba80f2ff63d516afc5367}{nbLignes}}-\/1)*cons-\/>\mbox{\hyperlink{struct__Console_a17cf532467b305ab0e21beee89404fbc}{nbColonnes}}+\mbox{\hyperlink{main-bootreg_8c_add06ad5d8520e7cff4ff84b2811c0982}{c}})]\ =\ \textcolor{charliteral}{'\ '};}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00112}00112\ \ \ \ \ \ \ cons-\/>\mbox{\hyperlink{struct__Console_a21cbdd08416fe7843ce4759a42605c5b}{adresseEcran}}[2*((cons-\/>\mbox{\hyperlink{struct__Console_a7f0656c24f9ba80f2ff63d516afc5367}{nbLignes}}-\/1)*cons-\/>\mbox{\hyperlink{struct__Console_a17cf532467b305ab0e21beee89404fbc}{nbColonnes}}+\mbox{\hyperlink{main-bootreg_8c_add06ad5d8520e7cff4ff84b2811c0982}{c}})+1]\ =\ cons-\/>\mbox{\hyperlink{struct__Console_a4a6784763053999b74daae4a88096bf3}{attribut}};}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00113}00113\ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00114}00114\ \}}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00115}00115\ }
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00116}00116\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ avancerLigne(\mbox{\hyperlink{struct__Console}{Console}}\ *\ cons)}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00117}00117\ \{}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00118}00118\ \ \ \ \mbox{\hyperlink{manux_2debug_8h_a3153a272f18d0f805028fce7e4337b53}{assert}}(cons-\/>\mbox{\hyperlink{struct__Console_a7f0656c24f9ba80f2ff63d516afc5367}{nbLignes}}\ !=\ 0);}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00119}00119\ }
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00120}00120\ \ \ \ cons-\/>\mbox{\hyperlink{struct__Console_aeff356576dc0612e1c92c1d659ded988}{ligne}}++;}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00121}00121\ \ \ \ \textcolor{keywordflow}{if}\ (!(cons-\/>\mbox{\hyperlink{struct__Console_aeff356576dc0612e1c92c1d659ded988}{ligne}}\ \%\ cons-\/>\mbox{\hyperlink{struct__Console_a7f0656c24f9ba80f2ff63d516afc5367}{nbLignes}}))\ \{}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00122}00122\ \ \ \ \ \ \ cons-\/>\mbox{\hyperlink{struct__Console_aeff356576dc0612e1c92c1d659ded988}{ligne}}\ =\ cons-\/>\mbox{\hyperlink{struct__Console_a7f0656c24f9ba80f2ff63d516afc5367}{nbLignes}}\ -\/\ 1;}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00123}00123\ \ \ \ \ \ \ scrollUp(cons);}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00124}00124\ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00125}00125\ \}}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00126}00126\ }
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00127}00127\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00128}00128\ \textcolor{comment}{\ *\ L'attribut\ est\ là\ pour\ maintenir\ la\ compilation\ même\ sans}}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00129}00129\ \textcolor{comment}{\ *\ optimisation\ (donc\ pour\ le\ debogage)\ }}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00130}00130\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00131}00131\ \textcolor{keyword}{static}}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00132}00132\ \textcolor{keyword}{inline}}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00133}00133\ \ \mbox{\hyperlink{segment_8c_ad09246453a4dabd919c7541484046a87}{\_\_attribute\_\_}}((always\_inline))}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00134}00134\ \textcolor{keywordtype}{void}\ consoleAfficherCaractere(\mbox{\hyperlink{struct__Console}{Console}}\ *\ cons,\ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{main-bootreg_8c_add06ad5d8520e7cff4ff84b2811c0982}{c}})}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00135}00135\ \{}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00136}00136\ \ \ \ cons-\/>\mbox{\hyperlink{struct__Console_a21cbdd08416fe7843ce4759a42605c5b}{adresseEcran}}[(cons-\/>\mbox{\hyperlink{struct__Console_a17cf532467b305ab0e21beee89404fbc}{nbColonnes}}*cons-\/>\mbox{\hyperlink{struct__Console_aeff356576dc0612e1c92c1d659ded988}{ligne}}+cons-\/>\mbox{\hyperlink{struct__Console_a8986488bc079fe4c8fec28a63c0840ea}{colonne}})*2]\ =\ \mbox{\hyperlink{main-bootreg_8c_add06ad5d8520e7cff4ff84b2811c0982}{c}};}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00137}00137\ \ \ \ cons-\/>\mbox{\hyperlink{struct__Console_a21cbdd08416fe7843ce4759a42605c5b}{adresseEcran}}[(cons-\/>\mbox{\hyperlink{struct__Console_a17cf532467b305ab0e21beee89404fbc}{nbColonnes}}*cons-\/>\mbox{\hyperlink{struct__Console_aeff356576dc0612e1c92c1d659ded988}{ligne}}+cons-\/>\mbox{\hyperlink{struct__Console_a8986488bc079fe4c8fec28a63c0840ea}{colonne}})*2+1]\ =\ cons-\/>\mbox{\hyperlink{struct__Console_a4a6784763053999b74daae4a88096bf3}{attribut}};}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00138}00138\ \ \ \ cons-\/>\mbox{\hyperlink{struct__Console_a8986488bc079fe4c8fec28a63c0840ea}{colonne}}++;}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00139}00139\ }
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00140}00140\ \ \ \ \textcolor{comment}{//\ On\ avance\ d'un\ caratère}}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00141}00141\ \ \ \ \mbox{\hyperlink{manux_2debug_8h_a3153a272f18d0f805028fce7e4337b53}{assert}}(cons-\/>\mbox{\hyperlink{struct__Console_a17cf532467b305ab0e21beee89404fbc}{nbColonnes}}\ !=\ 0);}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00142}00142\ \ \ \ \textcolor{keywordflow}{if}\ (!(cons-\/>\mbox{\hyperlink{struct__Console_a8986488bc079fe4c8fec28a63c0840ea}{colonne}}\ \%\ cons-\/>\mbox{\hyperlink{struct__Console_a17cf532467b305ab0e21beee89404fbc}{nbColonnes}}))\ \{}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00143}00143\ \ \ \ \ \ \ cons-\/>\mbox{\hyperlink{struct__Console_a8986488bc079fe4c8fec28a63c0840ea}{colonne}}\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00144}00144\ \ \ \ \ \ \ avancerLigne(cons);}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00145}00145\ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00146}00146\ \}}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00147}00147\ }
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00148}\mbox{\hyperlink{console_8c_a3acffbd305ee72dcd4593c0d8af64a4f}{00148}}\ \textcolor{preprocessor}{\#define\ MIN(a,\ b)\ (((a)<(b))?(a):(b))}}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00149}\mbox{\hyperlink{console_8c_afa99ec4acc4ecb2dc3c2d05da15d0e3f}{00149}}\ \textcolor{preprocessor}{\#define\ MAX(a,\ b)\ (((a)>(b))?(a):(b))}}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00150}00150\ }
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00158}00158\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ consoleSelectGraphicRendition(\mbox{\hyperlink{struct__Console}{Console}}\ *\ cons,\ \textcolor{keywordtype}{int}\ m)}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00159}00159\ \{}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00160}00160\ \ \ \ \textcolor{keywordflow}{switch}\ (m)\ \{}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00161}00161\ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 0\ :\ }
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00162}00162\ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ WARNING\ utiliser\ la\ macro\ de\ défaut}}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00163}00163\ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{console_8c_a2d75ffed821ea7376eaf5e38ee8c98a4}{consoleAffecterCouleurTexte}}(cons,\ \mbox{\hyperlink{ecran_8h_aa304d0ca681f782b1d7735da33037dd7accbd14bad1583582f611def849a9e8e4}{COUL\_TXT\_GRIS\_CLAIR}});}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00164}00164\ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{console_8c_ab2b3d67e4a76348cb620f82f3d153b46}{consoleAffecterCouleurFond}}(cons,\ \mbox{\hyperlink{ecran_8h_aa304d0ca681f782b1d7735da33037dd7ad1e9fec872384b719ad2aebee2449bc3}{COUL\_FOND\_NOIR}});}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00165}00165\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00166}00166\ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 30\ :\ }
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00167}00167\ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{console_8c_a2d75ffed821ea7376eaf5e38ee8c98a4}{consoleAffecterCouleurTexte}}(cons,\ \mbox{\hyperlink{ecran_8h_aa304d0ca681f782b1d7735da33037dd7a373f12dab5d4f6c611b4089ba53f92ab}{COUL\_TXT\_NOIR}});}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00168}00168\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00169}00169\ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 31\ :}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00170}00170\ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{console_8c_a2d75ffed821ea7376eaf5e38ee8c98a4}{consoleAffecterCouleurTexte}}(cons,\ \mbox{\hyperlink{ecran_8h_aa304d0ca681f782b1d7735da33037dd7acbd2b27f81348d3340c852d86f87201d}{COUL\_TXT\_ROUGE}});}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00171}00171\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00172}00172\ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 32\ :\ }
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00173}00173\ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{console_8c_a2d75ffed821ea7376eaf5e38ee8c98a4}{consoleAffecterCouleurTexte}}(cons,\ \mbox{\hyperlink{ecran_8h_aa304d0ca681f782b1d7735da33037dd7a9586c08f3a67b64d0002b7025bb75b35}{COUL\_TXT\_VERT}});}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00174}00174\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00175}00175\ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 33\ :\ }
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00176}00176\ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{console_8c_a2d75ffed821ea7376eaf5e38ee8c98a4}{consoleAffecterCouleurTexte}}(cons,\ \mbox{\hyperlink{ecran_8h_aa304d0ca681f782b1d7735da33037dd7a2dedea63ce13170e0c4057e7abdb4d34}{COUL\_TXT\_JAUNE}});}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00177}00177\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00178}00178\ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 34\ :}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00179}00179\ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{console_8c_a2d75ffed821ea7376eaf5e38ee8c98a4}{consoleAffecterCouleurTexte}}(cons,\ \mbox{\hyperlink{ecran_8h_aa304d0ca681f782b1d7735da33037dd7a94dea63574355f8d3b35ba4e48490197}{COUL\_TXT\_BLEU}});}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00180}00180\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00181}00181\ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 35\ :}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00182}00182\ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{console_8c_a2d75ffed821ea7376eaf5e38ee8c98a4}{consoleAffecterCouleurTexte}}(cons,\ \mbox{\hyperlink{ecran_8h_aa304d0ca681f782b1d7735da33037dd7a8e9122b2915c1cddd182a8fd911bb9c8}{COUL\_TXT\_MAGENTA}});}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00183}00183\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00184}00184\ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 36\ :}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00185}00185\ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{console_8c_a2d75ffed821ea7376eaf5e38ee8c98a4}{consoleAffecterCouleurTexte}}(cons,\ \mbox{\hyperlink{ecran_8h_aa304d0ca681f782b1d7735da33037dd7afddd9d809729970803212c058341f015}{COUL\_TXT\_CYAN}});}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00186}00186\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00187}00187\ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 37\ :}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00188}00188\ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{console_8c_a2d75ffed821ea7376eaf5e38ee8c98a4}{consoleAffecterCouleurTexte}}(cons,\ \mbox{\hyperlink{ecran_8h_aa304d0ca681f782b1d7735da33037dd7a695c7671d495aa177f99626642db678e}{COUL\_TXT\_BLANC}});}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00189}00189\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00190}00190\ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 90\ :\ }
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00191}00191\ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{console_8c_a2d75ffed821ea7376eaf5e38ee8c98a4}{consoleAffecterCouleurTexte}}(cons,\ \mbox{\hyperlink{ecran_8h_aa304d0ca681f782b1d7735da33037dd7aac427ac734da7e4ca4eeedf0aa18122d}{COUL\_TXT\_GRIS}});}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00192}00192\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00193}00193\ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 91\ :}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00194}00194\ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{console_8c_a2d75ffed821ea7376eaf5e38ee8c98a4}{consoleAffecterCouleurTexte}}(cons,\ \mbox{\hyperlink{ecran_8h_aa304d0ca681f782b1d7735da33037dd7aca43b9e7b8e150100cd9853c7bdd9693}{COUL\_TXT\_ROUGE\_CLAIR}});}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00195}00195\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00196}00196\ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 92\ :\ }
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00197}00197\ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{console_8c_a2d75ffed821ea7376eaf5e38ee8c98a4}{consoleAffecterCouleurTexte}}(cons,\ \mbox{\hyperlink{ecran_8h_aa304d0ca681f782b1d7735da33037dd7adf2e59b2c13eb2e865002d60111665cf}{COUL\_TXT\_VERT\_CLAIR}});}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00198}00198\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00199}00199\ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 93\ :\ }
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00200}00200\ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{console_8c_a2d75ffed821ea7376eaf5e38ee8c98a4}{consoleAffecterCouleurTexte}}(cons,\ \mbox{\hyperlink{ecran_8h_aa304d0ca681f782b1d7735da33037dd7a2dedea63ce13170e0c4057e7abdb4d34}{COUL\_TXT\_JAUNE}});}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00201}00201\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00202}00202\ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 94\ :}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00203}00203\ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{console_8c_a2d75ffed821ea7376eaf5e38ee8c98a4}{consoleAffecterCouleurTexte}}(cons,\ \mbox{\hyperlink{ecran_8h_aa304d0ca681f782b1d7735da33037dd7a0dfb3a1f815a9f14dd6b644916a0bd5b}{COUL\_TXT\_BLEU\_CLAIR}});}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00204}00204\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00205}00205\ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 95\ :}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00206}00206\ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{console_8c_a2d75ffed821ea7376eaf5e38ee8c98a4}{consoleAffecterCouleurTexte}}(cons,\ \mbox{\hyperlink{ecran_8h_aa304d0ca681f782b1d7735da33037dd7a17adee25b265c356259b8d55a47131e3}{COUL\_TXT\_MAGENTA\_CLAIR}});}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00207}00207\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00208}00208\ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 96\ :}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00209}00209\ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{console_8c_a2d75ffed821ea7376eaf5e38ee8c98a4}{consoleAffecterCouleurTexte}}(cons,\ \mbox{\hyperlink{ecran_8h_aa304d0ca681f782b1d7735da33037dd7a38b820ca82b9e3bdfcff2856b04767e1}{COUL\_TXT\_CYAN\_CLAIR}});}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00210}00210\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00211}00211\ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 97\ :}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00212}00212\ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{console_8c_a2d75ffed821ea7376eaf5e38ee8c98a4}{consoleAffecterCouleurTexte}}(cons,\ \mbox{\hyperlink{ecran_8h_aa304d0ca681f782b1d7735da33037dd7a695c7671d495aa177f99626642db678e}{COUL\_TXT\_BLANC}});}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00213}00213\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00214}00214\ }
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00215}00215\ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 40\ :\ }
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00216}00216\ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{console_8c_ab2b3d67e4a76348cb620f82f3d153b46}{consoleAffecterCouleurFond}}(cons,\ \mbox{\hyperlink{ecran_8h_aa304d0ca681f782b1d7735da33037dd7ad1e9fec872384b719ad2aebee2449bc3}{COUL\_FOND\_NOIR}});}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00217}00217\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00218}00218\ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 41\ :}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00219}00219\ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{console_8c_ab2b3d67e4a76348cb620f82f3d153b46}{consoleAffecterCouleurFond}}(cons,\ \mbox{\hyperlink{ecran_8h_aa304d0ca681f782b1d7735da33037dd7a84a79a2d6e322839d7ac78a472dc09a2}{COUL\_FOND\_ROUGE}});}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00220}00220\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00221}00221\ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 42\ :\ }
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00222}00222\ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{console_8c_ab2b3d67e4a76348cb620f82f3d153b46}{consoleAffecterCouleurFond}}(cons,\ \mbox{\hyperlink{ecran_8h_aa304d0ca681f782b1d7735da33037dd7a4be85a0dcd2fbf5947b7bc4df4b7a931}{COUL\_FOND\_VERT}});}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00223}00223\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00224}00224\ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 43\ :\ }
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00225}00225\ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{console_8c_ab2b3d67e4a76348cb620f82f3d153b46}{consoleAffecterCouleurFond}}(cons,\ \mbox{\hyperlink{ecran_8h_aa304d0ca681f782b1d7735da33037dd7a416d6f5d1cbf3d38f4a271fe4ada6bc2}{COUL\_FOND\_JAUNE}});}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00226}00226\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00227}00227\ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 44\ :}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00228}00228\ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{console_8c_ab2b3d67e4a76348cb620f82f3d153b46}{consoleAffecterCouleurFond}}(cons,\ \mbox{\hyperlink{ecran_8h_aa304d0ca681f782b1d7735da33037dd7a23bfccf6d49f0bbbffe51ff39573d0c1}{COUL\_FOND\_BLEU}});}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00229}00229\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00230}00230\ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 45\ :}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00231}00231\ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{console_8c_ab2b3d67e4a76348cb620f82f3d153b46}{consoleAffecterCouleurFond}}(cons,\ \mbox{\hyperlink{ecran_8h_aa304d0ca681f782b1d7735da33037dd7a3c9f6fc0dcfb8cd101b2f38b97ce0463}{COUL\_FOND\_MAGENTA}});}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00232}00232\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00233}00233\ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 46\ :}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00234}00234\ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{console_8c_ab2b3d67e4a76348cb620f82f3d153b46}{consoleAffecterCouleurFond}}(cons,\ \mbox{\hyperlink{ecran_8h_aa304d0ca681f782b1d7735da33037dd7a40608734c22415dbd0da25bb3eef8ef6}{COUL\_FOND\_CYAN}});}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00235}00235\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00236}00236\ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 47\ :}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00237}00237\ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{console_8c_ab2b3d67e4a76348cb620f82f3d153b46}{consoleAffecterCouleurFond}}(cons,\ \mbox{\hyperlink{ecran_8h_aa304d0ca681f782b1d7735da33037dd7a0ea65930728ab16fff70be212005a797}{COUL\_FOND\_BLANC}});}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00238}00238\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00239}00239\ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 100\ :\ }
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00240}00240\ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{console_8c_ab2b3d67e4a76348cb620f82f3d153b46}{consoleAffecterCouleurFond}}(cons,\ \mbox{\hyperlink{ecran_8h_aa304d0ca681f782b1d7735da33037dd7a44e2ebd19633406f388ae93d63d4f76c}{COUL\_FOND\_GRIS}});}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00241}00241\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00242}00242\ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 101\ :}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00243}00243\ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{console_8c_ab2b3d67e4a76348cb620f82f3d153b46}{consoleAffecterCouleurFond}}(cons,\ \mbox{\hyperlink{ecran_8h_aa304d0ca681f782b1d7735da33037dd7ae8e9d862da18ffbbb69474203db56276}{COUL\_FOND\_ROUGE\_CLAIR}});}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00244}00244\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00245}00245\ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 102\ :\ }
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00246}00246\ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{console_8c_ab2b3d67e4a76348cb620f82f3d153b46}{consoleAffecterCouleurFond}}(cons,\ \mbox{\hyperlink{ecran_8h_aa304d0ca681f782b1d7735da33037dd7adeefb75f129966c09bc08e62cb68e464}{COUL\_FOND\_VERT\_CLAIR}});}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00247}00247\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00248}00248\ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 103\ :\ }
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00249}00249\ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{console_8c_ab2b3d67e4a76348cb620f82f3d153b46}{consoleAffecterCouleurFond}}(cons,\ \mbox{\hyperlink{ecran_8h_aa304d0ca681f782b1d7735da33037dd7a416d6f5d1cbf3d38f4a271fe4ada6bc2}{COUL\_FOND\_JAUNE}});}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00250}00250\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00251}00251\ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 104\ :}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00252}00252\ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{console_8c_ab2b3d67e4a76348cb620f82f3d153b46}{consoleAffecterCouleurFond}}(cons,\ \mbox{\hyperlink{ecran_8h_aa304d0ca681f782b1d7735da33037dd7a0535f370390c3e7531b10340ed2a6c43}{COUL\_FOND\_BLEU\_CLAIR}});}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00253}00253\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00254}00254\ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 105\ :}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00255}00255\ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{console_8c_ab2b3d67e4a76348cb620f82f3d153b46}{consoleAffecterCouleurFond}}(cons,\ \mbox{\hyperlink{ecran_8h_aa304d0ca681f782b1d7735da33037dd7a7745c772f64d621a8c0baf4a604f806f}{COUL\_FOND\_MAGENTA\_CLAIR}});}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00256}00256\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00257}00257\ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 106\ :}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00258}00258\ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{console_8c_ab2b3d67e4a76348cb620f82f3d153b46}{consoleAffecterCouleurFond}}(cons,\ \mbox{\hyperlink{ecran_8h_aa304d0ca681f782b1d7735da33037dd7a385b93fa0d37db2fb5770c198a4d6ddf}{COUL\_FOND\_CYAN\_CLAIR}});}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00259}00259\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00260}00260\ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 107\ :}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00261}00261\ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{console_8c_ab2b3d67e4a76348cb620f82f3d153b46}{consoleAffecterCouleurFond}}(cons,\ \mbox{\hyperlink{ecran_8h_aa304d0ca681f782b1d7735da33037dd7a0ea65930728ab16fff70be212005a797}{COUL\_FOND\_BLANC}});}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00262}00262\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00263}00263\ }
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00264}00264\ \ \ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00265}00265\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00266}00266\ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00267}00267\ \}}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00268}00268\ }
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00277}00277\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ consoleTraiterAEC\_CSI(\mbox{\hyperlink{struct__Console}{Console}}\ *\ cons,\ \textcolor{keywordtype}{int}\ n,\ \textcolor{keywordtype}{int}\ m,\ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{main-bootreg_8c_add06ad5d8520e7cff4ff84b2811c0982}{c}})}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00278}00278\ \{}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00279}00279\ \ \ \ \textcolor{keywordflow}{switch}\ (\mbox{\hyperlink{main-bootreg_8c_add06ad5d8520e7cff4ff84b2811c0982}{c}})\ \{}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00280}00280\ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'F'}\ :\ \textcolor{comment}{//\ CPL\ :\ Cursor\ beginning\ of\ n(=1)\ lines\ up}}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00281}00281\ \ \ \ \ \ \ \ \ \ cons-\/>\mbox{\hyperlink{struct__Console_a8986488bc079fe4c8fec28a63c0840ea}{colonne}}\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00282}00282\ \ \ \ \ \ [[fallthrough]];}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00283}00283\ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'A'}\ :\ \textcolor{comment}{//\ CUU\ :\ Cursor\ up\ n\ (default\ n=1)\ cell}}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00284}00284\ \ \ \ \ \ \ \ \ \ n\ =\ n?n:1;}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00285}00285\ \ \ \ \ \ \ \ \ \ cons-\/>\mbox{\hyperlink{struct__Console_aeff356576dc0612e1c92c1d659ded988}{ligne}}\ =\ \mbox{\hyperlink{console_8c_afa99ec4acc4ecb2dc3c2d05da15d0e3f}{MAX}}(cons-\/>\mbox{\hyperlink{struct__Console_aeff356576dc0612e1c92c1d659ded988}{ligne}}\ -\/\ n,\ 0);\ }
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00286}00286\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00287}00287\ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'E'}\ :\ \textcolor{comment}{//\ CNL\ :\ Cursor\ beginning\ of\ n(=1)\ lines\ down}}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00288}00288\ \ \ \ \ \ \ \ \ \ cons-\/>\mbox{\hyperlink{struct__Console_a8986488bc079fe4c8fec28a63c0840ea}{colonne}}\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00289}00289\ \ \ \ \ \ [[fallthrough]];}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00290}00290\ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'B'}\ :\ \textcolor{comment}{//\ CUD\ :\ Cursor\ down\ n\ (default\ n=1)\ cell}}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00291}00291\ \ \ \ \ \ \ \ \ \ n\ =\ n?n:1;}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00292}00292\ \ \ \ \ \ \ \ \ \ cons-\/>\mbox{\hyperlink{struct__Console_aeff356576dc0612e1c92c1d659ded988}{ligne}}\ =\ \mbox{\hyperlink{console_8c_a3acffbd305ee72dcd4593c0d8af64a4f}{MIN}}(cons-\/>\mbox{\hyperlink{struct__Console_aeff356576dc0612e1c92c1d659ded988}{ligne}}\ +\ n,\ cons-\/>\mbox{\hyperlink{struct__Console_a7f0656c24f9ba80f2ff63d516afc5367}{nbLignes}});\ }
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00293}00293\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00294}00294\ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'C'}\ :\ \textcolor{comment}{//\ CUF\ :\ Cursor\ forward\ n\ (default\ n=1)\ cell}}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00295}00295\ \ \ \ \ \ \ \ \ \ n\ =\ n?n:1;}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00296}00296\ \ \ \ \ \ \ \ \ \ cons-\/>\mbox{\hyperlink{struct__Console_a8986488bc079fe4c8fec28a63c0840ea}{colonne}}\ =\ \mbox{\hyperlink{console_8c_a3acffbd305ee72dcd4593c0d8af64a4f}{MIN}}(cons-\/>\mbox{\hyperlink{struct__Console_a8986488bc079fe4c8fec28a63c0840ea}{colonne}}\ +\ n,\ cons-\/>\mbox{\hyperlink{struct__Console_a17cf532467b305ab0e21beee89404fbc}{nbColonnes}});\ }
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00297}00297\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00298}00298\ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'D'}\ :\ \textcolor{comment}{//\ CUB\ :\ Cursor\ back\ n\ (default\ n=1)\ cell}}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00299}00299\ \ \ \ \ \ \ \ \ \ n\ =\ n?n:1;}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00300}00300\ \ \ \ \ \ \ \ \ \ cons-\/>\mbox{\hyperlink{struct__Console_a8986488bc079fe4c8fec28a63c0840ea}{colonne}}\ =\ \mbox{\hyperlink{console_8c_afa99ec4acc4ecb2dc3c2d05da15d0e3f}{MAX}}(cons-\/>\mbox{\hyperlink{struct__Console_a8986488bc079fe4c8fec28a63c0840ea}{colonne}}\ -\/\ n,\ 0);\ }
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00301}00301\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00302}00302\ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'G'}\ :\ \textcolor{comment}{//\ CHA:\ Cursor\ horizontal\ absolute\ n\ (default\ n=1)}}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00303}00303\ \ \ \ \ \ \ \ \ \ n\ =\ n?n:1;}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00304}00304\ \ \ \ \ \ \ \ \ \ cons-\/>\mbox{\hyperlink{struct__Console_a8986488bc079fe4c8fec28a63c0840ea}{colonne}}\ =\ \mbox{\hyperlink{console_8c_a3acffbd305ee72dcd4593c0d8af64a4f}{MIN}}(cons-\/>\mbox{\hyperlink{struct__Console_a17cf532467b305ab0e21beee89404fbc}{nbColonnes}},\ n);\ }
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00305}00305\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00306}00306\ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'H'}\ :\ \textcolor{comment}{//\ CUP:\ Cursor\ position\ n,\ m\ (default\ 1)}}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00307}00307\ \ \ \ \ \ \ \ \ \ n\ =\ n?n:1\ -\/\ 1;\ \ \textcolor{comment}{//\ Ca\ commence\ à\ 1\ mais\ moi\ à\ 0}}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00308}00308\ \ \ \ \ \ \ \ \ \ m\ =\ m?m:1\ -\/\ 1;}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00309}00309\ \ \ \ \ \ \ \ \ \ cons-\/>\mbox{\hyperlink{struct__Console_aeff356576dc0612e1c92c1d659ded988}{ligne}}\ =\ \mbox{\hyperlink{console_8c_a3acffbd305ee72dcd4593c0d8af64a4f}{MIN}}(cons-\/>\mbox{\hyperlink{struct__Console_a7f0656c24f9ba80f2ff63d516afc5367}{nbLignes}},\ n);\ }
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00310}00310\ \ \ \ \ \ \ \ \ \ cons-\/>\mbox{\hyperlink{struct__Console_a8986488bc079fe4c8fec28a63c0840ea}{colonne}}\ =\ \mbox{\hyperlink{console_8c_a3acffbd305ee72dcd4593c0d8af64a4f}{MIN}}(cons-\/>\mbox{\hyperlink{struct__Console_a17cf532467b305ab0e21beee89404fbc}{nbColonnes}},\ m);\ }
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00311}00311\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00312}00312\ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'J'}\ :\ \textcolor{comment}{//\ ED\ :\ Erase\ in\ Display}}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00313}00313\ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (n\ ==\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00314}00314\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ On\ efface\ tout\ à\ partir\ du\ curseur}}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00315}00315\ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (n\ ==\ 1)\ \{}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00316}00316\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ On\ efface\ tout\ jusqu'au\ curseur}}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00317}00317\ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (n\ ==\ 2)\ \{}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00318}00318\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{console_8c_a3d6665f65d72e2b02cf10e3baff370b5}{consoleEffacer}}(cons);}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00319}00319\ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00320}00320\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00321}00321\ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'m'}\ :\ \textcolor{comment}{//\ SGR\ :\ Select\ Graphic\ Rendition}}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00322}00322\ \ \ \ \ \ \ \ \ \ consoleSelectGraphicRendition(cons,\ n);}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00323}00323\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00324}00324\ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00325}00325\ \}}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00326}00326\ }
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00338}00338\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{int}\ consoleGererAEC(\mbox{\hyperlink{struct__Console}{Console}}\ *\ cons,\ \textcolor{keywordtype}{char}\ *\ msg,\ \textcolor{keywordtype}{int}\ nbOctets)}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00339}00339\ \{}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00340}00340\ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{main-bootreg_8c_acc5bda773ae19389879f3886f8ecf123}{a}}=0,\ \mbox{\hyperlink{main-bootreg_8c_a7976cd62f9b61a65e8104a3cf7c15099}{b}}=0;\ \ \textcolor{comment}{//<\ Il\ peut\ y\ avoir\ deux\ coefficients}}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00341}00341\ \ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{main-bootreg_8c_add06ad5d8520e7cff4ff84b2811c0982}{c}};\ \ \ \ \ \ \ \ \textcolor{comment}{//<\ Le\ code\ lui-\/même}}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00342}00342\ \ \ \ \textcolor{keywordtype}{int}\ r\ =\ 0;\ \ \ \ \ \textcolor{comment}{//<\ Le\ nombre\ d'octets\ consommés}}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00343}00343\ }
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00344}00344\ \ \ \ \textcolor{comment}{//\ On\ teste\ et\ on\ consomme\ l'ASCII\_ESC}}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00345}00345\ \ \ \ \textcolor{keywordflow}{if}\ (msg[r]\ !=\ \mbox{\hyperlink{ascii_8h_af499a0b34ddf61832ae3dab05677ac7b}{ASCII\_ESC}})\ \{}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00346}00346\ \ \ \ \ \ \ \textcolor{keywordflow}{goto}\ fin;\ \ }
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00347}00347\ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00348}00348\ \ \ \ r++;}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00349}00349\ \ \ \ \textcolor{keywordflow}{if}\ (r\ >=\ nbOctets)\{}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00350}00350\ \ \ \ \ \ \ \textcolor{keywordflow}{goto}\ fin;\ \ }
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00351}00351\ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00352}00352\ \ \ \ \textcolor{comment}{//\ Pour\ le\ moment\ on\ ne\ gère\ que\ les\ CSI}}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00353}00353\ \ \ \ \textcolor{keywordflow}{if}\ (msg[r]\ !=\ \textcolor{charliteral}{'['})\ \{}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00354}00354\ \ \ \ \ \ \ \textcolor{keywordflow}{goto}\ fin;\ \ }
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00355}00355\ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00356}00356\ \ \ \ r++;}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00357}00357\ \ \ \ }
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00358}00358\ \ \ \ \textcolor{comment}{//\ Lecture\ du\ premier\ coefficient}}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00359}00359\ \ \ \ \textcolor{keywordflow}{while}\ ((r\ <\ nbOctets)\&\&(msg[r]\ >=\ \mbox{\hyperlink{ascii_8h_aa3f75ad2972ec8996ce5206feac0e52c}{ASCII\_0}})\&\&(msg[r]\ <=\ \mbox{\hyperlink{ascii_8h_a7d01b034dc2511a5f77fdd9a742b10f2}{ASCII\_9}}))\ \{}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00360}00360\ \ \ \ \ \ \ \mbox{\hyperlink{main-bootreg_8c_acc5bda773ae19389879f3886f8ecf123}{a}}\ =\ 10*\mbox{\hyperlink{main-bootreg_8c_acc5bda773ae19389879f3886f8ecf123}{a}}\ +\ msg[r]\ -\/\ \mbox{\hyperlink{ascii_8h_aa3f75ad2972ec8996ce5206feac0e52c}{ASCII\_0}};}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00361}00361\ \ \ \ \ \ \ r++;\ \ }
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00362}00362\ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00363}00363\ \ \ \ \textcolor{keywordflow}{if}\ (r\ >=\ nbOctets)\{}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00364}00364\ \ \ \ \ \ \ \textcolor{keywordflow}{goto}\ fin;\ \ }
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00365}00365\ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00366}00366\ \ \ \ \textcolor{keywordflow}{if}\ (msg[r]\ ==\ \mbox{\hyperlink{ascii_8h_a2dd58137e32574dfecfc995ae6873425}{ASCII\_SEMICOLON}})\ \{}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00367}00367\ \ \ \ \ \ \ r++;}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00368}00368\ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00369}00369\ \ \ \ \textcolor{keywordflow}{if}\ (r\ >=\ nbOctets)\{}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00370}00370\ \ \ \ \ \ \ \textcolor{keywordflow}{goto}\ fin;\ \ }
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00371}00371\ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00372}00372\ \ \ \ \textcolor{comment}{//\ Lecture\ du\ second\ coefficient}}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00373}00373\ \ \ \ \textcolor{keywordflow}{while}\ ((r\ <\ nbOctets)\&\&(msg[r]\ >=\ \mbox{\hyperlink{ascii_8h_aa3f75ad2972ec8996ce5206feac0e52c}{ASCII\_0}})\&\&(msg[r]\ <=\ \mbox{\hyperlink{ascii_8h_a7d01b034dc2511a5f77fdd9a742b10f2}{ASCII\_9}}))\ \{}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00374}00374\ \ \ \ \ \ \ \mbox{\hyperlink{main-bootreg_8c_a7976cd62f9b61a65e8104a3cf7c15099}{b}}\ =\ 10*\mbox{\hyperlink{main-bootreg_8c_a7976cd62f9b61a65e8104a3cf7c15099}{b}}\ +\ msg[r]\ -\/\ \mbox{\hyperlink{ascii_8h_aa3f75ad2972ec8996ce5206feac0e52c}{ASCII\_0}};}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00375}00375\ \ \ \ \ \ \ r++;\ \ }
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00376}00376\ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00377}00377\ \ \ \ \textcolor{keywordflow}{if}\ (r\ >=\ nbOctets)\{}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00378}00378\ \ \ \ \ \ \ \textcolor{keywordflow}{goto}\ fin;\ \ }
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00379}00379\ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00380}00380\ \ \ \ \textcolor{comment}{//\ On\ lit\ enfin\ le\ code\ lui-\/même}}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00381}00381\ \ \ \ \mbox{\hyperlink{main-bootreg_8c_add06ad5d8520e7cff4ff84b2811c0982}{c}}\ =\ msg[r];}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00382}00382\ }
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00383}00383\ \ \ \ \textcolor{comment}{//\ On\ peut\ maintenant\ appliquer\ le\ code}}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00384}00384\ \ \ \ consoleTraiterAEC\_CSI(cons,\ \mbox{\hyperlink{main-bootreg_8c_acc5bda773ae19389879f3886f8ecf123}{a}},\ \mbox{\hyperlink{main-bootreg_8c_a7976cd62f9b61a65e8104a3cf7c15099}{b}},\ \mbox{\hyperlink{main-bootreg_8c_add06ad5d8520e7cff4ff84b2811c0982}{c}});}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00385}00385\ \ \ \ }
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00386}00386\ \ \ \ \textcolor{comment}{//\ On\ termine\ en\ donnant\ le\ nombre\ d'octets\ consommés}}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00387}00387\ \ \ \ fin\ :}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00388}00388\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ r;}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00389}00389\ \}}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00390}00390\ }
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00391}\mbox{\hyperlink{include_2manux_2console_8h_ae652ad0556ba11086076c802d5a90991}{00391}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{console_8c_ae652ad0556ba11086076c802d5a90991}{consoleAfficherN}}(\mbox{\hyperlink{struct__Console}{Console}}\ *\ cons,\ \textcolor{keywordtype}{char}\ *\ msg,\ \textcolor{keywordtype}{int}\ nbOctets)}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00392}00392\ \{}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00393}00393\ \ \ \ \textcolor{keywordtype}{int}\ r;}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00394}00394\ \ \ \ }
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00395}00395\ \ \ \ \mbox{\hyperlink{manux_2debug_8h_a3153a272f18d0f805028fce7e4337b53}{assert}}(nbOctets\ >\ 0);}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00396}00396\ }
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00397}00397\ \textcolor{preprocessor}{\#ifdef\ MANUX\_CONSOLE\_AVEC\_MUTEX}}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00398}00398\ \ \ \ \mbox{\hyperlink{exclusion-mutuelle_8h_a9b966fcfd5b19565e2734f33eb5bbf1c}{exclusionMutuelleEntrer}}(\&cons-\/>scAcces);}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00399}00399\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00400}00400\ }
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00401}00401\ \ \ \ \mbox{\hyperlink{manux_2debug_8h_a3153a272f18d0f805028fce7e4337b53}{assert}}(cons-\/>\mbox{\hyperlink{struct__Console_a17cf532467b305ab0e21beee89404fbc}{nbColonnes}}\ !=\ 0);}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00402}00402\ }
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00403}00403\ \ \ \ \textcolor{keywordflow}{while}\ (nbOctets)\ \{}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00404}00404\ \ \ \ \ \ \ \textcolor{keywordflow}{switch}\ (*msg)\ \{}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00405}00405\ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{ascii_8h_acb93c6d90ca822858bc0b8f56f556fcb}{ASCII\_LINE\_FEED}}\ :\ \ \ \ \ \ \ \ \textcolor{comment}{//\ '\(\backslash\)n'}}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00406}00406\ \ \ \ \ \ \ \ \ \ \ \ \ avancerLigne(cons);}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00407}00407\ \ \ \ \ \ \ \ \ [[fallthrough]];}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00408}00408\ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{ascii_8h_ae10ca0b5996220c2166505f2aad74fc3}{ASCII\_CARRIAGE\_RETURN}}\ :\ \ \textcolor{comment}{//\ '\(\backslash\)r'}}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00409}00409\ \ \ \ \ \ \ \ \ \ \ \ \ cons-\/>\mbox{\hyperlink{struct__Console_a8986488bc079fe4c8fec28a63c0840ea}{colonne}}\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00410}00410\ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00411}00411\ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{ascii_8h_af499a0b34ddf61832ae3dab05677ac7b}{ASCII\_ESC}}\ :}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00412}00412\ \ \ \ \ \ \ \ \ r\ =\ consoleGererAEC(cons,\ msg,\ nbOctets);}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00413}00413\ \ \ \ \ \ \ \ \ msg\ +=\ r;}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00414}00414\ \ \ \ \ \ \ \ \ nbOctets\ -\/=\ r;}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00415}00415\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00416}00416\ \ \ \ \ \ \ \ \ \ default\ :}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00417}00417\ \ \ \ \ \ \ \ \ \ \ \ \ consoleAfficherCaractere(cons,\ *msg);}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00418}00418\ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00419}00419\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00420}00420\ \ \ \ \ \ \ msg++;nbOctets-\/-\/;}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00421}00421\ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00422}00422\ \textcolor{preprocessor}{\#ifdef\ MANUX\_CONSOLE\_AVEC\_MUTEX}}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00423}00423\ \ \ \ \mbox{\hyperlink{exclusion-mutuelle_8h_ace5c194a9dd43e021d611e79612d6f13}{exclusionMutuelleSortir}}(\&cons-\/>scAcces);}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00424}00424\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00425}00425\ \}}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00426}00426\ }
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00427}\mbox{\hyperlink{include_2manux_2console_8h_a20cb38c45f235948ac26cd858a5a6556}{00427}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{console_8c_a20cb38c45f235948ac26cd858a5a6556}{consoleAfficher}}(\mbox{\hyperlink{struct__Console}{Console}}\ *\ cons,\ \textcolor{keywordtype}{char}\ *\ msg)}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00428}00428\ \{}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00429}00429\ \ \ \ \textcolor{keywordtype}{int}\ n\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00430}00430\ \ \ \ \textcolor{keywordflow}{while}\ (msg[n])n++;}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00431}00431\ \ \ \ \mbox{\hyperlink{console_8c_ae652ad0556ba11086076c802d5a90991}{consoleAfficherN}}(cons,\ msg,\ n);}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00432}00432\ \}}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00433}00433\ }
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00437}\mbox{\hyperlink{include_2manux_2console_8h_ae9ea42a9faaae8479fd2c762ddc7d8ae}{00437}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{console_8c_ae9ea42a9faaae8479fd2c762ddc7d8ae}{consoleNoyauAfficher}}(\textcolor{keywordtype}{char}\ *\ msg)}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00438}00438\ \{}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00439}00439\ \ \ \ \mbox{\hyperlink{console_8c_a20cb38c45f235948ac26cd858a5a6556}{consoleAfficher}}(\&\_consoleNoyau,\ msg);}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00440}00440\ \}}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00441}00441\ }
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00442}\mbox{\hyperlink{include_2manux_2console_8h_a5826d3d4019f3db5bce243517cbdd12f}{00442}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{console_8c_a5826d3d4019f3db5bce243517cbdd12f}{consoleAfficherEntier}}(\mbox{\hyperlink{struct__Console}{Console}}\ *\ cons,\ \textcolor{keywordtype}{int}\ n)}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00443}00443\ \{}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00444}00444\ \ \ \ \textcolor{keywordtype}{char}\ nombre[12];}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00445}00445\ \ \ \ \textcolor{keywordtype}{int}\ i\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00446}00446\ }
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00447}00447\ \ \ \ \textcolor{keywordflow}{do}\ \{}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00448}00448\ \ \ \ \ \ \ nombre[i]\ =\ n\%10\ +\ \textcolor{charliteral}{'0'};}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00449}00449\ \ \ \ \ \ \ n\ =\ n\ /\ 10;}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00450}00450\ \ \ \ \ \ \ i++;}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00451}00451\ \ \ \ \}\ \textcolor{keywordflow}{while}\ (n);}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00452}00452\ \ \ \ \textcolor{keywordflow}{for}\ (i-\/-\/;\ i>=0;\ i-\/-\/)\ \{}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00453}00453\ \ \ \ \ \ \ \mbox{\hyperlink{manux_2debug_8h_a3153a272f18d0f805028fce7e4337b53}{assert}}(cons-\/>\mbox{\hyperlink{struct__Console_a17cf532467b305ab0e21beee89404fbc}{nbColonnes}}\ !=\ 0);}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00454}00454\ \ \ \ \ \ \ consoleAfficherCaractere(cons,\ nombre[i]);}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00455}00455\ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00456}00456\ \}}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00457}00457\ }
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00458}00458\ \textcolor{preprocessor}{\#ifdef\ MANUX\_CLAVIER\_CONSOLE}}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00459}00459\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ consoleSetClavier(\mbox{\hyperlink{struct__Console}{Console}}\ *\ cons,\ \textcolor{keywordtype}{void}\ *\ buffer)}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00460}00460\ \{}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00461}00461\ \ \ \ \textcolor{comment}{//\ Le\ buffer\ accueillant\ le\ clavier}}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00462}00462\ \ \ \ cons-\/>tailleBuffer\ =\ 4096;\ \textcolor{comment}{//\ WARNING\ !!}}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00463}00463\ \ \ \ cons-\/>bufferClavier\ =\ buffer;}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00464}00464\ \ \ \ cons-\/>nbCarAttente\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00465}00465\ \ \ \ cons-\/>indiceProchainCar\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00466}00466\ \}}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00467}00467\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00468}00468\ }
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00474}00474\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ consoleInitialiser(\mbox{\hyperlink{struct__Console}{Console}}\ *\ cons,\ \textcolor{keywordtype}{char}\ *\ adresseEcran)}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00475}00475\ \{}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00478}00478\ \ \ \ cons-\/>\mbox{\hyperlink{struct__Console_a21cbdd08416fe7843ce4759a42605c5b}{adresseEcran}}\ =\ adresseEcran;}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00479}00479\ }
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00480}00480\ \textcolor{preprocessor}{\#ifdef\ MANUX\_CONSOLES\_VIRTUELLES}}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00482}00482\ \ \ \ cons-\/>adresseEcranCopie\ =\ adresseEcran;}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00483}00483\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00484}00484\ \ \ \ }
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00485}00485\ \ \ \ \textcolor{comment}{//\ La\ configuration\ de\ base}}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00486}00486\ \ \ \ cons-\/>\mbox{\hyperlink{struct__Console_aeff356576dc0612e1c92c1d659ded988}{ligne}}\ =\ 0;\ }
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00487}00487\ \ \ \ cons-\/>\mbox{\hyperlink{struct__Console_a8986488bc079fe4c8fec28a63c0840ea}{colonne}}\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00488}00488\ \ \ \ cons-\/>\mbox{\hyperlink{struct__Console_a7f0656c24f9ba80f2ff63d516afc5367}{nbLignes}}\ =\ \mbox{\hyperlink{ecran_8h_a37c13c6455313f3e19c0b21ee08dba5f}{MANUX\_CON\_LIGNES}};}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00489}00489\ \ \ \ cons-\/>\mbox{\hyperlink{struct__Console_a17cf532467b305ab0e21beee89404fbc}{nbColonnes}}\ =\ \mbox{\hyperlink{ecran_8h_a2d2474bd7bcb1773d94f27ce4a99b622}{MANUX\_CON\_COLONNES}};}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00490}00490\ \ \ \ cons-\/>\mbox{\hyperlink{struct__Console_a4a6784763053999b74daae4a88096bf3}{attribut}}\ =\ \mbox{\hyperlink{include_2config_2console_8h_ab9f401a398c39bc8735890e0e47c3fbb}{MANUX\_COULEUR\_TEXTE}}\ |\ \mbox{\hyperlink{include_2config_2console_8h_acfbf1901075a9fab9d597f747749f7ac}{MANUX\_COULEUR\_FOND}};}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00491}00491\ }
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00492}00492\ \ \ \ \textcolor{comment}{/*\ Initialisation\ du\ verrou\ */}}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00493}00493\ \textcolor{preprocessor}{\#ifdef\ MANUX\_CONSOLE\_AVEC\_MUTEX}}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00494}00494\ \ \ \ \mbox{\hyperlink{exclusion-mutuelle_8h_aadab68f4af630c6abd0ca306539c9d60}{exclusionMutuelleInitialiser}}(\&cons-\/>scAcces);}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00495}00495\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00496}00496\ }
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00497}00497\ \ \ \ \textcolor{comment}{//\ Un\ peu\ de\ ménage}}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00498}00498\ \ \ \ \mbox{\hyperlink{console_8c_a3d6665f65d72e2b02cf10e3baff370b5}{consoleEffacer}}(cons);}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00499}00499\ }
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00500}00500\ \textcolor{preprocessor}{\#ifdef\ MANUX\_CONSOLES\_VIRTUELLES}}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00501}00501\ \ \ \ \textcolor{comment}{//\ On\ l'insère\ après\ la\ console\ active\ dans\ la\ liste\ des\ consoles\ gérées}}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00502}00502\ \ \ \ cons-\/>suivante\ =\ consoleActive-\/>suivante;}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00503}00503\ \ \ \ consoleActive-\/>suivante\ =\ cons;}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00504}00504\ \ \ \ cons-\/>precedente\ =\ consoleActive;}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00505}00505\ \ \ \ cons-\/>suivante-\/>precedente\ =\ cons;}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00506}00506\ \ \ \ cons-\/>numero\ =\ nombreDeConsoles++;}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00507}00507\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ MANUX\_CONSOLES\_VIRTUELLES}}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00508}00508\ \textcolor{preprocessor}{\#ifdef\ MANUX\_CLAVIER\_CONSOLE}}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00509}00509\ \ \ \ consoleSetClavier(cons,\ \mbox{\hyperlink{include_2manux_2stddef_8h_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}});}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00510}00510\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ MANUX\_CLAVIER\_CONSOLE}}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00511}00511\ \}}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00512}00512\ }
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00513}00513\ \textcolor{preprocessor}{\#ifdef\ MANUX\_CONSOLES\_VIRTUELLES}}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00517}00517\ \mbox{\hyperlink{struct__Console}{Console}}\ *\ creerConsoleVirtuelle(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00518}00518\ \{}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00519}00519\ \ \ \ \mbox{\hyperlink{struct__Console}{Console}}\ *\ result;}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00520}00520\ \ \ \ \textcolor{keywordtype}{void}\ \ \ \ *\ page;}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00521}00521\ }
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00523}00523\ \ \ \ \mbox{\hyperlink{manux_2debug_8h_a3153a272f18d0f805028fce7e4337b53}{assert}}(2*\mbox{\hyperlink{ecran_8h_a2d2474bd7bcb1773d94f27ce4a99b622}{MANUX\_CON\_COLONNES}}*\mbox{\hyperlink{ecran_8h_a37c13c6455313f3e19c0b21ee08dba5f}{MANUX\_CON\_LIGNES}}\ +\ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{struct__Console}{Console}})}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00524}00524\ \ \ \ \ \ \ <=\ \mbox{\hyperlink{gestion-memoire_8h_ae8ff0cb54526f5b759984090d013d49f}{MANUX\_TAILLE\_PAGE}});}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00525}00525\ \ \ \ page\ =\ \mbox{\hyperlink{include_2manux_2memoire_8h_ad9072ff00da9e7f32b882e5c1361d46f}{allouerPage}}();}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00526}00526\ \ \ \ \textcolor{keywordflow}{if}\ (page\ ==\ \mbox{\hyperlink{include_2manux_2stddef_8h_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}})\ \{}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00527}00527\ \ \ \ \ \ \ \mbox{\hyperlink{manux_2debug_8h_a94bcf41c2acfb543c52dcb281acba959}{paniqueNoyau}}(\textcolor{stringliteral}{"{}Plus\ de\ memoire\ !"{}});}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00528}00528\ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00529}00529\ \ \ \ }
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00530}00530\ \ \ \ result\ =\ (\mbox{\hyperlink{struct__Console}{Console}}\ *)page;}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00531}00531\ }
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00533}00533\ \ \ \ consoleInitialiser(result,\ page\ +\ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{struct__Console}{Console}}));}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00534}00534\ }
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00535}00535\ \textcolor{preprocessor}{\#ifdef\ MANUX\_CLAVIER\_CONSOLE}}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00536}00536\ \ \ \ consoleSetClavier(result,\ \mbox{\hyperlink{include_2manux_2memoire_8h_ad9072ff00da9e7f32b882e5c1361d46f}{allouerPage}}());}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00537}00537\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ MANUX\_CLAVIER\_CONSOLE}}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00538}00538\ }
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00539}00539\ \textcolor{preprocessor}{\#ifdef\ MANUX\_BASCULER\_NOUVELLE\_CONSOLE}}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00540}00540\ \ \ \ basculerVersConsole(result);}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00541}00541\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ MANUX\_BASCULER\_NOUVELLE\_CONSOLE}}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00542}00542\ \ \ \ }
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00543}00543\ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00544}00544\ \}}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00545}00545\ }
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00546}00546\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ consoleAfficherEntierHex(\mbox{\hyperlink{struct__Console}{Console}}\ *\ cons,\ \textcolor{keywordtype}{int}\ nbOctets,\ \mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\_t}}\ reg)}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00547}00547\ \{}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00548}00548\ \ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{printk_8c_a751b71485e6bb228423b412943328232}{chiffre}}[17]\ =\ \textcolor{stringliteral}{"{}0123456789abcdef"{}};}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00549}00549\ \ \ \ \textcolor{keywordtype}{char}\ nombre[2*nbOctets+2];}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00550}00550\ \ \ \ \textcolor{keywordtype}{int}\ i\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00551}00551\ }
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00552}00552\ \ \ \ \textcolor{keywordflow}{for}\ (i\ =\ 0;\ i<2*nbOctets;\ i++)\ \{}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00553}00553\ \ \ \ \ \ \ nombre[i]\ =\ \mbox{\hyperlink{printk_8c_a751b71485e6bb228423b412943328232}{chiffre}}[reg\%16];}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00554}00554\ \ \ \ \ \ \ reg\ =\ reg\ /\ 16;}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00555}00555\ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00556}00556\ \ \ \ nombre[i++]\ =\ \textcolor{charliteral}{'x'};}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00557}00557\ \ \ \ nombre[i]\ =\ \textcolor{charliteral}{'0'};}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00558}00558\ \ \ \ \textcolor{keywordflow}{for}\ (;\ i>=0;\ i-\/-\/)\ \{}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00559}00559\ \ \ \ \ \ \mbox{\hyperlink{manux_2debug_8h_a3153a272f18d0f805028fce7e4337b53}{assert}}(cons-\/>\mbox{\hyperlink{struct__Console_a17cf532467b305ab0e21beee89404fbc}{nbColonnes}}\ !=\ 0);}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00560}00560\ \ \ \ \ \ \ consoleAfficherCaractere(cons,\ nombre[i]);}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00561}00561\ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00562}00562\ \}}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00563}00563\ }
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00564}00564\ }
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00565}00565\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00566}00566\ \textcolor{comment}{\ *\ Basculer\ vers\ une\ console\ virtuelle.\ Attention,\ elle\ doit\ exister.}}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00567}00567\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00568}00568\ \textcolor{keywordtype}{void}\ basculerVersConsole(\mbox{\hyperlink{struct__Console}{Console}}\ *\ suivante)}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00569}00569\ \{}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00570}00570\ \ \ \ \textcolor{keywordtype}{int}\ i,\ l,\ \mbox{\hyperlink{main-bootreg_8c_add06ad5d8520e7cff4ff84b2811c0982}{c}},\ \mbox{\hyperlink{main-bootreg_8c_acc5bda773ae19389879f3886f8ecf123}{a}};}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00571}00571\ }
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00572}00572\ \ \ \ \mbox{\hyperlink{manux_2debug_8h_a3153a272f18d0f805028fce7e4337b53}{assert}}(consoleActive\ !=\ \mbox{\hyperlink{include_2manux_2stddef_8h_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}});}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00573}00573\ \ \ \ }
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00574}00574\ \ \ \ \textcolor{keywordflow}{if}\ (suivante\ ==\ consoleActive)}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00575}00575\ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00576}00576\ }
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00577}00577\ \ \ \ \mbox{\hyperlink{manux_2debug_8h_a3153a272f18d0f805028fce7e4337b53}{assert}}(suivante\ !=\ \mbox{\hyperlink{include_2manux_2stddef_8h_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}});}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00578}00578\ \ \ \ }
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00579}00579\ \ \ \ \textcolor{comment}{//\ On\ sauvegarde\ l'écran\ physique\ dans\ la\ console\ active}}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00580}00580\ \ \ \ \textcolor{keywordflow}{for}\ (i=0;\ i\ <\ \mbox{\hyperlink{ecran_8h_a37c13c6455313f3e19c0b21ee08dba5f}{MANUX\_CON\_LIGNES}}*\mbox{\hyperlink{ecran_8h_a2d2474bd7bcb1773d94f27ce4a99b622}{MANUX\_CON\_COLONNES}}*2;\ i++)\ \{\ \textcolor{comment}{//\ WARNING\ utiliser\ bcopy}}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00581}00581\ \ \ \ \ \ \ consoleActive-\/>adresseEcranCopie[i]\ =\ consoleActive-\/>\mbox{\hyperlink{struct__Console_a21cbdd08416fe7843ce4759a42605c5b}{adresseEcran}}[i];}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00582}00582\ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00583}00583\ }
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00584}00584\ \ \ \ \textcolor{comment}{//\ On\ la\ désactive\ (à\ partir\ de\ maintenant,\ ce\ qui\ y\ est\ écrit}}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00585}00585\ \ \ \ \textcolor{comment}{//\ n'est\ plus\ visible\ à\ l'écran)}}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00586}00586\ \ \ \ consoleActive-\/>\mbox{\hyperlink{struct__Console_a21cbdd08416fe7843ce4759a42605c5b}{adresseEcran}}\ =\ consoleActive-\/>adresseEcranCopie;}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00587}00587\ \ \ \ }
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00588}00588\ \ \ \ \textcolor{comment}{//\ On\ passe\ à\ la\ nouvelle\ CV\ }}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00589}00589\ \ \ \ consoleActive\ =\ suivante;}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00590}00590\ }
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00591}00591\ \textcolor{preprocessor}{\#ifdef\ MANUX\_CONSOLE\_AVEC\_MUTEX}}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00592}00592\ \ \ \ \mbox{\hyperlink{exclusion-mutuelle_8h_a9b966fcfd5b19565e2734f33eb5bbf1c}{exclusionMutuelleEntrer}}(\&consolesVirtuelles[consoleCourante]-\/>scAcces);}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00593}00593\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00594}00594\ }
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00595}00595\ \ \ \ \textcolor{comment}{//\ On\ l'active\ (à\ partir\ de\ maintenant,\ ce\ qui\ y\ est\ écrit\ apparaît}}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00596}00596\ \ \ \ \textcolor{comment}{//\ directement\ à\ l'écran).}}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00597}00597\ \ \ \ consoleActive-\/>\mbox{\hyperlink{struct__Console_a21cbdd08416fe7843ce4759a42605c5b}{adresseEcran}}\ =\ \mbox{\hyperlink{ecran_8h_ab2f128566f2e94b8f4b99ae450177cf6}{MANUX\_CON\_SCREEN}};}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00598}00598\ }
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00599}00599\ \ \ \ \textcolor{comment}{//\ On\ copie\ son\ état\ actuel\ sur\ l'écran}}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00600}00600\ \ \ \ \textcolor{keywordflow}{for}\ (i=0;\ i\ <\ \mbox{\hyperlink{ecran_8h_a37c13c6455313f3e19c0b21ee08dba5f}{MANUX\_CON\_LIGNES}}*\mbox{\hyperlink{ecran_8h_a2d2474bd7bcb1773d94f27ce4a99b622}{MANUX\_CON\_COLONNES}}*2;\ i++)\ \{\ \textcolor{comment}{//\ WARNING\ utiliser\ bopy}}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00601}00601\ \ \ \ \ \ \ consoleActive-\/>\mbox{\hyperlink{struct__Console_a21cbdd08416fe7843ce4759a42605c5b}{adresseEcran}}[i]\ =\ consoleActive-\/>adresseEcranCopie[i];}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00602}00602\ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00603}00603\ }
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00604}00604\ \ \ \ \textcolor{comment}{/*\ On\ affiche\ un\ bandeau\ d'info\ en\ haut\ */}}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00605}00605\ \ \ \ l\ =\ consoleActive-\/>\mbox{\hyperlink{struct__Console_aeff356576dc0612e1c92c1d659ded988}{ligne}};}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00606}00606\ \ \ \ \mbox{\hyperlink{main-bootreg_8c_add06ad5d8520e7cff4ff84b2811c0982}{c}}\ =\ consoleActive-\/>\mbox{\hyperlink{struct__Console_a8986488bc079fe4c8fec28a63c0840ea}{colonne}};}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00607}00607\ \ \ \ \mbox{\hyperlink{main-bootreg_8c_acc5bda773ae19389879f3886f8ecf123}{a}}\ =\ consoleActive-\/>\mbox{\hyperlink{struct__Console_a4a6784763053999b74daae4a88096bf3}{attribut}};}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00608}00608\ \ \ \ consoleActive-\/>\mbox{\hyperlink{struct__Console_aeff356576dc0612e1c92c1d659ded988}{ligne}}\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00609}00609\ \ \ \ consoleActive-\/>\mbox{\hyperlink{struct__Console_a8986488bc079fe4c8fec28a63c0840ea}{colonne}}\ =\ 55;}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00610}00610\ }
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00611}00611\ \ \ \ consoleActive-\/>\mbox{\hyperlink{struct__Console_a4a6784763053999b74daae4a88096bf3}{attribut}}\ =\ 0x1B;}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00612}00612\ \ \ \ \mbox{\hyperlink{console_8c_a20cb38c45f235948ac26cd858a5a6556}{consoleAfficher}}(consoleActive,\ \textcolor{stringliteral}{"{}Cons\ "{}});}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00613}00613\ \ \ \ consoleAfficherEntierHex(consoleActive,\ 4,(\mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\_t}})consoleActive);}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00614}00614\ \ \ \ \mbox{\hyperlink{console_8c_a20cb38c45f235948ac26cd858a5a6556}{consoleAfficher}}(consoleActive,\ \textcolor{stringliteral}{"{}\ \ t=\ "{}});}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00615}00615\ \ \ \ \mbox{\hyperlink{console_8c_a5826d3d4019f3db5bce243517cbdd12f}{consoleAfficherEntier}}(consoleActive,\ \mbox{\hyperlink{temps_8h_a676e0fb5f238dccd6c1e58a56427c054}{totalMinutesDansTemps}}(\mbox{\hyperlink{horloge_8c_a1ebf6a786f9fbcd719425d9ebeb027e6}{nbTopHorloge}}));}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00616}00616\ \ \ \ \mbox{\hyperlink{console_8c_a20cb38c45f235948ac26cd858a5a6556}{consoleAfficher}}(consoleActive,\ \textcolor{stringliteral}{"{}:"{}});}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00617}00617\ \ \ \ \mbox{\hyperlink{console_8c_a5826d3d4019f3db5bce243517cbdd12f}{consoleAfficherEntier}}(consoleActive,\ \mbox{\hyperlink{temps_8h_aa931629379ea6d3aaeafdcc54c4b0303}{secondesDansTemps}}(\mbox{\hyperlink{horloge_8c_a1ebf6a786f9fbcd719425d9ebeb027e6}{nbTopHorloge}}));}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00618}00618\ \ \ \ \mbox{\hyperlink{console_8c_a20cb38c45f235948ac26cd858a5a6556}{consoleAfficher}}(consoleActive,\ \textcolor{stringliteral}{"{}\ "{}});}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00619}00619\ }
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00620}00620\ \ \ \ consoleActive-\/>\mbox{\hyperlink{struct__Console_aeff356576dc0612e1c92c1d659ded988}{ligne}}\ =\ l;}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00621}00621\ \ \ \ consoleActive-\/>\mbox{\hyperlink{struct__Console_a8986488bc079fe4c8fec28a63c0840ea}{colonne}}\ =\ \mbox{\hyperlink{main-bootreg_8c_add06ad5d8520e7cff4ff84b2811c0982}{c}};}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00622}00622\ \ \ \ consoleActive-\/>\mbox{\hyperlink{struct__Console_a4a6784763053999b74daae4a88096bf3}{attribut}}\ =\ \mbox{\hyperlink{main-bootreg_8c_acc5bda773ae19389879f3886f8ecf123}{a}};}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00623}00623\ \ \ \ }
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00624}00624\ \textcolor{preprocessor}{\#ifdef\ MANUX\_CONSOLE\_AVEC\_MUTEX}}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00625}00625\ \ \ \ \mbox{\hyperlink{exclusion-mutuelle_8h_ace5c194a9dd43e021d611e79612d6f13}{exclusionMutuelleSortir}}(\&consoleActive-\/>scAcces);}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00626}00626\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00627}00627\ \}}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00628}00628\ }
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00629}00629\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00630}00630\ \textcolor{comment}{\ *\ Basculer\ vers\ la\ console\ suivante}}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00631}00631\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00632}00632\ \textcolor{keywordtype}{void}\ basculerVersConsoleSuivante(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00633}00633\ \{}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00634}00634\ \ \ \ \mbox{\hyperlink{manux_2debug_8h_a3153a272f18d0f805028fce7e4337b53}{assert}}(consoleActive\ !=\ \mbox{\hyperlink{include_2manux_2stddef_8h_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}});}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00635}00635\ }
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00636}00636\ \ \ \ basculerVersConsole(consoleActive-\/>suivante);}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00637}00637\ \}}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00638}00638\ }
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00639}00639\ \textcolor{preprocessor}{\#endif\ \ }\textcolor{comment}{//\ CONSOLES\_VIRTUELLES}}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00640}00640\ }
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00641}00641\ \textcolor{preprocessor}{\#ifdef\ MANUX\_CLAVIER\_CONSOLE}}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00642}00642\ \textcolor{preprocessor}{\#define\ min(a,\ b)\ (((a)<(b))\ ?\ (a)\ :\ (b))}}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00643}00643\ }
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00647}00647\ \textcolor{keywordtype}{int}\ consoleLire(\mbox{\hyperlink{struct__Console}{Console}}\ *\ cons,\ \textcolor{keywordtype}{void}\ *\ buffer,\ \textcolor{keywordtype}{int}\ nbOctets)}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00648}00648\ \{}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00649}00649\ \ \ \ \textcolor{comment}{//\ On\ ne\ peut\ pas\ en\ lire\ plus\ qu'il\ y\ en\ a\ !}}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00650}00650\ \ \ \ \mbox{\hyperlink{include_2manux_2types_8h_a273cf69d639a59973b6019625df33e30}{uint16\_t}}\ nb\ =\ \mbox{\hyperlink{virtio_8c_ac6afabdc09a49a433ee19d8a9486056d}{min}}(nbOctets,\ cons-\/>nbCarAttente);}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00651}00651\ \ \ \ \mbox{\hyperlink{include_2manux_2types_8h_a273cf69d639a59973b6019625df33e30}{uint16\_t}}\ lu\ =\ 0;\ \ \ \textcolor{comment}{//\ Le\ cumul\ des\ lectures}}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00652}00652\ \ \ \ \mbox{\hyperlink{include_2manux_2types_8h_a273cf69d639a59973b6019625df33e30}{uint16\_t}}\ aLire;\ \ \ \ \textcolor{comment}{//\ Combien\ on\ en\ lit\ à\ chaque\ passage}}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00653}00653\ }
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00654}00654\ \ \ \ \textcolor{keywordflow}{while}\ (lu\ <\ nb)\ \{}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00655}00655\ \ \ \ \ \ \textcolor{comment}{//\ On\ lit\ sur\ la\ "{}fin"{}\ du\ tableau\ circulaire}}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00656}00656\ \ \ \ \ \ aLire\ =\ \mbox{\hyperlink{virtio_8c_ac6afabdc09a49a433ee19d8a9486056d}{min}}(nb-\/lu,\ 4096\ -\/\ cons-\/>indiceProchainCar);}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00657}00657\ \ \ \ \ \ \mbox{\hyperlink{include_2manux_2string_8h_aba088e716bccbc96d42da97e96316df1}{memcpy}}(buffer+lu,}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00658}00658\ \ \ \ \ \ \ \ \ cons-\/>bufferClavier+cons-\/>indiceProchainCar,}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00659}00659\ \ \ \ \ \ \ \ \ aLire);}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00660}00660\ \ \ \ \ \ \textcolor{comment}{//\ On\ décompte\ cette\ lecture\ du\ buffer}}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00661}00661\ \ \ \ \ \ cons-\/>indiceProchainCar\ =\ (cons-\/>indiceProchainCar\ +\ aLire);\ \textcolor{comment}{//\ WARNING\ FAUX\ !}}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00662}00662\ \ \ \ \ \ cons-\/>nbCarAttente\ =\ cons-\/>nbCarAttente\ -\/\ aLire;}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00663}00663\ }
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00664}00664\ \ \ \ \ \ lu\ =\ lu\ +\ aLire;}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00665}00665\ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00666}00666\ }
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00667}00667\ \ \ \ \textcolor{keywordflow}{return}\ lu;}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00668}00668\ \}}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00669}00669\ }
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00676}00676\ \textcolor{preprocessor}{\#define\ EST\_CHIFFRE\_DEC(x)\ ((x>=\ '0')\ \&\&\ (x<=\ '9'))}}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00677}00677\ \textcolor{preprocessor}{\#define\ EST\_CHIFFRE\_HEX(x)\ (((x>=\ '0')\ \&\&\ (x<=\ '9'))\ ||((x>=\ 'a')\ \&\&\ (x<=\ 'f')))}}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00678}00678\ }
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00679}00679\ \textcolor{keywordtype}{int}\ consoleLireEntier(\mbox{\hyperlink{struct__Console}{Console}}\ *\ cons)}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00680}00680\ \{}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00681}00681\ \ \ \ \textcolor{keywordtype}{int}\ result\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00682}00682\ }
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00683}00683\ \ \ \ \textcolor{keywordflow}{do}\ \{}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00684}00684\ \ \ \ \ \ \ \textcolor{comment}{//\ On\ attend\ qu'il\ y\ ai\ qqchose}}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00685}00685\ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (cons-\/>nbCarAttente\ ==\ 0)}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00686}00686\ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{scheduler_8h_ae00507099d51c08195d42c08daad4f41}{ordonnanceur}}();}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00687}00687\ }
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00688}00688\ \ \ \ \ \ \ \textcolor{comment}{//\ On\ lit\ tant\ qu'il\ y\ a\ des\ chiffres\ et\ on\ arrête\ quand\ il\ y\ a}}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00689}00689\ \ \ \ \ \ \ \textcolor{comment}{//\ autre\ chose}}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00690}00690\ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ ((cons-\/>nbCarAttente)}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00691}00691\ \ \ \ \ \ \ \ \ \ \ \&\&\ (EST\_CHIFFRE\_HEX(cons-\/>bufferClavier[cons-\/>indiceProchainCar]))\ \ }
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00692}00692\ \ \ \ \ \ \ )\ \{}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00693}00693\ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (EST\_CHIFFRE\_DEC(cons-\/>bufferClavier[cons-\/>indiceProchainCar]))\ \{}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00694}00694\ \ \ \ \ \ \ \ \ result\ =\ 16\ *\ result\ +\ cons-\/>bufferClavier[cons-\/>indiceProchainCar]\ -\/\ \textcolor{charliteral}{'0'};}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00695}00695\ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00696}00696\ \ \ \ \ \ \ \ \ result\ =\ 16\ *\ result\ +\ cons-\/>bufferClavier[cons-\/>indiceProchainCar]\ -\/\ \textcolor{charliteral}{'a'}\ +\ 10;}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00697}00697\ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00698}00698\ \ \ \ \ \ \ \ \ \ cons-\/>nbCarAttente-\/-\/;}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00699}00699\ \ \ \ \ \ \ \ \ \ cons-\/>indiceProchainCar++;\ \ \textcolor{comment}{//\ WARNING\ modulo\ taille\ !!!}}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00700}00700\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00701}00701\ \ \ \ \}\ \textcolor{keywordflow}{while}\ ((cons-\/>nbCarAttente\ ==\ 0)}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00702}00702\ \ \ \ \ \ \ ||(EST\_CHIFFRE\_HEX(cons-\/>bufferClavier[cons-\/>indiceProchainCar])));}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00703}00703\ \ \ \ \textcolor{comment}{//\ On\ supprime\ le\ caractère\ qui\ nous\ a\ fait\ finir\ (WARNING\ !!)}}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00704}00704\ \ \ \ \textcolor{keywordflow}{if}\ (cons-\/>nbCarAttente)\ \{}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00705}00705\ \ \ \ \ \ \ cons-\/>nbCarAttente-\/-\/;}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00706}00706\ \ \ \ \ \ \ cons-\/>indiceProchainCar++;\ \ \textcolor{comment}{//\ WARNING\ modulo\ taille\ !!!}}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00707}00707\ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00708}00708\ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00709}00709\ \}}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00710}00710\ }
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00717}00717\ [[maybe\_unused]]\ \ \ \textcolor{comment}{//\ Juste\ affectée}}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00718}00718\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{size\_t}\ consoleFichierLire(\mbox{\hyperlink{struct__Fichier}{Fichier}}\ *\ f,\ \textcolor{keywordtype}{void}\ *\ buffer,\ \textcolor{keywordtype}{size\_t}\ nbOctets)}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00719}00719\ \{}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00720}00720\ \ \ \ \mbox{\hyperlink{struct__Console}{Console}}\ *\ con\ =\ f-\/>\mbox{\hyperlink{struct__Fichier_a2701084fbf362681f2d2480b1b323de7}{iNoeud}}-\/>\mbox{\hyperlink{struct__INoeud_a84fd695269334aa4097d5066674f901f}{prive}};}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00721}00721\ }
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00722}00722\ \ \ \ \textcolor{keywordflow}{return}\ consoleLire(con,\ buffer,\ nbOctets);}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00723}00723\ \}}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00724}00724\ \textcolor{preprocessor}{\#else\ \ }\textcolor{comment}{//\ MANUX\_CLAVIER\_CONSOLE}}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00728}00728\ [[maybe\_unused]]\ \ \ \ \textcolor{comment}{//\ Juste\ affectée}}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00729}00729\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{size\_t}\ consoleFichierLire(\mbox{\hyperlink{struct__Fichier}{Fichier}}\ *\ f,\ \textcolor{keywordtype}{void}\ *\ buffer,\ \textcolor{keywordtype}{size\_t}\ nbOctets)}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00730}00730\ \{}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00731}00731\ \ \ \ (\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}})\ f;}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00732}00732\ \ \ \ (\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}})\ buffer;}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00733}00733\ \ \ \ (\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}})\ nbOctets;}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00734}00734\ }
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00735}00735\ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00736}00736\ \}}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00737}00737\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ MANUX\_CLAVIER\_CONSOLE}}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00738}00738\ }
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00739}00739\ \textcolor{preprocessor}{\#ifdef\ MANUX\_FICHIER}}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00746}00746\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{int}\ consoleOuvrir(\mbox{\hyperlink{struct__INoeud}{INoeud}}\ *\ iNoeud,\ \mbox{\hyperlink{struct__Fichier}{Fichier}}\ *\ f,\ \mbox{\hyperlink{include_2manux_2types_8h_a273cf69d639a59973b6019625df33e30}{uint16\_t}}\ fanions,\ \mbox{\hyperlink{include_2manux_2types_8h_a273cf69d639a59973b6019625df33e30}{uint16\_t}}\ mode)}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00747}00747\ \{}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00748}00748\ \ \ \ (\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}})\ iNoeud;}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00749}00749\ \ \ \ (\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}})\ f;}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00750}00750\ \ \ \ (\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}})\ fanions;}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00751}00751\ \ \ \ (\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}})\ mode;}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00752}00752\ }
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00753}00753\ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{include_2manux_2errno_8h_a7c87371c2c584aeb5a722830670b9bfd}{ESUCCES}};}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00754}00754\ \}}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00755}00755\ }
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00759}00759\ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{include_2manux_2console_8h_ab013551f90e5a40b4626b103995364da}{consoleEcrire}}(\mbox{\hyperlink{struct__Fichier}{Fichier}}\ *\ f,\ \textcolor{keywordtype}{void}\ *\ buffer,\ \textcolor{keywordtype}{size\_t}\ nbOctets)}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00760}00760\ \{}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00761}00761\ \ \ \ \mbox{\hyperlink{struct__Console}{Console}}\ *\ con\ =\ f-\/>\mbox{\hyperlink{struct__Fichier_a2701084fbf362681f2d2480b1b323de7}{iNoeud}}-\/>\mbox{\hyperlink{struct__INoeud_a84fd695269334aa4097d5066674f901f}{prive}};}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00762}00762\ }
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00763}00763\ \ \ \ \mbox{\hyperlink{console_8c_ae652ad0556ba11086076c802d5a90991}{consoleAfficherN}}(con,\ buffer,\ nbOctets);}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00764}00764\ }
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00765}00765\ \ \ \ \textcolor{keywordflow}{return}\ nbOctets;\ \textcolor{comment}{//\ WARNING}}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00766}00766\ \}}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00767}00767\ }
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00772}00772\ \mbox{\hyperlink{struct__MethodesFichier}{MethodesFichier}}\ consoleMethodesFichier\ =\ \{}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00773}00773\ \ \ \ .\mbox{\hyperlink{struct__MethodesFichier_a3e23aaea9f7edd7b7cac7b95cb574d19}{ouvrir}}\ =\ consoleOuvrir,}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00774}00774\ \ \ \ .ecrire\ =\ \mbox{\hyperlink{include_2manux_2console_8h_ab013551f90e5a40b4626b103995364da}{consoleEcrire}},}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00775}00775\ \ \ \ .lire\ =\ consoleFichierLire}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00776}00776\ \};}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00777}00777\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ MANUX\_FICHIER}}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00778}00778\ }
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00783}00783\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ initialiserConsoleNoyau(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00784}00784\ \{}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00786}00786\ \ \ \ consoleInitialiser(\&\_consoleNoyau,\ \mbox{\hyperlink{ecran_8h_ab2f128566f2e94b8f4b99ae450177cf6}{MANUX\_CON\_SCREEN}});}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00787}00787\ }
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00788}00788\ \textcolor{preprocessor}{\#ifdef\ MANUX\_CLAVIER\_CONSOLE}}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00789}00789\ \ \ \ consoleSetClavier(\&\_consoleNoyau,\ bufferClavierNoyau);}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00790}00790\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00791}00791\ \ \ \ }
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00792}00792\ \textcolor{preprocessor}{\#ifdef\ MANUX\_CONSOLES\_VIRTUELLES}}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00795}00795\ \ \ \ \_consoleNoyau.adresseEcranCopie\ =\ copieEcranConsoleNoyau;}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00796}00796\ }
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00799}00799\ \ \ \ consoleActive\ =\ \&\_consoleNoyau;}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00800}00800\ \ \ \ consoleActive-\/>suivante\ =\ consoleActive;}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00801}00801\ \ \ \ consoleActive-\/>precedente\ =\ consoleActive;}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00802}00802\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00803}00803\ \}}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00804}00804\ }
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00808}\mbox{\hyperlink{include_2manux_2console_8h_abf2f6aca15463bf0f0114531cea39f15}{00808}}\ \mbox{\hyperlink{struct__Console}{Console}}\ *\ \mbox{\hyperlink{console_8c_abf2f6aca15463bf0f0114531cea39f15}{consoleNoyau}}(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00809}00809\ \{}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00810}00810\ \ \ \ \textcolor{keywordflow}{return}\ \&\_consoleNoyau;}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00811}00811\ \}}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00812}00812\ }
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00813}00813\ \textcolor{preprocessor}{\#ifdef\ MANUX\_FICHIER}}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00814}00814\ }
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00815}00815\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ consoleInitialiserINoeud(\mbox{\hyperlink{struct__INoeud}{INoeud}}\ *\ i,\ \mbox{\hyperlink{struct__Console}{Console}}\ *\ \mbox{\hyperlink{main-bootreg_8c_add06ad5d8520e7cff4ff84b2811c0982}{c}})}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00816}00816\ \{}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00817}00817\ \ \ \ i-\/>\mbox{\hyperlink{struct__INoeud_a2784bdb93ecdd734d2e76ceb1d99d7a2}{typePeripherique}}.\mbox{\hyperlink{struct__TypePeripherique_adb5ce138561260770a523a33d9aace63}{majeur}}\ =\ \mbox{\hyperlink{include_2config_2console_8h_ae0a8f103d2875f5db623dab61fcf6152}{MANUX\_CONSOLE\_MAJEUR}};}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00818}00818\ \textcolor{preprocessor}{\#ifdef\ MANUX\_CONSOLES\_VIRTUELLES}}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00819}00819\ \ \ \ i-\/>\mbox{\hyperlink{struct__INoeud_a2784bdb93ecdd734d2e76ceb1d99d7a2}{typePeripherique}}.\mbox{\hyperlink{struct__TypePeripherique_ac567355263c9068f662c52b3012ec941}{mineur}}\ =\ \mbox{\hyperlink{main-bootreg_8c_add06ad5d8520e7cff4ff84b2811c0982}{c}}-\/>numero;}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00820}00820\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00821}00821\ \ \ \ i-\/>\mbox{\hyperlink{struct__INoeud_a2784bdb93ecdd734d2e76ceb1d99d7a2}{typePeripherique}}.\mbox{\hyperlink{struct__TypePeripherique_ac567355263c9068f662c52b3012ec941}{mineur}}\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00822}00822\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00823}00823\ \ \ \ }
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00824}00824\ \ \ \ i-\/>\mbox{\hyperlink{struct__INoeud_a84fd695269334aa4097d5066674f901f}{prive}}\ =\ \mbox{\hyperlink{main-bootreg_8c_add06ad5d8520e7cff4ff84b2811c0982}{c}};}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00825}00825\ \ \ \ i-\/>\mbox{\hyperlink{struct__INoeud_ab6ac2683b253e58d522492afa706a7d9}{methodesFichier}}\ =\ \&consoleMethodesFichier;}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00826}00826\ \}}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00827}00827\ }
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00833}00833\ \textcolor{keywordtype}{int}\ consoleInitialisationINoeud(\mbox{\hyperlink{struct__INoeud}{INoeud}}\ *\ \mbox{\hyperlink{main-acces-concurrent_8c_a972ff77e8e64fb59c5b315287496a83e}{iNoeudConsole}})}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00834}00834\ \{}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00836}00836\ \ \ \ \mbox{\hyperlink{console_8c_a29466c636bd065544638829883090d54}{consoleInitialisation}}();}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00837}00837\ }
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00839}00839\ \ \ \ consoleInitialiserINoeud(\mbox{\hyperlink{main-acces-concurrent_8c_a972ff77e8e64fb59c5b315287496a83e}{iNoeudConsole}},\ \ \&\_consoleNoyau);}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00840}00840\ }
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00841}00841\ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{include_2manux_2errno_8h_a7c87371c2c584aeb5a722830670b9bfd}{ESUCCES}};}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00842}00842\ \}}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00843}00843\ }
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00844}00844\ \textcolor{preprocessor}{\#\ \ \ ifdef\ MANUX\_KMALLOC}}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00850}00850\ \mbox{\hyperlink{struct__INoeud}{INoeud}}\ *\ consoleCreerINoeud(\mbox{\hyperlink{struct__Console}{Console}}\ *\ \mbox{\hyperlink{main-bootreg_8c_add06ad5d8520e7cff4ff84b2811c0982}{c}})}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00851}00851\ \{}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00852}00852\ \ \ \ \mbox{\hyperlink{struct__INoeud}{INoeud}}\ *\ result;}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00853}00853\ }
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00854}00854\ \ \ \ result\ =\ \mbox{\hyperlink{kmalloc-zs_8h_af549fce4aa887cd31918e6c5dd0950f5}{kmalloc}}(\textcolor{keyword}{sizeof}(\mbox{\hyperlink{struct__INoeud}{INoeud}}));}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00855}00855\ }
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00856}00856\ \ \ \ \textcolor{keywordflow}{if}\ (result)\ \{}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00858}00858\ \ \ \ \ \ \ consoleInitialiserINoeud(result,\ \mbox{\hyperlink{main-bootreg_8c_add06ad5d8520e7cff4ff84b2811c0982}{c}});}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00859}00859\ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00860}00860\ \ \ \ }
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00861}00861\ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00862}00862\ \}}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00863}00863\ \textcolor{preprocessor}{\#\ \ \ endif\ }\textcolor{comment}{//\ MANUX\_KMALLOC}}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00864}00864\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00865}00865\ }
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00869}\mbox{\hyperlink{include_2manux_2console_8h_a29466c636bd065544638829883090d54}{00869}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{console_8c_a29466c636bd065544638829883090d54}{consoleInitialisation}}(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00870}00870\ \{}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00871}00871\ \ \ \ initialiserConsoleNoyau();}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00872}00872\ }
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00873}00873\ \ \ \ \textcolor{comment}{//\ On\ invalide\ le\ curseur\ du\ BIOS}}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00874}00874\ \ \ \ \mbox{\hyperlink{io_8h_a01385861b7c9bd988991a73868c29905}{outb}}(0x3D4,\ 0x0A);}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00875}00875\ \ \ \ \mbox{\hyperlink{io_8h_a01385861b7c9bd988991a73868c29905}{outb}}(0x3D5,\ 0x20);}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00876}00876\ \ \ \ }
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00877}00877\ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{include_2manux_2errno_8h_a7c87371c2c584aeb5a722830670b9bfd}{ESUCCES}};}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00878}00878\ \}}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00879}00879\ }
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00880}00880\ \textcolor{preprocessor}{\#ifdef\ MANUX\_APPELS\_SYSTEME}}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00881}00881\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00882}00882\ \textcolor{comment}{\ *\ L'implantation\ de\ l'AS\ ecrireConsole}}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00883}00883\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00884}00884\ \textcolor{keywordtype}{int}\ sys\_ecrireConsole(\mbox{\hyperlink{struct__ParametreAS}{ParametreAS}}\ as,\ \textcolor{keywordtype}{void}\ *\ msg,\ \textcolor{keywordtype}{int}\ n)}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00885}00885\ \{}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00886}00886\ \ \ \ (\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}})\ as;\ \textcolor{comment}{//\ Juste\ pour\ ne\ pas\ écraser\ les\ paramètres}}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00887}00887\ \ \ \ }
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00891}00891\ \textcolor{preprocessor}{\#if\ defined(MANUX\_TACHES)\ \&\&\ defined(MANUX\_TACHE\_CONSOLE)}}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00892}00892\ \ \ \ \mbox{\hyperlink{manux_2debug_8h_a3153a272f18d0f805028fce7e4337b53}{assert}}(\mbox{\hyperlink{scheduler_8h_aafdf44b33a86f1bef6141d33a4abb94b}{tacheEnCours}}\ !=\ \mbox{\hyperlink{include_2manux_2stddef_8h_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}});}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00893}00893\ \ \ \ \mbox{\hyperlink{struct__Console}{Console}}\ *\ cons\ =\ \mbox{\hyperlink{scheduler_8h_aafdf44b33a86f1bef6141d33a4abb94b}{tacheEnCours}}-\/>console;}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00894}00894\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00895}00895\ \ \ \ \mbox{\hyperlink{struct__Console}{Console}}\ *\ cons\ =\ \&\_consoleNoyau;}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00896}00896\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00897}00897\ \ \ \ }
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00898}00898\ \ \ \ \mbox{\hyperlink{manux_2debug_8h_a3153a272f18d0f805028fce7e4337b53}{assert}}(cons\ !=\ \mbox{\hyperlink{include_2manux_2stddef_8h_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}});}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00899}00899\ \ \ \ \mbox{\hyperlink{console_8c_ae652ad0556ba11086076c802d5a90991}{consoleAfficherN}}(cons,\ msg,\ n);}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00900}00900\ }
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00901}00901\ \ \ \ \textcolor{keywordflow}{return}\ n;}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00902}00902\ \}}
+\DoxyCodeLine{\Hypertarget{console_8c_source_l00903}00903\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ MANUX\_APPELS\_SYSTEMES}}
+
+\end{DoxyCode}

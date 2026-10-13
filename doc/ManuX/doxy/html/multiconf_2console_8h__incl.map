@@ -1,0 +1,11 @@
+<map id="/home/manu/PROGRAMMATION/C/ManuX/multiconf/console.h" name="/home/manu/PROGRAMMATION/C/ManuX/multiconf/console.h">
+<area shape="rect" id="Node000001" title="Exemple de configuration pour l&#39;utilisation de la console." alt="" coords="210,5,437,45"/>
+<area shape="rect" id="Node000002" href="$base_8h.html" title="Eléments de base de la configuration." alt="" coords="5,93,113,119"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="261,48,112,92,110,87,259,43"/>
+<area shape="rect" id="Node000003" href="$plan-memoire-pc_8h.html" title=" " alt="" coords="138,93,327,119"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="303,48,258,86,255,82,300,44"/>
+<area shape="rect" id="Node000004" href="$include_2config_2console_8h.html" title=" " alt="" coords="352,93,479,119"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="347,44,393,82,389,86,344,48"/>
+<area shape="rect" id="Node000005" href="$verifications_8h.html" title=" " alt="" coords="503,93,661,119"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="386,43,532,87,530,92,385,48"/>
+</map>

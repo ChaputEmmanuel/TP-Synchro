@@ -38,6 +38,7 @@ int setDescripteurSegment(DescriptorTable * dt,
    return (dt->taille++)<<3;
 }
 
+static
 int setDescripteurTSS(DescriptorTable * dt,
 		      uint32_t adresse, uint32_t limite,
 		      uint8_t type,
@@ -60,7 +61,8 @@ int setDescripteurTSS(DescriptorTable * dt,
    return (dt->taille++)<<3;
 }
 
-void inline chargerGDT(DescriptorTable * gdt)
+inline
+void chargerGDT(DescriptorTable * gdt)
 /*
  * Chargement effectif de la GDT ; lgdt prend en paramètre l'adresse
  * d'une zone contenant la taille puis l'adresse de la GDT.
@@ -151,7 +153,7 @@ void chargerLDT(DescriptorTable * ldt)
    __asm__ __volatile__ ("lldt (%0)": :"a" ((char *)argument));// + sti ?
 }
 
-void initialiserGDT()
+void initialiserGDT(void)
 {
    int resultat;
 #define MANUX_GDT_CS 0x08
@@ -221,11 +223,15 @@ int ajouterDescTSS(DescriptorTable * dt,
    return resultat;
 }
 
+[[maybe_unused]]
+static
 void busifier(uint16_t offsetTSS)
 {
    gdtSysteme->descripteur[offsetTSS>>3].dt.type |= 0x02;
 }
 
+[[maybe_unused]]
+static
 void debusifier(uint16_t offsetTSS)
 {
    gdtSysteme->descripteur[offsetTSS>>3].dt.type &= 0xFD;

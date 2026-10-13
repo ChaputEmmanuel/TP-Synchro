@@ -1,0 +1,9 @@
+<map id="_DescriptorTable" name="_DescriptorTable">
+<area shape="rect" id="Node000001" title=" " alt="" coords="62,181,193,207"/>
+<area shape="rect" id="Node000002" href="$union__Descripteur.html" title=" " alt="" coords="75,93,179,119"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="130,133,130,181,125,181,125,133"/>
+<area shape="rect" id="Node000003" href="$struct__DescSegment.html" title=" " alt="" coords="5,5,124,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="83,40,121,91,116,94,79,43"/>
+<area shape="rect" id="Node000004" href="$struct__DescTSS.html" title=" " alt="" coords="149,5,234,31"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="177,43,138,94,134,91,172,40"/>
+</map>

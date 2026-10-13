@@ -14,12 +14,98 @@
 
 
 \begin{document}
+
+\begin{center}
+  \bf \em
+   (Attention, la version actuelle de cette documentation contient des
+liens cassés car l'outil mkdocs ne les gère pas correctement. Désolé,
+je suis sur le coup !)
+\end{center}
+
 %===============================================================================
 %
 %===============================================================================
 \section{ManuX-32}
 
    Bienvenue dans le monde merveilleux de ManuX ! 
+
+%-------------------------------------------------------------------------------
+%
+%-------------------------------------------------------------------------------
+\subsection{Allons-y, let's go, c'est parti les amis !}
+   
+   Le code source complet peut être téléchargé de la façon suivante~:
+
+\begin{lstlisting}
+ $ git clone git@github.com:ChaputEmmanuel/Manux.git
+\end{lstlisting}
+
+il sera alors compilé :
+
+\begin{lstlisting}
+ $ cd ManuX
+ $ make CFG=printk
+\end{lstlisting}
+
+   puis on pourra le démarrer :
+
+\begin{lstlisting}
+ $ make run
+\end{lstlisting}
+
+   Sous vos yeux ébahis apparaît alors une fenêtre ressemblant à ceci :
+
+\includegraphics{images/screenshot-printk.png}
+
+   On peut également créer une image iso intégrant plusieurs noyaux
+différents puis lancer le tout~:
+
+\begin{lstlisting}
+ $ make multiso
+ $ make runiso
+\end{lstlisting}
+
+   Mais c'est une autre histoire, on verra ça dans la section dédiée
+aux outils.
+   
+%-------------------------------------------------------------------------------
+%
+%-------------------------------------------------------------------------------
+\subsection{Si ça marche, tant mieux, tu peux sauter une case}
+
+   La compilation et l’exécution du noyau nécessitent un certain
+nombre d'outils que je vais tenter de lister ici brièvement et sur
+lesquels je reviendrai dans la section \ref{section:outils} dédiée aux
+outils.
+
+   Pour être bref, sur une distribution Linux moderne, l'installation
+des outils suivants devraient suffire~:
+   
+\begin{lstlisting}
+ # apt install gcc xorriso nasm qemu-system-i386 mtools pandoc
+\end{lstlisting}
+
+%-------------------------------------------------------------------------------
+%
+%-------------------------------------------------------------------------------
+\subsection{Ok, mais ensuite ?}
+
+   Si vous avez réussi la première épreuve, vous avez donc un système
+sur lequel vous pouvez compiler et faire tourner \manux. Félicitation
+et bienvenue dans mon monde \ldots
+
+   Les différentes sections de ce document, forcément pas très à jour,
+vous permettront de comprendre comment cela fonctionne et d'y apporter
+vos modifications.
+
+Bon courage !
+
+   Ou plutôt, comme dirait Gandalf ``{\em Fuyez pauvres fous !}''
+
+   À partir de là, je suggère de parcourir la section présentant ``la
+version courte'', dont l'objectif est de vous permettre de
+déterminer où aller chercher la suite des informations.
+
 \end{document}
 
  

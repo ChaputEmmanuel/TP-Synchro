@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://manux.manu-chaput.net/taches-part.html" />
+      <link rel="shortcut icon" href="img/favicon.ico" />
+    <title>Gestion d’une tâche - ManuX</title>
+    <link rel="stylesheet" href="css/theme.css" />
+    <link rel="stylesheet" href="css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="css/pandoc.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Gestion d\u2019une t\u00e2che";
+        var mkdocs_page_input_path = "taches-part.md";
+        var mkdocs_page_url = "/taches-part.html";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="index.html" class="icon icon-home"> ManuX
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="./search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="index.html">Home</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Sections</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="vue-globale-part.html">La version courte</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="presentation-part.html">Présentation générale</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="outils-part.html">Les outils</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="boot-part.html">Chargement en mémoire et boot</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="affichage-part.html">Affichage</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="registres-part.html">Registres</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="inter-part.html">Interruptions</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="memoire-part.html">La mémoire</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="appel-systeme-part.html">Les appels système</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="systeme-fichiers-part.html">La gestion des fichiers</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="synchronisation-part.html">Les outils de synchronisation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="userland-part.html">Le mode utilisateur</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Le code</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="doxy/html/index.html">Doxygen</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="https://github.com/ChaputEmmanuel/ManuX">Sur github</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">ManuX</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html" class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Gestion d’une tâche</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="gestion-dune-tache">Gestion d’une tâche</h1>
+<p>Nous disposons désormais du minimum permettant d’exécuter quelques
+instructions et d’en voir les conséquences à l’écran. Je vous propose
+donc de mettre en place la notion de <em>tâche</em> qui nous permettra de faire
+avancer “en même temps” plusieurs activités. ManuX devient donc à partir
+de maintenant un système multitâche.</p>
+<p>Attention, pour le moment, ce ne sera que du multitâche collaboratif. En
+effet, nous n’allons pas encore mettre en place du multitâche
+<em>préemptif</em>, ce qui signifie que une tâche ne rendra la main (enfin, le
+processeur) que lorsqu’elle en aura envie !</p>
+<p>De plus, nous ne nous intéressons pas non plus à l’ordonnancement, et
+mettrons en place un simple <em>round robin</em>.</p>
+<h2 id="definition-dune-tache">Définition d’une tâche</h2>
+<p>La structure d’une tâche est définie dans le fichier <code>manux/tache.h</code> au
+travers d’une struture <code>Tache</code>. Afin de nous simplifier la vie, nous
+allons utiliser dans ManuX l’aide proposée par les processeurs Intel[1].</p>
+<p>De ce fait, la structure <code>Tache</code> contient des champs liés au processeur
+et des champs purement liés au noyau.</p>
+<h3 id="champs-lies-au-noyau">Champs liés au noyau</h3>
+<h3 id="champs-lies-au-processeur">Champs liés au processeur</h3>
+<ul>
+<li>
+<p><code>IntelTSS tss</code> qui permet, comme son nom laisse à penser, de stoquer
+    les informations relatives à l’état de la tâche au niveau du
+    processeur (tss pour <em>Task State Segment</em>). On trouvera des
+    informations sur ce champs dans les documentations Intel. Dans
+    ManuX, une initialisation minimale est faite de cette structure lors
+    de la création d’une tâche dans <code>creerTache</code>.</p>
+</li>
+<li>
+<p><code>uint16 indiceTSSDescriptor</code> représente l’indice, dans la gdt, du
+    <em>tss Descriptor</em> de la tâche. C’est par un <code>ljmp</code> vers ce champs que
+    l’on va activer la tâche.</p>
+</li>
+<li>
+<p><code>DescriptorTable * ldt</code> est la table locale de decripteurs associée
+    à cette tâche.</p>
+</li>
+</ul>
+<p>x</p>
+<h3 id="les-descripteurs-de-tache-intel">Les descripteurs de tâche Intel</h3>
+<p>Le <em>Task State Segment</em> (tss) des processeurs Intel permet de stoquer et
+de manipuler les informations relatives à une tâche. Dans ManuX, une
+structure est définie permettant de décrire dans le noyau le tss de
+chaque tâche : la structure <code>IntelTSS</code> est définie dans <code>manux/tache.h</code></p>
+<h2 id="creation-dune-tache">Création d’une tâche</h2>
+<h2 id="basculement-vers-une-tache">Basculement vers une tâche</h2>
+<p>En ce qui concerne le basculement d’une tâche à l’autre, nous allons
+profiter des mécanismes fournis par les processeurs Intel au travers de
+l’instruction <code>ljmp</code>. L’<em>Indirect far JMP</em> permet en effet de faire un
+basculement de tâche lorsque l’argument qui lui est passé, sur 48 bits
+(oui madame, 6 octets !) est constitué d’un sélecteur de segment (sur 16
+bits) qui référence un tss puis d’un <em>offset</em> (qui ne sera pas utilisé
+pour le coup !).</p>
+<p>Bref, le basculement d’une tâche vers une autre se résume à une
+instruction de saut !</p>
+<h2 id="destruction-dune-tache">Destruction d’une tâche</h2>
+<h1 id="gestion-des-listes-de-taches">Gestion des listes de tâches</h1>
+<p>Il est évidemment important de ne pas perdre trace des tâches créées sur
+le système ! Nous allons pour cela les placer dans des listes.</p>
+<p>La structure <code>ListeTache</code> permettant cela est définie dans le fichier
+<a href="/doxy/html/listetaches_8h_source.html"><code>manux/listetaches.h</code></a>
+(<a href="/doxy/html/listetaches_8h.html">dox</a>) . Il est extrèmement simple
+(liste simplement chaînée), donc je ne le détaille pas ici.</p>
+<p>Une première liste est définie permettant de conserver toutes les tâches
+du système. Chaque tâche créée (et non encore détruite) sera donc
+présente dans cette liste.</p>
+<p>D’autres listes seront créées permettant de stoquer les tâches en
+fonction de leurs activités. Une liste contiendra par exemple les tâches
+prêtes à être exécutées. D’autres listes contiendront les tâches en
+attente d’un événement spécifiques (typiquement la disponibilité d’une
+ressource).</p>
+<p><img alt="image" src="images/exemple-taches.png" /></p>
+<h2 id="allocation-des-elements-de-liste">Allocation des éléments de liste</h2>
+<p>Bon, là il faut qu’on parle d’un truc dont je ne suis pas très fier …</p>
+<p>Pour ne pas avoir à s’em…bêter ici avec de la gestion dynamique de
+mémoire, et sûrement aussi dans un intérêt pédagogiqe évident, j’ai fait
+le choix de positionner les cellules impliquées dans la gestion des
+listes dans la page mémoire qui est allouée pour chaque tâche.</p>
+<p>[1] Les systèmes récents, pour des raisons de performances, n’utilisent
+pas ces fonctionnalités.</p>
+              
+            </div>
+          </div><footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+    
+  </span>
+</div>
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = ".";</script>
+    <script src="js/theme_extra.js"></script>
+    <script src="js/theme.js"></script>
+      <script src="search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

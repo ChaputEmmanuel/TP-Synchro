@@ -1,0 +1,318 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>My Project:  Fichier source de /home/manu/PROGRAMMATION/C/ManuX/noyau/main.c</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">My Project
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function() { init_codefold(0); });
+/* @license-end */
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_b49ee5e1e1e78348df5ce57bc52e7bb8.html">noyau</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle"><div class="title">main.c</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="main_8c.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &lt;manux/config.h&gt;</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &lt;<a class="code" href="manux_2bootloader_8h.html">manux/bootloader.h</a>&gt;</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#include &lt;<a class="code" href="include_2manux_2registre_8h.html">manux/registre.h</a>&gt;</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#include &lt;manux/errno.h&gt;</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &lt;<a class="code" href="include_2manux_2console_8h.html">manux/console.h</a>&gt;</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#include &lt;<a class="code" href="manux_2clavier_8h.html">manux/clavier.h</a>&gt;</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">#include &lt;<a class="code" href="tache_8h.html">manux/tache.h</a>&gt;</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#include &lt;<a class="code" href="horloge_8h.html">manux/horloge.h</a>&gt;</span>        <span class="comment">// initialiserHorloge</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="preprocessor">#include &lt;<a class="code" href="scheduler_8h.html">manux/scheduler.h</a>&gt;</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="preprocessor">#include &lt;<a class="code" href="include_2manux_2interruptions_8h.html">manux/interruptions.h</a>&gt;</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="preprocessor">#include &lt;<a class="code" href="io_8h.html">manux/io.h</a>&gt;</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="preprocessor">#include &lt;<a class="code" href="segment_8h.html">manux/segment.h</a>&gt;</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="preprocessor">#include &lt;<a class="code" href="include_2manux_2memoire_8h.html">manux/memoire.h</a>&gt;</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="preprocessor">#include &lt;<a class="code" href="manux_2stdlib_8h.html">manux/stdlib.h</a>&gt;</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="preprocessor">#include &lt;<a class="code" href="include_2manux_2kmalloc_8h.html">manux/kmalloc.h</a>&gt;</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="preprocessor">#include &lt;<a class="code" href="atomique_8h.html">manux/atomique.h</a>&gt;</span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="preprocessor">#include &lt;manux/appelsysteme.h&gt;</span></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="preprocessor">#include &lt;<a class="code" href="manux_2pci_8h.html">manux/pci.h</a>&gt;</span></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="preprocessor">#include &lt;<a class="code" href="manux_2ramdisk_8h.html">manux/ramdisk.h</a>&gt;</span></div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="preprocessor">#include &lt;<a class="code" href="include_2manux_2printk_8h.html">manux/printk.h</a>&gt;</span></div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="preprocessor">#include &lt;<a class="code" href="manux_2debug_8h.html">manux/debug.h</a>&gt;</span></div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="preprocessor">#include &lt;<a class="code" href="limites_8h.html">manux/limites.h</a>&gt;</span></div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="preprocessor">#include &lt;<a class="code" href="pagination_8h.html">manux/pagination.h</a>&gt;</span></div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="preprocessor">#include &lt;<a class="code" href="include_2manux_2journal_8h.html">manux/journal.h</a>&gt;</span></div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="preprocessor">#include &lt;<a class="code" href="fichier_8h.html">manux/fichier.h</a>&gt;</span></div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="preprocessor">#include &lt;<a class="code" href="include_2manux_2virtio-net_8h.html">manux/virtio-net.h</a>&gt;</span></div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="preprocessor">#include &lt;<a class="code" href="virtio-console_8h.html">manux/virtio-console.h</a>&gt;</span></div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="keywordtype">void</span> <a class="code hl_function" href="main_8c.html#a21bf9d845e4ae7f33652b85730016a11">startManuX</a>(<span class="keywordtype">void</span>);  <span class="comment">// WARNING faire un include ?</span></div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="keyword">extern</span> <span class="keywordtype">void</span> <a class="code hl_function" href="main_8c.html#a2858154e2009b0e6e616f313177762bc">init</a>(<span class="keywordtype">void</span>); <span class="comment">// Faire un init.h</span></div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="comment">// Pour manipuler la console virtuelle comme un fichier</span></div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno"><a class="line" href="main_8c.html#a025b00386237bd94848dfda7561bc35a">   42</a></span><a class="code hl_struct" href="struct__INoeud.html">INoeud</a> <a class="code hl_variable" href="main_8c.html#a025b00386237bd94848dfda7561bc35a">iNoeudVirtioConsole</a>;</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno"><a class="line" href="main_8c.html#ae51ed4923ff3dc7cd81a10324b2eaac4">   43</a></span><a class="code hl_struct" href="struct__Fichier.html">Fichier</a> <a class="code hl_variable" href="main_8c.html#ae51ed4923ff3dc7cd81a10324b2eaac4">fichierVirtioConsole</a>;</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno"><a class="line" href="main_8c.html#a972ff77e8e64fb59c5b315287496a83e">   48</a></span><a class="code hl_struct" href="struct__INoeud.html">INoeud</a>  <a class="code hl_variable" href="main_8c.html#a972ff77e8e64fb59c5b315287496a83e">iNoeudConsole</a>;  <span class="comment">// Le INoeud qui d�crit la console</span></div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
+<div class="foldopen" id="foldopen00050" data-start="{" data-end="}">
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno"><a class="line" href="main_8c.html#a21bf9d845e4ae7f33652b85730016a11">   50</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="main_8c.html#a21bf9d845e4ae7f33652b85730016a11">startManuX</a>(<span class="keywordtype">void</span>)</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>{</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>   <span class="comment">// Initialisation de la console manipul�e comme un fichier</span></div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>   consoleInitialisationINoeud(&amp;<a class="code hl_variable" href="main_8c.html#a972ff77e8e64fb59c5b315287496a83e">iNoeudConsole</a>);</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span><span class="preprocessor">#if MANUX_ARCH == i386</span></div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>   <span class="keyword">union </span>{</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>      <a class="code hl_typedef" href="include_2manux_2types_8h.html#a06896e8c53f721507066c079052171f8">uint32_t</a> registres[3];</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>      <span class="keywordtype">char</span>     caracteres[13];</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>   } descriptionProc;</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span> </div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>   <span class="comment">// Lecture du nom du processeur</span></div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>   descriptionProcesseur(0, descriptionProc.registres);</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>   descriptionProc.caracteres[12] = 0;</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>   <span class="comment">// Affichage d&#39;un premier message</span></div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>   <a class="code hl_define" href="manux_2debug_8h.html#ad4cabea5084373436d91b5dc4e8d0a49">printk_debug</a>(<a class="code hl_define" href="manux_2debug_8h.html#a97cb921ecb429c2c4c3755b2ca69364b">DBG_KERNEL_START</a>, <span class="stringliteral">&quot;32 bit ManuX running on a &#39;%s&#39; ...\n&quot;</span>,</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>        descriptionProc.caracteres);</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span> </div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>   <span class="comment">// Initialisation du bootloader : infoSysteme, cmdLine, ...</span></div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>   <a class="code hl_define" href="manux_2debug_8h.html#ad4cabea5084373436d91b5dc4e8d0a49">printk_debug</a>(<a class="code hl_define" href="manux_2debug_8h.html#a97cb921ecb429c2c4c3755b2ca69364b">DBG_KERNEL_START</a>, <span class="stringliteral">&quot;Initialisation du bootloader ...\n&quot;</span>);</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>   <a class="code hl_function" href="manux_2bootloader_8h.html#ae56092aa42bf357bf0026df0b0808db4">bootloaderInitialiser</a>();</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span> </div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>   <span class="comment">// Initialisation de la gestion des pages m�moire (utilise le</span></div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>   <span class="comment">// bootloader)</span></div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>   <a class="code hl_define" href="manux_2debug_8h.html#ad4cabea5084373436d91b5dc4e8d0a49">printk_debug</a>(<a class="code hl_define" href="manux_2debug_8h.html#a97cb921ecb429c2c4c3755b2ca69364b">DBG_KERNEL_START</a>, <span class="stringliteral">&quot;Initialisation memoire ...\n&quot;</span>);</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>   <a class="code hl_function" href="include_2manux_2memoire_8h.html#a4338550e2017b7c95021bdc27e4f3345">initialiserMemoire</a>(<a class="code hl_variable" href="manux_2bootloader_8h.html#abf4319b3adb9dd5752045f58f65369e6">infoSysteme</a>.<a class="code hl_variable" href="struct__InfoSysteme.html#a6047965dfba552f4957f7df33b777e8c">memoireDeBase</a>,</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>              <a class="code hl_variable" href="manux_2bootloader_8h.html#abf4319b3adb9dd5752045f58f65369e6">infoSysteme</a>.<a class="code hl_variable" href="struct__InfoSysteme.html#aeed4b08b9edfc29ff917ed26d87c9cda">memoireEtendue</a>);</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span> </div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>   <span class="comment">// Affichage de la m�moire disponible </span></div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>   <a class="code hl_define" href="manux_2debug_8h.html#ad4cabea5084373436d91b5dc4e8d0a49">printk_debug</a>(<a class="code hl_define" href="manux_2debug_8h.html#a97cb921ecb429c2c4c3755b2ca69364b">DBG_KERNEL_START</a>, <span class="stringliteral">&quot;Memoire : %d + %d Ko\n&quot;</span>,</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>        <a class="code hl_variable" href="manux_2bootloader_8h.html#abf4319b3adb9dd5752045f58f65369e6">infoSysteme</a>.<a class="code hl_variable" href="struct__InfoSysteme.html#a6047965dfba552f4957f7df33b777e8c">memoireDeBase</a>,</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>        <a class="code hl_variable" href="manux_2bootloader_8h.html#abf4319b3adb9dd5752045f58f65369e6">infoSysteme</a>.<a class="code hl_variable" href="struct__InfoSysteme.html#aeed4b08b9edfc29ff917ed26d87c9cda">memoireEtendue</a>);</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span> </div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>   <span class="comment">// Initialisation des descripteurs de segments</span></div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>   <a class="code hl_function" href="segment_8c.html#ae0e123e68e81d00dad08bd7a0215e9a8">initialiserGDT</a>();</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span> </div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>   <span class="comment">// Initialisation de la table des interruptions</span></div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>   <a class="code hl_function" href="interruptions_8c.html#a8bab70dd2ead4ff36a0c2de9b3d3aff8">initialiserIDT</a>();   </div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span> </div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>   <span class="comment">// Initialisation de la pagination</span></div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>   <a class="code hl_define" href="manux_2debug_8h.html#ad4cabea5084373436d91b5dc4e8d0a49">printk_debug</a>(<a class="code hl_define" href="manux_2debug_8h.html#a97cb921ecb429c2c4c3755b2ca69364b">DBG_KERNEL_START</a>, <span class="stringliteral">&quot;Initialisation pagination ...\n&quot;</span>);</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>   <a class="code hl_function" href="pagination_8h.html#a6d1efa14988749e044655482a3330dce">initialiserPagination</a>(<a class="code hl_variable" href="manux_2bootloader_8h.html#abf4319b3adb9dd5752045f58f65369e6">infoSysteme</a>.<a class="code hl_variable" href="struct__InfoSysteme.html#aeed4b08b9edfc29ff917ed26d87c9cda">memoireEtendue</a>);</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>   <a class="code hl_define" href="manux_2debug_8h.html#ad4cabea5084373436d91b5dc4e8d0a49">printk_debug</a>(<a class="code hl_define" href="manux_2debug_8h.html#a97cb921ecb429c2c4c3755b2ca69364b">DBG_KERNEL_START</a>, <span class="stringliteral">&quot;Pagination initialisee\n&quot;</span>);</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span> </div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>   <span class="comment">// Initilisation du syst�me kmalloc</span></div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>   <a class="code hl_define" href="manux_2debug_8h.html#ad4cabea5084373436d91b5dc4e8d0a49">printk_debug</a>(<a class="code hl_define" href="manux_2debug_8h.html#a97cb921ecb429c2c4c3755b2ca69364b">DBG_KERNEL_START</a>, <span class="stringliteral">&quot;Initialisation de kmalloc ...\n&quot;</span>);</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>   <a class="code hl_function" href="kmalloc-zs_8h.html#a9834d71816871b865956b59d641f602f">kmallocInitialisation</a>();</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span> </div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>   <span class="comment">// Initialisation du syst�me de debug</span></div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>   <a class="code hl_define" href="manux_2debug_8h.html#ad4cabea5084373436d91b5dc4e8d0a49">printk_debug</a>(<a class="code hl_define" href="manux_2debug_8h.html#a97cb921ecb429c2c4c3755b2ca69364b">DBG_KERNEL_START</a>, <span class="stringliteral">&quot;Initialisation du debug ...\n&quot;</span>);</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>   <a class="code hl_function" href="manux_2debug_8h.html#afecb2fc4768dcaba6f0098c4a46bff0c">debugInitialiser</a>();</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span> </div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>   <span class="comment">// Initialisation du journal</span></div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>   <a class="code hl_define" href="manux_2debug_8h.html#ad4cabea5084373436d91b5dc4e8d0a49">printk_debug</a>(<a class="code hl_define" href="manux_2debug_8h.html#a97cb921ecb429c2c4c3755b2ca69364b">DBG_KERNEL_START</a>, <span class="stringliteral">&quot;Initialisation du journal ...\n&quot;</span>);</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>   <a class="code hl_function" href="include_2manux_2journal_8h.html#ae0b1891a78b329589a71603f76447eb3">journalInitialiser</a>();</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>   <a class="code hl_define" href="manux_2debug_8h.html#ad4cabea5084373436d91b5dc4e8d0a49">printk_debug</a>(<a class="code hl_define" href="manux_2debug_8h.html#a97cb921ecb429c2c4c3755b2ca69364b">DBG_KERNEL_START</a>, <span class="stringliteral">&quot;Journal initialise ...\n&quot;</span>);</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span> </div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>   <span class="comment">// Initialisation de la table des appels syst�me</span></div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>   <a class="code hl_define" href="manux_2debug_8h.html#ad4cabea5084373436d91b5dc4e8d0a49">printk_debug</a>(<a class="code hl_define" href="manux_2debug_8h.html#a97cb921ecb429c2c4c3755b2ca69364b">DBG_KERNEL_START</a>, <span class="stringliteral">&quot;Initialisation appels systeme ...\n&quot;</span>);</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>   <a class="code hl_function" href="include_2manux_2appelsysteme_8h.html#ae9c459f3384b085e316b0d43a308d69b">initialiserAppelsSysteme</a>();</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>   <a class="code hl_define" href="manux_2debug_8h.html#ad4cabea5084373436d91b5dc4e8d0a49">printk_debug</a>(<a class="code hl_define" href="manux_2debug_8h.html#a97cb921ecb429c2c4c3755b2ca69364b">DBG_KERNEL_START</a>, <span class="stringliteral">&quot;Appels systeme initialises\n&quot;</span>);</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>   </div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>   <span class="comment">// Initialisation du bus PCI</span></div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>   <a class="code hl_define" href="manux_2debug_8h.html#ad4cabea5084373436d91b5dc4e8d0a49">printk_debug</a>(<a class="code hl_define" href="manux_2debug_8h.html#a97cb921ecb429c2c4c3755b2ca69364b">DBG_KERNEL_START</a>, <span class="stringliteral">&quot;Initialisation du bus PCI ...\n&quot;</span>);</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>   <a class="code hl_function" href="manux_2pci_8h.html#a883b4a272bc719952fa1b66b9faeec2a">PCIEnumerationDesEquipements</a>();</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>   <a class="code hl_define" href="manux_2debug_8h.html#ad4cabea5084373436d91b5dc4e8d0a49">printk_debug</a>(<a class="code hl_define" href="manux_2debug_8h.html#a97cb921ecb429c2c4c3755b2ca69364b">DBG_KERNEL_START</a>, <span class="stringliteral">&quot;Bus PCI initialise...\n&quot;</span>);</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span> </div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span><span class="preprocessor">#ifdef MANUX_VIRTIO_CONSOLE</span></div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>   <a class="code hl_define" href="manux_2debug_8h.html#ad4cabea5084373436d91b5dc4e8d0a49">printk_debug</a>(<a class="code hl_define" href="manux_2debug_8h.html#a97cb921ecb429c2c4c3755b2ca69364b">DBG_KERNEL_START</a>, <span class="stringliteral">&quot;Initialisation de virtio console ...\n&quot;</span>);</div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>   <span class="keywordflow">if</span> (<a class="code hl_function" href="virtio-console_8h.html#ac49e16140b7d870db12706ab03aa282d">virtioConsoleInitialisation</a>(&amp;<a class="code hl_variable" href="main_8c.html#a025b00386237bd94848dfda7561bc35a">iNoeudVirtioConsole</a>) == <a class="code hl_define" href="include_2manux_2errno_8h.html#a7c87371c2c584aeb5a722830670b9bfd">ESUCCES</a>) {</div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>      <a class="code hl_function" href="fichier_8h.html#ab4279a068c868f6efab9279aa021bc76">fichierOuvrir</a>(&amp;<a class="code hl_variable" href="main_8c.html#a025b00386237bd94848dfda7561bc35a">iNoeudVirtioConsole</a>, &amp;<a class="code hl_variable" href="main_8c.html#ae51ed4923ff3dc7cd81a10324b2eaac4">fichierVirtioConsole</a>, <a class="code hl_define" href="fichier_8h.html#a11b644a8526139c4cc1850dac1271ced">O_WRONLY</a>, 0);</div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>      <a class="code hl_function" href="include_2manux_2journal_8h.html#aed4c0b68122d57fe6486e4963f38054b">journalAffecterFichier</a>(&amp;<a class="code hl_variable" href="main_8c.html#ae51ed4923ff3dc7cd81a10324b2eaac4">fichierVirtioConsole</a>);</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>   }</div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>   <a class="code hl_define" href="manux_2debug_8h.html#ad4cabea5084373436d91b5dc4e8d0a49">printk_debug</a>(<a class="code hl_define" href="manux_2debug_8h.html#a97cb921ecb429c2c4c3755b2ca69364b">DBG_KERNEL_START</a>, <span class="stringliteral">&quot;Virtio console initialise...\n&quot;</span>);</div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span> </div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span><span class="preprocessor">#ifdef MANUX_RESEAU</span></div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>   <span class="comment">// Initialisation du r�seau</span></div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>   <a class="code hl_define" href="manux_2debug_8h.html#ad4cabea5084373436d91b5dc4e8d0a49">printk_debug</a>(<a class="code hl_define" href="manux_2debug_8h.html#a97cb921ecb429c2c4c3755b2ca69364b">DBG_KERNEL_START</a>, <span class="stringliteral">&quot;Initialisation du reseau ...\n&quot;</span>);</div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span><span class="preprocessor">#   ifdef MANUX_VIRTIO_NET</span></div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>   <a class="code hl_function" href="include_2manux_2virtio-net_8h.html#ae8ee56f5798a32fb0f3092501b7560ce">virtioNetInit</a>();</div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span><span class="preprocessor">#   endif</span></div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>   <a class="code hl_define" href="manux_2debug_8h.html#ad4cabea5084373436d91b5dc4e8d0a49">printk_debug</a>(<a class="code hl_define" href="manux_2debug_8h.html#a97cb921ecb429c2c4c3755b2ca69364b">DBG_KERNEL_START</a>, <span class="stringliteral">&quot;Reseau initialise\n&quot;</span>);</div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span> </div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span><span class="preprocessor">#ifdef MANUX_FICHIER</span></div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>   <span class="comment">// Initialisation de la gestion des syst�mes de fichiers</span></div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span>   <a class="code hl_define" href="manux_2debug_8h.html#ad4cabea5084373436d91b5dc4e8d0a49">printk_debug</a>(<a class="code hl_define" href="manux_2debug_8h.html#a97cb921ecb429c2c4c3755b2ca69364b">DBG_KERNEL_START</a>, <span class="stringliteral">&quot;Initialisation du systeme de fichiers ...\n&quot;</span>);</div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span>   <a class="code hl_function" href="fichier_8h.html#a431c9fdbc351bde6f9c419267bd5adc5">sfInitialiser</a>();</div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span>   <a class="code hl_define" href="manux_2debug_8h.html#ad4cabea5084373436d91b5dc4e8d0a49">printk_debug</a>(<a class="code hl_define" href="manux_2debug_8h.html#a97cb921ecb429c2c4c3755b2ca69364b">DBG_KERNEL_START</a>, <span class="stringliteral">&quot;Systeme de fichiers initialise\n&quot;</span>);</div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span> </div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span><span class="preprocessor">#ifdef MANUX_CLAVIER</span></div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>   <span class="comment">// Initialisation du clavier</span></div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>   <a class="code hl_define" href="manux_2debug_8h.html#ad4cabea5084373436d91b5dc4e8d0a49">printk_debug</a>(<a class="code hl_define" href="manux_2debug_8h.html#a97cb921ecb429c2c4c3755b2ca69364b">DBG_KERNEL_START</a>, <span class="stringliteral">&quot;Initialisation du clavier ...\n&quot;</span>);</div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>   <a class="code hl_function" href="manux_2clavier_8h.html#adeb7648f2d16a4967670148c998f83cc">initialiserClavier</a>();</div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>   <a class="code hl_define" href="manux_2debug_8h.html#ad4cabea5084373436d91b5dc4e8d0a49">printk_debug</a>(<a class="code hl_define" href="manux_2debug_8h.html#a97cb921ecb429c2c4c3755b2ca69364b">DBG_KERNEL_START</a>, <span class="stringliteral">&quot;Clavier initialise\n&quot;</span>);</div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span> </div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span><span class="preprocessor">#ifdef MANUX_TACHES</span></div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>   <span class="comment">// Initialisation de la gestion des processus</span></div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>   <a class="code hl_define" href="manux_2debug_8h.html#ad4cabea5084373436d91b5dc4e8d0a49">printk_debug</a>(<a class="code hl_define" href="manux_2debug_8h.html#a97cb921ecb429c2c4c3755b2ca69364b">DBG_KERNEL_START</a>, <span class="stringliteral">&quot;Initialisation du scheduler ...\n&quot;</span>);</div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>   <a class="code hl_function" href="scheduler_8h.html#a32c7cefad94adc3dd3953dc5c71b32ad">initialiserScheduler</a>();</div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span>   <a class="code hl_define" href="manux_2debug_8h.html#ad4cabea5084373436d91b5dc4e8d0a49">printk_debug</a>(<a class="code hl_define" href="manux_2debug_8h.html#a97cb921ecb429c2c4c3755b2ca69364b">DBG_KERNEL_START</a>, <span class="stringliteral">&quot;Scheduler initialise\n&quot;</span>); </div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span> </div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span>   <a class="code hl_define" href="manux_2debug_8h.html#ad4cabea5084373436d91b5dc4e8d0a49">printk_debug</a>(<a class="code hl_define" href="manux_2debug_8h.html#a97cb921ecb429c2c4c3755b2ca69364b">DBG_KERNEL_START</a>, <span class="stringliteral">&quot;Initialisation de l&#39;horloge ...\n&quot;</span>);</div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>   <a class="code hl_function" href="horloge_8c.html#aec6b6ea786b76653d49b3eb7f6d320c0">initialiserHorloge</a>();</div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>   <a class="code hl_define" href="manux_2debug_8h.html#ad4cabea5084373436d91b5dc4e8d0a49">printk_debug</a>(<a class="code hl_define" href="manux_2debug_8h.html#a97cb921ecb429c2c4c3755b2ca69364b">DBG_KERNEL_START</a>, <span class="stringliteral">&quot;Horloge initialisee\n&quot;</span>);</div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span> </div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span> </div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span><span class="preprocessor">#ifdef MANUX_REGISTRE</span></div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span>   <span class="comment">// Initialisation du registre (utilise kmalloc)</span></div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span>   <a class="code hl_define" href="manux_2debug_8h.html#ad4cabea5084373436d91b5dc4e8d0a49">printk_debug</a>(<a class="code hl_define" href="manux_2debug_8h.html#a97cb921ecb429c2c4c3755b2ca69364b">DBG_KERNEL_START</a>, <span class="stringliteral">&quot;Initialisation du registre ...\n&quot;</span>);</div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span>   <a class="code hl_function" href="include_2manux_2registre_8h.html#a63129c6b1232b7c3a5b4e21103ef0d2c">registreSystemeInitialiser</a>();</div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span>   <a class="code hl_define" href="manux_2debug_8h.html#ad4cabea5084373436d91b5dc4e8d0a49">printk_debug</a>(<a class="code hl_define" href="manux_2debug_8h.html#a97cb921ecb429c2c4c3755b2ca69364b">DBG_KERNEL_START</a>, <span class="stringliteral">&quot;Registre initialise...\n&quot;</span>);</div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span> </div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span><span class="preprocessor">#ifdef MANUX_CONSOLES_VIRTUELLES</span></div>
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span>   <span class="comment">// On va maintenant faire de la t�che en cours une t�che &quot;banale&quot;</span></div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span>   tacheSetConsole(<a class="code hl_variable" href="scheduler_8h.html#aafdf44b33a86f1bef6141d33a4abb94b">tacheEnCours</a>, creerConsoleVirtuelle());</div>
+<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span> </div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>   <a class="code hl_function" href="main_8c.html#a2858154e2009b0e6e616f313177762bc">init</a>();</div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span>}   <span class="comment">/* startManuX */</span></div>
+</div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span> </div>
+<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span> </div>
+<div class="ttc" id="aatomique_8h_html"><div class="ttname"><a href="atomique_8h.html">atomique.h</a></div><div class="ttdoc">Définition des opérations de synchronisation de ManuX.</div></div>
+<div class="ttc" id="afichier_8h_html"><div class="ttname"><a href="fichier_8h.html">fichier.h</a></div></div>
+<div class="ttc" id="afichier_8h_html_a11b644a8526139c4cc1850dac1271ced"><div class="ttname"><a href="fichier_8h.html#a11b644a8526139c4cc1850dac1271ced">O_WRONLY</a></div><div class="ttdeci">#define O_WRONLY</div><div class="ttdef"><b>Definition</b> <a href="fichier_8h_source.html#l00028">fichier.h:28</a></div></div>
+<div class="ttc" id="afichier_8h_html_a431c9fdbc351bde6f9c419267bd5adc5"><div class="ttname"><a href="fichier_8h.html#a431c9fdbc351bde6f9c419267bd5adc5">sfInitialiser</a></div><div class="ttdeci">void sfInitialiser(void)</div><div class="ttdef"><b>Definition</b> <a href="fichier_8c_source.html#l00129">fichier.c:129</a></div></div>
+<div class="ttc" id="afichier_8h_html_ab4279a068c868f6efab9279aa021bc76"><div class="ttname"><a href="fichier_8h.html#ab4279a068c868f6efab9279aa021bc76">fichierOuvrir</a></div><div class="ttdeci">int fichierOuvrir(INoeud *iNoeud, Fichier *f, uint16_t fanions, uint16_t mode)</div><div class="ttdoc">: Ouverture d'un fichier.</div><div class="ttdef"><b>Definition</b> <a href="fichier_8c_source.html#l00145">fichier.c:145</a></div></div>
+<div class="ttc" id="ahorloge_8c_html_aec6b6ea786b76653d49b3eb7f6d320c0"><div class="ttname"><a href="horloge_8c.html#aec6b6ea786b76653d49b3eb7f6d320c0">initialiserHorloge</a></div><div class="ttdeci">void initialiserHorloge(void)</div><div class="ttdoc">Initialisation du système d'horloge.</div><div class="ttdef"><b>Definition</b> <a href="horloge_8c_source.html#l00095">horloge.c:95</a></div></div>
+<div class="ttc" id="ahorloge_8h_html"><div class="ttname"><a href="horloge_8h.html">horloge.h</a></div></div>
+<div class="ttc" id="ainclude_2manux_2appelsysteme_8h_html_ae9c459f3384b085e316b0d43a308d69b"><div class="ttname"><a href="include_2manux_2appelsysteme_8h.html#ae9c459f3384b085e316b0d43a308d69b">initialiserAppelsSysteme</a></div><div class="ttdeci">void initialiserAppelsSysteme(void)</div><div class="ttdef"><b>Definition</b> <a href="appelsysteme_8c_source.html#l00108">appelsysteme.c:108</a></div></div>
+<div class="ttc" id="ainclude_2manux_2console_8h_html"><div class="ttname"><a href="include_2manux_2console_8h.html">console.h</a></div><div class="ttdoc">Définition des fonctions de base d'accés à la console.</div></div>
+<div class="ttc" id="ainclude_2manux_2errno_8h_html_a7c87371c2c584aeb5a722830670b9bfd"><div class="ttname"><a href="include_2manux_2errno_8h.html#a7c87371c2c584aeb5a722830670b9bfd">ESUCCES</a></div><div class="ttdeci">#define ESUCCES</div><div class="ttdef"><b>Definition</b> <a href="include_2manux_2errno_8h_source.html#l00010">errno.h:10</a></div></div>
+<div class="ttc" id="ainclude_2manux_2interruptions_8h_html"><div class="ttname"><a href="include_2manux_2interruptions_8h.html">interruptions.h</a></div></div>
+<div class="ttc" id="ainclude_2manux_2journal_8h_html"><div class="ttname"><a href="include_2manux_2journal_8h.html">journal.h</a></div><div class="ttdoc">Définition des outils de journalisation des messages du noyau.</div></div>
+<div class="ttc" id="ainclude_2manux_2journal_8h_html_ae0b1891a78b329589a71603f76447eb3"><div class="ttname"><a href="include_2manux_2journal_8h.html#ae0b1891a78b329589a71603f76447eb3">journalInitialiser</a></div><div class="ttdeci">void journalInitialiser(void)</div><div class="ttdoc">Initialisation du système de journalisation.</div><div class="ttdef"><b>Definition</b> <a href="journal_8c_source.html#l00084">journal.c:84</a></div></div>
+<div class="ttc" id="ainclude_2manux_2journal_8h_html_aed4c0b68122d57fe6486e4963f38054b"><div class="ttname"><a href="include_2manux_2journal_8h.html#aed4c0b68122d57fe6486e4963f38054b">journalAffecterFichier</a></div><div class="ttdeci">void journalAffecterFichier(Fichier *pc)</div><div class="ttdoc">Affectation d'un fichier sur lequel seront envoyés les messages journalisés.</div></div>
+<div class="ttc" id="ainclude_2manux_2kmalloc_8h_html"><div class="ttname"><a href="include_2manux_2kmalloc_8h.html">kmalloc.h</a></div><div class="ttdoc">Définition de kmalloc.</div></div>
+<div class="ttc" id="ainclude_2manux_2memoire_8h_html"><div class="ttname"><a href="include_2manux_2memoire_8h.html">memoire.h</a></div></div>
+<div class="ttc" id="ainclude_2manux_2memoire_8h_html_a4338550e2017b7c95021bdc27e4f3345"><div class="ttname"><a href="include_2manux_2memoire_8h.html#a4338550e2017b7c95021bdc27e4f3345">initialiserMemoire</a></div><div class="ttdeci">void initialiserMemoire(uint32_t tailleMemoireDeBase, uint32_t tailleMemoireEtendue)</div><div class="ttdoc">Initialisation de la mémoire au niveau pages.</div><div class="ttdef"><b>Definition</b> <a href="memoire_8c_source.html#l00103">memoire.c:103</a></div></div>
+<div class="ttc" id="ainclude_2manux_2printk_8h_html"><div class="ttname"><a href="include_2manux_2printk_8h.html">printk.h</a></div><div class="ttdoc">Définition des fonctions de base d'entrée-sortie du noyau.</div></div>
+<div class="ttc" id="ainclude_2manux_2registre_8h_html"><div class="ttname"><a href="include_2manux_2registre_8h.html">registre.h</a></div><div class="ttdoc">Gestion des registres (outils permettant de stocker des paramètres)</div></div>
+<div class="ttc" id="ainclude_2manux_2registre_8h_html_a63129c6b1232b7c3a5b4e21103ef0d2c"><div class="ttname"><a href="include_2manux_2registre_8h.html#a63129c6b1232b7c3a5b4e21103ef0d2c">registreSystemeInitialiser</a></div><div class="ttdeci">void registreSystemeInitialiser(void)</div><div class="ttdoc">Initialisation du registre système.</div><div class="ttdef"><b>Definition</b> <a href="registre_8c_source.html#l00536">registre.c:536</a></div></div>
+<div class="ttc" id="ainclude_2manux_2types_8h_html_a06896e8c53f721507066c079052171f8"><div class="ttname"><a href="include_2manux_2types_8h.html#a06896e8c53f721507066c079052171f8">uint32_t</a></div><div class="ttdeci">unsigned long uint32_t</div><div class="ttdef"><b>Definition</b> <a href="include_2manux_2types_8h_source.html#l00020">types.h:20</a></div></div>
+<div class="ttc" id="ainclude_2manux_2virtio-net_8h_html"><div class="ttname"><a href="include_2manux_2virtio-net_8h.html">virtio-net.h</a></div></div>
+<div class="ttc" id="ainclude_2manux_2virtio-net_8h_html_ae8ee56f5798a32fb0f3092501b7560ce"><div class="ttname"><a href="include_2manux_2virtio-net_8h.html#ae8ee56f5798a32fb0f3092501b7560ce">virtioNetInit</a></div><div class="ttdeci">int virtioNetInit(void)</div><div class="ttdoc">Initialisation des périphériques.</div><div class="ttdef"><b>Definition</b> <a href="virtio-net_8c_source.html#l00373">virtio-net.c:373</a></div></div>
+<div class="ttc" id="ainterruptions_8c_html_a8bab70dd2ead4ff36a0c2de9b3d3aff8"><div class="ttname"><a href="interruptions_8c.html#a8bab70dd2ead4ff36a0c2de9b3d3aff8">initialiserIDT</a></div><div class="ttdeci">void initialiserIDT(void)</div><div class="ttdoc">! Initialiser l'IDT (Interrupt Description Table)</div><div class="ttdef"><b>Definition</b> <a href="interruptions_8c_source.html#l00185">interruptions.c:185</a></div></div>
+<div class="ttc" id="aio_8h_html"><div class="ttname"><a href="io_8h.html">io.h</a></div></div>
+<div class="ttc" id="akmalloc-zs_8h_html_a9834d71816871b865956b59d641f602f"><div class="ttname"><a href="kmalloc-zs_8h.html#a9834d71816871b865956b59d641f602f">kmallocInitialisation</a></div><div class="ttdeci">void kmallocInitialisation(void)</div><div class="ttdoc">Initialisation du sytème kmalloc.</div><div class="ttdef"><b>Definition</b> <a href="kmalloc-zs_8c_source.html#l00080">kmalloc-zs.c:80</a></div></div>
+<div class="ttc" id="alimites_8h_html"><div class="ttname"><a href="limites_8h.html">limites.h</a></div></div>
+<div class="ttc" id="amain_8c_html_a025b00386237bd94848dfda7561bc35a"><div class="ttname"><a href="main_8c.html#a025b00386237bd94848dfda7561bc35a">iNoeudVirtioConsole</a></div><div class="ttdeci">INoeud iNoeudVirtioConsole</div><div class="ttdef"><b>Definition</b> <a href="main_8c_source.html#l00042">main.c:42</a></div></div>
+<div class="ttc" id="amain_8c_html_a21bf9d845e4ae7f33652b85730016a11"><div class="ttname"><a href="main_8c.html#a21bf9d845e4ae7f33652b85730016a11">startManuX</a></div><div class="ttdeci">void startManuX(void)</div><div class="ttdef"><b>Definition</b> <a href="main_8c_source.html#l00050">main.c:50</a></div></div>
+<div class="ttc" id="amain_8c_html_a2858154e2009b0e6e616f313177762bc"><div class="ttname"><a href="main_8c.html#a2858154e2009b0e6e616f313177762bc">init</a></div><div class="ttdeci">void init(void)</div><div class="ttdef"><b>Definition</b> <a href="init-acces-concurrent_8c_source.html#l00074">init-acces-concurrent.c:74</a></div></div>
+<div class="ttc" id="amain_8c_html_a972ff77e8e64fb59c5b315287496a83e"><div class="ttname"><a href="main_8c.html#a972ff77e8e64fb59c5b315287496a83e">iNoeudConsole</a></div><div class="ttdeci">INoeud iNoeudConsole</div><div class="ttdef"><b>Definition</b> <a href="main_8c_source.html#l00048">main.c:48</a></div></div>
+<div class="ttc" id="amain_8c_html_ae51ed4923ff3dc7cd81a10324b2eaac4"><div class="ttname"><a href="main_8c.html#ae51ed4923ff3dc7cd81a10324b2eaac4">fichierVirtioConsole</a></div><div class="ttdeci">Fichier fichierVirtioConsole</div><div class="ttdef"><b>Definition</b> <a href="main_8c_source.html#l00043">main.c:43</a></div></div>
+<div class="ttc" id="amanux_2bootloader_8h_html"><div class="ttname"><a href="manux_2bootloader_8h.html">bootloader.h</a></div><div class="ttdoc">Interfaçage avec les bootloader.</div></div>
+<div class="ttc" id="amanux_2bootloader_8h_html_abf4319b3adb9dd5752045f58f65369e6"><div class="ttname"><a href="manux_2bootloader_8h.html#abf4319b3adb9dd5752045f58f65369e6">infoSysteme</a></div><div class="ttdeci">InfoSysteme infoSysteme</div><div class="ttdoc">Stockage des informations décrivant le système fournies par le bootloader.</div><div class="ttdef"><b>Definition</b> <a href="bootloader_8c_source.html#l00029">bootloader.c:29</a></div></div>
+<div class="ttc" id="amanux_2bootloader_8h_html_ae56092aa42bf357bf0026df0b0808db4"><div class="ttname"><a href="manux_2bootloader_8h.html#ae56092aa42bf357bf0026df0b0808db4">bootloaderInitialiser</a></div><div class="ttdeci">void bootloaderInitialiser(void)</div><div class="ttdoc">Lecture des informations fournies par le bootloader.</div><div class="ttdef"><b>Definition</b> <a href="bootloader_8c_source.html#l00046">bootloader.c:46</a></div></div>
+<div class="ttc" id="amanux_2clavier_8h_html"><div class="ttname"><a href="manux_2clavier_8h.html">clavier.h</a></div></div>
+<div class="ttc" id="amanux_2clavier_8h_html_adeb7648f2d16a4967670148c998f83cc"><div class="ttname"><a href="manux_2clavier_8h.html#adeb7648f2d16a4967670148c998f83cc">initialiserClavier</a></div><div class="ttdeci">void initialiserClavier(void)</div><div class="ttdef"><b>Definition</b> <a href="clavier_8c_source.html#l00028">clavier.c:28</a></div></div>
+<div class="ttc" id="amanux_2debug_8h_html"><div class="ttname"><a href="manux_2debug_8h.html">debug.h</a></div></div>
+<div class="ttc" id="amanux_2debug_8h_html_a97cb921ecb429c2c4c3755b2ca69364b"><div class="ttname"><a href="manux_2debug_8h.html#a97cb921ecb429c2c4c3755b2ca69364b">DBG_KERNEL_START</a></div><div class="ttdeci">#define DBG_KERNEL_START</div><div class="ttdef"><b>Definition</b> <a href="manux_2debug_8h_source.html#l00022">debug.h:22</a></div></div>
+<div class="ttc" id="amanux_2debug_8h_html_ad4cabea5084373436d91b5dc4e8d0a49"><div class="ttname"><a href="manux_2debug_8h.html#ad4cabea5084373436d91b5dc4e8d0a49">printk_debug</a></div><div class="ttdeci">#define printk_debug(lvl, fmt, args...)</div><div class="ttdef"><b>Definition</b> <a href="manux_2debug_8h_source.html#l00090">debug.h:90</a></div></div>
+<div class="ttc" id="amanux_2debug_8h_html_afecb2fc4768dcaba6f0098c4a46bff0c"><div class="ttname"><a href="manux_2debug_8h.html#afecb2fc4768dcaba6f0098c4a46bff0c">debugInitialiser</a></div><div class="ttdeci">void debugInitialiser(void)</div><div class="ttdoc">Initialisation du sytème de débogage.</div><div class="ttdef"><b>Definition</b> <a href="debug_8c_source.html#l00037">debug.c:37</a></div></div>
+<div class="ttc" id="amanux_2pci_8h_html"><div class="ttname"><a href="manux_2pci_8h.html">pci.h</a></div></div>
+<div class="ttc" id="amanux_2pci_8h_html_a883b4a272bc719952fa1b66b9faeec2a"><div class="ttname"><a href="manux_2pci_8h.html#a883b4a272bc719952fa1b66b9faeec2a">PCIEnumerationDesEquipements</a></div><div class="ttdeci">void PCIEnumerationDesEquipements(void)</div><div class="ttdoc">: recherche des équipements PCI disponibles</div><div class="ttdef"><b>Definition</b> <a href="pci_8c_source.html#l00180">pci.c:180</a></div></div>
+<div class="ttc" id="amanux_2ramdisk_8h_html"><div class="ttname"><a href="manux_2ramdisk_8h.html">ramdisk.h</a></div></div>
+<div class="ttc" id="amanux_2stdlib_8h_html"><div class="ttname"><a href="manux_2stdlib_8h.html">stdlib.h</a></div><div class="ttdoc">Définition de quelques fonctions de base (C) Manu Chaput 2020-2023.</div></div>
+<div class="ttc" id="apagination_8h_html"><div class="ttname"><a href="pagination_8h.html">pagination.h</a></div></div>
+<div class="ttc" id="apagination_8h_html_a6d1efa14988749e044655482a3330dce"><div class="ttname"><a href="pagination_8h.html#a6d1efa14988749e044655482a3330dce">initialiserPagination</a></div><div class="ttdeci">int initialiserPagination(int tailleMemoireEtendue)</div><div class="ttdef"><b>Definition</b> <a href="pagination_8c_source.html#l00167">pagination.c:167</a></div></div>
+<div class="ttc" id="ascheduler_8h_html"><div class="ttname"><a href="scheduler_8h.html">scheduler.h</a></div></div>
+<div class="ttc" id="ascheduler_8h_html_a32c7cefad94adc3dd3953dc5c71b32ad"><div class="ttname"><a href="scheduler_8h.html#a32c7cefad94adc3dd3953dc5c71b32ad">initialiserScheduler</a></div><div class="ttdeci">void initialiserScheduler(void)</div><div class="ttdoc">Identifiant de la tâche actuellement en cours d'exécution dans le noyau (0 si aucune)</div><div class="ttdef"><b>Definition</b> <a href="scheduler_8c_source.html#l00181">scheduler.c:181</a></div></div>
+<div class="ttc" id="ascheduler_8h_html_aafdf44b33a86f1bef6141d33a4abb94b"><div class="ttname"><a href="scheduler_8h.html#aafdf44b33a86f1bef6141d33a4abb94b">tacheEnCours</a></div><div class="ttdeci">Tache * tacheEnCours</div><div class="ttdoc">: L'identification de la tâche en cours</div><div class="ttdef"><b>Definition</b> <a href="scheduler_8c_source.html#l00091">scheduler.c:91</a></div></div>
+<div class="ttc" id="asegment_8c_html_ae0e123e68e81d00dad08bd7a0215e9a8"><div class="ttname"><a href="segment_8c.html#ae0e123e68e81d00dad08bd7a0215e9a8">initialiserGDT</a></div><div class="ttdeci">void initialiserGDT(void)</div><div class="ttdef"><b>Definition</b> <a href="segment_8c_source.html#l00156">segment.c:156</a></div></div>
+<div class="ttc" id="asegment_8h_html"><div class="ttname"><a href="segment_8h.html">segment.h</a></div></div>
+<div class="ttc" id="astruct__Fichier_html"><div class="ttname"><a href="struct__Fichier.html">_Fichier</a></div><div class="ttdoc">: Qu'est-ce qu'un fichier ouvert du point de vue du noyau ?</div><div class="ttdef"><b>Definition</b> <a href="fichier_8h_source.html#l00046">fichier.h:46</a></div></div>
+<div class="ttc" id="astruct__INoeud_html"><div class="ttname"><a href="struct__INoeud.html">_INoeud</a></div><div class="ttdoc">: Un INoeud représente un fichier, d'un point de vue statique Il s'agit donc de la description d'un f...</div><div class="ttdef"><b>Definition</b> <a href="inoeud_8h_source.html#l00027">inoeud.h:27</a></div></div>
+<div class="ttc" id="astruct__InfoSysteme_html_a6047965dfba552f4957f7df33b777e8c"><div class="ttname"><a href="struct__InfoSysteme.html#a6047965dfba552f4957f7df33b777e8c">_InfoSysteme::memoireDeBase</a></div><div class="ttdeci">uint32_t memoireDeBase</div><div class="ttdef"><b>Definition</b> <a href="manux_2bootloader_8h_source.html#l00043">bootloader.h:43</a></div></div>
+<div class="ttc" id="astruct__InfoSysteme_html_aeed4b08b9edfc29ff917ed26d87c9cda"><div class="ttname"><a href="struct__InfoSysteme.html#aeed4b08b9edfc29ff917ed26d87c9cda">_InfoSysteme::memoireEtendue</a></div><div class="ttdeci">uint32_t memoireEtendue</div><div class="ttdef"><b>Definition</b> <a href="manux_2bootloader_8h_source.html#l00044">bootloader.h:44</a></div></div>
+<div class="ttc" id="atache_8h_html"><div class="ttname"><a href="tache_8h.html">tache.h</a></div></div>
+<div class="ttc" id="avirtio-console_8h_html"><div class="ttname"><a href="virtio-console_8h.html">virtio-console.h</a></div><div class="ttdoc">Définition des éléments de base des consoles virtio.</div></div>
+<div class="ttc" id="avirtio-console_8h_html_ac49e16140b7d870db12706ab03aa282d"><div class="ttname"><a href="virtio-console_8h.html#ac49e16140b7d870db12706ab03aa282d">virtioConsoleInitialisation</a></div><div class="ttdeci">int virtioConsoleInitialisation(INoeud *iNoeudVirtioConsole)</div><div class="ttdoc">Initialisation des périphériques.</div><div class="ttdef"><b>Definition</b> <a href="virtio-console_8c_source.html#l00255">virtio-console.c:255</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

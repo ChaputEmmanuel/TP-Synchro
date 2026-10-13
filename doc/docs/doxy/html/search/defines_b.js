@@ -1,0 +1,28 @@
+var searchData=
+[
+  ['nb_5fappels_0',['NB_APPELS',['../main-kmalloc_8c.html#a428b0073af3ea626a69546b24e5e0aaf',1,'main-kmalloc.c']]],
+  ['nb_5fbuff_5ftraites_1',['NB_BUFF_TRAITES',['../virtio-console_8c.html#a3aa7bc24ee0d41414c55faf897b193d5',1,'virtio-console.c']]],
+  ['nb_5fcycles_2',['NB_CYCLES',['../main-delai_8c.html#a8b33a29316f8f11e0c8506902a1961c5',1,'main-delai.c']]],
+  ['nb_5fecrivains_3',['NB_ECRIVAINS',['../init-acces-concurrent_8c.html#a5e2163deb903618b0564223548c831a7',1,'init-acces-concurrent.c']]],
+  ['nb_5felements_4',['NB_ELEMENTS',['../main-kmalloc_8c.html#aa46b494d5fec94fa825c98dbbcffb32b',1,'main-kmalloc.c']]],
+  ['nb_5flecteurs_5',['NB_LECTEURS',['../init-acces-concurrent_8c.html#a4555b23c30d8218901d05b82e3285c7d',1,'init-acces-concurrent.c']]],
+  ['nb_5flignes_6',['NB_LIGNES',['../main-virtio-cons_8c.html#ad8edf09d2d914fdd5eae545ee2bd6ce9',1,'main-virtio-cons.c']]],
+  ['nb_5fmax_5fappels_5fsysteme_7',['NB_MAX_APPELS_SYSTEME',['../include_2manux_2appelsysteme_8h.html#aed080930d50d6014826e9bafa7af5b1a',1,'appelsysteme.h']]],
+  ['nb_5fpages_8',['NB_PAGES',['../include_2manux_2memoire_8h.html#a86a8d5a4cf169fff16174f294cdb101d',1,'memoire.h']]],
+  ['nb_5fpages_5falloc_9',['NB_PAGES_ALLOC',['../main-memoire_8c.html#a2aa9fab483760ccde1d2a826b09b9fec',1,'main-memoire.c']]],
+  ['nb_5fpauses_10',['NB_PAUSES',['../main-delai_8c.html#a86ab1b2f6e480654c3eade9dc71da3cb',1,'main-delai.c']]],
+  ['nbas_5fbasculer_5ftache_11',['nbas_basculer_tache',['../include_2manux_2appelsystemenum_8h.html#a3e18211ea522a478c94efc68b359063a',1,'NBAS_BASCULER_TACHE:&#160;appelsystemenum.h'],['../usr_2include_2manux_2appelsystemenum_8h.html#a3e18211ea522a478c94efc68b359063a',1,'NBAS_BASCULER_TACHE:&#160;appelsystemenum.h']]],
+  ['nbas_5fconsole_12',['nbas_console',['../include_2manux_2appelsystemenum_8h.html#a573dad04fde1c3d642c74d91465462d5',1,'NBAS_CONSOLE:&#160;appelsystemenum.h'],['../usr_2include_2manux_2appelsystemenum_8h.html#a573dad04fde1c3d642c74d91465462d5',1,'NBAS_CONSOLE:&#160;appelsystemenum.h']]],
+  ['nbas_5fcreer_5ftache_13',['nbas_creer_tache',['../include_2manux_2appelsystemenum_8h.html#a0be4551c809b51ac7a4103b267ee9ba7',1,'NBAS_CREER_TACHE:&#160;appelsystemenum.h'],['../usr_2include_2manux_2appelsystemenum_8h.html#a0be4551c809b51ac7a4103b267ee9ba7',1,'NBAS_CREER_TACHE:&#160;appelsystemenum.h']]],
+  ['nbas_5fdumb_14',['nbas_dumb',['../usr_2include_2manux_2appelsystemenum_8h.html#a2bc38972d09552a7f7334ac03e1a70f0',1,'NBAS_DUMB:&#160;appelsystemenum.h'],['../include_2manux_2appelsystemenum_8h.html#a2bc38972d09552a7f7334ac03e1a70f0',1,'NBAS_DUMB:&#160;appelsystemenum.h']]],
+  ['nbas_5fecrire_15',['nbas_ecrire',['../include_2manux_2appelsystemenum_8h.html#af6f2b6432cfa9ae465218edc7dce87d8',1,'NBAS_ECRIRE:&#160;appelsystemenum.h'],['../usr_2include_2manux_2appelsystemenum_8h.html#af6f2b6432cfa9ae465218edc7dce87d8',1,'NBAS_ECRIRE:&#160;appelsystemenum.h']]],
+  ['nbas_5fecrire_5fcons_16',['nbas_ecrire_cons',['../include_2manux_2appelsystemenum_8h.html#a5b97a0359c72a132c3943c5678d2321e',1,'NBAS_ECRIRE_CONS:&#160;appelsystemenum.h'],['../usr_2include_2manux_2appelsystemenum_8h.html#a5b97a0359c72a132c3943c5678d2321e',1,'NBAS_ECRIRE_CONS:&#160;appelsystemenum.h']]],
+  ['nbas_5ffermer_17',['nbas_fermer',['../include_2manux_2appelsystemenum_8h.html#a8bc3e6338e5b025a7e139f7e33181447',1,'NBAS_FERMER:&#160;appelsystemenum.h'],['../usr_2include_2manux_2appelsystemenum_8h.html#a8bc3e6338e5b025a7e139f7e33181447',1,'NBAS_FERMER:&#160;appelsystemenum.h']]],
+  ['nbas_5ffork_18',['nbas_fork',['../include_2manux_2appelsystemenum_8h.html#ad6b766a614bed20cf1c8b1771a2d70f1',1,'NBAS_FORK:&#160;appelsystemenum.h'],['../usr_2include_2manux_2appelsystemenum_8h.html#ad6b766a614bed20cf1c8b1771a2d70f1',1,'NBAS_FORK:&#160;appelsystemenum.h']]],
+  ['nbas_5fidentifiant_5ftache_19',['nbas_identifiant_tache',['../include_2manux_2appelsystemenum_8h.html#ae0200ee1c8ec09ed15ff119ad17afa2d',1,'NBAS_IDENTIFIANT_TACHE:&#160;appelsystemenum.h'],['../usr_2include_2manux_2appelsystemenum_8h.html#ae0200ee1c8ec09ed15ff119ad17afa2d',1,'NBAS_IDENTIFIANT_TACHE:&#160;appelsystemenum.h']]],
+  ['nbas_5flire_20',['nbas_lire',['../include_2manux_2appelsystemenum_8h.html#aaf3a5c58d84af2705d30a45914274b7c',1,'NBAS_LIRE:&#160;appelsystemenum.h'],['../usr_2include_2manux_2appelsystemenum_8h.html#aaf3a5c58d84af2705d30a45914274b7c',1,'NBAS_LIRE:&#160;appelsystemenum.h']]],
+  ['no_5foptino_5foptimize_21',['NO_OPTINO_OPTIMIZE',['../base_8h.html#a06159baf0f2e69d6cfda9f93bfcc2e3b',1,'base.h']]],
+  ['nom_5fmasque_5fconsole_22',['NOM_MASQUE_CONSOLE',['../config_2debug_8h.html#aec0606d3ac1ec4e3671d61486746eecc',1,'debug.h']]],
+  ['nom_5fmasque_5ffichier_23',['NOM_MASQUE_FICHIER',['../config_2debug_8h.html#add8b42a7ce719b3a23686a7ab35cacb7',1,'debug.h']]],
+  ['null_24',['null',['../include_2manux_2stddef_8h.html#a070d2ce7b6bb7e5c05602aa8c308d0c4',1,'NULL:&#160;stddef.h'],['../usr_2include_2manux_2stddef_8h.html#a070d2ce7b6bb7e5c05602aa8c308d0c4',1,'NULL:&#160;stddef.h']]]
+];

@@ -1,0 +1,241 @@
+\doxysection{Référence du fichier /home/manu/\+PROGRAMMATION/\+C/\+Manu\+X/include/manux/scheduler.h}
+\hypertarget{scheduler_8h}{}\label{scheduler_8h}\index{/home/manu/PROGRAMMATION/C/ManuX/include/manux/scheduler.h@{/home/manu/PROGRAMMATION/C/ManuX/include/manux/scheduler.h}}
+{\ttfamily \#include $<$manux/types.\+h$>$}\newline
+{\ttfamily \#include $<$manux/tache.\+h$>$}\newline
+{\ttfamily \#include $<$manux/listetaches.\+h$>$}\newline
+{\ttfamily \#include $<$manux/atomique.\+h$>$}\newline
+{\ttfamily \#include $<$manux/appelsysteme.\+h$>$}\newline
+Graphe des dépendances par inclusion de scheduler.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{scheduler_8h__incl}
+\end{center}
+\end{figure}
+Ce graphe montre quels fichiers incluent directement ou indirectement ce fichier \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{scheduler_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} \mbox{\hyperlink{scheduler_8h_a32c7cefad94adc3dd3953dc5c71b32ad}{initialiser\+Scheduler}} (\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}})
+\begin{DoxyCompactList}\small\item\em Identifiant de la tâche actuellement en cours d\textquotesingle{}exécution dans le noyau (0 si aucune) \end{DoxyCompactList}\item 
+\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} \mbox{\hyperlink{scheduler_8h_aef1e54d9e6a32886461b3dc665654748}{ordonnanceur\+Add\+Tache}} (\mbox{\hyperlink{tache_8h_a5e93bfec061525341810ac895de87af3}{Tache}} \texorpdfstring{$\ast$}{*}tache)
+\begin{DoxyCompactList}\small\item\em Ajout d\textquotesingle{}une tâche dans l\textquotesingle{}ordonnanceur. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} \mbox{\hyperlink{scheduler_8h_ae00507099d51c08195d42c08daad4f41}{ordonnanceur}} (\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}})
+\begin{DoxyCompactList}\small\item\em Basculer vers la prochaine tache à exécuter. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{include_2manux_2types_8h_a1aa19b97c742cff758e6532b519954c4}{Tache\+ID}} \mbox{\hyperlink{scheduler_8h_ae922bcf579d9ef3fb82370f3a876029d}{ordonnanceur\+Creer\+Tache\+Noyau}} (Corps\+Tache corps\+Tache)
+\begin{DoxyCompactList}\small\item\em Création et ordonnancement d\textquotesingle{}une tâche noyau. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{scheduler_8h_a2bf4d87db2a0e2c668709171410ea88c}{sys\+\_\+identifiant\+Tache}} (\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}})
+\item 
+\mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\+\_\+t}} \mbox{\hyperlink{scheduler_8h_a88d934b613790e1dc8c9a228ec6ce59c}{AS\+\_\+console}} (\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}})
+\item 
+int \mbox{\hyperlink{scheduler_8h_ae066204c3c4fc47d9bc5cd4a9a4c7d39}{sys\+\_\+basculer\+Tache}} (\mbox{\hyperlink{include_2manux_2appelsysteme_8h_a9c54ff02dcc0e0b383c91a12a5e9c992}{Parametre\+AS}} as)
+\item 
+\mbox{\hyperlink{include_2manux_2types_8h_a1aa19b97c742cff758e6532b519954c4}{Tache\+ID}} \mbox{\hyperlink{scheduler_8h_a8f577acc503b6c76a2f531bc3c9bf6e3}{sys\+\_\+creer\+Tache}} (\mbox{\hyperlink{include_2manux_2appelsysteme_8h_a9c54ff02dcc0e0b383c91a12a5e9c992}{Parametre\+AS}} as, Corps\+Tache corps\+Tache, \mbox{\hyperlink{include_2manux_2types_8h_a5b7544e51b136e716e4eccc0602bafd7}{booleen}} share\+Console)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{include_2manux_2types_8h_a5b7544e51b136e716e4eccc0602bafd7}{booleen}} \mbox{\hyperlink{scheduler_8h_ac0ad7deba8c8b31a1d9f541aa3ba997f}{bascule\+Console\+Demandee}}
+\item 
+\mbox{\hyperlink{include_2manux_2types_8h_a5b7544e51b136e716e4eccc0602bafd7}{booleen}} \mbox{\hyperlink{scheduler_8h_ae8cd8e485fa1ec93c42891f9daf65b57}{affiche\+Etat\+Systeme\+Demande}}
+\item 
+\mbox{\hyperlink{include_2manux_2types_8h_a5b7544e51b136e716e4eccc0602bafd7}{booleen}} \mbox{\hyperlink{scheduler_8h_a6ab4872c480fd88702e95f13ca8c1bf5}{basculer\+Tache\+Demande}}
+\item 
+\mbox{\hyperlink{tache_8h_a5e93bfec061525341810ac895de87af3}{Tache}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{scheduler_8h_aafdf44b33a86f1bef6141d33a4abb94b}{tache\+En\+Cours}}
+\begin{DoxyCompactList}\small\item\em \+: L\textquotesingle{}identification de la tâche en cours \end{DoxyCompactList}\item 
+\mbox{\hyperlink{listetaches_8h_a4f8dc29eb1e6c258afefb6608ce936b5}{Liste\+Tache}} \mbox{\hyperlink{scheduler_8h_a80a9c97323077673833937f0f3cb3059}{liste\+Taches\+Pretes}}
+\begin{DoxyCompactList}\small\item\em \+: La liste des tâches prêtes sur le système \end{DoxyCompactList}\item 
+\mbox{\hyperlink{listetaches_8h_a4f8dc29eb1e6c258afefb6608ce936b5}{Liste\+Tache}} \mbox{\hyperlink{scheduler_8h_a0ee9c5d04fc494f6a86b24b993eb30e3}{liste\+Toutes\+Les\+Taches}}
+\begin{DoxyCompactList}\small\item\em \+: La liste de toutes les tâches existant sur le système. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{listetaches_8h_a4f8dc29eb1e6c258afefb6608ce936b5}{Liste\+Tache}} \mbox{\hyperlink{scheduler_8h_a05fd30175a3a21795cc066dab7606b4d}{liste\+Taches\+Terminees}}
+\begin{DoxyCompactList}\small\item\em \+: La liste des tâches achevées \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Documentation des fonctions}
+\Hypertarget{scheduler_8h_a88d934b613790e1dc8c9a228ec6ce59c}\label{scheduler_8h_a88d934b613790e1dc8c9a228ec6ce59c} 
+\index{scheduler.h@{scheduler.h}!AS\_console@{AS\_console}}
+\index{AS\_console@{AS\_console}!scheduler.h@{scheduler.h}}
+\doxysubsubsection{\texorpdfstring{AS\_console()}{AS\_console()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\+\_\+t}} AS\+\_\+console (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}}}]{ }\end{DoxyParamCaption})}
+
+\Hypertarget{scheduler_8h_a32c7cefad94adc3dd3953dc5c71b32ad}\label{scheduler_8h_a32c7cefad94adc3dd3953dc5c71b32ad} 
+\index{scheduler.h@{scheduler.h}!initialiserScheduler@{initialiserScheduler}}
+\index{initialiserScheduler@{initialiserScheduler}!scheduler.h@{scheduler.h}}
+\doxysubsubsection{\texorpdfstring{initialiserScheduler()}{initialiserScheduler()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} initialiser\+Scheduler (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}}}]{ }\end{DoxyParamCaption})}
+
+
+
+Identifiant de la tâche actuellement en cours d\textquotesingle{}exécution dans le noyau (0 si aucune) 
+
+C\textquotesingle{}est une façon d\textquotesingle{}assurer le fonctionnement d\textquotesingle{}un noyau non réentrant.
+
+Identifiant de la tâche actuellement en cours d\textquotesingle{}exécution dans le noyau (0 si aucune) 
+
+Définition à la ligne \mbox{\hyperlink{scheduler_8c_source_l00181}{181}} du fichier \mbox{\hyperlink{scheduler_8c_source}{scheduler.\+c}}.
+
+\Hypertarget{scheduler_8h_ae00507099d51c08195d42c08daad4f41}\label{scheduler_8h_ae00507099d51c08195d42c08daad4f41} 
+\index{scheduler.h@{scheduler.h}!ordonnanceur@{ordonnanceur}}
+\index{ordonnanceur@{ordonnanceur}!scheduler.h@{scheduler.h}}
+\doxysubsubsection{\texorpdfstring{ordonnanceur()}{ordonnanceur()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} ordonnanceur (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}}}]{ }\end{DoxyParamCaption})}
+
+
+
+Basculer vers la prochaine tache à exécuter. 
+
+Basculer vers la prochaine tache à exécuter.
+
+C\textquotesingle{}est cette fonction qui d�termine la prochaine t�che � ex�cuter. 
+
+Définition à la ligne \mbox{\hyperlink{scheduler_8c_source_l00098}{98}} du fichier \mbox{\hyperlink{scheduler_8c_source}{scheduler.\+c}}.
+
+\Hypertarget{scheduler_8h_aef1e54d9e6a32886461b3dc665654748}\label{scheduler_8h_aef1e54d9e6a32886461b3dc665654748} 
+\index{scheduler.h@{scheduler.h}!ordonnanceurAddTache@{ordonnanceurAddTache}}
+\index{ordonnanceurAddTache@{ordonnanceurAddTache}!scheduler.h@{scheduler.h}}
+\doxysubsubsection{\texorpdfstring{ordonnanceurAddTache()}{ordonnanceurAddTache()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} ordonnanceur\+Add\+Tache (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{tache_8h_a5e93bfec061525341810ac895de87af3}{Tache}} \texorpdfstring{$\ast$}{*}}]{tache }\end{DoxyParamCaption})}
+
+
+
+Ajout d\textquotesingle{}une tâche dans l\textquotesingle{}ordonnanceur. 
+
+On se contente de l\textquotesingle{}insérer dans la liste des tâches de l\textquotesingle{}ordonnanceur.
+
+Ajout d\textquotesingle{}une tâche dans l\textquotesingle{}ordonnanceur.
+
+On se contente de l\textquotesingle{}ins�rer dans la liste des t�ches de l\textquotesingle{}ordonnanceur. 
+
+Définition à la ligne \mbox{\hyperlink{scheduler_8c_source_l00171}{171}} du fichier \mbox{\hyperlink{scheduler_8c_source}{scheduler.\+c}}.
+
+\Hypertarget{scheduler_8h_ae922bcf579d9ef3fb82370f3a876029d}\label{scheduler_8h_ae922bcf579d9ef3fb82370f3a876029d} 
+\index{scheduler.h@{scheduler.h}!ordonnanceurCreerTacheNoyau@{ordonnanceurCreerTacheNoyau}}
+\index{ordonnanceurCreerTacheNoyau@{ordonnanceurCreerTacheNoyau}!scheduler.h@{scheduler.h}}
+\doxysubsubsection{\texorpdfstring{ordonnanceurCreerTacheNoyau()}{ordonnanceurCreerTacheNoyau()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{include_2manux_2types_8h_a1aa19b97c742cff758e6532b519954c4}{Tache\+ID}} ordonnanceur\+Creer\+Tache\+Noyau (\begin{DoxyParamCaption}\item[{Corps\+Tache}]{corps\+Tache }\end{DoxyParamCaption})}
+
+
+
+Création et ordonnancement d\textquotesingle{}une tâche noyau. 
+
+Création et ordonnancement d\textquotesingle{}une tâche noyau. 
+
+Définition à la ligne \mbox{\hyperlink{scheduler_8c_source_l00349}{349}} du fichier \mbox{\hyperlink{scheduler_8c_source}{scheduler.\+c}}.
+
+\Hypertarget{scheduler_8h_ae066204c3c4fc47d9bc5cd4a9a4c7d39}\label{scheduler_8h_ae066204c3c4fc47d9bc5cd4a9a4c7d39} 
+\index{scheduler.h@{scheduler.h}!sys\_basculerTache@{sys\_basculerTache}}
+\index{sys\_basculerTache@{sys\_basculerTache}!scheduler.h@{scheduler.h}}
+\doxysubsubsection{\texorpdfstring{sys\_basculerTache()}{sys\_basculerTache()}}
+{\footnotesize\ttfamily int sys\+\_\+basculer\+Tache (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{include_2manux_2appelsysteme_8h_a9c54ff02dcc0e0b383c91a12a5e9c992}{Parametre\+AS}}}]{as }\end{DoxyParamCaption})}
+
+\Hypertarget{scheduler_8h_a8f577acc503b6c76a2f531bc3c9bf6e3}\label{scheduler_8h_a8f577acc503b6c76a2f531bc3c9bf6e3} 
+\index{scheduler.h@{scheduler.h}!sys\_creerTache@{sys\_creerTache}}
+\index{sys\_creerTache@{sys\_creerTache}!scheduler.h@{scheduler.h}}
+\doxysubsubsection{\texorpdfstring{sys\_creerTache()}{sys\_creerTache()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{include_2manux_2types_8h_a1aa19b97c742cff758e6532b519954c4}{Tache\+ID}} sys\+\_\+creer\+Tache (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{include_2manux_2appelsysteme_8h_a9c54ff02dcc0e0b383c91a12a5e9c992}{Parametre\+AS}}}]{as,  }\item[{Corps\+Tache}]{corps\+Tache,  }\item[{\mbox{\hyperlink{include_2manux_2types_8h_a5b7544e51b136e716e4eccc0602bafd7}{booleen}}}]{share\+Console }\end{DoxyParamCaption})}
+
+\Hypertarget{scheduler_8h_a2bf4d87db2a0e2c668709171410ea88c}\label{scheduler_8h_a2bf4d87db2a0e2c668709171410ea88c} 
+\index{scheduler.h@{scheduler.h}!sys\_identifiantTache@{sys\_identifiantTache}}
+\index{sys\_identifiantTache@{sys\_identifiantTache}!scheduler.h@{scheduler.h}}
+\doxysubsubsection{\texorpdfstring{sys\_identifiantTache()}{sys\_identifiantTache()}}
+{\footnotesize\ttfamily int sys\+\_\+identifiant\+Tache (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}}}]{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Documentation des variables}
+\Hypertarget{scheduler_8h_ae8cd8e485fa1ec93c42891f9daf65b57}\label{scheduler_8h_ae8cd8e485fa1ec93c42891f9daf65b57} 
+\index{scheduler.h@{scheduler.h}!afficheEtatSystemeDemande@{afficheEtatSystemeDemande}}
+\index{afficheEtatSystemeDemande@{afficheEtatSystemeDemande}!scheduler.h@{scheduler.h}}
+\doxysubsubsection{\texorpdfstring{afficheEtatSystemeDemande}{afficheEtatSystemeDemande}}
+{\footnotesize\ttfamily \mbox{\hyperlink{include_2manux_2types_8h_a5b7544e51b136e716e4eccc0602bafd7}{booleen}} affiche\+Etat\+Systeme\+Demande\hspace{0.3cm}{\ttfamily [extern]}}
+
+\Hypertarget{scheduler_8h_ac0ad7deba8c8b31a1d9f541aa3ba997f}\label{scheduler_8h_ac0ad7deba8c8b31a1d9f541aa3ba997f} 
+\index{scheduler.h@{scheduler.h}!basculeConsoleDemandee@{basculeConsoleDemandee}}
+\index{basculeConsoleDemandee@{basculeConsoleDemandee}!scheduler.h@{scheduler.h}}
+\doxysubsubsection{\texorpdfstring{basculeConsoleDemandee}{basculeConsoleDemandee}}
+{\footnotesize\ttfamily \mbox{\hyperlink{include_2manux_2types_8h_a5b7544e51b136e716e4eccc0602bafd7}{booleen}} bascule\+Console\+Demandee\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+Définition à la ligne \mbox{\hyperlink{scheduler_8c_source_l00052}{52}} du fichier \mbox{\hyperlink{scheduler_8c_source}{scheduler.\+c}}.
+
+\Hypertarget{scheduler_8h_a6ab4872c480fd88702e95f13ca8c1bf5}\label{scheduler_8h_a6ab4872c480fd88702e95f13ca8c1bf5} 
+\index{scheduler.h@{scheduler.h}!basculerTacheDemande@{basculerTacheDemande}}
+\index{basculerTacheDemande@{basculerTacheDemande}!scheduler.h@{scheduler.h}}
+\doxysubsubsection{\texorpdfstring{basculerTacheDemande}{basculerTacheDemande}}
+{\footnotesize\ttfamily \mbox{\hyperlink{include_2manux_2types_8h_a5b7544e51b136e716e4eccc0602bafd7}{booleen}} basculer\+Tache\+Demande\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+Définition à la ligne \mbox{\hyperlink{scheduler_8c_source_l00054}{54}} du fichier \mbox{\hyperlink{scheduler_8c_source}{scheduler.\+c}}.
+
+\Hypertarget{scheduler_8h_a80a9c97323077673833937f0f3cb3059}\label{scheduler_8h_a80a9c97323077673833937f0f3cb3059} 
+\index{scheduler.h@{scheduler.h}!listeTachesPretes@{listeTachesPretes}}
+\index{listeTachesPretes@{listeTachesPretes}!scheduler.h@{scheduler.h}}
+\doxysubsubsection{\texorpdfstring{listeTachesPretes}{listeTachesPretes}}
+{\footnotesize\ttfamily \mbox{\hyperlink{listetaches_8h_a4f8dc29eb1e6c258afefb6608ce936b5}{Liste\+Tache}} liste\+Taches\+Pretes\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+\+: La liste des tâches prêtes sur le système 
+
+Ce sont les tâches prêtes à être exécutées. N\textquotesingle{}y figurent donc pas la tâche en cours d\textquotesingle{}exécution ni les tâches en attente sur un outil de synchronisation.
+
+\+: La liste des tâches prêtes sur le système
+
+C\textquotesingle{}est une fa�on d\textquotesingle{}assurer le fonctionnement d\textquotesingle{}un noyau non r�entrant.
+
+\+: La liste des t�ches pr�tes sur le syst�me
+
+Ce sont les t�ches pr�tes � �tre ex�cut�es. N\textquotesingle{}y figurent donc pas la t�che en cours d\textquotesingle{}ex�cution ni les t�ches en attente sur un outil de synchronisation. 
+
+Définition à la ligne \mbox{\hyperlink{scheduler_8c_source_l00076}{76}} du fichier \mbox{\hyperlink{scheduler_8c_source}{scheduler.\+c}}.
+
+\Hypertarget{scheduler_8h_a05fd30175a3a21795cc066dab7606b4d}\label{scheduler_8h_a05fd30175a3a21795cc066dab7606b4d} 
+\index{scheduler.h@{scheduler.h}!listeTachesTerminees@{listeTachesTerminees}}
+\index{listeTachesTerminees@{listeTachesTerminees}!scheduler.h@{scheduler.h}}
+\doxysubsubsection{\texorpdfstring{listeTachesTerminees}{listeTachesTerminees}}
+{\footnotesize\ttfamily \mbox{\hyperlink{listetaches_8h_a4f8dc29eb1e6c258afefb6608ce936b5}{Liste\+Tache}} liste\+Taches\+Terminees\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+\+: La liste des tâches achevées 
+
+\+: La liste des tâches achevées 
+
+Définition à la ligne \mbox{\hyperlink{scheduler_8c_source_l00086}{86}} du fichier \mbox{\hyperlink{scheduler_8c_source}{scheduler.\+c}}.
+
+\Hypertarget{scheduler_8h_a0ee9c5d04fc494f6a86b24b993eb30e3}\label{scheduler_8h_a0ee9c5d04fc494f6a86b24b993eb30e3} 
+\index{scheduler.h@{scheduler.h}!listeToutesLesTaches@{listeToutesLesTaches}}
+\index{listeToutesLesTaches@{listeToutesLesTaches}!scheduler.h@{scheduler.h}}
+\doxysubsubsection{\texorpdfstring{listeToutesLesTaches}{listeToutesLesTaches}}
+{\footnotesize\ttfamily \mbox{\hyperlink{listetaches_8h_a4f8dc29eb1e6c258afefb6608ce936b5}{Liste\+Tache}} liste\+Toutes\+Les\+Taches\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+\+: La liste de toutes les tâches existant sur le système. 
+
+\+: La liste de toutes les tâches existant sur le système. 
+
+Définition à la ligne \mbox{\hyperlink{scheduler_8c_source_l00081}{81}} du fichier \mbox{\hyperlink{scheduler_8c_source}{scheduler.\+c}}.
+
+\Hypertarget{scheduler_8h_aafdf44b33a86f1bef6141d33a4abb94b}\label{scheduler_8h_aafdf44b33a86f1bef6141d33a4abb94b} 
+\index{scheduler.h@{scheduler.h}!tacheEnCours@{tacheEnCours}}
+\index{tacheEnCours@{tacheEnCours}!scheduler.h@{scheduler.h}}
+\doxysubsubsection{\texorpdfstring{tacheEnCours}{tacheEnCours}}
+{\footnotesize\ttfamily \mbox{\hyperlink{tache_8h_a5e93bfec061525341810ac895de87af3}{Tache}}\texorpdfstring{$\ast$}{*} tache\+En\+Cours\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+\+: L\textquotesingle{}identification de la tâche en cours 
+
+\+: L\textquotesingle{}identification de la tâche en cours 
+
+Définition à la ligne \mbox{\hyperlink{scheduler_8c_source_l00091}{91}} du fichier \mbox{\hyperlink{scheduler_8c_source}{scheduler.\+c}}.
+

@@ -1,0 +1,166 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>My Project:  Fichier source de /home/manu/PROGRAMMATION/C/ManuX/include/manux/memoire.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">My Project
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function() { init_codefold(0); });
+/* @license-end */
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_7ae9ae23548caaa7aeb1f148c6e00073.html">manux</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle"><div class="title">memoire.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="include_2manux_2memoire_8h.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">/*----------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment">/*      Définition des sous-programmes de manipulation de la mémoire sous     */</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment">/*   ManuX.                                                                   */</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment">/*                                                                            */</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment">/*                                                  (C) Manu Chaput 2000-2021 */</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment">/*----------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#ifndef MEMOIRE_DEF</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#define MEMOIRE_DEF</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &lt;manux/types.h&gt;</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &lt;manux/stddef.h&gt;</span>    <span class="comment">// NULL</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#ifdef MANUX_AS</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#   include &lt;manux/appelsysteme.h&gt;</span> <span class="comment">/* ParametreAS */</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno"><a class="line" href="include_2manux_2memoire_8h.html#a16b2cf32ec491a334b2cef234b44a9ae">   17</a></span><span class="preprocessor">#define MANUX_DEBUT_MEMOIRE_ETENDUE 0x100000</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="include_2manux_2memoire_8h.html#a86a8d5a4cf169fff16174f294cdb101d">   22</a></span><span class="preprocessor">#define NB_PAGES(n) ((n + MANUX_TAILLE_PAGE - 1)/MANUX_TAILLE_PAGE)</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="comment">/*</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="comment"> * Nombre de pages communes à toutes les tâches.</span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="keyword">extern</span> <span class="keywordtype">int</span> <a class="code hl_variable" href="include_2manux_2memoire_8h.html#a0e9c7b044c6a0b46ab3a7a38d9c4a10a">nombrePagesSysteme</a>;</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="keywordtype">void</span> <a class="code hl_function" href="include_2manux_2memoire_8h.html#a4338550e2017b7c95021bdc27e4f3345">initialiserMemoire</a>(<a class="code hl_typedef" href="include_2manux_2types_8h.html#a06896e8c53f721507066c079052171f8">uint32_t</a> tailleMemoireDeBase,</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>            <a class="code hl_typedef" href="include_2manux_2types_8h.html#a06896e8c53f721507066c079052171f8">uint32_t</a> tailleMemoireEtendue);</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="keywordtype">void</span> * <a class="code hl_function" href="include_2manux_2memoire_8h.html#ad9072ff00da9e7f32b882e5c1361d46f">allouerPage</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="comment">/*</span></div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="comment"> * Réservation d&#39;une page (de 4 Ko)</span></div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><span class="comment"> * Retour</span></div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="comment"> *    première adresse dispo si la pages a pu être allouée,</span></div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span><span class="comment"> *    NULL sinon</span></div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span><span class="keywordtype">void</span> * <a class="code hl_function" href="include_2manux_2memoire_8h.html#a09bebf2806a04211ae6bb6c11ffb6a66">allouerPages</a>(<a class="code hl_typedef" href="include_2manux_2types_8h.html#a06896e8c53f721507066c079052171f8">uint32_t</a> nombre);</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span><span class="comment">/*</span></div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span><span class="comment"> * Réservation d&#39;un nombre choisi de pages (de 4 Ko) contigues.</span></div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span><span class="comment"> * Retour</span></div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span><span class="comment"> *    première adresse dispo si les pages ont pu être allouées,</span></div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span><span class="comment"> *    NULL sinon</span></div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span><span class="comment"> * WARNING à mettre en appel système ?</span></div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span><span class="keywordtype">void</span> <a class="code hl_function" href="include_2manux_2memoire_8h.html#aee3b45cedb3e2add79c773ed3558a1c8">libererPage</a>(<span class="keywordtype">void</span> * pageLiberee);</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span><span class="comment">/*</span></div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span><span class="comment"> * Libération d&#39;une page préalablement allouée. Attention, aucune</span></div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span><span class="comment"> * vérification n&#39;est effectuée.</span></div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span><span class="keywordtype">int</span> <a class="code hl_function" href="include_2manux_2memoire_8h.html#a3aef845c64cbb35e0c25f697fd39156a">nombrePagesAllouees</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span> </div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span><span class="keywordtype">int</span> <a class="code hl_function" href="include_2manux_2memoire_8h.html#a4f075bfff5a918e6ac19bf24be879e96">nombrePagesTotal</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span> </div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span><span class="preprocessor">#ifdef MANUX_AS</span></div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span><span class="keywordtype">int</span> AS_obtenirPages(<a class="code hl_struct" href="struct__ParametreAS.html">ParametreAS</a> p, <span class="keywordtype">int</span> nbPages);</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span><span class="comment">/*</span></div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span><span class="comment"> * Demande d&#39;accroissement de la zone mémoire disponible à</span></div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span><span class="comment"> * la tâche.</span></div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span><span class="comment"> * Retour : nombre de pages obtenues.</span></div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span> </div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span><span class="preprocessor">#endif</span></div>
+<div class="ttc" id="ainclude_2manux_2memoire_8h_html_a09bebf2806a04211ae6bb6c11ffb6a66"><div class="ttname"><a href="include_2manux_2memoire_8h.html#a09bebf2806a04211ae6bb6c11ffb6a66">allouerPages</a></div><div class="ttdeci">void * allouerPages(uint32_t nombre)</div><div class="ttdef"><b>Definition</b> <a href="memoire_8c_source.html#l00284">memoire.c:284</a></div></div>
+<div class="ttc" id="ainclude_2manux_2memoire_8h_html_a0e9c7b044c6a0b46ab3a7a38d9c4a10a"><div class="ttname"><a href="include_2manux_2memoire_8h.html#a0e9c7b044c6a0b46ab3a7a38d9c4a10a">nombrePagesSysteme</a></div><div class="ttdeci">int nombrePagesSysteme</div><div class="ttdef"><b>Definition</b> <a href="memoire_8c_source.html#l00048">memoire.c:48</a></div></div>
+<div class="ttc" id="ainclude_2manux_2memoire_8h_html_a3aef845c64cbb35e0c25f697fd39156a"><div class="ttname"><a href="include_2manux_2memoire_8h.html#a3aef845c64cbb35e0c25f697fd39156a">nombrePagesAllouees</a></div><div class="ttdeci">int nombrePagesAllouees(void)</div><div class="ttdef"><b>Definition</b> <a href="memoire_8c_source.html#l00257">memoire.c:257</a></div></div>
+<div class="ttc" id="ainclude_2manux_2memoire_8h_html_a4338550e2017b7c95021bdc27e4f3345"><div class="ttname"><a href="include_2manux_2memoire_8h.html#a4338550e2017b7c95021bdc27e4f3345">initialiserMemoire</a></div><div class="ttdeci">void initialiserMemoire(uint32_t tailleMemoireDeBase, uint32_t tailleMemoireEtendue)</div><div class="ttdoc">Initialisation de la mémoire au niveau pages.</div><div class="ttdef"><b>Definition</b> <a href="memoire_8c_source.html#l00103">memoire.c:103</a></div></div>
+<div class="ttc" id="ainclude_2manux_2memoire_8h_html_a4f075bfff5a918e6ac19bf24be879e96"><div class="ttname"><a href="include_2manux_2memoire_8h.html#a4f075bfff5a918e6ac19bf24be879e96">nombrePagesTotal</a></div><div class="ttdeci">int nombrePagesTotal(void)</div><div class="ttdef"><b>Definition</b> <a href="memoire_8c_source.html#l00262">memoire.c:262</a></div></div>
+<div class="ttc" id="ainclude_2manux_2memoire_8h_html_ad9072ff00da9e7f32b882e5c1361d46f"><div class="ttname"><a href="include_2manux_2memoire_8h.html#ad9072ff00da9e7f32b882e5c1361d46f">allouerPage</a></div><div class="ttdeci">void * allouerPage(void)</div><div class="ttdef"><b>Definition</b> <a href="memoire_8c_source.html#l00234">memoire.c:234</a></div></div>
+<div class="ttc" id="ainclude_2manux_2memoire_8h_html_aee3b45cedb3e2add79c773ed3558a1c8"><div class="ttname"><a href="include_2manux_2memoire_8h.html#aee3b45cedb3e2add79c773ed3558a1c8">libererPage</a></div><div class="ttdeci">void libererPage(void *pageLiberee)</div><div class="ttdef"><b>Definition</b> <a href="memoire_8c_source.html#l00081">memoire.c:81</a></div></div>
+<div class="ttc" id="ainclude_2manux_2types_8h_html_a06896e8c53f721507066c079052171f8"><div class="ttname"><a href="include_2manux_2types_8h.html#a06896e8c53f721507066c079052171f8">uint32_t</a></div><div class="ttdeci">unsigned long uint32_t</div><div class="ttdef"><b>Definition</b> <a href="include_2manux_2types_8h_source.html#l00020">types.h:20</a></div></div>
+<div class="ttc" id="astruct__ParametreAS_html"><div class="ttname"><a href="struct__ParametreAS.html">_ParametreAS</a></div><div class="ttdef"><b>Definition</b> <a href="include_2manux_2appelsysteme_8h_source.html#l00030">appelsysteme.h:30</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

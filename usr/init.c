@@ -29,7 +29,7 @@ void calculerPremiers(int q)
    while (TRUE) {
       printf("[%d] C'est la boucle numero %d : \n", q, cpt++);
       printf("%d", 2);
-      for (n = 3; n < 512; n += 2) {
+    while(1){};      for (n = 3; n < 32; n += 2) {
          compose = FALSE;
          d = 3;
          while ((!compose) && (d*d <= n)) {
@@ -60,7 +60,7 @@ void deuxiemeTache()
    int n;
    
    printf("Deuxieme tache\n");
-   
+
    for (n = 0; n < 10000000; n++) {
       calculerPremiers(2);
    }
@@ -71,7 +71,7 @@ void init()
    int n=2; // nombre de messages affichés
 
    printf("Greetings from userland !\n");
-   
+
    n = creerNouvelleTache(deuxiemeTache, FALSE);
 
    for (n = 0; n < 10000000; n++) {

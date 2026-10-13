@@ -1,0 +1,145 @@
+\doxysection{tache.\+h}
+\hypertarget{tache_8h_source}{}\label{tache_8h_source}\index{/home/manu/PROGRAMMATION/C/ManuX/include/manux/tache.h@{/home/manu/PROGRAMMATION/C/ManuX/include/manux/tache.h}}
+\mbox{\hyperlink{tache_8h}{Aller à la documentation de ce fichier.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{tache_8h_source_l00001}00001\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{tache_8h_source_l00002}00002\ \textcolor{comment}{/*\ \ \ \ \ \ Définition\ des\ taches\ de\ ManuX-\/32.\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{tache_8h_source_l00003}00003\ \textcolor{comment}{/*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{tache_8h_source_l00004}00004\ \textcolor{comment}{/*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (C)\ Manu\ Chaput\ 2000,\ 2001,\ 2002,\ 2003\ */}}
+\DoxyCodeLine{\Hypertarget{tache_8h_source_l00005}00005\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{tache_8h_source_l00006}00006\ \textcolor{preprocessor}{\#ifndef\ TACHES\_DEF}}
+\DoxyCodeLine{\Hypertarget{tache_8h_source_l00007}00007\ \textcolor{preprocessor}{\#define\ TACHES\_DEF}}
+\DoxyCodeLine{\Hypertarget{tache_8h_source_l00008}00008\ }
+\DoxyCodeLine{\Hypertarget{tache_8h_source_l00009}00009\ \textcolor{preprocessor}{\#include\ <manux/config.h>}\ \ \ \ \ \textcolor{comment}{/*\ TAILLE\_PAGE\ */}}
+\DoxyCodeLine{\Hypertarget{tache_8h_source_l00010}00010\ }
+\DoxyCodeLine{\Hypertarget{tache_8h_source_l00011}00011\ \textcolor{preprocessor}{\#include\ <manux/types.h>}}
+\DoxyCodeLine{\Hypertarget{tache_8h_source_l00012}00012\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{include_2manux_2interruptions_8h}{manux/interruptions.h}}>}}
+\DoxyCodeLine{\Hypertarget{tache_8h_source_l00013}00013\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{segment_8h}{manux/segment.h}}>}\ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Pour\ la\ descriptor\ table\ */}}
+\DoxyCodeLine{\Hypertarget{tache_8h_source_l00014}00014\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fichier_8h}{manux/fichier.h}}>}}
+\DoxyCodeLine{\Hypertarget{tache_8h_source_l00015}00015\ }
+\DoxyCodeLine{\Hypertarget{tache_8h_source_l00016}00016\ \textcolor{preprocessor}{\#ifdef\ MANUX\_APPELS\_SYSTEME}}
+\DoxyCodeLine{\Hypertarget{tache_8h_source_l00017}00017\ \textcolor{preprocessor}{\#\ \ \ include\ \ <manux/appelsysteme.h>}}
+\DoxyCodeLine{\Hypertarget{tache_8h_source_l00018}00018\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{tache_8h_source_l00019}00019\ }
+\DoxyCodeLine{\Hypertarget{tache_8h_source_l00020}00020\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{tache_8h_source_l00021}00021\ \textcolor{comment}{\ *\ Taille\ de\ la\ Local\ Descriptor\ Table\ de\ chaque\ tâche}}
+\DoxyCodeLine{\Hypertarget{tache_8h_source_l00022}00022\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{tache_8h_source_l00023}\mbox{\hyperlink{tache_8h_acdde11eb37bf8b0a6bdad4612335ae58}{00023}}\ \textcolor{preprocessor}{\#define\ LDT\_NB\_BYTES\ 1024\ }\textcolor{comment}{/*\ WARNING,\ pas\ top\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{tache_8h_source_l00024}00024\ }
+\DoxyCodeLine{\Hypertarget{tache_8h_source_l00025}00025\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{tache_8h_source_l00026}00026\ \textcolor{comment}{\ *\ Les\ différents\ états\ possibles\ pour\ une\ tâche}}
+\DoxyCodeLine{\Hypertarget{tache_8h_source_l00027}00027\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{tache_8h_source_l00028}\mbox{\hyperlink{tache_8h_a079625c76ac29238ace165d5958d82e5}{00028}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \mbox{\hyperlink{tache_8h_a079625c76ac29238ace165d5958d82e5}{\_EtatTache}}\ \{}
+\DoxyCodeLine{\Hypertarget{tache_8h_source_l00029}\mbox{\hyperlink{tache_8h_a079625c76ac29238ace165d5958d82e5a6b2e382d78b8c9db8db762366c22f2b3}{00029}}\ \ \ \ \mbox{\hyperlink{tache_8h_a079625c76ac29238ace165d5958d82e5a6b2e382d78b8c9db8db762366c22f2b3}{Tache\_En\_Cours}}\ \ \ =\ 1,\ \ \ \ \textcolor{comment}{//\ la\ tâche\ courante}}
+\DoxyCodeLine{\Hypertarget{tache_8h_source_l00030}\mbox{\hyperlink{tache_8h_a079625c76ac29238ace165d5958d82e5abd18ea3758daaa8a8012e928416be362}{00030}}\ \ \ \ \mbox{\hyperlink{tache_8h_a079625c76ac29238ace165d5958d82e5abd18ea3758daaa8a8012e928416be362}{Tache\_Prete}}\ \ \ \ \ \ =\ 2,\ \ \ \ \textcolor{comment}{//\ les\ tâches\ en\ attente\ du\ processeur}}
+\DoxyCodeLine{\Hypertarget{tache_8h_source_l00031}\mbox{\hyperlink{tache_8h_a079625c76ac29238ace165d5958d82e5a110b28c8c38510bc8d8deec91a117f99}{00031}}\ \ \ \ \mbox{\hyperlink{tache_8h_a079625c76ac29238ace165d5958d82e5a110b28c8c38510bc8d8deec91a117f99}{Tache\_Bloquee}}\ \ \ \ =\ 3,\ \ \ \ \textcolor{comment}{//\ sur\ un\ sémaphore\ par\ ex}}
+\DoxyCodeLine{\Hypertarget{tache_8h_source_l00032}00032\ \ \ \ \mbox{\hyperlink{tache_8h_a079625c76ac29238ace165d5958d82e5a36920ae871fc48a1e7cd206327af7f6b}{Tache\_Terminee}}\ \ \ =\ 4}
+\DoxyCodeLine{\Hypertarget{tache_8h_source_l00033}\mbox{\hyperlink{tache_8h_a4ef64c3567697a3cbcb901cc34fbf3bd}{00033}}\ \}\ \mbox{\hyperlink{tache_8h_a4ef64c3567697a3cbcb901cc34fbf3bd}{EtatTache}};}
+\DoxyCodeLine{\Hypertarget{tache_8h_source_l00034}00034\ }
+\DoxyCodeLine{\Hypertarget{tache_8h_source_l00035}00035\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{tache_8h_source_l00036}00036\ \textcolor{comment}{\ *\ Définition\ du\ type\ du\ "{}main"{}\ d'une\ nouvelle\ tâche}}
+\DoxyCodeLine{\Hypertarget{tache_8h_source_l00037}00037\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{tache_8h_source_l00038}\mbox{\hyperlink{tache_8h_a8cdfdbee5b3891f88dff0dc3a94cfdce}{00038}}\ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{tache_8h_a8cdfdbee5b3891f88dff0dc3a94cfdce}{void}}\ (CorpsTache(\textcolor{keywordtype}{void}));}
+\DoxyCodeLine{\Hypertarget{tache_8h_source_l00039}00039\ }
+\DoxyCodeLine{\Hypertarget{tache_8h_source_l00040}00040\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{tache_8h_source_l00041}00041\ \textcolor{comment}{\ *\ Définition\ de\ la\ structure\ TSS\ (Task\ State\ Segment)}}
+\DoxyCodeLine{\Hypertarget{tache_8h_source_l00042}00042\ \textcolor{comment}{\ *\ WARNING\ :\ à\ mettre\ dans\ i386/processeur.h}}
+\DoxyCodeLine{\Hypertarget{tache_8h_source_l00043}00043\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{tache_8h_source_l00044}\mbox{\hyperlink{struct__IntelTSS}{00044}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__IntelTSS}{\_IntelTSS}}\ \{}
+\DoxyCodeLine{\Hypertarget{tache_8h_source_l00045}\mbox{\hyperlink{struct__IntelTSS_a44c456485b696ada6bac43a7d7688220}{00045}}\ \ \ \ \mbox{\hyperlink{include_2manux_2types_8h_a273cf69d639a59973b6019625df33e30}{uint16\_t}}\ \mbox{\hyperlink{struct__IntelTSS_a44c456485b696ada6bac43a7d7688220}{TSSPrecedent}};\ \ \textcolor{comment}{/*\ Pour\ le\ chaînage\ */}}
+\DoxyCodeLine{\Hypertarget{tache_8h_source_l00046}\mbox{\hyperlink{struct__IntelTSS_a394a6fe34d3789831006591d84b0dd5a}{00046}}\ \ \ \ \mbox{\hyperlink{include_2manux_2types_8h_a273cf69d639a59973b6019625df33e30}{uint16\_t}}\ \mbox{\hyperlink{struct__IntelTSS_a394a6fe34d3789831006591d84b0dd5a}{Reserve1}};}
+\DoxyCodeLine{\Hypertarget{tache_8h_source_l00047}\mbox{\hyperlink{struct__IntelTSS_accd850b1b2ef4e6d7dedee16ce5384ca}{00047}}\ \ \ \ \mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\_t}}\ \mbox{\hyperlink{struct__IntelTSS_accd850b1b2ef4e6d7dedee16ce5384ca}{ESP0}};}
+\DoxyCodeLine{\Hypertarget{tache_8h_source_l00048}\mbox{\hyperlink{struct__IntelTSS_a3d4f9ac48d0a86ba251a446dcef915bd}{00048}}\ \ \ \ \mbox{\hyperlink{include_2manux_2types_8h_a273cf69d639a59973b6019625df33e30}{uint16\_t}}\ \mbox{\hyperlink{struct__IntelTSS_a3d4f9ac48d0a86ba251a446dcef915bd}{SS0}};}
+\DoxyCodeLine{\Hypertarget{tache_8h_source_l00049}\mbox{\hyperlink{struct__IntelTSS_abd64b65a758d2d935d4db1534ff8865e}{00049}}\ \ \ \ \mbox{\hyperlink{include_2manux_2types_8h_a273cf69d639a59973b6019625df33e30}{uint16\_t}}\ \mbox{\hyperlink{struct__IntelTSS_abd64b65a758d2d935d4db1534ff8865e}{Reserve2}};}
+\DoxyCodeLine{\Hypertarget{tache_8h_source_l00050}\mbox{\hyperlink{struct__IntelTSS_a9cbdaa9a8c70bb5ae5bfb1130a4fd647}{00050}}\ \ \ \ \mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\_t}}\ \mbox{\hyperlink{struct__IntelTSS_a9cbdaa9a8c70bb5ae5bfb1130a4fd647}{ESP1}};}
+\DoxyCodeLine{\Hypertarget{tache_8h_source_l00051}\mbox{\hyperlink{struct__IntelTSS_a26376db56f063117d42fe49e7b427672}{00051}}\ \ \ \ \mbox{\hyperlink{include_2manux_2types_8h_a273cf69d639a59973b6019625df33e30}{uint16\_t}}\ \mbox{\hyperlink{struct__IntelTSS_a26376db56f063117d42fe49e7b427672}{SS1}};}
+\DoxyCodeLine{\Hypertarget{tache_8h_source_l00052}\mbox{\hyperlink{struct__IntelTSS_a6732811c7117afcca34219068d482b41}{00052}}\ \ \ \ \mbox{\hyperlink{include_2manux_2types_8h_a273cf69d639a59973b6019625df33e30}{uint16\_t}}\ \mbox{\hyperlink{struct__IntelTSS_a6732811c7117afcca34219068d482b41}{Reserve3}};}
+\DoxyCodeLine{\Hypertarget{tache_8h_source_l00053}\mbox{\hyperlink{struct__IntelTSS_a100867dd3fca487eda920b01b9e65f07}{00053}}\ \ \ \ \mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\_t}}\ \mbox{\hyperlink{struct__IntelTSS_a100867dd3fca487eda920b01b9e65f07}{ESP2}};}
+\DoxyCodeLine{\Hypertarget{tache_8h_source_l00054}\mbox{\hyperlink{struct__IntelTSS_ae875bb0fa6ad9c92e56d5fdcbf8ddb1c}{00054}}\ \ \ \ \mbox{\hyperlink{include_2manux_2types_8h_a273cf69d639a59973b6019625df33e30}{uint16\_t}}\ \mbox{\hyperlink{struct__IntelTSS_ae875bb0fa6ad9c92e56d5fdcbf8ddb1c}{SS2}};}
+\DoxyCodeLine{\Hypertarget{tache_8h_source_l00055}\mbox{\hyperlink{struct__IntelTSS_a06a3f8cb6a099b03602cc1850db1e9b0}{00055}}\ \ \ \ \mbox{\hyperlink{include_2manux_2types_8h_a273cf69d639a59973b6019625df33e30}{uint16\_t}}\ \mbox{\hyperlink{struct__IntelTSS_a06a3f8cb6a099b03602cc1850db1e9b0}{Reserve4}};}
+\DoxyCodeLine{\Hypertarget{tache_8h_source_l00056}\mbox{\hyperlink{struct__IntelTSS_a8c4955d0d3666b75a5f64df1932a8d06}{00056}}\ \ \ \ \mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\_t}}\ \mbox{\hyperlink{struct__IntelTSS_a8c4955d0d3666b75a5f64df1932a8d06}{CR3}};\ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Page\ Directory\ Base\ Register\ */}}
+\DoxyCodeLine{\Hypertarget{tache_8h_source_l00057}\mbox{\hyperlink{struct__IntelTSS_ac594138bec7b4736fdf5a8a656bccfb3}{00057}}\ \ \ \ \mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\_t}}\ \mbox{\hyperlink{struct__IntelTSS_ac594138bec7b4736fdf5a8a656bccfb3}{EIP}};}
+\DoxyCodeLine{\Hypertarget{tache_8h_source_l00058}\mbox{\hyperlink{struct__IntelTSS_ada7d6b099b42b5a77d4dd7df6cb5531f}{00058}}\ \ \ \ \mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\_t}}\ \mbox{\hyperlink{struct__IntelTSS_ada7d6b099b42b5a77d4dd7df6cb5531f}{EFLAGS}};}
+\DoxyCodeLine{\Hypertarget{tache_8h_source_l00059}\mbox{\hyperlink{struct__IntelTSS_a673af5582d6d774d6813e20efb174c63}{00059}}\ \ \ \ \mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\_t}}\ \mbox{\hyperlink{struct__IntelTSS_a673af5582d6d774d6813e20efb174c63}{EAX}},\ \mbox{\hyperlink{struct__IntelTSS_a003722aba2fa94a5489a8c25f421e627}{ECX}},\ \mbox{\hyperlink{struct__IntelTSS_a9d7b1d1d2e383be5d23a94a2403c7cd7}{EDX}},}
+\DoxyCodeLine{\Hypertarget{tache_8h_source_l00060}\mbox{\hyperlink{struct__IntelTSS_ad1c2dce63d1028ffc217d18b998840b0}{00060}}\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct__IntelTSS_a569c2c995df8445fba2671935eb73dee}{EBX}},\ \mbox{\hyperlink{struct__IntelTSS_a8fa9cbd06a966aa7c3ff9766776f0a91}{ESP}},\ \mbox{\hyperlink{struct__IntelTSS_ad1c2dce63d1028ffc217d18b998840b0}{EBP}},}
+\DoxyCodeLine{\Hypertarget{tache_8h_source_l00061}\mbox{\hyperlink{struct__IntelTSS_a415768fed14b2f2892c0ebc97fe3a19c}{00061}}\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct__IntelTSS_a9a46303559b055542469143ee41b03f5}{ESI}},\ \mbox{\hyperlink{struct__IntelTSS_a415768fed14b2f2892c0ebc97fe3a19c}{EDI}};\ \ \ \ \ \ \textcolor{comment}{/*\ Les\ registres\ !\ */}}
+\DoxyCodeLine{\Hypertarget{tache_8h_source_l00062}\mbox{\hyperlink{struct__IntelTSS_afe64a1da0e273126c486b00f8cf4e162}{00062}}\ \ \ \ \mbox{\hyperlink{include_2manux_2types_8h_a273cf69d639a59973b6019625df33e30}{uint16\_t}}\ \mbox{\hyperlink{struct__IntelTSS_afe64a1da0e273126c486b00f8cf4e162}{ES}};\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Le\ sélecteur\ de\ segment\ */}}
+\DoxyCodeLine{\Hypertarget{tache_8h_source_l00063}\mbox{\hyperlink{struct__IntelTSS_ad458de09d794fadd9c864f4acc1f57cc}{00063}}\ \ \ \ \mbox{\hyperlink{include_2manux_2types_8h_a273cf69d639a59973b6019625df33e30}{uint16\_t}}\ \mbox{\hyperlink{struct__IntelTSS_ad458de09d794fadd9c864f4acc1f57cc}{Reserve5}};}
+\DoxyCodeLine{\Hypertarget{tache_8h_source_l00064}\mbox{\hyperlink{struct__IntelTSS_adc1f5c30de0402020c51fe40e40a38ad}{00064}}\ \ \ \ \mbox{\hyperlink{include_2manux_2types_8h_a273cf69d639a59973b6019625df33e30}{uint16\_t}}\ \mbox{\hyperlink{struct__IntelTSS_adc1f5c30de0402020c51fe40e40a38ad}{CS}};\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Le\ sélecteur\ de\ segment\ */}\ }
+\DoxyCodeLine{\Hypertarget{tache_8h_source_l00065}\mbox{\hyperlink{struct__IntelTSS_a4975d6ad07125ea3c61ea25067dd44c1}{00065}}\ \ \ \ \mbox{\hyperlink{include_2manux_2types_8h_a273cf69d639a59973b6019625df33e30}{uint16\_t}}\ \mbox{\hyperlink{struct__IntelTSS_a4975d6ad07125ea3c61ea25067dd44c1}{Reserve6}};}
+\DoxyCodeLine{\Hypertarget{tache_8h_source_l00066}\mbox{\hyperlink{struct__IntelTSS_a901f584553e7e508382537d7d4990379}{00066}}\ \ \ \ \mbox{\hyperlink{include_2manux_2types_8h_a273cf69d639a59973b6019625df33e30}{uint16\_t}}\ \mbox{\hyperlink{struct__IntelTSS_a901f584553e7e508382537d7d4990379}{SS}};\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Le\ sélecteur\ de\ segment\ */}\ }
+\DoxyCodeLine{\Hypertarget{tache_8h_source_l00067}\mbox{\hyperlink{struct__IntelTSS_a735a447495e569b59486291659d4bf98}{00067}}\ \ \ \ \mbox{\hyperlink{include_2manux_2types_8h_a273cf69d639a59973b6019625df33e30}{uint16\_t}}\ \mbox{\hyperlink{struct__IntelTSS_a735a447495e569b59486291659d4bf98}{Reserve7}};}
+\DoxyCodeLine{\Hypertarget{tache_8h_source_l00068}\mbox{\hyperlink{struct__IntelTSS_accc00d25d6b1f932f2f0c72b3c7f522a}{00068}}\ \ \ \ \mbox{\hyperlink{include_2manux_2types_8h_a273cf69d639a59973b6019625df33e30}{uint16\_t}}\ \mbox{\hyperlink{struct__IntelTSS_accc00d25d6b1f932f2f0c72b3c7f522a}{DS}};\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Le\ sélecteur\ de\ segment\ */}\ }
+\DoxyCodeLine{\Hypertarget{tache_8h_source_l00069}\mbox{\hyperlink{struct__IntelTSS_af63bc6f3ffcff7902edf513bfb302f18}{00069}}\ \ \ \ \mbox{\hyperlink{include_2manux_2types_8h_a273cf69d639a59973b6019625df33e30}{uint16\_t}}\ \mbox{\hyperlink{struct__IntelTSS_af63bc6f3ffcff7902edf513bfb302f18}{Reserve8}};}
+\DoxyCodeLine{\Hypertarget{tache_8h_source_l00070}\mbox{\hyperlink{struct__IntelTSS_a0509412a10c372c4a17efb802867a9da}{00070}}\ \ \ \ \mbox{\hyperlink{include_2manux_2types_8h_a273cf69d639a59973b6019625df33e30}{uint16\_t}}\ \mbox{\hyperlink{struct__IntelTSS_a0509412a10c372c4a17efb802867a9da}{FS}};\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Le\ sélecteur\ de\ segment\ */}\ }
+\DoxyCodeLine{\Hypertarget{tache_8h_source_l00071}\mbox{\hyperlink{struct__IntelTSS_ae5a7362c18cb6509921150654ae6d722}{00071}}\ \ \ \ \mbox{\hyperlink{include_2manux_2types_8h_a273cf69d639a59973b6019625df33e30}{uint16\_t}}\ \mbox{\hyperlink{struct__IntelTSS_ae5a7362c18cb6509921150654ae6d722}{Reserve9}};}
+\DoxyCodeLine{\Hypertarget{tache_8h_source_l00072}\mbox{\hyperlink{struct__IntelTSS_a7f5b233c9a4889e1a8bde16b6633a26f}{00072}}\ \ \ \ \mbox{\hyperlink{include_2manux_2types_8h_a273cf69d639a59973b6019625df33e30}{uint16\_t}}\ \mbox{\hyperlink{struct__IntelTSS_a7f5b233c9a4889e1a8bde16b6633a26f}{GS}};\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Le\ sélecteur\ de\ segment\ */}\ }
+\DoxyCodeLine{\Hypertarget{tache_8h_source_l00073}\mbox{\hyperlink{struct__IntelTSS_a4e9936546ab8f1f0498baead4a41b883}{00073}}\ \ \ \ \mbox{\hyperlink{include_2manux_2types_8h_a273cf69d639a59973b6019625df33e30}{uint16\_t}}\ \mbox{\hyperlink{struct__IntelTSS_a4e9936546ab8f1f0498baead4a41b883}{Reserve10}};}
+\DoxyCodeLine{\Hypertarget{tache_8h_source_l00074}\mbox{\hyperlink{struct__IntelTSS_aeea52c1f9ace638f6bf8504a2b3c9f30}{00074}}\ \ \ \ \mbox{\hyperlink{include_2manux_2types_8h_a273cf69d639a59973b6019625df33e30}{uint16\_t}}\ \mbox{\hyperlink{struct__IntelTSS_aeea52c1f9ace638f6bf8504a2b3c9f30}{LDT}};\ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ La\ Local\ Descriptor\ Table\ */}}
+\DoxyCodeLine{\Hypertarget{tache_8h_source_l00075}\mbox{\hyperlink{struct__IntelTSS_a063fdf5052fd2e1dcb0bc62fd35470da}{00075}}\ \ \ \ \mbox{\hyperlink{include_2manux_2types_8h_a273cf69d639a59973b6019625df33e30}{uint16\_t}}\ \mbox{\hyperlink{struct__IntelTSS_a063fdf5052fd2e1dcb0bc62fd35470da}{Reserve11}};}
+\DoxyCodeLine{\Hypertarget{tache_8h_source_l00076}\mbox{\hyperlink{struct__IntelTSS_a5bad8108c29ac791e9a6c4f5b09c86f5}{00076}}\ \ \ \ \mbox{\hyperlink{include_2manux_2types_8h_a273cf69d639a59973b6019625df33e30}{uint16\_t}}\ \mbox{\hyperlink{struct__IntelTSS_a5bad8108c29ac791e9a6c4f5b09c86f5}{Reserve12}};}
+\DoxyCodeLine{\Hypertarget{tache_8h_source_l00077}\mbox{\hyperlink{struct__IntelTSS_aea28ac4ebdb0852daa5c04596942c998}{00077}}\ \ \ \ \mbox{\hyperlink{include_2manux_2types_8h_a273cf69d639a59973b6019625df33e30}{uint16\_t}}\ \mbox{\hyperlink{struct__IntelTSS_aea28ac4ebdb0852daa5c04596942c998}{IOMBA}};}
+\DoxyCodeLine{\Hypertarget{tache_8h_source_l00078}\mbox{\hyperlink{tache_8h_af5b9601373a4046cda03c6c8f1a17f98}{00078}}\ \}\ \mbox{\hyperlink{tache_8h_af5b9601373a4046cda03c6c8f1a17f98}{IntelTSS}};}
+\DoxyCodeLine{\Hypertarget{tache_8h_source_l00079}00079\ }
+\DoxyCodeLine{\Hypertarget{tache_8h_source_l00083}\mbox{\hyperlink{struct__Tache}{00083}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__Tache}{\_Tache}}\ \{}
+\DoxyCodeLine{\Hypertarget{tache_8h_source_l00084}\mbox{\hyperlink{struct__Tache_af2bac45e38758f03f8b91fff30e0fb3e}{00084}}\ \ \ \ \mbox{\hyperlink{struct__IntelTSS}{IntelTSS}}\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct__Tache_af2bac45e38758f03f8b91fff30e0fb3e}{tss}};}
+\DoxyCodeLine{\Hypertarget{tache_8h_source_l00085}\mbox{\hyperlink{struct__Tache_a5b70cfbdeeb9dd7fe9448185490d5fa6}{00085}}\ \ \ \ \mbox{\hyperlink{struct__DescriptorTable}{DescriptorTable}}\ *\ \ \mbox{\hyperlink{struct__Tache_a5b70cfbdeeb9dd7fe9448185490d5fa6}{ldt}};}
+\DoxyCodeLine{\Hypertarget{tache_8h_source_l00086}\mbox{\hyperlink{struct__Tache_ab249d7e8cd1654617b229e6abee76736}{00086}}\ \ \ \ \mbox{\hyperlink{include_2manux_2types_8h_a273cf69d639a59973b6019625df33e30}{uint16\_t}}\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct__Tache_ab249d7e8cd1654617b229e6abee76736}{indiceTSSDescriptor}};\ \textcolor{comment}{/*\ Indice\ du\ TSS\ dans\ la\ GDT\ */}}
+\DoxyCodeLine{\Hypertarget{tache_8h_source_l00087}00087\ }
+\DoxyCodeLine{\Hypertarget{tache_8h_source_l00088}\mbox{\hyperlink{struct__Tache_adcc9e272e58793e4bae000102d6537a3}{00088}}\ \ \ \ \mbox{\hyperlink{include_2manux_2types_8h_a1aa19b97c742cff758e6532b519954c4}{TacheID}}\ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct__Tache_adcc9e272e58793e4bae000102d6537a3}{numero}};}
+\DoxyCodeLine{\Hypertarget{tache_8h_source_l00089}\mbox{\hyperlink{struct__Tache_a52778b74cd5dd7afca337370e89d1668}{00089}}\ \ \ \ \mbox{\hyperlink{tache_8h_a4ef64c3567697a3cbcb901cc34fbf3bd}{EtatTache}}\ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct__Tache_a52778b74cd5dd7afca337370e89d1668}{etat}};}
+\DoxyCodeLine{\Hypertarget{tache_8h_source_l00090}\mbox{\hyperlink{struct__Tache_ac053a0bcac4f36fcad81e909c1e81b3a}{00090}}\ \ \ \ \textcolor{keywordtype}{void}\ \ \ \ \ \ \ \ \ \ \ \ \ *\ \mbox{\hyperlink{struct__Tache_ac053a0bcac4f36fcad81e909c1e81b3a}{tailleMemoire}};\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ en\ octets\ */}}
+\DoxyCodeLine{\Hypertarget{tache_8h_source_l00091}00091\ }
+\DoxyCodeLine{\Hypertarget{tache_8h_source_l00092}\mbox{\hyperlink{struct__Tache_a69b3de36a23cd4f91f04f976a66c452d}{00092}}\ \ \ \ CorpsTache\ \ \ \ \ \ \ \ *\ \mbox{\hyperlink{struct__Tache_a69b3de36a23cd4f91f04f976a66c452d}{fonctionPrincipale}};}
+\DoxyCodeLine{\Hypertarget{tache_8h_source_l00093}00093\ }
+\DoxyCodeLine{\Hypertarget{tache_8h_source_l00094}\mbox{\hyperlink{struct__Tache_adf8333ec5a3905476de96e3159051672}{00094}}\ \ \ \ \mbox{\hyperlink{include_2manux_2types_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\_t}}\ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct__Tache_adf8333ec5a3905476de96e3159051672}{nonPreemptible}};\ \ \ \ \ \ \textcolor{comment}{//<\ Permet\ de\ la\ synchronisation}}
+\DoxyCodeLine{\Hypertarget{tache_8h_source_l00095}00095\ \ \ }
+\DoxyCodeLine{\Hypertarget{tache_8h_source_l00096}00096\ \textcolor{preprocessor}{\#ifdef\ MANUX\_TACHE\_CONSOLE}}
+\DoxyCodeLine{\Hypertarget{tache_8h_source_l00097}00097\ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__Console}{\_Console}}\ \ *\ console;}
+\DoxyCodeLine{\Hypertarget{tache_8h_source_l00098}00098\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{tache_8h_source_l00099}00099\ \ \ }
+\DoxyCodeLine{\Hypertarget{tache_8h_source_l00100}00100\ \textcolor{preprocessor}{\#ifdef\ MANUX\_FICHIER}}
+\DoxyCodeLine{\Hypertarget{tache_8h_source_l00101}00101\ \ \ \ \mbox{\hyperlink{struct__Fichier}{Fichier}}\ \ \ \ \ \ \ \ \ \ *\ fichiers[\mbox{\hyperlink{systeme-fichiers_8h_ab48eeeaee9e09747cccab91a13744206}{MANUX\_NB\_MAX\_FICHIERS}}];}
+\DoxyCodeLine{\Hypertarget{tache_8h_source_l00102}00102\ \ \ \ \textcolor{keywordtype}{int}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ nbFichiersOuverts;\ \textcolor{comment}{//\ Pour\ faciliter\ la\ gestion}}
+\DoxyCodeLine{\Hypertarget{tache_8h_source_l00103}00103\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{tache_8h_source_l00104}\mbox{\hyperlink{struct__Tache_a75f1c6827f13f0d92b905e4f6b0d42e5}{00104}}\ \ \ \ \mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\_t}}\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct__Tache_a75f1c6827f13f0d92b905e4f6b0d42e5}{nbActivations}};\ \ \ \ \ \textcolor{comment}{//\ Décompte\ du\ nombre\ d'activations}}
+\DoxyCodeLine{\Hypertarget{tache_8h_source_l00105}\mbox{\hyperlink{struct__Tache_a8e4b96d2966bc94de3d6d47cdb10ace0}{00105}}\ \ \ \ \mbox{\hyperlink{include_2manux_2types_8h_abe4acab18c967c397d24aa95c2d48b27}{Temps}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct__Tache_a8e4b96d2966bc94de3d6d47cdb10ace0}{tempsExecution}};\ \ \ \ \textcolor{comment}{//\ Cumul\ du\ temps\ d'exécution}}
+\DoxyCodeLine{\Hypertarget{tache_8h_source_l00106}00106\ }
+\DoxyCodeLine{\Hypertarget{tache_8h_source_l00107}00107\ \textcolor{preprocessor}{\#if\ defined(MANUX\_APPELS\_SYSTEME)\ \&\&\ defined(MANUX\_AS\_AUDIT)}}
+\DoxyCodeLine{\Hypertarget{tache_8h_source_l00108}00108\ \ \ \ \mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\_t}}\ \ \ \ \ \ \ \ \ \ \ nbAppelsSystemeIn[\mbox{\hyperlink{include_2manux_2appelsysteme_8h_aed080930d50d6014826e9bafa7af5b1a}{NB\_MAX\_APPELS\_SYSTEME}}];\ \textcolor{comment}{//<\ Décompte\ du\ nombre\ d'AS}}
+\DoxyCodeLine{\Hypertarget{tache_8h_source_l00109}00109\ \ \ \ \mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\_t}}\ \ \ \ \ \ \ \ \ \ \ nbAppelsSystemeOut[\mbox{\hyperlink{include_2manux_2appelsysteme_8h_aed080930d50d6014826e9bafa7af5b1a}{NB\_MAX\_APPELS\_SYSTEME}}];\ \textcolor{comment}{//<\ Décompte\ du\ nombre\ d'AS}}
+\DoxyCodeLine{\Hypertarget{tache_8h_source_l00110}00110\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{tache_8h_source_l00111}00111\ }
+\DoxyCodeLine{\Hypertarget{tache_8h_source_l00112}00112\ \ \ }
+\DoxyCodeLine{\Hypertarget{tache_8h_source_l00113}\mbox{\hyperlink{tache_8h_a5e93bfec061525341810ac895de87af3}{00113}}\ \}\ \mbox{\hyperlink{tache_8h_a5e93bfec061525341810ac895de87af3}{Tache}};}
+\DoxyCodeLine{\Hypertarget{tache_8h_source_l00114}00114\ }
+\DoxyCodeLine{\Hypertarget{tache_8h_source_l00119}00119\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{struct__Tache}{Tache}}\ *\ \mbox{\hyperlink{tache_8h_a3312a33abf1a07a9ef3bbf2697a0dbc2}{tacheCourante}};}
+\DoxyCodeLine{\Hypertarget{tache_8h_source_l00120}00120\ }
+\DoxyCodeLine{\Hypertarget{tache_8h_source_l00128}00128\ \mbox{\hyperlink{struct__Tache}{Tache}}\ *\ \mbox{\hyperlink{tache_8h_ae73130353eaec375c352eee5e35e19ea}{tacheCreer}}(CorpsTache\ corpsTache);}
+\DoxyCodeLine{\Hypertarget{tache_8h_source_l00129}00129\ }
+\DoxyCodeLine{\Hypertarget{tache_8h_source_l00130}00130\ \textcolor{preprocessor}{\#ifdef\ MANUX\_TACHE\_CONSOLE}}
+\DoxyCodeLine{\Hypertarget{tache_8h_source_l00134}00134\ \textcolor{keywordtype}{void}\ tacheSetConsole(\mbox{\hyperlink{struct__Tache}{Tache}}\ *\ tache,\ \textcolor{keyword}{struct}\ \mbox{\hyperlink{struct__Console}{\_Console}}\ *\ cons);}
+\DoxyCodeLine{\Hypertarget{tache_8h_source_l00135}00135\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{tache_8h_source_l00136}00136\ }
+\DoxyCodeLine{\Hypertarget{tache_8h_source_l00137}00137\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{tache_8h_a0ec51dfb4bb630c26867bc04036b99bd}{basculerVersTache}}(\mbox{\hyperlink{struct__Tache}{Tache}}\ *\ tache);}
+\DoxyCodeLine{\Hypertarget{tache_8h_source_l00138}00138\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{tache_8h_source_l00139}00139\ \textcolor{comment}{\ *\ Exécuter\ une\ tâche.\ A\ l'utilisation\ exclusive\ du\ scheduler}}
+\DoxyCodeLine{\Hypertarget{tache_8h_source_l00140}00140\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{tache_8h_source_l00141}00141\ }
+\DoxyCodeLine{\Hypertarget{tache_8h_source_l00142}\mbox{\hyperlink{tache_8h_a2865950b5889449d62cf32a5e077f2aa}{00142}}\ \mbox{\hyperlink{include_2manux_2types_8h_a1aa19b97c742cff758e6532b519954c4}{TacheID}}\ \mbox{\hyperlink{tache_8h_a2865950b5889449d62cf32a5e077f2aa}{sysFork}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{tache_8h_source_l00143}00143\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{tache_8h_source_l00144}00144\ \textcolor{comment}{\ *\ Implantation\ de\ l'appel\ système\ fork}}
+\DoxyCodeLine{\Hypertarget{tache_8h_source_l00145}00145\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{tache_8h_source_l00146}00146\ }
+\DoxyCodeLine{\Hypertarget{tache_8h_source_l00147}00147\ \textcolor{preprocessor}{\#ifdef\ MANUX\_FICHIER}}
+\DoxyCodeLine{\Hypertarget{tache_8h_source_l00148}00148\ }
+\DoxyCodeLine{\Hypertarget{tache_8h_source_l00156}00156\ \textcolor{keywordtype}{int}\ tacheAjouterFichiers(\mbox{\hyperlink{struct__Tache}{Tache}}\ *\ tache,\ \textcolor{keywordtype}{int}\ n,\ \mbox{\hyperlink{struct__Fichier}{Fichier}}\ *\ fichiers[],\ \textcolor{keywordtype}{int}\ *\ fds);}
+\DoxyCodeLine{\Hypertarget{tache_8h_source_l00157}00157\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{tache_8h_source_l00158}00158\ }
+\DoxyCodeLine{\Hypertarget{tache_8h_source_l00162}00162\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{tache_8h_af485409e4fc8a5c06ff9e06e50de8647}{afficherEtatUneTache}}(\mbox{\hyperlink{struct__Tache}{Tache}}\ *\ tache);}
+\DoxyCodeLine{\Hypertarget{tache_8h_source_l00163}00163\ }
+\DoxyCodeLine{\Hypertarget{tache_8h_source_l00167}00167\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{tache_8h_a86f9c6ef6df4fb54c3cbb5fa14061f63}{afficherEtatTaches}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{tache_8h_source_l00168}00168\ }
+\DoxyCodeLine{\Hypertarget{tache_8h_source_l00169}00169\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

@@ -18,7 +18,7 @@ OUTILS      = ./outils/taillenoyau ./outils/makeconfig
 # ils sont édités dans l'arborescence du noyau et doivent donc être
 # mis à jour dans la partie usr
 USR_INC_D   = usr/include/manux
-USR_INC_F   = appelsystemenum.h types.h string.h i386.h errno.h
+USR_INC_F   = appelsystemenum.h types.h string.h i386.h errno.h stddef.h
 USR_INC     = $(USR_INC_F:%.h=$(USR_INC_D)/%.h)
 
 # Quels sont les composants d'un noyau fonctionnel (hors processus de boot)
@@ -27,6 +27,7 @@ MANUX_PARTS  = lib noyau
 MANUX_PARTS += $(if $(MANUX_LIBI386), i386)
 MANUX_PARTS += $(if $(MANUX_USR), usr)
 MANUX_PARTS += $(if $(MANUX_FICHIER), sf)
+MANUX_PARTS += $(if $(MANUX_RESEAU), reseau)
 
 # Les sous-répertoires (pour le nettoyage par exemple)
 SOUS_REP  = $(MANUX_PARTS) $(DEMARAGE) 
@@ -58,7 +59,7 @@ usrinc : $(USR_INC) usrconf
 #    Le fichier de configuration (une des premières choses à faire !)
 #...............................................................................
 make.conf :  $(MANUX_FICHIER_CONFIG) $(CONFIG_FILES)
-	cpp -I$(ROOTDIR)/include -nostdinc -fno-builtin  -dM $(MANUX_FICHIER_CONFIG)  | awk '/^#define MANUX_/ {if (length($$3)){val=$$3}else{val="True"};print $$2"="val}' > make.conf
+	@cpp -I$(ROOTDIR)/include -nostdinc -fno-builtin  -dM $(MANUX_FICHIER_CONFIG)  | awk '/^#define MANUX_/ {if (length($$3)){val=$$3}else{val="True"};print $$2"="val}' > make.conf
 
 
 FORCE:
@@ -77,6 +78,9 @@ $(LIBSF) :
 
 $(LIBMANUX) :
 	(cd lib ; make)
+
+$(LIBRESEAU) :
+	(cd reseau ; make)
 
 $(NOYAU_ELF) : configuration  composants 
 	(cd noyau ; make noyau.elf)
@@ -144,7 +148,7 @@ $(ISO_FICHIER) : iso
 #...............................................................................
 multiso :
 	(rm -rf noyaux/* $(ISO_REP_BASE)/* | true)
-	(for c in $(ROOTDIR)/multiconf/*.h ; do (echo "\033[0;34m*****" ; echo "*****  Construction de $$c *****" ;echo "*****\033[0m" ;  make clean ; make MANUX_FICHIER_CONFIG="$$c" $(NOYAUMB_ELF) ; cp noyau/noyaumb.elf noyaux/`basename $$c .h` ) ; done )
+	for c in $(ROOTDIR)/multiconf/*.h ; do n=`basename $$c .h` ; echo -n "\033[0;34m* Construction de $$n ... " ;  make clean > /dev/null 2>&1 ;  if make MANUX_FICHIER_CONFIG="$$c" $(NOYAUMB_ELF) > /dev/null 2>&1 ; then  cp noyau/noyaumb.elf noyaux/`basename $$c .h` ;  echo "\033[0;32m Oui" ; else echo "\033[1;31m Non"; fi ; echo -n "\033[1;37m" ; done  ; echo
 	$(CREER_ISO) $(ISO_REP_BASE) $(ISO_FICHIER) noyaux/*
 
 #-------------------------------------------------------------------------------
@@ -182,18 +186,29 @@ canevas : unifdef.conf
 	/usr/bin/unifdef -x 2 -f unifdef.conf noyau/main.c -o multiconf/main-$(CFG).c
 
 #-------------------------------------------------------------------------------
+#    Tentative d'affichage des configurations disponibles
+#-------------------------------------------------------------------------------
+CFG_LIST :
+	@(for f in multiconf/*.h ; do c=`basename -s .h  $$f` ; make CFG=$$c clean make.conf >/dev/null 2>&1; make --no-print-directory CFG=$$c affiche_config ; done)
+
+# Attention, la rêgle suivante doit être invoquée avec un CFG cohérent
+# avec le fichier de config
+affiche_config :
+	@echo " * \033[0;34m$(CFG)\033[0m"; echo -n "   " ; grep "@brief" $(MANUX_FICHIER_CONFIG) | cut -d' ' -f 4- ; echo "   MANUX_FICHIER_MAIN=$(MANUX_FICHIER_MAIN)"
+
+#-------------------------------------------------------------------------------
 #    Quelques cibles complémentaires en vrac
 #-------------------------------------------------------------------------------
 dump : $(NOYAU_ELF)
 	ndisasm $(NOYAU_ELF) -u > dump
 
 clean :
-	(for r in $(SOUS_REP) doc ; do (cd $$r ; make clean) ; done)
+	(for r in $(SOUS_REP) ; do (cd $$r ; make clean) ; done)
 	rm -f bochs.out *.bin manux *.obj *.o dump $(TAILLE_CONF) *~ __bfe.log__ $(ISO_FICHIER) dump.dat make.conf *.img unifdef.conf
 
 distclean :
-	(for r in $(SOUS_REP) ; do (cd $$r ; make clean) ; done)
-	rm -f bochs.out *.bin *.obj *.o dump $(TAILLE_CONF) *~
+	(for r in $(SOUS_REP) doc ; do (cd $$r ; make clean) ; done)
+	rm -f bochs.out *.bin manux *.obj *.o dump $(TAILLE_CONF) *~ __bfe.log__ $(ISO_FICHIER) dump.dat make.conf *.img unifdef.conf
 
 tar : clean
 	(cd .. ; tar cvf -  ManuX-32 | $(COMPRESS) > manux-32-`date +"%Y-%m-%d"`.tgz ; echo Archive dans manux-32-`date +"%Y-%m-%d"`.tgz )

@@ -1,0 +1,100 @@
+\doxysection{Référence du fichier /home/manu/\+PROGRAMMATION/\+C/\+Manu\+X/i386/horloge.c}
+\hypertarget{horloge_8c}{}\label{horloge_8c}\index{/home/manu/PROGRAMMATION/C/ManuX/i386/horloge.c@{/home/manu/PROGRAMMATION/C/ManuX/i386/horloge.c}}
+
+
+Implantation des sous-\/programmes de gestion de l\textquotesingle{}horloge matérielle.  
+
+
+{\ttfamily \#include $<$manux/config.\+h$>$}\newline
+{\ttfamily \#include $<$manux/debug.\+h$>$}\newline
+{\ttfamily \#include $<$manux/intel-\/8259a.\+h$>$}\newline
+{\ttfamily \#include $<$manux/horloge.\+h$>$}\newline
+{\ttfamily \#include $<$manux/io.\+h$>$}\newline
+{\ttfamily \#include $<$manux/memoire.\+h$>$}\newline
+{\ttfamily \#include $<$manux/printk.\+h$>$}\newline
+Graphe des dépendances par inclusion de horloge.\+c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{horloge_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} \mbox{\hyperlink{horloge_8c_aec6b6ea786b76653d49b3eb7f6d320c0}{initialiser\+Horloge}} (\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}})
+\begin{DoxyCompactList}\small\item\em Initialisation du système d\textquotesingle{}horloge. \end{DoxyCompactList}\item 
+NO\+\_\+\+OPTIMIZE \mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} \mbox{\hyperlink{horloge_8c_ac294bb36fab5e27f2b306bbbcb5dc0bc}{attente\+Milli\+Secondes}} (int n)
+\begin{DoxyCompactList}\small\item\em Attente active de n millisecondes. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{include_2manux_2types_8h_abe4acab18c967c397d24aa95c2d48b27}{Temps}} \mbox{\hyperlink{horloge_8c_a1ebf6a786f9fbcd719425d9ebeb027e6}{nb\+Top\+Horloge}} = 0
+\item 
+\mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\+\_\+t}} \mbox{\hyperlink{horloge_8c_aa8c27541c2c37691ce2511109d8af6b1}{attente\+Calibre}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Implantation des sous-\/programmes de gestion de l\textquotesingle{}horloge matérielle. 
+
+\begin{DoxyVerb}                                                (C) Manu Chaput 2000-2025
+\end{DoxyVerb}
+ 
+
+Définition dans le fichier \mbox{\hyperlink{horloge_8c_source}{horloge.\+c}}.
+
+
+
+\doxysubsection{Documentation des fonctions}
+\Hypertarget{horloge_8c_ac294bb36fab5e27f2b306bbbcb5dc0bc}\label{horloge_8c_ac294bb36fab5e27f2b306bbbcb5dc0bc} 
+\index{horloge.c@{horloge.c}!attenteMilliSecondes@{attenteMilliSecondes}}
+\index{attenteMilliSecondes@{attenteMilliSecondes}!horloge.c@{horloge.c}}
+\doxysubsubsection{\texorpdfstring{attenteMilliSecondes()}{attenteMilliSecondes()}}
+{\footnotesize\ttfamily NO\+\_\+\+OPTIMIZE \mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} attente\+Milli\+Secondes (\begin{DoxyParamCaption}\item[{int}]{n }\end{DoxyParamCaption})}
+
+
+
+Attente active de n millisecondes. 
+
+Attention, ce n\textquotesingle{}est pas fiable ! 
+
+Définition à la ligne \mbox{\hyperlink{horloge_8c_source_l00115}{115}} du fichier \mbox{\hyperlink{horloge_8c_source}{horloge.\+c}}.
+
+\Hypertarget{horloge_8c_aec6b6ea786b76653d49b3eb7f6d320c0}\label{horloge_8c_aec6b6ea786b76653d49b3eb7f6d320c0} 
+\index{horloge.c@{horloge.c}!initialiserHorloge@{initialiserHorloge}}
+\index{initialiserHorloge@{initialiserHorloge}!horloge.c@{horloge.c}}
+\doxysubsubsection{\texorpdfstring{initialiserHorloge()}{initialiserHorloge()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} initialiser\+Horloge (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}}}]{ }\end{DoxyParamCaption})}
+
+
+
+Initialisation du système d\textquotesingle{}horloge. 
+
+Initialisation de la gestion de l\textquotesingle{}horloge matérielle. 
+
+Définition à la ligne \mbox{\hyperlink{horloge_8c_source_l00095}{95}} du fichier \mbox{\hyperlink{horloge_8c_source}{horloge.\+c}}.
+
+
+
+\doxysubsection{Documentation des variables}
+\Hypertarget{horloge_8c_aa8c27541c2c37691ce2511109d8af6b1}\label{horloge_8c_aa8c27541c2c37691ce2511109d8af6b1} 
+\index{horloge.c@{horloge.c}!attenteCalibre@{attenteCalibre}}
+\index{attenteCalibre@{attenteCalibre}!horloge.c@{horloge.c}}
+\doxysubsubsection{\texorpdfstring{attenteCalibre}{attenteCalibre}}
+{\footnotesize\ttfamily \mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\+\_\+t}} attente\+Calibre}
+
+
+
+Définition à la ligne \mbox{\hyperlink{horloge_8c_source_l00027}{27}} du fichier \mbox{\hyperlink{horloge_8c_source}{horloge.\+c}}.
+
+\Hypertarget{horloge_8c_a1ebf6a786f9fbcd719425d9ebeb027e6}\label{horloge_8c_a1ebf6a786f9fbcd719425d9ebeb027e6} 
+\index{horloge.c@{horloge.c}!nbTopHorloge@{nbTopHorloge}}
+\index{nbTopHorloge@{nbTopHorloge}!horloge.c@{horloge.c}}
+\doxysubsubsection{\texorpdfstring{nbTopHorloge}{nbTopHorloge}}
+{\footnotesize\ttfamily \mbox{\hyperlink{include_2manux_2types_8h_abe4acab18c967c397d24aa95c2d48b27}{Temps}} nb\+Top\+Horloge = 0}
+
+
+
+Définition à la ligne \mbox{\hyperlink{horloge_8c_source_l00022}{22}} du fichier \mbox{\hyperlink{horloge_8c_source}{horloge.\+c}}.
+

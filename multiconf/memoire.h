@@ -15,7 +15,8 @@
 #define MANUX_FICHIER_MAIN main-memoire
 
 #include <config/base.h>
-#include <config/plan-memoire.h>
+#include <config/pc-i386.h>
+#include <config/plan-memoire-pc.h>
 #include <config/gestion-memoire.h>
 #include <config/console.h>
 #include <config/printk.h>

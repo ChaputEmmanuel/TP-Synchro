@@ -1,0 +1,115 @@
+\doxysection{Référence de la structure \+\_\+\+Console}
+\hypertarget{struct__Console}{}\label{struct__Console}\index{\_Console@{\_Console}}
+
+
+Structure d\textquotesingle{}une console.  
+
+
+
+
+{\ttfamily \#include $<$console.\+h$>$}
+
+\doxysubsubsection*{Attributs publics}
+\begin{DoxyCompactItemize}
+\item 
+char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct__Console_a21cbdd08416fe7843ce4759a42605c5b}{adresse\+Ecran}}
+\begin{DoxyCompactList}\small\item\em Adresse à laquelle se trouve le contenu affiché \end{DoxyCompactList}\item 
+\mbox{\hyperlink{include_2manux_2types_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}} \mbox{\hyperlink{struct__Console_a7f0656c24f9ba80f2ff63d516afc5367}{nb\+Lignes}}
+\begin{DoxyCompactList}\small\item\em Caractéristiques de l\textquotesingle{}écran. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{include_2manux_2types_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}} \mbox{\hyperlink{struct__Console_a17cf532467b305ab0e21beee89404fbc}{nb\+Colonnes}}
+\item 
+int \mbox{\hyperlink{struct__Console_aeff356576dc0612e1c92c1d659ded988}{ligne}}
+\begin{DoxyCompactList}\small\item\em Position et attribut (couleur, ...) actuels. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{struct__Console_a8986488bc079fe4c8fec28a63c0840ea}{colonne}}
+\item 
+unsigned char \mbox{\hyperlink{struct__Console_a4a6784763053999b74daae4a88096bf3}{attribut}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Structure d\textquotesingle{}une console. 
+
+Attention, en cas de consoles virtuelles, on stoque ça au début d\textquotesingle{}une page qui contient également une copie de l\textquotesingle{}écran. Il faut donc que la somme des deux tailles soit inférieure à la taille d\textquotesingle{}une page. Ca nous laisse 96 octets pour cette structure. 
+
+Définition à la ligne \mbox{\hyperlink{include_2manux_2console_8h_source_l00037}{37}} du fichier \mbox{\hyperlink{include_2manux_2console_8h_source}{console.\+h}}.
+
+
+
+\doxysubsection{Documentation des données membres}
+\Hypertarget{struct__Console_a21cbdd08416fe7843ce4759a42605c5b}\label{struct__Console_a21cbdd08416fe7843ce4759a42605c5b} 
+\index{\_Console@{\_Console}!adresseEcran@{adresseEcran}}
+\index{adresseEcran@{adresseEcran}!\_Console@{\_Console}}
+\doxysubsubsection{\texorpdfstring{adresseEcran}{adresseEcran}}
+{\footnotesize\ttfamily char\texorpdfstring{$\ast$}{*} \+\_\+\+Console\+::adresse\+Ecran}
+
+
+
+Adresse à laquelle se trouve le contenu affiché 
+
+
+
+Définition à la ligne \mbox{\hyperlink{include_2manux_2console_8h_source_l00039}{39}} du fichier \mbox{\hyperlink{include_2manux_2console_8h_source}{console.\+h}}.
+
+\Hypertarget{struct__Console_a4a6784763053999b74daae4a88096bf3}\label{struct__Console_a4a6784763053999b74daae4a88096bf3} 
+\index{\_Console@{\_Console}!attribut@{attribut}}
+\index{attribut@{attribut}!\_Console@{\_Console}}
+\doxysubsubsection{\texorpdfstring{attribut}{attribut}}
+{\footnotesize\ttfamily unsigned char \+\_\+\+Console\+::attribut}
+
+
+
+Définition à la ligne \mbox{\hyperlink{include_2manux_2console_8h_source_l00045}{45}} du fichier \mbox{\hyperlink{include_2manux_2console_8h_source}{console.\+h}}.
+
+\Hypertarget{struct__Console_a8986488bc079fe4c8fec28a63c0840ea}\label{struct__Console_a8986488bc079fe4c8fec28a63c0840ea} 
+\index{\_Console@{\_Console}!colonne@{colonne}}
+\index{colonne@{colonne}!\_Console@{\_Console}}
+\doxysubsubsection{\texorpdfstring{colonne}{colonne}}
+{\footnotesize\ttfamily int \+\_\+\+Console\+::colonne}
+
+
+
+Définition à la ligne \mbox{\hyperlink{include_2manux_2console_8h_source_l00044}{44}} du fichier \mbox{\hyperlink{include_2manux_2console_8h_source}{console.\+h}}.
+
+\Hypertarget{struct__Console_aeff356576dc0612e1c92c1d659ded988}\label{struct__Console_aeff356576dc0612e1c92c1d659ded988} 
+\index{\_Console@{\_Console}!ligne@{ligne}}
+\index{ligne@{ligne}!\_Console@{\_Console}}
+\doxysubsubsection{\texorpdfstring{ligne}{ligne}}
+{\footnotesize\ttfamily int \+\_\+\+Console\+::ligne}
+
+
+
+Position et attribut (couleur, ...) actuels. 
+
+
+
+Définition à la ligne \mbox{\hyperlink{include_2manux_2console_8h_source_l00044}{44}} du fichier \mbox{\hyperlink{include_2manux_2console_8h_source}{console.\+h}}.
+
+\Hypertarget{struct__Console_a17cf532467b305ab0e21beee89404fbc}\label{struct__Console_a17cf532467b305ab0e21beee89404fbc} 
+\index{\_Console@{\_Console}!nbColonnes@{nbColonnes}}
+\index{nbColonnes@{nbColonnes}!\_Console@{\_Console}}
+\doxysubsubsection{\texorpdfstring{nbColonnes}{nbColonnes}}
+{\footnotesize\ttfamily \mbox{\hyperlink{include_2manux_2types_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}} \+\_\+\+Console\+::nb\+Colonnes}
+
+
+
+Définition à la ligne \mbox{\hyperlink{include_2manux_2console_8h_source_l00042}{42}} du fichier \mbox{\hyperlink{include_2manux_2console_8h_source}{console.\+h}}.
+
+\Hypertarget{struct__Console_a7f0656c24f9ba80f2ff63d516afc5367}\label{struct__Console_a7f0656c24f9ba80f2ff63d516afc5367} 
+\index{\_Console@{\_Console}!nbLignes@{nbLignes}}
+\index{nbLignes@{nbLignes}!\_Console@{\_Console}}
+\doxysubsubsection{\texorpdfstring{nbLignes}{nbLignes}}
+{\footnotesize\ttfamily \mbox{\hyperlink{include_2manux_2types_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}} \+\_\+\+Console\+::nb\+Lignes}
+
+
+
+Caractéristiques de l\textquotesingle{}écran. 
+
+
+
+Définition à la ligne \mbox{\hyperlink{include_2manux_2console_8h_source_l00041}{41}} du fichier \mbox{\hyperlink{include_2manux_2console_8h_source}{console.\+h}}.
+
+
+
+La documentation de cette structure a été générée à partir du fichier suivant \+:\begin{DoxyCompactItemize}
+\item 
+/home/manu/\+PROGRAMMATION/\+C/\+Manu\+X/include/manux/\mbox{\hyperlink{include_2manux_2console_8h}{console.\+h}}\end{DoxyCompactItemize}

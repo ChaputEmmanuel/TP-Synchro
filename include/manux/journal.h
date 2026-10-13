@@ -28,7 +28,7 @@
 /**
  * @brief Initialisation du système de journalisation.
  */
-void journalInitialiser();
+void journalInitialiser(void);
 #ifdef MANUX_FICHIER
 void journalInitialiserINoeud(INoeud * iNoeudConsole);
 #endif
@@ -44,7 +44,7 @@ void journalAffecterFichier(Fichier * pc);
  */
 void journaliser(char * message);
 
-booleen journalOperationnel();
+booleen journalOperationnel(void);
 
 
 #endif

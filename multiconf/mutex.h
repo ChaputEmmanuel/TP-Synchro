@@ -16,7 +16,7 @@
 
 #include <config/bootloader.h>
 #include <config/base.h>
-#include <config/plan-memoire.h>
+#include <config/plan-memoire-pc.h>
 #include <config/console.h>
 #include <config/consoles-virtuelles.h>
 #include <config/printk.h>

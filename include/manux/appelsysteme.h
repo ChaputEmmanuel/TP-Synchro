@@ -51,9 +51,20 @@ int definirAppelSysteme(int num, void * appel);
  *    EINVAL    num n'est pas dans l'intervalle correct
  */
 
-void initialiserAppelsSysteme();
+void initialiserAppelsSysteme(void);
 /*
  * Initialisation des appels systèmes prédéfinis.
  */
+
+/**
+ * @brief Prélude à un appel système
+ */
+void entrerAppelSysteme(uint32_t num);
+
+
+/**
+ * @brief Fin d'un appel système
+ */
+void sortirAppelSysteme(uint32_t num);
 
 #endif

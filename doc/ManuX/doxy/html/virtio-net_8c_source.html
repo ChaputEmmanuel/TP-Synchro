@@ -1,0 +1,528 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>My Project:  Fichier source de /home/manu/PROGRAMMATION/C/ManuX/noyau/virtio-net.c</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">My Project
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function() { init_codefold(0); });
+/* @license-end */
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_b49ee5e1e1e78348df5ce57bc52e7bb8.html">noyau</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle"><div class="title">virtio-net.c</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="virtio-net_8c.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="foldopen" id="foldopen00001" data-start="{" data-end="}">
+<div class="line"><a id="l00001" name="l00001"></a><span class="lineno"><a class="line" href="virtio-net_8c.html#ad09246453a4dabd919c7541484046a87">    1</a></span> </div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &lt;<a class="code" href="include_2manux_2virtio-net_8h.html">manux/virtio-net.h</a>&gt;</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &lt;<a class="code" href="include_2manux_2memoire_8h.html">manux/memoire.h</a>&gt;</span>      <span class="comment">// allouerPages</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &lt;<a class="code" href="manux_2intel-8259a_8h.html">manux/intel-8259a.h</a>&gt;</span>  <span class="comment">// pour les interruptions </span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &lt;<a class="code" href="manux_2pci_8h.html">manux/pci.h</a>&gt;</span>          <span class="comment">// Pour aller récupérer l&#39;irq, on doit</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>                <span class="comment">// pouvoir s&#39;en passer avec une</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>                <span class="comment">// fonction dans virtio</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#include &lt;<a class="code" href="io_8h.html">manux/io.h</a>&gt;</span>           <span class="comment">// outb</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#include &lt;<a class="code" href="manux_2debug_8h.html">manux/debug.h</a>&gt;</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &lt;manux/errno.h&gt;</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#ifdef MANUX_RESEAU            </span><span class="comment">// Est-ce que ça a vraiment du sens ?</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">#   include &lt;<a class="code" href="manux_2reseau_8h.html">manux/reseau.h</a>&gt;</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="preprocessor">#ifdef MANUX_BUFFER_RESEAU     </span><span class="comment">// Idem ? (un peu plus, à la limite)</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="preprocessor">#   include &lt;<a class="code" href="buffer-reseau_8h.html">manux/buffer-reseau.h</a>&gt;</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="comment">// La taille des buffers utilisés par virtio réseau</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="preprocessor">#ifndef VIRTIO_TAILLE_TRAME_MAX</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="virtio-net_8c.html#a94c196500ef9ae1ab36f042eab5e9726">   24</a></span><span class="preprocessor">#   define VIRTIO_TAILLE_TRAME_MAX   2000</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="virtio-net_8c.html#a7b4d2cbe0384379b74085059ae2b7957">   27</a></span><span class="preprocessor">#define VR_FILE_RECEPTION 0</span></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="virtio-net_8c.html#a9eb85b70f2fe3f24b6e922ebfff3ac84">   28</a></span><span class="preprocessor">#define VR_FILE_EMISSION  1</span></div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno"><a class="line" href="virtio-net_8c.html#a1dcc7c8878bfd583c8097790b2a9d0cc">   33</a></span><span class="preprocessor">#define VIRTIO_NET_F_CSUM                   0x00000001   </span><span class="comment">//  0</span></div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="virtio-net_8c.html#a5f4322a66bff0dd9b715c2efac8eb354">   34</a></span><span class="preprocessor">#define VIRTIO_NET_F_GUEST_CSUM             0x00000002   </span><span class="comment">//  1</span></div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="virtio-net_8c.html#aba7638feddf167238365cd5585800a20">   35</a></span><span class="preprocessor">#define VIRTIO_NET_F_CTRL_GUEST_OFFLOADS    0x00000004   </span><span class="comment">//  2</span></div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno"><a class="line" href="virtio-net_8c.html#af52bfce6f5b5b8c029e54a2b4ebc0983">   36</a></span><span class="preprocessor">#define VIRTIO_NET_F_MAC                    0x00000020   </span><span class="comment">//  5</span></div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="virtio-net_8c.html#a27b690f89fac40c9316c6b70c5e8a133">   37</a></span><span class="preprocessor">#define VIRTIO_NET_F_GUEST_TSO4             0x00000080   </span><span class="comment">//  7</span></div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno"><a class="line" href="virtio-net_8c.html#a70f1c6098223df5efbfbc4758674ebdb">   38</a></span><span class="preprocessor">#define VIRTIO_NET_F_GUEST_TSO6             0x00000100   </span><span class="comment">//  8</span></div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno"><a class="line" href="virtio-net_8c.html#a619e01959847e30e7e91a60bcd7112fd">   39</a></span><span class="preprocessor">#define VIRTIO_NET_F_GUEST_ECN              0x00000200   </span><span class="comment">//  9</span></div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno"><a class="line" href="virtio-net_8c.html#ae83137741152c003fee2c260d4a0dcae">   40</a></span><span class="preprocessor">#define VIRTIO_NET_F_GUEST_UFO              0x00000400   </span><span class="comment">// 10</span></div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno"><a class="line" href="virtio-net_8c.html#a3c5cb9cd255d03e74a063b2da591a57c">   41</a></span><span class="preprocessor">#define VIRTIO_NET_F_HOST_TSO4              0x00000800   </span><span class="comment">// 11</span></div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno"><a class="line" href="virtio-net_8c.html#a8246a4099f04b49846f58916b407db32">   42</a></span><span class="preprocessor">#define VIRTIO_NET_F_HOST_TSO6              0x00001000   </span><span class="comment">// 12</span></div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno"><a class="line" href="virtio-net_8c.html#a955d477fa52d096243ac80456a329711">   43</a></span><span class="preprocessor">#define VIRTIO_NET_F_HOST_ECN               0x00002000   </span><span class="comment">// 13</span></div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno"><a class="line" href="virtio-net_8c.html#a80889918fe36861ef7ebfb867092a166">   44</a></span><span class="preprocessor">#define VIRTIO_NET_F_HOST_UFO               0x00004000   </span><span class="comment">// 14</span></div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span><span class="comment">// Le pilote sait fusionner les buffers</span></div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno"><a class="line" href="virtio-net_8c.html#a82761940cd767d8c46c426a7546f123a">   46</a></span><span class="preprocessor">#define VIRTIO_NET_F_MRG_RXBUF              0x00008000   </span><span class="comment">// 15</span></div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno"><a class="line" href="virtio-net_8c.html#ab29d666468fa27d814a432c7e3ecec4e">   47</a></span><span class="preprocessor">#define VIRTIO_NET_F_STATUS                 0x00010000   </span><span class="comment">// 16</span></div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno"><a class="line" href="virtio-net_8c.html#a906f7ea3378205543abb1435692bedef">   48</a></span><span class="preprocessor">#define VIRTIO_NET_F_CTRL_VQ                0x00020000   </span><span class="comment">// 17</span></div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno"><a class="line" href="virtio-net_8c.html#a99b9b60102dc7f82aa7ca4286e255088">   49</a></span><span class="preprocessor">#define VIRTIO_NET_F_CTRL_RX                0x00040000   </span><span class="comment">// 18</span></div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno"><a class="line" href="virtio-net_8c.html#ab7c26a5e406f19ce1191c81a9fbc39b6">   50</a></span><span class="preprocessor">#define VIRTIO_NET_F_CTRL_VLAN              0x00080000   </span><span class="comment">// 19 </span></div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno"><a class="line" href="virtio-net_8c.html#ac85f206ff766ad6be43fee56bfd6ef38">   51</a></span><span class="preprocessor">#define VIRTIO_NET_F_GUEST_ANNOUNCE         0x00200000</span></div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
+<div class="foldopen" id="foldopen00056" data-start="{" data-end="};">
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno"><a class="line" href="structVirtioReseau__t.html">   56</a></span><span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code hl_struct" href="structVirtioReseau__t.html">VirtioReseau_t</a> {</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno"><a class="line" href="structVirtioReseau__t.html#a0eaadeadfb413a1107872923bddea937">   57</a></span>   <a class="code hl_variable" href="manux_2virtio_8h.html#ae5ce3884f555c701f9f8099645f09fe5">VirtioPeripherique</a>    <a class="code hl_variable" href="structVirtioReseau__t.html#a0eaadeadfb413a1107872923bddea937">virtioPeripherique</a>; </div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno"><a class="line" href="structVirtioReseau__t.html#a8c01de06d60bbb55fee3ea0b7d293111">   58</a></span>   <a class="code hl_typedef" href="include_2manux_2types_8h.html#a273cf69d639a59973b6019625df33e30">uint16_t</a>              <a class="code hl_variable" href="structVirtioReseau__t.html#a8c01de06d60bbb55fee3ea0b7d293111">nbItRecues</a>;</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>   <span class="comment">// Les éléments ci dessous sont sûrement à mettre dans une</span></div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>   <span class="comment">// structure liée au réseau</span></div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno"><a class="line" href="structVirtioReseau__t.html#aa7dc77c437e7d1e3632bf78c6171c3f0">   61</a></span>   <a class="code hl_typedef" href="include_2manux_2types_8h.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a>               <a class="code hl_variable" href="structVirtioReseau__t.html#aa7dc77c437e7d1e3632bf78c6171c3f0">adresseMAC</a>[6];</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno"><a class="line" href="virtio-net_8c.html#a42bdc707b1059c8a9c708138545e0596">   62</a></span>} <a class="code hl_typedef" href="virtio-net_8c.html#a42bdc707b1059c8a9c708138545e0596">VirtioReseau</a>;</div>
+</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span><span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code hl_function" href="virtio-net_8c.html#ad09246453a4dabd919c7541484046a87">__attribute__</a>((__packed__)) _VirtioReseauEntete {</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>   <a class="code hl_typedef" href="include_2manux_2types_8h.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a>   flags; </div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>   <a class="code hl_typedef" href="include_2manux_2types_8h.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a>   typeGSO;</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>   <a class="code hl_typedef" href="include_2manux_2types_8h.html#a273cf69d639a59973b6019625df33e30">uint16_t</a>  longueurEntete;</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>   <a class="code hl_typedef" href="include_2manux_2types_8h.html#a273cf69d639a59973b6019625df33e30">uint16_t</a>  tailleGSO;</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>   <a class="code hl_typedef" href="include_2manux_2types_8h.html#a273cf69d639a59973b6019625df33e30">uint16_t</a>  debutSommeControle;</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>   <a class="code hl_typedef" href="include_2manux_2types_8h.html#a273cf69d639a59973b6019625df33e30">uint16_t</a>  decalageSommeControle;</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>  <span class="comment">//uint16_t  nombreBuffers;  (si on gère VIRTIO_NET_F_MRG_RXBUF)</span></div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno"><a class="line" href="virtio-net_8c.html#ab44b26fabacceb70024dc1eaacf7e52c">   75</a></span>} <a class="code hl_variable" href="virtio-net_8c.html#ab44b26fabacceb70024dc1eaacf7e52c">VirtioReseauEntete</a>;</div>
+</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span> </div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno"><a class="line" href="virtio-net_8c.html#af31843169059d11363b765e0ced55934">   80</a></span><a class="code hl_struct" href="structVirtioReseau__t.html">VirtioReseau</a> <a class="code hl_variable" href="virtio-net_8c.html#af31843169059d11363b765e0ced55934">virtioReseau</a>; </div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span> </div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno"><a class="line" href="virtio-net_8c.html#af9d9b2d59d95df2367d39a4b947193a0">   85</a></span><a class="code hl_variable" href="virtio-net_8c.html#ab44b26fabacceb70024dc1eaacf7e52c">VirtioReseauEntete</a> <a class="code hl_variable" href="virtio-net_8c.html#af9d9b2d59d95df2367d39a4b947193a0">virtioReseauEntete</a>;</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span> </div>
+<div class="foldopen" id="foldopen00087" data-start="{" data-end="};">
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno"><a class="line" href="virtio-net_8c.html#a703b1ae1561afadaecccb3c4e4822be3">   87</a></span><a class="code hl_typedef" href="include_2manux_2types_8h.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> <a class="code hl_variable" href="virtio-net_8c.html#a703b1ae1561afadaecccb3c4e4822be3">requeteARP</a>[] = {</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>      0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xc0, 0xff,</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>      0xee, 0xde, 0xad, 0xbe, 0x08, 0x06, 0x00, 0x01,</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>      0x08, 0x00, 0x06, 0x04, 0x00, 0x01, 0xc0, 0xff,</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>      0xee, 0xde, 0xad, 0xbe, 0x0a, 0x00, 0x02, 0x0f,</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>      0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x0a, 0x00,</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>      0x02, 0x02</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>   };</div>
+</div>
+<div class="foldopen" id="foldopen00095" data-start="{" data-end="};">
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno"><a class="line" href="virtio-net_8c.html#a7a7fdfccfc1436dbf5ee41e6a188342e">   95</a></span><a class="code hl_typedef" href="include_2manux_2types_8h.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> <a class="code hl_variable" href="virtio-net_8c.html#a7a7fdfccfc1436dbf5ee41e6a188342e">requeteARP2</a>[] = {</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>      0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xc0, 0xff,</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>      0xee, 0xde, 0xad, 0xbe, 0x08, 0x06, 0x00, 0x01,</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>      0x08, 0x00, 0x06, 0x04, 0x00, 0x01, 0xc0, 0xff,</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>      0xee, 0xde, 0xad, 0xbe, 0x0a, 0x00, 0x02, 0x0f,</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>      0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x0a, 0x00,</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>      0x02, 0x02</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>   };</div>
+</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span> </div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno"><a class="line" href="virtio-net_8c.html#ab202a765d61bb97c205316763d12ddd8">  107</a></span><a class="code hl_typedef" href="include_2manux_2types_8h.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> <a class="code hl_variable" href="virtio-net_8c.html#ab202a765d61bb97c205316763d12ddd8">unBufferALaCon</a>[4096] ={0};</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span> </div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span> </div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span><span class="keyword">static</span></div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span><span class="keywordtype">void</span> netDumpPacket(<a class="code hl_typedef" href="include_2manux_2types_8h.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> * packet, <span class="keywordtype">int</span> lg)</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>{</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>   <span class="keywordtype">int</span> i;</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>   <span class="keywordflow">for</span> (i = 0; i &lt; lg; i++) {</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>      <a class="code hl_function" href="include_2manux_2printk_8h.html#a25b30e8bbadd54650c56895999dd808f">printk</a>(<span class="stringliteral">&quot; 0x%2x &quot;</span>, packet[i]);</div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>      <span class="keywordflow">if</span> (i % 8 == 7) <a class="code hl_function" href="include_2manux_2printk_8h.html#a25b30e8bbadd54650c56895999dd808f">printk</a>(<span class="stringliteral">&quot;\n&quot;</span>);</div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>   }</div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>   <span class="keywordflow">if</span> (i % 8 != 7) <a class="code hl_function" href="include_2manux_2printk_8h.html#a25b30e8bbadd54650c56895999dd808f">printk</a>(<span class="stringliteral">&quot;\n&quot;</span>);</div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>}</div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span> </div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>[[maybe_unused]]</div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span><span class="keyword">static</span></div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span><span class="keywordtype">void</span> virtioNetTraiterEmissions(<a class="code hl_struct" href="structVirtioReseau__t.html">VirtioReseau</a> * vr)</div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>{</div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>   <span class="comment">// OK, mais on les traite de quoi ?</span></div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span> </div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>   <a class="code hl_typedef" href="include_2manux_2types_8h.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a>             * buffers[2];</div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>   <span class="keywordtype">int</span>                   longueurs[2];</div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>   <a class="code hl_variable" href="manux_2virtio_8h.html#a3f078bcc0894ca39b56f2af3bce4be7f">VirtioFileVirtuelle</a> * fv = &amp;(vr-&gt;<a class="code hl_variable" href="structVirtioReseau__t.html#a0eaadeadfb413a1107872923bddea937">virtioPeripherique</a>.filesVirtuelles[<a class="code hl_define" href="virtio-net_8c.html#a9eb85b70f2fe3f24b6e922ebfff3ac84">VR_FILE_EMISSION</a>]);</div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span> </div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>   <span class="comment">//printk_debug(DBG_KERNEL_NET, &quot;emission (file %x)!!!\n&quot;, fv);</span></div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span> </div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>   <span class="comment">// On ne veut plus être embêté</span></div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>   <span class="comment">//   virtioFileInterdireInterruption(fv);</span></div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span> </div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span>   <span class="comment">// On va chercher une trame, a priori dans une chaîne de buffers</span></div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span>   <a class="code hl_function" href="manux_2virtio_8h.html#aad0abebf096dcffb576a391ef8d1ec09">virtioFileRecupererBuffers</a>(fv, (<span class="keywordtype">void</span>*)buffers, longueurs, 2);</div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span> </div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span>   <span class="comment">// On peut reprendre une activité normale</span></div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>   <span class="comment">//   virtioFileAutoriserInterruption(fv);</span></div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>}</div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span> </div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span><span class="keyword">static</span></div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span><span class="keywordtype">void</span> virtioNetRecevoirTrame(<a class="code hl_struct" href="structVirtioReseau__t.html">VirtioReseau</a> * vr)</div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>{</div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>   <a class="code hl_typedef" href="include_2manux_2types_8h.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a>             * buffers[2];</div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>   <span class="keywordtype">int</span>                   longueurs[2];</div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span>   <span class="keywordtype">int</span>                   nbLu;</div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>   <a class="code hl_variable" href="manux_2virtio_8h.html#a3f078bcc0894ca39b56f2af3bce4be7f">VirtioFileVirtuelle</a> * fv = &amp;(vr-&gt;<a class="code hl_variable" href="structVirtioReseau__t.html#a0eaadeadfb413a1107872923bddea937">virtioPeripherique</a>.filesVirtuelles[<a class="code hl_define" href="virtio-net_8c.html#a7b4d2cbe0384379b74085059ae2b7957">VR_FILE_RECEPTION</a>]);</div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span> </div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span>   <span class="comment">// On ne veut plus être embêté</span></div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>   <span class="comment">//   virtioFileInterdireInterruption(fv);</span></div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span> </div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>   <span class="comment">// WARNING tout ce qui suit devrait être reporté à la partie basse</span></div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span>   </div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span>   <span class="comment">// On va chercher une trame, a priori dans une chaîne de buffers</span></div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span>   nbLu = <a class="code hl_function" href="manux_2virtio_8h.html#aad0abebf096dcffb576a391ef8d1ec09">virtioFileRecupererBuffers</a>(fv, (<span class="keywordtype">void</span>*)buffers, longueurs, 2);</div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span> </div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span><span class="preprocessor">#ifdef MANUX_BUFFER_RESEAU</span></div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span>   <a class="code hl_struct" href="struct__bufferReseau.html">BufferReseau</a> * br;</div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span> </div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span>   <span class="comment">// On fait une copie, mais ce serait mieux de la faire plus tard</span></div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span>   br = <a class="code hl_function" href="buffer-reseau_8h.html#a4c7d77e3d7e5402407a6db0612dccc88">bufferReseauCreer</a>(buffers[1], longueurs[1]);</div>
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span> </div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span>   <span class="comment">// On va maintenant le placer dans une liste qui sera traitée plus tard.</span></div>
+<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span>   <a class="code hl_function" href="buffer-reseau_8h.html#a251a4a4fbc1c578bf93cbb0944b96f79">listeBufferReseauInserer</a>(<a class="code hl_variable" href="manux_2reseau_8h.html#af36c1bc68d00611a83c96ef02d155bdf">listeBuffersRecus</a>, br);</div>
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>   </div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span>   <a class="code hl_define" href="manux_2debug_8h.html#ad4cabea5084373436d91b5dc4e8d0a49">printk_debug</a>(<a class="code hl_define" href="manux_2debug_8h.html#a4f02878f8fb72005eddf2027f869557d">DBG_KERNEL_NET</a>, <span class="stringliteral">&quot;%d IT recues, trame : %d/%d+%d\n&quot;</span>,</div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span>        vr-&gt;<a class="code hl_variable" href="structVirtioReseau__t.html#a8c01de06d60bbb55fee3ea0b7d293111">nbItRecues</a>, nbLu, longueurs[0], longueurs[1]);</div>
+<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span> </div>
+<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span>   <span class="keywordflow">if</span> (nbLu) {</div>
+<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span>      netDumpPacket(buffers[1], longueurs[1]);</div>
+<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span>   }</div>
+<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span> </div>
+<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span>   <span class="comment">// On peut reprendre une activité normale</span></div>
+<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span>   <span class="comment">//   virtioFileAutoriserInterruption(fv);</span></div>
+<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span>}</div>
+<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span> </div>
+<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span><span class="keyword">static</span></div>
+<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span><span class="keywordtype">void</span> virtioNetRecevoirTramePartieBasse(<span class="keywordtype">void</span> * _vr)</div>
+<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span>{</div>
+<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span>   <a class="code hl_struct" href="structVirtioReseau__t.html">VirtioReseau</a> * vr = (<a class="code hl_struct" href="structVirtioReseau__t.html">VirtioReseau</a> *)_vr;</div>
+<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span>  </div>
+<div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span>   <a class="code hl_function" href="include_2manux_2printk_8h.html#a25b30e8bbadd54650c56895999dd808f">printk</a>(<span class="stringliteral">&quot;C&#39;est triste je ne fais rien avec %d!\n&quot;</span>, vr);</div>
+<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span>}</div>
+<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span> </div>
+<div class="foldopen" id="foldopen00201" data-start="{" data-end="}">
+<div class="line"><a id="l00201" name="l00201"></a><span class="lineno"><a class="line" href="include_2manux_2virtio-net_8h.html#a335590b89028273e29abbe24938fb00d">  201</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="virtio-net_8c.html#a335590b89028273e29abbe24938fb00d">virtioReseauPoll</a>(<span class="keywordtype">void</span>)</div>
+<div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span>{</div>
+<div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span>  virtioNetRecevoirTrame(&amp;<a class="code hl_variable" href="virtio-net_8c.html#af31843169059d11363b765e0ced55934">virtioReseau</a>);</div>
+<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span>}</div>
+</div>
+<div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span> </div>
+<div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span><span class="keyword">static</span></div>
+<div class="line"><a id="l00210" name="l00210"></a><span class="lineno">  210</span><span class="keywordtype">void</span> virtioNetGestionInt(<span class="keywordtype">void</span> * pr)</div>
+<div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span>{</div>
+<div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span>   <a class="code hl_struct" href="structVirtioReseau__t.html">VirtioReseau</a> * vr = (<a class="code hl_struct" href="structVirtioReseau__t.html">VirtioReseau</a> *) pr;</div>
+<div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span>   <a class="code hl_typedef" href="include_2manux_2types_8h.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> isr;</div>
+<div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span> </div>
+<div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span>   vr-&gt;<a class="code hl_variable" href="structVirtioReseau__t.html#a8c01de06d60bbb55fee3ea0b7d293111">nbItRecues</a>++;</div>
+<div class="line"><a id="l00216" name="l00216"></a><span class="lineno">  216</span>   </div>
+<div class="line"><a id="l00217" name="l00217"></a><span class="lineno">  217</span>   <a class="code hl_define" href="manux_2debug_8h.html#ad4cabea5084373436d91b5dc4e8d0a49">printk_debug</a>(<a class="code hl_define" href="manux_2debug_8h.html#a4f02878f8fb72005eddf2027f869557d">DBG_KERNEL_NET</a>, <span class="stringliteral">&quot;Interruption %d !!!\n&quot;</span>, vr-&gt;<a class="code hl_variable" href="structVirtioReseau__t.html#a8c01de06d60bbb55fee3ea0b7d293111">nbItRecues</a>);</div>
+<div class="line"><a id="l00218" name="l00218"></a><span class="lineno">  218</span> </div>
+<div class="line"><a id="l00219" name="l00219"></a><span class="lineno">  219</span>   <span class="comment">// Est-ce moi qui suis visé ?</span></div>
+<div class="line"><a id="l00220" name="l00220"></a><span class="lineno">  220</span>   <a class="code hl_define" href="io_8h.html#a4f4a2af12435f72838eae7049d0ca6ee">inb</a>((<a class="code hl_typedef" href="include_2manux_2types_8h.html#a273cf69d639a59973b6019625df33e30">uint16_t</a>)(vr-&gt;<a class="code hl_variable" href="structVirtioReseau__t.html#a0eaadeadfb413a1107872923bddea937">virtioPeripherique</a>.pciEquipement-&gt;adresseES + <a class="code hl_define" href="manux_2virtio_8h.html#adc3d7827e53dc913f0706947a110b300">VIRTIO_HIST_ISR</a>), isr);</div>
+<div class="line"><a id="l00221" name="l00221"></a><span class="lineno">  221</span>   <span class="keywordflow">if</span> (isr &amp; 0x1) {</div>
+<div class="line"><a id="l00222" name="l00222"></a><span class="lineno">  222</span>      <a class="code hl_define" href="manux_2debug_8h.html#ad4cabea5084373436d91b5dc4e8d0a49">printk_debug</a>(<a class="code hl_define" href="manux_2debug_8h.html#a4f02878f8fb72005eddf2027f869557d">DBG_KERNEL_NET</a>, <span class="stringliteral">&quot;C&#39;est pour moi, ...\n&quot;</span>);</div>
+<div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span>      <span class="comment">//i8259aAckIRQ(vr-&gt;virtioPeripherique.pciEquipement-&gt;interruption); fait par le handler</span></div>
+<div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span> </div>
+<div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span>      <span class="comment">// La suite est à déférer dans une partie basse</span></div>
+<div class="line"><a id="l00226" name="l00226"></a><span class="lineno">  226</span>      virtioNetRecevoirTrame(vr);</div>
+<div class="line"><a id="l00227" name="l00227"></a><span class="lineno">  227</span>      <span class="comment">//      virtioNetTraiterEmissions(vr); // WARNING : à vérifier si ça doit être là</span></div>
+<div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span>   } <span class="keywordflow">else</span> {</div>
+<div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span>       <a class="code hl_define" href="manux_2debug_8h.html#ad4cabea5084373436d91b5dc4e8d0a49">printk_debug</a>(<a class="code hl_define" href="manux_2debug_8h.html#a4f02878f8fb72005eddf2027f869557d">DBG_KERNEL_NET</a>, <span class="stringliteral">&quot;Balek, ...\n&quot;</span>);</div>
+<div class="line"><a id="l00230" name="l00230"></a><span class="lineno">  230</span>   }</div>
+<div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span>}</div>
+<div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span> </div>
+<div class="line"><a id="l00233" name="l00233"></a><span class="lineno">  233</span> </div>
+<div class="foldopen" id="foldopen00237" data-start="{" data-end="};">
+<div class="line"><a id="l00237" name="l00237"></a><span class="lineno"><a class="line" href="virtio-net_8c.html#a56ba6ac2de4117232f3a00e9ca62a7ef">  237</a></span><a class="code hl_struct" href="struct__ReseauPilote.html">ReseauPilote</a> <a class="code hl_variable" href="virtio-net_8c.html#a56ba6ac2de4117232f3a00e9ca62a7ef">virtioPiloteReseau</a> = {</div>
+<div class="line"><a id="l00238" name="l00238"></a><span class="lineno">  238</span>   .<a class="code hl_variable" href="struct__ReseauPilote.html#aa14897deb53262eb26a2f3888b169104">nom</a> = <span class="stringliteral">&quot;virtio-net&quot;</span>,</div>
+<div class="line"><a id="l00239" name="l00239"></a><span class="lineno">  239</span>   .recevoirTrame = virtioNetRecevoirTramePartieBasse</div>
+<div class="line"><a id="l00240" name="l00240"></a><span class="lineno">  240</span>};</div>
+</div>
+<div class="line"><a id="l00241" name="l00241"></a><span class="lineno">  241</span> </div>
+<div class="line"><a id="l00248" name="l00248"></a><span class="lineno">  248</span><span class="keyword">static</span></div>
+<div class="line"><a id="l00249" name="l00249"></a><span class="lineno">  249</span><span class="keywordtype">int</span> virtioNetInitPeripherique(<span class="keywordtype">int</span> PCINumeroPeripherique)</div>
+<div class="line"><a id="l00250" name="l00250"></a><span class="lineno">  250</span>{</div>
+<div class="line"><a id="l00251" name="l00251"></a><span class="lineno">  251</span>   <a class="code hl_struct" href="struct__PCIEquipement.html">PCIEquipement</a>       * pciEquip = <a class="code hl_function" href="manux_2pci_8h.html#a9da90032fa74e35abe5c7156c1542d1e">PCIEquipementNumero</a>(PCINumeroPeripherique);</div>
+<div class="line"><a id="l00252" name="l00252"></a><span class="lineno">  252</span>   <span class="comment">// WARNING, va le chercher dans le virtio</span></div>
+<div class="line"><a id="l00253" name="l00253"></a><span class="lineno">  253</span>  </div>
+<div class="line"><a id="l00254" name="l00254"></a><span class="lineno">  254</span>   <a class="code hl_variable" href="manux_2virtio_8h.html#a3f078bcc0894ca39b56f2af3bce4be7f">VirtioFileVirtuelle</a> * fr;</div>
+<div class="line"><a id="l00255" name="l00255"></a><span class="lineno">  255</span>   <a class="code hl_typedef" href="include_2manux_2types_8h.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a>               addr;</div>
+<div class="line"><a id="l00256" name="l00256"></a><span class="lineno">  256</span>   <span class="keywordtype">void</span>                * pointeur; <span class="comment">// Pour allouer de la mémoire en</span></div>
+<div class="line"><a id="l00257" name="l00257"></a><span class="lineno">  257</span>                   <span class="comment">// réception</span></div>
+<div class="line"><a id="l00258" name="l00258"></a><span class="lineno">  258</span> </div>
+<div class="line"><a id="l00259" name="l00259"></a><span class="lineno">  259</span>   <span class="comment">// On va construire un tableau de buffers (et un de leurs</span></div>
+<div class="line"><a id="l00260" name="l00260"></a><span class="lineno">  260</span>   <span class="comment">// longueurs) pour passer à virtioFournirBuffers</span></div>
+<div class="line"><a id="l00261" name="l00261"></a><span class="lineno">  261</span>   <span class="keywordtype">void</span>                * buffers[2];</div>
+<div class="line"><a id="l00262" name="l00262"></a><span class="lineno">  262</span>   <span class="keywordtype">int</span>                   longueurs[2];</div>
+<div class="line"><a id="l00263" name="l00263"></a><span class="lineno">  263</span>   </div>
+<div class="line"><a id="l00264" name="l00264"></a><span class="lineno">  264</span>   <span class="comment">// On renseigne la structure</span></div>
+<div class="line"><a id="l00265" name="l00265"></a><span class="lineno">  265</span>   <a class="code hl_function" href="manux_2virtio_8h.html#a4c591d0f2cd08e9d586138bbf25ef2d3">virtioInitPeripheriquePCI</a>(&amp;(<a class="code hl_variable" href="virtio-net_8c.html#af31843169059d11363b765e0ced55934">virtioReseau</a>.<a class="code hl_variable" href="structVirtioReseau__t.html#a0eaadeadfb413a1107872923bddea937">virtioPeripherique</a>),</div>
+<div class="line"><a id="l00266" name="l00266"></a><span class="lineno">  266</span>              PCINumeroPeripherique,</div>
+<div class="line"><a id="l00267" name="l00267"></a><span class="lineno">  267</span>                            <a class="code hl_define" href="virtio-net_8c.html#a5f4322a66bff0dd9b715c2efac8eb354">VIRTIO_NET_F_GUEST_CSUM</a>  <span class="comment">// C&#39;est pas moi qui check</span></div>
+<div class="line"><a id="l00268" name="l00268"></a><span class="lineno">  268</span>                          | <a class="code hl_define" href="virtio-net_8c.html#a27b690f89fac40c9316c6b70c5e8a133">VIRTIO_NET_F_GUEST_TSO4</a>  <span class="comment">// Je ne fais pas de TSO</span></div>
+<div class="line"><a id="l00269" name="l00269"></a><span class="lineno">  269</span>              | <a class="code hl_define" href="virtio-net_8c.html#a70f1c6098223df5efbfbc4758674ebdb">VIRTIO_NET_F_GUEST_TSO6</a></div>
+<div class="line"><a id="l00270" name="l00270"></a><span class="lineno">  270</span>                          | <a class="code hl_define" href="virtio-net_8c.html#ae83137741152c003fee2c260d4a0dcae">VIRTIO_NET_F_GUEST_UFO</a>   <span class="comment">// Pas d&#39;UFO svp</span></div>
+<div class="line"><a id="l00271" name="l00271"></a><span class="lineno">  271</span>                          | <a class="code hl_define" href="virtio-net_8c.html#a82761940cd767d8c46c426a7546f123a">VIRTIO_NET_F_MRG_RXBUF</a>   <span class="comment">// Je ne merge pas les buffers</span></div>
+<div class="line"><a id="l00272" name="l00272"></a><span class="lineno">  272</span>                          | <a class="code hl_define" href="virtio-net_8c.html#a906f7ea3378205543abb1435692bedef">VIRTIO_NET_F_CTRL_VQ</a>);   <span class="comment">// Pas de canal de contrôle</span></div>
+<div class="line"><a id="l00273" name="l00273"></a><span class="lineno">  273</span> </div>
+<div class="line"><a id="l00274" name="l00274"></a><span class="lineno">  274</span>   <span class="comment">// On va tout de suite remplir la file de réception de</span></div>
+<div class="line"><a id="l00275" name="l00275"></a><span class="lineno">  275</span>   <span class="comment">// buffers ([3] page 26 point 5)</span></div>
+<div class="line"><a id="l00276" name="l00276"></a><span class="lineno">  276</span>   fr = &amp;(<a class="code hl_variable" href="virtio-net_8c.html#af31843169059d11363b765e0ced55934">virtioReseau</a>.<a class="code hl_variable" href="structVirtioReseau__t.html#a0eaadeadfb413a1107872923bddea937">virtioPeripherique</a>.filesVirtuelles[0]);</div>
+<div class="line"><a id="l00277" name="l00277"></a><span class="lineno">  277</span> </div>
+<div class="line"><a id="l00278" name="l00278"></a><span class="lineno">  278</span>   <span class="comment">// ATTENTION ici je tente de passer des trames de taille max uniquement</span></div>
+<div class="line"><a id="l00279" name="l00279"></a><span class="lineno">  279</span>   <span class="comment">// d&#39;où VIRTIO_TAILLE_TRAME_MAX qui remplace sizeof ...</span></div>
+<div class="line"><a id="l00280" name="l00280"></a><span class="lineno">  280</span>   </div>
+<div class="line"><a id="l00281" name="l00281"></a><span class="lineno">  281</span>   <span class="comment">// Pas de malloc, ...</span></div>
+<div class="line"><a id="l00282" name="l00282"></a><span class="lineno">  282</span>   pointeur = <a class="code hl_function" href="include_2manux_2memoire_8h.html#a09bebf2806a04211ae6bb6c11ffb6a66">allouerPages</a>(<a class="code hl_define" href="include_2manux_2memoire_8h.html#a86a8d5a4cf169fff16174f294cdb101d">NB_PAGES</a>(fr-&gt;taille*(<span class="keyword">sizeof</span>(<a class="code hl_variable" href="virtio-net_8c.html#ab44b26fabacceb70024dc1eaacf7e52c">VirtioReseauEntete</a>)</div>
+<div class="line"><a id="l00283" name="l00283"></a><span class="lineno">  283</span>                        + <a class="code hl_define" href="virtio-net_8c.html#a94c196500ef9ae1ab36f042eab5e9726">VIRTIO_TAILLE_TRAME_MAX</a>)/2));</div>
+<div class="line"><a id="l00284" name="l00284"></a><span class="lineno">  284</span> </div>
+<div class="line"><a id="l00285" name="l00285"></a><span class="lineno">  285</span>   <span class="comment">// Concrètement, puisque le réseau préfixe systématiquement par un</span></div>
+<div class="line"><a id="l00286" name="l00286"></a><span class="lineno">  286</span>   <span class="comment">// entête à lui, on va lui fourni systématiquement une chaîne avec</span></div>
+<div class="line"><a id="l00287" name="l00287"></a><span class="lineno">  287</span>   <span class="comment">// un premier buffer pour l&#39;entête, comme ça la trame sera toute</span></div>
+<div class="line"><a id="l00288" name="l00288"></a><span class="lineno">  288</span>   <span class="comment">// seule dans son buffer, donc directement manipulable ! Malin JP, ...</span></div>
+<div class="line"><a id="l00289" name="l00289"></a><span class="lineno">  289</span>   <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0 ; i &lt; fr-&gt;taille/2; i++) {</div>
+<div class="line"><a id="l00290" name="l00290"></a><span class="lineno">  290</span>      buffers[0] = pointeur;</div>
+<div class="line"><a id="l00291" name="l00291"></a><span class="lineno">  291</span>      longueurs[0] = <span class="keyword">sizeof</span>(<a class="code hl_variable" href="virtio-net_8c.html#ab44b26fabacceb70024dc1eaacf7e52c">VirtioReseauEntete</a>);</div>
+<div class="line"><a id="l00292" name="l00292"></a><span class="lineno">  292</span>      pointeur += <span class="keyword">sizeof</span>(<a class="code hl_variable" href="virtio-net_8c.html#ab44b26fabacceb70024dc1eaacf7e52c">VirtioReseauEntete</a>);</div>
+<div class="line"><a id="l00293" name="l00293"></a><span class="lineno">  293</span>      buffers[1] = pointeur;</div>
+<div class="line"><a id="l00294" name="l00294"></a><span class="lineno">  294</span>      longueurs[1] = <a class="code hl_define" href="virtio-net_8c.html#a94c196500ef9ae1ab36f042eab5e9726">VIRTIO_TAILLE_TRAME_MAX</a>;</div>
+<div class="line"><a id="l00295" name="l00295"></a><span class="lineno">  295</span>      pointeur += <a class="code hl_define" href="virtio-net_8c.html#a94c196500ef9ae1ab36f042eab5e9726">VIRTIO_TAILLE_TRAME_MAX</a>;</div>
+<div class="line"><a id="l00296" name="l00296"></a><span class="lineno">  296</span>      <a class="code hl_function" href="manux_2virtio_8h.html#aa3eee079eb5936797e7aea41dddf9f8f">virtioFournirBuffers</a>(&amp;(<a class="code hl_variable" href="virtio-net_8c.html#af31843169059d11363b765e0ced55934">virtioReseau</a>.<a class="code hl_variable" href="structVirtioReseau__t.html#a0eaadeadfb413a1107872923bddea937">virtioPeripherique</a>),</div>
+<div class="line"><a id="l00297" name="l00297"></a><span class="lineno">  297</span>               <a class="code hl_define" href="virtio-net_8c.html#a7b4d2cbe0384379b74085059ae2b7957">VR_FILE_RECEPTION</a>, <span class="comment">// File réception</span></div>
+<div class="line"><a id="l00298" name="l00298"></a><span class="lineno">  298</span>                           buffers, longueurs,</div>
+<div class="line"><a id="l00299" name="l00299"></a><span class="lineno">  299</span>                           2,</div>
+<div class="line"><a id="l00300" name="l00300"></a><span class="lineno">  300</span>                   <a class="code hl_define" href="manux_2virtio_8h.html#a74fe2dbfe07fd3d386e87e7e7a921691">VRING_DESC_F_WRITE</a>); <span class="comment">// pour recevoir</span></div>
+<div class="line"><a id="l00301" name="l00301"></a><span class="lineno">  301</span>   }</div>
+<div class="line"><a id="l00302" name="l00302"></a><span class="lineno">  302</span>   </div>
+<div class="line"><a id="l00303" name="l00303"></a><span class="lineno">  303</span>   <span class="comment">// Lecture de l&#39;adresse IEEE</span></div>
+<div class="line"><a id="l00304" name="l00304"></a><span class="lineno">  304</span>   <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; 6; i++){</div>
+<div class="line"><a id="l00305" name="l00305"></a><span class="lineno">  305</span>      <a class="code hl_define" href="io_8h.html#a4f4a2af12435f72838eae7049d0ca6ee">inb</a>((<a class="code hl_typedef" href="include_2manux_2types_8h.html#a273cf69d639a59973b6019625df33e30">uint16_t</a>)(pciEquip-&gt;<a class="code hl_variable" href="struct__PCIEquipement.html#a169a4bcf976f6b9697627ee6cd6cb4ea">adresseES</a> + 0x14 + i), addr);</div>
+<div class="line"><a id="l00306" name="l00306"></a><span class="lineno">  306</span>      <a class="code hl_variable" href="virtio-net_8c.html#af31843169059d11363b765e0ced55934">virtioReseau</a>.<a class="code hl_variable" href="structVirtioReseau__t.html#aa7dc77c437e7d1e3632bf78c6171c3f0">adresseMAC</a>[i] = addr;</div>
+<div class="line"><a id="l00307" name="l00307"></a><span class="lineno">  307</span>   }</div>
+<div class="line"><a id="l00308" name="l00308"></a><span class="lineno">  308</span>   <span class="comment">/*</span></div>
+<div class="line"><a id="l00309" name="l00309"></a><span class="lineno">  309</span><span class="comment">   printk(&quot;MAC@ = &quot;);</span></div>
+<div class="line"><a id="l00310" name="l00310"></a><span class="lineno">  310</span><span class="comment">   for (int i = 0 ; i &lt; 5 ; i++) {</span></div>
+<div class="line"><a id="l00311" name="l00311"></a><span class="lineno">  311</span><span class="comment">      printk(&quot;%x:&quot;, virtioReseau.adresseMAC[i]);</span></div>
+<div class="line"><a id="l00312" name="l00312"></a><span class="lineno">  312</span><span class="comment">   }</span></div>
+<div class="line"><a id="l00313" name="l00313"></a><span class="lineno">  313</span><span class="comment">   printk(&quot;%x\n&quot;, virtioReseau.adresseMAC[5]);</span></div>
+<div class="line"><a id="l00314" name="l00314"></a><span class="lineno">  314</span><span class="comment">   */</span></div>
+<div class="line"><a id="l00315" name="l00315"></a><span class="lineno">  315</span>   <span class="comment">// On définit notre fonction de gestion des interuptions</span></div>
+<div class="line"><a id="l00316" name="l00316"></a><span class="lineno">  316</span>   <span class="keywordflow">if</span> (<a class="code hl_function" href="intel-8259a_8c.html#a8c849c456bff2b144e72c0d55873647a">i8259aAjouterHandler</a>(pciEquip-&gt;<a class="code hl_variable" href="struct__PCIEquipement.html#a16694af679e00d8362c3e81e911fc672">interruption</a>,</div>
+<div class="line"><a id="l00317" name="l00317"></a><span class="lineno">  317</span>            virtioNetGestionInt,</div>
+<div class="line"><a id="l00318" name="l00318"></a><span class="lineno">  318</span>                &amp;<a class="code hl_variable" href="virtio-net_8c.html#af31843169059d11363b765e0ced55934">virtioReseau</a>)){</div>
+<div class="line"><a id="l00319" name="l00319"></a><span class="lineno">  319</span>      <a class="code hl_function" href="include_2manux_2printk_8h.html#a25b30e8bbadd54650c56895999dd808f">printk</a>(<a class="code hl_define" href="include_2manux_2printk_8h.html#a08a69e546e1f4ef9f2e1f3dcd1441ebc">PRINTK_CRITIQUE</a> <span class="stringliteral">&quot;Trop de handler sur l&#39;interruption %d\n&quot;</span>, pciEquip-&gt;<a class="code hl_variable" href="struct__PCIEquipement.html#a16694af679e00d8362c3e81e911fc672">interruption</a>);</div>
+<div class="line"><a id="l00320" name="l00320"></a><span class="lineno">  320</span>      <a class="code hl_define" href="manux_2debug_8h.html#a94bcf41c2acfb543c52dcb281acba959">paniqueNoyau</a>(<span class="stringliteral">&quot;Pas possible&quot;</span>);</div>
+<div class="line"><a id="l00321" name="l00321"></a><span class="lineno">  321</span>      <span class="keywordflow">return</span> <a class="code hl_define" href="include_2manux_2errno_8h.html#a03e689f378f643d16ea7537918528a48">ENOENT</a>;</div>
+<div class="line"><a id="l00322" name="l00322"></a><span class="lineno">  322</span>   }</div>
+<div class="line"><a id="l00323" name="l00323"></a><span class="lineno">  323</span>   <a class="code hl_function" href="intel-8259a_8c.html#a9b846f608e7cad3491d9bff7e870ef00">i8259aAutoriserIRQ</a>(pciEquip-&gt;<a class="code hl_variable" href="struct__PCIEquipement.html#a16694af679e00d8362c3e81e911fc672">interruption</a>);</div>
+<div class="line"><a id="l00324" name="l00324"></a><span class="lineno">  324</span>   <a class="code hl_variable" href="virtio-net_8c.html#af31843169059d11363b765e0ced55934">virtioReseau</a>.<a class="code hl_variable" href="structVirtioReseau__t.html#a8c01de06d60bbb55fee3ea0b7d293111">nbItRecues</a> = 0;</div>
+<div class="line"><a id="l00325" name="l00325"></a><span class="lineno">  325</span> </div>
+<div class="line"><a id="l00326" name="l00326"></a><span class="lineno">  326</span>   <span class="comment">// On l&#39;enregistre auprès du système réseau</span></div>
+<div class="line"><a id="l00327" name="l00327"></a><span class="lineno">  327</span>   <a class="code hl_function" href="interface-reseau_8h.html#a141b7c3a7e49373fed361414dd478915">reseauAjouterInterface</a>(&amp;<a class="code hl_variable" href="virtio-net_8c.html#a56ba6ac2de4117232f3a00e9ca62a7ef">virtioPiloteReseau</a>, &amp;<a class="code hl_variable" href="virtio-net_8c.html#af31843169059d11363b765e0ced55934">virtioReseau</a>);</div>
+<div class="line"><a id="l00328" name="l00328"></a><span class="lineno">  328</span> </div>
+<div class="line"><a id="l00329" name="l00329"></a><span class="lineno">  329</span>   <span class="keywordflow">return</span> <a class="code hl_define" href="include_2manux_2errno_8h.html#a7c87371c2c584aeb5a722830670b9bfd">ESUCCES</a>;</div>
+<div class="line"><a id="l00330" name="l00330"></a><span class="lineno">  330</span>}</div>
+<div class="line"><a id="l00331" name="l00331"></a><span class="lineno">  331</span> </div>
+<div class="line"><a id="l00335" name="l00335"></a><span class="lineno">  335</span><span class="keyword">static</span></div>
+<div class="line"><a id="l00336" name="l00336"></a><span class="lineno">  336</span><span class="keywordtype">void</span> virtioNetEmettre(<a class="code hl_struct" href="structVirtioReseau__t.html">VirtioReseau</a> * vr, <a class="code hl_typedef" href="include_2manux_2types_8h.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> * trame)</div>
+<div class="line"><a id="l00337" name="l00337"></a><span class="lineno">  337</span>{</div>
+<div class="line"><a id="l00338" name="l00338"></a><span class="lineno">  338</span>   (<a class="code hl_function" href="include_2manux_2interruptions_8h.html#a4fda31edc92f8ccd48b6f4bb50f2e7e1">void</a>) vr; <span class="comment">// WARNING, pas normal</span></div>
+<div class="line"><a id="l00339" name="l00339"></a><span class="lineno">  339</span>   </div>
+<div class="line"><a id="l00340" name="l00340"></a><span class="lineno">  340</span>   <span class="comment">// On va construire un tableau de buffers (et un de leurs</span></div>
+<div class="line"><a id="l00341" name="l00341"></a><span class="lineno">  341</span>   <span class="comment">// longueurs) pour passer à virtioFournirBuffers</span></div>
+<div class="line"><a id="l00342" name="l00342"></a><span class="lineno">  342</span>   <span class="keywordtype">void</span>                * buffers[2];</div>
+<div class="line"><a id="l00343" name="l00343"></a><span class="lineno">  343</span>   <span class="keywordtype">int</span>                   longueurs[2];</div>
+<div class="line"><a id="l00344" name="l00344"></a><span class="lineno">  344</span> </div>
+<div class="line"><a id="l00345" name="l00345"></a><span class="lineno">  345</span>   <a class="code hl_define" href="manux_2debug_8h.html#ad4cabea5084373436d91b5dc4e8d0a49">printk_debug</a>(<a class="code hl_define" href="manux_2debug_8h.html#a4f02878f8fb72005eddf2027f869557d">DBG_KERNEL_NET</a>, <span class="stringliteral">&quot;IN\n&quot;</span>);</div>
+<div class="line"><a id="l00346" name="l00346"></a><span class="lineno">  346</span> </div>
+<div class="line"><a id="l00347" name="l00347"></a><span class="lineno">  347</span>   <span class="comment">// On ne délègue rien à l&#39;interface</span></div>
+<div class="line"><a id="l00348" name="l00348"></a><span class="lineno">  348</span>   <a class="code hl_variable" href="virtio-net_8c.html#af9d9b2d59d95df2367d39a4b947193a0">virtioReseauEntete</a>.flags = 0;</div>
+<div class="line"><a id="l00349" name="l00349"></a><span class="lineno">  349</span>   <a class="code hl_variable" href="virtio-net_8c.html#af9d9b2d59d95df2367d39a4b947193a0">virtioReseauEntete</a>.typeGSO = 0;</div>
+<div class="line"><a id="l00350" name="l00350"></a><span class="lineno">  350</span>   <a class="code hl_variable" href="virtio-net_8c.html#af9d9b2d59d95df2367d39a4b947193a0">virtioReseauEntete</a>.longueurEntete = 0;</div>
+<div class="line"><a id="l00351" name="l00351"></a><span class="lineno">  351</span>   <a class="code hl_variable" href="virtio-net_8c.html#af9d9b2d59d95df2367d39a4b947193a0">virtioReseauEntete</a>.debutSommeControle = 0;</div>
+<div class="line"><a id="l00352" name="l00352"></a><span class="lineno">  352</span>   <a class="code hl_variable" href="virtio-net_8c.html#af9d9b2d59d95df2367d39a4b947193a0">virtioReseauEntete</a>.decalageSommeControle = 0;</div>
+<div class="line"><a id="l00353" name="l00353"></a><span class="lineno">  353</span> </div>
+<div class="line"><a id="l00354" name="l00354"></a><span class="lineno">  354</span>   buffers[0] = (<span class="keywordtype">void</span> *)&amp;<a class="code hl_variable" href="virtio-net_8c.html#af9d9b2d59d95df2367d39a4b947193a0">virtioReseauEntete</a>;</div>
+<div class="line"><a id="l00355" name="l00355"></a><span class="lineno">  355</span>   longueurs[0] = <span class="keyword">sizeof</span>(<a class="code hl_variable" href="virtio-net_8c.html#ab44b26fabacceb70024dc1eaacf7e52c">VirtioReseauEntete</a>);</div>
+<div class="line"><a id="l00356" name="l00356"></a><span class="lineno">  356</span>   buffers[1] = (<span class="keywordtype">void</span>*)trame;</div>
+<div class="line"><a id="l00357" name="l00357"></a><span class="lineno">  357</span>   longueurs[1] = 42;</div>
+<div class="line"><a id="l00358" name="l00358"></a><span class="lineno">  358</span> </div>
+<div class="line"><a id="l00359" name="l00359"></a><span class="lineno">  359</span>   <a class="code hl_function" href="manux_2virtio_8h.html#aa3eee079eb5936797e7aea41dddf9f8f">virtioFournirBuffers</a>(&amp;(<a class="code hl_variable" href="virtio-net_8c.html#af31843169059d11363b765e0ced55934">virtioReseau</a>.<a class="code hl_variable" href="structVirtioReseau__t.html#a0eaadeadfb413a1107872923bddea937">virtioPeripherique</a>),</div>
+<div class="line"><a id="l00360" name="l00360"></a><span class="lineno">  360</span>                    1, <span class="comment">// File émission</span></div>
+<div class="line"><a id="l00361" name="l00361"></a><span class="lineno">  361</span>                        buffers, longueurs,</div>
+<div class="line"><a id="l00362" name="l00362"></a><span class="lineno">  362</span>                        2,</div>
+<div class="line"><a id="l00363" name="l00363"></a><span class="lineno">  363</span>                0); <span class="comment">// pour émettre</span></div>
+<div class="line"><a id="l00364" name="l00364"></a><span class="lineno">  364</span> </div>
+<div class="line"><a id="l00365" name="l00365"></a><span class="lineno">  365</span>    <a class="code hl_define" href="manux_2debug_8h.html#ad4cabea5084373436d91b5dc4e8d0a49">printk_debug</a>(<a class="code hl_define" href="manux_2debug_8h.html#a4f02878f8fb72005eddf2027f869557d">DBG_KERNEL_NET</a>, <span class="stringliteral">&quot;OUT\n&quot;</span>);</div>
+<div class="line"><a id="l00366" name="l00366"></a><span class="lineno">  366</span>} </div>
+<div class="line"><a id="l00367" name="l00367"></a><span class="lineno">  367</span> </div>
+<div class="foldopen" id="foldopen00371" data-start="{" data-end="}">
+<div class="line"><a id="l00371" name="l00371"></a><span class="lineno"><a class="line" href="include_2manux_2virtio-net_8h.html#ae8ee56f5798a32fb0f3092501b7560ce">  371</a></span><span class="keywordtype">int</span> <a class="code hl_function" href="virtio-net_8c.html#ae8ee56f5798a32fb0f3092501b7560ce">virtioNetInit</a>(<span class="keywordtype">void</span>)</div>
+<div class="line"><a id="l00372" name="l00372"></a><span class="lineno">  372</span>{</div>
+<div class="line"><a id="l00373" name="l00373"></a><span class="lineno">  373</span>   <span class="keywordtype">int</span> PCINumeroPeripherique;</div>
+<div class="line"><a id="l00374" name="l00374"></a><span class="lineno">  374</span>  </div>
+<div class="line"><a id="l00375" name="l00375"></a><span class="lineno">  375</span>   <a class="code hl_define" href="manux_2debug_8h.html#ad4cabea5084373436d91b5dc4e8d0a49">printk_debug</a>(<a class="code hl_define" href="manux_2debug_8h.html#a4f02878f8fb72005eddf2027f869557d">DBG_KERNEL_NET</a>, <span class="stringliteral">&quot;IN\n&quot;</span>);</div>
+<div class="line"><a id="l00376" name="l00376"></a><span class="lineno">  376</span> </div>
+<div class="line"><a id="l00377" name="l00377"></a><span class="lineno">  377</span>   <span class="comment">// On s&#39;identifie comme pilote réseau</span></div>
+<div class="line"><a id="l00378" name="l00378"></a><span class="lineno">  378</span>   <a class="code hl_function" href="interface-reseau_8h.html#a0d183caf398492294fdf9dea14a09527">reseauEnregistrerPilote</a>(&amp;<a class="code hl_variable" href="virtio-net_8c.html#a56ba6ac2de4117232f3a00e9ca62a7ef">virtioPiloteReseau</a>);</div>
+<div class="line"><a id="l00379" name="l00379"></a><span class="lineno">  379</span> </div>
+<div class="line"><a id="l00380" name="l00380"></a><span class="lineno">  380</span>   <span class="comment">// On va chercher un peripherique virtio net</span></div>
+<div class="line"><a id="l00381" name="l00381"></a><span class="lineno">  381</span>   <a class="code hl_define" href="manux_2debug_8h.html#ad4cabea5084373436d91b5dc4e8d0a49">printk_debug</a>(<a class="code hl_define" href="manux_2debug_8h.html#a4f02878f8fb72005eddf2027f869557d">DBG_KERNEL_NET</a>, <span class="stringliteral">&quot;Je cherche un PCI vendeur/Id %d/%d\n&quot;</span>,</div>
+<div class="line"><a id="l00382" name="l00382"></a><span class="lineno">  382</span>        <a class="code hl_define" href="manux_2virtio_8h.html#abd1fd54d3752cd6b4048adf26185a9e2">PCI_VENDEUR_VIRTIO</a>,<a class="code hl_define" href="manux_2virtio_8h.html#a1f5bb63742f93f3e024d029e969c9ebc">PCI_PERIPHERIQUE_VIRTIO_NET</a>);</div>
+<div class="line"><a id="l00383" name="l00383"></a><span class="lineno">  383</span>   PCINumeroPeripherique = <a class="code hl_function" href="manux_2pci_8h.html#a50c3ecf5057a9dd21f23f92fb9bedd1f">PCIObtenirProchainEquipement</a>(<a class="code hl_define" href="manux_2virtio_8h.html#abd1fd54d3752cd6b4048adf26185a9e2">PCI_VENDEUR_VIRTIO</a>,</div>
+<div class="line"><a id="l00384" name="l00384"></a><span class="lineno">  384</span>                            <a class="code hl_define" href="manux_2virtio_8h.html#a1f5bb63742f93f3e024d029e969c9ebc">PCI_PERIPHERIQUE_VIRTIO_NET</a>, -1);</div>
+<div class="line"><a id="l00385" name="l00385"></a><span class="lineno">  385</span>   <a class="code hl_define" href="manux_2debug_8h.html#ad4cabea5084373436d91b5dc4e8d0a49">printk_debug</a>(<a class="code hl_define" href="manux_2debug_8h.html#a4f02878f8fb72005eddf2027f869557d">DBG_KERNEL_NET</a>, <span class="stringliteral">&quot;Peripherique PCI %d\n&quot;</span>, PCINumeroPeripherique);</div>
+<div class="line"><a id="l00386" name="l00386"></a><span class="lineno">  386</span> </div>
+<div class="line"><a id="l00387" name="l00387"></a><span class="lineno">  387</span>   <span class="comment">// Initialisation de l&#39;unique périphérique pour le moment</span></div>
+<div class="line"><a id="l00388" name="l00388"></a><span class="lineno">  388</span>   <span class="keywordflow">if</span> (virtioNetInitPeripherique(PCINumeroPeripherique) == 0) {</div>
+<div class="line"><a id="l00389" name="l00389"></a><span class="lineno">  389</span>      <a class="code hl_define" href="manux_2debug_8h.html#ad4cabea5084373436d91b5dc4e8d0a49">printk_debug</a>(<a class="code hl_define" href="manux_2debug_8h.html#a4f02878f8fb72005eddf2027f869557d">DBG_KERNEL_NET</a>, <span class="stringliteral">&quot;Peripherique initialise !\n&quot;</span>);</div>
+<div class="line"><a id="l00390" name="l00390"></a><span class="lineno">  390</span>   }</div>
+<div class="line"><a id="l00391" name="l00391"></a><span class="lineno">  391</span> </div>
+<div class="line"><a id="l00392" name="l00392"></a><span class="lineno">  392</span>   <span class="comment">// Test d&#39;émission</span></div>
+<div class="line"><a id="l00393" name="l00393"></a><span class="lineno">  393</span>   <span class="comment">//   virtioNetEmettre(&amp;virtioReseau, requeteARP);</span></div>
+<div class="line"><a id="l00394" name="l00394"></a><span class="lineno">  394</span> </div>
+<div class="line"><a id="l00395" name="l00395"></a><span class="lineno">  395</span>   <a class="code hl_define" href="manux_2debug_8h.html#ad4cabea5084373436d91b5dc4e8d0a49">printk_debug</a>(<a class="code hl_define" href="manux_2debug_8h.html#a4f02878f8fb72005eddf2027f869557d">DBG_KERNEL_NET</a>, <span class="stringliteral">&quot;out\n&quot;</span>);</div>
+<div class="line"><a id="l00396" name="l00396"></a><span class="lineno">  396</span>   <span class="keywordflow">return</span> <a class="code hl_define" href="include_2manux_2errno_8h.html#a7c87371c2c584aeb5a722830670b9bfd">ESUCCES</a>;</div>
+<div class="line"><a id="l00397" name="l00397"></a><span class="lineno">  397</span>}</div>
+</div>
+<div class="line"><a id="l00398" name="l00398"></a><span class="lineno">  398</span> </div>
+<div class="line"><a id="l00399" name="l00399"></a><span class="lineno">  399</span><span class="comment">//Pour voir si je peux en faire 2 et avoir 2 IT</span></div>
+<div class="foldopen" id="foldopen00400" data-start="{" data-end="}">
+<div class="line"><a id="l00400" name="l00400"></a><span class="lineno"><a class="line" href="include_2manux_2virtio-net_8h.html#abf464b54fed9bfec32c896b2ff9d5935">  400</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="virtio-net_8c.html#abf464b54fed9bfec32c896b2ff9d5935">virtioNetTestDeuxiemeEmission</a>(<span class="keywordtype">void</span>)</div>
+<div class="line"><a id="l00401" name="l00401"></a><span class="lineno">  401</span>{</div>
+<div class="line"><a id="l00402" name="l00402"></a><span class="lineno">  402</span>   <a class="code hl_define" href="manux_2debug_8h.html#ad4cabea5084373436d91b5dc4e8d0a49">printk_debug</a>(<a class="code hl_define" href="manux_2debug_8h.html#a4f02878f8fb72005eddf2027f869557d">DBG_KERNEL_NET</a>, <span class="stringliteral">&quot;in\n&quot;</span>);</div>
+<div class="line"><a id="l00403" name="l00403"></a><span class="lineno">  403</span>   virtioNetEmettre(&amp;<a class="code hl_variable" href="virtio-net_8c.html#af31843169059d11363b765e0ced55934">virtioReseau</a>, <a class="code hl_variable" href="virtio-net_8c.html#a7a7fdfccfc1436dbf5ee41e6a188342e">requeteARP2</a>);</div>
+<div class="line"><a id="l00404" name="l00404"></a><span class="lineno">  404</span>   <a class="code hl_define" href="manux_2debug_8h.html#ad4cabea5084373436d91b5dc4e8d0a49">printk_debug</a>(<a class="code hl_define" href="manux_2debug_8h.html#a4f02878f8fb72005eddf2027f869557d">DBG_KERNEL_NET</a>, <span class="stringliteral">&quot;out\n&quot;</span>);</div>
+<div class="line"><a id="l00405" name="l00405"></a><span class="lineno">  405</span>}</div>
+</div>
+<div class="ttc" id="abuffer-reseau_8h_html"><div class="ttname"><a href="buffer-reseau_8h.html">buffer-reseau.h</a></div><div class="ttdoc">(C) Manu Chaput 2025</div></div>
+<div class="ttc" id="abuffer-reseau_8h_html_a251a4a4fbc1c578bf93cbb0944b96f79"><div class="ttname"><a href="buffer-reseau_8h.html#a251a4a4fbc1c578bf93cbb0944b96f79">listeBufferReseauInserer</a></div><div class="ttdeci">int listeBufferReseauInserer(ListeBufferReseau *l, BufferReseau *b)</div><div class="ttdoc">Insertion d'un buffer réseau à la fin d'une liste.</div><div class="ttdef"><b>Definition</b> <a href="buffer-reseau_8c_source.html#l00076">buffer-reseau.c:76</a></div></div>
+<div class="ttc" id="abuffer-reseau_8h_html_a4c7d77e3d7e5402407a6db0612dccc88"><div class="ttname"><a href="buffer-reseau_8h.html#a4c7d77e3d7e5402407a6db0612dccc88">bufferReseauCreer</a></div><div class="ttdeci">BufferReseau * bufferReseauCreer(void *donnees, int taille)</div><div class="ttdoc">Création (allocation et initialisation des champs de base) d'un buffer réseau.</div><div class="ttdef"><b>Definition</b> <a href="buffer-reseau_8c_source.html#l00030">buffer-reseau.c:30</a></div></div>
+<div class="ttc" id="ainclude_2manux_2errno_8h_html_a03e689f378f643d16ea7537918528a48"><div class="ttname"><a href="include_2manux_2errno_8h.html#a03e689f378f643d16ea7537918528a48">ENOENT</a></div><div class="ttdeci">#define ENOENT</div><div class="ttdef"><b>Definition</b> <a href="include_2manux_2errno_8h_source.html#l00012">errno.h:12</a></div></div>
+<div class="ttc" id="ainclude_2manux_2errno_8h_html_a7c87371c2c584aeb5a722830670b9bfd"><div class="ttname"><a href="include_2manux_2errno_8h.html#a7c87371c2c584aeb5a722830670b9bfd">ESUCCES</a></div><div class="ttdeci">#define ESUCCES</div><div class="ttdef"><b>Definition</b> <a href="include_2manux_2errno_8h_source.html#l00010">errno.h:10</a></div></div>
+<div class="ttc" id="ainclude_2manux_2interruptions_8h_html_a4fda31edc92f8ccd48b6f4bb50f2e7e1"><div class="ttname"><a href="include_2manux_2interruptions_8h.html#a4fda31edc92f8ccd48b6f4bb50f2e7e1">void</a></div><div class="ttdeci">typedef void(Handler(void))</div></div>
+<div class="ttc" id="ainclude_2manux_2memoire_8h_html"><div class="ttname"><a href="include_2manux_2memoire_8h.html">memoire.h</a></div></div>
+<div class="ttc" id="ainclude_2manux_2memoire_8h_html_a09bebf2806a04211ae6bb6c11ffb6a66"><div class="ttname"><a href="include_2manux_2memoire_8h.html#a09bebf2806a04211ae6bb6c11ffb6a66">allouerPages</a></div><div class="ttdeci">void * allouerPages(uint32_t nombre)</div><div class="ttdef"><b>Definition</b> <a href="memoire_8c_source.html#l00284">memoire.c:284</a></div></div>
+<div class="ttc" id="ainclude_2manux_2memoire_8h_html_a86a8d5a4cf169fff16174f294cdb101d"><div class="ttname"><a href="include_2manux_2memoire_8h.html#a86a8d5a4cf169fff16174f294cdb101d">NB_PAGES</a></div><div class="ttdeci">#define NB_PAGES(n)</div><div class="ttdef"><b>Definition</b> <a href="include_2manux_2memoire_8h_source.html#l00022">memoire.h:22</a></div></div>
+<div class="ttc" id="ainclude_2manux_2printk_8h_html_a08a69e546e1f4ef9f2e1f3dcd1441ebc"><div class="ttname"><a href="include_2manux_2printk_8h.html#a08a69e546e1f4ef9f2e1f3dcd1441ebc">PRINTK_CRITIQUE</a></div><div class="ttdeci">#define PRINTK_CRITIQUE</div><div class="ttdef"><b>Definition</b> <a href="include_2manux_2printk_8h_source.html#l00028">printk.h:28</a></div></div>
+<div class="ttc" id="ainclude_2manux_2printk_8h_html_a25b30e8bbadd54650c56895999dd808f"><div class="ttname"><a href="include_2manux_2printk_8h.html#a25b30e8bbadd54650c56895999dd808f">printk</a></div><div class="ttdeci">void printk(char *format,...)</div><div class="ttdoc">Fonction principale d'affichage dans le noyau.</div><div class="ttdef"><b>Definition</b> <a href="printk_8c_source.html#l00166">printk.c:166</a></div></div>
+<div class="ttc" id="ainclude_2manux_2types_8h_html_a273cf69d639a59973b6019625df33e30"><div class="ttname"><a href="include_2manux_2types_8h.html#a273cf69d639a59973b6019625df33e30">uint16_t</a></div><div class="ttdeci">unsigned short uint16_t</div><div class="ttdef"><b>Definition</b> <a href="include_2manux_2types_8h_source.html#l00016">types.h:16</a></div></div>
+<div class="ttc" id="ainclude_2manux_2types_8h_html_aba7bc1797add20fe3efdf37ced1182c5"><div class="ttname"><a href="include_2manux_2types_8h.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a></div><div class="ttdeci">unsigned char uint8_t</div><div class="ttdef"><b>Definition</b> <a href="include_2manux_2types_8h_source.html#l00012">types.h:12</a></div></div>
+<div class="ttc" id="ainclude_2manux_2virtio-net_8h_html"><div class="ttname"><a href="include_2manux_2virtio-net_8h.html">virtio-net.h</a></div></div>
+<div class="ttc" id="aintel-8259a_8c_html_a8c849c456bff2b144e72c0d55873647a"><div class="ttname"><a href="intel-8259a_8c.html#a8c849c456bff2b144e72c0d55873647a">i8259aAjouterHandler</a></div><div class="ttdeci">int i8259aAjouterHandler(int numIRQ, void(*handler)(void *), void *private)</div><div class="ttdoc">Ajout d'un handler.</div><div class="ttdef"><b>Definition</b> <a href="intel-8259a_8c_source.html#l00118">intel-8259a.c:118</a></div></div>
+<div class="ttc" id="aintel-8259a_8c_html_a9b846f608e7cad3491d9bff7e870ef00"><div class="ttname"><a href="intel-8259a_8c.html#a9b846f608e7cad3491d9bff7e870ef00">i8259aAutoriserIRQ</a></div><div class="ttdeci">void i8259aAutoriserIRQ(uint8_t numIRQ)</div><div class="ttdoc">Masquage d'une IRQ.</div><div class="ttdef"><b>Definition</b> <a href="intel-8259a_8c_source.html#l00157">intel-8259a.c:157</a></div></div>
+<div class="ttc" id="ainterface-reseau_8h_html_a0d183caf398492294fdf9dea14a09527"><div class="ttname"><a href="interface-reseau_8h.html#a0d183caf398492294fdf9dea14a09527">reseauEnregistrerPilote</a></div><div class="ttdeci">void reseauEnregistrerPilote(ReseauPilote *p)</div><div class="ttdef"><b>Definition</b> <a href="interface-reseau_8c_source.html#l00009">interface-reseau.c:9</a></div></div>
+<div class="ttc" id="ainterface-reseau_8h_html_a141b7c3a7e49373fed361414dd478915"><div class="ttname"><a href="interface-reseau_8h.html#a141b7c3a7e49373fed361414dd478915">reseauAjouterInterface</a></div><div class="ttdeci">void reseauAjouterInterface(ReseauPilote *p, void *d)</div><div class="ttdoc">Ajout d'une nouvelle interface réseau.</div><div class="ttdef"><b>Definition</b> <a href="interface-reseau_8c_source.html#l00016">interface-reseau.c:16</a></div></div>
+<div class="ttc" id="aio_8h_html"><div class="ttname"><a href="io_8h.html">io.h</a></div></div>
+<div class="ttc" id="aio_8h_html_a4f4a2af12435f72838eae7049d0ca6ee"><div class="ttname"><a href="io_8h.html#a4f4a2af12435f72838eae7049d0ca6ee">inb</a></div><div class="ttdeci">#define inb(port, adresseOctet)</div><div class="ttdoc">Lecture d'un octet depuis un port.</div><div class="ttdef"><b>Definition</b> <a href="io_8h_source.html#l00019">io.h:19</a></div></div>
+<div class="ttc" id="amanux_2debug_8h_html"><div class="ttname"><a href="manux_2debug_8h.html">debug.h</a></div></div>
+<div class="ttc" id="amanux_2debug_8h_html_a4f02878f8fb72005eddf2027f869557d"><div class="ttname"><a href="manux_2debug_8h.html#a4f02878f8fb72005eddf2027f869557d">DBG_KERNEL_NET</a></div><div class="ttdeci">#define DBG_KERNEL_NET</div><div class="ttdef"><b>Definition</b> <a href="manux_2debug_8h_source.html#l00030">debug.h:30</a></div></div>
+<div class="ttc" id="amanux_2debug_8h_html_a94bcf41c2acfb543c52dcb281acba959"><div class="ttname"><a href="manux_2debug_8h.html#a94bcf41c2acfb543c52dcb281acba959">paniqueNoyau</a></div><div class="ttdeci">#define paniqueNoyau(fmt, args...)</div><div class="ttdef"><b>Definition</b> <a href="manux_2debug_8h_source.html#l00107">debug.h:107</a></div></div>
+<div class="ttc" id="amanux_2debug_8h_html_ad4cabea5084373436d91b5dc4e8d0a49"><div class="ttname"><a href="manux_2debug_8h.html#ad4cabea5084373436d91b5dc4e8d0a49">printk_debug</a></div><div class="ttdeci">#define printk_debug(lvl, fmt, args...)</div><div class="ttdef"><b>Definition</b> <a href="manux_2debug_8h_source.html#l00086">debug.h:86</a></div></div>
+<div class="ttc" id="amanux_2intel-8259a_8h_html"><div class="ttname"><a href="manux_2intel-8259a_8h.html">intel-8259a.h</a></div></div>
+<div class="ttc" id="amanux_2pci_8h_html"><div class="ttname"><a href="manux_2pci_8h.html">pci.h</a></div></div>
+<div class="ttc" id="amanux_2pci_8h_html_a50c3ecf5057a9dd21f23f92fb9bedd1f"><div class="ttname"><a href="manux_2pci_8h.html#a50c3ecf5057a9dd21f23f92fb9bedd1f">PCIObtenirProchainEquipement</a></div><div class="ttdeci">int PCIObtenirProchainEquipement(uint16_t vendeur, uint16_t equipement, int precedent)</div><div class="ttdoc">: récuperer l'identifiant du prochain équipement PCI</div><div class="ttdef"><b>Definition</b> <a href="pci_8c_source.html#l00206">pci.c:206</a></div></div>
+<div class="ttc" id="amanux_2pci_8h_html_a9da90032fa74e35abe5c7156c1542d1e"><div class="ttname"><a href="manux_2pci_8h.html#a9da90032fa74e35abe5c7156c1542d1e">PCIEquipementNumero</a></div><div class="ttdeci">PCIEquipement * PCIEquipementNumero(int n)</div><div class="ttdef"><b>Definition</b> <a href="pci_8c_source.html#l00226">pci.c:226</a></div></div>
+<div class="ttc" id="amanux_2reseau_8h_html"><div class="ttname"><a href="manux_2reseau_8h.html">reseau.h</a></div></div>
+<div class="ttc" id="amanux_2reseau_8h_html_af36c1bc68d00611a83c96ef02d155bdf"><div class="ttname"><a href="manux_2reseau_8h.html#af36c1bc68d00611a83c96ef02d155bdf">listeBuffersRecus</a></div><div class="ttdeci">ListeBufferReseau * listeBuffersRecus</div><div class="ttdoc">La liste des buffers qui ont été reçus mais non encore traités.</div><div class="ttdef"><b>Definition</b> <a href="reseau_8c_source.html#l00019">reseau.c:19</a></div></div>
+<div class="ttc" id="amanux_2virtio_8h_html_a1f5bb63742f93f3e024d029e969c9ebc"><div class="ttname"><a href="manux_2virtio_8h.html#a1f5bb63742f93f3e024d029e969c9ebc">PCI_PERIPHERIQUE_VIRTIO_NET</a></div><div class="ttdeci">#define PCI_PERIPHERIQUE_VIRTIO_NET</div><div class="ttdef"><b>Definition</b> <a href="manux_2virtio_8h_source.html#l00039">virtio.h:39</a></div></div>
+<div class="ttc" id="amanux_2virtio_8h_html_a3f078bcc0894ca39b56f2af3bce4be7f"><div class="ttname"><a href="manux_2virtio_8h.html#a3f078bcc0894ca39b56f2af3bce4be7f">VirtioFileVirtuelle</a></div><div class="ttdeci">VirtioFileVirtuelle</div><div class="ttdef"><b>Definition</b> <a href="manux_2virtio_8h_source.html#l00133">virtio.h:133</a></div></div>
+<div class="ttc" id="amanux_2virtio_8h_html_a4c591d0f2cd08e9d586138bbf25ef2d3"><div class="ttname"><a href="manux_2virtio_8h.html#a4c591d0f2cd08e9d586138bbf25ef2d3">virtioInitPeripheriquePCI</a></div><div class="ttdeci">int virtioInitPeripheriquePCI(VirtioPeripherique *vp, int PCINum, uint32_t masque)</div><div class="ttdef"><b>Definition</b> <a href="virtio_8c_source.html#l00173">virtio.c:173</a></div></div>
+<div class="ttc" id="amanux_2virtio_8h_html_a74fe2dbfe07fd3d386e87e7e7a921691"><div class="ttname"><a href="manux_2virtio_8h.html#a74fe2dbfe07fd3d386e87e7e7a921691">VRING_DESC_F_WRITE</a></div><div class="ttdeci">#define VRING_DESC_F_WRITE</div><div class="ttdef"><b>Definition</b> <a href="manux_2virtio_8h_source.html#l00076">virtio.h:76</a></div></div>
+<div class="ttc" id="amanux_2virtio_8h_html_aa3eee079eb5936797e7aea41dddf9f8f"><div class="ttname"><a href="manux_2virtio_8h.html#aa3eee079eb5936797e7aea41dddf9f8f">virtioFournirBuffers</a></div><div class="ttdeci">int virtioFournirBuffers(VirtioPeripherique *vp, uint16_t id, void *bu[], int lg[], int nb, uint16_t fl)</div><div class="ttdoc">: Fournir un(e chaine de) buffer(s) au périphérique.</div><div class="ttdef"><b>Definition</b> <a href="virtio_8c_source.html#l00304">virtio.c:304</a></div></div>
+<div class="ttc" id="amanux_2virtio_8h_html_aad0abebf096dcffb576a391ef8d1ec09"><div class="ttname"><a href="manux_2virtio_8h.html#aad0abebf096dcffb576a391ef8d1ec09">virtioFileRecupererBuffers</a></div><div class="ttdeci">int virtioFileRecupererBuffers(VirtioFileVirtuelle *fv, void *bu[], int lg[], int nb)</div><div class="ttdoc">on va récupérer des buffers</div><div class="ttdef"><b>Definition</b> <a href="virtio_8c_source.html#l00387">virtio.c:387</a></div></div>
+<div class="ttc" id="amanux_2virtio_8h_html_abd1fd54d3752cd6b4048adf26185a9e2"><div class="ttname"><a href="manux_2virtio_8h.html#abd1fd54d3752cd6b4048adf26185a9e2">PCI_VENDEUR_VIRTIO</a></div><div class="ttdeci">#define PCI_VENDEUR_VIRTIO</div><div class="ttdef"><b>Definition</b> <a href="manux_2virtio_8h_source.html#l00038">virtio.h:38</a></div></div>
+<div class="ttc" id="amanux_2virtio_8h_html_adc3d7827e53dc913f0706947a110b300"><div class="ttname"><a href="manux_2virtio_8h.html#adc3d7827e53dc913f0706947a110b300">VIRTIO_HIST_ISR</a></div><div class="ttdeci">#define VIRTIO_HIST_ISR</div><div class="ttdef"><b>Definition</b> <a href="manux_2virtio_8h_source.html#l00070">virtio.h:70</a></div></div>
+<div class="ttc" id="amanux_2virtio_8h_html_ae5ce3884f555c701f9f8099645f09fe5"><div class="ttname"><a href="manux_2virtio_8h.html#ae5ce3884f555c701f9f8099645f09fe5">VirtioPeripherique</a></div><div class="ttdeci">VirtioPeripherique</div><div class="ttdef"><b>Definition</b> <a href="manux_2virtio_8h_source.html#l00142">virtio.h:142</a></div></div>
+<div class="ttc" id="astructVirtioReseau__t_html"><div class="ttname"><a href="structVirtioReseau__t.html">VirtioReseau_t</a></div><div class="ttdef"><b>Definition</b> <a href="virtio-net_8c_source.html#l00056">virtio-net.c:56</a></div></div>
+<div class="ttc" id="astructVirtioReseau__t_html_a0eaadeadfb413a1107872923bddea937"><div class="ttname"><a href="structVirtioReseau__t.html#a0eaadeadfb413a1107872923bddea937">VirtioReseau_t::virtioPeripherique</a></div><div class="ttdeci">VirtioPeripherique virtioPeripherique</div><div class="ttdef"><b>Definition</b> <a href="virtio-net_8c_source.html#l00057">virtio-net.c:57</a></div></div>
+<div class="ttc" id="astructVirtioReseau__t_html_a8c01de06d60bbb55fee3ea0b7d293111"><div class="ttname"><a href="structVirtioReseau__t.html#a8c01de06d60bbb55fee3ea0b7d293111">VirtioReseau_t::nbItRecues</a></div><div class="ttdeci">uint16_t nbItRecues</div><div class="ttdef"><b>Definition</b> <a href="virtio-net_8c_source.html#l00058">virtio-net.c:58</a></div></div>
+<div class="ttc" id="astructVirtioReseau__t_html_aa7dc77c437e7d1e3632bf78c6171c3f0"><div class="ttname"><a href="structVirtioReseau__t.html#aa7dc77c437e7d1e3632bf78c6171c3f0">VirtioReseau_t::adresseMAC</a></div><div class="ttdeci">uint8_t adresseMAC[6]</div><div class="ttdef"><b>Definition</b> <a href="virtio-net_8c_source.html#l00061">virtio-net.c:61</a></div></div>
+<div class="ttc" id="astruct__PCIEquipement_html"><div class="ttname"><a href="struct__PCIEquipement.html">_PCIEquipement</a></div><div class="ttdoc">: structure permettant d'identifier un équipement PCI</div><div class="ttdef"><b>Definition</b> <a href="manux_2pci_8h_source.html#l00014">pci.h:14</a></div></div>
+<div class="ttc" id="astruct__PCIEquipement_html_a16694af679e00d8362c3e81e911fc672"><div class="ttname"><a href="struct__PCIEquipement.html#a16694af679e00d8362c3e81e911fc672">_PCIEquipement::interruption</a></div><div class="ttdeci">uint8_t interruption</div><div class="ttdef"><b>Definition</b> <a href="manux_2pci_8h_source.html#l00018">pci.h:18</a></div></div>
+<div class="ttc" id="astruct__PCIEquipement_html_a169a4bcf976f6b9697627ee6cd6cb4ea"><div class="ttname"><a href="struct__PCIEquipement.html#a169a4bcf976f6b9697627ee6cd6cb4ea">_PCIEquipement::adresseES</a></div><div class="ttdeci">uint32_t adresseES</div><div class="ttdef"><b>Definition</b> <a href="manux_2pci_8h_source.html#l00019">pci.h:19</a></div></div>
+<div class="ttc" id="astruct__ReseauPilote_html"><div class="ttname"><a href="struct__ReseauPilote.html">_ReseauPilote</a></div><div class="ttdoc">Description d'un pilote d'interface réseau.</div><div class="ttdef"><b>Definition</b> <a href="interface-reseau_8h_source.html#l00013">interface-reseau.h:13</a></div></div>
+<div class="ttc" id="astruct__ReseauPilote_html_aa14897deb53262eb26a2f3888b169104"><div class="ttname"><a href="struct__ReseauPilote.html#aa14897deb53262eb26a2f3888b169104">_ReseauPilote::nom</a></div><div class="ttdeci">char * nom</div><div class="ttdef"><b>Definition</b> <a href="interface-reseau_8h_source.html#l00014">interface-reseau.h:14</a></div></div>
+<div class="ttc" id="astruct__bufferReseau_html"><div class="ttname"><a href="struct__bufferReseau.html">_bufferReseau</a></div><div class="ttdoc">Défnition d'un buffer réseau.</div><div class="ttdef"><b>Definition</b> <a href="buffer-reseau_8h_source.html#l00014">buffer-reseau.h:14</a></div></div>
+<div class="ttc" id="avirtio-net_8c_html_a27b690f89fac40c9316c6b70c5e8a133"><div class="ttname"><a href="virtio-net_8c.html#a27b690f89fac40c9316c6b70c5e8a133">VIRTIO_NET_F_GUEST_TSO4</a></div><div class="ttdeci">#define VIRTIO_NET_F_GUEST_TSO4</div><div class="ttdef"><b>Definition</b> <a href="virtio-net_8c_source.html#l00037">virtio-net.c:37</a></div></div>
+<div class="ttc" id="avirtio-net_8c_html_a335590b89028273e29abbe24938fb00d"><div class="ttname"><a href="virtio-net_8c.html#a335590b89028273e29abbe24938fb00d">virtioReseauPoll</a></div><div class="ttdeci">void virtioReseauPoll(void)</div><div class="ttdef"><b>Definition</b> <a href="virtio-net_8c_source.html#l00201">virtio-net.c:201</a></div></div>
+<div class="ttc" id="avirtio-net_8c_html_a42bdc707b1059c8a9c708138545e0596"><div class="ttname"><a href="virtio-net_8c.html#a42bdc707b1059c8a9c708138545e0596">VirtioReseau</a></div><div class="ttdeci">struct VirtioReseau_t VirtioReseau</div></div>
+<div class="ttc" id="avirtio-net_8c_html_a56ba6ac2de4117232f3a00e9ca62a7ef"><div class="ttname"><a href="virtio-net_8c.html#a56ba6ac2de4117232f3a00e9ca62a7ef">virtioPiloteReseau</a></div><div class="ttdeci">ReseauPilote virtioPiloteReseau</div><div class="ttdoc">Description du pilote virtio.</div><div class="ttdef"><b>Definition</b> <a href="virtio-net_8c_source.html#l00237">virtio-net.c:237</a></div></div>
+<div class="ttc" id="avirtio-net_8c_html_a5f4322a66bff0dd9b715c2efac8eb354"><div class="ttname"><a href="virtio-net_8c.html#a5f4322a66bff0dd9b715c2efac8eb354">VIRTIO_NET_F_GUEST_CSUM</a></div><div class="ttdeci">#define VIRTIO_NET_F_GUEST_CSUM</div><div class="ttdef"><b>Definition</b> <a href="virtio-net_8c_source.html#l00034">virtio-net.c:34</a></div></div>
+<div class="ttc" id="avirtio-net_8c_html_a703b1ae1561afadaecccb3c4e4822be3"><div class="ttname"><a href="virtio-net_8c.html#a703b1ae1561afadaecccb3c4e4822be3">requeteARP</a></div><div class="ttdeci">uint8_t requeteARP[]</div><div class="ttdef"><b>Definition</b> <a href="virtio-net_8c_source.html#l00087">virtio-net.c:87</a></div></div>
+<div class="ttc" id="avirtio-net_8c_html_a70f1c6098223df5efbfbc4758674ebdb"><div class="ttname"><a href="virtio-net_8c.html#a70f1c6098223df5efbfbc4758674ebdb">VIRTIO_NET_F_GUEST_TSO6</a></div><div class="ttdeci">#define VIRTIO_NET_F_GUEST_TSO6</div><div class="ttdef"><b>Definition</b> <a href="virtio-net_8c_source.html#l00038">virtio-net.c:38</a></div></div>
+<div class="ttc" id="avirtio-net_8c_html_a7a7fdfccfc1436dbf5ee41e6a188342e"><div class="ttname"><a href="virtio-net_8c.html#a7a7fdfccfc1436dbf5ee41e6a188342e">requeteARP2</a></div><div class="ttdeci">uint8_t requeteARP2[]</div><div class="ttdef"><b>Definition</b> <a href="virtio-net_8c_source.html#l00095">virtio-net.c:95</a></div></div>
+<div class="ttc" id="avirtio-net_8c_html_a7b4d2cbe0384379b74085059ae2b7957"><div class="ttname"><a href="virtio-net_8c.html#a7b4d2cbe0384379b74085059ae2b7957">VR_FILE_RECEPTION</a></div><div class="ttdeci">#define VR_FILE_RECEPTION</div><div class="ttdef"><b>Definition</b> <a href="virtio-net_8c_source.html#l00027">virtio-net.c:27</a></div></div>
+<div class="ttc" id="avirtio-net_8c_html_a82761940cd767d8c46c426a7546f123a"><div class="ttname"><a href="virtio-net_8c.html#a82761940cd767d8c46c426a7546f123a">VIRTIO_NET_F_MRG_RXBUF</a></div><div class="ttdeci">#define VIRTIO_NET_F_MRG_RXBUF</div><div class="ttdef"><b>Definition</b> <a href="virtio-net_8c_source.html#l00046">virtio-net.c:46</a></div></div>
+<div class="ttc" id="avirtio-net_8c_html_a906f7ea3378205543abb1435692bedef"><div class="ttname"><a href="virtio-net_8c.html#a906f7ea3378205543abb1435692bedef">VIRTIO_NET_F_CTRL_VQ</a></div><div class="ttdeci">#define VIRTIO_NET_F_CTRL_VQ</div><div class="ttdef"><b>Definition</b> <a href="virtio-net_8c_source.html#l00048">virtio-net.c:48</a></div></div>
+<div class="ttc" id="avirtio-net_8c_html_a94c196500ef9ae1ab36f042eab5e9726"><div class="ttname"><a href="virtio-net_8c.html#a94c196500ef9ae1ab36f042eab5e9726">VIRTIO_TAILLE_TRAME_MAX</a></div><div class="ttdeci">#define VIRTIO_TAILLE_TRAME_MAX</div><div class="ttdef"><b>Definition</b> <a href="virtio-net_8c_source.html#l00024">virtio-net.c:24</a></div></div>
+<div class="ttc" id="avirtio-net_8c_html_a9eb85b70f2fe3f24b6e922ebfff3ac84"><div class="ttname"><a href="virtio-net_8c.html#a9eb85b70f2fe3f24b6e922ebfff3ac84">VR_FILE_EMISSION</a></div><div class="ttdeci">#define VR_FILE_EMISSION</div><div class="ttdef"><b>Definition</b> <a href="virtio-net_8c_source.html#l00028">virtio-net.c:28</a></div></div>
+<div class="ttc" id="avirtio-net_8c_html_ab202a765d61bb97c205316763d12ddd8"><div class="ttname"><a href="virtio-net_8c.html#ab202a765d61bb97c205316763d12ddd8">unBufferALaCon</a></div><div class="ttdeci">uint8_t unBufferALaCon[4096]</div><div class="ttdef"><b>Definition</b> <a href="virtio-net_8c_source.html#l00107">virtio-net.c:107</a></div></div>
+<div class="ttc" id="avirtio-net_8c_html_ab44b26fabacceb70024dc1eaacf7e52c"><div class="ttname"><a href="virtio-net_8c.html#ab44b26fabacceb70024dc1eaacf7e52c">VirtioReseauEntete</a></div><div class="ttdeci">VirtioReseauEntete</div><div class="ttdef"><b>Definition</b> <a href="virtio-net_8c_source.html#l00075">virtio-net.c:75</a></div></div>
+<div class="ttc" id="avirtio-net_8c_html_abf464b54fed9bfec32c896b2ff9d5935"><div class="ttname"><a href="virtio-net_8c.html#abf464b54fed9bfec32c896b2ff9d5935">virtioNetTestDeuxiemeEmission</a></div><div class="ttdeci">void virtioNetTestDeuxiemeEmission(void)</div><div class="ttdef"><b>Definition</b> <a href="virtio-net_8c_source.html#l00400">virtio-net.c:400</a></div></div>
+<div class="ttc" id="avirtio-net_8c_html_ad09246453a4dabd919c7541484046a87"><div class="ttname"><a href="virtio-net_8c.html#ad09246453a4dabd919c7541484046a87">__attribute__</a></div><div class="ttdeci">struct __attribute__((__packed__))</div><div class="ttdoc">Description de l'entête ajouté par virtio net.</div><div class="ttdef"><b>Definition</b> <a href="virtio-net_8c_source.html#l00001">virtio-net.c:67</a></div></div>
+<div class="ttc" id="avirtio-net_8c_html_ae83137741152c003fee2c260d4a0dcae"><div class="ttname"><a href="virtio-net_8c.html#ae83137741152c003fee2c260d4a0dcae">VIRTIO_NET_F_GUEST_UFO</a></div><div class="ttdeci">#define VIRTIO_NET_F_GUEST_UFO</div><div class="ttdef"><b>Definition</b> <a href="virtio-net_8c_source.html#l00040">virtio-net.c:40</a></div></div>
+<div class="ttc" id="avirtio-net_8c_html_ae8ee56f5798a32fb0f3092501b7560ce"><div class="ttname"><a href="virtio-net_8c.html#ae8ee56f5798a32fb0f3092501b7560ce">virtioNetInit</a></div><div class="ttdeci">int virtioNetInit(void)</div><div class="ttdoc">Initialisation des périphériques.</div><div class="ttdef"><b>Definition</b> <a href="virtio-net_8c_source.html#l00371">virtio-net.c:371</a></div></div>
+<div class="ttc" id="avirtio-net_8c_html_af31843169059d11363b765e0ced55934"><div class="ttname"><a href="virtio-net_8c.html#af31843169059d11363b765e0ced55934">virtioReseau</a></div><div class="ttdeci">VirtioReseau virtioReseau</div><div class="ttdef"><b>Definition</b> <a href="virtio-net_8c_source.html#l00080">virtio-net.c:80</a></div></div>
+<div class="ttc" id="avirtio-net_8c_html_af9d9b2d59d95df2367d39a4b947193a0"><div class="ttname"><a href="virtio-net_8c.html#af9d9b2d59d95df2367d39a4b947193a0">virtioReseauEntete</a></div><div class="ttdeci">VirtioReseauEntete virtioReseauEntete</div><div class="ttdef"><b>Definition</b> <a href="virtio-net_8c_source.html#l00085">virtio-net.c:85</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

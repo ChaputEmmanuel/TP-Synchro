@@ -47,7 +47,7 @@ qui pourront ensuite être aiguillés en fonction de leur criticité.
 %-------------------------------------------------------------------------------
 %
 %-------------------------------------------------------------------------------
-\section{Gestion de l'écran : la console}
+\subsection{Gestion de l'écran : la console}
 
    Les fichiers \fichier{include/manux}{console}{h} 
 et \fichier{lib}{console}{c} définissent et implantent un outil de
@@ -75,7 +75,7 @@ définies.
 %...............................................................................
 %
 %...............................................................................
-\subsection{Fonctionnement de base}
+\subsubsection{Fonctionnement de base}
 
    Il se trouve que l'écran d'un PC peut être utilisé en mode textuel
 comme un simple tableau de caractères. Ce tableau est situé à une
@@ -87,7 +87,7 @@ texte et du fond.
 %...............................................................................
 %
 %...............................................................................
-\subsection{Définition du type {\tt Console}}
+\subsubsection{Définition du type {\tt Console}}
 
    Le type permettant de définir une console est défini dans le fichier
 \fichier{include/manux}{console}{h}. Pour le moment nous ne créerons
@@ -103,7 +103,7 @@ l'attribut).
 %...............................................................................
 %
 %...............................................................................
-\subsection{Initialisation de la console}
+\subsubsection{Initialisation de la console}
 
    L'initialisation du système de gestion de console (assurée par la
 fonction \lstinline!consoleInitialisation()!) consiste essentiellement
@@ -126,7 +126,7 @@ pointeur sur la console.
 %...............................................................................
 %
 %...............................................................................
-\subsection{Affichage sur la console}
+\subsubsection{Affichage sur la console}
 
    On construit ici en particulier la fonction suivante, chargée
 d'afficher sur la console une chaîne de caractères passée en paramètre~:
@@ -146,7 +146,7 @@ possible.
 %-------------------------------------------------------------------------------
 %
 %-------------------------------------------------------------------------------
-\section{Un premier {\tt printk()}}
+\subsection{Un premier {\tt printk()}}
 
    Grâce à notre console, l'écriture de {\tt printk()} est assez
 simple, puisque cette fonction n'a plus qu'à se préoccuper de créer
@@ -178,7 +178,7 @@ noyau.
 %-------------------------------------------------------------------------------
 %
 %-------------------------------------------------------------------------------
-\section{Mise en place d'un journal}
+\subsection{Mise en place d'un journal}
 
    Le journal est spécifié dans le fichier
 \fichier{include/manux}{journal}{h} et implanté dans le fichier
@@ -269,7 +269,7 @@ message à la (ou les) bonne(s) destination(s).
 %-------------------------------------------------------------------------------
 %
 %-------------------------------------------------------------------------------
-\section{Plus de souplesse avec les consoles virtuelles}
+\subsection{Plus de souplesse avec les consoles virtuelles}
 
    Lorsque nous allons mettre en place la notion de tâches, il sera
 intéressant d'attribuer à chacune d'entre elles une console virtuelle

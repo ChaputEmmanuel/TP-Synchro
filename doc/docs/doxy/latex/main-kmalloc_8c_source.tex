@@ -1,0 +1,62 @@
+\doxysection{main-\/kmalloc.c}
+\hypertarget{main-kmalloc_8c_source}{}\label{main-kmalloc_8c_source}\index{/home/manu/PROGRAMMATION/C/ManuX/noyau/main-\/kmalloc.c@{/home/manu/PROGRAMMATION/C/ManuX/noyau/main-\/kmalloc.c}}
+\mbox{\hyperlink{main-kmalloc_8c}{Aller Ã  la documentation de ce fichier.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{main-kmalloc_8c_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{main-kmalloc_8c_source_l00007}00007\ \textcolor{preprocessor}{\#include\ <manux/config.h>}}
+\DoxyCodeLine{\Hypertarget{main-kmalloc_8c_source_l00008}00008\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{manux_2bootloader_8h}{manux/bootloader.h}}>}}
+\DoxyCodeLine{\Hypertarget{main-kmalloc_8c_source_l00009}00009\ \textcolor{preprocessor}{\#include\ <manux/errno.h>}}
+\DoxyCodeLine{\Hypertarget{main-kmalloc_8c_source_l00010}00010\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{include_2manux_2console_8h}{manux/console.h}}>}}
+\DoxyCodeLine{\Hypertarget{main-kmalloc_8c_source_l00011}00011\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{segment_8h}{manux/segment.h}}>}}
+\DoxyCodeLine{\Hypertarget{main-kmalloc_8c_source_l00012}00012\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{include_2manux_2memoire_8h}{manux/memoire.h}}>}}
+\DoxyCodeLine{\Hypertarget{main-kmalloc_8c_source_l00013}00013\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{include_2manux_2kmalloc_8h}{manux/kmalloc.h}}>}}
+\DoxyCodeLine{\Hypertarget{main-kmalloc_8c_source_l00014}00014\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{include_2manux_2printk_8h}{manux/printk.h}}>}}
+\DoxyCodeLine{\Hypertarget{main-kmalloc_8c_source_l00015}00015\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{manux_2stdlib_8h}{manux/stdlib.h}}>}\ \ \textcolor{comment}{//\ rand}}
+\DoxyCodeLine{\Hypertarget{main-kmalloc_8c_source_l00016}00016\ }
+\DoxyCodeLine{\Hypertarget{main-kmalloc_8c_source_l00020}\mbox{\hyperlink{main-kmalloc_8c_aa46b494d5fec94fa825c98dbbcffb32b}{00020}}\ \textcolor{preprocessor}{\#define\ NB\_ELEMENTS\ 200}}
+\DoxyCodeLine{\Hypertarget{main-kmalloc_8c_source_l00021}\mbox{\hyperlink{main-kmalloc_8c_a428b0073af3ea626a69546b24e5e0aaf}{00021}}\ \textcolor{preprocessor}{\#define\ NB\_APPELS\ \ \ 10000}}
+\DoxyCodeLine{\Hypertarget{main-kmalloc_8c_source_l00022}00022\ }
+\DoxyCodeLine{\Hypertarget{main-kmalloc_8c_source_l00023}\mbox{\hyperlink{main-kmalloc_8c_a9c796c764070654103bdb779007447b7}{00023}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{main-kmalloc_8c_a9c796c764070654103bdb779007447b7}{testerKmalloc}}()}
+\DoxyCodeLine{\Hypertarget{main-kmalloc_8c_source_l00024}00024\ \{}
+\DoxyCodeLine{\Hypertarget{main-kmalloc_8c_source_l00025}00025\ \ \ \ \textcolor{keywordtype}{void}\ *\ elements[\mbox{\hyperlink{main-kmalloc_8c_aa46b494d5fec94fa825c98dbbcffb32b}{NB\_ELEMENTS}}]\ =\ \{\mbox{\hyperlink{include_2manux_2stddef_8h_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}},\};}
+\DoxyCodeLine{\Hypertarget{main-kmalloc_8c_source_l00026}00026\ \ \ \ \textcolor{keywordtype}{int}\ n,\ e;}
+\DoxyCodeLine{\Hypertarget{main-kmalloc_8c_source_l00027}00027\ }
+\DoxyCodeLine{\Hypertarget{main-kmalloc_8c_source_l00028}00028\ \ \ \ \mbox{\hyperlink{include_2manux_2printk_8h_a25b30e8bbadd54650c56895999dd808f}{printk}}(\mbox{\hyperlink{include_2manux_2printk_8h_a2a73abbb0814a289e22ba4f7347f4657}{PRINTK\_DEBUGAGE}}\ \textcolor{stringliteral}{"{}Avant\ :\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{main-kmalloc_8c_source_l00029}00029\ \ \ \ \textcolor{keywordflow}{for}\ (e\ =\ 0;\ e<\mbox{\hyperlink{main-kmalloc_8c_aa46b494d5fec94fa825c98dbbcffb32b}{NB\_ELEMENTS}};\ e++)\{}
+\DoxyCodeLine{\Hypertarget{main-kmalloc_8c_source_l00030}00030\ \ \ \ \ \ \ elements[e]\ =\ \mbox{\hyperlink{include_2manux_2stddef_8h_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}};}
+\DoxyCodeLine{\Hypertarget{main-kmalloc_8c_source_l00031}00031\ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{main-kmalloc_8c_source_l00032}00032\ \ \ \ \mbox{\hyperlink{kmalloc-zs_8c_a612af40ff50bab56d5d2ce7b0e37dc53}{kmallocAfficherStatistiques}}(\textcolor{stringliteral}{"{}"{}});}
+\DoxyCodeLine{\Hypertarget{main-kmalloc_8c_source_l00033}00033\ \ \ \ \textcolor{keywordflow}{for}\ (n\ =\ 0;\ n\ <\ \mbox{\hyperlink{main-kmalloc_8c_a428b0073af3ea626a69546b24e5e0aaf}{NB\_APPELS}};\ n++)\ \{}
+\DoxyCodeLine{\Hypertarget{main-kmalloc_8c_source_l00034}00034\ \ \ \ \ \ \ e\ =\ \mbox{\hyperlink{manux_2stdlib_8h_ad6001b066295ad1e959c9501d409bf28}{rand}}()\ \%\ \mbox{\hyperlink{main-kmalloc_8c_aa46b494d5fec94fa825c98dbbcffb32b}{NB\_ELEMENTS}};}
+\DoxyCodeLine{\Hypertarget{main-kmalloc_8c_source_l00035}00035\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (elements[e]\ ==\ \mbox{\hyperlink{include_2manux_2stddef_8h_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}})\ \{}
+\DoxyCodeLine{\Hypertarget{main-kmalloc_8c_source_l00036}00036\ \ \ \ \ \ \ \ \ \ elements[e]\ =\ \mbox{\hyperlink{kmalloc-zs_8h_af549fce4aa887cd31918e6c5dd0950f5}{kmalloc}}(\mbox{\hyperlink{manux_2stdlib_8h_ad6001b066295ad1e959c9501d409bf28}{rand}}()\ \%\ 1024);}
+\DoxyCodeLine{\Hypertarget{main-kmalloc_8c_source_l00037}00037\ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{main-kmalloc_8c_source_l00038}00038\ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{kmalloc-zs_8h_af7105034bf054e37218d6ade20db4684}{kfree}}(elements[e]);}
+\DoxyCodeLine{\Hypertarget{main-kmalloc_8c_source_l00039}00039\ \ \ \ \ \ \ \ \ \ elements[e]\ =\ \mbox{\hyperlink{include_2manux_2stddef_8h_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}};}
+\DoxyCodeLine{\Hypertarget{main-kmalloc_8c_source_l00040}00040\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{main-kmalloc_8c_source_l00041}00041\ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{main-kmalloc_8c_source_l00042}00042\ \ \ \ \mbox{\hyperlink{include_2manux_2printk_8h_a25b30e8bbadd54650c56895999dd808f}{printk}}(\mbox{\hyperlink{include_2manux_2printk_8h_a2a73abbb0814a289e22ba4f7347f4657}{PRINTK\_DEBUGAGE}}\ \textcolor{stringliteral}{"{}Apres\ :\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{main-kmalloc_8c_source_l00043}00043\ \ \ \ \mbox{\hyperlink{kmalloc-zs_8c_a612af40ff50bab56d5d2ce7b0e37dc53}{kmallocAfficherStatistiques}}(\textcolor{stringliteral}{"{}"{}});}
+\DoxyCodeLine{\Hypertarget{main-kmalloc_8c_source_l00044}00044\ \}}
+\DoxyCodeLine{\Hypertarget{main-kmalloc_8c_source_l00045}00045\ }
+\DoxyCodeLine{\Hypertarget{main-kmalloc_8c_source_l00046}\mbox{\hyperlink{main-kmalloc_8c_a3568df994044ade7d37160ef731c223f}{00046}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{main-kmalloc_8c_a3568df994044ade7d37160ef731c223f}{startManuX}}()}
+\DoxyCodeLine{\Hypertarget{main-kmalloc_8c_source_l00047}00047\ \{}
+\DoxyCodeLine{\Hypertarget{main-kmalloc_8c_source_l00048}00048\ \ \ \ \textcolor{comment}{//\ Récupération\ des\ informations\ depuis\ le\ bootloader}}
+\DoxyCodeLine{\Hypertarget{main-kmalloc_8c_source_l00049}00049\ \ \ \ \mbox{\hyperlink{manux_2bootloader_8h_ae56092aa42bf357bf0026df0b0808db4}{bootloaderInitialiser}}();}
+\DoxyCodeLine{\Hypertarget{main-kmalloc_8c_source_l00050}00050\ }
+\DoxyCodeLine{\Hypertarget{main-kmalloc_8c_source_l00051}00051\ \ \ \ \textcolor{comment}{//\ Initialisation\ de\ la\ console\ noyau}}
+\DoxyCodeLine{\Hypertarget{main-kmalloc_8c_source_l00052}00052\ \ \ \ \mbox{\hyperlink{include_2manux_2console_8h_a29466c636bd065544638829883090d54}{consoleInitialisation}}();}
+\DoxyCodeLine{\Hypertarget{main-kmalloc_8c_source_l00053}00053\ }
+\DoxyCodeLine{\Hypertarget{main-kmalloc_8c_source_l00054}00054\ \ \ \ \textcolor{comment}{//\ On\ peut\ initialiser\ la\ gestion\ de\ la\ mémoire}}
+\DoxyCodeLine{\Hypertarget{main-kmalloc_8c_source_l00055}00055\ \ \ \ \mbox{\hyperlink{include_2manux_2memoire_8h_a4338550e2017b7c95021bdc27e4f3345}{initialiserMemoire}}(\mbox{\hyperlink{manux_2bootloader_8h_abf4319b3adb9dd5752045f58f65369e6}{infoSysteme}}.\mbox{\hyperlink{struct__InfoSysteme_a6047965dfba552f4957f7df33b777e8c}{memoireDeBase}},}
+\DoxyCodeLine{\Hypertarget{main-kmalloc_8c_source_l00056}00056\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{manux_2bootloader_8h_abf4319b3adb9dd5752045f58f65369e6}{infoSysteme}}.\mbox{\hyperlink{struct__InfoSysteme_aeed4b08b9edfc29ff917ed26d87c9cda}{memoireEtendue}});}
+\DoxyCodeLine{\Hypertarget{main-kmalloc_8c_source_l00057}00057\ }
+\DoxyCodeLine{\Hypertarget{main-kmalloc_8c_source_l00058}00058\ \ \ \ \textcolor{comment}{//\ Initialsation\ du\ système\ kmalloc}}
+\DoxyCodeLine{\Hypertarget{main-kmalloc_8c_source_l00059}00059\ \ \ \ \mbox{\hyperlink{kmalloc-zs_8h_a9834d71816871b865956b59d641f602f}{kmallocInitialisation}}();}
+\DoxyCodeLine{\Hypertarget{main-kmalloc_8c_source_l00060}00060\ \ \ \ }
+\DoxyCodeLine{\Hypertarget{main-kmalloc_8c_source_l00061}00061\ \ \ \ \mbox{\hyperlink{main-kmalloc_8c_a9c796c764070654103bdb779007447b7}{testerKmalloc}}();}
+\DoxyCodeLine{\Hypertarget{main-kmalloc_8c_source_l00062}00062\ \}\ \ \ \textcolor{comment}{/*\ startManuX\ */}}
+\DoxyCodeLine{\Hypertarget{main-kmalloc_8c_source_l00063}00063\ }
+\DoxyCodeLine{\Hypertarget{main-kmalloc_8c_source_l00064}00064\ }
+
+\end{DoxyCode}

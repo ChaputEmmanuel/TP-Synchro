@@ -1,0 +1,73 @@
+\chapter{Les appels systèmes}
+\hypertarget{md_docs_2appel-systeme-part}{}\label{md_docs_2appel-systeme-part}\index{Les appels systèmes@{Les appels systèmes}}
+\label{md_docs_2appel-systeme-part_autotoc_md14}%
+\Hypertarget{md_docs_2appel-systeme-part_autotoc_md14}%
+ Les appels systèmes constituent une part importante de l’interface entre le noyau et les applications. Dans ManuX, le choix a été fait d’implanter ce mécanisme au travers d’une interruption. C’est une technique classique (utilisée par exemple par Linux).
+
+Leur mise en œuvre passe par plusieurs étapes que je vais détailler ici. L’objectif d’un appel système est d’offrir à une application utilisateur un service qui ne peut être rendu que part le noyau. Pour des raisons de confort d’utilisation, ces services sont rendus sous la forme de fonctions classiques, comme une librairie traditionnelle. Pour en arriver là, nous pouvons distinguer quatre étapes
+
+
+\begin{DoxyItemize}
+\item L’application utilise une fonction C pour invoquer un appel système. Le code de cette fonction doit donc être construit de sorte à préparer puis mettre en œuvre la sollicitation du service auprès du noyau (par le biais d’une interruption ici).
+\item L’interruption est déclanchée et le code du handler de cette interruption est exécuté.
+\item Le handler va devoir déterminer quelle est la fonction du noyau qui doit être utilisée pour rendre le service voulu à l’application.
+\item La fonction en question va être exécutée et le service fourni à l’application.
+\end{DoxyItemize}
+
+Nous allons maintenant décrire la mise en œuvre de ces étapes en prenant comme exemple un appel système qui nous permettra d’envoyer un message sur la console. Nous pourrons ainsi écrire un {\ttfamily printf} pour les applications !\hypertarget{md_docs_2appel-systeme-part_autotoc_md15}{}\doxysection{\texorpdfstring{Définition des éléments communs noyau/application}{Définition des éléments communs noyau/application}}\label{md_docs_2appel-systeme-part_autotoc_md15}
+Le fichier \href{/doxy/html/appelsystemenum_8h_source.html}{\texttt{ {\ttfamily manux/appelsystemenum.\+h}}}(\href{/doxy/html/appelsystemenum_8h.html}{\texttt{ dox}}) donne en particulier les numéros des différents appels systèmes. Il doit donc absolument être commun au noyau et aux “applications” (voir la documentation sur l’espace utilisateur).\hypertarget{md_docs_2appel-systeme-part_autotoc_md16}{}\doxysection{\texorpdfstring{Définition de l’interface}{Définition de l’interface}}\label{md_docs_2appel-systeme-part_autotoc_md16}
+Ce que j’appelle interface est la signature de la fonction directement utilisable dans une application pour invoquer un appel système.
+
+Cette interface est donc décrite côté applications, dans les fichiers de {\ttfamily usr}.
+
+Des macros ont été créées dans le fichier \href{/doxy/html/appelsysteme_8h_source.html}{\texttt{ {\ttfamily usr/include/manux/appelsysteme.\+h}}}(\href{/doxy/html/appelsysteme_8h.html}{\texttt{ dox}}) pour simplifier une telle définition. Ce sont par exemple les “fonctions” {\ttfamily appel\+Systeme0}, {\ttfamily appel\+Systeme1}, …
+
+On utilisera donc une telle macro chaque fois qu’il sera nécessaire de définir un nouvel appel système. C’est ainsi que dans le fichier {\ttfamily \doxylink{unistd_8h}{usr/include/unistd.\+h}} on trouve par exemple \+: \begin{DoxyVerb}appelSysteme2(NBAS_AFFICHER, int, afficherConsole, void *, int);
+\end{DoxyVerb}
+ Cette ligne défini donc la fonction {\ttfamily afficher\+Console()} qui va permettre à une application d’envoyer un message sur la console.\hypertarget{md_docs_2appel-systeme-part_autotoc_md17}{}\doxysection{\texorpdfstring{Écriture de l’appel système}{Écriture de l’appel système}}\label{md_docs_2appel-systeme-part_autotoc_md17}
+La partie la plus importante est naturellement d’écrire le code de l’appel système. Celui-\/ci consiste simplement en une fonction C classique (qui en utilise éventuellement d’autres, naturellement). La seule contrainte étant que si cette fonction a des paramètres, le premier d’entre eux (qui ne présente aucun intéret pour le programmeur) doit être de type {\ttfamily Parametre\+AS}.
+
+Ce paramètre sert uniquement a “recadrer” les paramètres suivants dans la pile suite aux décalages induits dans celle-\/là par les appels successifs à l’interface de l’appel système, à l’interruption, et à l’appel système lui-\/même d’une part, et à la sauvegarde des registres d’autre part.
+
+Observons par exemple le code permettant la mise en œuve de l’appel système {\ttfamily ecrire\+Console}. Il se trouve dans le fichier {\ttfamily \doxylink{console_8c}{lib/console.\+c}} \+: \begin{DoxyVerb}/**
+ * L'implantation de l'AS ecrireConsole
+ */
+int sys_ecrireConsole(ParametreAS as, void * msg, int n)
+{
+   assert(tacheEnCours != NULL);
+   Console * cons = tacheEnCours->console;
+
+   assert(cons != NULL);
+   afficherConsoleN(cons, msg, n);
+
+   return n; 
+}
+\end{DoxyVerb}
+ Bien sûr, cette fonction utilise le code de manipulation de la console déjà écrit.\hypertarget{md_docs_2appel-systeme-part_autotoc_md18}{}\doxysection{\texorpdfstring{Enregistrement de l’appel système}{Enregistrement de l’appel système}}\label{md_docs_2appel-systeme-part_autotoc_md18}
+L’enregistrement de l’appel système dans le système d’exploitation est réalisé par une invocation de la fonction suivante, définie dans {\ttfamily appelsysteme.\+h} et codée dans {\ttfamily \doxylink{appelsysteme_8c}{noyau/appelsysteme.\+c}} \+: \begin{DoxyVerb}{}
+int definirAppelSysteme(int num, void * appel);
+\end{DoxyVerb}
+ où
+
+{\ttfamily num} ~\newline
+ est le numéro de l’appel système enregistré ;
+
+{\ttfamily appel} ~\newline
+ est la fonction de traitement de cet appel système.
+
+Le travail de cette fonction est donc simplement de placer dans la table des appels systèmes ({\ttfamily vecteur\+Appels\+Systeme}) la fonction de traitement de cet appel système.
+
+C’est donc ici la “partie noyau” qui est réalisée, c’est-\/à-\/dire la définition des actions à mener lorsque l’appel système est invoqué.
+
+Nous trouvons par exemple dans la fonction {\ttfamily \doxylink{include_2manux_2appelsysteme_8h_ae9c459f3384b085e316b0d43a308d69b}{initialiser\+Appels\+Systeme()}} du fichier {\ttfamily \doxylink{appelsysteme_8c}{noyau/appelsysteme.\+c}} la ligne de déclaration de notre appel système {\ttfamily ecrire\+Console} \+: \begin{DoxyVerb}{}
+void initialiserAppelsSysteme()
+{
+   ...
+
+   /* Envoyer une chaine de caracteres sur la console */
+   definirAppelSysteme(NBAS_ECRIRE_CONS, sys_ecrireConsole);
+
+   ...
+}
+\end{DoxyVerb}
+ 

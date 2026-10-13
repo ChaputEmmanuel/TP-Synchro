@@ -6,6 +6,8 @@
  */
 #define MANUX_LIBI386
 
+#include <config/plan-memoire-pc.h>
+
 /*----------------------------------------------------------------------------*/
 /*   Configuration des interruptions                                          */ 
 /*----------------------------------------------------------------------------*/
@@ -46,9 +48,12 @@
 
 /**
  * @brief Décompte des interruptions
+ *
+ * WARNING : pour le moment ça n'a guère de sens car je n'utilise pas
+ * les handlers qui le permettraient
  */
-#define MANUX_INT_AUDIT
-
+//#define MANUX_INT_AUDIT
+#undef  MANUX_INT_AUDIT
 /*
  * Les IRQ des matériels pris en charge
  */

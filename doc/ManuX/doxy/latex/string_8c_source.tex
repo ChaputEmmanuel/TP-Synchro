@@ -1,0 +1,106 @@
+\doxysection{string.\+c}
+\hypertarget{string_8c_source}{}\label{string_8c_source}\index{/home/manu/PROGRAMMATION/C/ManuX/lib/string.c@{/home/manu/PROGRAMMATION/C/ManuX/lib/string.c}}
+\mbox{\hyperlink{string_8c}{Aller à la documentation de ce fichier.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{string_8c_source_l00001}00001\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{string_8c_source_l00002}00002\ \textcolor{comment}{/*\ \ \ \ \ \ Implantation\ des\ fonctions\ de\ manipulation\ des\ chaines.\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{string_8c_source_l00003}00003\ \textcolor{comment}{/*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{string_8c_source_l00004}00004\ \textcolor{comment}{/*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (C)\ Manu\ Chaput\ 2000-\/2021\ */}}
+\DoxyCodeLine{\Hypertarget{string_8c_source_l00005}00005\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{string_8c_source_l00006}00006\ \textcolor{preprocessor}{\#include\ "{}manux/stddef.h"{}}}
+\DoxyCodeLine{\Hypertarget{string_8c_source_l00007}00007\ \textcolor{preprocessor}{\#include\ <manux/string.h>}}
+\DoxyCodeLine{\Hypertarget{string_8c_source_l00008}00008\ }
+\DoxyCodeLine{\Hypertarget{string_8c_source_l00012}\mbox{\hyperlink{include_2manux_2string_8h_aba088e716bccbc96d42da97e96316df1}{00012}}\ \textcolor{keywordtype}{void}\ *\ \mbox{\hyperlink{string_8c_aba088e716bccbc96d42da97e96316df1}{memcpy}}(\textcolor{keywordtype}{void}\ *dest,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{void}\ *src,\ \textcolor{keywordtype}{size\_t}\ n)}
+\DoxyCodeLine{\Hypertarget{string_8c_source_l00013}00013\ \{}
+\DoxyCodeLine{\Hypertarget{string_8c_source_l00014}00014\ \ \ \ \textcolor{keywordtype}{char}\ *\ \mbox{\hyperlink{main-registre_8c_aaa0e9a03072c04ebe2d49f53bc7bc785}{d}}\ =\ dest;}
+\DoxyCodeLine{\Hypertarget{string_8c_source_l00015}00015\ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\ s\ =\ src;}
+\DoxyCodeLine{\Hypertarget{string_8c_source_l00016}00016\ \ \ \ \textcolor{keywordflow}{while}\ (n-\/-\/)}
+\DoxyCodeLine{\Hypertarget{string_8c_source_l00017}00017\ \ \ \ \ \ \ *\mbox{\hyperlink{main-registre_8c_aaa0e9a03072c04ebe2d49f53bc7bc785}{d}}++\ =\ *s++;\ }
+\DoxyCodeLine{\Hypertarget{string_8c_source_l00018}00018\ }
+\DoxyCodeLine{\Hypertarget{string_8c_source_l00019}00019\ \ \ \ \textcolor{keywordflow}{return}\ dest;}
+\DoxyCodeLine{\Hypertarget{string_8c_source_l00020}00020\ \}}
+\DoxyCodeLine{\Hypertarget{string_8c_source_l00021}00021\ }
+\DoxyCodeLine{\Hypertarget{string_8c_source_l00025}\mbox{\hyperlink{include_2manux_2string_8h_a88e5d365ae422f80172d7d30cea7f2df}{00025}}\ \textcolor{keywordtype}{void}\ *\ \mbox{\hyperlink{string_8c_a88e5d365ae422f80172d7d30cea7f2df}{memset}}(\textcolor{keywordtype}{void}\ *dest,\ \textcolor{keywordtype}{int}\ val,\ \textcolor{keywordtype}{size\_t}\ n)}
+\DoxyCodeLine{\Hypertarget{string_8c_source_l00026}00026\ \{}
+\DoxyCodeLine{\Hypertarget{string_8c_source_l00027}00027\ \ \ \ \textcolor{keywordtype}{char}\ *\ \mbox{\hyperlink{main-registre_8c_aaa0e9a03072c04ebe2d49f53bc7bc785}{d}}\ =\ dest;}
+\DoxyCodeLine{\Hypertarget{string_8c_source_l00028}00028\ \ \ \ \textcolor{keywordflow}{while}\ (n-\/-\/)}
+\DoxyCodeLine{\Hypertarget{string_8c_source_l00029}00029\ \ \ \ \ \ \ *\mbox{\hyperlink{main-registre_8c_aaa0e9a03072c04ebe2d49f53bc7bc785}{d}}++\ =\ val;\ }
+\DoxyCodeLine{\Hypertarget{string_8c_source_l00030}00030\ }
+\DoxyCodeLine{\Hypertarget{string_8c_source_l00031}00031\ \ \ \ \textcolor{keywordflow}{return}\ dest;}
+\DoxyCodeLine{\Hypertarget{string_8c_source_l00032}00032\ \}}
+\DoxyCodeLine{\Hypertarget{string_8c_source_l00033}00033\ }
+\DoxyCodeLine{\Hypertarget{string_8c_source_l00034}00034\ }
+\DoxyCodeLine{\Hypertarget{string_8c_source_l00035}\mbox{\hyperlink{include_2manux_2string_8h_a37010cca25d22c6942c90bf65ae9cc0d}{00035}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{string_8c_a37010cca25d22c6942c90bf65ae9cc0d}{bcopy}}\ (\textcolor{keyword}{const}\ \textcolor{keywordtype}{void}\ *src,\ \textcolor{keywordtype}{void}\ *dest,\ \textcolor{keywordtype}{int}\ n)}
+\DoxyCodeLine{\Hypertarget{string_8c_source_l00036}00036\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{string_8c_source_l00037}00037\ \textcolor{comment}{\ *\ bcopy/bzero\ ne\ sont\ ni\ ISO\ C\ ni\ POSIX\ (deprecated\ depuis\ 2001\ et\ removed\ en\ 2008)}}
+\DoxyCodeLine{\Hypertarget{string_8c_source_l00038}00038\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{string_8c_source_l00039}00039\ \{}
+\DoxyCodeLine{\Hypertarget{string_8c_source_l00040}00040\ \ \ \ \textcolor{keywordtype}{char}\ *\ \mbox{\hyperlink{main-registre_8c_aaa0e9a03072c04ebe2d49f53bc7bc785}{d}}\ =\ dest;}
+\DoxyCodeLine{\Hypertarget{string_8c_source_l00041}00041\ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\ s\ =\ src;}
+\DoxyCodeLine{\Hypertarget{string_8c_source_l00042}00042\ \ \ \ \textcolor{keywordflow}{while}\ (n-\/-\/)}
+\DoxyCodeLine{\Hypertarget{string_8c_source_l00043}00043\ \ \ \ \ \ \ *\mbox{\hyperlink{main-registre_8c_aaa0e9a03072c04ebe2d49f53bc7bc785}{d}}++\ =\ *s++;\ }
+\DoxyCodeLine{\Hypertarget{string_8c_source_l00044}00044\ \}}
+\DoxyCodeLine{\Hypertarget{string_8c_source_l00045}00045\ }
+\DoxyCodeLine{\Hypertarget{string_8c_source_l00046}\mbox{\hyperlink{include_2manux_2string_8h_a2dee044e4e667b5b789b493abd21cfa4}{00046}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{string_8c_a2dee044e4e667b5b789b493abd21cfa4}{strlen}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\ s)}
+\DoxyCodeLine{\Hypertarget{string_8c_source_l00047}00047\ \{}
+\DoxyCodeLine{\Hypertarget{string_8c_source_l00048}00048\ \ \ \ \textcolor{keywordtype}{int}\ result\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{string_8c_source_l00049}00049\ \ \ \ }
+\DoxyCodeLine{\Hypertarget{string_8c_source_l00050}00050\ \ \ \ \textcolor{keywordflow}{while}\ (s[result])\ \{}
+\DoxyCodeLine{\Hypertarget{string_8c_source_l00051}00051\ \ \ \ \ \ \ result++;}
+\DoxyCodeLine{\Hypertarget{string_8c_source_l00052}00052\ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{string_8c_source_l00053}00053\ \ \ \ }
+\DoxyCodeLine{\Hypertarget{string_8c_source_l00054}00054\ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{\Hypertarget{string_8c_source_l00055}00055\ \}}
+\DoxyCodeLine{\Hypertarget{string_8c_source_l00056}00056\ }
+\DoxyCodeLine{\Hypertarget{string_8c_source_l00057}\mbox{\hyperlink{include_2manux_2string_8h_a07f4a84c11c106e95c32b6ab509346ef}{00057}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{string_8c_a07f4a84c11c106e95c32b6ab509346ef}{strncmp}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *s1,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *s2,\ \textcolor{keywordtype}{size\_t}\ n)}
+\DoxyCodeLine{\Hypertarget{string_8c_source_l00058}00058\ \{}
+\DoxyCodeLine{\Hypertarget{string_8c_source_l00059}00059\ \ \ \ \textcolor{keywordtype}{size\_t}\ i;}
+\DoxyCodeLine{\Hypertarget{string_8c_source_l00060}00060\ }
+\DoxyCodeLine{\Hypertarget{string_8c_source_l00061}00061\ \ \ \ \textcolor{comment}{//\ On\ cherche\ la\ première\ différence}}
+\DoxyCodeLine{\Hypertarget{string_8c_source_l00062}00062\ \ \ \ \textcolor{keywordflow}{for}\ (i\ =\ 0\ ;\ (i\ <\ n)\ \&\&\ (s1[i]\ ==\ s2[i])\ ;\ i++)\ \{\ \}}
+\DoxyCodeLine{\Hypertarget{string_8c_source_l00063}00063\ }
+\DoxyCodeLine{\Hypertarget{string_8c_source_l00064}00064\ \ \ \ \textcolor{comment}{//\ Si\ on\ n'en\ a\ pas\ trouvé,\ c'est\ égalité,\ sinon\ on\ compare}}
+\DoxyCodeLine{\Hypertarget{string_8c_source_l00065}00065\ \ \ \ \textcolor{keywordflow}{if}\ (i\ ==\ n)\ \{}
+\DoxyCodeLine{\Hypertarget{string_8c_source_l00066}00066\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\Hypertarget{string_8c_source_l00067}00067\ \ \ \ \}\ \textcolor{keywordflow}{else}\ \ \textcolor{keywordflow}{if}\ (s1[i]\ <\ s2[i])\ \{}
+\DoxyCodeLine{\Hypertarget{string_8c_source_l00068}00068\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ -\/1;}
+\DoxyCodeLine{\Hypertarget{string_8c_source_l00069}00069\ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{string_8c_source_l00070}00070\ \ \ \ \ \ \textcolor{keywordflow}{return}\ +1;}
+\DoxyCodeLine{\Hypertarget{string_8c_source_l00071}00071\ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{string_8c_source_l00072}00072\ \}}
+\DoxyCodeLine{\Hypertarget{string_8c_source_l00073}00073\ }
+\DoxyCodeLine{\Hypertarget{string_8c_source_l00074}\mbox{\hyperlink{include_2manux_2string_8h_a11bd144d7d44914099a3aeddf1c8567d}{00074}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{string_8c_a11bd144d7d44914099a3aeddf1c8567d}{strcmp}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *s1,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *s2)}
+\DoxyCodeLine{\Hypertarget{string_8c_source_l00075}00075\ \{}
+\DoxyCodeLine{\Hypertarget{string_8c_source_l00076}00076\ \ \ \ \textcolor{keywordtype}{int}\ l1\ =\ \mbox{\hyperlink{string_8c_a2dee044e4e667b5b789b493abd21cfa4}{strlen}}(s1);}
+\DoxyCodeLine{\Hypertarget{string_8c_source_l00077}00077\ \ \ \ \textcolor{keywordtype}{int}\ l2\ =\ \mbox{\hyperlink{string_8c_a2dee044e4e667b5b789b493abd21cfa4}{strlen}}(s2);}
+\DoxyCodeLine{\Hypertarget{string_8c_source_l00078}00078\ \ \ \ \textcolor{keywordtype}{int}\ l\ =\ l1;}
+\DoxyCodeLine{\Hypertarget{string_8c_source_l00079}00079\ \ \ \ \textcolor{keywordtype}{int}\ result;}
+\DoxyCodeLine{\Hypertarget{string_8c_source_l00080}00080\ }
+\DoxyCodeLine{\Hypertarget{string_8c_source_l00081}00081\ \ \ \ \textcolor{keywordflow}{if}\ (l2\ <\ l)\ \{}
+\DoxyCodeLine{\Hypertarget{string_8c_source_l00082}00082\ \ \ \ \ \ \ l\ =\ l2;}
+\DoxyCodeLine{\Hypertarget{string_8c_source_l00083}00083\ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{string_8c_source_l00084}00084\ }
+\DoxyCodeLine{\Hypertarget{string_8c_source_l00085}00085\ \ \ \ result\ =\ \mbox{\hyperlink{string_8c_a07f4a84c11c106e95c32b6ab509346ef}{strncmp}}(s1,\ s2,\ l);}
+\DoxyCodeLine{\Hypertarget{string_8c_source_l00086}00086\ }
+\DoxyCodeLine{\Hypertarget{string_8c_source_l00087}00087\ \ \ \ \textcolor{comment}{//\ Si\ elles\ sont\ égales\ sur\ la\ longueur\ commune}}
+\DoxyCodeLine{\Hypertarget{string_8c_source_l00088}00088\ \ \ \ \textcolor{keywordflow}{if}\ (result\ ==\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{string_8c_source_l00089}00089\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (l1\ <\ l2)\ \{}
+\DoxyCodeLine{\Hypertarget{string_8c_source_l00090}00090\ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ -\/1;}
+\DoxyCodeLine{\Hypertarget{string_8c_source_l00091}00091\ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (l2\ <\ l1)\ \{}
+\DoxyCodeLine{\Hypertarget{string_8c_source_l00092}00092\ \ \ \ \ \textcolor{keywordflow}{return}\ +1;}
+\DoxyCodeLine{\Hypertarget{string_8c_source_l00093}00093\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{string_8c_source_l00094}00094\ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{string_8c_source_l00095}00095\ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{\Hypertarget{string_8c_source_l00096}00096\ \}}
+\DoxyCodeLine{\Hypertarget{string_8c_source_l00097}00097\ }
+\DoxyCodeLine{\Hypertarget{string_8c_source_l00104}\mbox{\hyperlink{include_2manux_2string_8h_add02b305040e403f25f4e86c95db4ca5}{00104}}\ \textcolor{keywordtype}{char}\ *\ \mbox{\hyperlink{string_8c_add02b305040e403f25f4e86c95db4ca5}{prochainDelimiteur}}(\textcolor{keywordtype}{char}\ *\ chaine,\ \textcolor{keywordtype}{char}\ delimiteur)}
+\DoxyCodeLine{\Hypertarget{string_8c_source_l00105}00105\ \{}
+\DoxyCodeLine{\Hypertarget{string_8c_source_l00106}00106\ \ \ \ \textcolor{keywordtype}{char}\ *\ result\ =\ chaine;}
+\DoxyCodeLine{\Hypertarget{string_8c_source_l00107}00107\ }
+\DoxyCodeLine{\Hypertarget{string_8c_source_l00108}00108\ \ \ \ \textcolor{keywordflow}{while}\ ((*result\ !=\ 0)\ \&\&\ (*result\ !=\ delimiteur))\ \{}
+\DoxyCodeLine{\Hypertarget{string_8c_source_l00109}00109\ \ \ \ \ \ \ result\ ++;}
+\DoxyCodeLine{\Hypertarget{string_8c_source_l00110}00110\ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{string_8c_source_l00111}00111\ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{\Hypertarget{string_8c_source_l00112}00112\ \}}
+
+\end{DoxyCode}

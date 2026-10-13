@@ -1,0 +1,83 @@
+\doxysection{Référence du fichier /home/manu/\+PROGRAMMATION/\+C/\+Manu\+X/noyau/main-\/virtio-\/cons.c}
+\hypertarget{main-virtio-cons_8c}{}\label{main-virtio-cons_8c}\index{/home/manu/PROGRAMMATION/C/ManuX/noyau/main-\/virtio-\/cons.c@{/home/manu/PROGRAMMATION/C/ManuX/noyau/main-\/virtio-\/cons.c}}
+
+
+\+: Un exemple de d�but de noyau.  
+
+
+{\ttfamily \#include $<$manux/config.\+h$>$}\newline
+{\ttfamily \#include $<$manux/debug.\+h$>$}\newline
+{\ttfamily \#include $<$manux/bootloader.\+h$>$}\newline
+{\ttfamily \#include $<$manux/errno.\+h$>$}\newline
+{\ttfamily \#include $<$manux/console.\+h$>$}\newline
+{\ttfamily \#include $<$manux/memoire.\+h$>$}\newline
+{\ttfamily \#include $<$manux/interruptions.\+h$>$}\newline
+{\ttfamily \#include $<$manux/pci.\+h$>$}\newline
+{\ttfamily \#include $<$manux/fichier.\+h$>$}\newline
+{\ttfamily \#include $<$manux/virtio-\/console.\+h$>$}\newline
+Graphe des dépendances par inclusion de main-\/virtio-\/cons.c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{main-virtio-cons_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{main-virtio-cons_8c_ad8edf09d2d914fdd5eae545ee2bd6ce9}{NB\+\_\+\+LIGNES}}~1280
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} \mbox{\hyperlink{main-virtio-cons_8c_add065247d62ff34dc7ef5b77c72c0e40}{tester\+Virtio\+Console}} (\mbox{\hyperlink{fichier_8h_af21b1af90951b2649333714c85dfe197}{Fichier}} \texorpdfstring{$\ast$}{*}f)
+\item 
+\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} \mbox{\hyperlink{main-virtio-cons_8c_a3568df994044ade7d37160ef731c223f}{start\+ManuX}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+\+: Un exemple de d�but de noyau. 
+
+\begin{DoxyVerb}                                                (C) Manu Chaput 2000-2023
+\end{DoxyVerb}
+ 
+
+Définition dans le fichier \mbox{\hyperlink{main-virtio-cons_8c_source}{main-\/virtio-\/cons.\+c}}.
+
+
+
+\doxysubsection{Documentation des macros}
+\Hypertarget{main-virtio-cons_8c_ad8edf09d2d914fdd5eae545ee2bd6ce9}\label{main-virtio-cons_8c_ad8edf09d2d914fdd5eae545ee2bd6ce9} 
+\index{main-\/virtio-\/cons.c@{main-\/virtio-\/cons.c}!NB\_LIGNES@{NB\_LIGNES}}
+\index{NB\_LIGNES@{NB\_LIGNES}!main-\/virtio-\/cons.c@{main-\/virtio-\/cons.c}}
+\doxysubsubsection{\texorpdfstring{NB\_LIGNES}{NB\_LIGNES}}
+{\footnotesize\ttfamily \#define NB\+\_\+\+LIGNES~1280}
+
+
+
+Définition à la ligne \mbox{\hyperlink{main-virtio-cons_8c_source_l00018}{18}} du fichier \mbox{\hyperlink{main-virtio-cons_8c_source}{main-\/virtio-\/cons.\+c}}.
+
+
+
+\doxysubsection{Documentation des fonctions}
+\Hypertarget{main-virtio-cons_8c_a3568df994044ade7d37160ef731c223f}\label{main-virtio-cons_8c_a3568df994044ade7d37160ef731c223f} 
+\index{main-\/virtio-\/cons.c@{main-\/virtio-\/cons.c}!startManuX@{startManuX}}
+\index{startManuX@{startManuX}!main-\/virtio-\/cons.c@{main-\/virtio-\/cons.c}}
+\doxysubsubsection{\texorpdfstring{startManuX()}{startManuX()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} start\+ManuX (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}}}]{ }\end{DoxyParamCaption})}
+
+
+
+Définition à la ligne \mbox{\hyperlink{main-virtio-cons_8c_source_l00029}{29}} du fichier \mbox{\hyperlink{main-virtio-cons_8c_source}{main-\/virtio-\/cons.\+c}}.
+
+\Hypertarget{main-virtio-cons_8c_add065247d62ff34dc7ef5b77c72c0e40}\label{main-virtio-cons_8c_add065247d62ff34dc7ef5b77c72c0e40} 
+\index{main-\/virtio-\/cons.c@{main-\/virtio-\/cons.c}!testerVirtioConsole@{testerVirtioConsole}}
+\index{testerVirtioConsole@{testerVirtioConsole}!main-\/virtio-\/cons.c@{main-\/virtio-\/cons.c}}
+\doxysubsubsection{\texorpdfstring{testerVirtioConsole()}{testerVirtioConsole()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} tester\+Virtio\+Console (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{fichier_8h_af21b1af90951b2649333714c85dfe197}{Fichier}} \texorpdfstring{$\ast$}{*}}]{f }\end{DoxyParamCaption})}
+
+
+
+Définition à la ligne \mbox{\hyperlink{main-virtio-cons_8c_source_l00020}{20}} du fichier \mbox{\hyperlink{main-virtio-cons_8c_source}{main-\/virtio-\/cons.\+c}}.
+

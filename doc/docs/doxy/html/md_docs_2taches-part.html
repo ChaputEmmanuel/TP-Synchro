@@ -1,0 +1,122 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>My Project: Gestion d’une tâche</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">My Project
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+</div><!-- top -->
+<div><div class="header">
+  <div class="headertitle"><div class="title">Gestion d’une tâche</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><p><a class="anchor" id="autotoc_md180"></a> Nous disposons désormais du minimum permettant d’exécuter quelques instructions et d’en voir les conséquences à l’écran. Je vous propose donc de mettre en place la notion de <em>tâche</em> qui nous permettra de faire avancer “en même temps” plusieurs activités. ManuX devient donc à partir de maintenant un système multitâche.</p>
+<p>Attention, pour le moment, ce ne sera que du multitâche collaboratif. En effet, nous n’allons pas encore mettre en place du multitâche <em>préemptif</em>, ce qui signifie que une tâche ne rendra la main (enfin, le processeur) que lorsqu’elle en aura envie !</p>
+<p>De plus, nous ne nous intéressons pas non plus à l’ordonnancement, et mettrons en place un simple <em>round robin</em>.</p>
+<h1><a class="anchor" id="autotoc_md181"></a>
+Définition d’une tâche</h1>
+<p>La structure d’une tâche est définie dans le fichier <code><a class="el" href="tache_8h.html">manux/tache.h</a></code> au travers d’une struture <code>Tache</code>. Afin de nous simplifier la vie, nous allons utiliser dans ManuX l’aide proposée par les processeurs Intel[1].</p>
+<p>De ce fait, la structure <code>Tache</code> contient des champs liés au processeur et des champs purement liés au noyau.</p>
+<h2><a class="anchor" id="autotoc_md182"></a>
+Champs liés au noyau</h2>
+<h2><a class="anchor" id="autotoc_md183"></a>
+Champs liés au processeur</h2>
+<ul>
+<li><code>IntelTSS tss</code> qui permet, comme son nom laisse à penser, de stoquer les informations relatives à l’état de la tâche au niveau du processeur (tss pour <em>Task State Segment</em>). On trouvera des informations sur ce champs dans les documentations Intel. Dans ManuX, une initialisation minimale est faite de cette structure lors de la création d’une tâche dans <code>creerTache</code>.</li>
+<li><code>uint16 indiceTSSDescriptor</code> représente l’indice, dans la gdt, du <em>tss Descriptor</em> de la tâche. C’est par un <code>ljmp</code> vers ce champs que l’on va activer la tâche.</li>
+<li><code>DescriptorTable * ldt</code> est la table locale de decripteurs associée à cette tâche.</li>
+</ul>
+<p>x</p>
+<h2><a class="anchor" id="autotoc_md184"></a>
+Les descripteurs de tâche Intel</h2>
+<p>Le <em>Task State Segment</em> (tss) des processeurs Intel permet de stoquer et de manipuler les informations relatives à une tâche. Dans ManuX, une structure est définie permettant de décrire dans le noyau le tss de chaque tâche : la structure <code>IntelTSS</code> est définie dans <code><a class="el" href="tache_8h.html">manux/tache.h</a></code></p>
+<h1><a class="anchor" id="autotoc_md185"></a>
+Création d’une tâche</h1>
+<h1><a class="anchor" id="autotoc_md186"></a>
+Basculement vers une tâche</h1>
+<p>En ce qui concerne le basculement d’une tâche à l’autre, nous allons profiter des mécanismes fournis par les processeurs Intel au travers de l’instruction <code>ljmp</code>. L’*Indirect far JMP* permet en effet de faire un basculement de tâche lorsque l’argument qui lui est passé, sur 48 bits (oui madame, 6 octets !) est constitué d’un sélecteur de segment (sur 16 bits) qui référence un tss puis d’un <em>offset</em> (qui ne sera pas utilisé pour le coup !).</p>
+<p>Bref, le basculement d’une tâche vers une autre se résume à une instruction de saut !</p>
+<h1><a class="anchor" id="autotoc_md187"></a>
+Destruction d’une tâche</h1>
+<h1><a class="anchor" id="autotoc_md188"></a>
+Gestion des listes de tâches</h1>
+<p>Il est évidemment important de ne pas perdre trace des tâches créées sur le système ! Nous allons pour cela les placer dans des listes.</p>
+<p>La structure <code>ListeTache</code> permettant cela est définie dans le fichier <a href="/doxy/html/listetaches_8h_source.html"><code>manux/listetaches.h</code></a>(<a href="/doxy/html/listetaches_8h.html">dox</a>). Il est extrèmement simple (liste simplement chaînée), donc je ne le détaille pas ici.</p>
+<p>Une première liste est définie permettant de conserver toutes les tâches du système. Chaque tâche créée (et non encore détruite) sera donc présente dans cette liste.</p>
+<p>D’autres listes seront créées permettant de stoquer les tâches en fonction de leurs activités. Une liste contiendra par exemple les tâches prêtes à être exécutées. D’autres listes contiendront les tâches en attente d’un événement spécifiques (typiquement la disponibilité d’une ressource).</p>
+<p><img src="images/exemple-taches.png" alt="image" class="inline"/></p>
+<h2><a class="anchor" id="autotoc_md189"></a>
+Allocation des éléments de liste</h2>
+<p>Bon, là il faut qu’on parle d’un truc dont je ne suis pas très fier …</p>
+<p>Pour ne pas avoir à s’em…bêter ici avec de la gestion dynamique de mémoire, et sûrement aussi dans un intérêt pédagogiqe évident, j’ai fait le choix de positionner les cellules impliquées dans la gestion des listes dans la page mémoire qui est allouée pour chaque tâche.</p>
+<p>[1] Les systèmes récents, pour des raisons de performances, n’utilisent pas ces fonctionnalités. </p>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

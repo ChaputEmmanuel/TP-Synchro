@@ -1,6 +1,8 @@
 /**
- * @file :
- * @brief : Un exemple de début de noyau.
+ * @file : main-verrou-noyau.c
+ * @brief : Mise en évidence de a (non) ré-entrance du noyau. On
+ * compilera une fois avec la macro MANUX_REENTRANT activée une fois
+ * avec cette macro désactivée.
  *                                                                            
  *                                                     (C) Manu Chaput 2000-2023
  **/
@@ -24,7 +26,7 @@
 #include <manux/debug.h>
 #include <manux/segment.h>
 #include <manux/pagination.h>
-#include <manux/limites.h>
+#include <manux/exclusion-mutuelle.h> // Pour le verrou général
 
 extern void init(); // Faire un init.h
 
@@ -35,69 +37,56 @@ INoeud  iNoeudConsole;  // Le INoeud qui décrit la console
 
 void startManuX()
 {
-   union {
-      uint32_t registres[3];
-      char     caracteres[13];
-   } descriptionProc;
-
    // Récupération des informations depuis le bootloader
-   bootloaderLireInfo();
+   bootloaderInitialiser();
+
+   initialiserMemoire(infoSysteme.memoireDeBase,
+		      infoSysteme.memoireEtendue);
    
    // Initialisation de la console noyau
    consoleInitialisation();
 
-   bootloaderInitialiser();
-      
-   // Lecture du nom du processeur
-   descriptionProcesseur(0, descriptionProc.registres);
-   descriptionProc.caracteres[12] = 0;
-
-   // Affichage du premier message
-   printk_debug(DBG_KERNEL_START, "32 bit ManuX running on a '%s' ...\n",
-		descriptionProc.caracteres);
-
-   // Affichage de la mémoire disponible 
-   printk_debug(DBG_KERNEL_START, "Memoire : %d + %d Ko\n",
-		infoSysteme.memoireDeBase,
-		infoSysteme.memoireEtendue);
-
-   /* Initialisation de la gestion mémoire */
-   printk_debug(DBG_KERNEL_START, "Initialisation memoire ...\n");
-   initialiserMemoire(infoSysteme.memoireDeBase,
-		      infoSysteme.memoireEtendue);
-   
    /* Initilisation des descripteurs de segments */
+   printk_debug(DBG_KERNEL_START, "Initialisation de la GDT ...\n");
    initialiserGDT();
 
    /* Initialisation de la table des interruptions */
-   initialiserIDT();   
+   initialiserIDT();
 
-   /* Initialisation de la pagination */
-   printk_debug(DBG_KERNEL_START, "Initialisation pagination ...\n");
-   initialiserPagination(infoSysteme.memoireEtendue);
-   printk_debug(DBG_KERNEL_START, "Pagination initialisee\n");
-   
-   /* Initialisation de la table des appels système*/
-   printk_debug(DBG_KERNEL_START, "Initialisation appels systeme ...\n");
-   initialiserAppelsSysteme();
-   printk_debug(DBG_KERNEL_START, "Appels systeme initialises\n");
-  
-   // Initialisation du clavier
+   // Le clavier nous permettra de basculer entre consoles
    printk_debug(DBG_KERNEL_START, "Initialisation du clavier ...\n");
    initialiserClavier();
-   printk_debug(DBG_KERNEL_START, "Clavier initalise\n");
 
-   printk_debug(DBG_KERNEL_START, "Initialisation de l'horloge ...\n");
-   initialiserHorloge();
-   printk_debug(DBG_KERNEL_START, "Horloge initialisee\n");
+   // On va utiliser des appels systèmes
+   printk_debug(DBG_KERNEL_START, "Initialisation des AS ...\n");
+   initialiserAppelsSysteme();
 
    // Initialisation de la gestion des processus
    printk_debug(DBG_KERNEL_START, "Initialisation du scheduler ...\n");
    initialiserScheduler();
-   printk_debug(DBG_KERNEL_START, "Scheduler initialise\n"); 
 
+   // On a besoin de l'horloge pour l'ordonnanceur
+   printk_debug(DBG_KERNEL_START, "Initialisation de l'horloge...\n");
+   initialiserHorloge();
+
+   // Avant de passer la main à init, on relâche le verrou global. On
+   // n'a donc plus accès au noyau, il faudra passer par des appels
+   // systèmes
+   
+#if defined(MANUX_TACHES)
+#   if defined(MANUX_REENTRANT)
+   printk_debug(DBG_KERNEL_START, "Noyau reentrant ...\n");
+#   else
+   tacheDansLeNoyau = 0;
+   exclusionMutuelleSortir(&verrouGeneralDuNoyau);
+   printk_debug(DBG_KERNEL_START, "Noyau NON reentrant ...\n");
+#   endif
+#endif
+   
    // On va maintenant faire de la tâche en cours une tâche "banale"
-   tacheSetConsole(tacheEnCours, creerConsoleVirtuelle());
+   //tacheSetConsole(tacheEnCours, creerConsoleVirtuelle());
+
+   printk_debug(DBG_KERNEL_START, "On passe en usr ...\n");
 
    init();
 }   /* startManuX */

@@ -1,0 +1,74 @@
+\doxysection{Référence du fichier /home/manu/\+PROGRAMMATION/\+C/\+Manu\+X/include/manux/temps.h}
+\hypertarget{temps_8h}{}\label{temps_8h}\index{/home/manu/PROGRAMMATION/C/ManuX/include/manux/temps.h@{/home/manu/PROGRAMMATION/C/ManuX/include/manux/temps.h}}
+{\ttfamily \#include $<$manux/config.\+h$>$}\newline
+{\ttfamily \#include $<$manux/types.\+h$>$}\newline
+Graphe des dépendances par inclusion de temps.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=280pt]{temps_8h__incl}
+\end{center}
+\end{figure}
+Ce graphe montre quels fichiers incluent directement ou indirectement ce fichier \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{temps_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{temps_8h_ae41ccde64086afdc7ea1b5036153b0fe}{total\+Secondes\+Dans\+Temps}}(t)~(t / \mbox{\hyperlink{base_8h_a061b8540217c36ef218c1d30d4f9ff2a}{MANUX\+\_\+\+FREQUENCE\+\_\+\+HORLOGE}})
+\item 
+\#define \mbox{\hyperlink{temps_8h_a676e0fb5f238dccd6c1e58a56427c054}{total\+Minutes\+Dans\+Temps}}(t)~(\mbox{\hyperlink{temps_8h_ae41ccde64086afdc7ea1b5036153b0fe}{total\+Secondes\+Dans\+Temps}}(t)/60)
+\item 
+\#define \mbox{\hyperlink{temps_8h_aa931629379ea6d3aaeafdcc54c4b0303}{secondes\+Dans\+Temps}}(t)~(\mbox{\hyperlink{temps_8h_ae41ccde64086afdc7ea1b5036153b0fe}{total\+Secondes\+Dans\+Temps}}(t) -\/ 60\texorpdfstring{$\ast$}{*}(\mbox{\hyperlink{temps_8h_a676e0fb5f238dccd6c1e58a56427c054}{total\+Minutes\+Dans\+Temps}}(t)))
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{temps_8h_a74abbf3018e3a7618a85af519521720a}{nb\+Top\+Vers\+Val\+Temps}} (\mbox{\hyperlink{include_2manux_2types_8h_abe4acab18c967c397d24aa95c2d48b27}{Temps}} nb\+Top, \mbox{\hyperlink{include_2manux_2types_8h_a78833175b5ae83c50ba74e7d8deffc89}{Val\+Temps}} \texorpdfstring{$\ast$}{*}vt)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Documentation des macros}
+\Hypertarget{temps_8h_aa931629379ea6d3aaeafdcc54c4b0303}\label{temps_8h_aa931629379ea6d3aaeafdcc54c4b0303} 
+\index{temps.h@{temps.h}!secondesDansTemps@{secondesDansTemps}}
+\index{secondesDansTemps@{secondesDansTemps}!temps.h@{temps.h}}
+\doxysubsubsection{\texorpdfstring{secondesDansTemps}{secondesDansTemps}}
+{\footnotesize\ttfamily \#define secondes\+Dans\+Temps(\begin{DoxyParamCaption}\item[{}]{t }\end{DoxyParamCaption})~(\mbox{\hyperlink{temps_8h_ae41ccde64086afdc7ea1b5036153b0fe}{total\+Secondes\+Dans\+Temps}}(t) -\/ 60\texorpdfstring{$\ast$}{*}(\mbox{\hyperlink{temps_8h_a676e0fb5f238dccd6c1e58a56427c054}{total\+Minutes\+Dans\+Temps}}(t)))}
+
+
+
+Définition à la ligne \mbox{\hyperlink{temps_8h_source_l00019}{19}} du fichier \mbox{\hyperlink{temps_8h_source}{temps.\+h}}.
+
+\Hypertarget{temps_8h_a676e0fb5f238dccd6c1e58a56427c054}\label{temps_8h_a676e0fb5f238dccd6c1e58a56427c054} 
+\index{temps.h@{temps.h}!totalMinutesDansTemps@{totalMinutesDansTemps}}
+\index{totalMinutesDansTemps@{totalMinutesDansTemps}!temps.h@{temps.h}}
+\doxysubsubsection{\texorpdfstring{totalMinutesDansTemps}{totalMinutesDansTemps}}
+{\footnotesize\ttfamily \#define total\+Minutes\+Dans\+Temps(\begin{DoxyParamCaption}\item[{}]{t }\end{DoxyParamCaption})~(\mbox{\hyperlink{temps_8h_ae41ccde64086afdc7ea1b5036153b0fe}{total\+Secondes\+Dans\+Temps}}(t)/60)}
+
+
+
+Définition à la ligne \mbox{\hyperlink{temps_8h_source_l00017}{17}} du fichier \mbox{\hyperlink{temps_8h_source}{temps.\+h}}.
+
+\Hypertarget{temps_8h_ae41ccde64086afdc7ea1b5036153b0fe}\label{temps_8h_ae41ccde64086afdc7ea1b5036153b0fe} 
+\index{temps.h@{temps.h}!totalSecondesDansTemps@{totalSecondesDansTemps}}
+\index{totalSecondesDansTemps@{totalSecondesDansTemps}!temps.h@{temps.h}}
+\doxysubsubsection{\texorpdfstring{totalSecondesDansTemps}{totalSecondesDansTemps}}
+{\footnotesize\ttfamily \#define total\+Secondes\+Dans\+Temps(\begin{DoxyParamCaption}\item[{}]{t }\end{DoxyParamCaption})~(t / \mbox{\hyperlink{base_8h_a061b8540217c36ef218c1d30d4f9ff2a}{MANUX\+\_\+\+FREQUENCE\+\_\+\+HORLOGE}})}
+
+
+
+Définition à la ligne \mbox{\hyperlink{temps_8h_source_l00015}{15}} du fichier \mbox{\hyperlink{temps_8h_source}{temps.\+h}}.
+
+
+
+\doxysubsection{Documentation des fonctions}
+\Hypertarget{temps_8h_a74abbf3018e3a7618a85af519521720a}\label{temps_8h_a74abbf3018e3a7618a85af519521720a} 
+\index{temps.h@{temps.h}!nbTopVersValTemps@{nbTopVersValTemps}}
+\index{nbTopVersValTemps@{nbTopVersValTemps}!temps.h@{temps.h}}
+\doxysubsubsection{\texorpdfstring{nbTopVersValTemps()}{nbTopVersValTemps()}}
+{\footnotesize\ttfamily int nb\+Top\+Vers\+Val\+Temps (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{include_2manux_2types_8h_abe4acab18c967c397d24aa95c2d48b27}{Temps}}}]{nb\+Top,  }\item[{\mbox{\hyperlink{include_2manux_2types_8h_a78833175b5ae83c50ba74e7d8deffc89}{Val\+Temps}} \texorpdfstring{$\ast$}{*}}]{vt }\end{DoxyParamCaption})}
+

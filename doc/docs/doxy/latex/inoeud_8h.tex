@@ -1,0 +1,102 @@
+\doxysection{Référence du fichier /home/manu/\+PROGRAMMATION/\+C/\+Manu\+X/include/manux/inoeud.h}
+\hypertarget{inoeud_8h}{}\label{inoeud_8h}\index{/home/manu/PROGRAMMATION/C/ManuX/include/manux/inoeud.h@{/home/manu/PROGRAMMATION/C/ManuX/include/manux/inoeud.h}}
+
+
+\+: description des noeuds d\textquotesingle{}information (C) Manu Chaput 2002-\/2023  
+
+
+{\ttfamily \#include $<$manux/types.\+h$>$}\newline
+Graphe des dépendances par inclusion de inoeud.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=250pt]{inoeud_8h__incl}
+\end{center}
+\end{figure}
+Ce graphe montre quels fichiers incluent directement ou indirectement ce fichier \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{inoeud_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct__TypePeripherique}{\+\_\+\+Type\+Peripherique}}
+\begin{DoxyCompactList}\small\item\em \+: Définition du type d\textquotesingle{}un périphérique Pour le moment il sera représenté de façon assez classique par une numérotation à deux champs \+: un majeur et un mineur. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{struct__INoeud}{\+\_\+\+INoeud}}
+\begin{DoxyCompactList}\small\item\em \+: Un INoeud représente un fichier, d\textquotesingle{}un point de vue statique Il s\textquotesingle{}agit donc de la description d\textquotesingle{}un fichier, même spécial, sur le disque. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Définitions de type}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \mbox{\hyperlink{struct__MethodesFichier}{\+\_\+\+Methodes\+Fichier}} \mbox{\hyperlink{inoeud_8h_aa50864b665282e0139a9fbea6eab26d4}{Methodes\+Fichier}}
+\item 
+typedef struct \mbox{\hyperlink{struct__TypePeripherique}{\+\_\+\+Type\+Peripherique}} \mbox{\hyperlink{inoeud_8h_ac6051cce7b1da6886c5f27c02d53027e}{Type\+Peripherique}}
+\begin{DoxyCompactList}\small\item\em \+: Définition du type d\textquotesingle{}un périphérique Pour le moment il sera représenté de façon assez classique par une numérotation à deux champs \+: un majeur et un mineur. \end{DoxyCompactList}\item 
+typedef struct \mbox{\hyperlink{struct__INoeud}{\+\_\+\+INoeud}} \mbox{\hyperlink{inoeud_8h_a27ca90a5da64ab349726ed0513ec6e73}{INoeud}}
+\begin{DoxyCompactList}\small\item\em \+: Un INoeud représente un fichier, d\textquotesingle{}un point de vue statique Il s\textquotesingle{}agit donc de la description d\textquotesingle{}un fichier, même spécial, sur le disque. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{inoeud_8h_a27ca90a5da64ab349726ed0513ec6e73}{INoeud}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{inoeud_8h_a8e9cb4f4549756564b1df119aa031cf3}{i\+Noeud\+Creer}} (\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} \texorpdfstring{$\ast$}{*}prive, \mbox{\hyperlink{fichier_8h_aa50864b665282e0139a9fbea6eab26d4}{Methodes\+Fichier}} \texorpdfstring{$\ast$}{*}methodes\+Fichier)
+\begin{DoxyCompactList}\small\item\em \+: Création d\textquotesingle{}un INoeud \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+\+: description des noeuds d\textquotesingle{}information (C) Manu Chaput 2002-\/2023 
+
+
+
+Définition dans le fichier \mbox{\hyperlink{inoeud_8h_source}{inoeud.\+h}}.
+
+
+
+\doxysubsection{Documentation des définitions de type}
+\Hypertarget{inoeud_8h_a27ca90a5da64ab349726ed0513ec6e73}\label{inoeud_8h_a27ca90a5da64ab349726ed0513ec6e73} 
+\index{inoeud.h@{inoeud.h}!INoeud@{INoeud}}
+\index{INoeud@{INoeud}!inoeud.h@{inoeud.h}}
+\doxysubsubsection{\texorpdfstring{INoeud}{INoeud}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{struct__INoeud}{\+\_\+\+INoeud}} \mbox{\hyperlink{inoeud_8h_a27ca90a5da64ab349726ed0513ec6e73}{INoeud}}}
+
+
+
+\+: Un INoeud représente un fichier, d\textquotesingle{}un point de vue statique Il s\textquotesingle{}agit donc de la description d\textquotesingle{}un fichier, même spécial, sur le disque. 
+
+\Hypertarget{inoeud_8h_aa50864b665282e0139a9fbea6eab26d4}\label{inoeud_8h_aa50864b665282e0139a9fbea6eab26d4} 
+\index{inoeud.h@{inoeud.h}!MethodesFichier@{MethodesFichier}}
+\index{MethodesFichier@{MethodesFichier}!inoeud.h@{inoeud.h}}
+\doxysubsubsection{\texorpdfstring{MethodesFichier}{MethodesFichier}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{struct__MethodesFichier}{\+\_\+\+Methodes\+Fichier}} \mbox{\hyperlink{fichier_8h_aa50864b665282e0139a9fbea6eab26d4}{Methodes\+Fichier}}}
+
+
+
+Définition à la ligne \mbox{\hyperlink{inoeud_8h_source_l00011}{11}} du fichier \mbox{\hyperlink{inoeud_8h_source}{inoeud.\+h}}.
+
+\Hypertarget{inoeud_8h_ac6051cce7b1da6886c5f27c02d53027e}\label{inoeud_8h_ac6051cce7b1da6886c5f27c02d53027e} 
+\index{inoeud.h@{inoeud.h}!TypePeripherique@{TypePeripherique}}
+\index{TypePeripherique@{TypePeripherique}!inoeud.h@{inoeud.h}}
+\doxysubsubsection{\texorpdfstring{TypePeripherique}{TypePeripherique}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{struct__TypePeripherique}{\+\_\+\+Type\+Peripherique}} \mbox{\hyperlink{inoeud_8h_ac6051cce7b1da6886c5f27c02d53027e}{Type\+Peripherique}}}
+
+
+
+\+: Définition du type d\textquotesingle{}un périphérique Pour le moment il sera représenté de façon assez classique par une numérotation à deux champs \+: un majeur et un mineur. 
+
+
+
+\doxysubsection{Documentation des fonctions}
+\Hypertarget{inoeud_8h_a8e9cb4f4549756564b1df119aa031cf3}\label{inoeud_8h_a8e9cb4f4549756564b1df119aa031cf3} 
+\index{inoeud.h@{inoeud.h}!iNoeudCreer@{iNoeudCreer}}
+\index{iNoeudCreer@{iNoeudCreer}!inoeud.h@{inoeud.h}}
+\doxysubsubsection{\texorpdfstring{iNoeudCreer()}{iNoeudCreer()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{inoeud_8h_a27ca90a5da64ab349726ed0513ec6e73}{INoeud}} \texorpdfstring{$\ast$}{*} i\+Noeud\+Creer (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} \texorpdfstring{$\ast$}{*}}]{prive,  }\item[{\mbox{\hyperlink{fichier_8h_aa50864b665282e0139a9fbea6eab26d4}{Methodes\+Fichier}} \texorpdfstring{$\ast$}{*}}]{methodes\+Fichier }\end{DoxyParamCaption})}
+
+
+
+\+: Création d\textquotesingle{}un INoeud 
+
+
+
+Définition à la ligne \mbox{\hyperlink{inoeud_8c_source_l00010}{10}} du fichier \mbox{\hyperlink{inoeud_8c_source}{inoeud.\+c}}.
+

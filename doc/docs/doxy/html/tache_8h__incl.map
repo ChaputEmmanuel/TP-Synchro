@@ -1,0 +1,20 @@
+<map id="/home/manu/PROGRAMMATION/C/ManuX/include/manux/tache.h" name="/home/manu/PROGRAMMATION/C/ManuX/include/manux/tache.h">
+<area shape="rect" id="Node000001" title=" " alt="" coords="152,5,379,60"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,108,128,133"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="206,63,107,105,105,100,204,58"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="287,255,406,280"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="241,62,215,93,192,130,185,149,182,169,185,188,193,205,209,223,229,237,275,254,273,259,227,241,206,227,188,208,179,189,177,169,180,148,188,128,210,90,236,58"/>
+<area shape="rect" id="Node000004" href="$include_2manux_2interruptions_8h.html" title=" " alt="" coords="203,181,370,207"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="271,60,286,167,281,168,266,61"/>
+<area shape="rect" id="Node000005" href="$segment_8h.html" title=" " alt="" coords="303,108,443,133"/>
+<area shape="poly" id="edge5_Node000001_Node000005" title=" " alt="" coords="300,58,349,97,346,101,297,62"/>
+<area shape="rect" id="Node000006" href="$fichier_8h.html" title=" " alt="" coords="468,108,591,133"/>
+<area shape="poly" id="edge7_Node000001_Node000006" title=" " alt="" coords="347,58,482,101,480,106,345,63"/>
+<area shape="poly" id="edge4_Node000004_Node000003" title=" " alt="" coords="299,205,330,242,326,246,295,209"/>
+<area shape="poly" id="edge6_Node000005_Node000003" title=" " alt="" coords="380,133,386,167,387,187,384,207,366,245,361,242,379,206,382,187,381,167,374,134"/>
+<area shape="rect" id="Node000007" href="$inoeud_8h.html" title=": description des noeuds d&#39;information (C) Manu Chaput 2002&#45;2023" alt="" coords="446,181,573,207"/>
+<area shape="poly" id="edge8_Node000006_Node000007" title=" " alt="" coords="529,134,519,169,514,167,523,133"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="597,181,771,207"/>
+<area shape="poly" id="edge10_Node000006_Node000008" title=" " alt="" coords="555,131,647,173,645,178,553,136"/>
+<area shape="poly" id="edge9_Node000007_Node000003" title=" " alt="" coords="484,209,387,251,385,247,482,204"/>
+</map>

@@ -196,12 +196,14 @@ int virtioFournirBuffers(VirtioPeripherique * vp,
 /** En travaux !! */
 int virtioFileRecupererBuffers(VirtioFileVirtuelle * fv, void * bu[], int lg[], int nb);
 
-/**
- * Affichage de l'état d'une file, à des fins de debug
- */
-void virtioAfficherFile(VirtioFileVirtuelle * fv);
-
 void virtioFileInterdireInterruption(VirtioFileVirtuelle * fv);
 void virtioFileAutoriserInterruption(VirtioFileVirtuelle * fv);
+
+#ifdef MANUX_VIRTIO_AUDIT
+/**
+ * @brief Affichage de l état d'une file, à des fins de debug
+ */
+void virtioAfficherFile(VirtioFileVirtuelle * fv);
+#endif // MANUX_VIRTIO_AUDIT
 
 #endif

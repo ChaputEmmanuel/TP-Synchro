@@ -1,0 +1,35 @@
+\doxysection{exclusion-\/mutuelle.h}
+\hypertarget{exclusion-mutuelle_8h_source}{}\label{exclusion-mutuelle_8h_source}\index{/home/manu/PROGRAMMATION/C/ManuX/include/manux/exclusion-\/mutuelle.h@{/home/manu/PROGRAMMATION/C/ManuX/include/manux/exclusion-\/mutuelle.h}}
+\mbox{\hyperlink{exclusion-mutuelle_8h}{Aller à la documentation de ce fichier.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{exclusion-mutuelle_8h_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{exclusion-mutuelle_8h_source_l00008}00008\ \textcolor{preprocessor}{\#ifndef\ EXCLUSION\_MUTUELLE\_DEF}}
+\DoxyCodeLine{\Hypertarget{exclusion-mutuelle_8h_source_l00009}00009\ \textcolor{preprocessor}{\#define\ EXCLUSION\_MUTUELLE\_DEF}}
+\DoxyCodeLine{\Hypertarget{exclusion-mutuelle_8h_source_l00010}00010\ }
+\DoxyCodeLine{\Hypertarget{exclusion-mutuelle_8h_source_l00011}00011\ \textcolor{preprocessor}{\#include\ <manux/types.h>}}
+\DoxyCodeLine{\Hypertarget{exclusion-mutuelle_8h_source_l00012}00012\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{atomique_8h}{manux/atomique.h}}>}\ \ \ \ \ \textcolor{comment}{//\ Atomique}}
+\DoxyCodeLine{\Hypertarget{exclusion-mutuelle_8h_source_l00013}00013\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{listetaches_8h}{manux/listetaches.h}}>}\ \ \textcolor{comment}{//\ Pour\ les\ listes\ de\ tâches\ en\ attente}}
+\DoxyCodeLine{\Hypertarget{exclusion-mutuelle_8h_source_l00014}00014\ }
+\DoxyCodeLine{\Hypertarget{exclusion-mutuelle_8h_source_l00018}\mbox{\hyperlink{struct__ExclusionMutuelle}{00018}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__ExclusionMutuelle}{\_ExclusionMutuelle}}\ \{}
+\DoxyCodeLine{\Hypertarget{exclusion-mutuelle_8h_source_l00019}\mbox{\hyperlink{struct__ExclusionMutuelle_aefe8e8651e45b8f86bc5f17e3d681363}{00019}}\ \ \ \ \mbox{\hyperlink{atomique_8h_a34aa37778d3701c511b28edcb866cedb}{Atomique}}\ \ \ \mbox{\hyperlink{struct__ExclusionMutuelle_aefe8e8651e45b8f86bc5f17e3d681363}{verrou}};}
+\DoxyCodeLine{\Hypertarget{exclusion-mutuelle_8h_source_l00020}\mbox{\hyperlink{struct__ExclusionMutuelle_acce5d30580065f581b8eb87530d2f35e}{00020}}\ \ \ \ \mbox{\hyperlink{struct__ListeTache}{ListeTache}}\ \mbox{\hyperlink{struct__ExclusionMutuelle_acce5d30580065f581b8eb87530d2f35e}{tachesEnAttente}};}
+\DoxyCodeLine{\Hypertarget{exclusion-mutuelle_8h_source_l00021}00021\ \textcolor{preprocessor}{\#if\ defined(MANUX\_EXCLUSION\_MUTUELLE\_AUDIT)}}
+\DoxyCodeLine{\Hypertarget{exclusion-mutuelle_8h_source_l00022}00022\ \ \ \ \textcolor{keywordtype}{int}\ \ \ \ \ \ \ \ nbEntrees;}
+\DoxyCodeLine{\Hypertarget{exclusion-mutuelle_8h_source_l00023}00023\ \ \ \ \textcolor{keywordtype}{int}\ \ \ \ \ \ \ \ nbSorties;}
+\DoxyCodeLine{\Hypertarget{exclusion-mutuelle_8h_source_l00024}00024\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{exclusion-mutuelle_8h_source_l00025}\mbox{\hyperlink{exclusion-mutuelle_8h_a6db19bcf66a0fdb35100271a766103db}{00025}}\ \}\ \mbox{\hyperlink{exclusion-mutuelle_8h_a6db19bcf66a0fdb35100271a766103db}{ExclusionMutuelle}};}
+\DoxyCodeLine{\Hypertarget{exclusion-mutuelle_8h_source_l00026}00026\ }
+\DoxyCodeLine{\Hypertarget{exclusion-mutuelle_8h_source_l00030}00030\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{exclusion-mutuelle_8h_aadab68f4af630c6abd0ca306539c9d60}{exclusionMutuelleInitialiser}}(\mbox{\hyperlink{struct__ExclusionMutuelle}{ExclusionMutuelle}}\ *\ em);}
+\DoxyCodeLine{\Hypertarget{exclusion-mutuelle_8h_source_l00031}00031\ }
+\DoxyCodeLine{\Hypertarget{exclusion-mutuelle_8h_source_l00039}00039\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{exclusion-mutuelle_8h_a9b966fcfd5b19565e2734f33eb5bbf1c}{exclusionMutuelleEntrer}}(\mbox{\hyperlink{struct__ExclusionMutuelle}{ExclusionMutuelle}}\ *\ em);}
+\DoxyCodeLine{\Hypertarget{exclusion-mutuelle_8h_source_l00040}00040\ }
+\DoxyCodeLine{\Hypertarget{exclusion-mutuelle_8h_source_l00041}00041\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{exclusion-mutuelle_8h_ace5c194a9dd43e021d611e79612d6f13}{exclusionMutuelleSortir}}(\mbox{\hyperlink{struct__ExclusionMutuelle}{ExclusionMutuelle}}\ *\ em);}
+\DoxyCodeLine{\Hypertarget{exclusion-mutuelle_8h_source_l00042}00042\ }
+\DoxyCodeLine{\Hypertarget{exclusion-mutuelle_8h_source_l00043}00043\ \textcolor{preprocessor}{\#if\ defined(MANUX\_EXCLUSION\_MUTUELLE\_AUDIT)}}
+\DoxyCodeLine{\Hypertarget{exclusion-mutuelle_8h_source_l00048}00048\ \textcolor{keywordtype}{void}\ exclusionsMutuellesAfficherEtat(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{exclusion-mutuelle_8h_source_l00049}00049\ }
+\DoxyCodeLine{\Hypertarget{exclusion-mutuelle_8h_source_l00050}00050\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ defined(MANUX\_EXCLUSION\_MUTUELLE\_AUDIT)}}
+\DoxyCodeLine{\Hypertarget{exclusion-mutuelle_8h_source_l00051}00051\ }
+\DoxyCodeLine{\Hypertarget{exclusion-mutuelle_8h_source_l00052}00052\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

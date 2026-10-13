@@ -37,13 +37,27 @@ align 4
 global _startManuX
 extern _adresseLimitePileManuX
 extern startManuX
+%ifdef MANUX_DUMMY_TASK
+extern aDummyKernelTask
+%endif
+%ifdef MANUX_BOOTLOADER
+extern signatureBootloader
+extern _infoSysteme
+%endif
 
-_startManuX :
-	mov esp, _adresseLimitePileManuX
- 
-	call startManuX
+_startManuX : 
+	mov esp, _adresseLimitePileManuX ; Initialisation du pointeur de pile
+%ifdef MANUX_BOOTLOADER
+        mov [signatureBootloader], eax   ; On fournit la signature du bootloader
+        mov [_infoSysteme], ebx          ; Le pointeur sur les informations
+%endif
+
+        call startManuX                  ; C'est parti
  
 	cli
 .FinDesTemps:	hlt
+%ifdef MANUX_DUMMY_TASK
+	call aDummyKernelTask
+%endif
 	jmp .FinDesTemps
 

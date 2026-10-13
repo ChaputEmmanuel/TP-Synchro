@@ -1,0 +1,13 @@
+<map id="/home/manu/PROGRAMMATION/C/ManuX/include/manux/periph&#45;car.h" name="/home/manu/PROGRAMMATION/C/ManuX/include/manux/periph&#45;car.h">
+<area shape="rect" id="Node000001" title="définition des périphériques orientés caractère" alt="" coords="405,5,631,60"/>
+<area shape="rect" id="Node000002" href="$virtio-console_8h.html" title="Définition des éléments de base des consoles virtio." alt="" coords="405,108,631,163"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="521,74,521,108,515,108,515,74"/>
+<area shape="rect" id="Node000003" href="$main-virtio-cons_8c.html" title=": Un exemple de début de noyau." alt="" coords="5,218,255,258"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="405,169,204,220,202,215,403,164"/>
+<area shape="rect" id="Node000004" href="$main-virtio-journal_8c.html" title=" " alt="" coords="279,211,506,265"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="476,174,427,213,424,208,473,169"/>
+<area shape="rect" id="Node000005" href="$main_8c.html" title=": Un exemple de début de noyau." alt="" coords="530,218,757,258"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="563,169,621,216,618,220,560,173"/>
+<area shape="rect" id="Node000006" href="$virtio-console_8c.html" title="Implantation de la console de type virtio." alt="" coords="781,218,1013,258"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="630,164,826,215,825,220,629,169"/>
+</map>

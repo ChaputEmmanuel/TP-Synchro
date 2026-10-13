@@ -1,0 +1,76 @@
+\doxysection{Référence du fichier /home/manu/\+PROGRAMMATION/\+C/\+Manu\+X/include/config/intel-\/8259a.h}
+\hypertarget{config_2intel-8259a_8h}{}\label{config_2intel-8259a_8h}\index{/home/manu/PROGRAMMATION/C/ManuX/include/config/intel-\/8259a.h@{/home/manu/PROGRAMMATION/C/ManuX/include/config/intel-\/8259a.h}}
+Ce graphe montre quels fichiers incluent directement ou indirectement ce fichier \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{config_2intel-8259a_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{config_2intel-8259a_8h_aef63ac90d6af5c38f706ca3b219af724}{MANUX\+\_\+\+HANDLER\+\_\+\+IRQ}}~\mbox{\hyperlink{intel-8259a_8c_a4f1329d91f27772623bca9f4012ef4b4}{i8259a\+Gestion\+IRQ}}
+\item 
+\#define \mbox{\hyperlink{config_2intel-8259a_8h_a3b992b2431ea5d1ae88304c600035461}{MANUX\+\_\+\+NB\+\_\+\+HANDLER\+\_\+\+PAR\+\_\+\+IRQ}}~4
+\item 
+\#define \mbox{\hyperlink{config_2intel-8259a_8h_a1ff9f13e49ec081b24a660036d65b970}{I8259\+A\+\_\+\+NB\+\_\+\+IRQ}}~16
+\item 
+\#define \mbox{\hyperlink{config_2intel-8259a_8h_a08f24105d9d260a9d2dd70c1f1f99031}{MANUX\+\_\+\+NB\+\_\+\+IRQ}}~16
+\item 
+\#define \mbox{\hyperlink{config_2intel-8259a_8h_accc391532dcd4746c5ac1765feb2b2be}{MANUX\+\_\+\+PIC\+\_\+\+INIT}}~\mbox{\hyperlink{intel-8259a_8c_ab3ca008de7fbd6c1917bead0ace48463}{i8259a\+Init}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Documentation des macros}
+\Hypertarget{config_2intel-8259a_8h_a1ff9f13e49ec081b24a660036d65b970}\label{config_2intel-8259a_8h_a1ff9f13e49ec081b24a660036d65b970} 
+\index{intel-\/8259a.h@{intel-\/8259a.h}!I8259A\_NB\_IRQ@{I8259A\_NB\_IRQ}}
+\index{I8259A\_NB\_IRQ@{I8259A\_NB\_IRQ}!intel-\/8259a.h@{intel-\/8259a.h}}
+\doxysubsubsection{\texorpdfstring{I8259A\_NB\_IRQ}{I8259A\_NB\_IRQ}}
+{\footnotesize\ttfamily \#define I8259\+A\+\_\+\+NB\+\_\+\+IRQ~16}
+
+Le nombre d\textquotesingle{}IRQ gérées. On a deux circuits et donc 16 IRQ potentielles 
+
+Définition à la ligne \mbox{\hyperlink{config_2intel-8259a_8h_source_l00016}{16}} du fichier \mbox{\hyperlink{config_2intel-8259a_8h_source}{intel-\/8259a.\+h}}.
+
+\Hypertarget{config_2intel-8259a_8h_aef63ac90d6af5c38f706ca3b219af724}\label{config_2intel-8259a_8h_aef63ac90d6af5c38f706ca3b219af724} 
+\index{intel-\/8259a.h@{intel-\/8259a.h}!MANUX\_HANDLER\_IRQ@{MANUX\_HANDLER\_IRQ}}
+\index{MANUX\_HANDLER\_IRQ@{MANUX\_HANDLER\_IRQ}!intel-\/8259a.h@{intel-\/8259a.h}}
+\doxysubsubsection{\texorpdfstring{MANUX\_HANDLER\_IRQ}{MANUX\_HANDLER\_IRQ}}
+{\footnotesize\ttfamily \#define MANUX\+\_\+\+HANDLER\+\_\+\+IRQ~\mbox{\hyperlink{intel-8259a_8c_a4f1329d91f27772623bca9f4012ef4b4}{i8259a\+Gestion\+IRQ}}}
+
+On utilise ici des intel 8259a 
+
+Définition à la ligne \mbox{\hyperlink{config_2intel-8259a_8h_source_l00004}{4}} du fichier \mbox{\hyperlink{config_2intel-8259a_8h_source}{intel-\/8259a.\+h}}.
+
+\Hypertarget{config_2intel-8259a_8h_a3b992b2431ea5d1ae88304c600035461}\label{config_2intel-8259a_8h_a3b992b2431ea5d1ae88304c600035461} 
+\index{intel-\/8259a.h@{intel-\/8259a.h}!MANUX\_NB\_HANDLER\_PAR\_IRQ@{MANUX\_NB\_HANDLER\_PAR\_IRQ}}
+\index{MANUX\_NB\_HANDLER\_PAR\_IRQ@{MANUX\_NB\_HANDLER\_PAR\_IRQ}!intel-\/8259a.h@{intel-\/8259a.h}}
+\doxysubsubsection{\texorpdfstring{MANUX\_NB\_HANDLER\_PAR\_IRQ}{MANUX\_NB\_HANDLER\_PAR\_IRQ}}
+{\footnotesize\ttfamily \#define MANUX\+\_\+\+NB\+\_\+\+HANDLER\+\_\+\+PAR\+\_\+\+IRQ~4}
+
+Combien de handlers peut-\/on greffer sur une interruption ? 
+
+Définition à la ligne \mbox{\hyperlink{config_2intel-8259a_8h_source_l00010}{10}} du fichier \mbox{\hyperlink{config_2intel-8259a_8h_source}{intel-\/8259a.\+h}}.
+
+\Hypertarget{config_2intel-8259a_8h_a08f24105d9d260a9d2dd70c1f1f99031}\label{config_2intel-8259a_8h_a08f24105d9d260a9d2dd70c1f1f99031} 
+\index{intel-\/8259a.h@{intel-\/8259a.h}!MANUX\_NB\_IRQ@{MANUX\_NB\_IRQ}}
+\index{MANUX\_NB\_IRQ@{MANUX\_NB\_IRQ}!intel-\/8259a.h@{intel-\/8259a.h}}
+\doxysubsubsection{\texorpdfstring{MANUX\_NB\_IRQ}{MANUX\_NB\_IRQ}}
+{\footnotesize\ttfamily \#define MANUX\+\_\+\+NB\+\_\+\+IRQ~16}
+
+
+
+Définition à la ligne \mbox{\hyperlink{config_2intel-8259a_8h_source_l00019}{19}} du fichier \mbox{\hyperlink{config_2intel-8259a_8h_source}{intel-\/8259a.\+h}}.
+
+\Hypertarget{config_2intel-8259a_8h_accc391532dcd4746c5ac1765feb2b2be}\label{config_2intel-8259a_8h_accc391532dcd4746c5ac1765feb2b2be} 
+\index{intel-\/8259a.h@{intel-\/8259a.h}!MANUX\_PIC\_INIT@{MANUX\_PIC\_INIT}}
+\index{MANUX\_PIC\_INIT@{MANUX\_PIC\_INIT}!intel-\/8259a.h@{intel-\/8259a.h}}
+\doxysubsubsection{\texorpdfstring{MANUX\_PIC\_INIT}{MANUX\_PIC\_INIT}}
+{\footnotesize\ttfamily \#define MANUX\+\_\+\+PIC\+\_\+\+INIT~\mbox{\hyperlink{intel-8259a_8c_ab3ca008de7fbd6c1917bead0ace48463}{i8259a\+Init}}}
+
+La fonction d\textquotesingle{}initalisation 
+
+Définition à la ligne \mbox{\hyperlink{config_2intel-8259a_8h_source_l00026}{26}} du fichier \mbox{\hyperlink{config_2intel-8259a_8h_source}{intel-\/8259a.\+h}}.
+

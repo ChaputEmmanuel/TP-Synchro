@@ -1,0 +1,73 @@
+\doxysection{memoire.\+h}
+\hypertarget{include_2manux_2memoire_8h_source}{}\label{include_2manux_2memoire_8h_source}\index{/home/manu/PROGRAMMATION/C/ManuX/include/manux/memoire.h@{/home/manu/PROGRAMMATION/C/ManuX/include/manux/memoire.h}}
+\mbox{\hyperlink{include_2manux_2memoire_8h}{Aller à la documentation de ce fichier.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{include_2manux_2memoire_8h_source_l00001}00001\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{include_2manux_2memoire_8h_source_l00002}00002\ \textcolor{comment}{/*\ \ \ \ \ \ Définition\ des\ sous-\/programmes\ de\ manipulation\ de\ la\ mémoire\ sous\ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{include_2manux_2memoire_8h_source_l00003}00003\ \textcolor{comment}{/*\ \ \ ManuX.\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{include_2manux_2memoire_8h_source_l00004}00004\ \textcolor{comment}{/*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{include_2manux_2memoire_8h_source_l00005}00005\ \textcolor{comment}{/*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (C)\ Manu\ Chaput\ 2000-\/2021\ */}}
+\DoxyCodeLine{\Hypertarget{include_2manux_2memoire_8h_source_l00006}00006\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{include_2manux_2memoire_8h_source_l00007}00007\ \textcolor{preprocessor}{\#ifndef\ MEMOIRE\_DEF}}
+\DoxyCodeLine{\Hypertarget{include_2manux_2memoire_8h_source_l00008}00008\ \textcolor{preprocessor}{\#define\ MEMOIRE\_DEF}}
+\DoxyCodeLine{\Hypertarget{include_2manux_2memoire_8h_source_l00009}00009\ }
+\DoxyCodeLine{\Hypertarget{include_2manux_2memoire_8h_source_l00010}00010\ \textcolor{preprocessor}{\#include\ <manux/types.h>}}
+\DoxyCodeLine{\Hypertarget{include_2manux_2memoire_8h_source_l00011}00011\ \textcolor{preprocessor}{\#include\ <manux/stddef.h>}\ \ \ \ \textcolor{comment}{//\ NULL}}
+\DoxyCodeLine{\Hypertarget{include_2manux_2memoire_8h_source_l00012}00012\ }
+\DoxyCodeLine{\Hypertarget{include_2manux_2memoire_8h_source_l00013}00013\ \textcolor{preprocessor}{\#ifdef\ MANUX\_AS}}
+\DoxyCodeLine{\Hypertarget{include_2manux_2memoire_8h_source_l00014}00014\ \textcolor{preprocessor}{\#\ \ \ include\ <manux/appelsysteme.h>}\ \textcolor{comment}{/*\ ParametreAS\ */}}
+\DoxyCodeLine{\Hypertarget{include_2manux_2memoire_8h_source_l00015}00015\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{include_2manux_2memoire_8h_source_l00016}00016\ }
+\DoxyCodeLine{\Hypertarget{include_2manux_2memoire_8h_source_l00017}\mbox{\hyperlink{include_2manux_2memoire_8h_a16b2cf32ec491a334b2cef234b44a9ae}{00017}}\ \textcolor{preprocessor}{\#define\ MANUX\_DEBUT\_MEMOIRE\_ETENDUE\ 0x100000}}
+\DoxyCodeLine{\Hypertarget{include_2manux_2memoire_8h_source_l00018}00018\ }
+\DoxyCodeLine{\Hypertarget{include_2manux_2memoire_8h_source_l00022}\mbox{\hyperlink{include_2manux_2memoire_8h_a86a8d5a4cf169fff16174f294cdb101d}{00022}}\ \textcolor{preprocessor}{\#define\ NB\_PAGES(n)\ ((n\ +\ MANUX\_TAILLE\_PAGE\ -\/\ 1)/MANUX\_TAILLE\_PAGE)}}
+\DoxyCodeLine{\Hypertarget{include_2manux_2memoire_8h_source_l00023}00023\ }
+\DoxyCodeLine{\Hypertarget{include_2manux_2memoire_8h_source_l00024}00024\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{include_2manux_2memoire_8h_source_l00025}00025\ \textcolor{comment}{\ *\ Nombre\ de\ pages\ communes\ à\ toutes\ les\ tâches.}}
+\DoxyCodeLine{\Hypertarget{include_2manux_2memoire_8h_source_l00026}00026\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{include_2manux_2memoire_8h_source_l00027}00027\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{include_2manux_2memoire_8h_a0e9c7b044c6a0b46ab3a7a38d9c4a10a}{nombrePagesSysteme}};}
+\DoxyCodeLine{\Hypertarget{include_2manux_2memoire_8h_source_l00028}00028\ }
+\DoxyCodeLine{\Hypertarget{include_2manux_2memoire_8h_source_l00036}00036\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{include_2manux_2memoire_8h_a4338550e2017b7c95021bdc27e4f3345}{initialiserMemoire}}(\mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\_t}}\ tailleMemoireDeBase,}
+\DoxyCodeLine{\Hypertarget{include_2manux_2memoire_8h_source_l00037}00037\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\_t}}\ tailleMemoireEtendue);}
+\DoxyCodeLine{\Hypertarget{include_2manux_2memoire_8h_source_l00038}00038\ }
+\DoxyCodeLine{\Hypertarget{include_2manux_2memoire_8h_source_l00039}00039\ \textcolor{keywordtype}{void}\ *\ \mbox{\hyperlink{include_2manux_2memoire_8h_ad9072ff00da9e7f32b882e5c1361d46f}{allouerPage}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{include_2manux_2memoire_8h_source_l00040}00040\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{include_2manux_2memoire_8h_source_l00041}00041\ \textcolor{comment}{\ *\ Réservation\ d'une\ page\ (de\ 4\ Ko)}}
+\DoxyCodeLine{\Hypertarget{include_2manux_2memoire_8h_source_l00042}00042\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{include_2manux_2memoire_8h_source_l00043}00043\ \textcolor{comment}{\ *\ Retour}}
+\DoxyCodeLine{\Hypertarget{include_2manux_2memoire_8h_source_l00044}00044\ \textcolor{comment}{\ *\ \ \ \ première\ adresse\ dispo\ si\ la\ pages\ a\ pu\ être\ allouée,}}
+\DoxyCodeLine{\Hypertarget{include_2manux_2memoire_8h_source_l00045}00045\ \textcolor{comment}{\ *\ \ \ \ NULL\ sinon}}
+\DoxyCodeLine{\Hypertarget{include_2manux_2memoire_8h_source_l00046}00046\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{include_2manux_2memoire_8h_source_l00047}00047\ }
+\DoxyCodeLine{\Hypertarget{include_2manux_2memoire_8h_source_l00048}00048\ \textcolor{keywordtype}{void}\ *\ \mbox{\hyperlink{include_2manux_2memoire_8h_a09bebf2806a04211ae6bb6c11ffb6a66}{allouerPages}}(\mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\_t}}\ nombre);}
+\DoxyCodeLine{\Hypertarget{include_2manux_2memoire_8h_source_l00049}00049\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{include_2manux_2memoire_8h_source_l00050}00050\ \textcolor{comment}{\ *\ Réservation\ d'un\ nombre\ choisi\ de\ pages\ (de\ 4\ Ko)\ contigues.}}
+\DoxyCodeLine{\Hypertarget{include_2manux_2memoire_8h_source_l00051}00051\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{include_2manux_2memoire_8h_source_l00052}00052\ \textcolor{comment}{\ *\ Retour}}
+\DoxyCodeLine{\Hypertarget{include_2manux_2memoire_8h_source_l00053}00053\ \textcolor{comment}{\ *\ \ \ \ première\ adresse\ dispo\ si\ les\ pages\ ont\ pu\ être\ allouées,}}
+\DoxyCodeLine{\Hypertarget{include_2manux_2memoire_8h_source_l00054}00054\ \textcolor{comment}{\ *\ \ \ \ NULL\ sinon}}
+\DoxyCodeLine{\Hypertarget{include_2manux_2memoire_8h_source_l00055}00055\ \textcolor{comment}{\ *\ WARNING\ à\ mettre\ en\ appel\ système\ ?}}
+\DoxyCodeLine{\Hypertarget{include_2manux_2memoire_8h_source_l00056}00056\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{include_2manux_2memoire_8h_source_l00057}00057\ }
+\DoxyCodeLine{\Hypertarget{include_2manux_2memoire_8h_source_l00058}00058\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{include_2manux_2memoire_8h_aee3b45cedb3e2add79c773ed3558a1c8}{libererPage}}(\textcolor{keywordtype}{void}\ *\ pageLiberee);}
+\DoxyCodeLine{\Hypertarget{include_2manux_2memoire_8h_source_l00059}00059\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{include_2manux_2memoire_8h_source_l00060}00060\ \textcolor{comment}{\ *\ Libération\ d'une\ page\ préalablement\ allouée.\ Attention,\ aucune}}
+\DoxyCodeLine{\Hypertarget{include_2manux_2memoire_8h_source_l00061}00061\ \textcolor{comment}{\ *\ vérification\ n'est\ effectuée.}}
+\DoxyCodeLine{\Hypertarget{include_2manux_2memoire_8h_source_l00062}00062\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{include_2manux_2memoire_8h_source_l00063}00063\ }
+\DoxyCodeLine{\Hypertarget{include_2manux_2memoire_8h_source_l00064}00064\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{include_2manux_2memoire_8h_a3aef845c64cbb35e0c25f697fd39156a}{nombrePagesAllouees}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{include_2manux_2memoire_8h_source_l00065}00065\ }
+\DoxyCodeLine{\Hypertarget{include_2manux_2memoire_8h_source_l00066}00066\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{include_2manux_2memoire_8h_a4f075bfff5a918e6ac19bf24be879e96}{nombrePagesTotal}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{include_2manux_2memoire_8h_source_l00067}00067\ }
+\DoxyCodeLine{\Hypertarget{include_2manux_2memoire_8h_source_l00068}00068\ \textcolor{preprocessor}{\#ifdef\ MANUX\_AS}}
+\DoxyCodeLine{\Hypertarget{include_2manux_2memoire_8h_source_l00069}00069\ \textcolor{keywordtype}{int}\ AS\_obtenirPages(\mbox{\hyperlink{struct__ParametreAS}{ParametreAS}}\ p,\ \textcolor{keywordtype}{int}\ nbPages);}
+\DoxyCodeLine{\Hypertarget{include_2manux_2memoire_8h_source_l00070}00070\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{include_2manux_2memoire_8h_source_l00071}00071\ \textcolor{comment}{\ *\ Demande\ d'accroissement\ de\ la\ zone\ mémoire\ disponible\ à}}
+\DoxyCodeLine{\Hypertarget{include_2manux_2memoire_8h_source_l00072}00072\ \textcolor{comment}{\ *\ la\ tâche.}}
+\DoxyCodeLine{\Hypertarget{include_2manux_2memoire_8h_source_l00073}00073\ \textcolor{comment}{\ *\ Retour\ :\ nombre\ de\ pages\ obtenues.}}
+\DoxyCodeLine{\Hypertarget{include_2manux_2memoire_8h_source_l00074}00074\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{include_2manux_2memoire_8h_source_l00075}00075\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{include_2manux_2memoire_8h_source_l00076}00076\ }
+\DoxyCodeLine{\Hypertarget{include_2manux_2memoire_8h_source_l00077}00077\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

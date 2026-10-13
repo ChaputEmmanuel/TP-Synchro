@@ -1,0 +1,367 @@
+\doxysection{Référence du fichier /home/manu/\+PROGRAMMATION/\+C/\+Manu\+X/noyau/pci.c}
+\hypertarget{pci_8c}{}\label{pci_8c}\index{/home/manu/PROGRAMMATION/C/ManuX/noyau/pci.c@{/home/manu/PROGRAMMATION/C/ManuX/noyau/pci.c}}
+
+
+\+: Fonctions de manipulation du bus PCI  
+
+
+{\ttfamily \#include $<$manux/pci.\+h$>$}\newline
+{\ttfamily \#include $<$manux/io.\+h$>$}\newline
+{\ttfamily \#include $<$manux/memoire.\+h$>$}\newline
+{\ttfamily \#include $<$manux/debug.\+h$>$}\newline
+Graphe des dépendances par inclusion de pci.\+c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{pci_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{pci_8c_a76d99054f60e8063457ce94102d43e3f}{PCI\+\_\+\+NB\+\_\+\+EQUIP\+\_\+\+PAR\+\_\+\+BUS}}~8
+\item 
+\#define \mbox{\hyperlink{pci_8c_aaa58db8af2d00af66c78624104e1016b}{PCI\+\_\+\+CONFIG\+\_\+\+ADDRESS}}~0x\+CF8
+\begin{DoxyCompactList}\small\item\em Les ports d\textquotesingle{}E/S de configuration du PCI. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{pci_8c_ad1fedcf5fe37518ccc1ddfcb880d1b01}{PCI\+\_\+\+CONFIG\+\_\+\+DATA}}~0x\+CFC
+\item 
+\#define \mbox{\hyperlink{pci_8c_a4f822a1f149cac6db683db4f3c1538d7}{MANUX\+\_\+\+NB\+\_\+\+BUS\+\_\+\+PCI}}~1
+\begin{DoxyCompactList}\small\item\em \+: Le nombre de bus \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{pci_8c_a46eac916776409f9ca95f9ab4557d94e}{PCI\+\_\+\+ID\+\_\+\+VENDEUR}}~0x00
+\item 
+\#define \mbox{\hyperlink{pci_8c_a1f1a8ffed01cc77fc4211337005a3299}{PCI\+\_\+\+ID\+\_\+\+EQUIPEMENT}}~0x02
+\item 
+\#define \mbox{\hyperlink{pci_8c_aace483a071ea645c25efcc12db5b3729}{PCI\+\_\+\+REVISION}}~0x08
+\item 
+\#define \mbox{\hyperlink{pci_8c_a24d8b91698474af77dc208df68424d64}{PCI\+\_\+\+INTERRUPTION}}~0x3C
+\item 
+\#define \mbox{\hyperlink{pci_8c_ac46c3b0065c7e8e9775dd842af22344c}{PCI\+\_\+\+BAR\+\_\+0}}~0x10
+\item 
+\#define \mbox{\hyperlink{pci_8c_a6ef954b421ae2e15edda17a2cc74474a}{PCI\+\_\+\+BAR\+\_\+1}}~0x14
+\item 
+\#define \mbox{\hyperlink{pci_8c_a3d75d753130a888886bcd046b87ae434}{PCI\+\_\+\+BAR\+\_\+2}}~0x18
+\item 
+\#define \mbox{\hyperlink{pci_8c_a7f3bb9c6a8f16029b0bcf5c0b8864b21}{PCI\+\_\+\+BAR\+\_\+3}}~0x1C
+\item 
+\#define \mbox{\hyperlink{pci_8c_a9ffaecd7d866bf5bfc64e85eecb3067f}{PCI\+\_\+\+BAR\+\_\+4}}~0x20
+\item 
+\#define \mbox{\hyperlink{pci_8c_a19285f776c8666b2cf999111e7fae165}{PCI\+\_\+\+BAR\+\_\+5}}~0x24
+\item 
+\#define \mbox{\hyperlink{pci_8c_a959211a91f46ea1222f3f67486db9fd6}{PCI\+\_\+\+BAR\+\_\+\+IO}}~0x01
+\item 
+\#define \mbox{\hyperlink{pci_8c_a74e51cf1894682ef1817c6c516f5ef4e}{PCI\+\_\+\+AUCUN\+\_\+\+VENDEUR}}~0x\+FFFF
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\+\_\+t}} \mbox{\hyperlink{pci_8c_ae74b8ebfa7614c51d4d85f964b97e19b}{PCILire\+Long}} (\mbox{\hyperlink{include_2manux_2types_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}} bus, \mbox{\hyperlink{include_2manux_2types_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}} slot, \mbox{\hyperlink{include_2manux_2types_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}} fonction, \mbox{\hyperlink{include_2manux_2types_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}} offset)
+\begin{DoxyCompactList}\small\item\em \+: Lecture d\textquotesingle{}un mot sur le registre de config du PCI \end{DoxyCompactList}\item 
+\mbox{\hyperlink{include_2manux_2types_8h_a273cf69d639a59973b6019625df33e30}{uint16\+\_\+t}} \mbox{\hyperlink{pci_8c_a315cad18d567e1dccdfc96fab0a58c49}{PCILire\+Mot}} (\mbox{\hyperlink{include_2manux_2types_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}} bus, \mbox{\hyperlink{include_2manux_2types_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}} slot, \mbox{\hyperlink{include_2manux_2types_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}} fonction, \mbox{\hyperlink{include_2manux_2types_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}} offset)
+\item 
+\mbox{\hyperlink{include_2manux_2types_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}} \mbox{\hyperlink{pci_8c_a6457a470746af5e05f5b9624f45fda56}{PCILire\+Octet}} (\mbox{\hyperlink{include_2manux_2types_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}} bus, \mbox{\hyperlink{include_2manux_2types_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}} slot, \mbox{\hyperlink{include_2manux_2types_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}} fonction, \mbox{\hyperlink{include_2manux_2types_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}} offset)
+\item 
+\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} \mbox{\hyperlink{pci_8c_a883b4a272bc719952fa1b66b9faeec2a}{PCIEnumeration\+Des\+Equipements}} (\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}})
+\begin{DoxyCompactList}\small\item\em \+: recherche des équipements PCI disponibles \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{pci_8c_a50c3ecf5057a9dd21f23f92fb9bedd1f}{PCIObtenir\+Prochain\+Equipement}} (\mbox{\hyperlink{include_2manux_2types_8h_a273cf69d639a59973b6019625df33e30}{uint16\+\_\+t}} vendeur, \mbox{\hyperlink{include_2manux_2types_8h_a273cf69d639a59973b6019625df33e30}{uint16\+\_\+t}} equipement, int precedent)
+\begin{DoxyCompactList}\small\item\em \+: récuperer l\textquotesingle{}identifiant du prochain équipement PCI \end{DoxyCompactList}\item 
+\mbox{\hyperlink{manux_2pci_8h_a6ab1d30d9af1c70cb68edddaf147bfc6}{PCIEquipement}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{pci_8c_a9da90032fa74e35abe5c7156c1542d1e}{PCIEquipement\+Numero}} (int n)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{pci_8c_a278e24c363d5729179619c807001694b}{PCINombre\+Equipements}} = 0
+\begin{DoxyCompactList}\small\item\em \+: Une structure qui contient la description des équipements PCI détectés \end{DoxyCompactList}\item 
+\mbox{\hyperlink{manux_2pci_8h_a6ab1d30d9af1c70cb68edddaf147bfc6}{PCIEquipement}} \mbox{\hyperlink{pci_8c_aa6dd82edf1e1673d848dacfcf2b98fea}{PCIEquipements}} \mbox{[}\mbox{\hyperlink{config_2pci_8h_a9a3f40332f0c15b9d84d7b73cf98886d}{MANUX\+\_\+\+NB\+\_\+\+MAX\+\_\+\+EQUIPEMENTS\+\_\+\+PCI}}\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+\+: Fonctions de manipulation du bus PCI 
+
+Liens utiles \mbox{[}1\mbox{]} \href{https://wiki.osdev.org/PCI}{\texttt{ https\+://wiki.\+osdev.\+org/\+PCI}} \mbox{[}2\mbox{]} \href{https://en.wikipedia.org/wiki/PCI_configuration_space}{\texttt{ https\+://en.\+wikipedia.\+org/wiki/\+PCI\+\_\+configuration\+\_\+space}} 
+
+Définition dans le fichier \mbox{\hyperlink{pci_8c_source}{pci.\+c}}.
+
+
+
+\doxysubsection{Documentation des macros}
+\Hypertarget{pci_8c_a4f822a1f149cac6db683db4f3c1538d7}\label{pci_8c_a4f822a1f149cac6db683db4f3c1538d7} 
+\index{pci.c@{pci.c}!MANUX\_NB\_BUS\_PCI@{MANUX\_NB\_BUS\_PCI}}
+\index{MANUX\_NB\_BUS\_PCI@{MANUX\_NB\_BUS\_PCI}!pci.c@{pci.c}}
+\doxysubsubsection{\texorpdfstring{MANUX\_NB\_BUS\_PCI}{MANUX\_NB\_BUS\_PCI}}
+{\footnotesize\ttfamily \#define MANUX\+\_\+\+NB\+\_\+\+BUS\+\_\+\+PCI~1}
+
+
+
+\+: Le nombre de bus 
+
+
+
+Définition à la ligne \mbox{\hyperlink{pci_8c_source_l00033}{33}} du fichier \mbox{\hyperlink{pci_8c_source}{pci.\+c}}.
+
+\Hypertarget{pci_8c_a74e51cf1894682ef1817c6c516f5ef4e}\label{pci_8c_a74e51cf1894682ef1817c6c516f5ef4e} 
+\index{pci.c@{pci.c}!PCI\_AUCUN\_VENDEUR@{PCI\_AUCUN\_VENDEUR}}
+\index{PCI\_AUCUN\_VENDEUR@{PCI\_AUCUN\_VENDEUR}!pci.c@{pci.c}}
+\doxysubsubsection{\texorpdfstring{PCI\_AUCUN\_VENDEUR}{PCI\_AUCUN\_VENDEUR}}
+{\footnotesize\ttfamily \#define PCI\+\_\+\+AUCUN\+\_\+\+VENDEUR~0x\+FFFF}
+
+
+
+Définition à la ligne \mbox{\hyperlink{pci_8c_source_l00053}{53}} du fichier \mbox{\hyperlink{pci_8c_source}{pci.\+c}}.
+
+\Hypertarget{pci_8c_ac46c3b0065c7e8e9775dd842af22344c}\label{pci_8c_ac46c3b0065c7e8e9775dd842af22344c} 
+\index{pci.c@{pci.c}!PCI\_BAR\_0@{PCI\_BAR\_0}}
+\index{PCI\_BAR\_0@{PCI\_BAR\_0}!pci.c@{pci.c}}
+\doxysubsubsection{\texorpdfstring{PCI\_BAR\_0}{PCI\_BAR\_0}}
+{\footnotesize\ttfamily \#define PCI\+\_\+\+BAR\+\_\+0~0x10}
+
+
+
+Définition à la ligne \mbox{\hyperlink{pci_8c_source_l00042}{42}} du fichier \mbox{\hyperlink{pci_8c_source}{pci.\+c}}.
+
+\Hypertarget{pci_8c_a6ef954b421ae2e15edda17a2cc74474a}\label{pci_8c_a6ef954b421ae2e15edda17a2cc74474a} 
+\index{pci.c@{pci.c}!PCI\_BAR\_1@{PCI\_BAR\_1}}
+\index{PCI\_BAR\_1@{PCI\_BAR\_1}!pci.c@{pci.c}}
+\doxysubsubsection{\texorpdfstring{PCI\_BAR\_1}{PCI\_BAR\_1}}
+{\footnotesize\ttfamily \#define PCI\+\_\+\+BAR\+\_\+1~0x14}
+
+
+
+Définition à la ligne \mbox{\hyperlink{pci_8c_source_l00043}{43}} du fichier \mbox{\hyperlink{pci_8c_source}{pci.\+c}}.
+
+\Hypertarget{pci_8c_a3d75d753130a888886bcd046b87ae434}\label{pci_8c_a3d75d753130a888886bcd046b87ae434} 
+\index{pci.c@{pci.c}!PCI\_BAR\_2@{PCI\_BAR\_2}}
+\index{PCI\_BAR\_2@{PCI\_BAR\_2}!pci.c@{pci.c}}
+\doxysubsubsection{\texorpdfstring{PCI\_BAR\_2}{PCI\_BAR\_2}}
+{\footnotesize\ttfamily \#define PCI\+\_\+\+BAR\+\_\+2~0x18}
+
+
+
+Définition à la ligne \mbox{\hyperlink{pci_8c_source_l00044}{44}} du fichier \mbox{\hyperlink{pci_8c_source}{pci.\+c}}.
+
+\Hypertarget{pci_8c_a7f3bb9c6a8f16029b0bcf5c0b8864b21}\label{pci_8c_a7f3bb9c6a8f16029b0bcf5c0b8864b21} 
+\index{pci.c@{pci.c}!PCI\_BAR\_3@{PCI\_BAR\_3}}
+\index{PCI\_BAR\_3@{PCI\_BAR\_3}!pci.c@{pci.c}}
+\doxysubsubsection{\texorpdfstring{PCI\_BAR\_3}{PCI\_BAR\_3}}
+{\footnotesize\ttfamily \#define PCI\+\_\+\+BAR\+\_\+3~0x1C}
+
+
+
+Définition à la ligne \mbox{\hyperlink{pci_8c_source_l00045}{45}} du fichier \mbox{\hyperlink{pci_8c_source}{pci.\+c}}.
+
+\Hypertarget{pci_8c_a9ffaecd7d866bf5bfc64e85eecb3067f}\label{pci_8c_a9ffaecd7d866bf5bfc64e85eecb3067f} 
+\index{pci.c@{pci.c}!PCI\_BAR\_4@{PCI\_BAR\_4}}
+\index{PCI\_BAR\_4@{PCI\_BAR\_4}!pci.c@{pci.c}}
+\doxysubsubsection{\texorpdfstring{PCI\_BAR\_4}{PCI\_BAR\_4}}
+{\footnotesize\ttfamily \#define PCI\+\_\+\+BAR\+\_\+4~0x20}
+
+
+
+Définition à la ligne \mbox{\hyperlink{pci_8c_source_l00046}{46}} du fichier \mbox{\hyperlink{pci_8c_source}{pci.\+c}}.
+
+\Hypertarget{pci_8c_a19285f776c8666b2cf999111e7fae165}\label{pci_8c_a19285f776c8666b2cf999111e7fae165} 
+\index{pci.c@{pci.c}!PCI\_BAR\_5@{PCI\_BAR\_5}}
+\index{PCI\_BAR\_5@{PCI\_BAR\_5}!pci.c@{pci.c}}
+\doxysubsubsection{\texorpdfstring{PCI\_BAR\_5}{PCI\_BAR\_5}}
+{\footnotesize\ttfamily \#define PCI\+\_\+\+BAR\+\_\+5~0x24}
+
+
+
+Définition à la ligne \mbox{\hyperlink{pci_8c_source_l00047}{47}} du fichier \mbox{\hyperlink{pci_8c_source}{pci.\+c}}.
+
+\Hypertarget{pci_8c_a959211a91f46ea1222f3f67486db9fd6}\label{pci_8c_a959211a91f46ea1222f3f67486db9fd6} 
+\index{pci.c@{pci.c}!PCI\_BAR\_IO@{PCI\_BAR\_IO}}
+\index{PCI\_BAR\_IO@{PCI\_BAR\_IO}!pci.c@{pci.c}}
+\doxysubsubsection{\texorpdfstring{PCI\_BAR\_IO}{PCI\_BAR\_IO}}
+{\footnotesize\ttfamily \#define PCI\+\_\+\+BAR\+\_\+\+IO~0x01}
+
+Pour identifier les BAR 
+
+Définition à la ligne \mbox{\hyperlink{pci_8c_source_l00052}{52}} du fichier \mbox{\hyperlink{pci_8c_source}{pci.\+c}}.
+
+\Hypertarget{pci_8c_aaa58db8af2d00af66c78624104e1016b}\label{pci_8c_aaa58db8af2d00af66c78624104e1016b} 
+\index{pci.c@{pci.c}!PCI\_CONFIG\_ADDRESS@{PCI\_CONFIG\_ADDRESS}}
+\index{PCI\_CONFIG\_ADDRESS@{PCI\_CONFIG\_ADDRESS}!pci.c@{pci.c}}
+\doxysubsubsection{\texorpdfstring{PCI\_CONFIG\_ADDRESS}{PCI\_CONFIG\_ADDRESS}}
+{\footnotesize\ttfamily \#define PCI\+\_\+\+CONFIG\+\_\+\+ADDRESS~0x\+CF8}
+
+
+
+Les ports d\textquotesingle{}E/S de configuration du PCI. 
+
+
+
+Définition à la ligne \mbox{\hyperlink{pci_8c_source_l00024}{24}} du fichier \mbox{\hyperlink{pci_8c_source}{pci.\+c}}.
+
+\Hypertarget{pci_8c_ad1fedcf5fe37518ccc1ddfcb880d1b01}\label{pci_8c_ad1fedcf5fe37518ccc1ddfcb880d1b01} 
+\index{pci.c@{pci.c}!PCI\_CONFIG\_DATA@{PCI\_CONFIG\_DATA}}
+\index{PCI\_CONFIG\_DATA@{PCI\_CONFIG\_DATA}!pci.c@{pci.c}}
+\doxysubsubsection{\texorpdfstring{PCI\_CONFIG\_DATA}{PCI\_CONFIG\_DATA}}
+{\footnotesize\ttfamily \#define PCI\+\_\+\+CONFIG\+\_\+\+DATA~0x\+CFC}
+
+
+
+Définition à la ligne \mbox{\hyperlink{pci_8c_source_l00027}{27}} du fichier \mbox{\hyperlink{pci_8c_source}{pci.\+c}}.
+
+\Hypertarget{pci_8c_a1f1a8ffed01cc77fc4211337005a3299}\label{pci_8c_a1f1a8ffed01cc77fc4211337005a3299} 
+\index{pci.c@{pci.c}!PCI\_ID\_EQUIPEMENT@{PCI\_ID\_EQUIPEMENT}}
+\index{PCI\_ID\_EQUIPEMENT@{PCI\_ID\_EQUIPEMENT}!pci.c@{pci.c}}
+\doxysubsubsection{\texorpdfstring{PCI\_ID\_EQUIPEMENT}{PCI\_ID\_EQUIPEMENT}}
+{\footnotesize\ttfamily \#define PCI\+\_\+\+ID\+\_\+\+EQUIPEMENT~0x02}
+
+
+
+Définition à la ligne \mbox{\hyperlink{pci_8c_source_l00039}{39}} du fichier \mbox{\hyperlink{pci_8c_source}{pci.\+c}}.
+
+\Hypertarget{pci_8c_a46eac916776409f9ca95f9ab4557d94e}\label{pci_8c_a46eac916776409f9ca95f9ab4557d94e} 
+\index{pci.c@{pci.c}!PCI\_ID\_VENDEUR@{PCI\_ID\_VENDEUR}}
+\index{PCI\_ID\_VENDEUR@{PCI\_ID\_VENDEUR}!pci.c@{pci.c}}
+\doxysubsubsection{\texorpdfstring{PCI\_ID\_VENDEUR}{PCI\_ID\_VENDEUR}}
+{\footnotesize\ttfamily \#define PCI\+\_\+\+ID\+\_\+\+VENDEUR~0x00}
+
+Les registres standards, voir en particulier \mbox{[}2\mbox{]} (Section Standardized registers) 
+
+Définition à la ligne \mbox{\hyperlink{pci_8c_source_l00038}{38}} du fichier \mbox{\hyperlink{pci_8c_source}{pci.\+c}}.
+
+\Hypertarget{pci_8c_a24d8b91698474af77dc208df68424d64}\label{pci_8c_a24d8b91698474af77dc208df68424d64} 
+\index{pci.c@{pci.c}!PCI\_INTERRUPTION@{PCI\_INTERRUPTION}}
+\index{PCI\_INTERRUPTION@{PCI\_INTERRUPTION}!pci.c@{pci.c}}
+\doxysubsubsection{\texorpdfstring{PCI\_INTERRUPTION}{PCI\_INTERRUPTION}}
+{\footnotesize\ttfamily \#define PCI\+\_\+\+INTERRUPTION~0x3C}
+
+
+
+Définition à la ligne \mbox{\hyperlink{pci_8c_source_l00041}{41}} du fichier \mbox{\hyperlink{pci_8c_source}{pci.\+c}}.
+
+\Hypertarget{pci_8c_a76d99054f60e8063457ce94102d43e3f}\label{pci_8c_a76d99054f60e8063457ce94102d43e3f} 
+\index{pci.c@{pci.c}!PCI\_NB\_EQUIP\_PAR\_BUS@{PCI\_NB\_EQUIP\_PAR\_BUS}}
+\index{PCI\_NB\_EQUIP\_PAR\_BUS@{PCI\_NB\_EQUIP\_PAR\_BUS}!pci.c@{pci.c}}
+\doxysubsubsection{\texorpdfstring{PCI\_NB\_EQUIP\_PAR\_BUS}{PCI\_NB\_EQUIP\_PAR\_BUS}}
+{\footnotesize\ttfamily \#define PCI\+\_\+\+NB\+\_\+\+EQUIP\+\_\+\+PAR\+\_\+\+BUS~8}
+
+Le nombre maximal d\textquotesingle{}équipements sur un bus PCI 
+
+Définition à la ligne \mbox{\hyperlink{pci_8c_source_l00018}{18}} du fichier \mbox{\hyperlink{pci_8c_source}{pci.\+c}}.
+
+\Hypertarget{pci_8c_aace483a071ea645c25efcc12db5b3729}\label{pci_8c_aace483a071ea645c25efcc12db5b3729} 
+\index{pci.c@{pci.c}!PCI\_REVISION@{PCI\_REVISION}}
+\index{PCI\_REVISION@{PCI\_REVISION}!pci.c@{pci.c}}
+\doxysubsubsection{\texorpdfstring{PCI\_REVISION}{PCI\_REVISION}}
+{\footnotesize\ttfamily \#define PCI\+\_\+\+REVISION~0x08}
+
+
+
+Définition à la ligne \mbox{\hyperlink{pci_8c_source_l00040}{40}} du fichier \mbox{\hyperlink{pci_8c_source}{pci.\+c}}.
+
+
+
+\doxysubsection{Documentation des fonctions}
+\Hypertarget{pci_8c_a883b4a272bc719952fa1b66b9faeec2a}\label{pci_8c_a883b4a272bc719952fa1b66b9faeec2a} 
+\index{pci.c@{pci.c}!PCIEnumerationDesEquipements@{PCIEnumerationDesEquipements}}
+\index{PCIEnumerationDesEquipements@{PCIEnumerationDesEquipements}!pci.c@{pci.c}}
+\doxysubsubsection{\texorpdfstring{PCIEnumerationDesEquipements()}{PCIEnumerationDesEquipements()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} PCIEnumeration\+Des\+Equipements (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}}}]{ }\end{DoxyParamCaption})}
+
+
+
+\+: recherche des équipements PCI disponibles 
+
+On recherche les équipements sur un seul bus pour le moment 
+
+Définition à la ligne \mbox{\hyperlink{pci_8c_source_l00180}{180}} du fichier \mbox{\hyperlink{pci_8c_source}{pci.\+c}}.
+
+\Hypertarget{pci_8c_a9da90032fa74e35abe5c7156c1542d1e}\label{pci_8c_a9da90032fa74e35abe5c7156c1542d1e} 
+\index{pci.c@{pci.c}!PCIEquipementNumero@{PCIEquipementNumero}}
+\index{PCIEquipementNumero@{PCIEquipementNumero}!pci.c@{pci.c}}
+\doxysubsubsection{\texorpdfstring{PCIEquipementNumero()}{PCIEquipementNumero()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{manux_2pci_8h_a6ab1d30d9af1c70cb68edddaf147bfc6}{PCIEquipement}} \texorpdfstring{$\ast$}{*} PCIEquipement\+Numero (\begin{DoxyParamCaption}\item[{int}]{n }\end{DoxyParamCaption})}
+
+Obtention d\textquotesingle{}un pointeur vers une srtucture qui caractérise un équipement PCI. Attention, aucune allocation/copie n\textquotesingle{}est faite, il ne faut donc pas le modifier ni le détuire. 
+
+Définition à la ligne \mbox{\hyperlink{pci_8c_source_l00226}{226}} du fichier \mbox{\hyperlink{pci_8c_source}{pci.\+c}}.
+
+\Hypertarget{pci_8c_ae74b8ebfa7614c51d4d85f964b97e19b}\label{pci_8c_ae74b8ebfa7614c51d4d85f964b97e19b} 
+\index{pci.c@{pci.c}!PCILireLong@{PCILireLong}}
+\index{PCILireLong@{PCILireLong}!pci.c@{pci.c}}
+\doxysubsubsection{\texorpdfstring{PCILireLong()}{PCILireLong()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\+\_\+t}} PCILire\+Long (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{include_2manux_2types_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}}}]{bus,  }\item[{\mbox{\hyperlink{include_2manux_2types_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}}}]{slot,  }\item[{\mbox{\hyperlink{include_2manux_2types_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}}}]{fonction,  }\item[{\mbox{\hyperlink{include_2manux_2types_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}}}]{offset }\end{DoxyParamCaption})}
+
+
+
+\+: Lecture d\textquotesingle{}un mot sur le registre de config du PCI 
+
+Les registres sont organisés comme décrits par exemple dans \href{https://en.wikipedia.org/wiki/PCI_configuration_space\#Standardized_registers}{\texttt{ https\+://en.\+wikipedia.\+org/wiki/\+PCI\+\_\+configuration\+\_\+space\#\+Standardized\+\_\+registers}}
+
+On a donc un offset qui nous dit quel long aller chercher puis éventuellement, via ses 2 bits de poids faible quel mot voire quel octet. Ce denier "{}niveau d\textquotesingle{}adressage"{} est fait par un masque (Et puisque les registres sont alignés sur 32 bits, on lit systématiquement un long à l\textquotesingle{}offset privé de ces deux bits) 
+
+Définition à la ligne \mbox{\hyperlink{pci_8c_source_l00075}{75}} du fichier \mbox{\hyperlink{pci_8c_source}{pci.\+c}}.
+
+\Hypertarget{pci_8c_a315cad18d567e1dccdfc96fab0a58c49}\label{pci_8c_a315cad18d567e1dccdfc96fab0a58c49} 
+\index{pci.c@{pci.c}!PCILireMot@{PCILireMot}}
+\index{PCILireMot@{PCILireMot}!pci.c@{pci.c}}
+\doxysubsubsection{\texorpdfstring{PCILireMot()}{PCILireMot()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{include_2manux_2types_8h_a273cf69d639a59973b6019625df33e30}{uint16\+\_\+t}} PCILire\+Mot (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{include_2manux_2types_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}}}]{bus,  }\item[{\mbox{\hyperlink{include_2manux_2types_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}}}]{slot,  }\item[{\mbox{\hyperlink{include_2manux_2types_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}}}]{fonction,  }\item[{\mbox{\hyperlink{include_2manux_2types_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}}}]{offset }\end{DoxyParamCaption})}
+
+
+
+Définition à la ligne \mbox{\hyperlink{pci_8c_source_l00093}{93}} du fichier \mbox{\hyperlink{pci_8c_source}{pci.\+c}}.
+
+\Hypertarget{pci_8c_a6457a470746af5e05f5b9624f45fda56}\label{pci_8c_a6457a470746af5e05f5b9624f45fda56} 
+\index{pci.c@{pci.c}!PCILireOctet@{PCILireOctet}}
+\index{PCILireOctet@{PCILireOctet}!pci.c@{pci.c}}
+\doxysubsubsection{\texorpdfstring{PCILireOctet()}{PCILireOctet()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{include_2manux_2types_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}} PCILire\+Octet (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{include_2manux_2types_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}}}]{bus,  }\item[{\mbox{\hyperlink{include_2manux_2types_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}}}]{slot,  }\item[{\mbox{\hyperlink{include_2manux_2types_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}}}]{fonction,  }\item[{\mbox{\hyperlink{include_2manux_2types_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}}}]{offset }\end{DoxyParamCaption})}
+
+
+
+Définition à la ligne \mbox{\hyperlink{pci_8c_source_l00106}{106}} du fichier \mbox{\hyperlink{pci_8c_source}{pci.\+c}}.
+
+\Hypertarget{pci_8c_a50c3ecf5057a9dd21f23f92fb9bedd1f}\label{pci_8c_a50c3ecf5057a9dd21f23f92fb9bedd1f} 
+\index{pci.c@{pci.c}!PCIObtenirProchainEquipement@{PCIObtenirProchainEquipement}}
+\index{PCIObtenirProchainEquipement@{PCIObtenirProchainEquipement}!pci.c@{pci.c}}
+\doxysubsubsection{\texorpdfstring{PCIObtenirProchainEquipement()}{PCIObtenirProchainEquipement()}}
+{\footnotesize\ttfamily int PCIObtenir\+Prochain\+Equipement (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{include_2manux_2types_8h_a273cf69d639a59973b6019625df33e30}{uint16\+\_\+t}}}]{vendeur,  }\item[{\mbox{\hyperlink{include_2manux_2types_8h_a273cf69d639a59973b6019625df33e30}{uint16\+\_\+t}}}]{equipement,  }\item[{int}]{precedent }\end{DoxyParamCaption})}
+
+
+
+\+: récuperer l\textquotesingle{}identifiant du prochain équipement PCI 
+
+WARNING remplacer les deux fonctions suivantes par une seule qui renvoie directement un pointeur. 
+\begin{DoxyParams}{Paramètres}
+{\em } & precedent \+: indice du précédent (-\/1 pour chercher le premier) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+\+: indice \texorpdfstring{$>$}{>}= 0 si un équipement trouvé, -\/1 sinon 
+\end{DoxyReturn}
+
+
+Définition à la ligne \mbox{\hyperlink{pci_8c_source_l00206}{206}} du fichier \mbox{\hyperlink{pci_8c_source}{pci.\+c}}.
+
+
+
+\doxysubsection{Documentation des variables}
+\Hypertarget{pci_8c_aa6dd82edf1e1673d848dacfcf2b98fea}\label{pci_8c_aa6dd82edf1e1673d848dacfcf2b98fea} 
+\index{pci.c@{pci.c}!PCIEquipements@{PCIEquipements}}
+\index{PCIEquipements@{PCIEquipements}!pci.c@{pci.c}}
+\doxysubsubsection{\texorpdfstring{PCIEquipements}{PCIEquipements}}
+{\footnotesize\ttfamily \mbox{\hyperlink{manux_2pci_8h_a6ab1d30d9af1c70cb68edddaf147bfc6}{PCIEquipement}} PCIEquipements\mbox{[}\mbox{\hyperlink{config_2pci_8h_a9a3f40332f0c15b9d84d7b73cf98886d}{MANUX\+\_\+\+NB\+\_\+\+MAX\+\_\+\+EQUIPEMENTS\+\_\+\+PCI}}\mbox{]}}
+
+
+
+Définition à la ligne \mbox{\hyperlink{pci_8c_source_l00061}{61}} du fichier \mbox{\hyperlink{pci_8c_source}{pci.\+c}}.
+
+\Hypertarget{pci_8c_a278e24c363d5729179619c807001694b}\label{pci_8c_a278e24c363d5729179619c807001694b} 
+\index{pci.c@{pci.c}!PCINombreEquipements@{PCINombreEquipements}}
+\index{PCINombreEquipements@{PCINombreEquipements}!pci.c@{pci.c}}
+\doxysubsubsection{\texorpdfstring{PCINombreEquipements}{PCINombreEquipements}}
+{\footnotesize\ttfamily int PCINombre\+Equipements = 0}
+
+
+
+\+: Une structure qui contient la description des équipements PCI détectés 
+
+
+
+Définition à la ligne \mbox{\hyperlink{pci_8c_source_l00059}{59}} du fichier \mbox{\hyperlink{pci_8c_source}{pci.\+c}}.
+

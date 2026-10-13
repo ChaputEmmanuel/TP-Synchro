@@ -1,0 +1,205 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>My Project: Référence du fichier /home/manu/PROGRAMMATION/C/ManuX/multiconf/acces-concurrent.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">My Project
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_c21fac2cced99dbb337da442de42ac95.html">multiconf</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#define-members">Macros</a>  </div>
+  <div class="headertitle"><div class="title">Référence du fichier acces-concurrent.h</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Exemple de configuration pour un test d'accès concurrents.  
+<a href="#details">Plus de détails...</a></p>
+<div class="textblock"><code>#include &lt;<a class="el" href="base_8h_source.html">config/base.h</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="config_2bootloader_8h_source.html">config/bootloader.h</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="systeme-fichiers_8h_source.html">config/systeme-fichiers.h</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="config_2ramdisk_8h_source.html">config/ramdisk.h</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="pc-i386_8h_source.html">config/pc-i386.h</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="appels-systeme_8h_source.html">config/appels-systeme.h</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="consoles-virtuelles_8h_source.html">config/consoles-virtuelles.h</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="synchronisation_8h_source.html">config/synchronisation.h</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="include_2config_2printk_8h_source.html">config/printk.h</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="include_2config_2journal_8h_source.html">config/journal.h</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="include_2config_2taches_8h_source.html">config/taches.h</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="gestion-memoire_8h_source.html">config/gestion-memoire.h</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="include_2config_2kmalloc_8h_source.html">config/kmalloc.h</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="config_2clavier_8h_source.html">config/clavier.h</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="config_2stdlib_8h_source.html">config/stdlib.h</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="usr_8h_source.html">config/usr.h</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="verifications_8h_source.html">config/verifications.h</a>&gt;</code><br />
+</div><div class="textblock"><div class="dynheader">
+Graphe des dépendances par inclusion de acces-concurrent.h:</div>
+<div class="dyncontent">
+<div class="center"><img src="acces-concurrent_8h__incl.png" border="0" usemap="#a_2home_2manu_2PROGRAMMATION_2C_2ManuX_2multiconf_2acces-concurrent_8h" alt=""/></div>
+<map name="a_2home_2manu_2PROGRAMMATION_2C_2ManuX_2multiconf_2acces-concurrent_8h" id="a_2home_2manu_2PROGRAMMATION_2C_2ManuX_2multiconf_2acces-concurrent_8h">
+<area shape="rect" title="Exemple de configuration pour un test d&#39;accès concurrents." alt="" coords="1401,5,1627,60"/>
+<area shape="rect" href="base_8h.html" title="Eléments de base de la configuration." alt="" coords="5,108,113,133"/>
+<area shape="poly" title=" " alt="" coords="1400,38,1170,44,856,56,496,78,127,111,127,105,495,72,856,51,1170,39,1400,33"/>
+<area shape="rect" href="config_2bootloader_8h.html" title=" " alt="" coords="138,108,285,133"/>
+<area shape="poly" title=" " alt="" coords="1401,41,925,64,615,84,299,111,298,105,615,79,925,59,1400,36"/>
+<area shape="rect" href="systeme-fichiers_8h.html" title=" " alt="" coords="309,108,495,133"/>
+<area shape="poly" title=" " alt="" coords="1400,44,1010,70,509,111,508,105,1010,65,1400,38"/>
+<area shape="rect" href="config_2ramdisk_8h.html" title=" " alt="" coords="519,108,650,133"/>
+<area shape="poly" title=" " alt="" coords="1401,44,1074,70,664,111,663,105,1073,65,1400,39"/>
+<area shape="rect" href="pc-i386_8h.html" title=" " alt="" coords="674,108,799,133"/>
+<area shape="poly" title=" " alt="" coords="1401,47,1137,73,813,111,813,105,1136,68,1400,42"/>
+<area shape="rect" href="appels-systeme_8h.html" title=" " alt="" coords="823,108,1005,133"/>
+<area shape="poly" title=" " alt="" coords="1401,53,1008,109,1007,103,1400,48"/>
+<area shape="rect" href="consoles-virtuelles_8h.html" title=" " alt="" coords="1029,108,1228,133"/>
+<area shape="poly" title=" " alt="" coords="1401,62,1194,108,1192,102,1400,57"/>
+<area shape="rect" href="synchronisation_8h.html" title="Configuration des outils de synchronisation de ManuX." alt="" coords="1252,108,1432,133"/>
+<area shape="poly" title=" " alt="" coords="1463,62,1379,104,1376,99,1460,58"/>
+<area shape="rect" href="include_2config_2printk_8h.html" title=" " alt="" coords="1457,108,1571,133"/>
+<area shape="poly" title=" " alt="" coords="1517,60,1517,94,1511,94,1511,60"/>
+<area shape="rect" href="include_2config_2journal_8h.html" title=" " alt="" coords="1595,108,1718,133"/>
+<area shape="poly" title=" " alt="" coords="1559,58,1627,99,1625,103,1556,62"/>
+<area shape="rect" href="include_2config_2taches_8h.html" title=" " alt="" coords="1742,108,1862,133"/>
+<area shape="poly" title=" " alt="" coords="1603,58,1751,102,1750,107,1601,63"/>
+<area shape="rect" href="gestion-memoire_8h.html" title=" " alt="" coords="1886,108,2075,133"/>
+<area shape="poly" title=" " alt="" coords="1628,52,1905,103,1904,108,1627,57"/>
+<area shape="rect" href="include_2config_2kmalloc_8h.html" title=" " alt="" coords="2100,108,2229,133"/>
+<area shape="poly" title=" " alt="" coords="1628,45,2086,105,2086,111,1627,51"/>
+<area shape="rect" href="config_2clavier_8h.html" title=" " alt="" coords="2254,108,2374,133"/>
+<area shape="poly" title=" " alt="" coords="1628,41,1903,67,2241,105,2240,111,1902,72,1627,46"/>
+<area shape="rect" href="config_2stdlib_8h.html" title=" " alt="" coords="2399,108,2512,133"/>
+<area shape="poly" title=" " alt="" coords="1628,38,1963,63,2172,82,2386,105,2385,111,2171,87,1963,68,1627,43"/>
+<area shape="rect" href="usr_8h.html" title=" " alt="" coords="2537,108,2633,133"/>
+<area shape="poly" title=" " alt="" coords="1627,35,2020,57,2269,77,2523,105,2523,111,2269,83,2020,62,1627,41"/>
+<area shape="rect" href="verifications_8h.html" title=" " alt="" coords="2657,108,2814,133"/>
+<area shape="poly" title=" " alt="" coords="1628,37,2069,61,2353,81,2643,105,2643,111,2352,86,2068,66,1628,42"/>
+<area shape="rect" href="plan-memoire-pc_8h.html" title=" " alt="" coords="545,181,734,207"/>
+<area shape="poly" title=" " alt="" coords="723,136,668,175,665,171,719,131"/>
+<area shape="rect" href="config_2intel-8259a_8h.html" title=" " alt="" coords="759,181,909,207"/>
+<area shape="poly" title=" " alt="" coords="754,131,808,171,805,175,751,136"/>
+<area shape="rect" href="include_2config_2console_8h.html" title=" " alt="" coords="1065,181,1192,207"/>
+<area shape="poly" title=" " alt="" coords="1131,134,1131,168,1126,168,1126,134"/>
+<area shape="rect" href="config_2dummy-task_8h.html" title="Configuration de la dummyTask." alt="" coords="1722,181,1882,207"/>
+<area shape="poly" title=" " alt="" coords="1805,134,1805,168,1799,168,1799,134"/>
+</map>
+</div>
+</div>
+<p><a href="acces-concurrent_8h_source.html">Aller au code source de ce fichier.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:aa3594499e1eed61df06d17199e875181" id="r_aa3594499e1eed61df06d17199e875181"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="acces-concurrent_8h.html#aa3594499e1eed61df06d17199e875181">MANUX_FICHIER_MAIN</a>&#160;&#160;&#160;<a class="el" href="makeconfig_8c.html#a0ddf1224851353fc92bfbff6f499fa97">main</a>-acces-concurrent</td></tr>
+<tr class="separator:aa3594499e1eed61df06d17199e875181"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aebb6ade5da1613b93b30fdc922a92f99" id="r_aebb6ade5da1613b93b30fdc922a92f99"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="acces-concurrent_8h.html#aebb6ade5da1613b93b30fdc922a92f99">MANUX_USR_INIT</a>&#160;&#160;&#160;<a class="el" href="main-acces-concurrent_8c.html#a02fd73d861ef2e4aabb38c0c9ff82947">init</a>-acces-concurrent.o</td></tr>
+<tr class="separator:aebb6ade5da1613b93b30fdc922a92f99"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
+<div class="textblock"><p>Exemple de configuration pour un test d'accès concurrents. </p>
+<pre class="fragment">                                                (C) Manu Chaput 2000-2023
+</pre> 
+<p class="definition">Définition dans le fichier <a class="el" href="acces-concurrent_8h_source.html">acces-concurrent.h</a>.</p>
+</div><h2 class="groupheader">Documentation des macros</h2>
+<a id="aa3594499e1eed61df06d17199e875181" name="aa3594499e1eed61df06d17199e875181"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa3594499e1eed61df06d17199e875181">&#9670;&#160;</a></span>MANUX_FICHIER_MAIN</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define MANUX_FICHIER_MAIN&#160;&#160;&#160;<a class="el" href="makeconfig_8c.html#a0ddf1224851353fc92bfbff6f499fa97">main</a>-acces-concurrent</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="acces-concurrent_8h_source.html#l00015">15</a> du fichier <a class="el" href="acces-concurrent_8h_source.html">acces-concurrent.h</a>.</p>
+
+</div>
+</div>
+<a id="aebb6ade5da1613b93b30fdc922a92f99" name="aebb6ade5da1613b93b30fdc922a92f99"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aebb6ade5da1613b93b30fdc922a92f99">&#9670;&#160;</a></span>MANUX_USR_INIT</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define MANUX_USR_INIT&#160;&#160;&#160;<a class="el" href="main-acces-concurrent_8c.html#a02fd73d861ef2e4aabb38c0c9ff82947">init</a>-acces-concurrent.o</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="acces-concurrent_8h_source.html#l00016">16</a> du fichier <a class="el" href="acces-concurrent_8h_source.html">acces-concurrent.h</a>.</p>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

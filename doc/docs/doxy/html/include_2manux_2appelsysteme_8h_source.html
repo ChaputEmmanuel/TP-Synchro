@@ -1,0 +1,177 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>My Project:  Fichier source de /home/manu/PROGRAMMATION/C/ManuX/include/manux/appelsysteme.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">My Project
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function() { init_codefold(0); });
+/* @license-end */
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_7ae9ae23548caaa7aeb1f148c6e00073.html">manux</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle"><div class="title">appelsysteme.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="include_2manux_2appelsysteme_8h.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">/*----------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment">/*      Implantation des appels système de Manux.                             */</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment">/*                                                                            */</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment">/*      Attention, il s&#39;agit donc bien ici de la partie noyau !               */</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment">/*                                                                            */</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment">/*                                                  (C) Manu Chaput 2000-2021 */</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="comment">/*----------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#ifndef APPEL_SYSTEME_DEF</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#define APPEL_SYSTEME_DEF</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &lt;manux/appelsystemenum.h&gt;</span>  <span class="comment">/* Les numéros des AS définis */</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#include &lt;manux/types.h&gt;</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="comment">/*</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="comment"> * Définition du nombre maximal d&#39;appels système</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#ifndef NB_MAX_APPELS_SYSTEME</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="include_2manux_2appelsysteme_8h.html#aed080930d50d6014826e9bafa7af5b1a">   18</a></span><span class="preprocessor">#   define NB_MAX_APPELS_SYSTEME 16</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="comment">/*</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="comment"> * Tableau des appels systeme</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="keyword">extern</span> <span class="keywordtype">void</span> * <a class="code hl_variable" href="include_2manux_2appelsysteme_8h.html#a6a3be0481ad3feffe2f40d25cb35b01f">vecteurAppelsSysteme</a>[<a class="code hl_define" href="include_2manux_2appelsysteme_8h.html#aed080930d50d6014826e9bafa7af5b1a">NB_MAX_APPELS_SYSTEME</a>];</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="comment">/*</span></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="comment"> * Type du premier paramètre de chaque appel système (dû au</span></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="comment"> * séquencement des appels). WARNING a expliquer.</span></div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="comment"> */</span></div>
+<div class="foldopen" id="foldopen00030" data-start="{" data-end="};">
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno"><a class="line" href="struct__ParametreAS.html">   30</a></span><span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code hl_struct" href="struct__ParametreAS.html">_ParametreAS</a> {</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="struct__ParametreAS.html#af9f0f28e81bafb4b4cae759c3f070bd0">   31</a></span>   <a class="code hl_typedef" href="include_2manux_2types_8h.html#a06896e8c53f721507066c079052171f8">uint32_t</a> <a class="code hl_variable" href="struct__ParametreAS.html#af9f0f28e81bafb4b4cae759c3f070bd0">eax</a>;</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="struct__ParametreAS.html#ab9870d0d3fdd5629f38332ed20f4ba3a">   32</a></span>   <a class="code hl_typedef" href="include_2manux_2types_8h.html#a06896e8c53f721507066c079052171f8">uint32_t</a> <a class="code hl_variable" href="struct__ParametreAS.html#ab9870d0d3fdd5629f38332ed20f4ba3a">ecx</a>;</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno"><a class="line" href="struct__ParametreAS.html#a4e4d556ef9d81066d705d79b5b0f3b33">   33</a></span>   <a class="code hl_typedef" href="include_2manux_2types_8h.html#a06896e8c53f721507066c079052171f8">uint32_t</a> <a class="code hl_variable" href="struct__ParametreAS.html#a4e4d556ef9d81066d705d79b5b0f3b33">edx</a>;</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="struct__ParametreAS.html#a1b3a05ef1816fc552f558cbd12fad697">   34</a></span>   <a class="code hl_typedef" href="include_2manux_2types_8h.html#a06896e8c53f721507066c079052171f8">uint32_t</a> <a class="code hl_variable" href="struct__ParametreAS.html#a1b3a05ef1816fc552f558cbd12fad697">ebx</a>;</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="struct__ParametreAS.html#ad7320d73ce7d092fca728bf07f2cec3a">   35</a></span>   <a class="code hl_typedef" href="include_2manux_2types_8h.html#a06896e8c53f721507066c079052171f8">uint32_t</a> <a class="code hl_variable" href="struct__ParametreAS.html#ad7320d73ce7d092fca728bf07f2cec3a">esp</a>;</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno"><a class="line" href="struct__ParametreAS.html#a8d0786125834fae1808541b9c7cfd5d8">   36</a></span>   <a class="code hl_typedef" href="include_2manux_2types_8h.html#a06896e8c53f721507066c079052171f8">uint32_t</a> <a class="code hl_variable" href="struct__ParametreAS.html#a8d0786125834fae1808541b9c7cfd5d8">ebp</a>;</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="struct__ParametreAS.html#a55dc89d82d409f3f90e943942642c987">   37</a></span>   <a class="code hl_typedef" href="include_2manux_2types_8h.html#a06896e8c53f721507066c079052171f8">uint32_t</a> <a class="code hl_variable" href="struct__ParametreAS.html#a55dc89d82d409f3f90e943942642c987">esi</a>;</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno"><a class="line" href="struct__ParametreAS.html#a7e667b07699a25e937a2b650de8e0ee1">   38</a></span>   <a class="code hl_typedef" href="include_2manux_2types_8h.html#a06896e8c53f721507066c079052171f8">uint32_t</a> <a class="code hl_variable" href="struct__ParametreAS.html#a7e667b07699a25e937a2b650de8e0ee1">edi</a>;</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno"><a class="line" href="struct__ParametreAS.html#a7fd99f15b904f7662c9424706ef1316a">   39</a></span>   <a class="code hl_typedef" href="include_2manux_2types_8h.html#a06896e8c53f721507066c079052171f8">uint32_t</a> <a class="code hl_variable" href="struct__ParametreAS.html#a7fd99f15b904f7662c9424706ef1316a">adresseRetourInterruption</a>; <span class="comment">// retour DE l&#39;IT</span></div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno"><a class="line" href="struct__ParametreAS.html#a9b2ceeac57d7e387d73c8f4f5e57c9ca">   40</a></span>   <a class="code hl_typedef" href="include_2manux_2types_8h.html#a06896e8c53f721507066c079052171f8">uint32_t</a> <a class="code hl_variable" href="struct__ParametreAS.html#a9b2ceeac57d7e387d73c8f4f5e57c9ca">eflags</a>;</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno"><a class="line" href="struct__ParametreAS.html#a867bfcad36c71769807d38b1952302c0">   41</a></span>   <a class="code hl_typedef" href="include_2manux_2types_8h.html#a06896e8c53f721507066c079052171f8">uint32_t</a> <a class="code hl_variable" href="struct__ParametreAS.html#a867bfcad36c71769807d38b1952302c0">csretour</a>;                  <span class="comment">// retour DE l&#39;interface</span></div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno"><a class="line" href="struct__ParametreAS.html#a120161cd780b8084a4bee922f7cc06cb">   42</a></span>   <a class="code hl_typedef" href="include_2manux_2types_8h.html#a06896e8c53f721507066c079052171f8">uint32_t</a> <a class="code hl_variable" href="struct__ParametreAS.html#a120161cd780b8084a4bee922f7cc06cb">adresseRetourInterface</a>;    <span class="comment">// retour DE l&#39;interface</span></div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno"><a class="line" href="include_2manux_2appelsysteme_8h.html#a9c54ff02dcc0e0b383c91a12a5e9c992">   43</a></span>} <a class="code hl_typedef" href="include_2manux_2appelsysteme_8h.html#a9c54ff02dcc0e0b383c91a12a5e9c992">ParametreAS</a>;</div>
+</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span><span class="keywordtype">int</span> <a class="code hl_function" href="include_2manux_2appelsysteme_8h.html#ab2afb7ddcc5b7c7d47eb2f88c1dc0282">definirAppelSysteme</a>(<span class="keywordtype">int</span> num, <span class="keywordtype">void</span> * appel);</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span><span class="comment">/*</span></div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span><span class="comment"> * Définition de la fonction appel comme appel système de numéro num.</span></div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span><span class="comment"> * Code de retour:</span></div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span><span class="comment"> *    0         succés</span></div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span><span class="comment"> *    EINVAL    num n&#39;est pas dans l&#39;intervalle correct</span></div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span> </div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span><span class="keywordtype">void</span> <a class="code hl_function" href="include_2manux_2appelsysteme_8h.html#ae9c459f3384b085e316b0d43a308d69b">initialiserAppelsSysteme</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span><span class="comment">/*</span></div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span><span class="comment"> * Initialisation des appels systèmes prédéfinis.</span></div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span> </div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span><span class="keywordtype">void</span> <a class="code hl_function" href="include_2manux_2appelsysteme_8h.html#a8690365ab42febd44ff8842b106fd8c7">entrerAppelSysteme</a>(<a class="code hl_typedef" href="include_2manux_2types_8h.html#a06896e8c53f721507066c079052171f8">uint32_t</a> num);</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span><span class="keywordtype">void</span> <a class="code hl_function" href="include_2manux_2appelsysteme_8h.html#ae628937cde201d4c003072368703ae3c">sortirAppelSysteme</a>(<a class="code hl_typedef" href="include_2manux_2types_8h.html#a06896e8c53f721507066c079052171f8">uint32_t</a> num);</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span> </div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span><span class="preprocessor">#endif</span></div>
+<div class="ttc" id="ainclude_2manux_2appelsysteme_8h_html_a6a3be0481ad3feffe2f40d25cb35b01f"><div class="ttname"><a href="include_2manux_2appelsysteme_8h.html#a6a3be0481ad3feffe2f40d25cb35b01f">vecteurAppelsSysteme</a></div><div class="ttdeci">void * vecteurAppelsSysteme[NB_MAX_APPELS_SYSTEME]</div><div class="ttdef"><b>Definition</b> <a href="appelsysteme_8c_source.html#l00027">appelsysteme.c:27</a></div></div>
+<div class="ttc" id="ainclude_2manux_2appelsysteme_8h_html_a8690365ab42febd44ff8842b106fd8c7"><div class="ttname"><a href="include_2manux_2appelsysteme_8h.html#a8690365ab42febd44ff8842b106fd8c7">entrerAppelSysteme</a></div><div class="ttdeci">void entrerAppelSysteme(uint32_t num)</div><div class="ttdoc">Prélude à un appel système.</div><div class="ttdef"><b>Definition</b> <a href="appelsysteme_8c_source.html#l00154">appelsysteme.c:154</a></div></div>
+<div class="ttc" id="ainclude_2manux_2appelsysteme_8h_html_a9c54ff02dcc0e0b383c91a12a5e9c992"><div class="ttname"><a href="include_2manux_2appelsysteme_8h.html#a9c54ff02dcc0e0b383c91a12a5e9c992">ParametreAS</a></div><div class="ttdeci">struct _ParametreAS ParametreAS</div></div>
+<div class="ttc" id="ainclude_2manux_2appelsysteme_8h_html_ab2afb7ddcc5b7c7d47eb2f88c1dc0282"><div class="ttname"><a href="include_2manux_2appelsysteme_8h.html#ab2afb7ddcc5b7c7d47eb2f88c1dc0282">definirAppelSysteme</a></div><div class="ttdeci">int definirAppelSysteme(int num, void *appel)</div><div class="ttdef"><b>Definition</b> <a href="appelsysteme_8c_source.html#l00090">appelsysteme.c:90</a></div></div>
+<div class="ttc" id="ainclude_2manux_2appelsysteme_8h_html_ae628937cde201d4c003072368703ae3c"><div class="ttname"><a href="include_2manux_2appelsysteme_8h.html#ae628937cde201d4c003072368703ae3c">sortirAppelSysteme</a></div><div class="ttdeci">void sortirAppelSysteme(uint32_t num)</div><div class="ttdoc">Fin d'un appel système.</div><div class="ttdef"><b>Definition</b> <a href="appelsysteme_8c_source.html#l00182">appelsysteme.c:182</a></div></div>
+<div class="ttc" id="ainclude_2manux_2appelsysteme_8h_html_ae9c459f3384b085e316b0d43a308d69b"><div class="ttname"><a href="include_2manux_2appelsysteme_8h.html#ae9c459f3384b085e316b0d43a308d69b">initialiserAppelsSysteme</a></div><div class="ttdeci">void initialiserAppelsSysteme(void)</div><div class="ttdef"><b>Definition</b> <a href="appelsysteme_8c_source.html#l00108">appelsysteme.c:108</a></div></div>
+<div class="ttc" id="ainclude_2manux_2appelsysteme_8h_html_aed080930d50d6014826e9bafa7af5b1a"><div class="ttname"><a href="include_2manux_2appelsysteme_8h.html#aed080930d50d6014826e9bafa7af5b1a">NB_MAX_APPELS_SYSTEME</a></div><div class="ttdeci">#define NB_MAX_APPELS_SYSTEME</div><div class="ttdef"><b>Definition</b> <a href="include_2manux_2appelsysteme_8h_source.html#l00018">appelsysteme.h:18</a></div></div>
+<div class="ttc" id="ainclude_2manux_2types_8h_html_a06896e8c53f721507066c079052171f8"><div class="ttname"><a href="include_2manux_2types_8h.html#a06896e8c53f721507066c079052171f8">uint32_t</a></div><div class="ttdeci">unsigned long uint32_t</div><div class="ttdef"><b>Definition</b> <a href="include_2manux_2types_8h_source.html#l00020">types.h:20</a></div></div>
+<div class="ttc" id="astruct__ParametreAS_html"><div class="ttname"><a href="struct__ParametreAS.html">_ParametreAS</a></div><div class="ttdef"><b>Definition</b> <a href="include_2manux_2appelsysteme_8h_source.html#l00030">appelsysteme.h:30</a></div></div>
+<div class="ttc" id="astruct__ParametreAS_html_a120161cd780b8084a4bee922f7cc06cb"><div class="ttname"><a href="struct__ParametreAS.html#a120161cd780b8084a4bee922f7cc06cb">_ParametreAS::adresseRetourInterface</a></div><div class="ttdeci">uint32_t adresseRetourInterface</div><div class="ttdef"><b>Definition</b> <a href="include_2manux_2appelsysteme_8h_source.html#l00042">appelsysteme.h:42</a></div></div>
+<div class="ttc" id="astruct__ParametreAS_html_a1b3a05ef1816fc552f558cbd12fad697"><div class="ttname"><a href="struct__ParametreAS.html#a1b3a05ef1816fc552f558cbd12fad697">_ParametreAS::ebx</a></div><div class="ttdeci">uint32_t ebx</div><div class="ttdef"><b>Definition</b> <a href="include_2manux_2appelsysteme_8h_source.html#l00034">appelsysteme.h:34</a></div></div>
+<div class="ttc" id="astruct__ParametreAS_html_a4e4d556ef9d81066d705d79b5b0f3b33"><div class="ttname"><a href="struct__ParametreAS.html#a4e4d556ef9d81066d705d79b5b0f3b33">_ParametreAS::edx</a></div><div class="ttdeci">uint32_t edx</div><div class="ttdef"><b>Definition</b> <a href="include_2manux_2appelsysteme_8h_source.html#l00033">appelsysteme.h:33</a></div></div>
+<div class="ttc" id="astruct__ParametreAS_html_a55dc89d82d409f3f90e943942642c987"><div class="ttname"><a href="struct__ParametreAS.html#a55dc89d82d409f3f90e943942642c987">_ParametreAS::esi</a></div><div class="ttdeci">uint32_t esi</div><div class="ttdef"><b>Definition</b> <a href="include_2manux_2appelsysteme_8h_source.html#l00037">appelsysteme.h:37</a></div></div>
+<div class="ttc" id="astruct__ParametreAS_html_a7e667b07699a25e937a2b650de8e0ee1"><div class="ttname"><a href="struct__ParametreAS.html#a7e667b07699a25e937a2b650de8e0ee1">_ParametreAS::edi</a></div><div class="ttdeci">uint32_t edi</div><div class="ttdef"><b>Definition</b> <a href="include_2manux_2appelsysteme_8h_source.html#l00038">appelsysteme.h:38</a></div></div>
+<div class="ttc" id="astruct__ParametreAS_html_a7fd99f15b904f7662c9424706ef1316a"><div class="ttname"><a href="struct__ParametreAS.html#a7fd99f15b904f7662c9424706ef1316a">_ParametreAS::adresseRetourInterruption</a></div><div class="ttdeci">uint32_t adresseRetourInterruption</div><div class="ttdef"><b>Definition</b> <a href="include_2manux_2appelsysteme_8h_source.html#l00039">appelsysteme.h:39</a></div></div>
+<div class="ttc" id="astruct__ParametreAS_html_a867bfcad36c71769807d38b1952302c0"><div class="ttname"><a href="struct__ParametreAS.html#a867bfcad36c71769807d38b1952302c0">_ParametreAS::csretour</a></div><div class="ttdeci">uint32_t csretour</div><div class="ttdef"><b>Definition</b> <a href="include_2manux_2appelsysteme_8h_source.html#l00041">appelsysteme.h:41</a></div></div>
+<div class="ttc" id="astruct__ParametreAS_html_a8d0786125834fae1808541b9c7cfd5d8"><div class="ttname"><a href="struct__ParametreAS.html#a8d0786125834fae1808541b9c7cfd5d8">_ParametreAS::ebp</a></div><div class="ttdeci">uint32_t ebp</div><div class="ttdef"><b>Definition</b> <a href="include_2manux_2appelsysteme_8h_source.html#l00036">appelsysteme.h:36</a></div></div>
+<div class="ttc" id="astruct__ParametreAS_html_a9b2ceeac57d7e387d73c8f4f5e57c9ca"><div class="ttname"><a href="struct__ParametreAS.html#a9b2ceeac57d7e387d73c8f4f5e57c9ca">_ParametreAS::eflags</a></div><div class="ttdeci">uint32_t eflags</div><div class="ttdef"><b>Definition</b> <a href="include_2manux_2appelsysteme_8h_source.html#l00040">appelsysteme.h:40</a></div></div>
+<div class="ttc" id="astruct__ParametreAS_html_ab9870d0d3fdd5629f38332ed20f4ba3a"><div class="ttname"><a href="struct__ParametreAS.html#ab9870d0d3fdd5629f38332ed20f4ba3a">_ParametreAS::ecx</a></div><div class="ttdeci">uint32_t ecx</div><div class="ttdef"><b>Definition</b> <a href="include_2manux_2appelsysteme_8h_source.html#l00032">appelsysteme.h:32</a></div></div>
+<div class="ttc" id="astruct__ParametreAS_html_ad7320d73ce7d092fca728bf07f2cec3a"><div class="ttname"><a href="struct__ParametreAS.html#ad7320d73ce7d092fca728bf07f2cec3a">_ParametreAS::esp</a></div><div class="ttdeci">uint32_t esp</div><div class="ttdef"><b>Definition</b> <a href="include_2manux_2appelsysteme_8h_source.html#l00035">appelsysteme.h:35</a></div></div>
+<div class="ttc" id="astruct__ParametreAS_html_af9f0f28e81bafb4b4cae759c3f070bd0"><div class="ttname"><a href="struct__ParametreAS.html#af9f0f28e81bafb4b4cae759c3f070bd0">_ParametreAS::eax</a></div><div class="ttdeci">uint32_t eax</div><div class="ttdef"><b>Definition</b> <a href="include_2manux_2appelsysteme_8h_source.html#l00031">appelsysteme.h:31</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

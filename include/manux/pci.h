@@ -34,7 +34,7 @@ typedef struct _PCIEquipement {
  *
  * On recherche les équipements sur un seul bus pour le moment
  */
-void PCIEnumerationDesEquipements();
+void PCIEnumerationDesEquipements(void);
 
 /**
  * @brief : récuperer l'identifiant du prochain équipement PCI

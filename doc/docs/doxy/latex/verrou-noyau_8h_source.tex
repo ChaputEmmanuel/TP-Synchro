@@ -1,0 +1,46 @@
+\doxysection{verrou-\/noyau.h}
+\hypertarget{verrou-noyau_8h_source}{}\label{verrou-noyau_8h_source}\index{/home/manu/PROGRAMMATION/C/ManuX/multiconf/verrou-\/noyau.h@{/home/manu/PROGRAMMATION/C/ManuX/multiconf/verrou-\/noyau.h}}
+\mbox{\hyperlink{verrou-noyau_8h}{Aller à la documentation de ce fichier.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{verrou-noyau_8h_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{verrou-noyau_8h_source_l00009}00009\ \textcolor{preprocessor}{\#ifdef\ MANUX\_FICHIER\_CONFIG}}
+\DoxyCodeLine{\Hypertarget{verrou-noyau_8h_source_l00010}00010\ \textcolor{preprocessor}{\#\ \ \ error\ "{}Cette\ chose\ ne\ devrait\ pas\ se\ produire\ !"{}}}
+\DoxyCodeLine{\Hypertarget{verrou-noyau_8h_source_l00011}00011\ \textcolor{preprocessor}{\#\ \ \ include\ MANUX\_FICHIER\_CONFIG}}
+\DoxyCodeLine{\Hypertarget{verrou-noyau_8h_source_l00012}00012\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{\Hypertarget{verrou-noyau_8h_source_l00013}00013\ \textcolor{preprocessor}{\#ifndef\ MANUX\_CONFIG}}
+\DoxyCodeLine{\Hypertarget{verrou-noyau_8h_source_l00014}00014\ \textcolor{preprocessor}{\#define\ MANUX\_CONFIG}}
+\DoxyCodeLine{\Hypertarget{verrou-noyau_8h_source_l00015}00015\ }
+\DoxyCodeLine{\Hypertarget{verrou-noyau_8h_source_l00019}\mbox{\hyperlink{verrou-noyau_8h_a38d69fd443737d4bd5b282362b034f48}{00019}}\ \textcolor{preprocessor}{\#define\ MANUX\_AS\_TEST\_SYNCHRO}}
+\DoxyCodeLine{\Hypertarget{verrou-noyau_8h_source_l00020}00020\ }
+\DoxyCodeLine{\Hypertarget{verrou-noyau_8h_source_l00021}\mbox{\hyperlink{verrou-noyau_8h_aa3594499e1eed61df06d17199e875181}{00021}}\ \textcolor{preprocessor}{\#define\ MANUX\_FICHIER\_MAIN\ main-\/verrou-\/noyau}}
+\DoxyCodeLine{\Hypertarget{verrou-noyau_8h_source_l00022}\mbox{\hyperlink{verrou-noyau_8h_aebb6ade5da1613b93b30fdc922a92f99}{00022}}\ \textcolor{preprocessor}{\#define\ MANUX\_USR\_INIT\ init-\/verrou-\/noyau.o}\textcolor{comment}{//\ init-\/acces-\/concurrent.o\ //}}
+\DoxyCodeLine{\Hypertarget{verrou-noyau_8h_source_l00023}00023\ }
+\DoxyCodeLine{\Hypertarget{verrou-noyau_8h_source_l00024}00024\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{synchronisation_8h}{config/synchronisation.h}}>}}
+\DoxyCodeLine{\Hypertarget{verrou-noyau_8h_source_l00025}00025\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{base_8h}{config/base.h}}>}}
+\DoxyCodeLine{\Hypertarget{verrou-noyau_8h_source_l00026}00026\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{config_2bootloader_8h}{config/bootloader.h}}>}\ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Nécessaire\ pour\ construire\ mon\ bootloader}}
+\DoxyCodeLine{\Hypertarget{verrou-noyau_8h_source_l00027}00027\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{pc-i386_8h}{config/pc-\/i386.h}}>}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ nécessaire\ pour\ les\ appels\ systeme}}
+\DoxyCodeLine{\Hypertarget{verrou-noyau_8h_source_l00028}00028\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{appels-systeme_8h}{config/appels-\/systeme.h}}>}\ \ \ \ \ \ \ \textcolor{comment}{//\ pour\ le\ mode\ utilisateur}}
+\DoxyCodeLine{\Hypertarget{verrou-noyau_8h_source_l00029}00029\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{consoles-virtuelles_8h}{config/consoles-\/virtuelles.h}}>}\ \ \textcolor{comment}{//\ On\ va\ basculer}}
+\DoxyCodeLine{\Hypertarget{verrou-noyau_8h_source_l00030}00030\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{synchronisation_8h}{config/synchronisation.h}}>}\ \ \ \ \ \ \textcolor{comment}{//\ Pour\ la\ synchro\ (verrou\ ...)}}
+\DoxyCodeLine{\Hypertarget{verrou-noyau_8h_source_l00031}00031\ }
+\DoxyCodeLine{\Hypertarget{verrou-noyau_8h_source_l00032}00032\ \textcolor{comment}{//\#undef\ MANUX\_REENTRANT}}
+\DoxyCodeLine{\Hypertarget{verrou-noyau_8h_source_l00033}00033\ }
+\DoxyCodeLine{\Hypertarget{verrou-noyau_8h_source_l00034}00034\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{verrou-noyau_8h_source_l00035}00035\ \textcolor{comment}{\#undef\ MANUX\_ATOMIQUE\_AUDIT}}
+\DoxyCodeLine{\Hypertarget{verrou-noyau_8h_source_l00036}00036\ \textcolor{comment}{\#undef\ MANUX\_EXCLUSION\_MUTUELLE\_AUDIT}}
+\DoxyCodeLine{\Hypertarget{verrou-noyau_8h_source_l00037}00037\ \textcolor{comment}{\#undef\ MANUX\_CONDITION\_AUDIT}}
+\DoxyCodeLine{\Hypertarget{verrou-noyau_8h_source_l00038}00038\ \textcolor{comment}{*/}}
+\DoxyCodeLine{\Hypertarget{verrou-noyau_8h_source_l00039}00039\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{include_2config_2kmalloc_8h}{config/kmalloc.h}}>}}
+\DoxyCodeLine{\Hypertarget{verrou-noyau_8h_source_l00040}00040\ }
+\DoxyCodeLine{\Hypertarget{verrou-noyau_8h_source_l00041}00041\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{include_2config_2printk_8h}{config/printk.h}}>}}
+\DoxyCodeLine{\Hypertarget{verrou-noyau_8h_source_l00042}00042\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{include_2config_2taches_8h}{config/taches.h}}>}}
+\DoxyCodeLine{\Hypertarget{verrou-noyau_8h_source_l00043}00043\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{gestion-memoire_8h}{config/gestion-\/memoire.h}}>}\ \ \ \ \ \ \textcolor{comment}{//\ Nécessaire\ pour\ les\ tâches\ }}
+\DoxyCodeLine{\Hypertarget{verrou-noyau_8h_source_l00044}00044\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{config_2clavier_8h}{config/clavier.h}}>}}
+\DoxyCodeLine{\Hypertarget{verrou-noyau_8h_source_l00045}00045\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{usr_8h}{config/usr.h}}>}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Définition\ de\ init}}
+\DoxyCodeLine{\Hypertarget{verrou-noyau_8h_source_l00046}00046\ }
+\DoxyCodeLine{\Hypertarget{verrou-noyau_8h_source_l00047}00047\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{verifications_8h}{config/verifications.h}}>}}
+\DoxyCodeLine{\Hypertarget{verrou-noyau_8h_source_l00048}00048\ }
+\DoxyCodeLine{\Hypertarget{verrou-noyau_8h_source_l00049}00049\ \textcolor{preprocessor}{\#endif\ \ }\textcolor{comment}{//\ MANUX\_CONFIG}}
+\DoxyCodeLine{\Hypertarget{verrou-noyau_8h_source_l00050}00050\ \textcolor{preprocessor}{\#endif\ \ }\textcolor{comment}{//\ MANUX\_FICHIER\_CONFIG}}
+
+\end{DoxyCode}

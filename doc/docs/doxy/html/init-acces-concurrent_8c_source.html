@@ -1,0 +1,202 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>My Project:  Fichier source de /home/manu/PROGRAMMATION/C/ManuX/usr/init-acces-concurrent.c</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">My Project
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function() { init_codefold(0); });
+/* @license-end */
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_c4a6f9ef9d60515833db96a1f80ff998.html">usr</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle"><div class="title">init-acces-concurrent.c</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="init-acces-concurrent_8c.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &lt;manux/types.h&gt;</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &lt;<a class="code" href="stdio_8h.html">stdio.h</a>&gt;</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &lt;manux/errno.h&gt;</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &lt;<a class="code" href="unistd_8h.html">unistd.h</a>&gt;</span>   <span class="comment">// creerNouvelleTache</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &lt;manux/string.h&gt;</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="init-acces-concurrent_8c.html#afa7b7638d0ac972327d9fadc93db9802">   16</a></span><span class="preprocessor">#define TAILLE_BUFFER 16</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="init-acces-concurrent_8c.html#a4555b23c30d8218901d05b82e3285c7d">   21</a></span><span class="preprocessor">#define NB_LECTEURS  2</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="init-acces-concurrent_8c.html#a5e2163deb903618b0564223548c831a7">   22</a></span><span class="preprocessor">#define NB_ECRIVAINS 2</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="init-acces-concurrent_8c.html#a62d2d983a3da1fde907ff0f255bf4956">   24</a></span><span class="keywordtype">int</span> <a class="code hl_variable" href="init-acces-concurrent_8c.html#a62d2d983a3da1fde907ff0f255bf4956">fd</a>[2];  <span class="comment">// Le tube</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
+<div class="foldopen" id="foldopen00026" data-start="{" data-end="}">
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="init-acces-concurrent_8c.html#addee7001bdfdeeb5f4853e467b4c34de">   26</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="init-acces-concurrent_8c.html#addee7001bdfdeeb5f4853e467b4c34de">lecteur</a>()</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>{</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>   <span class="keywordtype">int</span> r, <a class="code hl_variable" href="main-bootreg_8c.html#add06ad5d8520e7cff4ff84b2811c0982">c</a>=0;</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>   <span class="keywordtype">char</span> <a class="code hl_variable" href="main-bootreg_8c.html#a7976cd62f9b61a65e8104a3cf7c15099">b</a>[<a class="code hl_define" href="init-acces-concurrent_8c.html#afa7b7638d0ac972327d9fadc93db9802">TAILLE_BUFFER</a>];</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>   </div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>   <a class="code hl_function" href="stdio_8h.html#a63c54f1d737929378b379911b1ca4a45">printf</a>(<span class="stringliteral">&quot;[%d] Je suis un lecteur !\n&quot;</span>, <a class="code hl_function" href="unistd_8h.html#a321e672f528d0dd0927c93ff3a09c5c7">identifiantTache</a>());</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>   <a class="code hl_function" href="stdio_8h.html#a66a9ef9199d2ddbbf2b6b0c7f7b99ab5">fermer</a>(<a class="code hl_variable" href="init-acces-concurrent_8c.html#a62d2d983a3da1fde907ff0f255bf4956">fd</a>[1]);</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>   </div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>   <span class="keywordflow">do</span> {</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>      r = <a class="code hl_function" href="stdio_8h.html#a0d64d8b56640a3dea27ca2d59f711e35">lire</a>(<a class="code hl_variable" href="init-acces-concurrent_8c.html#a62d2d983a3da1fde907ff0f255bf4956">fd</a>[0], <a class="code hl_variable" href="main-bootreg_8c.html#a7976cd62f9b61a65e8104a3cf7c15099">b</a>, <a class="code hl_define" href="init-acces-concurrent_8c.html#afa7b7638d0ac972327d9fadc93db9802">TAILLE_BUFFER</a> - 1);</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>      <a class="code hl_function" href="stdio_8h.html#a63c54f1d737929378b379911b1ca4a45">printf</a>(<span class="stringliteral">&quot;[%d] lecture %d\n&quot;</span>, <a class="code hl_function" href="unistd_8h.html#a321e672f528d0dd0927c93ff3a09c5c7">identifiantTache</a>(), r);</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>      <span class="keywordflow">if</span> (r &gt; 0) {</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>         <a class="code hl_variable" href="main-bootreg_8c.html#a7976cd62f9b61a65e8104a3cf7c15099">b</a>[r] = 0;</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>         <a class="code hl_function" href="stdio_8h.html#a63c54f1d737929378b379911b1ca4a45">printf</a>(<a class="code hl_variable" href="main-bootreg_8c.html#a7976cd62f9b61a65e8104a3cf7c15099">b</a>);</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>         <a class="code hl_variable" href="main-bootreg_8c.html#add06ad5d8520e7cff4ff84b2811c0982">c</a> += r;</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>      } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (r &lt; 0){</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    <a class="code hl_function" href="stdio_8h.html#a63c54f1d737929378b379911b1ca4a45">printf</a>(<span class="stringliteral">&quot;[%d] Erreur lecture\n&quot;</span>, <a class="code hl_function" href="unistd_8h.html#a321e672f528d0dd0927c93ff3a09c5c7">identifiantTache</a>());</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>      }</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>   } <span class="keywordflow">while</span> (r &gt; 0);</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>   <a class="code hl_function" href="stdio_8h.html#a63c54f1d737929378b379911b1ca4a45">printf</a>(<span class="stringliteral">&quot;\n[%d] Fini ... En tout, j&#39;ai lu %d !\n&quot;</span>, <a class="code hl_function" href="unistd_8h.html#a321e672f528d0dd0927c93ff3a09c5c7">identifiantTache</a>(), <a class="code hl_variable" href="main-bootreg_8c.html#add06ad5d8520e7cff4ff84b2811c0982">c</a>);</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>}</div>
+</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
+<div class="foldopen" id="foldopen00049" data-start="{" data-end="}">
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno"><a class="line" href="init-acces-concurrent_8c.html#aef0b8c8afc9d6871eaacfe54ea39c33e">   49</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="init-acces-concurrent_8c.html#aef0b8c8afc9d6871eaacfe54ea39c33e">ecrivain</a>()</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>{</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>   <span class="keywordtype">int</span> r, <a class="code hl_variable" href="main-bootreg_8c.html#add06ad5d8520e7cff4ff84b2811c0982">c</a>  = 0;</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>   </div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>   <span class="keywordtype">char</span> * <a class="code hl_variable" href="main-bootreg_8c.html#a7976cd62f9b61a65e8104a3cf7c15099">b</a> = <span class="stringliteral">&quot;Bonjour les jeunes ! &quot;</span>;</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>   <a class="code hl_function" href="stdio_8h.html#a63c54f1d737929378b379911b1ca4a45">printf</a>(<span class="stringliteral">&quot;[%d] Je suis un ecrivain !\n&quot;</span>, <a class="code hl_function" href="unistd_8h.html#a321e672f528d0dd0927c93ff3a09c5c7">identifiantTache</a>());</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>   <a class="code hl_function" href="stdio_8h.html#a66a9ef9199d2ddbbf2b6b0c7f7b99ab5">fermer</a>(<a class="code hl_variable" href="init-acces-concurrent_8c.html#a62d2d983a3da1fde907ff0f255bf4956">fd</a>[0]);</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>   <span class="keywordflow">do</span> {</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>     <a class="code hl_function" href="stdio_8h.html#a63c54f1d737929378b379911b1ca4a45">printf</a>(<span class="stringliteral">&quot;[%d] Je vais ecrire %d\n&quot;</span>, <a class="code hl_function" href="unistd_8h.html#a321e672f528d0dd0927c93ff3a09c5c7">identifiantTache</a>(), <a class="code hl_function" href="include_2manux_2string_8h.html#a2dee044e4e667b5b789b493abd21cfa4">strlen</a>(<a class="code hl_variable" href="main-bootreg_8c.html#a7976cd62f9b61a65e8104a3cf7c15099">b</a>));</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>      r = <a class="code hl_function" href="stdio_8h.html#afb8a53c515b7e4b7b0c2d9abf9f7d0c0">ecrire</a>(<a class="code hl_variable" href="init-acces-concurrent_8c.html#a62d2d983a3da1fde907ff0f255bf4956">fd</a>[1], <a class="code hl_variable" href="main-bootreg_8c.html#a7976cd62f9b61a65e8104a3cf7c15099">b</a>, <a class="code hl_function" href="include_2manux_2string_8h.html#a2dee044e4e667b5b789b493abd21cfa4">strlen</a>(<a class="code hl_variable" href="main-bootreg_8c.html#a7976cd62f9b61a65e8104a3cf7c15099">b</a>));</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>      <a class="code hl_function" href="stdio_8h.html#a63c54f1d737929378b379911b1ca4a45">printf</a>(<span class="stringliteral">&quot;[%d] Voila j&#39;ai ecrit %d\n&quot;</span>, <a class="code hl_function" href="unistd_8h.html#a321e672f528d0dd0927c93ff3a09c5c7">identifiantTache</a>(), r);</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>      <span class="keywordflow">if</span> (r &gt;= 0) {</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>         <a class="code hl_variable" href="main-bootreg_8c.html#add06ad5d8520e7cff4ff84b2811c0982">c</a> += r;</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>      } <span class="keywordflow">else</span> {</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>         <a class="code hl_function" href="stdio_8h.html#a63c54f1d737929378b379911b1ca4a45">printf</a>(<span class="stringliteral">&quot;[%d] Erreur ecriture\n&quot;</span>, <a class="code hl_function" href="unistd_8h.html#a321e672f528d0dd0927c93ff3a09c5c7">identifiantTache</a>());</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>      }</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>   } <span class="keywordflow">while</span> (r &gt; 0);</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span> </div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>   <a class="code hl_function" href="stdio_8h.html#a63c54f1d737929378b379911b1ca4a45">printf</a>(<span class="stringliteral">&quot;[%d] En tout, j&#39;ai ecrit %d !\n&quot;</span>, <a class="code hl_function" href="unistd_8h.html#a321e672f528d0dd0927c93ff3a09c5c7">identifiantTache</a>(), <a class="code hl_variable" href="main-bootreg_8c.html#add06ad5d8520e7cff4ff84b2811c0982">c</a>);</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span> </div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>   <a class="code hl_function" href="stdio_8h.html#a66a9ef9199d2ddbbf2b6b0c7f7b99ab5">fermer</a>(<a class="code hl_variable" href="init-acces-concurrent_8c.html#a62d2d983a3da1fde907ff0f255bf4956">fd</a>[1]);</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>}</div>
+</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span> </div>
+<div class="foldopen" id="foldopen00074" data-start="{" data-end="}">
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno"><a class="line" href="main-acces-concurrent_8c.html#a02fd73d861ef2e4aabb38c0c9ff82947">   74</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="init-acces-concurrent_8c.html#a02fd73d861ef2e4aabb38c0c9ff82947">init</a>()</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>{</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>  <span class="keywordtype">int</span> r, l, e;</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span> </div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>   <a class="code hl_function" href="stdio_8h.html#a63c54f1d737929378b379911b1ca4a45">printf</a>(<span class="stringliteral">&quot;Bonjour le mode utilisateur !\n&quot;</span>);</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span> </div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>   r = <a class="code hl_function" href="unistd_8h.html#a40fbcf01646e76422f8b48f5837996d7">tube</a>(<a class="code hl_variable" href="init-acces-concurrent_8c.html#a62d2d983a3da1fde907ff0f255bf4956">fd</a>);</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span> </div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>   <span class="keywordflow">if</span> ( r != <a class="code hl_define" href="include_2manux_2errno_8h.html#a7c87371c2c584aeb5a722830670b9bfd">ESUCCES</a>) {</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>      <a class="code hl_function" href="stdio_8h.html#a63c54f1d737929378b379911b1ca4a45">printf</a>(<span class="stringliteral">&quot;r = %d : casse la pipe !?\n&quot;</span>, r);</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>   } <span class="keywordflow">else</span> {</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>      <span class="keywordflow">for</span> (e = 0; e &lt; <a class="code hl_define" href="init-acces-concurrent_8c.html#a5e2163deb903618b0564223548c831a7">NB_ECRIVAINS</a>; e++) {</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>         r = <a class="code hl_function" href="unistd_8h.html#aa504f61bfbbdfa9a463450f8b21db44f">creerNouvelleTache</a>(<a class="code hl_function" href="init-acces-concurrent_8c.html#aef0b8c8afc9d6871eaacfe54ea39c33e">ecrivain</a>, <a class="code hl_define" href="include_2manux_2types_8h.html#aa93f0eb578d23995850d61f7d61c55c1">FALSE</a>);</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>      }</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>      <span class="keywordflow">for</span> (l = 0; l &lt; <a class="code hl_define" href="init-acces-concurrent_8c.html#a4555b23c30d8218901d05b82e3285c7d">NB_LECTEURS</a>; l++) {</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>         r = <a class="code hl_function" href="unistd_8h.html#aa504f61bfbbdfa9a463450f8b21db44f">creerNouvelleTache</a>(<a class="code hl_function" href="init-acces-concurrent_8c.html#addee7001bdfdeeb5f4853e467b4c34de">lecteur</a>, <a class="code hl_define" href="include_2manux_2types_8h.html#aa93f0eb578d23995850d61f7d61c55c1">FALSE</a>);</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>      }</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>   }</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>   <a class="code hl_function" href="stdio_8h.html#a66a9ef9199d2ddbbf2b6b0c7f7b99ab5">fermer</a>(<a class="code hl_variable" href="init-acces-concurrent_8c.html#a62d2d983a3da1fde907ff0f255bf4956">fd</a>[0]);</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>   <a class="code hl_function" href="stdio_8h.html#a66a9ef9199d2ddbbf2b6b0c7f7b99ab5">fermer</a>(<a class="code hl_variable" href="init-acces-concurrent_8c.html#a62d2d983a3da1fde907ff0f255bf4956">fd</a>[1]);</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>   <a class="code hl_function" href="stdio_8h.html#a63c54f1d737929378b379911b1ca4a45">printf</a>(<span class="stringliteral">&quot;Voila voila !\n&quot;</span>);</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>   <span class="keywordflow">while</span>(1){};</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>}</div>
+</div>
+<div class="ttc" id="ainclude_2manux_2errno_8h_html_a7c87371c2c584aeb5a722830670b9bfd"><div class="ttname"><a href="include_2manux_2errno_8h.html#a7c87371c2c584aeb5a722830670b9bfd">ESUCCES</a></div><div class="ttdeci">#define ESUCCES</div><div class="ttdef"><b>Definition</b> <a href="include_2manux_2errno_8h_source.html#l00010">errno.h:10</a></div></div>
+<div class="ttc" id="ainclude_2manux_2string_8h_html_a2dee044e4e667b5b789b493abd21cfa4"><div class="ttname"><a href="include_2manux_2string_8h.html#a2dee044e4e667b5b789b493abd21cfa4">strlen</a></div><div class="ttdeci">int strlen(const char *s)</div><div class="ttdef"><b>Definition</b> <a href="string_8c_source.html#l00046">string.c:46</a></div></div>
+<div class="ttc" id="ainclude_2manux_2types_8h_html_aa93f0eb578d23995850d61f7d61c55c1"><div class="ttname"><a href="include_2manux_2types_8h.html#aa93f0eb578d23995850d61f7d61c55c1">FALSE</a></div><div class="ttdeci">#define FALSE</div><div class="ttdef"><b>Definition</b> <a href="include_2manux_2types_8h_source.html#l00040">types.h:40</a></div></div>
+<div class="ttc" id="ainit-acces-concurrent_8c_html_a02fd73d861ef2e4aabb38c0c9ff82947"><div class="ttname"><a href="init-acces-concurrent_8c.html#a02fd73d861ef2e4aabb38c0c9ff82947">init</a></div><div class="ttdeci">void init()</div><div class="ttdef"><b>Definition</b> <a href="init-acces-concurrent_8c_source.html#l00074">init-acces-concurrent.c:74</a></div></div>
+<div class="ttc" id="ainit-acces-concurrent_8c_html_a4555b23c30d8218901d05b82e3285c7d"><div class="ttname"><a href="init-acces-concurrent_8c.html#a4555b23c30d8218901d05b82e3285c7d">NB_LECTEURS</a></div><div class="ttdeci">#define NB_LECTEURS</div><div class="ttdoc">Nombres de lecteurs et écrivains.</div><div class="ttdef"><b>Definition</b> <a href="init-acces-concurrent_8c_source.html#l00021">init-acces-concurrent.c:21</a></div></div>
+<div class="ttc" id="ainit-acces-concurrent_8c_html_a5e2163deb903618b0564223548c831a7"><div class="ttname"><a href="init-acces-concurrent_8c.html#a5e2163deb903618b0564223548c831a7">NB_ECRIVAINS</a></div><div class="ttdeci">#define NB_ECRIVAINS</div><div class="ttdef"><b>Definition</b> <a href="init-acces-concurrent_8c_source.html#l00022">init-acces-concurrent.c:22</a></div></div>
+<div class="ttc" id="ainit-acces-concurrent_8c_html_a62d2d983a3da1fde907ff0f255bf4956"><div class="ttname"><a href="init-acces-concurrent_8c.html#a62d2d983a3da1fde907ff0f255bf4956">fd</a></div><div class="ttdeci">int fd[2]</div><div class="ttdef"><b>Definition</b> <a href="init-acces-concurrent_8c_source.html#l00024">init-acces-concurrent.c:24</a></div></div>
+<div class="ttc" id="ainit-acces-concurrent_8c_html_addee7001bdfdeeb5f4853e467b4c34de"><div class="ttname"><a href="init-acces-concurrent_8c.html#addee7001bdfdeeb5f4853e467b4c34de">lecteur</a></div><div class="ttdeci">void lecteur()</div><div class="ttdef"><b>Definition</b> <a href="init-acces-concurrent_8c_source.html#l00026">init-acces-concurrent.c:26</a></div></div>
+<div class="ttc" id="ainit-acces-concurrent_8c_html_aef0b8c8afc9d6871eaacfe54ea39c33e"><div class="ttname"><a href="init-acces-concurrent_8c.html#aef0b8c8afc9d6871eaacfe54ea39c33e">ecrivain</a></div><div class="ttdeci">void ecrivain()</div><div class="ttdef"><b>Definition</b> <a href="init-acces-concurrent_8c_source.html#l00049">init-acces-concurrent.c:49</a></div></div>
+<div class="ttc" id="ainit-acces-concurrent_8c_html_afa7b7638d0ac972327d9fadc93db9802"><div class="ttname"><a href="init-acces-concurrent_8c.html#afa7b7638d0ac972327d9fadc93db9802">TAILLE_BUFFER</a></div><div class="ttdeci">#define TAILLE_BUFFER</div><div class="ttdoc">Taille du buffer utilisé en lecture.</div><div class="ttdef"><b>Definition</b> <a href="init-acces-concurrent_8c_source.html#l00016">init-acces-concurrent.c:16</a></div></div>
+<div class="ttc" id="amain-bootreg_8c_html_a7976cd62f9b61a65e8104a3cf7c15099"><div class="ttname"><a href="main-bootreg_8c.html#a7976cd62f9b61a65e8104a3cf7c15099">b</a></div><div class="ttdeci">uint16_t b</div><div class="ttdef"><b>Definition</b> <a href="main-bootreg_8c_source.html#l00024">main-bootreg.c:24</a></div></div>
+<div class="ttc" id="amain-bootreg_8c_html_add06ad5d8520e7cff4ff84b2811c0982"><div class="ttname"><a href="main-bootreg_8c.html#add06ad5d8520e7cff4ff84b2811c0982">c</a></div><div class="ttdeci">uint16_t c</div><div class="ttdef"><b>Definition</b> <a href="main-bootreg_8c_source.html#l00024">main-bootreg.c:24</a></div></div>
+<div class="ttc" id="astdio_8h_html"><div class="ttname"><a href="stdio_8h.html">stdio.h</a></div></div>
+<div class="ttc" id="astdio_8h_html_a0d64d8b56640a3dea27ca2d59f711e35"><div class="ttname"><a href="stdio_8h.html#a0d64d8b56640a3dea27ca2d59f711e35">lire</a></div><div class="ttdeci">int lire(int fd, void *buffer, int nb)</div></div>
+<div class="ttc" id="astdio_8h_html_a63c54f1d737929378b379911b1ca4a45"><div class="ttname"><a href="stdio_8h.html#a63c54f1d737929378b379911b1ca4a45">printf</a></div><div class="ttdeci">void printf(char *format,...)</div><div class="ttdoc">Un premier printf.</div><div class="ttdef"><b>Definition</b> <a href="stdio_8c_source.html#l00142">stdio.c:142</a></div></div>
+<div class="ttc" id="astdio_8h_html_a66a9ef9199d2ddbbf2b6b0c7f7b99ab5"><div class="ttname"><a href="stdio_8h.html#a66a9ef9199d2ddbbf2b6b0c7f7b99ab5">fermer</a></div><div class="ttdeci">int fermer(int fd)</div></div>
+<div class="ttc" id="astdio_8h_html_afb8a53c515b7e4b7b0c2d9abf9f7d0c0"><div class="ttname"><a href="stdio_8h.html#afb8a53c515b7e4b7b0c2d9abf9f7d0c0">ecrire</a></div><div class="ttdeci">int ecrire(int fd, void *buffer, int nb)</div></div>
+<div class="ttc" id="aunistd_8h_html"><div class="ttname"><a href="unistd_8h.html">unistd.h</a></div></div>
+<div class="ttc" id="aunistd_8h_html_a321e672f528d0dd0927c93ff3a09c5c7"><div class="ttname"><a href="unistd_8h.html#a321e672f528d0dd0927c93ff3a09c5c7">identifiantTache</a></div><div class="ttdeci">int identifiantTache()</div><div class="ttdoc">Obtention de l'identifiant de la tâche en cours.</div></div>
+<div class="ttc" id="aunistd_8h_html_a40fbcf01646e76422f8b48f5837996d7"><div class="ttname"><a href="unistd_8h.html#a40fbcf01646e76422f8b48f5837996d7">tube</a></div><div class="ttdeci">int tube(int *fd)</div><div class="ttdoc">Création d'un tube de communication.</div></div>
+<div class="ttc" id="aunistd_8h_html_aa504f61bfbbdfa9a463450f8b21db44f"><div class="ttname"><a href="unistd_8h.html#aa504f61bfbbdfa9a463450f8b21db44f">creerNouvelleTache</a></div><div class="ttdeci">int creerNouvelleTache(void(corps()), booleen shareCons)</div><div class="ttdoc">Création d&quot;une nouvelle tâche.</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

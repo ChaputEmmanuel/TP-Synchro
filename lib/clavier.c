@@ -25,9 +25,7 @@
 int codeClavier = 0; // Code de la dernière touche manipulée
 int shiftActif  = 0;
 
-void handlerClavier(void * toto);
-
-void initialiserClavier()
+void initialiserClavier(void)
 {
    codeClavier = 0;
 
@@ -58,13 +56,16 @@ void initialiserClavier()
 
 #define SC_SHIFT_GAUCHE 0x2a
 
-/*
- * Le handler du clavier. Il n'a pas besoin de paramêtre
+/**
+ * @brief Le handler du clavier.
+ *
+ * Il n'a pas besoin de paramètre, mais il respecte la signature.
  */
 void handlerClavier(void * toto)
 {
    uint8_t etat;
 
+   (void) toto; // Présent uniquement pour la signature de la fonction
    inb(0x64, etat);
 
    if (etat & 0x01) {
@@ -104,7 +105,7 @@ void handlerClavier(void * toto)
 #   endif
 
       if (codeClavier & 0x80) {
-	printk("(up)\n");
+	//printk("(up)\n");
       } else {
          if (cons->bufferClavier){ 
             if (cons->nbCarAttente < 4096) {

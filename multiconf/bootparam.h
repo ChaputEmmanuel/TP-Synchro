@@ -1,9 +1,8 @@
 /**
  * @file multiconf/bootparam.h
- * @brief Exemple de configuration pour le passage de paramètres par le
- * bootloader.
+ * @brief Passage de paramètres par le bootloader.
  *
- *                                                     (C) Manu Chaput 2000-2023
+ *                                                     (C) Manu Chaput 2000-2024
  */
 
 #ifdef MANUX_FICHIER_CONFIG
@@ -18,8 +17,10 @@
 #include <config/base.h>
 #include <config/console.h>
 #include <config/printk.h>
-#include <config/plan-memoire.h>
-#include <config/gestion-memoire.h>
+#include <config/pc-i386.h>
+#include <config/plan-memoire-pc.h>
+#include <config/gestion-memoire.h>  // Pourquoi ?
+#include <config/bootloader.h>
 
 #include <config/verifications.h>
 

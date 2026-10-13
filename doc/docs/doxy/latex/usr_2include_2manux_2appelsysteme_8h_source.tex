@@ -1,0 +1,78 @@
+\doxysection{appelsysteme.\+h}
+\hypertarget{usr_2include_2manux_2appelsysteme_8h_source}{}\label{usr_2include_2manux_2appelsysteme_8h_source}\index{/home/manu/PROGRAMMATION/C/ManuX/usr/include/manux/appelsysteme.h@{/home/manu/PROGRAMMATION/C/ManuX/usr/include/manux/appelsysteme.h}}
+\mbox{\hyperlink{usr_2include_2manux_2appelsysteme_8h}{Aller Ã  la documentation de ce fichier.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{usr_2include_2manux_2appelsysteme_8h_source_l00001}00001\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{usr_2include_2manux_2appelsysteme_8h_source_l00002}00002\ \textcolor{comment}{/*\ \ \ \ \ \ Définition\ de\ la\ partie\ utilisateur\ des\ \ appels\ système\ de\ ManuX.\ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{usr_2include_2manux_2appelsysteme_8h_source_l00003}00003\ \textcolor{comment}{/*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{usr_2include_2manux_2appelsysteme_8h_source_l00004}00004\ \textcolor{comment}{/*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (C)\ Manu\ Chaput\ 2000-\/2021\ */}}
+\DoxyCodeLine{\Hypertarget{usr_2include_2manux_2appelsysteme_8h_source_l00005}00005\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{usr_2include_2manux_2appelsysteme_8h_source_l00006}00006\ \textcolor{preprocessor}{\#ifndef\ APPEL\_SYSTEME\_DEF}}
+\DoxyCodeLine{\Hypertarget{usr_2include_2manux_2appelsysteme_8h_source_l00007}00007\ \textcolor{preprocessor}{\#define\ APPEL\_SYSTEME\_DEF}}
+\DoxyCodeLine{\Hypertarget{usr_2include_2manux_2appelsysteme_8h_source_l00008}00008\ }
+\DoxyCodeLine{\Hypertarget{usr_2include_2manux_2appelsysteme_8h_source_l00009}00009\ \textcolor{preprocessor}{\#include\ <manux/appelsystemenum.h>}\ \ \textcolor{comment}{/*\ Les\ numéros\ des\ AS\ définis\ */}}
+\DoxyCodeLine{\Hypertarget{usr_2include_2manux_2appelsysteme_8h_source_l00010}00010\ \textcolor{preprocessor}{\#include\ <manux/types.h>}}
+\DoxyCodeLine{\Hypertarget{usr_2include_2manux_2appelsysteme_8h_source_l00011}00011\ }
+\DoxyCodeLine{\Hypertarget{usr_2include_2manux_2appelsysteme_8h_source_l00012}00012\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{usr_2include_2manux_2appelsysteme_8h_source_l00013}00013\ \textcolor{comment}{\ *\ Une\ macro\ permettant\ de\ définir\ l'interface\ d'un\ appel\ système}}
+\DoxyCodeLine{\Hypertarget{usr_2include_2manux_2appelsysteme_8h_source_l00014}00014\ \textcolor{comment}{\ *\ sans\ argument.}}
+\DoxyCodeLine{\Hypertarget{usr_2include_2manux_2appelsysteme_8h_source_l00015}00015\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{usr_2include_2manux_2appelsysteme_8h_source_l00016}\mbox{\hyperlink{usr_2include_2manux_2appelsysteme_8h_a8dd4f42ed253967845eae9fe8bf9980a}{00016}}\ \textcolor{preprocessor}{\#define\ appelSysteme0(numero,\ typeRetour,\ nom)\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{usr_2include_2manux_2appelsysteme_8h_source_l00017}00017\ \textcolor{preprocessor}{\ \ \_\_attribute\_\_\ ((noinline))\ \ \ typeRetour\ nom()\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{usr_2include_2manux_2appelsysteme_8h_source_l00018}00018\ \textcolor{preprocessor}{\ \ \ \{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{usr_2include_2manux_2appelsysteme_8h_source_l00019}00019\ \textcolor{preprocessor}{\ \ \ \ \ \ typeRetour\ resultat;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{usr_2include_2manux_2appelsysteme_8h_source_l00020}00020\ \textcolor{preprocessor}{\ \ \ \ \ \ \_\_asm\_\_\ \_\_volatile\_\_\ ("{}int\ \%2"{}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{usr_2include_2manux_2appelsysteme_8h_source_l00021}00021\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ "{}=a"{}(resultat)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{usr_2include_2manux_2appelsysteme_8h_source_l00022}00022\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ "{}0"{}\ (numero),\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{usr_2include_2manux_2appelsysteme_8h_source_l00023}00023\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}N"{}\ (MANUX\_AS\_INT));\ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{usr_2include_2manux_2appelsysteme_8h_source_l00024}00024\ \textcolor{preprocessor}{\ \ \ \ \ \ return\ resultat;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{usr_2include_2manux_2appelsysteme_8h_source_l00025}00025\ \textcolor{preprocessor}{\ \ \ \}}}
+\DoxyCodeLine{\Hypertarget{usr_2include_2manux_2appelsysteme_8h_source_l00026}00026\ }
+\DoxyCodeLine{\Hypertarget{usr_2include_2manux_2appelsysteme_8h_source_l00027}00027\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{usr_2include_2manux_2appelsysteme_8h_source_l00028}00028\ \textcolor{comment}{\ *\ Une\ macro\ permettant\ de\ définir\ l'interface\ d'un\ appel\ système}}
+\DoxyCodeLine{\Hypertarget{usr_2include_2manux_2appelsysteme_8h_source_l00029}00029\ \textcolor{comment}{\ *\ à un\ argument.}}
+\DoxyCodeLine{\Hypertarget{usr_2include_2manux_2appelsysteme_8h_source_l00030}00030\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{usr_2include_2manux_2appelsysteme_8h_source_l00031}\mbox{\hyperlink{usr_2include_2manux_2appelsysteme_8h_aa537637276ac00892b710bad5cf28292}{00031}}\ \textcolor{preprocessor}{\#define\ appelSysteme1(numero,\ typeRetour,\ nom,\ typeArgument)\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{usr_2include_2manux_2appelsysteme_8h_source_l00032}00032\ \textcolor{preprocessor}{\ \ \_\_attribute\_\_\ ((noinline))\ \ \ typeRetour\ nom(typeArgument\ argument)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{usr_2include_2manux_2appelsysteme_8h_source_l00033}00033\ \textcolor{preprocessor}{\ \ \ \{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{usr_2include_2manux_2appelsysteme_8h_source_l00034}00034\ \textcolor{preprocessor}{\ \ \ \ \ \ typeRetour\ resultat;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{usr_2include_2manux_2appelsysteme_8h_source_l00035}00035\ \textcolor{preprocessor}{\ \ \ \ \ \ \_\_asm\_\_\ \_\_volatile\_\_\ ("{}int\ \%2"{}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{usr_2include_2manux_2appelsysteme_8h_source_l00036}00036\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ "{}=a"{}(resultat)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{usr_2include_2manux_2appelsysteme_8h_source_l00037}00037\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ "{}0"{}\ (numero),\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{usr_2include_2manux_2appelsysteme_8h_source_l00038}00038\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}N"{}\ (MANUX\_AS\_INT));\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{usr_2include_2manux_2appelsysteme_8h_source_l00039}00039\ \textcolor{preprocessor}{\ \ \ \ \ \ return\ resultat;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{usr_2include_2manux_2appelsysteme_8h_source_l00040}00040\ \textcolor{preprocessor}{\ \ \ \}}}
+\DoxyCodeLine{\Hypertarget{usr_2include_2manux_2appelsysteme_8h_source_l00041}00041\ }
+\DoxyCodeLine{\Hypertarget{usr_2include_2manux_2appelsysteme_8h_source_l00042}00042\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{usr_2include_2manux_2appelsysteme_8h_source_l00043}00043\ \textcolor{comment}{\ *\ Une\ macro\ permettant\ de\ définir\ l'interface\ d'un\ appel\ système}}
+\DoxyCodeLine{\Hypertarget{usr_2include_2manux_2appelsysteme_8h_source_l00044}00044\ \textcolor{comment}{\ *\ à deux\ arguments.}}
+\DoxyCodeLine{\Hypertarget{usr_2include_2manux_2appelsysteme_8h_source_l00045}00045\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{usr_2include_2manux_2appelsysteme_8h_source_l00046}\mbox{\hyperlink{usr_2include_2manux_2appelsysteme_8h_acaae5c8a118b6ba8d8fc01dc8b7fe648}{00046}}\ \textcolor{preprocessor}{\#define\ appelSysteme2(numero,\ typeRetour,\ nom,\ typeArgument1,\ typeArgument2)\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{usr_2include_2manux_2appelsysteme_8h_source_l00047}00047\ \textcolor{preprocessor}{\ \ \_\_attribute\_\_\ ((noinline))\ \ \ typeRetour\ nom(typeArgument1\ arg1,\ typeArgument2\ arg2)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{usr_2include_2manux_2appelsysteme_8h_source_l00048}00048\ \textcolor{preprocessor}{\ \ \ \{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{usr_2include_2manux_2appelsysteme_8h_source_l00049}00049\ \textcolor{preprocessor}{\ \ \ \ \ \ typeRetour\ resultat;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{usr_2include_2manux_2appelsysteme_8h_source_l00050}00050\ \textcolor{preprocessor}{\ \ \ \ \ \ \_\_asm\_\_\ \_\_volatile\_\_\ ("{}int\ \%2"{}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{usr_2include_2manux_2appelsysteme_8h_source_l00051}00051\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ "{}=a"{}(resultat)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{usr_2include_2manux_2appelsysteme_8h_source_l00052}00052\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ "{}0"{}\ (numero),\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{usr_2include_2manux_2appelsysteme_8h_source_l00053}00053\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}N"{}\ (MANUX\_AS\_INT));\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{usr_2include_2manux_2appelsysteme_8h_source_l00054}00054\ \textcolor{preprocessor}{\ \ \ \ \ \ return\ resultat;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{usr_2include_2manux_2appelsysteme_8h_source_l00055}00055\ \textcolor{preprocessor}{\ \ \ \}}}
+\DoxyCodeLine{\Hypertarget{usr_2include_2manux_2appelsysteme_8h_source_l00056}00056\ }
+\DoxyCodeLine{\Hypertarget{usr_2include_2manux_2appelsysteme_8h_source_l00057}00057\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{usr_2include_2manux_2appelsysteme_8h_source_l00058}00058\ \textcolor{comment}{\ *\ Une\ macro\ permettant\ de\ définir\ l'interface\ d'un\ appel\ système}}
+\DoxyCodeLine{\Hypertarget{usr_2include_2manux_2appelsysteme_8h_source_l00059}00059\ \textcolor{comment}{\ *\ à trois\ arguments.}}
+\DoxyCodeLine{\Hypertarget{usr_2include_2manux_2appelsysteme_8h_source_l00060}00060\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{usr_2include_2manux_2appelsysteme_8h_source_l00061}\mbox{\hyperlink{usr_2include_2manux_2appelsysteme_8h_ac79254a5f0c355a82f51b90313058041}{00061}}\ \textcolor{preprocessor}{\#define\ appelSysteme3(numero,\ typeRetour,\ nom,\ typeArgument1,\ typeArgument2,\ typeArgument3)\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{usr_2include_2manux_2appelsysteme_8h_source_l00062}00062\ \textcolor{preprocessor}{\ \ \_\_attribute\_\_\ ((noinline))\ typeRetour\ nom(typeArgument1\ arg1,\ typeArgument2\ arg2,\ typeArgument3\ arg3)\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{usr_2include_2manux_2appelsysteme_8h_source_l00063}00063\ \textcolor{preprocessor}{\ \ \ \{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{usr_2include_2manux_2appelsysteme_8h_source_l00064}00064\ \textcolor{preprocessor}{\ \ \ \ \ \ typeRetour\ resultat;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{usr_2include_2manux_2appelsysteme_8h_source_l00065}00065\ \textcolor{preprocessor}{\ \ \ \_\_asm\_\_\ \_\_volatile\_\_\ ("{}int\ \%2"{}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{usr_2include_2manux_2appelsysteme_8h_source_l00066}00066\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ "{}=a"{}(resultat)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{usr_2include_2manux_2appelsysteme_8h_source_l00067}00067\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ "{}0"{}\ (numero),\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{usr_2include_2manux_2appelsysteme_8h_source_l00068}00068\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}N"{}\ (MANUX\_AS\_INT));\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{usr_2include_2manux_2appelsysteme_8h_source_l00069}00069\ \textcolor{preprocessor}{\ \ \ \ \ \ return\ resultat;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{usr_2include_2manux_2appelsysteme_8h_source_l00070}00070\ \textcolor{preprocessor}{\ \ \ \}}}
+\DoxyCodeLine{\Hypertarget{usr_2include_2manux_2appelsysteme_8h_source_l00071}00071\ }
+\DoxyCodeLine{\Hypertarget{usr_2include_2manux_2appelsysteme_8h_source_l00072}00072\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

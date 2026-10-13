@@ -1,0 +1,242 @@
+\doxysection{Référence du fichier /home/manu/\+PROGRAMMATION/\+C/\+Manu\+X/include/manux/printk.h}
+\hypertarget{include_2manux_2printk_8h}{}\label{include_2manux_2printk_8h}\index{/home/manu/PROGRAMMATION/C/ManuX/include/manux/printk.h@{/home/manu/PROGRAMMATION/C/ManuX/include/manux/printk.h}}
+
+
+Définition des fonctions de base d\textquotesingle{}entrée-\/sortie du noyau. ~\newline
+  
+
+
+{\ttfamily \#include $<$manux/config.\+h$>$}\newline
+{\ttfamily \#include $<$manux/stdarg.\+h$>$}\newline
+{\ttfamily \#include $<$manux/stddef.\+h$>$}\newline
+Graphe des dépendances par inclusion de printk.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{include_2manux_2printk_8h__incl}
+\end{center}
+\end{figure}
+Ce graphe montre quels fichiers incluent directement ou indirectement ce fichier \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{include_2manux_2printk_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{include_2manux_2printk_8h_a2e912bb35c8b6d14f83c896d207fe49c}{MAX\+\_\+\+PRINTK\+\_\+\+LENGTH}}~2048
+\item 
+\#define \mbox{\hyperlink{include_2manux_2printk_8h_a73c782e80962a1e5eae4811bc8569b16}{PRINTK\+\_\+\+PANIQUE}}~"{}\{0\}"{}
+\begin{DoxyCompactList}\small\item\em Les différentes préfixes pour les niveaux de criticité \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{include_2manux_2printk_8h_a3b2cab22ef5658820e862f6171f27f63}{PRINTK\+\_\+\+URGENCE}}~"{}\{1\}"{}
+\item 
+\#define \mbox{\hyperlink{include_2manux_2printk_8h_a08a69e546e1f4ef9f2e1f3dcd1441ebc}{PRINTK\+\_\+\+CRITIQUE}}~"{}\{2\}"{}
+\item 
+\#define \mbox{\hyperlink{include_2manux_2printk_8h_ae6ff7e2c3fa70e08a97b35be55caa024}{PRINTK\+\_\+\+ERREUR}}~"{}\{3\}"{}
+\item 
+\#define \mbox{\hyperlink{include_2manux_2printk_8h_a67ebfa242264b0817d4c86852c94c86a}{PRINTK\+\_\+\+ATTENTION}}~"{}\{4\}"{}
+\item 
+\#define \mbox{\hyperlink{include_2manux_2printk_8h_a2149cea5488c3d9a0ddfe8a58f4cddce}{PRINTK\+\_\+\+NOTIFICATION}}~"{}\{5\}"{}
+\item 
+\#define \mbox{\hyperlink{include_2manux_2printk_8h_a98ecd1b850cab8f481a642c72e48d123}{PRINTK\+\_\+\+INFORMATION}}~"{}\{6\}"{}
+\item 
+\#define \mbox{\hyperlink{include_2manux_2printk_8h_a2a73abbb0814a289e22ba4f7347f4657}{PRINTK\+\_\+\+DEBUGAGE}}~"{}\{7\}"{}
+\item 
+\#define \mbox{\hyperlink{include_2manux_2printk_8h_a7d5a6dcede19ea52bd0064cb40d66a25}{printkc}}~\mbox{\hyperlink{include_2manux_2printk_8h_a25b30e8bbadd54650c56895999dd808f}{printk}}
+\begin{DoxyCompactList}\small\item\em Une version de printk qui écrit dans la console de la tâche en cours. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} \mbox{\hyperlink{include_2manux_2printk_8h_a25b30e8bbadd54650c56895999dd808f}{printk}} (char \texorpdfstring{$\ast$}{*}format,...)
+\begin{DoxyCompactList}\small\item\em Fonction principale d\textquotesingle{}affichage dans le noyau. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{include_2manux_2printk_8h_ac21da4c54dd944bb35eb829d40301d29}{sprintk}} (char \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{include_2manux_2i386_8h_a78b6d0d522b49e5b375731d08f4c39fd}{str}}, char \texorpdfstring{$\ast$}{*}format,...)
+\begin{DoxyCompactList}\small\item\em \+: Écriture formattée dans une chaîne de caractères \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{include_2manux_2printk_8h_aabca9ebaaab18b531b2fe7bdd757ac8f}{vsprintk}} (char \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{include_2manux_2i386_8h_a78b6d0d522b49e5b375731d08f4c39fd}{str}}, char \texorpdfstring{$\ast$}{*}format, \mbox{\hyperlink{include_2manux_2stdarg_8h_af53f622e3b6c080daeb167c1955d7ec1}{va\+\_\+list}} arg\+List)
+\begin{DoxyCompactList}\small\item\em \+: Écriture formattée dans une chaîne de caractères \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{include_2manux_2printk_8h_aa5a2042f078fa0c6e569acc563f2dac5}{snprintk}} (char \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{include_2manux_2i386_8h_a78b6d0d522b49e5b375731d08f4c39fd}{str}}, \mbox{\hyperlink{include_2manux_2stddef_8h_acf18a0d6c4b39d531e021702e9a77984}{size\+\_\+t}} l, char \texorpdfstring{$\ast$}{*}format,...)
+\begin{DoxyCompactList}\small\item\em \+: Écriture formattée dans une chaîne de caractères \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Définition des fonctions de base d\textquotesingle{}entrée-\/sortie du noyau. ~\newline
+ 
+
+\begin{DoxyVerb}                                             (C) Manu Chaput 2000-2023 
+\end{DoxyVerb}
+ 
+
+Définition dans le fichier \mbox{\hyperlink{include_2manux_2printk_8h_source}{printk.\+h}}.
+
+
+
+\doxysubsection{Documentation des macros}
+\Hypertarget{include_2manux_2printk_8h_a2e912bb35c8b6d14f83c896d207fe49c}\label{include_2manux_2printk_8h_a2e912bb35c8b6d14f83c896d207fe49c} 
+\index{printk.h@{printk.h}!MAX\_PRINTK\_LENGTH@{MAX\_PRINTK\_LENGTH}}
+\index{MAX\_PRINTK\_LENGTH@{MAX\_PRINTK\_LENGTH}!printk.h@{printk.h}}
+\doxysubsubsection{\texorpdfstring{MAX\_PRINTK\_LENGTH}{MAX\_PRINTK\_LENGTH}}
+{\footnotesize\ttfamily \#define MAX\+\_\+\+PRINTK\+\_\+\+LENGTH~2048}
+
+Longueur maximale d\textquotesingle{}une chaîne affichable (à supprimer dès qu\textquotesingle{}on aura de la mémoire dynamique) 
+
+Définition à la ligne \mbox{\hyperlink{include_2manux_2printk_8h_source_l00021}{21}} du fichier \mbox{\hyperlink{include_2manux_2printk_8h_source}{printk.\+h}}.
+
+\Hypertarget{include_2manux_2printk_8h_a67ebfa242264b0817d4c86852c94c86a}\label{include_2manux_2printk_8h_a67ebfa242264b0817d4c86852c94c86a} 
+\index{printk.h@{printk.h}!PRINTK\_ATTENTION@{PRINTK\_ATTENTION}}
+\index{PRINTK\_ATTENTION@{PRINTK\_ATTENTION}!printk.h@{printk.h}}
+\doxysubsubsection{\texorpdfstring{PRINTK\_ATTENTION}{PRINTK\_ATTENTION}}
+{\footnotesize\ttfamily \#define PRINTK\+\_\+\+ATTENTION~"{}\{4\}"{}}
+
+
+
+Définition à la ligne \mbox{\hyperlink{include_2manux_2printk_8h_source_l00030}{30}} du fichier \mbox{\hyperlink{include_2manux_2printk_8h_source}{printk.\+h}}.
+
+\Hypertarget{include_2manux_2printk_8h_a08a69e546e1f4ef9f2e1f3dcd1441ebc}\label{include_2manux_2printk_8h_a08a69e546e1f4ef9f2e1f3dcd1441ebc} 
+\index{printk.h@{printk.h}!PRINTK\_CRITIQUE@{PRINTK\_CRITIQUE}}
+\index{PRINTK\_CRITIQUE@{PRINTK\_CRITIQUE}!printk.h@{printk.h}}
+\doxysubsubsection{\texorpdfstring{PRINTK\_CRITIQUE}{PRINTK\_CRITIQUE}}
+{\footnotesize\ttfamily \#define PRINTK\+\_\+\+CRITIQUE~"{}\{2\}"{}}
+
+
+
+Définition à la ligne \mbox{\hyperlink{include_2manux_2printk_8h_source_l00028}{28}} du fichier \mbox{\hyperlink{include_2manux_2printk_8h_source}{printk.\+h}}.
+
+\Hypertarget{include_2manux_2printk_8h_a2a73abbb0814a289e22ba4f7347f4657}\label{include_2manux_2printk_8h_a2a73abbb0814a289e22ba4f7347f4657} 
+\index{printk.h@{printk.h}!PRINTK\_DEBUGAGE@{PRINTK\_DEBUGAGE}}
+\index{PRINTK\_DEBUGAGE@{PRINTK\_DEBUGAGE}!printk.h@{printk.h}}
+\doxysubsubsection{\texorpdfstring{PRINTK\_DEBUGAGE}{PRINTK\_DEBUGAGE}}
+{\footnotesize\ttfamily \#define PRINTK\+\_\+\+DEBUGAGE~"{}\{7\}"{}}
+
+
+
+Définition à la ligne \mbox{\hyperlink{include_2manux_2printk_8h_source_l00033}{33}} du fichier \mbox{\hyperlink{include_2manux_2printk_8h_source}{printk.\+h}}.
+
+\Hypertarget{include_2manux_2printk_8h_ae6ff7e2c3fa70e08a97b35be55caa024}\label{include_2manux_2printk_8h_ae6ff7e2c3fa70e08a97b35be55caa024} 
+\index{printk.h@{printk.h}!PRINTK\_ERREUR@{PRINTK\_ERREUR}}
+\index{PRINTK\_ERREUR@{PRINTK\_ERREUR}!printk.h@{printk.h}}
+\doxysubsubsection{\texorpdfstring{PRINTK\_ERREUR}{PRINTK\_ERREUR}}
+{\footnotesize\ttfamily \#define PRINTK\+\_\+\+ERREUR~"{}\{3\}"{}}
+
+
+
+Définition à la ligne \mbox{\hyperlink{include_2manux_2printk_8h_source_l00029}{29}} du fichier \mbox{\hyperlink{include_2manux_2printk_8h_source}{printk.\+h}}.
+
+\Hypertarget{include_2manux_2printk_8h_a98ecd1b850cab8f481a642c72e48d123}\label{include_2manux_2printk_8h_a98ecd1b850cab8f481a642c72e48d123} 
+\index{printk.h@{printk.h}!PRINTK\_INFORMATION@{PRINTK\_INFORMATION}}
+\index{PRINTK\_INFORMATION@{PRINTK\_INFORMATION}!printk.h@{printk.h}}
+\doxysubsubsection{\texorpdfstring{PRINTK\_INFORMATION}{PRINTK\_INFORMATION}}
+{\footnotesize\ttfamily \#define PRINTK\+\_\+\+INFORMATION~"{}\{6\}"{}}
+
+
+
+Définition à la ligne \mbox{\hyperlink{include_2manux_2printk_8h_source_l00032}{32}} du fichier \mbox{\hyperlink{include_2manux_2printk_8h_source}{printk.\+h}}.
+
+\Hypertarget{include_2manux_2printk_8h_a2149cea5488c3d9a0ddfe8a58f4cddce}\label{include_2manux_2printk_8h_a2149cea5488c3d9a0ddfe8a58f4cddce} 
+\index{printk.h@{printk.h}!PRINTK\_NOTIFICATION@{PRINTK\_NOTIFICATION}}
+\index{PRINTK\_NOTIFICATION@{PRINTK\_NOTIFICATION}!printk.h@{printk.h}}
+\doxysubsubsection{\texorpdfstring{PRINTK\_NOTIFICATION}{PRINTK\_NOTIFICATION}}
+{\footnotesize\ttfamily \#define PRINTK\+\_\+\+NOTIFICATION~"{}\{5\}"{}}
+
+
+
+Définition à la ligne \mbox{\hyperlink{include_2manux_2printk_8h_source_l00031}{31}} du fichier \mbox{\hyperlink{include_2manux_2printk_8h_source}{printk.\+h}}.
+
+\Hypertarget{include_2manux_2printk_8h_a73c782e80962a1e5eae4811bc8569b16}\label{include_2manux_2printk_8h_a73c782e80962a1e5eae4811bc8569b16} 
+\index{printk.h@{printk.h}!PRINTK\_PANIQUE@{PRINTK\_PANIQUE}}
+\index{PRINTK\_PANIQUE@{PRINTK\_PANIQUE}!printk.h@{printk.h}}
+\doxysubsubsection{\texorpdfstring{PRINTK\_PANIQUE}{PRINTK\_PANIQUE}}
+{\footnotesize\ttfamily \#define PRINTK\+\_\+\+PANIQUE~"{}\{0\}"{}}
+
+
+
+Les différentes préfixes pour les niveaux de criticité 
+
+
+
+Définition à la ligne \mbox{\hyperlink{include_2manux_2printk_8h_source_l00026}{26}} du fichier \mbox{\hyperlink{include_2manux_2printk_8h_source}{printk.\+h}}.
+
+\Hypertarget{include_2manux_2printk_8h_a3b2cab22ef5658820e862f6171f27f63}\label{include_2manux_2printk_8h_a3b2cab22ef5658820e862f6171f27f63} 
+\index{printk.h@{printk.h}!PRINTK\_URGENCE@{PRINTK\_URGENCE}}
+\index{PRINTK\_URGENCE@{PRINTK\_URGENCE}!printk.h@{printk.h}}
+\doxysubsubsection{\texorpdfstring{PRINTK\_URGENCE}{PRINTK\_URGENCE}}
+{\footnotesize\ttfamily \#define PRINTK\+\_\+\+URGENCE~"{}\{1\}"{}}
+
+
+
+Définition à la ligne \mbox{\hyperlink{include_2manux_2printk_8h_source_l00027}{27}} du fichier \mbox{\hyperlink{include_2manux_2printk_8h_source}{printk.\+h}}.
+
+\Hypertarget{include_2manux_2printk_8h_a7d5a6dcede19ea52bd0064cb40d66a25}\label{include_2manux_2printk_8h_a7d5a6dcede19ea52bd0064cb40d66a25} 
+\index{printk.h@{printk.h}!printkc@{printkc}}
+\index{printkc@{printkc}!printk.h@{printk.h}}
+\doxysubsubsection{\texorpdfstring{printkc}{printkc}}
+{\footnotesize\ttfamily \#define printkc~\mbox{\hyperlink{include_2manux_2printk_8h_a25b30e8bbadd54650c56895999dd808f}{printk}}}
+
+
+
+Une version de printk qui écrit dans la console de la tâche en cours. 
+
+C\textquotesingle{}est un peu un printf en monde noyau, ... 
+
+Définition à la ligne \mbox{\hyperlink{include_2manux_2printk_8h_source_l00061}{61}} du fichier \mbox{\hyperlink{include_2manux_2printk_8h_source}{printk.\+h}}.
+
+
+
+\doxysubsection{Documentation des fonctions}
+\Hypertarget{include_2manux_2printk_8h_a25b30e8bbadd54650c56895999dd808f}\label{include_2manux_2printk_8h_a25b30e8bbadd54650c56895999dd808f} 
+\index{printk.h@{printk.h}!printk@{printk}}
+\index{printk@{printk}!printk.h@{printk.h}}
+\doxysubsubsection{\texorpdfstring{printk()}{printk()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} printk (\begin{DoxyParamCaption}\item[{char \texorpdfstring{$\ast$}{*}}]{format,  }\item[{}]{... }\end{DoxyParamCaption})}
+
+
+
+Fonction principale d\textquotesingle{}affichage dans le noyau. 
+
+Un grand classique. Elle construit une chaîne de caractères puis l\textquotesingle{}envoie au journal. Si le journal n\textquotesingle{}est pas actif (MANUX\+\_\+\+JOURNAL non défini) alors la chaîne est envoyée sur la console spécifique au noyau.
+
+Les formats gérés pour le moment \+:
+
+\%\mbox{[}n\mbox{]}\mbox{[}l\mbox{[}l\mbox{]}\mbox{]}\{dxo\} s ~\newline
+ Fonction principale d\textquotesingle{}affichage dans le noyau.
+
+Elle utilise le journal s\textquotesingle{}il y en a un, et sinon la console du noyau. 
+
+Définition à la ligne \mbox{\hyperlink{printk_8c_source_l00166}{166}} du fichier \mbox{\hyperlink{printk_8c_source}{printk.\+c}}.
+
+\Hypertarget{include_2manux_2printk_8h_aa5a2042f078fa0c6e569acc563f2dac5}\label{include_2manux_2printk_8h_aa5a2042f078fa0c6e569acc563f2dac5} 
+\index{printk.h@{printk.h}!snprintk@{snprintk}}
+\index{snprintk@{snprintk}!printk.h@{printk.h}}
+\doxysubsubsection{\texorpdfstring{snprintk()}{snprintk()}}
+{\footnotesize\ttfamily int snprintk (\begin{DoxyParamCaption}\item[{char \texorpdfstring{$\ast$}{*}}]{str,  }\item[{\mbox{\hyperlink{include_2manux_2stddef_8h_acf18a0d6c4b39d531e021702e9a77984}{size\+\_\+t}}}]{l,  }\item[{char \texorpdfstring{$\ast$}{*}}]{format,  }\item[{}]{... }\end{DoxyParamCaption})}
+
+
+
+\+: Écriture formattée dans une chaîne de caractères 
+
+C\textquotesingle{}est cette fonction qui doit être utilisée pour écrire dans une chaîne de caractères 
+
+Définition à la ligne \mbox{\hyperlink{printk_8c_source_l00148}{148}} du fichier \mbox{\hyperlink{printk_8c_source}{printk.\+c}}.
+
+\Hypertarget{include_2manux_2printk_8h_ac21da4c54dd944bb35eb829d40301d29}\label{include_2manux_2printk_8h_ac21da4c54dd944bb35eb829d40301d29} 
+\index{printk.h@{printk.h}!sprintk@{sprintk}}
+\index{sprintk@{sprintk}!printk.h@{printk.h}}
+\doxysubsubsection{\texorpdfstring{sprintk()}{sprintk()}}
+{\footnotesize\ttfamily int sprintk (\begin{DoxyParamCaption}\item[{char \texorpdfstring{$\ast$}{*}}]{str,  }\item[{char \texorpdfstring{$\ast$}{*}}]{format,  }\item[{}]{... }\end{DoxyParamCaption})}
+
+
+
+\+: Écriture formattée dans une chaîne de caractères 
+
+\Hypertarget{include_2manux_2printk_8h_aabca9ebaaab18b531b2fe7bdd757ac8f}\label{include_2manux_2printk_8h_aabca9ebaaab18b531b2fe7bdd757ac8f} 
+\index{printk.h@{printk.h}!vsprintk@{vsprintk}}
+\index{vsprintk@{vsprintk}!printk.h@{printk.h}}
+\doxysubsubsection{\texorpdfstring{vsprintk()}{vsprintk()}}
+{\footnotesize\ttfamily int vsprintk (\begin{DoxyParamCaption}\item[{char \texorpdfstring{$\ast$}{*}}]{str,  }\item[{char \texorpdfstring{$\ast$}{*}}]{format,  }\item[{\mbox{\hyperlink{include_2manux_2stdarg_8h_af53f622e3b6c080daeb167c1955d7ec1}{va\+\_\+list}}}]{arg\+List }\end{DoxyParamCaption})}
+
+
+
+\+: Écriture formattée dans une chaîne de caractères 
+

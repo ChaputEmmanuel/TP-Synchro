@@ -1,0 +1,152 @@
+\doxysection{Référence du fichier /home/manu/\+PROGRAMMATION/\+C/\+Manu\+X/include/manux/sfm.h}
+\hypertarget{sfm_8h}{}\label{sfm_8h}\index{/home/manu/PROGRAMMATION/C/ManuX/include/manux/sfm.h@{/home/manu/PROGRAMMATION/C/ManuX/include/manux/sfm.h}}
+{\ttfamily \#include $<$manux/types.\+h$>$}\newline
+Graphe des dépendances par inclusion de sfm.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=250pt]{sfm_8h__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct__SFMSuperBloc}{\+\_\+\+SFMSuper\+Bloc}}
+\item 
+struct \mbox{\hyperlink{struct__SFMInode}{\+\_\+\+SFMInode}}
+\item 
+struct \mbox{\hyperlink{struct__SFMEntreeRepertoire}{\+\_\+\+SFMEntree\+Repertoire}}
+\item 
+struct \mbox{\hyperlink{struct__SFMRepertoire}{\+\_\+\+SFMRepertoire}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{sfm_8h_a6f3c71af7b99e53c6a1740e25b3239a3}{SFM\+\_\+\+MAGIC}}~0x18273645
+\item 
+\#define \mbox{\hyperlink{sfm_8h_ab2e7e3655084d4d572029c1feb3fa158}{SFM\+\_\+\+TAILLE\+\_\+\+BLOC}}~512
+\item 
+\#define \mbox{\hyperlink{sfm_8h_a4d15907007c27151cada1ce46d54f945}{SFM\+\_\+\+NB\+\_\+\+BLOCS\+\_\+\+DIRECTS}}~8
+\item 
+\#define \mbox{\hyperlink{sfm_8h_a599298c8e02e111219518c88a2e4e0a4}{SFM\+\_\+\+LONGUEUR\+\_\+\+NOM}}~32
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Définitions de type}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \mbox{\hyperlink{struct__SFMSuperBloc}{\+\_\+\+SFMSuper\+Bloc}} \mbox{\hyperlink{sfm_8h_a202c02081fc4044e6b6032550f4d42d4}{SFMSuper\+Bloc}}
+\item 
+typedef enum \mbox{\hyperlink{sfm_8h_aa8b9ef6ee1d79fd0521b27e7e55a0c45}{\+\_\+\+SFMType\+Fichier}} \mbox{\hyperlink{sfm_8h_a7145bba42f429b666618cb9d3ee2ef48}{SFMType\+Fichier}}
+\item 
+typedef struct \mbox{\hyperlink{struct__SFMInode}{\+\_\+\+SFMInode}} \mbox{\hyperlink{sfm_8h_ade2f6eb8932d5d42d06df0b4445bb9a3}{SFMInode}}
+\item 
+typedef struct \mbox{\hyperlink{struct__SFMEntreeRepertoire}{\+\_\+\+SFMEntree\+Repertoire}} \mbox{\hyperlink{sfm_8h_a9e4a7abde846aca4e3ca544292568597}{SFMEntree\+Repertoire}}
+\item 
+typedef struct \mbox{\hyperlink{struct__SFMRepertoire}{\+\_\+\+SFMRepertoire}} \mbox{\hyperlink{sfm_8h_a497ac796fb0bc9c23bb40bddcd394ac4}{SFMRepertoire}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Énumérations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{sfm_8h_aa8b9ef6ee1d79fd0521b27e7e55a0c45}{\+\_\+\+SFMType\+Fichier}} \{ \mbox{\hyperlink{sfm_8h_aa8b9ef6ee1d79fd0521b27e7e55a0c45a1516d1e9480d6a7e227ab8b8002840a5}{SFM\+\_\+\+FICHIER\+\_\+\+ELEMENTAIRE}} = 0
+, \mbox{\hyperlink{sfm_8h_aa8b9ef6ee1d79fd0521b27e7e55a0c45af83f3efff8ba9d6133b30f5867dbd13e}{SFM\+\_\+\+REPERTOIRE}} = 1
+ \}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Documentation des macros}
+\Hypertarget{sfm_8h_a599298c8e02e111219518c88a2e4e0a4}\label{sfm_8h_a599298c8e02e111219518c88a2e4e0a4} 
+\index{sfm.h@{sfm.h}!SFM\_LONGUEUR\_NOM@{SFM\_LONGUEUR\_NOM}}
+\index{SFM\_LONGUEUR\_NOM@{SFM\_LONGUEUR\_NOM}!sfm.h@{sfm.h}}
+\doxysubsubsection{\texorpdfstring{SFM\_LONGUEUR\_NOM}{SFM\_LONGUEUR\_NOM}}
+{\footnotesize\ttfamily \#define SFM\+\_\+\+LONGUEUR\+\_\+\+NOM~32}
+
+
+
+Définition à la ligne \mbox{\hyperlink{sfm_8h_source_l00029}{29}} du fichier \mbox{\hyperlink{sfm_8h_source}{sfm.\+h}}.
+
+\Hypertarget{sfm_8h_a6f3c71af7b99e53c6a1740e25b3239a3}\label{sfm_8h_a6f3c71af7b99e53c6a1740e25b3239a3} 
+\index{sfm.h@{sfm.h}!SFM\_MAGIC@{SFM\_MAGIC}}
+\index{SFM\_MAGIC@{SFM\_MAGIC}!sfm.h@{sfm.h}}
+\doxysubsubsection{\texorpdfstring{SFM\_MAGIC}{SFM\_MAGIC}}
+{\footnotesize\ttfamily \#define SFM\+\_\+\+MAGIC~0x18273645}
+
+
+
+Définition à la ligne \mbox{\hyperlink{sfm_8h_source_l00014}{14}} du fichier \mbox{\hyperlink{sfm_8h_source}{sfm.\+h}}.
+
+\Hypertarget{sfm_8h_a4d15907007c27151cada1ce46d54f945}\label{sfm_8h_a4d15907007c27151cada1ce46d54f945} 
+\index{sfm.h@{sfm.h}!SFM\_NB\_BLOCS\_DIRECTS@{SFM\_NB\_BLOCS\_DIRECTS}}
+\index{SFM\_NB\_BLOCS\_DIRECTS@{SFM\_NB\_BLOCS\_DIRECTS}!sfm.h@{sfm.h}}
+\doxysubsubsection{\texorpdfstring{SFM\_NB\_BLOCS\_DIRECTS}{SFM\_NB\_BLOCS\_DIRECTS}}
+{\footnotesize\ttfamily \#define SFM\+\_\+\+NB\+\_\+\+BLOCS\+\_\+\+DIRECTS~8}
+
+
+
+Définition à la ligne \mbox{\hyperlink{sfm_8h_source_l00024}{24}} du fichier \mbox{\hyperlink{sfm_8h_source}{sfm.\+h}}.
+
+\Hypertarget{sfm_8h_ab2e7e3655084d4d572029c1feb3fa158}\label{sfm_8h_ab2e7e3655084d4d572029c1feb3fa158} 
+\index{sfm.h@{sfm.h}!SFM\_TAILLE\_BLOC@{SFM\_TAILLE\_BLOC}}
+\index{SFM\_TAILLE\_BLOC@{SFM\_TAILLE\_BLOC}!sfm.h@{sfm.h}}
+\doxysubsubsection{\texorpdfstring{SFM\_TAILLE\_BLOC}{SFM\_TAILLE\_BLOC}}
+{\footnotesize\ttfamily \#define SFM\+\_\+\+TAILLE\+\_\+\+BLOC~512}
+
+
+
+Définition à la ligne \mbox{\hyperlink{sfm_8h_source_l00019}{19}} du fichier \mbox{\hyperlink{sfm_8h_source}{sfm.\+h}}.
+
+
+
+\doxysubsection{Documentation des définitions de type}
+\Hypertarget{sfm_8h_a9e4a7abde846aca4e3ca544292568597}\label{sfm_8h_a9e4a7abde846aca4e3ca544292568597} 
+\index{sfm.h@{sfm.h}!SFMEntreeRepertoire@{SFMEntreeRepertoire}}
+\index{SFMEntreeRepertoire@{SFMEntreeRepertoire}!sfm.h@{sfm.h}}
+\doxysubsubsection{\texorpdfstring{SFMEntreeRepertoire}{SFMEntreeRepertoire}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{struct__SFMEntreeRepertoire}{\+\_\+\+SFMEntree\+Repertoire}} \mbox{\hyperlink{sfm_8h_a9e4a7abde846aca4e3ca544292568597}{SFMEntree\+Repertoire}}}
+
+\Hypertarget{sfm_8h_ade2f6eb8932d5d42d06df0b4445bb9a3}\label{sfm_8h_ade2f6eb8932d5d42d06df0b4445bb9a3} 
+\index{sfm.h@{sfm.h}!SFMInode@{SFMInode}}
+\index{SFMInode@{SFMInode}!sfm.h@{sfm.h}}
+\doxysubsubsection{\texorpdfstring{SFMInode}{SFMInode}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{struct__SFMInode}{\+\_\+\+SFMInode}} \mbox{\hyperlink{sfm_8h_ade2f6eb8932d5d42d06df0b4445bb9a3}{SFMInode}}}
+
+\Hypertarget{sfm_8h_a497ac796fb0bc9c23bb40bddcd394ac4}\label{sfm_8h_a497ac796fb0bc9c23bb40bddcd394ac4} 
+\index{sfm.h@{sfm.h}!SFMRepertoire@{SFMRepertoire}}
+\index{SFMRepertoire@{SFMRepertoire}!sfm.h@{sfm.h}}
+\doxysubsubsection{\texorpdfstring{SFMRepertoire}{SFMRepertoire}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{struct__SFMRepertoire}{\+\_\+\+SFMRepertoire}} \mbox{\hyperlink{sfm_8h_a497ac796fb0bc9c23bb40bddcd394ac4}{SFMRepertoire}}}
+
+\Hypertarget{sfm_8h_a202c02081fc4044e6b6032550f4d42d4}\label{sfm_8h_a202c02081fc4044e6b6032550f4d42d4} 
+\index{sfm.h@{sfm.h}!SFMSuperBloc@{SFMSuperBloc}}
+\index{SFMSuperBloc@{SFMSuperBloc}!sfm.h@{sfm.h}}
+\doxysubsubsection{\texorpdfstring{SFMSuperBloc}{SFMSuperBloc}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{struct__SFMSuperBloc}{\+\_\+\+SFMSuper\+Bloc}} \mbox{\hyperlink{sfm_8h_a202c02081fc4044e6b6032550f4d42d4}{SFMSuper\+Bloc}}}
+
+\Hypertarget{sfm_8h_a7145bba42f429b666618cb9d3ee2ef48}\label{sfm_8h_a7145bba42f429b666618cb9d3ee2ef48} 
+\index{sfm.h@{sfm.h}!SFMTypeFichier@{SFMTypeFichier}}
+\index{SFMTypeFichier@{SFMTypeFichier}!sfm.h@{sfm.h}}
+\doxysubsubsection{\texorpdfstring{SFMTypeFichier}{SFMTypeFichier}}
+{\footnotesize\ttfamily typedef enum \mbox{\hyperlink{sfm_8h_aa8b9ef6ee1d79fd0521b27e7e55a0c45}{\+\_\+\+SFMType\+Fichier}} \mbox{\hyperlink{sfm_8h_a7145bba42f429b666618cb9d3ee2ef48}{SFMType\+Fichier}}}
+
+
+
+\doxysubsection{Documentation du type de l\textquotesingle{}énumération}
+\Hypertarget{sfm_8h_aa8b9ef6ee1d79fd0521b27e7e55a0c45}\label{sfm_8h_aa8b9ef6ee1d79fd0521b27e7e55a0c45} 
+\index{sfm.h@{sfm.h}!\_SFMTypeFichier@{\_SFMTypeFichier}}
+\index{\_SFMTypeFichier@{\_SFMTypeFichier}!sfm.h@{sfm.h}}
+\doxysubsubsection{\texorpdfstring{\_SFMTypeFichier}{\_SFMTypeFichier}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{sfm_8h_aa8b9ef6ee1d79fd0521b27e7e55a0c45}{\+\_\+\+SFMType\+Fichier}}}
+
+\begin{DoxyEnumFields}{Valeurs énumérées}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SFM\_FICHIER\_ELEMENTAIRE@{SFM\_FICHIER\_ELEMENTAIRE}!sfm.h@{sfm.h}}\index{sfm.h@{sfm.h}!SFM\_FICHIER\_ELEMENTAIRE@{SFM\_FICHIER\_ELEMENTAIRE}}}\Hypertarget{sfm_8h_aa8b9ef6ee1d79fd0521b27e7e55a0c45a1516d1e9480d6a7e227ab8b8002840a5}\label{sfm_8h_aa8b9ef6ee1d79fd0521b27e7e55a0c45a1516d1e9480d6a7e227ab8b8002840a5} 
+SFM\+\_\+\+FICHIER\+\_\+\+ELEMENTAIRE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SFM\_REPERTOIRE@{SFM\_REPERTOIRE}!sfm.h@{sfm.h}}\index{sfm.h@{sfm.h}!SFM\_REPERTOIRE@{SFM\_REPERTOIRE}}}\Hypertarget{sfm_8h_aa8b9ef6ee1d79fd0521b27e7e55a0c45af83f3efff8ba9d6133b30f5867dbd13e}\label{sfm_8h_aa8b9ef6ee1d79fd0521b27e7e55a0c45af83f3efff8ba9d6133b30f5867dbd13e} 
+SFM\+\_\+\+REPERTOIRE&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Définition à la ligne \mbox{\hyperlink{sfm_8h_source_l00044}{44}} du fichier \mbox{\hyperlink{sfm_8h_source}{sfm.\+h}}.
+

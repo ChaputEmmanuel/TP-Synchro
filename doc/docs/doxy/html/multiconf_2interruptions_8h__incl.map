@@ -1,0 +1,20 @@
+<map id="/home/manu/PROGRAMMATION/C/ManuX/multiconf/interruptions.h" name="/home/manu/PROGRAMMATION/C/ManuX/multiconf/interruptions.h">
+<area shape="rect" id="Node000001" title="Exemple de configuration permettant d&#39;observer des interruptions." alt="" coords="308,5,557,45"/>
+<area shape="rect" id="Node000002" href="$base_8h.html" title="Eléments de base de la configuration." alt="" coords="5,93,113,119"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="344,48,127,93,126,88,343,43"/>
+<area shape="rect" id="Node000003" href="$pc-i386_8h.html" title=" " alt="" coords="189,93,314,119"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="390,48,292,90,290,85,388,43"/>
+<area shape="rect" id="Node000004" href="$plan-memoire-pc_8h.html" title=" " alt="" coords="57,167,246,192"/>
+<area shape="poly" id="edge6_Node000001_Node000004" title=" " alt="" coords="308,36,273,45,239,57,207,73,179,95,169,108,162,123,155,153,150,152,157,121,164,105,175,91,204,69,237,52,272,39,307,31"/>
+<area shape="rect" id="Node000006" href="$gestion-memoire_8h.html" title=" " alt="" coords="338,93,527,119"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="435,46,435,79,430,79,430,46"/>
+<area shape="rect" id="Node000007" href="$include_2config_2console_8h.html" title=" " alt="" coords="552,93,679,119"/>
+<area shape="poly" id="edge7_Node000001_Node000007" title=" " alt="" coords="477,43,577,85,575,90,475,48"/>
+<area shape="rect" id="Node000008" href="$include_2config_2printk_8h.html" title=" " alt="" coords="703,93,818,119"/>
+<area shape="poly" id="edge8_Node000001_Node000008" title=" " alt="" coords="512,43,700,88,699,93,511,48"/>
+<area shape="rect" id="Node000009" href="$verifications_8h.html" title=" " alt="" coords="842,93,999,119"/>
+<area shape="poly" id="edge9_Node000001_Node000009" title=" " alt="" coords="550,43,837,89,836,94,549,48"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="237,121,180,161,177,156,234,117"/>
+<area shape="rect" id="Node000005" href="$config_2intel-8259a_8h.html" title=" " alt="" coords="271,167,421,192"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="268,117,321,156,318,160,265,121"/>
+</map>

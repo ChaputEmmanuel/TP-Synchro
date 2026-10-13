@@ -1,0 +1,121 @@
+\doxysection{clavier.\+c}
+\hypertarget{clavier_8c_source}{}\label{clavier_8c_source}\index{/home/manu/PROGRAMMATION/C/ManuX/lib/clavier.c@{/home/manu/PROGRAMMATION/C/ManuX/lib/clavier.c}}
+\mbox{\hyperlink{clavier_8c}{Aller à la documentation de ce fichier.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{clavier_8c_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{clavier_8c_source_l00002}00002\ \textcolor{comment}{/*\ @file\ :\ clavier.c\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{clavier_8c_source_l00003}00003\ \textcolor{comment}{/*\ @brief:\ Implantation\ des\ sous-\/programmes\ de\ manipulation\ du\ clavier.\ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{clavier_8c_source_l00004}00004\ \textcolor{comment}{/*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{clavier_8c_source_l00005}00005\ \textcolor{comment}{/*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (C)\ Manu\ Chaput\ 2000-\/2023\ */}}
+\DoxyCodeLine{\Hypertarget{clavier_8c_source_l00006}00006\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{clavier_8c_source_l00007}00007\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{manux_2clavier_8h}{manux/clavier.h}}>}}
+\DoxyCodeLine{\Hypertarget{clavier_8c_source_l00008}00008\ }
+\DoxyCodeLine{\Hypertarget{clavier_8c_source_l00009}00009\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{io_8h}{manux/io.h}}>}}
+\DoxyCodeLine{\Hypertarget{clavier_8c_source_l00010}00010\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{manux_2intel-8259a_8h}{manux/intel-\/8259a.h}}>}}
+\DoxyCodeLine{\Hypertarget{clavier_8c_source_l00011}00011\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{include_2manux_2printk_8h}{manux/printk.h}}>}}
+\DoxyCodeLine{\Hypertarget{clavier_8c_source_l00012}00012\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{interBasNiveau_8h}{manux/interBasNiveau.h}}>}}
+\DoxyCodeLine{\Hypertarget{clavier_8c_source_l00013}00013\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{include_2manux_2memoire_8h}{manux/memoire.h}}>}\ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ NULL}}
+\DoxyCodeLine{\Hypertarget{clavier_8c_source_l00014}00014\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{scheduler_8h}{manux/scheduler.h}}>}\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ basculeConsoleDemandee}}
+\DoxyCodeLine{\Hypertarget{clavier_8c_source_l00015}00015\ }
+\DoxyCodeLine{\Hypertarget{clavier_8c_source_l00016}00016\ \textcolor{preprocessor}{\#ifdef\ MANUX\_CLAVIER\_CONSOLE}}
+\DoxyCodeLine{\Hypertarget{clavier_8c_source_l00017}00017\ \textcolor{preprocessor}{\#\ \ \ include\ <\mbox{\hyperlink{include_2manux_2console_8h}{manux/console.h}}>}}
+\DoxyCodeLine{\Hypertarget{clavier_8c_source_l00018}00018\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{clavier_8c_source_l00019}00019\ }
+\DoxyCodeLine{\Hypertarget{clavier_8c_source_l00020}00020\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{french_8h}{keymaps/french.h}}>}}
+\DoxyCodeLine{\Hypertarget{clavier_8c_source_l00021}00021\ }
+\DoxyCodeLine{\Hypertarget{clavier_8c_source_l00022}00022\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{clavier_8c_source_l00023}00023\ \textcolor{comment}{\ *\ Description\ de\ l'état\ courant\ du\ clavier}}
+\DoxyCodeLine{\Hypertarget{clavier_8c_source_l00024}00024\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{clavier_8c_source_l00025}\mbox{\hyperlink{clavier_8c_afb665ec27226cbb78cea21a6e309dea1}{00025}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{clavier_8c_afb665ec27226cbb78cea21a6e309dea1}{codeClavier}}\ =\ 0;\ \textcolor{comment}{//\ Code\ de\ la\ dernière\ touche\ manipulée}}
+\DoxyCodeLine{\Hypertarget{clavier_8c_source_l00026}\mbox{\hyperlink{clavier_8c_aea6378db7413868718bfe76a2f3f7c26}{00026}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{clavier_8c_aea6378db7413868718bfe76a2f3f7c26}{shiftActif}}\ \ =\ 0;}
+\DoxyCodeLine{\Hypertarget{clavier_8c_source_l00027}00027\ }
+\DoxyCodeLine{\Hypertarget{clavier_8c_source_l00028}\mbox{\hyperlink{manux_2clavier_8h_adeb7648f2d16a4967670148c998f83cc}{00028}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{clavier_8c_adeb7648f2d16a4967670148c998f83cc}{initialiserClavier}}(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\Hypertarget{clavier_8c_source_l00029}00029\ \{}
+\DoxyCodeLine{\Hypertarget{clavier_8c_source_l00030}00030\ \ \ \ \mbox{\hyperlink{clavier_8c_afb665ec27226cbb78cea21a6e309dea1}{codeClavier}}\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{clavier_8c_source_l00031}00031\ }
+\DoxyCodeLine{\Hypertarget{clavier_8c_source_l00032}00032\ \ \ \ \mbox{\hyperlink{intel-8259a_8c_a15912416949d2100da9c775b75457997}{i8259aInterdireIRQ}}(\mbox{\hyperlink{pc-i386_8h_a5969b45e9b889e18d3673d8f72a1af1f}{IRQ\_CLAVIER}});}
+\DoxyCodeLine{\Hypertarget{clavier_8c_source_l00033}00033\ }
+\DoxyCodeLine{\Hypertarget{clavier_8c_source_l00034}00034\ \ \ \ \textcolor{comment}{//\ On\ s'enregistre\ auprès\ du\ PIC}}
+\DoxyCodeLine{\Hypertarget{clavier_8c_source_l00035}00035\ \ \ \ \mbox{\hyperlink{intel-8259a_8c_a8c849c456bff2b144e72c0d55873647a}{i8259aAjouterHandler}}(\mbox{\hyperlink{pc-i386_8h_a5969b45e9b889e18d3673d8f72a1af1f}{IRQ\_CLAVIER}},\ \mbox{\hyperlink{clavier_8c_a21c527b97e8566026400521d3d06ac44}{handlerClavier}},\ \mbox{\hyperlink{include_2manux_2stddef_8h_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}});}
+\DoxyCodeLine{\Hypertarget{clavier_8c_source_l00036}00036\ \ \ \ }
+\DoxyCodeLine{\Hypertarget{clavier_8c_source_l00037}00037\ \ \ \ \textcolor{comment}{/*\ Activation\ du\ clavier\ */}}
+\DoxyCodeLine{\Hypertarget{clavier_8c_source_l00038}00038\ \ \ \ \mbox{\hyperlink{io_8h_a01385861b7c9bd988991a73868c29905}{outb}}(\mbox{\hyperlink{manux_2clavier_8h_acb5c861fcc9735048eca33e89bdd5f00}{portDonneesClavier}},\ 0xf4);}
+\DoxyCodeLine{\Hypertarget{clavier_8c_source_l00039}00039\ \ \ \ \mbox{\hyperlink{io_8h_a01385861b7c9bd988991a73868c29905}{outb}}(\mbox{\hyperlink{manux_2clavier_8h_aff224d719b2cf928aa1cf16a843707cd}{portCmdClavier}},\ 0xae);}
+\DoxyCodeLine{\Hypertarget{clavier_8c_source_l00040}00040\ }
+\DoxyCodeLine{\Hypertarget{clavier_8c_source_l00041}00041\ \ \ \ \mbox{\hyperlink{intel-8259a_8c_a9b846f608e7cad3491d9bff7e870ef00}{i8259aAutoriserIRQ}}(\mbox{\hyperlink{pc-i386_8h_a5969b45e9b889e18d3673d8f72a1af1f}{IRQ\_CLAVIER}});}
+\DoxyCodeLine{\Hypertarget{clavier_8c_source_l00042}00042\ \}}
+\DoxyCodeLine{\Hypertarget{clavier_8c_source_l00043}00043\ }
+\DoxyCodeLine{\Hypertarget{clavier_8c_source_l00044}\mbox{\hyperlink{clavier_8c_ab63d0f794b5c9fe5ea51d818bc76d142}{00044}}\ \textcolor{preprocessor}{\#define\ KEYCODE\_ESC\ \ 0x01}}
+\DoxyCodeLine{\Hypertarget{clavier_8c_source_l00045}\mbox{\hyperlink{clavier_8c_aa07f16e09fb4d04fa51ccb26aff0f2d1}{00045}}\ \textcolor{preprocessor}{\#define\ KEYCODE\_TAB\ \ 0x0F}}
+\DoxyCodeLine{\Hypertarget{clavier_8c_source_l00046}\mbox{\hyperlink{clavier_8c_a91d398bb7a3bc5a900f8685a14d177fb}{00046}}\ \textcolor{preprocessor}{\#define\ KEYCODE\_F1\ \ \ 0x3b}}
+\DoxyCodeLine{\Hypertarget{clavier_8c_source_l00047}\mbox{\hyperlink{clavier_8c_aa0dc4252df81cffac8ac155a4837aaff}{00047}}\ \textcolor{preprocessor}{\#define\ KEYCODE\_F2\ \ \ 0x3c}}
+\DoxyCodeLine{\Hypertarget{clavier_8c_source_l00048}\mbox{\hyperlink{clavier_8c_affb3e1f597ef638cf1ca246c19cb73c4}{00048}}\ \textcolor{preprocessor}{\#define\ KEYCODE\_F3\ \ \ 0x3d}}
+\DoxyCodeLine{\Hypertarget{clavier_8c_source_l00049}\mbox{\hyperlink{clavier_8c_a0049ce5464f22e42199869efa01e3e14}{00049}}\ \textcolor{preprocessor}{\#define\ KEYCODE\_F4\ \ \ 0x3e}}
+\DoxyCodeLine{\Hypertarget{clavier_8c_source_l00050}\mbox{\hyperlink{clavier_8c_a563c25a294e5936e1af81ea3c6f8f20f}{00050}}\ \textcolor{preprocessor}{\#define\ KEYCODE\_F5\ \ \ 0x3f}}
+\DoxyCodeLine{\Hypertarget{clavier_8c_source_l00051}\mbox{\hyperlink{clavier_8c_a4e2859d4d3d47c0b5d8b43a4539fd24b}{00051}}\ \textcolor{preprocessor}{\#define\ KEYCODE\_F6\ \ \ 0x40}}
+\DoxyCodeLine{\Hypertarget{clavier_8c_source_l00052}\mbox{\hyperlink{clavier_8c_a6f6d1fdac0129eca5902127c3388f8e5}{00052}}\ \textcolor{preprocessor}{\#define\ KEYCODE\_F7\ \ \ 0x41}}
+\DoxyCodeLine{\Hypertarget{clavier_8c_source_l00053}\mbox{\hyperlink{clavier_8c_a736913c7c5503be488f48c2e368f1c06}{00053}}\ \textcolor{preprocessor}{\#define\ KEYCODE\_F8\ \ \ 0x42}}
+\DoxyCodeLine{\Hypertarget{clavier_8c_source_l00054}\mbox{\hyperlink{clavier_8c_a5ad8cd27506319efd3e46039961c85e0}{00054}}\ \textcolor{preprocessor}{\#define\ KEYCODE\_F9\ \ \ 0x43}}
+\DoxyCodeLine{\Hypertarget{clavier_8c_source_l00055}\mbox{\hyperlink{clavier_8c_a062871ae26949da6b20ae542f684730e}{00055}}\ \textcolor{preprocessor}{\#define\ KEYCODE\_F10\ \ 0x44}}
+\DoxyCodeLine{\Hypertarget{clavier_8c_source_l00056}00056\ }
+\DoxyCodeLine{\Hypertarget{clavier_8c_source_l00057}\mbox{\hyperlink{clavier_8c_a1f4467123e8f5b63124ab1ab082c9e43}{00057}}\ \textcolor{preprocessor}{\#define\ SC\_SHIFT\_GAUCHE\ 0x2a}}
+\DoxyCodeLine{\Hypertarget{clavier_8c_source_l00058}00058\ }
+\DoxyCodeLine{\Hypertarget{clavier_8c_source_l00064}\mbox{\hyperlink{manux_2clavier_8h_a21c527b97e8566026400521d3d06ac44}{00064}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{clavier_8c_a21c527b97e8566026400521d3d06ac44}{handlerClavier}}(\textcolor{keywordtype}{void}\ *\ toto)}
+\DoxyCodeLine{\Hypertarget{clavier_8c_source_l00065}00065\ \{}
+\DoxyCodeLine{\Hypertarget{clavier_8c_source_l00066}00066\ \ \ \ \mbox{\hyperlink{include_2manux_2types_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\_t}}\ etat;}
+\DoxyCodeLine{\Hypertarget{clavier_8c_source_l00067}00067\ }
+\DoxyCodeLine{\Hypertarget{clavier_8c_source_l00068}00068\ \ \ \ (\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}})\ toto;\ \textcolor{comment}{//\ Présent\ uniquement\ pour\ la\ signature\ de\ la\ fonction}}
+\DoxyCodeLine{\Hypertarget{clavier_8c_source_l00069}00069\ \ \ \ \mbox{\hyperlink{io_8h_a4f4a2af12435f72838eae7049d0ca6ee}{inb}}(0x64,\ etat);}
+\DoxyCodeLine{\Hypertarget{clavier_8c_source_l00070}00070\ }
+\DoxyCodeLine{\Hypertarget{clavier_8c_source_l00071}00071\ \ \ \ \textcolor{keywordflow}{if}\ (etat\ \&\ 0x01)\ \{}
+\DoxyCodeLine{\Hypertarget{clavier_8c_source_l00072}00072\ \ \ \ \ \ \ \mbox{\hyperlink{io_8h_a4f4a2af12435f72838eae7049d0ca6ee}{inb}}(0x60,\ \mbox{\hyperlink{clavier_8c_afb665ec27226cbb78cea21a6e309dea1}{codeClavier}});}
+\DoxyCodeLine{\Hypertarget{clavier_8c_source_l00073}00073\ \ \ \ \ \ \ \mbox{\hyperlink{clavier_8c_afb665ec27226cbb78cea21a6e309dea1}{codeClavier}}\ \&=\ 0xFF;}
+\DoxyCodeLine{\Hypertarget{clavier_8c_source_l00074}00074\ }
+\DoxyCodeLine{\Hypertarget{clavier_8c_source_l00075}00075\ \ \ \ \ \ \ \textcolor{comment}{//\ Gestion\ des\ shifts}}
+\DoxyCodeLine{\Hypertarget{clavier_8c_source_l00076}00076\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{clavier_8c_afb665ec27226cbb78cea21a6e309dea1}{codeClavier}}\ ==\ \mbox{\hyperlink{clavier_8c_a1f4467123e8f5b63124ab1ab082c9e43}{SC\_SHIFT\_GAUCHE}})\ \{}
+\DoxyCodeLine{\Hypertarget{clavier_8c_source_l00077}00077\ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{clavier_8c_aea6378db7413868718bfe76a2f3f7c26}{shiftActif}}++;}
+\DoxyCodeLine{\Hypertarget{clavier_8c_source_l00078}00078\ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{clavier_8c_source_l00079}00079\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{clavier_8c_source_l00080}00080\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{clavier_8c_afb665ec27226cbb78cea21a6e309dea1}{codeClavier}}\ ==\ (\mbox{\hyperlink{clavier_8c_a1f4467123e8f5b63124ab1ab082c9e43}{SC\_SHIFT\_GAUCHE}}\ |\ 0x80))\ \{}
+\DoxyCodeLine{\Hypertarget{clavier_8c_source_l00081}00081\ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{clavier_8c_aea6378db7413868718bfe76a2f3f7c26}{shiftActif}}-\/-\/;}
+\DoxyCodeLine{\Hypertarget{clavier_8c_source_l00082}00082\ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{clavier_8c_source_l00083}00083\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{clavier_8c_source_l00084}00084\ \ \ \ \ \ \ \textcolor{comment}{//\ printk("{}[KBD-\/0x\%x\ /\ \%d]\(\backslash\)n"{},\ codeClavier,\ shiftActif);}}
+\DoxyCodeLine{\Hypertarget{clavier_8c_source_l00085}00085\ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{clavier_8c_source_l00086}00086\ \textcolor{preprocessor}{\#ifdef\ MANUX\_CONSOLES\_VIRTUELLES}}
+\DoxyCodeLine{\Hypertarget{clavier_8c_source_l00087}00087\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{clavier_8c_afb665ec27226cbb78cea21a6e309dea1}{codeClavier}}\ ==\ \mbox{\hyperlink{clavier_8c_ab63d0f794b5c9fe5ea51d818bc76d142}{KEYCODE\_ESC}})\ \{}
+\DoxyCodeLine{\Hypertarget{clavier_8c_source_l00088}00088\ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{scheduler_8h_ac0ad7deba8c8b31a1d9f541aa3ba997f}{basculeConsoleDemandee}}\ =\ \mbox{\hyperlink{include_2manux_2types_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{TRUE}};}
+\DoxyCodeLine{\Hypertarget{clavier_8c_source_l00089}00089\ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{clavier_8c_source_l00090}00090\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{clavier_8c_source_l00091}00091\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{clavier_8c_source_l00092}00092\ }
+\DoxyCodeLine{\Hypertarget{clavier_8c_source_l00093}00093\ \textcolor{preprocessor}{\#ifdef\ MANUX\_TACHES}}
+\DoxyCodeLine{\Hypertarget{clavier_8c_source_l00094}00094\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{clavier_8c_afb665ec27226cbb78cea21a6e309dea1}{codeClavier}}\ ==\ \mbox{\hyperlink{clavier_8c_a91d398bb7a3bc5a900f8685a14d177fb}{KEYCODE\_F1}})\ \{}
+\DoxyCodeLine{\Hypertarget{clavier_8c_source_l00095}00095\ \ \ \ \ \ \mbox{\hyperlink{scheduler_8h_a6ab4872c480fd88702e95f13ca8c1bf5}{basculerTacheDemande}}\ =\ \mbox{\hyperlink{include_2manux_2types_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{TRUE}};}
+\DoxyCodeLine{\Hypertarget{clavier_8c_source_l00096}00096\ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{clavier_8c_source_l00097}00097\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{clavier_8c_source_l00098}00098\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{clavier_8c_source_l00099}00099\ \textcolor{preprocessor}{\#ifdef\ MANUX\_CLAVIER\_CONSOLE}}
+\DoxyCodeLine{\Hypertarget{clavier_8c_source_l00100}00100\ \ \ \ \ \ \ \mbox{\hyperlink{struct__Console}{Console}}\ *\ cons;}
+\DoxyCodeLine{\Hypertarget{clavier_8c_source_l00101}00101\ \textcolor{preprocessor}{\#\ \ \ ifdef\ MANUX\_CONSOLES\_VIRTUELLES}}
+\DoxyCodeLine{\Hypertarget{clavier_8c_source_l00102}00102\ \ \ \ \ \ \ cons\ =\ consoleActive;}
+\DoxyCodeLine{\Hypertarget{clavier_8c_source_l00103}00103\ \textcolor{preprocessor}{\#\ \ \ else}}
+\DoxyCodeLine{\Hypertarget{clavier_8c_source_l00104}00104\ \ \ \ \ \ \ cons\ =\ \mbox{\hyperlink{include_2manux_2console_8h_abf2f6aca15463bf0f0114531cea39f15}{consoleNoyau}}();}
+\DoxyCodeLine{\Hypertarget{clavier_8c_source_l00105}00105\ \textcolor{preprocessor}{\#\ \ \ endif}}
+\DoxyCodeLine{\Hypertarget{clavier_8c_source_l00106}00106\ }
+\DoxyCodeLine{\Hypertarget{clavier_8c_source_l00107}00107\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{clavier_8c_afb665ec27226cbb78cea21a6e309dea1}{codeClavier}}\ \&\ 0x80)\ \{}
+\DoxyCodeLine{\Hypertarget{clavier_8c_source_l00108}00108\ \ \ \ \ \textcolor{comment}{//printk("{}(up)\(\backslash\)n"{});}}
+\DoxyCodeLine{\Hypertarget{clavier_8c_source_l00109}00109\ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{clavier_8c_source_l00110}00110\ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (cons-\/>bufferClavier)\{\ }
+\DoxyCodeLine{\Hypertarget{clavier_8c_source_l00111}00111\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (cons-\/>nbCarAttente\ <\ 4096)\ \{}
+\DoxyCodeLine{\Hypertarget{clavier_8c_source_l00112}00112\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cons-\/>bufferClavier[(cons-\/>indiceProchainCar\ +\ cons-\/>nbCarAttente)\%4096]\ =}
+\DoxyCodeLine{\Hypertarget{clavier_8c_source_l00113}00113\ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{clavier_8c_aea6378db7413868718bfe76a2f3f7c26}{shiftActif}}\ ?\mbox{\hyperlink{french_8h_abbb88b5d7000eac5da3d6cbd46ca0a4c}{keymapShift}}[\mbox{\hyperlink{clavier_8c_afb665ec27226cbb78cea21a6e309dea1}{codeClavier}}]:\mbox{\hyperlink{french_8h_a18042e52df5374d540e3c35c6c6325e7}{keymap}}[\mbox{\hyperlink{clavier_8c_afb665ec27226cbb78cea21a6e309dea1}{codeClavier}}];}
+\DoxyCodeLine{\Hypertarget{clavier_8c_source_l00114}00114\ \ \ \ \ \ \ \ \ \ \ \ cons-\/>nbCarAttente++;}
+\DoxyCodeLine{\Hypertarget{clavier_8c_source_l00115}00115\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{clavier_8c_source_l00116}00116\ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{clavier_8c_source_l00117}00117\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{clavier_8c_source_l00118}00118\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{clavier_8c_source_l00119}00119\ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{clavier_8c_source_l00120}00120\ \}}
+
+\end{DoxyCode}

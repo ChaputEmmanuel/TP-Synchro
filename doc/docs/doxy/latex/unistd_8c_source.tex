@@ -1,0 +1,29 @@
+\doxysection{unistd.\+c}
+\hypertarget{unistd_8c_source}{}\label{unistd_8c_source}\index{/home/manu/PROGRAMMATION/C/ManuX/usr/unistd.c@{/home/manu/PROGRAMMATION/C/ManuX/usr/unistd.c}}
+\mbox{\hyperlink{unistd_8c}{Aller à la documentation de ce fichier.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{unistd_8c_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{unistd_8c_source_l00007}00007\ \textcolor{preprocessor}{\#include\ <manux/config.h>}}
+\DoxyCodeLine{\Hypertarget{unistd_8c_source_l00008}00008\ \textcolor{preprocessor}{\#include\ <manux/appelsysteme.h>}}
+\DoxyCodeLine{\Hypertarget{unistd_8c_source_l00009}00009\ }
+\DoxyCodeLine{\Hypertarget{unistd_8c_source_l00010}00010\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{unistd_8h}{unistd.h}}>}}
+\DoxyCodeLine{\Hypertarget{unistd_8c_source_l00011}00011\ }
+\DoxyCodeLine{\Hypertarget{unistd_8c_source_l00012}\mbox{\hyperlink{unistd_8c_aa7d19b3c72ce326db9c3813d3c3628f6}{00012}}\ \mbox{\hyperlink{usr_2include_2manux_2appelsysteme_8h_a8dd4f42ed253967845eae9fe8bf9980a}{appelSysteme0}}(\mbox{\hyperlink{include_2manux_2appelsystemenum_8h_a3e18211ea522a478c94efc68b359063a}{NBAS\_BASCULER\_TACHE}},\ \textcolor{keywordtype}{int},\ \mbox{\hyperlink{unistd_8h_a3d9572ab938a72bddfc58ab5f224d831}{basculerTache}});}
+\DoxyCodeLine{\Hypertarget{unistd_8c_source_l00013}00013\ }
+\DoxyCodeLine{\Hypertarget{unistd_8c_source_l00014}\mbox{\hyperlink{unistd_8c_a9cd7567a5333d36cdcb5571eae2816bb}{00014}}\ \mbox{\hyperlink{usr_2include_2manux_2appelsysteme_8h_a8dd4f42ed253967845eae9fe8bf9980a}{appelSysteme0}}(\mbox{\hyperlink{include_2manux_2appelsystemenum_8h_ae0200ee1c8ec09ed15ff119ad17afa2d}{NBAS\_IDENTIFIANT\_TACHE}},\ \textcolor{keywordtype}{int},\ \mbox{\hyperlink{unistd_8h_a321e672f528d0dd0927c93ff3a09c5c7}{identifiantTache}});}
+\DoxyCodeLine{\Hypertarget{unistd_8c_source_l00015}00015\ }
+\DoxyCodeLine{\Hypertarget{unistd_8c_source_l00016}\mbox{\hyperlink{unistd_8c_ae60e4a0f81df6b8c9a2dcc7430575adc}{00016}}\ \mbox{\hyperlink{usr_2include_2manux_2appelsysteme_8h_a8dd4f42ed253967845eae9fe8bf9980a}{appelSysteme0}}(\mbox{\hyperlink{include_2manux_2appelsystemenum_8h_a2bc38972d09552a7f7334ac03e1a70f0}{NBAS\_DUMB}},\ \textcolor{keywordtype}{int},\ \mbox{\hyperlink{unistd_8h_abf637d92e7036ee63342a8693dc9c228}{appelSystemeInutile}});}
+\DoxyCodeLine{\Hypertarget{unistd_8c_source_l00017}00017\ }
+\DoxyCodeLine{\Hypertarget{unistd_8c_source_l00018}\mbox{\hyperlink{unistd_8c_a8b557317cab839f44554f513f498e057}{00018}}\ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{unistd_8c_a8b557317cab839f44554f513f498e057}{void}}\ (CorpsTache());}
+\DoxyCodeLine{\Hypertarget{unistd_8c_source_l00019}00019\ }
+\DoxyCodeLine{\Hypertarget{unistd_8c_source_l00020}\mbox{\hyperlink{unistd_8c_a52f8debe514b16952e6f81b6309cb0b0}{00020}}\ \mbox{\hyperlink{usr_2include_2manux_2appelsysteme_8h_acaae5c8a118b6ba8d8fc01dc8b7fe648}{appelSysteme2}}(\mbox{\hyperlink{include_2manux_2appelsystemenum_8h_a0be4551c809b51ac7a4103b267ee9ba7}{NBAS\_CREER\_TACHE}},\ \textcolor{keywordtype}{int},\ \mbox{\hyperlink{unistd_8h_aa504f61bfbbdfa9a463450f8b21db44f}{creerNouvelleTache}},\ CorpsTache,\ \mbox{\hyperlink{include_2manux_2types_8h_a5b7544e51b136e716e4eccc0602bafd7}{booleen}});}
+\DoxyCodeLine{\Hypertarget{unistd_8c_source_l00021}00021\ }
+\DoxyCodeLine{\Hypertarget{unistd_8c_source_l00022}00022\ \textcolor{preprocessor}{\#ifdef\ MANUX\_TUBES}}
+\DoxyCodeLine{\Hypertarget{unistd_8c_source_l00023}00023\ \mbox{\hyperlink{usr_2include_2manux_2appelsysteme_8h_aa537637276ac00892b710bad5cf28292}{appelSysteme1}}(NBAS\_TUBE,\ \textcolor{keywordtype}{int},\ \mbox{\hyperlink{unistd_8h_a40fbcf01646e76422f8b48f5837996d7}{tube}},\ \textcolor{keywordtype}{int}\ *);}
+\DoxyCodeLine{\Hypertarget{unistd_8c_source_l00024}00024\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{unistd_8c_source_l00025}00025\ }
+\DoxyCodeLine{\Hypertarget{unistd_8c_source_l00029}00029\ \textcolor{preprocessor}{\#ifdef\ MANUX\_AS\_TEST\_SYNCHRO}}
+\DoxyCodeLine{\Hypertarget{unistd_8c_source_l00030}00030\ \mbox{\hyperlink{usr_2include_2manux_2appelsysteme_8h_acaae5c8a118b6ba8d8fc01dc8b7fe648}{appelSysteme2}}(NBAS\_TEST\_SYNC,\ \textcolor{keywordtype}{int},\ testSynchro,\ \textcolor{keywordtype}{int},\ \textcolor{keywordtype}{int});}
+\DoxyCodeLine{\Hypertarget{unistd_8c_source_l00031}00031\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

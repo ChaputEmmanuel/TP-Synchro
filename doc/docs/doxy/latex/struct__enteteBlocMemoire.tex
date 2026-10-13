@@ -1,0 +1,89 @@
+\doxysection{Référence de la structure \+\_\+entete\+Bloc\+Memoire}
+\hypertarget{struct__enteteBlocMemoire}{}\label{struct__enteteBlocMemoire}\index{\_enteteBlocMemoire@{\_enteteBlocMemoire}}
+
+
+Description d\textquotesingle{}un bloc mémoire fourni à l\textquotesingle{}utilisateur En fait, on ne lui fourni que le pointeur vers la partie qu\textquotesingle{}il peut utiliser.  
+
+
+
+
+Graphe de collaboration de \+\_\+entete\+Bloc\+Memoire\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=256pt]{struct__enteteBlocMemoire__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Attributs publics}
+\begin{DoxyCompactItemize}
+\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+union \{\\
+\>struct \{\\
+\>\>\mbox{\hyperlink{include_2manux_2types_8h_a273cf69d639a59973b6019625df33e30}{uint16\_t}} \mbox{\hyperlink{struct__enteteBlocMemoire_a89fd81363a6eafef88ddbccd474cc222}{magique}}\\
+\>\>\mbox{\hyperlink{include_2manux_2types_8h_a273cf69d639a59973b6019625df33e30}{uint16\_t}} \mbox{\hyperlink{struct__enteteBlocMemoire_a9e5c08ea104ec9f011fb817e2408da60}{ordre}}\\
+\>\} \mbox{\hyperlink{struct__enteteBlocMemoire_afc3f47672517fcc3b00f36c9e1042718}{alloue}}\\
+\>struct \mbox{\hyperlink{struct__enteteBlocMemoire}{\_enteteBlocMemoire}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct__enteteBlocMemoire_a70b90175c64ee52b9a44f1e03d944472}{suivant}}\\
+\} \mbox{\hyperlink{struct__enteteBlocMemoire_a1b688ebdc7fd15a31f953cf76c172462}{e}}\\
+
+\end{tabbing}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Description d\textquotesingle{}un bloc mémoire fourni à l\textquotesingle{}utilisateur En fait, on ne lui fourni que le pointeur vers la partie qu\textquotesingle{}il peut utiliser. 
+
+L\textquotesingle{}entête est une union car elle peut prendre deux formes. Lorsque le bloc est alloué et fourni à l\textquotesingle{}utilisateur, on y stocque un nombre "{}magique"{} qu\textquotesingle{}on espère retrouver, et une taille qui nous permettra de savoir combien d\textquotesingle{}octets ont été alloués. Lorsque le bloc est libre, on utilise cet entête pour mettre en place une liste chaînée. 
+
+Définition à la ligne \mbox{\hyperlink{kmalloc-zs_8c_source_l00038}{38}} du fichier \mbox{\hyperlink{kmalloc-zs_8c_source}{kmalloc-\/zs.\+c}}.
+
+
+
+\doxysubsection{Documentation des données membres}
+\Hypertarget{struct__enteteBlocMemoire_afc3f47672517fcc3b00f36c9e1042718}\label{struct__enteteBlocMemoire_afc3f47672517fcc3b00f36c9e1042718} 
+\index{\_enteteBlocMemoire@{\_enteteBlocMemoire}!alloue@{alloue}}
+\index{alloue@{alloue}!\_enteteBlocMemoire@{\_enteteBlocMemoire}}
+\doxysubsubsection{\texorpdfstring{[struct]}{[struct]}}
+{\footnotesize\ttfamily struct  \{ ... \}  \+\_\+entete\+Bloc\+Memoire\+::alloue}
+
+\Hypertarget{struct__enteteBlocMemoire_a1b688ebdc7fd15a31f953cf76c172462}\label{struct__enteteBlocMemoire_a1b688ebdc7fd15a31f953cf76c172462} 
+\index{\_enteteBlocMemoire@{\_enteteBlocMemoire}!e@{e}}
+\index{e@{e}!\_enteteBlocMemoire@{\_enteteBlocMemoire}}
+\doxysubsubsection{\texorpdfstring{[union]}{[union]}}
+{\footnotesize\ttfamily union  \{ ... \}  \+\_\+entete\+Bloc\+Memoire\+::e}
+
+\Hypertarget{struct__enteteBlocMemoire_a89fd81363a6eafef88ddbccd474cc222}\label{struct__enteteBlocMemoire_a89fd81363a6eafef88ddbccd474cc222} 
+\index{\_enteteBlocMemoire@{\_enteteBlocMemoire}!magique@{magique}}
+\index{magique@{magique}!\_enteteBlocMemoire@{\_enteteBlocMemoire}}
+\doxysubsubsection{\texorpdfstring{magique}{magique}}
+{\footnotesize\ttfamily \mbox{\hyperlink{include_2manux_2types_8h_a273cf69d639a59973b6019625df33e30}{uint16\+\_\+t}} \+\_\+entete\+Bloc\+Memoire\+::magique}
+
+
+
+Définition à la ligne \mbox{\hyperlink{kmalloc-zs_8c_source_l00041}{41}} du fichier \mbox{\hyperlink{kmalloc-zs_8c_source}{kmalloc-\/zs.\+c}}.
+
+\Hypertarget{struct__enteteBlocMemoire_a9e5c08ea104ec9f011fb817e2408da60}\label{struct__enteteBlocMemoire_a9e5c08ea104ec9f011fb817e2408da60} 
+\index{\_enteteBlocMemoire@{\_enteteBlocMemoire}!ordre@{ordre}}
+\index{ordre@{ordre}!\_enteteBlocMemoire@{\_enteteBlocMemoire}}
+\doxysubsubsection{\texorpdfstring{ordre}{ordre}}
+{\footnotesize\ttfamily \mbox{\hyperlink{include_2manux_2types_8h_a273cf69d639a59973b6019625df33e30}{uint16\+\_\+t}} \+\_\+entete\+Bloc\+Memoire\+::ordre}
+
+
+
+Définition à la ligne \mbox{\hyperlink{kmalloc-zs_8c_source_l00042}{42}} du fichier \mbox{\hyperlink{kmalloc-zs_8c_source}{kmalloc-\/zs.\+c}}.
+
+\Hypertarget{struct__enteteBlocMemoire_a70b90175c64ee52b9a44f1e03d944472}\label{struct__enteteBlocMemoire_a70b90175c64ee52b9a44f1e03d944472} 
+\index{\_enteteBlocMemoire@{\_enteteBlocMemoire}!suivant@{suivant}}
+\index{suivant@{suivant}!\_enteteBlocMemoire@{\_enteteBlocMemoire}}
+\doxysubsubsection{\texorpdfstring{suivant}{suivant}}
+{\footnotesize\ttfamily struct \mbox{\hyperlink{struct__enteteBlocMemoire}{\+\_\+entete\+Bloc\+Memoire}}\texorpdfstring{$\ast$}{*} \+\_\+entete\+Bloc\+Memoire\+::suivant}
+
+
+
+Définition à la ligne \mbox{\hyperlink{kmalloc-zs_8c_source_l00044}{44}} du fichier \mbox{\hyperlink{kmalloc-zs_8c_source}{kmalloc-\/zs.\+c}}.
+
+
+
+La documentation de cette structure a été générée à partir du fichier suivant \+:\begin{DoxyCompactItemize}
+\item 
+/home/manu/\+PROGRAMMATION/\+C/\+Manu\+X/noyau/\mbox{\hyperlink{kmalloc-zs_8c}{kmalloc-\/zs.\+c}}\end{DoxyCompactItemize}

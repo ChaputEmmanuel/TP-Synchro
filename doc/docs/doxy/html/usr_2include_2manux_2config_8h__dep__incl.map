@@ -1,0 +1,23 @@
+<map id="/home/manu/PROGRAMMATION/C/ManuX/usr/include/manux/config.h" name="/home/manu/PROGRAMMATION/C/ManuX/usr/include/manux/config.h">
+<area shape="rect" id="Node000001" title=" " alt="" coords="1008,5,1235,60"/>
+<area shape="rect" id="Node000002" href="$unistd_8h.html" title=" " alt="" coords="1008,108,1235,148"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="1124,74,1124,108,1119,108,1119,74"/>
+<area shape="rect" id="Node000003" href="$taillenoyau_8c.html" title=" " alt="" coords="5,203,232,243"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="995,137,655,156,449,174,244,199,202,206,201,201,244,193,449,169,654,151,994,131"/>
+<area shape="rect" id="Node000004" href="$init-acces-concurrent_8c.html" title=" " alt="" coords="256,196,483,251"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="994,142,762,164,495,199,483,201,483,195,494,193,761,159,994,137"/>
+<area shape="rect" id="Node000005" href="$init-appel-systeme_8c.html" title=" " alt="" coords="507,196,733,251"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="998,153,746,199,734,201,733,196,745,193,997,148"/>
+<area shape="rect" id="Node000006" href="$init-reentrance_8c.html" title=" " alt="" coords="757,203,984,243"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="1059,155,922,206,920,201,1057,150"/>
+<area shape="rect" id="Node000007" href="$init-test-synchro_8c.html" title="L&#39;init du monde utilisateur permettant de montrer les besoins de synchronisation." alt="" coords="1008,196,1235,251"/>
+<area shape="poly" id="edge6_Node000002_Node000007" title=" " alt="" coords="1124,161,1124,196,1119,196,1119,161"/>
+<area shape="rect" id="Node000008" href="$init-userland_8c.html" title="Un exemple trivial de init." alt="" coords="1259,203,1485,243"/>
+<area shape="poly" id="edge7_Node000002_Node000008" title=" " alt="" coords="1186,150,1322,201,1320,206,1184,155"/>
+<area shape="rect" id="Node000009" href="$init-verrou-noyau_8c.html" title=" " alt="" coords="1509,196,1736,251"/>
+<area shape="poly" id="edge8_Node000002_Node000009" title=" " alt="" coords="1246,148,1498,193,1510,196,1509,201,1497,199,1245,153"/>
+<area shape="rect" id="Node000010" href="$init_8c.html" title="L&#39;init du monde utilisateur." alt="" coords="1760,203,1987,243"/>
+<area shape="poly" id="edge9_Node000002_Node000010" title=" " alt="" coords="1249,137,1482,159,1748,193,1789,201,1788,206,1748,199,1481,164,1248,142"/>
+<area shape="rect" id="Node000011" href="$unistd_8c.html" title="Implantation des fonctions de base du mode utilisateur." alt="" coords="2011,203,2237,243"/>
+<area shape="poly" id="edge10_Node000002_Node000011" title=" " alt="" coords="1248,131,1588,151,1794,169,1999,193,2042,201,2041,206,1998,199,1793,174,1588,156,1248,137"/>
+</map>

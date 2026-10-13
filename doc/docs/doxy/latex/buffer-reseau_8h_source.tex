@@ -1,0 +1,34 @@
+\doxysection{buffer-\/reseau.h}
+\hypertarget{buffer-reseau_8h_source}{}\label{buffer-reseau_8h_source}\index{/home/manu/PROGRAMMATION/C/ManuX/include/manux/buffer-\/reseau.h@{/home/manu/PROGRAMMATION/C/ManuX/include/manux/buffer-\/reseau.h}}
+\mbox{\hyperlink{buffer-reseau_8h}{Aller à la documentation de ce fichier.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{buffer-reseau_8h_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{buffer-reseau_8h_source_l00007}00007\ \textcolor{preprocessor}{\#ifndef\ BUFFER\_RESEAU}}
+\DoxyCodeLine{\Hypertarget{buffer-reseau_8h_source_l00008}00008\ \textcolor{preprocessor}{\#define\ BUFFER\_RESEAU}}
+\DoxyCodeLine{\Hypertarget{buffer-reseau_8h_source_l00009}00009\ }
+\DoxyCodeLine{\Hypertarget{buffer-reseau_8h_source_l00010}00010\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{interface-reseau_8h}{manux/interface-\/reseau.h}}>}}
+\DoxyCodeLine{\Hypertarget{buffer-reseau_8h_source_l00011}00011\ }
+\DoxyCodeLine{\Hypertarget{buffer-reseau_8h_source_l00015}\mbox{\hyperlink{struct__bufferReseau}{00015}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__bufferReseau}{\_bufferReseau}}\ \{}
+\DoxyCodeLine{\Hypertarget{buffer-reseau_8h_source_l00016}\mbox{\hyperlink{struct__bufferReseau_a2e43074efd64dec589326f99e1cf6df6}{00016}}\ \ \ \ \textcolor{keywordtype}{void}\ *\ \mbox{\hyperlink{struct__bufferReseau_a2e43074efd64dec589326f99e1cf6df6}{donnees}};}
+\DoxyCodeLine{\Hypertarget{buffer-reseau_8h_source_l00017}\mbox{\hyperlink{struct__bufferReseau_a8a886224959101163dfe8025cf537860}{00017}}\ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct__bufferReseau_a8a886224959101163dfe8025cf537860}{taille}};}
+\DoxyCodeLine{\Hypertarget{buffer-reseau_8h_source_l00018}\mbox{\hyperlink{struct__bufferReseau_a8a871db0870b52aaa829e4f2ac43b378}{00018}}\ \ \ \ \mbox{\hyperlink{struct__ReseauInterface}{ReseauInterface}}\ *\ \mbox{\hyperlink{struct__bufferReseau_a8a871db0870b52aaa829e4f2ac43b378}{interfaceReception}};\ \ \textcolor{comment}{//\ Sur\ quelle\ interface}}
+\DoxyCodeLine{\Hypertarget{buffer-reseau_8h_source_l00019}00019\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ l'a-\/t-\/on\ reçu\ (ou\ NULL)\ }}
+\DoxyCodeLine{\Hypertarget{buffer-reseau_8h_source_l00020}\mbox{\hyperlink{buffer-reseau_8h_aea7ce1ecfa928812bdb3872fcdd79fb8}{00020}}\ \}\ \mbox{\hyperlink{buffer-reseau_8h_aea7ce1ecfa928812bdb3872fcdd79fb8}{BufferReseau}};}
+\DoxyCodeLine{\Hypertarget{buffer-reseau_8h_source_l00021}00021\ }
+\DoxyCodeLine{\Hypertarget{buffer-reseau_8h_source_l00026}\mbox{\hyperlink{buffer-reseau_8h_ab99f07b5236134ff40767dd01cea2973}{00026}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__ListeBufferReseau}{\_ListeBufferReseau}}\ \mbox{\hyperlink{struct__ListeBufferReseau}{ListeBufferReseau}};}
+\DoxyCodeLine{\Hypertarget{buffer-reseau_8h_source_l00027}00027\ }
+\DoxyCodeLine{\Hypertarget{buffer-reseau_8h_source_l00032}00032\ \mbox{\hyperlink{struct__bufferReseau}{BufferReseau}}\ *\ \mbox{\hyperlink{buffer-reseau_8h_a4c7d77e3d7e5402407a6db0612dccc88}{bufferReseauCreer}}(\textcolor{keywordtype}{void}\ *\ donnees,\ \textcolor{keywordtype}{int}\ taille);}
+\DoxyCodeLine{\Hypertarget{buffer-reseau_8h_source_l00033}00033\ }
+\DoxyCodeLine{\Hypertarget{buffer-reseau_8h_source_l00037}00037\ \mbox{\hyperlink{struct__ListeBufferReseau}{ListeBufferReseau}}\ *\ \mbox{\hyperlink{buffer-reseau_8h_af09e9a3dac0065f1944e8bc6063f007e}{listeBufferReseauCreer}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{buffer-reseau_8h_source_l00038}00038\ }
+\DoxyCodeLine{\Hypertarget{buffer-reseau_8h_source_l00042}00042\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{buffer-reseau_8h_abe1fa2d4a3d29d7c2a55ee335c23b0c7}{listeBufferReseauVide}}(\mbox{\hyperlink{struct__ListeBufferReseau}{ListeBufferReseau}}\ *\ l);}
+\DoxyCodeLine{\Hypertarget{buffer-reseau_8h_source_l00043}00043\ }
+\DoxyCodeLine{\Hypertarget{buffer-reseau_8h_source_l00047}00047\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{buffer-reseau_8h_a251a4a4fbc1c578bf93cbb0944b96f79}{listeBufferReseauInserer}}(\mbox{\hyperlink{struct__ListeBufferReseau}{ListeBufferReseau}}\ *\ l,\ \mbox{\hyperlink{struct__bufferReseau}{BufferReseau}}\ *\ \mbox{\hyperlink{main-bootreg_8c_a7976cd62f9b61a65e8104a3cf7c15099}{b}});}
+\DoxyCodeLine{\Hypertarget{buffer-reseau_8h_source_l00048}00048\ }
+\DoxyCodeLine{\Hypertarget{buffer-reseau_8h_source_l00054}00054\ \mbox{\hyperlink{struct__bufferReseau}{BufferReseau}}\ *\ \mbox{\hyperlink{buffer-reseau_8h_a76525950585070e30a2af05f1d49d2ae}{listeBufferReseauExtraire}}(\mbox{\hyperlink{struct__ListeBufferReseau}{ListeBufferReseau}}\ *\ l);}
+\DoxyCodeLine{\Hypertarget{buffer-reseau_8h_source_l00055}00055\ }
+\DoxyCodeLine{\Hypertarget{buffer-reseau_8h_source_l00059}00059\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{buffer-reseau_8h_a46dddf58d22c1c39c62a4b948766b91e}{listeBufferReseauAfficher}}(\mbox{\hyperlink{struct__ListeBufferReseau}{ListeBufferReseau}}\ *\ l);}
+\DoxyCodeLine{\Hypertarget{buffer-reseau_8h_source_l00060}00060\ }
+\DoxyCodeLine{\Hypertarget{buffer-reseau_8h_source_l00061}00061\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

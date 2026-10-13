@@ -1,0 +1,156 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>My Project: Introduction</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">My Project
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+</div><!-- top -->
+<div><div class="header">
+  <div class="headertitle"><div class="title">Introduction</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><p><a class="anchor" id="autotoc_md161"></a> Nous allons décrire ici les outils permettant de définir et manipuler les fichiers ainsi que les interfaces permettant d’accéder à des fichiers.</p>
+<p>Nous verrons également que ces interfaces permettent l’accès à d’autres outils d’échange d’information. C’est en effet une pratique classique que de proposer une interface la plus simple et la plus homogène possible à tous les outils de stockage et d’échange de données.</p>
+<p>Nous allons commencer par essayer de définir clairement les deux principales structures de données classiquement utilisées : le <em>noeud d’index</em> et le <em>fichier ouvert</em>.</p>
+<p>La première de ces structures donne des informations sur la structure et les propriétés du fichier ; c’est au travers d’elle que nous pourrons savoir où se trouve physiquement le fichier, à qui il appartient, qu’est-ce qu’un utilisateur a le droit d’en faire, etc …</p>
+<p>La seconde contient des informations plus dynamiques sur un fichier qui est manipulé par une tâche. On y trouvera donc par exemple la position actuelle dans le fichier.</p>
+<p>Une analogie simple nous permet de dire que le nœud d’index nous permet de savoir qu’un livre est situé dans la troisième rangée de la deuxième étagère (et qu’il est interdit d’écrire sur le livre !), la où le fichier ouvert contient par exemple un marque page positionné à la prochaine page qu’un utilisateur s’apprète à lire.</p>
+<h1><a class="anchor" id="autotoc_md162"></a>
+Notion de noeud d’index</h1>
+<p>La structure permettant de décrire les propriétés d’un fichier est classiquement appelée <em>nœud d’index</em>, ou plus souvent <em>inode</em> (pour <em>index node</em>).</p>
+<h2><a class="anchor" id="autotoc_md163"></a>
+Dans ManuX</h2>
+<p>ManuX définit la structure <code>NoeudI</code> et les fonctions associées dans le fichier <a href="/doxy/html/noeudi_8h_source.html"><code>include/manux/noeudi.h</code></a>(<a href="/doxy/html/noeudi_8h.html">dox</a>). Les fonctions sont implantées dans le fichier <a href="/doxy/html/noeudi_8c_source.html"><code>sf/noeudi.c</code></a>(<a href="/doxy/html/noeudi_8c.html">dox</a>).</p>
+<p>Une chose importante à avoir en tête est le fait qu’un fichier décrit par un NoeudI peut être de diverses natures et qu’il est donc important de garder trace d’informations permettant de savoir comment le manipuler.</p>
+<p>La structure <code>NoeudI</code> intègre en particulier les champs suivants :</p>
+<ul>
+<li><code>methodesFichier</code> fourni les fonctions de manipulation d’un fichier du type concerné.</li>
+<li><code>prive</code> est un pointeur vers des données spécifiques au type du fichier et permettant de définir des propriétés spécifiques du fichier.</li>
+</ul>
+<h3><a class="anchor" id="autotoc_md164"></a>
+Les méthodes de manipulation des fichiers</h3>
+<h1><a class="anchor" id="autotoc_md165"></a>
+Description d’un fichier ouvert</h1>
+<h2><a class="anchor" id="autotoc_md166"></a>
+Dans ManuX</h2>
+<p>Dans ManuX, un fichier ouvert est décrit dans la structure <code>fichier</code> qui contient en particulier les données suivantes</p>
+<ul>
+<li><code>noeudI</code></li>
+<li><code>prive</code> est un pointeur vers des données spécifiques au type du fichier et permettant de conserver trace de l’état du fichier.</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md167"></a>
+Outils de base de manipulation des fichiers</h1>
+<h2><a class="anchor" id="autotoc_md168"></a>
+Interface utilisateur</h2>
+<p>L’interface fournie à l’espace utilisateur est généralement simple et la plus abstraite possible. Elle passe par un certain nombre d’appels système permettant en particulier d’ouvrir, de lire, d’écrire et de fermer un fichier.</p>
+<h2><a class="anchor" id="autotoc_md169"></a>
+Dans le noyau</h2>
+<h2><a class="anchor" id="autotoc_md170"></a>
+Dans ManuX</h2>
+<p>ManuX définit une interface utilisateur classique fondée sur quelques appels systèmes inspirés de ce que l’on trouve dans un système Unix.</p>
+<h3><a class="anchor" id="autotoc_md171"></a>
+L’interface</h3>
+<h4><a class="anchor" id="autotoc_md172"></a>
+Ouverture d’un fichier</h4>
+<p>L’ouverture d’un fichier se fait à l’aide de l’appel système <code>UNDEFINED</code>.</p>
+<h4><a class="anchor" id="autotoc_md173"></a>
+Lecture dans un fichier</h4>
+<p>L’appel système <code>lire</code> est défini dans le fichier <a href="/doxy/html/stdio_8h_source.html"><code>usr/include/stdio.h</code></a>(<a href="/doxy/html/stdio_8h.html">dox</a>) de la façon suivante : </p><pre class="fragment">int lire(int fd, void * buffer, int nb);
+</pre> <h4><a class="anchor" id="autotoc_md174"></a>
+Écriture dans un fichier</h4>
+<h3><a class="anchor" id="autotoc_md175"></a>
+Dans le noyau</h3>
+<h4><a class="anchor" id="autotoc_md176"></a>
+Lecture dans un fichier</h4>
+<p>L’implantation de l’appel système de lecture est réalisée dans la fonction <code>sys_lire()</code> implantée dans le fichier <a href="/doxy/html/c_8._source.html"><code>sf/fichier/c..</code></a>(<a href="/doxy/html/c_8..html">dox</a>) L’appel système est défini dans la fonction <code><a class="el" href="fichier_8h.html#a431c9fdbc351bde6f9c419267bd5adc5">sfInitialiser()</a></code> du même fichier.</p>
+<p>Cette fonction peut servir en particulier à mettre en place des contrôles de sécurité. Elle se contente pour le moment de faire appel à la fonction <code>fichierLire()</code> qui est en charge d’aiguiller vers la fcontion de lecture spécifique au type du fichier ciblé.</p>
+<h1><a class="anchor" id="autotoc_md177"></a>
+Un exemple : les consoles</h1>
+<p>Je ne vais pas revenir ici sur l’implantation des consoles, déjà décrite avec brio dans le chapitre qui leur est dédié. Regardons simplement comment elles se retrouvent affublées d’une interface de type fichier.</p>
+<p>Dans le fichier <a href="/doxy/html/console_8c_source.html"><code>lib/console.c</code></a>(<a href="/doxy/html/console_8c.html">dox</a>), les fonctions de manipulation d’une console sont définies de la façon suivante </p><pre class="fragment">/**
+ * @brief Declaration des methodes permettant de traiter une console
+ * comme un fichier
+ */
+MethodesFichier consoleMethodesFichier = {
+   .ouvrir = consoleOuvrir,
+   .ecrire = consoleEcrire,
+   .lire = consoleFichierLire
+};
+</pre> <h2><a class="anchor" id="autotoc_md178"></a>
+La fonction d’écriture</h2>
+<p>La fonction <code><a class="el" href="include_2manux_2console_8h.html#ab013551f90e5a40b4626b103995364da">consoleEcrire()</a></code> est alors simplement constituée d’un appel à la fonction d’affichage dans la console visée, dont un pointeur est obtenu via le champ privé.</p>
+<p>ATTENTION ! il faut aller le chercher via le noeudI, ce qui n’est pas le cas pour le moment !!!</p>
+<h1><a class="anchor" id="autotoc_md179"></a>
+Les tubes de communication</h1>
+<p>Les méthodes de manipulation </p>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

@@ -1,0 +1,266 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>My Project:  Fichier source de /home/manu/PROGRAMMATION/C/ManuX/usr/stdio.c</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">My Project
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- GÃ©nÃ©rÃ© par Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function() { init_codefold(0); });
+/* @license-end */
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_c4a6f9ef9d60515833db96a1f80ff998.html">usr</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle"><div class="title">stdio.c</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="stdio_8c.html">Aller Ã  la documentation de ce fichier.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">/*----------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment">/*      Implantion des fonctions de base d&#39;entrée-sortie du mode utilisateur. */</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment">/*                                                                            */</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment">/*                                                  (C) Manu Chaput 2002-2021 */</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment">/*----------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &lt;manux/config.h&gt;</span>     <span class="comment">// Suivant la config on passe par fs ou pas</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &lt;manux/appelsysteme.h&gt;</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &lt;<a class="code" href="stdio_8h.html">stdio.h</a>&gt;</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno"><a class="line" href="stdio_8c.html#a35c1f462c29ba66bacdb8819d37c502e">   14</a></span><span class="keywordtype">int</span> <a class="code hl_function" href="stdio_8c.html#a35c1f462c29ba66bacdb8819d37c502e">vsnprintk</a>(<span class="keywordtype">char</span> * <a class="code hl_define" href="include_2manux_2i386_8h.html#a78b6d0d522b49e5b375731d08f4c39fd">str</a>, <span class="keyword">const</span> <span class="keywordtype">size_t</span> l, <span class="keywordtype">char</span> * format, <a class="code hl_typedef" href="include_2manux_2stdarg_8h.html#af53f622e3b6c080daeb167c1955d7ec1">va_list</a> argList);</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="stdio_8c.html#a6fb514b92925e962cc3576445492ad06">   16</a></span><span class="preprocessor">#define MAX_PRINTF_LENGTH 64</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="stdio_8c.html#a751b71485e6bb228423b412943328232">   18</a></span><span class="preprocessor">#define chiffre &quot;0123456789abcdef&quot;</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="stdio_8c.html#a85f127722c8d051635ac6fac12c99571">   20</a></span><a class="code hl_define" href="usr_2include_2manux_2appelsysteme_8h.html#ac79254a5f0c355a82f51b90313058041">appelSysteme3</a>(<a class="code hl_define" href="include_2manux_2appelsystemenum_8h.html#af6f2b6432cfa9ae465218edc7dce87d8">NBAS_ECRIRE</a>, <span class="keywordtype">int</span>, <a class="code hl_function" href="stdio_8h.html#afb8a53c515b7e4b7b0c2d9abf9f7d0c0">ecrire</a>, <span class="keywordtype">int</span>, <span class="keywordtype">void</span> *, <span class="keywordtype">int</span>);</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="stdio_8c.html#a2ccd5a40c9a25558db6fa1887ecce751">   22</a></span><a class="code hl_define" href="usr_2include_2manux_2appelsysteme_8h.html#ac79254a5f0c355a82f51b90313058041">appelSysteme3</a>(<a class="code hl_define" href="include_2manux_2appelsystemenum_8h.html#aaf3a5c58d84af2705d30a45914274b7c">NBAS_LIRE</a>, <span class="keywordtype">int</span>, <a class="code hl_function" href="stdio_8h.html#a0d64d8b56640a3dea27ca2d59f711e35">lire</a>, <span class="keywordtype">int</span>, <span class="keywordtype">void</span> *, <span class="keywordtype">int</span>);</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="stdio_8c.html#ac0840e2d8114956f8614d2427bd8c726">   24</a></span><a class="code hl_define" href="usr_2include_2manux_2appelsysteme_8h.html#aa537637276ac00892b710bad5cf28292">appelSysteme1</a>(<a class="code hl_define" href="include_2manux_2appelsystemenum_8h.html#a8bc3e6338e5b025a7e139f7e33181447">NBAS_FERMER</a>, <span class="keywordtype">int</span>, <a class="code hl_function" href="stdio_8h.html#a66a9ef9199d2ddbbf2b6b0c7f7b99ab5">fermer</a>, <span class="keywordtype">int</span>);</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="comment">/*</span></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="comment"> * ecrireConsole est un appel système. Son &quot;implantation&quot; côté</span></div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="comment"> * utilisateur passe donc par une macro.</span></div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="stdio_8c.html#af7790270f6ec0e3a8b4535c070602a37">   31</a></span><a class="code hl_define" href="usr_2include_2manux_2appelsysteme_8h.html#acaae5c8a118b6ba8d8fc01dc8b7fe648">appelSysteme2</a>(<a class="code hl_define" href="include_2manux_2appelsystemenum_8h.html#a5b97a0359c72a132c3943c5678d2321e">NBAS_ECRIRE_CONS</a>, <span class="keywordtype">int</span>, <a class="code hl_function" href="stdio_8h.html#a861f236a5adfcd353291fd93b2498226">ecrireConsole</a>, <span class="keywordtype">char</span> *, <span class="keywordtype">int</span>);</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
+<div class="foldopen" id="foldopen00038" data-start="{" data-end="}">
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno"><a class="line" href="stdio_8c.html#a0daccbeb6277ebc17e52e3ae03e11c27">   38</a></span><span class="keywordtype">int</span> <a class="code hl_function" href="stdio_8c.html#a0daccbeb6277ebc17e52e3ae03e11c27">vsnprintf</a>(<span class="keywordtype">char</span> * <a class="code hl_define" href="include_2manux_2i386_8h.html#a78b6d0d522b49e5b375731d08f4c39fd">str</a>, <span class="keyword">const</span> <span class="keywordtype">size_t</span> l, <span class="keywordtype">char</span> * format, <a class="code hl_typedef" href="include_2manux_2stdarg_8h.html#af53f622e3b6c080daeb167c1955d7ec1">va_list</a> argList)</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>{</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>   <span class="keywordtype">size_t</span>    indice = 0;</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>   <span class="comment">//   long long int       n;   // valeur associée à un %[l]d</span></div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>   <span class="keywordtype">long</span> <span class="keywordtype">int</span>       n;   <span class="comment">// valeur associée à un %[l]d</span></div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>   <span class="keywordtype">char</span>      nombre[10];    <span class="comment">// chaîne du nombre</span></div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>   <span class="keywordtype">char</span>    * s;             <span class="comment">// valeur associée à un %s</span></div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>   <span class="keywordtype">char</span>      <a class="code hl_variable" href="main-bootreg_8c.html#add06ad5d8520e7cff4ff84b2811c0982">c</a>;             <span class="comment">// Affichage d&#39;un caractère</span></div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>   <span class="keywordtype">int</span>       in;            <span class="comment">// indice pour les boucles internes</span></div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>   <span class="keywordtype">int</span>       nbChiffres;    <span class="comment">// pour les %[n]d</span></div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>   <span class="keywordtype">int</span>       base;          <span class="comment">// de l&#39;affichage entier</span></div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>   <span class="keywordtype">int</span>       prefixe;       <span class="comment">// 0 int, 1 long int, 2 long long int</span></div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>   </div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>   <span class="keywordflow">while</span> ((*format) &amp;&amp; (indice &lt; l-1)) {</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>      <span class="keywordflow">switch</span> (*format) {</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>         <span class="keywordflow">case</span> <span class="charliteral">&#39;%&#39;</span> :</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>            format++;</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>            <span class="comment">// Lecture de la taille</span></div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>            nbChiffres = 0;</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>            <span class="keywordflow">while</span> ((*format &lt;= <span class="charliteral">&#39;9&#39;</span>) &amp;&amp; (*format &gt;= <span class="charliteral">&#39;0&#39;</span>)) {</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>               nbChiffres = nbChiffres * 10 + *format - <span class="charliteral">&#39;0&#39;</span>;</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>               format++;</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>        }</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span> </div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>        <span class="comment">// Pas forcément bien là, mais j&#39;ai pas mieux dans l&#39;immédiat</span></div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>        prefixe = 0;</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>        <span class="keywordflow">if</span> (*format == <span class="charliteral">&#39;l&#39;</span>) {</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>               format++;</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>           <span class="keywordflow">if</span> (*format == <span class="charliteral">&#39;l&#39;</span>) {</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>                  format++;</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>          prefixe = 2;</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>           } <span class="keywordflow">else</span> {</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>          prefixe = 1;</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>           }</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>        }</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>            <span class="keywordflow">switch</span> (*format) {</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>           <span class="keywordflow">case</span> <span class="charliteral">&#39;o&#39;</span> :</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>                  base = 8;</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>                  <span class="keywordflow">goto</span> affent;</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>           <span class="keywordflow">case</span> <span class="charliteral">&#39;x&#39;</span> :</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>                  base = 16;</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>                  <span class="keywordflow">goto</span> affent;</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>           <span class="keywordflow">case</span> <span class="charliteral">&#39;d&#39;</span> :</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>                  base = 10;</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>affent :          <span class="keywordflow">switch</span> (prefixe) {</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>                     <span class="keywordflow">case</span> 2 :</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>               n = 0; <span class="comment">//;va_arg(argList, long long int); WARNING</span></div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>             <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>                     <span class="keywordflow">case</span> 1 :</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>                n = <a class="code hl_define" href="include_2manux_2stdarg_8h.html#a81ebe6ea6253b0c6618e29de70fe10eb">va_arg</a>(argList, <span class="keywordtype">long</span> <span class="keywordtype">int</span>);</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>             <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>                     default :</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>                n = <a class="code hl_define" href="include_2manux_2stdarg_8h.html#a81ebe6ea6253b0c6618e29de70fe10eb">va_arg</a>(argList, <span class="keywordtype">int</span>);</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>                     <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>          }</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>                  <span class="keywordflow">if</span> (n &lt; 0) {</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>             n = -n;</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>             <a class="code hl_define" href="include_2manux_2i386_8h.html#a78b6d0d522b49e5b375731d08f4c39fd">str</a>[indice++] = <span class="charliteral">&#39;-&#39;</span>;</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>          }</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>                  in = 0;</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>                  <span class="keywordflow">do</span> {</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>                     nombre[in++] = <a class="code hl_define" href="stdio_8c.html#a751b71485e6bb228423b412943328232">chiffre</a>[n%base];</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>                     n = n/base;   <span class="comment">// n est défini comme long long, </span></div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>          } <span class="keywordflow">while</span> (n != 0);</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>                  <span class="keywordflow">while</span> (nbChiffres &gt; in) {</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>                     nbChiffres--;</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>                     <a class="code hl_define" href="include_2manux_2i386_8h.html#a78b6d0d522b49e5b375731d08f4c39fd">str</a>[indice++] = <span class="charliteral">&#39; &#39;</span>;</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>          }</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>                  <span class="keywordflow">do</span> {</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>                     <a class="code hl_define" href="include_2manux_2i386_8h.html#a78b6d0d522b49e5b375731d08f4c39fd">str</a>[indice++] = nombre[--in];</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>                  } <span class="keywordflow">while</span> (in);</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>               <span class="keywordflow">break</span>; </div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>               <span class="keywordflow">case</span> <span class="charliteral">&#39;s&#39;</span> :</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>                  s = <a class="code hl_define" href="include_2manux_2stdarg_8h.html#a81ebe6ea6253b0c6618e29de70fe10eb">va_arg</a>(argList, <span class="keywordtype">char</span> *);</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>                  in = 0;</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>                  <span class="keywordflow">while</span> (s[in]) {</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>                     <a class="code hl_define" href="include_2manux_2i386_8h.html#a78b6d0d522b49e5b375731d08f4c39fd">str</a>[indice++] = s[in++];</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>          }</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>               <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>               <span class="keywordflow">case</span> <span class="charliteral">&#39;c&#39;</span> :</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>                  <a class="code hl_variable" href="main-bootreg_8c.html#add06ad5d8520e7cff4ff84b2811c0982">c</a> = (char)<a class="code hl_define" href="include_2manux_2stdarg_8h.html#a81ebe6ea6253b0c6618e29de70fe10eb">va_arg</a>(argList, <span class="keywordtype">int</span>);</div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>                  in = 0;</div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>                  <a class="code hl_define" href="include_2manux_2i386_8h.html#a78b6d0d522b49e5b375731d08f4c39fd">str</a>[indice++] = <a class="code hl_variable" href="main-bootreg_8c.html#add06ad5d8520e7cff4ff84b2811c0982">c</a>;</div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>               <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>               default :</div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>               <span class="keywordflow">break</span>; </div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>        }</div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>         <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>     default :</div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>            <a class="code hl_define" href="include_2manux_2i386_8h.html#a78b6d0d522b49e5b375731d08f4c39fd">str</a>[indice++] = *format;</div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>         <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>      }</div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>      format++;</div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>   }</div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span> </div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>   <a class="code hl_define" href="include_2manux_2i386_8h.html#a78b6d0d522b49e5b375731d08f4c39fd">str</a>[(indice &lt; l)?indice:(l-1)] = 0;</div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span> </div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>   <span class="keywordflow">return</span> indice;</div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>}</div>
+</div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span> </div>
+<div class="foldopen" id="foldopen00142" data-start="{" data-end="}">
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno"><a class="line" href="stdio_8h.html#a63c54f1d737929378b379911b1ca4a45">  142</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="stdio_8c.html#a63c54f1d737929378b379911b1ca4a45">printf</a>(<span class="keywordtype">char</span> * format, ...)</div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>{</div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>   <a class="code hl_typedef" href="include_2manux_2stdarg_8h.html#af53f622e3b6c080daeb167c1955d7ec1">va_list</a> argList;</div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>   <span class="keywordtype">char</span>      chaine[<a class="code hl_define" href="stdio_8c.html#a6fb514b92925e962cc3576445492ad06">MAX_PRINTF_LENGTH</a>];   <span class="comment">// WARNING, il faut une gestion dynamique</span></div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>                            <span class="comment">// attention aux risques de telescopage avec la pile !</span></div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>   <span class="keywordtype">int</span>       result;</div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span> </div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>   <a class="code hl_define" href="include_2manux_2stdarg_8h.html#ade24ac546ea93fde2353ed2db8e89c66">va_start</a>(argList, format);</div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>   result = <a class="code hl_function" href="stdio_8c.html#a0daccbeb6277ebc17e52e3ae03e11c27">vsnprintf</a>(chaine, <a class="code hl_define" href="stdio_8c.html#a6fb514b92925e962cc3576445492ad06">MAX_PRINTF_LENGTH</a>, format, argList);</div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>   <a class="code hl_define" href="include_2manux_2stdarg_8h.html#acd9b3b9085ec072324c5fdac2b40304e">va_end</a>(argList);</div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span> </div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span><span class="preprocessor">#ifdef MANU_FS</span></div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>   <a class="code hl_function" href="stdio_8h.html#afb8a53c515b7e4b7b0c2d9abf9f7d0c0">ecrire</a>(1, chaine, result); <span class="comment">// WARNING : 1 à remplacer par stdout par exemple</span></div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span><span class="preprocessor">#else</span></div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>   <span class="comment">// C&#39;est exactement le but de l&#39;AS ecrireConsole</span></div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>   <a class="code hl_function" href="stdio_8h.html#a861f236a5adfcd353291fd93b2498226">ecrireConsole</a>(chaine, result); </div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span> </div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>   <a class="code hl_define" href="include_2manux_2stdarg_8h.html#acd9b3b9085ec072324c5fdac2b40304e">va_end</a>(argList);</div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>}</div>
+</div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span> </div>
+<div class="ttc" id="ainclude_2manux_2appelsystemenum_8h_html_a5b97a0359c72a132c3943c5678d2321e"><div class="ttname"><a href="include_2manux_2appelsystemenum_8h.html#a5b97a0359c72a132c3943c5678d2321e">NBAS_ECRIRE_CONS</a></div><div class="ttdeci">#define NBAS_ECRIRE_CONS</div><div class="ttdef"><b>Definition</b> <a href="include_2manux_2appelsystemenum_8h_source.html#l00022">appelsystemenum.h:22</a></div></div>
+<div class="ttc" id="ainclude_2manux_2appelsystemenum_8h_html_a8bc3e6338e5b025a7e139f7e33181447"><div class="ttname"><a href="include_2manux_2appelsystemenum_8h.html#a8bc3e6338e5b025a7e139f7e33181447">NBAS_FERMER</a></div><div class="ttdeci">#define NBAS_FERMER</div><div class="ttdef"><b>Definition</b> <a href="include_2manux_2appelsystemenum_8h_source.html#l00036">appelsystemenum.h:36</a></div></div>
+<div class="ttc" id="ainclude_2manux_2appelsystemenum_8h_html_aaf3a5c58d84af2705d30a45914274b7c"><div class="ttname"><a href="include_2manux_2appelsystemenum_8h.html#aaf3a5c58d84af2705d30a45914274b7c">NBAS_LIRE</a></div><div class="ttdeci">#define NBAS_LIRE</div><div class="ttdef"><b>Definition</b> <a href="include_2manux_2appelsystemenum_8h_source.html#l00032">appelsystemenum.h:32</a></div></div>
+<div class="ttc" id="ainclude_2manux_2appelsystemenum_8h_html_af6f2b6432cfa9ae465218edc7dce87d8"><div class="ttname"><a href="include_2manux_2appelsystemenum_8h.html#af6f2b6432cfa9ae465218edc7dce87d8">NBAS_ECRIRE</a></div><div class="ttdeci">#define NBAS_ECRIRE</div><div class="ttdef"><b>Definition</b> <a href="include_2manux_2appelsystemenum_8h_source.html#l00026">appelsystemenum.h:26</a></div></div>
+<div class="ttc" id="ainclude_2manux_2i386_8h_html_a78b6d0d522b49e5b375731d08f4c39fd"><div class="ttname"><a href="include_2manux_2i386_8h.html#a78b6d0d522b49e5b375731d08f4c39fd">str</a></div><div class="ttdeci">#define str(tr)</div><div class="ttdef"><b>Definition</b> <a href="include_2manux_2i386_8h_source.html#l00019">i386.h:19</a></div></div>
+<div class="ttc" id="ainclude_2manux_2stdarg_8h_html_a81ebe6ea6253b0c6618e29de70fe10eb"><div class="ttname"><a href="include_2manux_2stdarg_8h.html#a81ebe6ea6253b0c6618e29de70fe10eb">va_arg</a></div><div class="ttdeci">#define va_arg(ap, type)</div><div class="ttdef"><b>Definition</b> <a href="include_2manux_2stdarg_8h_source.html#l00007">stdarg.h:7</a></div></div>
+<div class="ttc" id="ainclude_2manux_2stdarg_8h_html_acd9b3b9085ec072324c5fdac2b40304e"><div class="ttname"><a href="include_2manux_2stdarg_8h.html#acd9b3b9085ec072324c5fdac2b40304e">va_end</a></div><div class="ttdeci">#define va_end(ap)</div><div class="ttdef"><b>Definition</b> <a href="include_2manux_2stdarg_8h_source.html#l00008">stdarg.h:8</a></div></div>
+<div class="ttc" id="ainclude_2manux_2stdarg_8h_html_ade24ac546ea93fde2353ed2db8e89c66"><div class="ttname"><a href="include_2manux_2stdarg_8h.html#ade24ac546ea93fde2353ed2db8e89c66">va_start</a></div><div class="ttdeci">#define va_start(ap, last)</div><div class="ttdef"><b>Definition</b> <a href="include_2manux_2stdarg_8h_source.html#l00006">stdarg.h:6</a></div></div>
+<div class="ttc" id="ainclude_2manux_2stdarg_8h_html_af53f622e3b6c080daeb167c1955d7ec1"><div class="ttname"><a href="include_2manux_2stdarg_8h.html#af53f622e3b6c080daeb167c1955d7ec1">va_list</a></div><div class="ttdeci">__builtin_va_list va_list</div><div class="ttdef"><b>Definition</b> <a href="include_2manux_2stdarg_8h_source.html#l00004">stdarg.h:4</a></div></div>
+<div class="ttc" id="amain-bootreg_8c_html_add06ad5d8520e7cff4ff84b2811c0982"><div class="ttname"><a href="main-bootreg_8c.html#add06ad5d8520e7cff4ff84b2811c0982">c</a></div><div class="ttdeci">uint16_t c</div><div class="ttdef"><b>Definition</b> <a href="main-bootreg_8c_source.html#l00024">main-bootreg.c:24</a></div></div>
+<div class="ttc" id="astdio_8c_html_a0daccbeb6277ebc17e52e3ae03e11c27"><div class="ttname"><a href="stdio_8c.html#a0daccbeb6277ebc17e52e3ae03e11c27">vsnprintf</a></div><div class="ttdeci">int vsnprintf(char *str, const size_t l, char *format, va_list argList)</div><div class="ttdoc">Le formatage effectf.</div><div class="ttdef"><b>Definition</b> <a href="stdio_8c_source.html#l00038">stdio.c:38</a></div></div>
+<div class="ttc" id="astdio_8c_html_a35c1f462c29ba66bacdb8819d37c502e"><div class="ttname"><a href="stdio_8c.html#a35c1f462c29ba66bacdb8819d37c502e">vsnprintk</a></div><div class="ttdeci">int vsnprintk(char *str, const size_t l, char *format, va_list argList)</div></div>
+<div class="ttc" id="astdio_8c_html_a63c54f1d737929378b379911b1ca4a45"><div class="ttname"><a href="stdio_8c.html#a63c54f1d737929378b379911b1ca4a45">printf</a></div><div class="ttdeci">void printf(char *format,...)</div><div class="ttdoc">Un premier printf.</div><div class="ttdef"><b>Definition</b> <a href="stdio_8c_source.html#l00142">stdio.c:142</a></div></div>
+<div class="ttc" id="astdio_8c_html_a6fb514b92925e962cc3576445492ad06"><div class="ttname"><a href="stdio_8c.html#a6fb514b92925e962cc3576445492ad06">MAX_PRINTF_LENGTH</a></div><div class="ttdeci">#define MAX_PRINTF_LENGTH</div><div class="ttdef"><b>Definition</b> <a href="stdio_8c_source.html#l00016">stdio.c:16</a></div></div>
+<div class="ttc" id="astdio_8c_html_a751b71485e6bb228423b412943328232"><div class="ttname"><a href="stdio_8c.html#a751b71485e6bb228423b412943328232">chiffre</a></div><div class="ttdeci">#define chiffre</div><div class="ttdef"><b>Definition</b> <a href="stdio_8c_source.html#l00018">stdio.c:18</a></div></div>
+<div class="ttc" id="astdio_8h_html"><div class="ttname"><a href="stdio_8h.html">stdio.h</a></div></div>
+<div class="ttc" id="astdio_8h_html_a0d64d8b56640a3dea27ca2d59f711e35"><div class="ttname"><a href="stdio_8h.html#a0d64d8b56640a3dea27ca2d59f711e35">lire</a></div><div class="ttdeci">int lire(int fd, void *buffer, int nb)</div></div>
+<div class="ttc" id="astdio_8h_html_a66a9ef9199d2ddbbf2b6b0c7f7b99ab5"><div class="ttname"><a href="stdio_8h.html#a66a9ef9199d2ddbbf2b6b0c7f7b99ab5">fermer</a></div><div class="ttdeci">int fermer(int fd)</div></div>
+<div class="ttc" id="astdio_8h_html_a861f236a5adfcd353291fd93b2498226"><div class="ttname"><a href="stdio_8h.html#a861f236a5adfcd353291fd93b2498226">ecrireConsole</a></div><div class="ttdeci">int ecrireConsole(char *buffer, int nbBytes)</div></div>
+<div class="ttc" id="astdio_8h_html_afb8a53c515b7e4b7b0c2d9abf9f7d0c0"><div class="ttname"><a href="stdio_8h.html#afb8a53c515b7e4b7b0c2d9abf9f7d0c0">ecrire</a></div><div class="ttdeci">int ecrire(int fd, void *buffer, int nb)</div></div>
+<div class="ttc" id="ausr_2include_2manux_2appelsysteme_8h_html_aa537637276ac00892b710bad5cf28292"><div class="ttname"><a href="usr_2include_2manux_2appelsysteme_8h.html#aa537637276ac00892b710bad5cf28292">appelSysteme1</a></div><div class="ttdeci">#define appelSysteme1(numero, typeRetour, nom, typeArgument)</div><div class="ttdef"><b>Definition</b> <a href="usr_2include_2manux_2appelsysteme_8h_source.html#l00031">appelsysteme.h:31</a></div></div>
+<div class="ttc" id="ausr_2include_2manux_2appelsysteme_8h_html_ac79254a5f0c355a82f51b90313058041"><div class="ttname"><a href="usr_2include_2manux_2appelsysteme_8h.html#ac79254a5f0c355a82f51b90313058041">appelSysteme3</a></div><div class="ttdeci">#define appelSysteme3(numero, typeRetour, nom, typeArgument1, typeArgument2, typeArgument3)</div><div class="ttdef"><b>Definition</b> <a href="usr_2include_2manux_2appelsysteme_8h_source.html#l00061">appelsysteme.h:61</a></div></div>
+<div class="ttc" id="ausr_2include_2manux_2appelsysteme_8h_html_acaae5c8a118b6ba8d8fc01dc8b7fe648"><div class="ttname"><a href="usr_2include_2manux_2appelsysteme_8h.html#acaae5c8a118b6ba8d8fc01dc8b7fe648">appelSysteme2</a></div><div class="ttdeci">#define appelSysteme2(numero, typeRetour, nom, typeArgument1, typeArgument2)</div><div class="ttdef"><b>Definition</b> <a href="usr_2include_2manux_2appelsysteme_8h_source.html#l00046">appelsysteme.h:46</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+GÃ©nÃ©rÃ© par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

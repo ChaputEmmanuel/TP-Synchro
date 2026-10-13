@@ -1,0 +1,152 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>My Project:  Fichier source de /home/manu/PROGRAMMATION/C/ManuX/reseau/reseau.c</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">My Project
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function() { init_codefold(0); });
+/* @license-end */
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_128705ec26caf7b0a10426a25d7cd051.html">reseau</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle"><div class="title">reseau.c</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="reseau_8c.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &lt;<a class="code" href="manux_2reseau_8h.html">manux/reseau.h</a>&gt;</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &lt;<a class="code" href="buffer-reseau_8h.html">manux/buffer-reseau.h</a>&gt;</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &lt;<a class="code" href="manux_2debug_8h.html">manux/debug.h</a>&gt;</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#ifdef MANUX_TACHES</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#   include &lt;<a class="code" href="tache_8h.html">manux/tache.h</a>&gt;</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="manux_2reseau_8h.html#af36c1bc68d00611a83c96ef02d155bdf">   19</a></span><a class="code hl_struct" href="struct__ListeBufferReseau.html">ListeBufferReseau</a> * <a class="code hl_variable" href="reseau_8c.html#af36c1bc68d00611a83c96ef02d155bdf">listeBuffersRecus</a> = <a class="code hl_define" href="include_2manux_2stddef_8h.html#a070d2ce7b6bb7e5c05602aa8c308d0c4">NULL</a>;</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="keyword">static</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="keywordtype">void</span> reseauTraiterReceptions(<span class="keywordtype">void</span>)</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>{</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>   <a class="code hl_define" href="manux_2debug_8h.html#ad4cabea5084373436d91b5dc4e8d0a49">printk_debug</a>(<a class="code hl_define" href="manux_2debug_8h.html#a4f02878f8fb72005eddf2027f869557d">DBG_KERNEL_NET</a>, <span class="stringliteral">&quot;A-t-on des buffers a recevoir ?\n&quot;</span>);</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>   <span class="keywordflow">while</span> (1) {</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>      <span class="keywordflow">if</span> (!<a class="code hl_function" href="buffer-reseau_8h.html#abe1fa2d4a3d29d7c2a55ee335c23b0c7">listeBufferReseauVide</a>(<a class="code hl_variable" href="reseau_8c.html#af36c1bc68d00611a83c96ef02d155bdf">listeBuffersRecus</a>)) {</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>         <a class="code hl_define" href="manux_2debug_8h.html#ad4cabea5084373436d91b5dc4e8d0a49">printk_debug</a>(<a class="code hl_define" href="manux_2debug_8h.html#a4f02878f8fb72005eddf2027f869557d">DBG_KERNEL_NET</a>, <span class="stringliteral">&quot;Buffers reseau en attente !\n&quot;</span>);</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>      } <span class="keywordflow">else</span> {</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>         <a class="code hl_function" href="scheduler_8h.html#ae00507099d51c08195d42c08daad4f41">ordonnanceur</a>();</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>      }</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>   }</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>}</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
+<div class="foldopen" id="foldopen00037" data-start="{" data-end="}">
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="manux_2reseau_8h.html#acca8d0ddd01a9fcae4b6694a42a6f51f">   37</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="reseau_8c.html#acca8d0ddd01a9fcae4b6694a42a6f51f">reseauInitialiser</a>(<span class="keywordtype">void</span>)</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>{</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>   <a class="code hl_define" href="manux_2debug_8h.html#ad4cabea5084373436d91b5dc4e8d0a49">printk_debug</a>(<a class="code hl_define" href="manux_2debug_8h.html#a4f02878f8fb72005eddf2027f869557d">DBG_KERNEL_NET</a>, <span class="stringliteral">&quot;Initialisation du sous systeme reseau\n&quot;</span>);</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>   <a class="code hl_variable" href="reseau_8c.html#af36c1bc68d00611a83c96ef02d155bdf">listeBuffersRecus</a> = <a class="code hl_function" href="buffer-reseau_8h.html#af09e9a3dac0065f1944e8bc6063f007e">listeBufferReseauCreer</a>();</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>   </div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><span class="preprocessor">#ifdef MANUX_TACHES</span></div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>   <span class="comment">// Lancement d&#39;une tâche de traitement des trames reçues</span></div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>   <a class="code hl_function" href="scheduler_8h.html#ae922bcf579d9ef3fb82370f3a876029d">ordonnanceurCreerTacheNoyau</a>(reseauTraiterReceptions);</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>   </div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>   <a class="code hl_define" href="manux_2debug_8h.html#ad4cabea5084373436d91b5dc4e8d0a49">printk_debug</a>(<a class="code hl_define" href="manux_2debug_8h.html#a4f02878f8fb72005eddf2027f869557d">DBG_KERNEL_NET</a>, <span class="stringliteral">&quot;Tache de traitement des receptions lancee\n&quot;</span>);</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>}</div>
+</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
+<div class="foldopen" id="foldopen00054" data-start="{" data-end="}">
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno"><a class="line" href="manux_2reseau_8h.html#ac37f4e261171b60d35a008ed91dcd742">   54</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="reseau_8c.html#a73d56fca253dc3bae0d42792ec85f002">reseauAfficherListeReception</a>()</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>{</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>   <a class="code hl_function" href="buffer-reseau_8h.html#a46dddf58d22c1c39c62a4b948766b91e">listeBufferReseauAfficher</a>(<a class="code hl_variable" href="reseau_8c.html#af36c1bc68d00611a83c96ef02d155bdf">listeBuffersRecus</a>);</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>}</div>
+</div>
+<div class="ttc" id="abuffer-reseau_8h_html"><div class="ttname"><a href="buffer-reseau_8h.html">buffer-reseau.h</a></div><div class="ttdoc">Définition des buffers réseau et les fonctions associcées.</div></div>
+<div class="ttc" id="abuffer-reseau_8h_html_a46dddf58d22c1c39c62a4b948766b91e"><div class="ttname"><a href="buffer-reseau_8h.html#a46dddf58d22c1c39c62a4b948766b91e">listeBufferReseauAfficher</a></div><div class="ttdeci">void listeBufferReseauAfficher(ListeBufferReseau *l)</div><div class="ttdoc">Affichage de la liste de buffers.</div><div class="ttdef"><b>Definition</b> <a href="buffer-reseau_8c_source.html#l00123">buffer-reseau.c:123</a></div></div>
+<div class="ttc" id="abuffer-reseau_8h_html_abe1fa2d4a3d29d7c2a55ee335c23b0c7"><div class="ttname"><a href="buffer-reseau_8h.html#abe1fa2d4a3d29d7c2a55ee335c23b0c7">listeBufferReseauVide</a></div><div class="ttdeci">int listeBufferReseauVide(ListeBufferReseau *l)</div><div class="ttdoc">Une liste de buffers est-elle vide ?</div><div class="ttdef"><b>Definition</b> <a href="buffer-reseau_8c_source.html#l00068">buffer-reseau.c:68</a></div></div>
+<div class="ttc" id="abuffer-reseau_8h_html_af09e9a3dac0065f1944e8bc6063f007e"><div class="ttname"><a href="buffer-reseau_8h.html#af09e9a3dac0065f1944e8bc6063f007e">listeBufferReseauCreer</a></div><div class="ttdeci">ListeBufferReseau * listeBufferReseauCreer(void)</div><div class="ttdoc">Création d'une liste vide de buffers réseau.</div><div class="ttdef"><b>Definition</b> <a href="buffer-reseau_8c_source.html#l00052">buffer-reseau.c:52</a></div></div>
+<div class="ttc" id="ainclude_2manux_2stddef_8h_html_a070d2ce7b6bb7e5c05602aa8c308d0c4"><div class="ttname"><a href="include_2manux_2stddef_8h.html#a070d2ce7b6bb7e5c05602aa8c308d0c4">NULL</a></div><div class="ttdeci">#define NULL</div><div class="ttdef"><b>Definition</b> <a href="include_2manux_2stddef_8h_source.html#l00010">stddef.h:10</a></div></div>
+<div class="ttc" id="amanux_2debug_8h_html"><div class="ttname"><a href="manux_2debug_8h.html">debug.h</a></div></div>
+<div class="ttc" id="amanux_2debug_8h_html_a4f02878f8fb72005eddf2027f869557d"><div class="ttname"><a href="manux_2debug_8h.html#a4f02878f8fb72005eddf2027f869557d">DBG_KERNEL_NET</a></div><div class="ttdeci">#define DBG_KERNEL_NET</div><div class="ttdef"><b>Definition</b> <a href="manux_2debug_8h_source.html#l00030">debug.h:30</a></div></div>
+<div class="ttc" id="amanux_2debug_8h_html_ad4cabea5084373436d91b5dc4e8d0a49"><div class="ttname"><a href="manux_2debug_8h.html#ad4cabea5084373436d91b5dc4e8d0a49">printk_debug</a></div><div class="ttdeci">#define printk_debug(lvl, fmt, args...)</div><div class="ttdef"><b>Definition</b> <a href="manux_2debug_8h_source.html#l00090">debug.h:90</a></div></div>
+<div class="ttc" id="amanux_2reseau_8h_html"><div class="ttname"><a href="manux_2reseau_8h.html">reseau.h</a></div></div>
+<div class="ttc" id="areseau_8c_html_a73d56fca253dc3bae0d42792ec85f002"><div class="ttname"><a href="reseau_8c.html#a73d56fca253dc3bae0d42792ec85f002">reseauAfficherListeReception</a></div><div class="ttdeci">void reseauAfficherListeReception()</div><div class="ttdoc">Affichage de la liste de buffers de réception.</div><div class="ttdef"><b>Definition</b> <a href="reseau_8c_source.html#l00054">reseau.c:54</a></div></div>
+<div class="ttc" id="areseau_8c_html_acca8d0ddd01a9fcae4b6694a42a6f51f"><div class="ttname"><a href="reseau_8c.html#acca8d0ddd01a9fcae4b6694a42a6f51f">reseauInitialiser</a></div><div class="ttdeci">void reseauInitialiser(void)</div><div class="ttdoc">Initialisation du sous-système réseau.</div><div class="ttdef"><b>Definition</b> <a href="reseau_8c_source.html#l00037">reseau.c:37</a></div></div>
+<div class="ttc" id="areseau_8c_html_af36c1bc68d00611a83c96ef02d155bdf"><div class="ttname"><a href="reseau_8c.html#af36c1bc68d00611a83c96ef02d155bdf">listeBuffersRecus</a></div><div class="ttdeci">ListeBufferReseau * listeBuffersRecus</div><div class="ttdoc">La liste des buffers qui ont été reçus mais non encore traités.</div><div class="ttdef"><b>Definition</b> <a href="reseau_8c_source.html#l00019">reseau.c:19</a></div></div>
+<div class="ttc" id="ascheduler_8h_html_ae00507099d51c08195d42c08daad4f41"><div class="ttname"><a href="scheduler_8h.html#ae00507099d51c08195d42c08daad4f41">ordonnanceur</a></div><div class="ttdeci">void ordonnanceur(void)</div><div class="ttdoc">Basculer vers la prochaine tache à exécuter.</div><div class="ttdef"><b>Definition</b> <a href="scheduler_8c_source.html#l00098">scheduler.c:98</a></div></div>
+<div class="ttc" id="ascheduler_8h_html_ae922bcf579d9ef3fb82370f3a876029d"><div class="ttname"><a href="scheduler_8h.html#ae922bcf579d9ef3fb82370f3a876029d">ordonnanceurCreerTacheNoyau</a></div><div class="ttdeci">TacheID ordonnanceurCreerTacheNoyau(CorpsTache corpsTache)</div><div class="ttdoc">Création et ordonnancement d'une tâche noyau.</div><div class="ttdef"><b>Definition</b> <a href="scheduler_8c_source.html#l00349">scheduler.c:349</a></div></div>
+<div class="ttc" id="astruct__ListeBufferReseau_html"><div class="ttname"><a href="struct__ListeBufferReseau.html">_ListeBufferReseau</a></div><div class="ttdef"><b>Definition</b> <a href="buffer-reseau_8c_source.html#l00016">buffer-reseau.c:16</a></div></div>
+<div class="ttc" id="atache_8h_html"><div class="ttname"><a href="tache_8h.html">tache.h</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

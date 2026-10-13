@@ -16,6 +16,7 @@
 #include <manux/virtio-console.h>
 
 #define NB_LIGNES 1280
+
 void testerVirtioConsole(Fichier * f)
 {
    printk("On commence ...\n");
@@ -29,9 +30,6 @@ void startManuX()
 {
    INoeud iNoeudVirtioConsole;
    Fichier fichierVirtioConsole;
-   
-   // Récupération des informations depuis le bootloader
-   bootloaderLireInfo();
    
    // Initialisation de la console noyau
    consoleInitialisation();
@@ -55,10 +53,12 @@ void startManuX()
 
    printk_debug(DBG_KERNEL_START, "Initialisation de virtio console ...\n");
    if (virtioConsoleInitialisation(&iNoeudVirtioConsole) == ESUCCES) {
-     ouvrirFichier(&iNoeudVirtioConsole, &fichierVirtioConsole, O_WRONLY, 0);
+      fichierOuvrir(&iNoeudVirtioConsole, &fichierVirtioConsole, O_WRONLY, 0);
+      printk_debug(DBG_KERNEL_START, "Virtio console initialise ...\n");
+   } else {
+      printk_debug(DBG_KERNEL_START, "Impossible d'initialiser la Virtio console !\n");
+      return ;
    }
-   printk_debug(DBG_KERNEL_START, "Virtio console initialise...\n");
-
 
    // Initialisation de la gestion des systèmes de fichiers
    printk_debug(DBG_KERNEL_START, "Initialisation du systeme de fichiers ...\n");
@@ -67,7 +67,7 @@ void startManuX()
 
    testerVirtioConsole(&fichierVirtioConsole);
 
-   while(1){}; // WARNING : faire une fonction d'attente de vidage de
+   //      while(1){}; // WARNING : faire une fonction d'attente de vidage de
 	       // virtio !
    
 }   /* startManuX */

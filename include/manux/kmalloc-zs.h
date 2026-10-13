@@ -12,11 +12,7 @@
 /**
  * @brief Initialisation du sytème kmalloc 
  */
-void kmallocInitialisation();
-
-#ifdef MANUX_KMALLOC_STAT
-void kmallocAfficherStatistiques(char *prefixe);
-#endif
+void kmallocInitialisation(void);
 
 /** 
  * @brief Allocation d'une zone de n octets
@@ -29,9 +25,8 @@ void * kmalloc(size_t n);
  */
 void kfree(void * p);
 
-
 #ifdef MANUX_KMALLOC_STAT
-void kmallocAfficherStatistiques();
+void kmallocAfficherStatistiques(void);
 #endif // KMALLOC_STAT
 
 #endif // DEF_KMALLOC_ZS

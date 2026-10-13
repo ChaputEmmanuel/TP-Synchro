@@ -1,0 +1,232 @@
+\doxysection{Référence du fichier /home/manu/\+PROGRAMMATION/\+C/\+Manu\+X/lib/registre.c}
+\hypertarget{registre_8c}{}\label{registre_8c}\index{/home/manu/PROGRAMMATION/C/ManuX/lib/registre.c@{/home/manu/PROGRAMMATION/C/ManuX/lib/registre.c}}
+
+
+Mise en oeuvre de la notion de registre permettant de gérer des paramètres de façon structurée.  
+
+
+{\ttfamily \#include $<$manux/registre.\+h$>$}\newline
+{\ttfamily \#include $<$manux/string.\+h$>$}\newline
+{\ttfamily \#include $<$manux/printk.\+h$>$}\newline
+{\ttfamily \#include $<$manux/kmalloc.\+h$>$}\newline
+{\ttfamily \#include $<$manux/errno.\+h$>$}\newline
+{\ttfamily \#include $<$manux/debug.\+h$>$}\newline
+Graphe des dépendances par inclusion de registre.\+c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{registre_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct__parametre}{\+\_\+parametre}}
+\begin{DoxyCompactList}\small\item\em Un paramètre est simplement une valeur sous forme de chaîne de caractères associée à un nom. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{struct__chainonParametre}{\+\_\+chainon\+Parametre}}
+\begin{DoxyCompactList}\small\item\em On va construire des listes de paramètres. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{struct__listeParametres}{\+\_\+liste\+Parametres}}
+\item 
+struct \mbox{\hyperlink{struct__registre}{\+\_\+registre}}
+\begin{DoxyCompactList}\small\item\em Un registre est simplement une liste (nommée) de paramètres. Les paramètres peuvent être eux-\/mêmes des registres. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{registre_8c_a933306d635e06d8f4c7da63f6f037c17}{REGISTRE\+\_\+\+NOM\+\_\+\+SEPARATEUR}}~\textquotesingle{}.\textquotesingle{}
+\begin{DoxyCompactList}\small\item\em Ajouter dans un registre un paramètre décrit dans une chaîne de caractères. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{registre_8c_ac278dc901ef4a4c3210543c8b1ab384b}{REGISTRE\+\_\+\+AFFECTATION}}~\textquotesingle{}=\textquotesingle{}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Définitions de type}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \mbox{\hyperlink{struct__parametre}{\+\_\+parametre}} \mbox{\hyperlink{registre_8c_a95437a522404deb16971b572adf51cfd}{parametre}}
+\begin{DoxyCompactList}\small\item\em Un paramètre est simplement une valeur sous forme de chaîne de caractères associée à un nom. \end{DoxyCompactList}\item 
+typedef struct \mbox{\hyperlink{struct__chainonParametre}{\+\_\+chainon\+Parametre}} \mbox{\hyperlink{registre_8c_af53892c5987c21f8b87dac57bd87cc32}{chainon\+Parametre}}
+\begin{DoxyCompactList}\small\item\em On va construire des listes de paramètres. \end{DoxyCompactList}\item 
+typedef struct \mbox{\hyperlink{struct__listeParametres}{\+\_\+liste\+Parametres}} \mbox{\hyperlink{registre_8c_ad5748da738b44dd836ba4805c331f921}{liste\+Parametres}}
+\item 
+typedef struct \mbox{\hyperlink{struct__registre}{\+\_\+registre}} \mbox{\hyperlink{registre_8c_a595908c85440ba4ee2f66e3c4fe8af66}{registre}}
+\begin{DoxyCompactList}\small\item\em Un registre est simplement une liste (nommée) de paramètres. Les paramètres peuvent être eux-\/mêmes des registres. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{include_2manux_2registre_8h_a595908c85440ba4ee2f66e3c4fe8af66}{registre}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{registre_8c_ada651fa62bac9f50a35bdd1908f8e06e}{registre\+Creer}} (char \texorpdfstring{$\ast$}{*}nom)
+\begin{DoxyCompactList}\small\item\em Création d\textquotesingle{}un registre vide. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} \mbox{\hyperlink{registre_8c_af2366204c72efe94513974eae9daa194}{registre\+Affecter\+Parametre}} (\mbox{\hyperlink{include_2manux_2registre_8h_a595908c85440ba4ee2f66e3c4fe8af66}{registre}} \texorpdfstring{$\ast$}{*}reg, char \texorpdfstring{$\ast$}{*}valeur, \mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} \texorpdfstring{$\ast$}{*}prive, \mbox{\hyperlink{include_2manux_2registre_8h_afd4880d0c171af4503c438127130d952}{registre\+Mise\+AJour}} mise\+AJour,...)
+\begin{DoxyCompactList}\small\item\em La fonction fournie pour affecter un paramètre dans un registre. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} \mbox{\hyperlink{registre_8c_a63129c6b1232b7c3a5b4e21103ef0d2c}{registre\+Systeme\+Initialiser}} (\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}})
+\begin{DoxyCompactList}\small\item\em Création du registre du système. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} \mbox{\hyperlink{registre_8c_aac56ec2b1aa7909b6b41aedc1db7313f}{registre\+Systeme\+AjouterC}} (char \texorpdfstring{$\ast$}{*}chaine)
+\begin{DoxyCompactList}\small\item\em Ajouter dans un registre système un paramètre décrit dans une chaîne de caractères. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} \mbox{\hyperlink{registre_8c_af63f1d827d195edd2d25338101785bf2}{registre\+Systeme\+Affecter\+Parametre}} (char \texorpdfstring{$\ast$}{*}valeur, \mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} \texorpdfstring{$\ast$}{*}prive, \mbox{\hyperlink{include_2manux_2registre_8h_afd4880d0c171af4503c438127130d952}{registre\+Mise\+AJour}} mise\+AJour,...)
+\begin{DoxyCompactList}\small\item\em Ajouter au registre système un paramètre dont le nom est donné comme une liste de paramètres. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} \mbox{\hyperlink{registre_8c_a6252c3aafdbed147bac05b3556453ac7}{registre\+Systeme\+Afficher}} (\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}})
+\begin{DoxyCompactList}\small\item\em Affichage du registre système. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Mise en oeuvre de la notion de registre permettant de gérer des paramètres de façon structurée. 
+
+\begin{DoxyVerb}                                                  (C) E. Chaput 2024-2025
+\end{DoxyVerb}
+ 
+
+Définition dans le fichier \mbox{\hyperlink{registre_8c_source}{registre.\+c}}.
+
+
+
+\doxysubsection{Documentation des macros}
+\Hypertarget{registre_8c_ac278dc901ef4a4c3210543c8b1ab384b}\label{registre_8c_ac278dc901ef4a4c3210543c8b1ab384b} 
+\index{registre.c@{registre.c}!REGISTRE\_AFFECTATION@{REGISTRE\_AFFECTATION}}
+\index{REGISTRE\_AFFECTATION@{REGISTRE\_AFFECTATION}!registre.c@{registre.c}}
+\doxysubsubsection{\texorpdfstring{REGISTRE\_AFFECTATION}{REGISTRE\_AFFECTATION}}
+{\footnotesize\ttfamily \#define REGISTRE\+\_\+\+AFFECTATION~\textquotesingle{}=\textquotesingle{}}
+
+
+
+Définition à la ligne \mbox{\hyperlink{registre_8c_source_l00293}{293}} du fichier \mbox{\hyperlink{registre_8c_source}{registre.\+c}}.
+
+\Hypertarget{registre_8c_a933306d635e06d8f4c7da63f6f037c17}\label{registre_8c_a933306d635e06d8f4c7da63f6f037c17} 
+\index{registre.c@{registre.c}!REGISTRE\_NOM\_SEPARATEUR@{REGISTRE\_NOM\_SEPARATEUR}}
+\index{REGISTRE\_NOM\_SEPARATEUR@{REGISTRE\_NOM\_SEPARATEUR}!registre.c@{registre.c}}
+\doxysubsubsection{\texorpdfstring{REGISTRE\_NOM\_SEPARATEUR}{REGISTRE\_NOM\_SEPARATEUR}}
+{\footnotesize\ttfamily \#define REGISTRE\+\_\+\+NOM\+\_\+\+SEPARATEUR~\textquotesingle{}.\textquotesingle{}}
+
+
+
+Ajouter dans un registre un paramètre décrit dans une chaîne de caractères. 
+
+La chaîne doit être sous la forme "{}a.\+b.\+c=v"{} 
+
+Définition à la ligne \mbox{\hyperlink{registre_8c_source_l00290}{290}} du fichier \mbox{\hyperlink{registre_8c_source}{registre.\+c}}.
+
+
+
+\doxysubsection{Documentation des définitions de type}
+\Hypertarget{registre_8c_af53892c5987c21f8b87dac57bd87cc32}\label{registre_8c_af53892c5987c21f8b87dac57bd87cc32} 
+\index{registre.c@{registre.c}!chainonParametre@{chainonParametre}}
+\index{chainonParametre@{chainonParametre}!registre.c@{registre.c}}
+\doxysubsubsection{\texorpdfstring{chainonParametre}{chainonParametre}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{struct__chainonParametre}{\+\_\+chainon\+Parametre}} \mbox{\hyperlink{registre_8c_af53892c5987c21f8b87dac57bd87cc32}{chainon\+Parametre}}}
+
+
+
+On va construire des listes de paramètres. 
+
+\Hypertarget{registre_8c_ad5748da738b44dd836ba4805c331f921}\label{registre_8c_ad5748da738b44dd836ba4805c331f921} 
+\index{registre.c@{registre.c}!listeParametres@{listeParametres}}
+\index{listeParametres@{listeParametres}!registre.c@{registre.c}}
+\doxysubsubsection{\texorpdfstring{listeParametres}{listeParametres}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{struct__listeParametres}{\+\_\+liste\+Parametres}} \mbox{\hyperlink{registre_8c_ad5748da738b44dd836ba4805c331f921}{liste\+Parametres}}}
+
+\Hypertarget{registre_8c_a95437a522404deb16971b572adf51cfd}\label{registre_8c_a95437a522404deb16971b572adf51cfd} 
+\index{registre.c@{registre.c}!parametre@{parametre}}
+\index{parametre@{parametre}!registre.c@{registre.c}}
+\doxysubsubsection{\texorpdfstring{parametre}{parametre}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{struct__parametre}{\+\_\+parametre}} \mbox{\hyperlink{include_2manux_2registre_8h_a95437a522404deb16971b572adf51cfd}{parametre}}}
+
+
+
+Un paramètre est simplement une valeur sous forme de chaîne de caractères associée à un nom. 
+
+\Hypertarget{registre_8c_a595908c85440ba4ee2f66e3c4fe8af66}\label{registre_8c_a595908c85440ba4ee2f66e3c4fe8af66} 
+\index{registre.c@{registre.c}!registre@{registre}}
+\index{registre@{registre}!registre.c@{registre.c}}
+\doxysubsubsection{\texorpdfstring{registre}{registre}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{struct__registre}{\+\_\+registre}} \mbox{\hyperlink{include_2manux_2registre_8h_a595908c85440ba4ee2f66e3c4fe8af66}{registre}}}
+
+
+
+Un registre est simplement une liste (nommée) de paramètres. Les paramètres peuvent être eux-\/mêmes des registres. 
+
+
+
+\doxysubsection{Documentation des fonctions}
+\Hypertarget{registre_8c_af2366204c72efe94513974eae9daa194}\label{registre_8c_af2366204c72efe94513974eae9daa194} 
+\index{registre.c@{registre.c}!registreAffecterParametre@{registreAffecterParametre}}
+\index{registreAffecterParametre@{registreAffecterParametre}!registre.c@{registre.c}}
+\doxysubsubsection{\texorpdfstring{registreAffecterParametre()}{registreAffecterParametre()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} registre\+Affecter\+Parametre (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{include_2manux_2registre_8h_a595908c85440ba4ee2f66e3c4fe8af66}{registre}} \texorpdfstring{$\ast$}{*}}]{reg,  }\item[{char \texorpdfstring{$\ast$}{*}}]{valeur,  }\item[{\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} \texorpdfstring{$\ast$}{*}}]{prive,  }\item[{\mbox{\hyperlink{include_2manux_2registre_8h_afd4880d0c171af4503c438127130d952}{registre\+Mise\+AJour}}}]{mise\+AJour,  }\item[{}]{... }\end{DoxyParamCaption})}
+
+
+
+La fonction fournie pour affecter un paramètre dans un registre. 
+
+Affecter un paramètre dans un registre. 
+
+Définition à la ligne \mbox{\hyperlink{registre_8c_source_l00449}{449}} du fichier \mbox{\hyperlink{registre_8c_source}{registre.\+c}}.
+
+\Hypertarget{registre_8c_ada651fa62bac9f50a35bdd1908f8e06e}\label{registre_8c_ada651fa62bac9f50a35bdd1908f8e06e} 
+\index{registre.c@{registre.c}!registreCreer@{registreCreer}}
+\index{registreCreer@{registreCreer}!registre.c@{registre.c}}
+\doxysubsubsection{\texorpdfstring{registreCreer()}{registreCreer()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{include_2manux_2registre_8h_a595908c85440ba4ee2f66e3c4fe8af66}{registre}} \texorpdfstring{$\ast$}{*} registre\+Creer (\begin{DoxyParamCaption}\item[{char \texorpdfstring{$\ast$}{*}}]{nom }\end{DoxyParamCaption})}
+
+
+
+Création d\textquotesingle{}un registre vide. 
+
+
+
+Définition à la ligne \mbox{\hyperlink{registre_8c_source_l00203}{203}} du fichier \mbox{\hyperlink{registre_8c_source}{registre.\+c}}.
+
+\Hypertarget{registre_8c_af63f1d827d195edd2d25338101785bf2}\label{registre_8c_af63f1d827d195edd2d25338101785bf2} 
+\index{registre.c@{registre.c}!registreSystemeAffecterParametre@{registreSystemeAffecterParametre}}
+\index{registreSystemeAffecterParametre@{registreSystemeAffecterParametre}!registre.c@{registre.c}}
+\doxysubsubsection{\texorpdfstring{registreSystemeAffecterParametre()}{registreSystemeAffecterParametre()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} registre\+Systeme\+Affecter\+Parametre (\begin{DoxyParamCaption}\item[{char \texorpdfstring{$\ast$}{*}}]{valeur,  }\item[{\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} \texorpdfstring{$\ast$}{*}}]{prive,  }\item[{\mbox{\hyperlink{include_2manux_2registre_8h_afd4880d0c171af4503c438127130d952}{registre\+Mise\+AJour}}}]{mise\+AJour,  }\item[{}]{... }\end{DoxyParamCaption})}
+
+
+
+Ajouter au registre système un paramètre dont le nom est donné comme une liste de paramètres. 
+
+Ajouter un paramètre au registre système de ManuX.
+
+Exemple registre\+Systeme\+Ajouter\+Parametre("{}192.\+168.\+10.\+2/24"{}, \&netif, net\+Ip\+Addr, "{}net"{}, "{}ip"{}, "{}addr"{}, NULL); 
+
+Définition à la ligne \mbox{\hyperlink{registre_8c_source_l00565}{565}} du fichier \mbox{\hyperlink{registre_8c_source}{registre.\+c}}.
+
+\Hypertarget{registre_8c_a6252c3aafdbed147bac05b3556453ac7}\label{registre_8c_a6252c3aafdbed147bac05b3556453ac7} 
+\index{registre.c@{registre.c}!registreSystemeAfficher@{registreSystemeAfficher}}
+\index{registreSystemeAfficher@{registreSystemeAfficher}!registre.c@{registre.c}}
+\doxysubsubsection{\texorpdfstring{registreSystemeAfficher()}{registreSystemeAfficher()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} registre\+Systeme\+Afficher (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}}}]{ }\end{DoxyParamCaption})}
+
+
+
+Affichage du registre système. 
+
+Affichage du registre de ManuX. 
+
+Définition à la ligne \mbox{\hyperlink{registre_8c_source_l00580}{580}} du fichier \mbox{\hyperlink{registre_8c_source}{registre.\+c}}.
+
+\Hypertarget{registre_8c_aac56ec2b1aa7909b6b41aedc1db7313f}\label{registre_8c_aac56ec2b1aa7909b6b41aedc1db7313f} 
+\index{registre.c@{registre.c}!registreSystemeAjouterC@{registreSystemeAjouterC}}
+\index{registreSystemeAjouterC@{registreSystemeAjouterC}!registre.c@{registre.c}}
+\doxysubsubsection{\texorpdfstring{registreSystemeAjouterC()}{registreSystemeAjouterC()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} registre\+Systeme\+AjouterC (\begin{DoxyParamCaption}\item[{char \texorpdfstring{$\ast$}{*}}]{chaine }\end{DoxyParamCaption})}
+
+
+
+Ajouter dans un registre système un paramètre décrit dans une chaîne de caractères. 
+
+Ajouter dans le registre système un paramètre décrit dans une chaîne de caractères.
+
+La chaîne doit être sous la forme "{}a.\+b.\+c=v"{} Attention, elle va être modifiée ! 
+
+Définition à la ligne \mbox{\hyperlink{registre_8c_source_l00552}{552}} du fichier \mbox{\hyperlink{registre_8c_source}{registre.\+c}}.
+
+\Hypertarget{registre_8c_a63129c6b1232b7c3a5b4e21103ef0d2c}\label{registre_8c_a63129c6b1232b7c3a5b4e21103ef0d2c} 
+\index{registre.c@{registre.c}!registreSystemeInitialiser@{registreSystemeInitialiser}}
+\index{registreSystemeInitialiser@{registreSystemeInitialiser}!registre.c@{registre.c}}
+\doxysubsubsection{\texorpdfstring{registreSystemeInitialiser()}{registreSystemeInitialiser()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} registre\+Systeme\+Initialiser (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}}}]{ }\end{DoxyParamCaption})}
+
+
+
+Création du registre du système. 
+
+Initialisation du registre système. 
+
+Définition à la ligne \mbox{\hyperlink{registre_8c_source_l00536}{536}} du fichier \mbox{\hyperlink{registre_8c_source}{registre.\+c}}.
+

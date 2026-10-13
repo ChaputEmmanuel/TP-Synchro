@@ -20,11 +20,65 @@ enrichi et utilisé à d'autres fins.
 
    Le second est la {\em pagination}. L'idée ici est de découper la
 mémoire en {\em pages} de taille fixe. Chaque page pourra être dotée
-de propriétées qui lui sont propre. La pagination va nécessiter la
+de propriétés qui lui sont propre. La pagination va nécessiter la
 mise en place d'un certain nombre de tables d'indirection, ce qui peut
 sembler un peu lourd, mais qui va en particulier permettre de la
 mémoire virtuelle, de l'isolation entre les tâches, \ldots
 
+%-------------------------------------------------------------------------------
+%
+%-------------------------------------------------------------------------------
+\subsection{Organisation de la mémoire au boot}
+
+   Lorsque \grub a chargé le noyau en mémoire, il lui passe la main et
+celui-ci doit donc s'occuper rapidement de la gestion de la
+mémoire. La structure est alors celle décrite par la figure suivante.
+
+\includegraphics{images/memoire-au-boot.png}
+
+   La première page est utilisée pour les handlers d'interruptions.
+
+   J'ai fait le choix de placer derrière la {\sc idt} puis la {\sc
+ gdt}. Leurs adresses et leurs tailles sont définies en ce sens dans
+   \fichier{include/config}{plan-memoire-pc}{h}.
+   
+
+   Lors du démarrage d'un {\sc pc}, le secteur de boot est placé à
+l'adresse {\tt 0x7C00} et \grub est chargé juste derrière à
+l'adresse {\tt 0x8000}. On ne peut évidemment pas demander à \grub de
+charger le noyau à une adresse qu'il occupe, je fais donc le choix de
+lui demander de charger ManuX à partir de la page 16, donc à l'adresse
+{\tt 0x10000}. Cette adresse également est définie dans le fichier
+\fichier{include/config}{plan-memoire-pc}{h} par la macro
+\lstinline!MANUX_KERNEL_START_ADDRESS!. C'est le linker qui utilise
+cette macro pour positionner le noyau.
+
+   Vient ensuite la pile du noyau qui est positionnée juste après le
+noyau (mais à une frontière de page). Cette place est définie dans le
+fichier de configuration du linker : \fichier{noyau}{manux}{ld}.
+
+   Je place ensuite derrière cet espace réservé à la pile une zone
+mémoire qui va me servir à la gestion des pages mémoire.
+   
+   À partir l'adresse {\tt 0x80000}, c'est le \bios{}. Dans un soucis
+de tranquillité, je vais considérer que les 512 Ko qui commencent à
+cette adresse sont inutilisables car réservés au \bios{}. Il y a moyen
+d'être un peu plus subtile, et d'en récupérer tout ou partie en
+fonction de la situation, mais on ne va pas s'y embêter pour le
+moment.
+
+   Tout ce qui est au delà est alors utilisable.
+   
+   Pour illustrer cela, la figure ci-dessous montre l'exécution d'un 
+noyau qui alloue quelques pages après son démarrage. Il s'agit de
+l'image obtenue avec {\tt CFG=memoire}.
+
+\includegraphics{images/memoire-allocation-pages.png}
+
+   On peut constater que les quelques premières pages allouées sont
+situées entre la {\sc gdt} et le noyau et que les suivantes sont
+allouées après la gestion mémoire.
+   
 %-------------------------------------------------------------------------------
 %
 %-------------------------------------------------------------------------------
@@ -42,7 +96,7 @@ adresse logique est composée de deux parties : un {\em segment}, et un
 {\em offset}.
 
    Le segment est une partie de la mémoire, et l'offset un déplacement
-dans le segment, comme l'illustre la figure \ref{Fig-1}. On
+dans le segment, comme l'illustre la figure \ref{figure:adresse-logique} ci-dessous. On
 peut donc voir ça comme une découpe de la mémoire 
 en zones (ou segments) logiques et/ou comme une façon d'accéder à des
 adresses plus élevées que ce que permet la taille des registres.
@@ -54,10 +108,11 @@ adresses plus élevées que ce que permet la taille des registres.
 
 \begin{figure}[htbp]
 \begin{center}
-\includegraphics[width=0.6\textwidth]{adresse-logique.png}
-\caption{\label{Fig-1}Adresse logique}
+\includegraphics[width=0.6\textwidth]{images/adresse-logique.png}
+\caption{\label{figure:adresse-logique}Principe d'une adresse logique}
 \end{center}
 \end{figure} 
+
 
    Le segment est contenu dans un registre qui peut être fourni
 explicitement ou implicitement par l'instruction. Il donne donc
@@ -69,16 +124,12 @@ On a dit qu'un registre ne pouvait pas contenir une adresse entière).
    En fait, le registre en question permet d'accéder à un {\em
 descripteur de segment}. C'est évidemment ce dernier (que nous
 allons décrire par la suite) qui donne, entre autres, l'adresse du
-segment. La figure \ref{Figure:addlogsel} illustre cette indirection.
+segment. La figure \ref{figure:adresse-logique-sel} illustre cette indirection.
 
-\note{
 \begin{figure}[htbp]
-$$
-\includegraphics[width=0.4\textwidth]{adresse-logique-sel}
-$$
-\caption{\label{Figure:addlogsel}Adresse logique et sélecteur de segment}
+\includegraphics[width=0.4\textwidth]{images/adresse-logique-sel}
+\caption{\label{figure:adresse-logique-sel}Adresse logique et sélecteur de segment}
 \end{figure} 
-}
 
 %-------------------------------------------------------------------------------
 %      Segmentation
@@ -228,6 +279,10 @@ $$
 \caption{\label{Figure:addline}Structure d'une adresse linéaire.}
 \end{figure} 
 }
+
+   \includegraphics[width=0.8\textwidth]{adresse-lineaire}
+
+   
    Les bits de poids forts ({\tt Dir}) donnent la position dans le
 répertoire de page de l'adresse d'une table de pages. Les bits
 suivants ({\tt Page}) donnent la position dans dans cette table de
@@ -331,10 +386,10 @@ garderons bien d'aller y lire ou écrire pour autre chose !
    L'état de cette mémoire à la fin du boot (décrit plus haut) est
 donné  par la figure \ref{etat-memoire-boot-2} que nous redonnons ici.
 
-\begin{figure}[htbp]
-\includegraphics[width=\textwidth]{etat-memoire-boot}
-\caption{\label{fig:etat-memoire-boot-2}État de la mémoire après le boot}
-\end{figure} 
+%\begin{figure}[htbp]
+\includegraphics[width=\textwidth]{images/etat-memoire-boot}
+%\caption{\label{fig:etat-memoire-boot-2}État de la mémoire après le boot}
+%\end{figure} 
 
    Il est important de l'avoir en tête pour la suite afin de
 déterminer quelles sont les zones que nous pouvos allouer et celles
@@ -360,6 +415,9 @@ $$
   pages mémoire}
 \end{figure} 
 }
+
+\includegraphics[width=0.5\textwidth]{images/proprietaire-page}
+
 \subparagraph{Initialisation}
 
 
@@ -404,12 +462,13 @@ siamoises'' ou buddy memory allocation system.
 
    Il fournit essentiellement les trois fonctions suivantes
 
+\begin{lstlisting}
 void kmallocInitialisation();
 
 void * kmalloc(size_t n);
 
 void kfree(void * p);
-
+\end{lstlisting}
 
 %...............................................................................
 %      Organisation de la mémoire virtuelle

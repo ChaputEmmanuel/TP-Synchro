@@ -5,7 +5,7 @@
 	$(ASM) $(ASM_DEF) $(ASM_ELF_OPT) $< -o $@
 
 .c.o :
-	gcc $(CFLAGS) -c $<
+	$(CC) $(CFLAGS) -c $<
 
 .ld.lds :
-	gcc $(CFLAGS) -E -P -x c $< >  $@
+	$(CC) $(CFLAGS) -E -P -x c $< >  $@

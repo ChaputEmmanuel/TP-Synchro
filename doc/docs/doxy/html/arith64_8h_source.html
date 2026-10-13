@@ -1,0 +1,155 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>My Project:  Fichier source de /home/manu/PROGRAMMATION/C/ManuX/include/manux/arith64.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">My Project
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function() { init_codefold(0); });
+/* @license-end */
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_7ae9ae23548caaa7aeb1f148c6e00073.html">manux</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle"><div class="title">arith64.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="arith64_8h.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">/*----------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment">/*----------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#ifndef ARITH64_DEF</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#define ARITH64_DEF</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span> </div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno"><a class="line" href="arith64_8h.html#ae5cbcfc8c01a178587935407bbc02a56">    6</a></span><span class="preprocessor">#define arith64_u64 unsigned long long int</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno"><a class="line" href="arith64_8h.html#aad3271ab92f48b78bca71e2d9f4c1723">    7</a></span><span class="preprocessor">#define arith64_s64 signed long long int</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno"><a class="line" href="arith64_8h.html#a6571aa5060676d8b0923245ee63a2b46">    8</a></span><span class="preprocessor">#define arith64_u32 unsigned int</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno"><a class="line" href="arith64_8h.html#ab5b8c8efaac3a3bef707b91ef4bccb62">    9</a></span><span class="preprocessor">#define arith64_s32 int</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
+<div class="foldopen" id="foldopen00011" data-start="{" data-end="};">
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno"><a class="line" href="unionarith64__word.html">   11</a></span><span class="keyword">typedef</span> <span class="keyword">union</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>{</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno"><a class="line" href="unionarith64__word.html#ad192cbe21090ac61ed87ab8fefea7fd8">   13</a></span>    <a class="code hl_define" href="arith64_8h.html#ae5cbcfc8c01a178587935407bbc02a56">arith64_u64</a> <a class="code hl_variable" href="unionarith64__word.html#ad192cbe21090ac61ed87ab8fefea7fd8">u64</a>;</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno"><a class="line" href="unionarith64__word.html#ae05a2ca8fb9ebfd35615d32938fb4aa3">   14</a></span>    <a class="code hl_define" href="arith64_8h.html#aad3271ab92f48b78bca71e2d9f4c1723">arith64_s64</a> <a class="code hl_variable" href="unionarith64__word.html#ae05a2ca8fb9ebfd35615d32938fb4aa3">s64</a>;</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    <span class="keyword">struct</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    {</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#if __BYTE_ORDER__ == __ORDER_BIG_ENDIAN__</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="unionarith64__word.html#af56545a03e4b2d08a471a26fe2ab5bb8">   18</a></span>        <a class="code hl_define" href="arith64_8h.html#a6571aa5060676d8b0923245ee63a2b46">arith64_u32</a> <a class="code hl_variable" href="unionarith64__word.html#af56545a03e4b2d08a471a26fe2ab5bb8">hi</a>; <a class="code hl_define" href="arith64_8h.html#a6571aa5060676d8b0923245ee63a2b46">arith64_u32</a> lo;</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="preprocessor">#else</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>        <a class="code hl_define" href="arith64_8h.html#a6571aa5060676d8b0923245ee63a2b46">arith64_u32</a> lo; <a class="code hl_define" href="arith64_8h.html#a6571aa5060676d8b0923245ee63a2b46">arith64_u32</a> hi;</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="unionarith64__word.html#a9aece13a5e2ebea3d36c2f5869ef669b">   22</a></span>    } u32;</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    <span class="keyword">struct</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    {</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="preprocessor">#if __BYTE_ORDER__ == __ORDER_BIG_ENDIAN__</span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="unionarith64__word.html#ac092b39d9834b3eb31c454315a3ce0b0">   26</a></span>        <a class="code hl_define" href="arith64_8h.html#ab5b8c8efaac3a3bef707b91ef4bccb62">arith64_s32</a> <a class="code hl_variable" href="unionarith64__word.html#ac092b39d9834b3eb31c454315a3ce0b0">hi</a>; <a class="code hl_define" href="arith64_8h.html#ab5b8c8efaac3a3bef707b91ef4bccb62">arith64_s32</a> lo;</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="preprocessor">#else</span></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>        <a class="code hl_define" href="arith64_8h.html#ab5b8c8efaac3a3bef707b91ef4bccb62">arith64_s32</a> lo; <a class="code hl_define" href="arith64_8h.html#ab5b8c8efaac3a3bef707b91ef4bccb62">arith64_s32</a> hi;</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno"><a class="line" href="unionarith64__word.html#a2ead6b8af0a48d6b1d1190da0d241fd4">   30</a></span>    } s32;</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>} <a class="code hl_union" href="unionarith64__word.html">arith64_word</a>;</div>
+</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="comment">// extract hi and lo 32-bit words from 64-bit value</span></div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="arith64_8h.html#a7b340ea7ffe2d8397faf257d06ad0499">   34</a></span><span class="preprocessor">#define arith64_hi(n) (arith64_word){.u64=n}.u32.hi</span></div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="arith64_8h.html#a032b36f0fd9d0392f60e1d831ead8204">   35</a></span><span class="preprocessor">#define arith64_lo(n) (arith64_word){.u64=n}.u32.lo</span></div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="comment">// Negate a if b is negative, via invert and increment.</span></div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno"><a class="line" href="arith64_8h.html#afff665b35b9678331f4ecd149ddf7629">   38</a></span><span class="preprocessor">#define arith64_neg(a, b) (((a) ^ ((((arith64_s64)(b)) &gt;= 0) - 1)) + (((arith64_s64)(b)) &lt; 0))</span></div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno"><a class="line" href="arith64_8h.html#a8f5867e27b915c5eb54ebd57b1ace3f4">   39</a></span><span class="preprocessor">#define arith64_abs(a) arith64_neg(a, a)</span></div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="comment">/*</span></div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><a class="code hl_define" href="arith64_8h.html#aad3271ab92f48b78bca71e2d9f4c1723">arith64_s64</a> <a class="code hl_function" href="arith64_8h.html#a90102e050c7a459d19f99108d6b4b4c0">__moddi3</a>(<a class="code hl_define" href="arith64_8h.html#aad3271ab92f48b78bca71e2d9f4c1723">arith64_s64</a> <a class="code hl_variable" href="main-bootreg_8c.html#acc5bda773ae19389879f3886f8ecf123">a</a>, <a class="code hl_define" href="arith64_8h.html#aad3271ab92f48b78bca71e2d9f4c1723">arith64_s64</a> <a class="code hl_variable" href="main-bootreg_8c.html#a7976cd62f9b61a65e8104a3cf7c15099">b</a>);</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span><span class="comment">/*</span></div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span><a class="code hl_define" href="arith64_8h.html#aad3271ab92f48b78bca71e2d9f4c1723">arith64_s64</a> <a class="code hl_function" href="arith64_8h.html#a56ea63e25db9445bde46e852a916d0cd">__divdi3</a>(<a class="code hl_define" href="arith64_8h.html#aad3271ab92f48b78bca71e2d9f4c1723">arith64_s64</a> <a class="code hl_variable" href="main-bootreg_8c.html#acc5bda773ae19389879f3886f8ecf123">a</a>, <a class="code hl_define" href="arith64_8h.html#aad3271ab92f48b78bca71e2d9f4c1723">arith64_s64</a> <a class="code hl_variable" href="main-bootreg_8c.html#a7976cd62f9b61a65e8104a3cf7c15099">b</a>);</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span><span class="preprocessor">#endif</span></div>
+<div class="ttc" id="aarith64_8h_html_a56ea63e25db9445bde46e852a916d0cd"><div class="ttname"><a href="arith64_8h.html#a56ea63e25db9445bde46e852a916d0cd">__divdi3</a></div><div class="ttdeci">arith64_s64 __divdi3(arith64_s64 a, arith64_s64 b)</div><div class="ttdef"><b>Definition</b> <a href="arith64_8c_source.html#l00159">arith64.c:159</a></div></div>
+<div class="ttc" id="aarith64_8h_html_a6571aa5060676d8b0923245ee63a2b46"><div class="ttname"><a href="arith64_8h.html#a6571aa5060676d8b0923245ee63a2b46">arith64_u32</a></div><div class="ttdeci">#define arith64_u32</div><div class="ttdef"><b>Definition</b> <a href="arith64_8h_source.html#l00008">arith64.h:8</a></div></div>
+<div class="ttc" id="aarith64_8h_html_a90102e050c7a459d19f99108d6b4b4c0"><div class="ttname"><a href="arith64_8h.html#a90102e050c7a459d19f99108d6b4b4c0">__moddi3</a></div><div class="ttdeci">arith64_s64 __moddi3(arith64_s64 a, arith64_s64 b)</div><div class="ttdef"><b>Definition</b> <a href="arith64_8c_source.html#l00192">arith64.c:192</a></div></div>
+<div class="ttc" id="aarith64_8h_html_aad3271ab92f48b78bca71e2d9f4c1723"><div class="ttname"><a href="arith64_8h.html#aad3271ab92f48b78bca71e2d9f4c1723">arith64_s64</a></div><div class="ttdeci">#define arith64_s64</div><div class="ttdef"><b>Definition</b> <a href="arith64_8h_source.html#l00007">arith64.h:7</a></div></div>
+<div class="ttc" id="aarith64_8h_html_ab5b8c8efaac3a3bef707b91ef4bccb62"><div class="ttname"><a href="arith64_8h.html#ab5b8c8efaac3a3bef707b91ef4bccb62">arith64_s32</a></div><div class="ttdeci">#define arith64_s32</div><div class="ttdef"><b>Definition</b> <a href="arith64_8h_source.html#l00009">arith64.h:9</a></div></div>
+<div class="ttc" id="aarith64_8h_html_ae5cbcfc8c01a178587935407bbc02a56"><div class="ttname"><a href="arith64_8h.html#ae5cbcfc8c01a178587935407bbc02a56">arith64_u64</a></div><div class="ttdeci">#define arith64_u64</div><div class="ttdef"><b>Definition</b> <a href="arith64_8h_source.html#l00006">arith64.h:6</a></div></div>
+<div class="ttc" id="amain-bootreg_8c_html_a7976cd62f9b61a65e8104a3cf7c15099"><div class="ttname"><a href="main-bootreg_8c.html#a7976cd62f9b61a65e8104a3cf7c15099">b</a></div><div class="ttdeci">uint16_t b</div><div class="ttdef"><b>Definition</b> <a href="main-bootreg_8c_source.html#l00024">main-bootreg.c:24</a></div></div>
+<div class="ttc" id="amain-bootreg_8c_html_acc5bda773ae19389879f3886f8ecf123"><div class="ttname"><a href="main-bootreg_8c.html#acc5bda773ae19389879f3886f8ecf123">a</a></div><div class="ttdeci">uint16_t a</div><div class="ttdoc">Exemple de fonction de mise-à-jour d'un paramètre dans un registre.</div><div class="ttdef"><b>Definition</b> <a href="main-bootreg_8c_source.html#l00024">main-bootreg.c:24</a></div></div>
+<div class="ttc" id="aunionarith64__word_html"><div class="ttname"><a href="unionarith64__word.html">arith64_word</a></div><div class="ttdef"><b>Definition</b> <a href="arith64_8h_source.html#l00011">arith64.h:12</a></div></div>
+<div class="ttc" id="aunionarith64__word_html_ac092b39d9834b3eb31c454315a3ce0b0"><div class="ttname"><a href="unionarith64__word.html#ac092b39d9834b3eb31c454315a3ce0b0">arith64_word::hi</a></div><div class="ttdeci">arith64_s32 hi</div><div class="ttdef"><b>Definition</b> <a href="arith64_8h_source.html#l00026">arith64.h:26</a></div></div>
+<div class="ttc" id="aunionarith64__word_html_ad192cbe21090ac61ed87ab8fefea7fd8"><div class="ttname"><a href="unionarith64__word.html#ad192cbe21090ac61ed87ab8fefea7fd8">arith64_word::u64</a></div><div class="ttdeci">arith64_u64 u64</div><div class="ttdef"><b>Definition</b> <a href="arith64_8h_source.html#l00013">arith64.h:13</a></div></div>
+<div class="ttc" id="aunionarith64__word_html_ae05a2ca8fb9ebfd35615d32938fb4aa3"><div class="ttname"><a href="unionarith64__word.html#ae05a2ca8fb9ebfd35615d32938fb4aa3">arith64_word::s64</a></div><div class="ttdeci">arith64_s64 s64</div><div class="ttdef"><b>Definition</b> <a href="arith64_8h_source.html#l00014">arith64.h:14</a></div></div>
+<div class="ttc" id="aunionarith64__word_html_af56545a03e4b2d08a471a26fe2ab5bb8"><div class="ttname"><a href="unionarith64__word.html#af56545a03e4b2d08a471a26fe2ab5bb8">arith64_word::hi</a></div><div class="ttdeci">arith64_u32 hi</div><div class="ttdef"><b>Definition</b> <a href="arith64_8h_source.html#l00018">arith64.h:18</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

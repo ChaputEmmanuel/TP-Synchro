@@ -1,0 +1,48 @@
+\chapter{La big picture !}
+\hypertarget{md_docs_2vue-globale-part}{}\label{md_docs_2vue-globale-part}\index{La big picture "!@{La big picture "!}}
+\label{md_docs_2vue-globale-part_autotoc_md196}%
+\Hypertarget{md_docs_2vue-globale-part_autotoc_md196}%
+ Créer un noyau n’est pas une mince affaire, on ne sait donc pas trop comment s’y prendre au début ! Je vous rassure, plus tard on ne sait toujours pas, …
+
+L’idée de cette section est alors de proposer une vision un peu générale, en survolant les principaux éléments, mais sans rentrer dans le détail d’aucun d’entre eux.\hypertarget{md_docs_2vue-globale-part_autotoc_md197}{}\doxysection{\texorpdfstring{Au commencement, il y a le matériel}{Au commencement, il y a le matériel}}\label{md_docs_2vue-globale-part_autotoc_md197}
+Lorsqu’on envisage de réaliser un système d’exploitation, c’est que l’on souhaite exploiter un système, non ? Donc la première chose dont on a besoin, c’est d’une bonne connaissance de ce système cible.
+
+La première (et pour le moment unique) cible de ManuX, c’est un PC à base de microprocesseur Intel i386. Je ne rentrerai pas dans la description de ce système physique, largement documenté de nos jours, et je suppose que vous avez donc une assez bonne connaissance de
+
+
+\begin{DoxyItemize}
+\item son architecture générale ;
+\item le fonctionnement de son micro processeur ;
+\item sa gestion de la mémoire, des entrées-\/sorties, des périphériques, …
+\end{DoxyItemize}
+
+Nous reparlerons un peu de chacun de ces éléments en temps utiles.
+
+Grâce à cette connaissance, nous sommes capables d’écrire du code qui permette d’exploiter notre système cible.
+
+{\bfseries{Si vous n’avez pas les bases minimales sur l’architecture d’un système informatique classique, allez donc farfouiller le web pour vous faire une culture et revenez plus tard !}}\hypertarget{md_docs_2vue-globale-part_autotoc_md198}{}\doxysection{\texorpdfstring{Ça pourrait glisser, on met les chaînes}{Ça pourrait glisser, on met les chaînes}}\label{md_docs_2vue-globale-part_autotoc_md198}
+Un système d’exploitation, c’est du logiciel. Vous allez me dire que “\texorpdfstring{$\ast$}{*}\+Real progammers use cat \texorpdfstring{$>$}{>} a.\+out\texorpdfstring{$\ast$}{*}” je suppose, mais cette fois je vous propose qu’on se la joue un peu plus confort !
+
+Nous allons donc faire le choix d’utiliser un langage de programmation de haut niveau pour écrire ce logiciel, et je vous propose (impose ?) le langage C. Comme tout ne peut pas être écrit en C, il nous faudra également utiliser de l’assembleur.
+
+Il nous faut donc un compilateur C, un assembleur, et un éditeur de liens. Si nous avons peur de devoir déboguer notre code, il nous faudra également des outils pour ça.
+
+En ce qui concerne ManuX, une chaîne de compilation C fondée sur gcc (ou clang) plus un assembleur comme nasm feront très bien l’affaire. Nous décrirons cela dans la section dédiée aux outils.
+
+Grâce à ces outils, nous voilà équipés pour compiler le code que nous venons d’écrire afin qu’il puisse être exécuté sur notre système cible.
+
+{\bfseries{L’ensemble des outils nécessaires à la compilation et à l’exécution de {\itshape ManuX} sont décrits dans la section “outils”.}}\hypertarget{md_docs_2vue-globale-part_autotoc_md199}{}\doxysection{\texorpdfstring{Chargez !}{Chargez !}}\label{md_docs_2vue-globale-part_autotoc_md199}
+Nous voila bien partis, … nous avons un système matériel et nous savons écrire du code (un noyau, aussi minimaliste soit-\/il), que nous savons compilé de sorte à l’exécuter sur le système.
+
+Mais pour cela, il faut “charger le noyau”, c’est-\/à-\/dire faire en sorte qu’il se trouve quelque part ({\itshape a priori} dans la mémoire vive du système) pour que le microprocesseur l’exécute.
+
+Ce travail, peu gratifiant et assez technique, est très dépendant de notre cible matérielle.
+
+En ce qui concerne ManuX, nous utiliserons deux ou trois méthodes classiques sur un (vieux) PC. Nous décrirons cela plus précisément dans la section {\itshape Chargement en mémoire et boot}.
+
+\begin{quote}
+Grâce à cette nouvelle étape, youpi, nous allons enfin pouvoir exécuter notre noyau sur le système cible ! \end{quote}
+\hypertarget{md_docs_2vue-globale-part_autotoc_md200}{}\doxysection{\texorpdfstring{Hello word !}{Hello word !}}\label{md_docs_2vue-globale-part_autotoc_md200}
+Maintenant que nous avons toutes les bases pour que le code de notre noyau soit dans la mémoire de la machine et puisse s’exécuter, nous allons commencer par le doter de fonctions d’affichage.
+
+La construction de ces outils sera l’objet de la section “\+Affichage”. 

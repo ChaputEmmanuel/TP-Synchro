@@ -1,0 +1,157 @@
+\doxysection{Référence du fichier /home/manu/\+PROGRAMMATION/\+C/\+Manu\+X/noyau/bootloader.c}
+\hypertarget{bootloader_8c}{}\label{bootloader_8c}\index{/home/manu/PROGRAMMATION/C/ManuX/noyau/bootloader.c@{/home/manu/PROGRAMMATION/C/ManuX/noyau/bootloader.c}}
+
+
+Gestion de l\textquotesingle{}interfaçage avec le bootloader.  
+
+
+{\ttfamily \#include $<$manux/bootloader.\+h$>$}\newline
+{\ttfamily \#include $<$manux/stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$manux/debug.\+h$>$}\newline
+{\ttfamily \#include $<$manux/string.\+h$>$}\newline
+{\ttfamily \#include $<$manux/registre.\+h$>$}\newline
+Graphe des dépendances par inclusion de bootloader.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{bootloader_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{bootloader_8c_a2f926e382390cda8c3c997c5db7c4fa2}{CMDLINE\+\_\+\+MAX\+\_\+\+LENGTH}}~512
+\item 
+\#define \mbox{\hyperlink{bootloader_8c_a0912cdd57774a8db7941915d1294eefb}{BOOTLOADER\+\_\+\+CMD\+\_\+\+SEPARATEUR}}~\textquotesingle{},\textquotesingle{}
+\begin{DoxyCompactList}\small\item\em Analyse de la ligne de commande et insertion de paramètres dans le registre. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} \mbox{\hyperlink{bootloader_8c_ae56092aa42bf357bf0026df0b0808db4}{bootloader\+Initialiser}} (\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}})
+\begin{DoxyCompactList}\small\item\em Lecture des informations fournies par le bootloader. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} \mbox{\hyperlink{bootloader_8c_a42deb6a81c1a6411ef8390967dddf837}{bootloader\+Lire\+Ligne\+Cmd}} (\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}})
+\begin{DoxyCompactList}\small\item\em Analyse de la ligne de commande et modification de certains paramètres. Cette fonction estparticulièrement utile avec un regsitre. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\+\_\+t}} \mbox{\hyperlink{bootloader_8c_a1e90c03140ae6d42c414e1593656dbdf}{signature\+Bootloader}}
+\begin{DoxyCompactList}\small\item\em Valeur passée via eax par le bootloader pour s\textquotesingle{}identifier. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{manux_2bootloader_8h_aa0111f31993601255859b4d7fbb3758c}{Info\+Systeme}} \mbox{\hyperlink{bootloader_8c_abf4319b3adb9dd5752045f58f65369e6}{info\+Systeme}}
+\begin{DoxyCompactList}\small\item\em Stockage des informations décrivant le système fournies par le bootloader. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{manux_2bootloader_8h_aa0111f31993601255859b4d7fbb3758c}{Info\+Systeme}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{bootloader_8c_aa85dc51cfdf9c6e6e69730e417681cd7}{\+\_\+info\+Systeme}}
+\begin{DoxyCompactList}\small\item\em Adresse de la zone mémoire dans laquelle le bootloader nous fournit les informations sur le système. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Gestion de l\textquotesingle{}interfaçage avec le bootloader. 
+
+\begin{DoxyVerb}                                                (C) Manu Chaput 2000-2025 
+\end{DoxyVerb}
+ 
+
+Définition dans le fichier \mbox{\hyperlink{bootloader_8c_source}{bootloader.\+c}}.
+
+
+
+\doxysubsection{Documentation des macros}
+\Hypertarget{bootloader_8c_a0912cdd57774a8db7941915d1294eefb}\label{bootloader_8c_a0912cdd57774a8db7941915d1294eefb} 
+\index{bootloader.c@{bootloader.c}!BOOTLOADER\_CMD\_SEPARATEUR@{BOOTLOADER\_CMD\_SEPARATEUR}}
+\index{BOOTLOADER\_CMD\_SEPARATEUR@{BOOTLOADER\_CMD\_SEPARATEUR}!bootloader.c@{bootloader.c}}
+\doxysubsubsection{\texorpdfstring{BOOTLOADER\_CMD\_SEPARATEUR}{BOOTLOADER\_CMD\_SEPARATEUR}}
+{\footnotesize\ttfamily \#define BOOTLOADER\+\_\+\+CMD\+\_\+\+SEPARATEUR~\textquotesingle{},\textquotesingle{}}
+
+
+
+Analyse de la ligne de commande et insertion de paramètres dans le registre. 
+
+
+
+Définition à la ligne \mbox{\hyperlink{bootloader_8c_source_l00101}{101}} du fichier \mbox{\hyperlink{bootloader_8c_source}{bootloader.\+c}}.
+
+\Hypertarget{bootloader_8c_a2f926e382390cda8c3c997c5db7c4fa2}\label{bootloader_8c_a2f926e382390cda8c3c997c5db7c4fa2} 
+\index{bootloader.c@{bootloader.c}!CMDLINE\_MAX\_LENGTH@{CMDLINE\_MAX\_LENGTH}}
+\index{CMDLINE\_MAX\_LENGTH@{CMDLINE\_MAX\_LENGTH}!bootloader.c@{bootloader.c}}
+\doxysubsubsection{\texorpdfstring{CMDLINE\_MAX\_LENGTH}{CMDLINE\_MAX\_LENGTH}}
+{\footnotesize\ttfamily \#define CMDLINE\+\_\+\+MAX\+\_\+\+LENGTH~512}
+
+
+
+Définition à la ligne \mbox{\hyperlink{bootloader_8c_source_l00013}{13}} du fichier \mbox{\hyperlink{bootloader_8c_source}{bootloader.\+c}}.
+
+
+
+\doxysubsection{Documentation des fonctions}
+\Hypertarget{bootloader_8c_ae56092aa42bf357bf0026df0b0808db4}\label{bootloader_8c_ae56092aa42bf357bf0026df0b0808db4} 
+\index{bootloader.c@{bootloader.c}!bootloaderInitialiser@{bootloaderInitialiser}}
+\index{bootloaderInitialiser@{bootloaderInitialiser}!bootloader.c@{bootloader.c}}
+\doxysubsubsection{\texorpdfstring{bootloaderInitialiser()}{bootloaderInitialiser()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} bootloader\+Initialiser (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}}}]{ }\end{DoxyParamCaption})}
+
+
+
+Lecture des informations fournies par le bootloader. 
+
+Cette fonction doit être invoquée relativement tôt, car elle a la charge de recopier des informations fournies par le bootloader. Ces informations étant dans une zone mémoire que l\textquotesingle{}on risque ensuite d\textquotesingle{}utiliser. Il s\textquotesingle{}agit de info\+Systeme et cmd\+Line. 
+
+Définition à la ligne \mbox{\hyperlink{bootloader_8c_source_l00046}{46}} du fichier \mbox{\hyperlink{bootloader_8c_source}{bootloader.\+c}}.
+
+\Hypertarget{bootloader_8c_a42deb6a81c1a6411ef8390967dddf837}\label{bootloader_8c_a42deb6a81c1a6411ef8390967dddf837} 
+\index{bootloader.c@{bootloader.c}!bootloaderLireLigneCmd@{bootloaderLireLigneCmd}}
+\index{bootloaderLireLigneCmd@{bootloaderLireLigneCmd}!bootloader.c@{bootloader.c}}
+\doxysubsubsection{\texorpdfstring{bootloaderLireLigneCmd()}{bootloaderLireLigneCmd()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} bootloader\+Lire\+Ligne\+Cmd (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}}}]{ }\end{DoxyParamCaption})}
+
+
+
+Analyse de la ligne de commande et modification de certains paramètres. Cette fonction estparticulièrement utile avec un regsitre. 
+
+
+
+Définition à la ligne \mbox{\hyperlink{bootloader_8c_source_l00104}{104}} du fichier \mbox{\hyperlink{bootloader_8c_source}{bootloader.\+c}}.
+
+
+
+\doxysubsection{Documentation des variables}
+\Hypertarget{bootloader_8c_aa85dc51cfdf9c6e6e69730e417681cd7}\label{bootloader_8c_aa85dc51cfdf9c6e6e69730e417681cd7} 
+\index{bootloader.c@{bootloader.c}!\_infoSysteme@{\_infoSysteme}}
+\index{\_infoSysteme@{\_infoSysteme}!bootloader.c@{bootloader.c}}
+\doxysubsubsection{\texorpdfstring{\_infoSysteme}{\_infoSysteme}}
+{\footnotesize\ttfamily \mbox{\hyperlink{manux_2bootloader_8h_aa0111f31993601255859b4d7fbb3758c}{Info\+Systeme}}\texorpdfstring{$\ast$}{*} \+\_\+info\+Systeme}
+
+
+
+Adresse de la zone mémoire dans laquelle le bootloader nous fournit les informations sur le système. 
+
+
+
+Définition à la ligne \mbox{\hyperlink{bootloader_8c_source_l00035}{35}} du fichier \mbox{\hyperlink{bootloader_8c_source}{bootloader.\+c}}.
+
+\Hypertarget{bootloader_8c_abf4319b3adb9dd5752045f58f65369e6}\label{bootloader_8c_abf4319b3adb9dd5752045f58f65369e6} 
+\index{bootloader.c@{bootloader.c}!infoSysteme@{infoSysteme}}
+\index{infoSysteme@{infoSysteme}!bootloader.c@{bootloader.c}}
+\doxysubsubsection{\texorpdfstring{infoSysteme}{infoSysteme}}
+{\footnotesize\ttfamily \mbox{\hyperlink{manux_2bootloader_8h_aa0111f31993601255859b4d7fbb3758c}{Info\+Systeme}} info\+Systeme}
+
+
+
+Stockage des informations décrivant le système fournies par le bootloader. 
+
+
+
+Définition à la ligne \mbox{\hyperlink{bootloader_8c_source_l00029}{29}} du fichier \mbox{\hyperlink{bootloader_8c_source}{bootloader.\+c}}.
+
+\Hypertarget{bootloader_8c_a1e90c03140ae6d42c414e1593656dbdf}\label{bootloader_8c_a1e90c03140ae6d42c414e1593656dbdf} 
+\index{bootloader.c@{bootloader.c}!signatureBootloader@{signatureBootloader}}
+\index{signatureBootloader@{signatureBootloader}!bootloader.c@{bootloader.c}}
+\doxysubsubsection{\texorpdfstring{signatureBootloader}{signatureBootloader}}
+{\footnotesize\ttfamily \mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\+\_\+t}} signature\+Bootloader}
+
+
+
+Valeur passée via eax par le bootloader pour s\textquotesingle{}identifier. 
+
+
+
+Définition à la ligne \mbox{\hyperlink{bootloader_8c_source_l00023}{23}} du fichier \mbox{\hyperlink{bootloader_8c_source}{bootloader.\+c}}.
+

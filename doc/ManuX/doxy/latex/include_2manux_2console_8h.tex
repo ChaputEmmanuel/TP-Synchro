@@ -1,0 +1,224 @@
+\doxysection{Référence du fichier /home/manu/\+PROGRAMMATION/\+C/\+Manu\+X/include/manux/console.h}
+\hypertarget{include_2manux_2console_8h}{}\label{include_2manux_2console_8h}\index{/home/manu/PROGRAMMATION/C/ManuX/include/manux/console.h@{/home/manu/PROGRAMMATION/C/ManuX/include/manux/console.h}}
+
+
+Définition des fonctions de base d\textquotesingle{}accés à la console. ~\newline
+  
+
+
+{\ttfamily \#include $<$manux/config.\+h$>$}\newline
+{\ttfamily \#include $<$manux/horloge.\+h$>$}\newline
+{\ttfamily \#include $<$manux/types.\+h$>$}\newline
+{\ttfamily \#include $<$manux/atomique.\+h$>$}\newline
+{\ttfamily \#include $<$manux/ecran.\+h$>$}\newline
+Graphe des dépendances par inclusion de console.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{include_2manux_2console_8h__incl}
+\end{center}
+\end{figure}
+Ce graphe montre quels fichiers incluent directement ou indirectement ce fichier \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{include_2manux_2console_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct__Console}{\+\_\+\+Console}}
+\begin{DoxyCompactList}\small\item\em Structure d\textquotesingle{}une console. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Définitions de type}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \mbox{\hyperlink{struct__Console}{\+\_\+\+Console}} \mbox{\hyperlink{include_2manux_2console_8h_aac124f3c894e9f941f5f72cd6fed63e1}{Console}}
+\begin{DoxyCompactList}\small\item\em Structure d\textquotesingle{}une console. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{include_2manux_2console_8h_a29466c636bd065544638829883090d54}{console\+Initialisation}} (\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}})
+\begin{DoxyCompactList}\small\item\em Initialisation du système de console sans notion de fichier. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} \mbox{\hyperlink{include_2manux_2console_8h_ab2b3d67e4a76348cb620f82f3d153b46}{console\+Affecter\+Couleur\+Fond}} (\mbox{\hyperlink{include_2manux_2console_8h_aac124f3c894e9f941f5f72cd6fed63e1}{Console}} \texorpdfstring{$\ast$}{*}cons, \mbox{\hyperlink{ecran_8h_aa304d0ca681f782b1d7735da33037dd7}{Couleur}} coul)
+\begin{DoxyCompactList}\small\item\em Choix des couleurs de texte et de fond (voir l\textquotesingle{}enum ci dessus) \end{DoxyCompactList}\item 
+\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} \mbox{\hyperlink{include_2manux_2console_8h_a2d75ffed821ea7376eaf5e38ee8c98a4}{console\+Affecter\+Couleur\+Texte}} (\mbox{\hyperlink{include_2manux_2console_8h_aac124f3c894e9f941f5f72cd6fed63e1}{Console}} \texorpdfstring{$\ast$}{*}cons, \mbox{\hyperlink{ecran_8h_aa304d0ca681f782b1d7735da33037dd7}{Couleur}} coul)
+\item 
+\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} \mbox{\hyperlink{include_2manux_2console_8h_a20cb38c45f235948ac26cd858a5a6556}{console\+Afficher}} (\mbox{\hyperlink{include_2manux_2console_8h_aac124f3c894e9f941f5f72cd6fed63e1}{Console}} \texorpdfstring{$\ast$}{*}cons, char \texorpdfstring{$\ast$}{*}msg)
+\begin{DoxyCompactList}\small\item\em Affichage d\textquotesingle{}un message sur une console. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} \mbox{\hyperlink{include_2manux_2console_8h_ae9ea42a9faaae8479fd2c762ddc7d8ae}{console\+Noyau\+Afficher}} (char \texorpdfstring{$\ast$}{*}msg)
+\begin{DoxyCompactList}\small\item\em Affichage d\textquotesingle{}un message sur la console noyau. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} \mbox{\hyperlink{include_2manux_2console_8h_ae652ad0556ba11086076c802d5a90991}{console\+AfficherN}} (\mbox{\hyperlink{include_2manux_2console_8h_aac124f3c894e9f941f5f72cd6fed63e1}{Console}} \texorpdfstring{$\ast$}{*}cons, char \texorpdfstring{$\ast$}{*}msg, int nb\+Octets)
+\item 
+\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} \mbox{\hyperlink{include_2manux_2console_8h_a3d6665f65d72e2b02cf10e3baff370b5}{console\+Effacer}} (\mbox{\hyperlink{include_2manux_2console_8h_aac124f3c894e9f941f5f72cd6fed63e1}{Console}} \texorpdfstring{$\ast$}{*}cons)
+\item 
+\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} \mbox{\hyperlink{include_2manux_2console_8h_a5826d3d4019f3db5bce243517cbdd12f}{console\+Afficher\+Entier}} (\mbox{\hyperlink{include_2manux_2console_8h_aac124f3c894e9f941f5f72cd6fed63e1}{Console}} \texorpdfstring{$\ast$}{*}cons, int n)
+\item 
+\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} \mbox{\hyperlink{include_2manux_2console_8h_a2bdec29eb3d973446be873defbdff3a5}{console\+Afficher\+Registre}} (\mbox{\hyperlink{include_2manux_2console_8h_aac124f3c894e9f941f5f72cd6fed63e1}{Console}} \texorpdfstring{$\ast$}{*}cons, int nb\+Octets, int reg)
+\item 
+\mbox{\hyperlink{include_2manux_2console_8h_aac124f3c894e9f941f5f72cd6fed63e1}{Console}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{include_2manux_2console_8h_abf2f6aca15463bf0f0114531cea39f15}{console\+Noyau}} (\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}})
+\begin{DoxyCompactList}\small\item\em Obtention d\textquotesingle{}un pointeur sur la console par défaut. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{include_2manux_2stddef_8h_acf18a0d6c4b39d531e021702e9a77984}{size\+\_\+t}} \mbox{\hyperlink{include_2manux_2console_8h_ab013551f90e5a40b4626b103995364da}{console\+Ecrire}} (\mbox{\hyperlink{fichier_8h_af21b1af90951b2649333714c85dfe197}{Fichier}} \texorpdfstring{$\ast$}{*}f, \mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} \texorpdfstring{$\ast$}{*}buffer, \mbox{\hyperlink{include_2manux_2stddef_8h_acf18a0d6c4b39d531e021702e9a77984}{size\+\_\+t}} nb\+Octets)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Définition des fonctions de base d\textquotesingle{}accés à la console. ~\newline
+ 
+
+\begin{DoxyVerb} Une console est protégée par un verrou de type ExclusionMutuelle.    
+\end{DoxyVerb}
+ C\textquotesingle{}est à l\textquotesingle{}utilisateur de veiller à respecter les appels aux fonctions ~\newline
+ d\textquotesingle{}entrée et de sortie de la section critique avant et aprés chaque ~\newline
+ utilisation de la console. Bien sur le printf s\textquotesingle{}en occupe. ~\newline
+ La seule fonction dans laquelle ces appels sont effectués est celle ~\newline
+ permettant le basculement de console active. ~\newline
+ \begin{DoxyVerb}                                         (C) Manu Chaput 2000 - 2023
+\end{DoxyVerb}
+ 
+
+Définition dans le fichier \mbox{\hyperlink{include_2manux_2console_8h_source}{console.\+h}}.
+
+
+
+\doxysubsection{Documentation des définitions de type}
+\Hypertarget{include_2manux_2console_8h_aac124f3c894e9f941f5f72cd6fed63e1}\label{include_2manux_2console_8h_aac124f3c894e9f941f5f72cd6fed63e1} 
+\index{console.h@{console.h}!Console@{Console}}
+\index{Console@{Console}!console.h@{console.h}}
+\doxysubsubsection{\texorpdfstring{Console}{Console}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{struct__Console}{\+\_\+\+Console}} \mbox{\hyperlink{include_2manux_2console_8h_aac124f3c894e9f941f5f72cd6fed63e1}{Console}}}
+
+
+
+Structure d\textquotesingle{}une console. 
+
+Attention, en cas de consoles virtuelles, on stoque ça au début d\textquotesingle{}une page qui contient également une copie de l\textquotesingle{}écran. Il faut donc que la somme des deux tailles soit inférieure à la taille d\textquotesingle{}une page. Ca nous laisse 96 octets pour cette structure. 
+
+\doxysubsection{Documentation des fonctions}
+\Hypertarget{include_2manux_2console_8h_ab2b3d67e4a76348cb620f82f3d153b46}\label{include_2manux_2console_8h_ab2b3d67e4a76348cb620f82f3d153b46} 
+\index{console.h@{console.h}!consoleAffecterCouleurFond@{consoleAffecterCouleurFond}}
+\index{consoleAffecterCouleurFond@{consoleAffecterCouleurFond}!console.h@{console.h}}
+\doxysubsubsection{\texorpdfstring{consoleAffecterCouleurFond()}{consoleAffecterCouleurFond()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} console\+Affecter\+Couleur\+Fond (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{include_2manux_2console_8h_aac124f3c894e9f941f5f72cd6fed63e1}{Console}} \texorpdfstring{$\ast$}{*}}]{cons,  }\item[{\mbox{\hyperlink{ecran_8h_aa304d0ca681f782b1d7735da33037dd7}{Couleur}}}]{coul }\end{DoxyParamCaption})}
+
+
+
+Choix des couleurs de texte et de fond (voir l\textquotesingle{}enum ci dessus) 
+
+Choix des couleurs de texte et de fond (voir l\textquotesingle{}enum ci dessus) 
+
+Définition à la ligne \mbox{\hyperlink{console_8c_source_l00073}{73}} du fichier \mbox{\hyperlink{console_8c_source}{console.\+c}}.
+
+\Hypertarget{include_2manux_2console_8h_a2d75ffed821ea7376eaf5e38ee8c98a4}\label{include_2manux_2console_8h_a2d75ffed821ea7376eaf5e38ee8c98a4} 
+\index{console.h@{console.h}!consoleAffecterCouleurTexte@{consoleAffecterCouleurTexte}}
+\index{consoleAffecterCouleurTexte@{consoleAffecterCouleurTexte}!console.h@{console.h}}
+\doxysubsubsection{\texorpdfstring{consoleAffecterCouleurTexte()}{consoleAffecterCouleurTexte()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} console\+Affecter\+Couleur\+Texte (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{include_2manux_2console_8h_aac124f3c894e9f941f5f72cd6fed63e1}{Console}} \texorpdfstring{$\ast$}{*}}]{cons,  }\item[{\mbox{\hyperlink{ecran_8h_aa304d0ca681f782b1d7735da33037dd7}{Couleur}}}]{coul }\end{DoxyParamCaption})}
+
+
+
+Définition à la ligne \mbox{\hyperlink{console_8c_source_l00078}{78}} du fichier \mbox{\hyperlink{console_8c_source}{console.\+c}}.
+
+\Hypertarget{include_2manux_2console_8h_a20cb38c45f235948ac26cd858a5a6556}\label{include_2manux_2console_8h_a20cb38c45f235948ac26cd858a5a6556} 
+\index{console.h@{console.h}!consoleAfficher@{consoleAfficher}}
+\index{consoleAfficher@{consoleAfficher}!console.h@{console.h}}
+\doxysubsubsection{\texorpdfstring{consoleAfficher()}{consoleAfficher()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} console\+Afficher (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{include_2manux_2console_8h_aac124f3c894e9f941f5f72cd6fed63e1}{Console}} \texorpdfstring{$\ast$}{*}}]{cons,  }\item[{char \texorpdfstring{$\ast$}{*}}]{msg }\end{DoxyParamCaption})}
+
+
+
+Affichage d\textquotesingle{}un message sur une console. 
+
+Attention, aucun formatage n\textquotesingle{}est fait. En revanche, la chaine de caractères doit être terminée par un zéro. 
+
+Définition à la ligne \mbox{\hyperlink{console_8c_source_l00427}{427}} du fichier \mbox{\hyperlink{console_8c_source}{console.\+c}}.
+
+\Hypertarget{include_2manux_2console_8h_a5826d3d4019f3db5bce243517cbdd12f}\label{include_2manux_2console_8h_a5826d3d4019f3db5bce243517cbdd12f} 
+\index{console.h@{console.h}!consoleAfficherEntier@{consoleAfficherEntier}}
+\index{consoleAfficherEntier@{consoleAfficherEntier}!console.h@{console.h}}
+\doxysubsubsection{\texorpdfstring{consoleAfficherEntier()}{consoleAfficherEntier()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} console\+Afficher\+Entier (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{include_2manux_2console_8h_aac124f3c894e9f941f5f72cd6fed63e1}{Console}} \texorpdfstring{$\ast$}{*}}]{cons,  }\item[{int}]{n }\end{DoxyParamCaption})}
+
+
+
+Définition à la ligne \mbox{\hyperlink{console_8c_source_l00442}{442}} du fichier \mbox{\hyperlink{console_8c_source}{console.\+c}}.
+
+\Hypertarget{include_2manux_2console_8h_ae652ad0556ba11086076c802d5a90991}\label{include_2manux_2console_8h_ae652ad0556ba11086076c802d5a90991} 
+\index{console.h@{console.h}!consoleAfficherN@{consoleAfficherN}}
+\index{consoleAfficherN@{consoleAfficherN}!console.h@{console.h}}
+\doxysubsubsection{\texorpdfstring{consoleAfficherN()}{consoleAfficherN()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} console\+AfficherN (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{include_2manux_2console_8h_aac124f3c894e9f941f5f72cd6fed63e1}{Console}} \texorpdfstring{$\ast$}{*}}]{cons,  }\item[{char \texorpdfstring{$\ast$}{*}}]{msg,  }\item[{int}]{nb\+Octets }\end{DoxyParamCaption})}
+
+
+
+Définition à la ligne \mbox{\hyperlink{console_8c_source_l00391}{391}} du fichier \mbox{\hyperlink{console_8c_source}{console.\+c}}.
+
+\Hypertarget{include_2manux_2console_8h_a2bdec29eb3d973446be873defbdff3a5}\label{include_2manux_2console_8h_a2bdec29eb3d973446be873defbdff3a5} 
+\index{console.h@{console.h}!consoleAfficherRegistre@{consoleAfficherRegistre}}
+\index{consoleAfficherRegistre@{consoleAfficherRegistre}!console.h@{console.h}}
+\doxysubsubsection{\texorpdfstring{consoleAfficherRegistre()}{consoleAfficherRegistre()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} console\+Afficher\+Registre (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{include_2manux_2console_8h_aac124f3c894e9f941f5f72cd6fed63e1}{Console}} \texorpdfstring{$\ast$}{*}}]{cons,  }\item[{int}]{nb\+Octets,  }\item[{int}]{reg }\end{DoxyParamCaption})}
+
+\Hypertarget{include_2manux_2console_8h_ab013551f90e5a40b4626b103995364da}\label{include_2manux_2console_8h_ab013551f90e5a40b4626b103995364da} 
+\index{console.h@{console.h}!consoleEcrire@{consoleEcrire}}
+\index{consoleEcrire@{consoleEcrire}!console.h@{console.h}}
+\doxysubsubsection{\texorpdfstring{consoleEcrire()}{consoleEcrire()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{include_2manux_2stddef_8h_acf18a0d6c4b39d531e021702e9a77984}{size\+\_\+t}} console\+Ecrire (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{fichier_8h_af21b1af90951b2649333714c85dfe197}{Fichier}} \texorpdfstring{$\ast$}{*}}]{f,  }\item[{\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} \texorpdfstring{$\ast$}{*}}]{buffer,  }\item[{\mbox{\hyperlink{include_2manux_2stddef_8h_acf18a0d6c4b39d531e021702e9a77984}{size\+\_\+t}}}]{nb\+Octets }\end{DoxyParamCaption})}
+
+\Hypertarget{include_2manux_2console_8h_a3d6665f65d72e2b02cf10e3baff370b5}\label{include_2manux_2console_8h_a3d6665f65d72e2b02cf10e3baff370b5} 
+\index{console.h@{console.h}!consoleEffacer@{consoleEffacer}}
+\index{consoleEffacer@{consoleEffacer}!console.h@{console.h}}
+\doxysubsubsection{\texorpdfstring{consoleEffacer()}{consoleEffacer()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} console\+Effacer (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{include_2manux_2console_8h_aac124f3c894e9f941f5f72cd6fed63e1}{Console}} \texorpdfstring{$\ast$}{*}}]{cons }\end{DoxyParamCaption})}
+
+
+
+Définition à la ligne \mbox{\hyperlink{console_8c_source_l00083}{83}} du fichier \mbox{\hyperlink{console_8c_source}{console.\+c}}.
+
+\Hypertarget{include_2manux_2console_8h_a29466c636bd065544638829883090d54}\label{include_2manux_2console_8h_a29466c636bd065544638829883090d54} 
+\index{console.h@{console.h}!consoleInitialisation@{consoleInitialisation}}
+\index{consoleInitialisation@{consoleInitialisation}!console.h@{console.h}}
+\doxysubsubsection{\texorpdfstring{consoleInitialisation()}{consoleInitialisation()}}
+{\footnotesize\ttfamily int console\+Initialisation (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}}}]{ }\end{DoxyParamCaption})}
+
+
+
+Initialisation du système de console sans notion de fichier. 
+
+\begin{DoxyReturn}{Renvoie}
+ESUCCES en cas de succès, autre chose sinon
+\end{DoxyReturn}
+Initialisation du système de console sans notion de fichier. 
+
+Définition à la ligne \mbox{\hyperlink{console_8c_source_l00869}{869}} du fichier \mbox{\hyperlink{console_8c_source}{console.\+c}}.
+
+\Hypertarget{include_2manux_2console_8h_abf2f6aca15463bf0f0114531cea39f15}\label{include_2manux_2console_8h_abf2f6aca15463bf0f0114531cea39f15} 
+\index{console.h@{console.h}!consoleNoyau@{consoleNoyau}}
+\index{consoleNoyau@{consoleNoyau}!console.h@{console.h}}
+\doxysubsubsection{\texorpdfstring{consoleNoyau()}{consoleNoyau()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{include_2manux_2console_8h_aac124f3c894e9f941f5f72cd6fed63e1}{Console}} \texorpdfstring{$\ast$}{*} console\+Noyau (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}}}]{ }\end{DoxyParamCaption})}
+
+
+
+Obtention d\textquotesingle{}un pointeur sur la console par défaut. 
+
+
+
+Définition à la ligne \mbox{\hyperlink{console_8c_source_l00808}{808}} du fichier \mbox{\hyperlink{console_8c_source}{console.\+c}}.
+
+\Hypertarget{include_2manux_2console_8h_ae9ea42a9faaae8479fd2c762ddc7d8ae}\label{include_2manux_2console_8h_ae9ea42a9faaae8479fd2c762ddc7d8ae} 
+\index{console.h@{console.h}!consoleNoyauAfficher@{consoleNoyauAfficher}}
+\index{consoleNoyauAfficher@{consoleNoyauAfficher}!console.h@{console.h}}
+\doxysubsubsection{\texorpdfstring{consoleNoyauAfficher()}{consoleNoyauAfficher()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} console\+Noyau\+Afficher (\begin{DoxyParamCaption}\item[{char \texorpdfstring{$\ast$}{*}}]{msg }\end{DoxyParamCaption})}
+
+
+
+Affichage d\textquotesingle{}un message sur la console noyau. 
+
+
+
+Définition à la ligne \mbox{\hyperlink{console_8c_source_l00437}{437}} du fichier \mbox{\hyperlink{console_8c_source}{console.\+c}}.
+

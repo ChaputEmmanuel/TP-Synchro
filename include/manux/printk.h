@@ -9,6 +9,7 @@
 
 #include <manux/config.h>
 #include <manux/stdarg.h>
+#include <manux/stddef.h>   // size_t
 #ifdef MANUX_FICHIER
 #include <manux/fichier.h>
 #endif
@@ -17,7 +18,7 @@
  * Longueur maximale d'une chaîne affichable (à supprimer dès qu'on
  * aura de la mémoire dynamique)
  */
-#define MAX_PRINTK_LENGTH 128
+#define MAX_PRINTK_LENGTH 2048 //512
 
 /**
  * @brief Les différentes préfixes pour les niveaux de criticité
@@ -31,7 +32,6 @@
 #define PRINTK_INFORMATION  "{6}"
 #define PRINTK_DEBUGAGE     "{7}"
 
-void printk(char * format, ...);
 /**
  * @brief Fonction principale d'affichage dans le noyau
  *
@@ -44,18 +44,46 @@ void printk(char * format, ...);
  *
  *    %[n][l[l]]{dxo} %s \n
  */
+void printk(char * format, ...);
+
+/**
+ * @brief Une version de printk qui écrit dans la console de la tâche
+ * en cours
+ *
+ * C'est un peu un printf en monde noyau, ...
+ */
+#ifdef MANUX_CONSOLES_VIRTUELLES
+void printkc(char * format, ...);
+
+// Si on n'a pas de console virtuelle, printkc ne peut pas faire mieux
+// que printk
+#else
+#   define printkc printk
+#endif
 
 /**
  * @brief : Écriture formattée dans une chaîne de caractères
  */
 int sprintk(char * str, char * format, ...);
 
+/**
+ * @brief : Écriture formattée dans une chaîne de caractères
+ */
+int vsprintk(char * str, char * format, va_list argList);
+
+/**
+ * @brief : Écriture formattée dans une chaîne de caractères
+ *
+ * C'est cette fonction qui doit être utilisée pour écrire dans une
+ * chaîne de caractères
+ */
+int snprintk(char * str, size_t l, char * format, ...);
 
 #ifdef MANUX_FICHIER
 #define fprintk(f, format, ...) \
   {	   \
    char chaine[MAX_PRINTK_LENGTH]; \
-   fichierEcrire(f, chaine, sprintk(chaine, format, __VA_ARGS__));\
+   fichierEcrire(f, chaine, snprintk(chaine, MAX_PRINTK_LENGTH, format, __VA_ARGS__));	\
 }
 #endif // MANUX_FICHIER
 #endif

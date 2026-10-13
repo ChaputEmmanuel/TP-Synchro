@@ -1,0 +1,231 @@
+\doxysection{Référence du fichier /home/manu/\+PROGRAMMATION/\+C/\+Manu\+X/include/manux/registre.h}
+\hypertarget{include_2manux_2registre_8h}{}\label{include_2manux_2registre_8h}\index{/home/manu/PROGRAMMATION/C/ManuX/include/manux/registre.h@{/home/manu/PROGRAMMATION/C/ManuX/include/manux/registre.h}}
+
+
+Gestion des registres (outils permettant de stocker des paramètres)  
+
+
+{\ttfamily \#include $<$manux/stdarg.\+h$>$}\newline
+{\ttfamily \#include $<$manux/types.\+h$>$}\newline
+Graphe des dépendances par inclusion de registre.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=280pt]{include_2manux_2registre_8h__incl}
+\end{center}
+\end{figure}
+Ce graphe montre quels fichiers incluent directement ou indirectement ce fichier \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{include_2manux_2registre_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Définitions de type}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \mbox{\hyperlink{struct__registre}{\+\_\+registre}} \mbox{\hyperlink{include_2manux_2registre_8h_a595908c85440ba4ee2f66e3c4fe8af66}{registre}}
+\begin{DoxyCompactList}\small\item\em Le type d\textquotesingle{}un registre. \end{DoxyCompactList}\item 
+typedef struct \mbox{\hyperlink{struct__parametre}{\+\_\+parametre}} \mbox{\hyperlink{include_2manux_2registre_8h_a95437a522404deb16971b572adf51cfd}{parametre}}
+\begin{DoxyCompactList}\small\item\em Définition d\textquotesingle{}un parametre dans un registre. \end{DoxyCompactList}\item 
+typedef \mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}}(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{include_2manux_2registre_8h_afd4880d0c171af4503c438127130d952}{registre\+Mise\+AJour}}) (\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} \texorpdfstring{$\ast$}{*}, char \texorpdfstring{$\ast$}{*})
+\begin{DoxyCompactList}\small\item\em La fonction de mise-\/à-\/jour d\textquotesingle{}un registre. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{include_2manux_2registre_8h_a595908c85440ba4ee2f66e3c4fe8af66}{registre}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{include_2manux_2registre_8h_ada651fa62bac9f50a35bdd1908f8e06e}{registre\+Creer}} (char \texorpdfstring{$\ast$}{*}nom)
+\begin{DoxyCompactList}\small\item\em Création d\textquotesingle{}un registre vide. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} \mbox{\hyperlink{include_2manux_2registre_8h_af2366204c72efe94513974eae9daa194}{registre\+Affecter\+Parametre}} (\mbox{\hyperlink{include_2manux_2registre_8h_a595908c85440ba4ee2f66e3c4fe8af66}{registre}} \texorpdfstring{$\ast$}{*}reg, char \texorpdfstring{$\ast$}{*}valeur, \mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} \texorpdfstring{$\ast$}{*}prive, \mbox{\hyperlink{include_2manux_2registre_8h_afd4880d0c171af4503c438127130d952}{registre\+Mise\+AJour}} mise\+AJour,...)
+\begin{DoxyCompactList}\small\item\em Affecter un paramètre dans un registre. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} \mbox{\hyperlink{include_2manux_2registre_8h_a63129c6b1232b7c3a5b4e21103ef0d2c}{registre\+Systeme\+Initialiser}} (\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}})
+\begin{DoxyCompactList}\small\item\em Initialisation du registre système. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} \mbox{\hyperlink{include_2manux_2registre_8h_af63f1d827d195edd2d25338101785bf2}{registre\+Systeme\+Affecter\+Parametre}} (char \texorpdfstring{$\ast$}{*}valeur, \mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} \texorpdfstring{$\ast$}{*}prive, \mbox{\hyperlink{include_2manux_2registre_8h_afd4880d0c171af4503c438127130d952}{registre\+Mise\+AJour}} mise\+AJour,...)
+\begin{DoxyCompactList}\small\item\em Ajouter un paramètre au registre système de ManuX. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} \mbox{\hyperlink{include_2manux_2registre_8h_aac56ec2b1aa7909b6b41aedc1db7313f}{registre\+Systeme\+AjouterC}} (char \texorpdfstring{$\ast$}{*}chaine)
+\begin{DoxyCompactList}\small\item\em Ajouter dans le registre système un paramètre décrit dans une chaîne de caractères. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} \mbox{\hyperlink{include_2manux_2registre_8h_a6252c3aafdbed147bac05b3556453ac7}{registre\+Systeme\+Afficher}} (\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}})
+\begin{DoxyCompactList}\small\item\em Affichage du registre de ManuX. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Gestion des registres (outils permettant de stocker des paramètres) 
+
+Attention en cas de mise-\/à-\/jour \+: faire suivre la doc !!!
+
+Un registre est une structure arborescente contenant des paramètres. Un registre doit d\textquotesingle{}abord être créé puis on peut y insérer des paramètres avec la fonction \doxylink{include_2manux_2registre_8h_af2366204c72efe94513974eae9daa194}{registre\+Affecter\+Parametre()}. Chaque paramètre est stoqué comme une chaîne de caractères.
+
+Il existe plusieurs façons de l\textquotesingle{}utiliser car il existe des des besoins différents \+:
+
+. Le principe de base est que chaque sous-\/sytème crée les paramètres dans un registre, avec pour chacun une fonction de mise-\/à-\/jour (et un pointeur associé si c\textquotesingle{}est utile) et une valeur par défaut s\textquotesingle{}il le souhaite
+
+. Il peut être également utile de renseigner un registre avec des valeurs de paramètres avant que ceux-\/ci aient été créés et insérés dans le registre. Des paramètres peuvent par exemple être chargés au démarage du système dont la valeur pourra être utilisée lors du démarrage des sous-\/systèmes correspondants. Lors de leur première insertion dans le registre, la fonction de mise-\/à-\/jour ne peut donc pas être invoquée.
+
+La fonction d\textquotesingle{}affectation d\textquotesingle{}un paramètre dans un registre a donc la signature suivante
+
+void \doxylink{include_2manux_2registre_8h_af2366204c72efe94513974eae9daa194}{registre\+Affecter\+Parametre(registre \texorpdfstring{$\ast$}{*} base,                                 char \texorpdfstring{$\ast$}{*} valeur,                                 void \texorpdfstring{$\ast$}{*} prive,                                 registre\+Mise\+AJour mise\+AJour,                                 ...)};
+
+où
+
+
+\begin{DoxyParams}{Paramètres}
+{\em base} & \+: le registre dans lequel est le paramètre \\
+\hline
+{\em valeur} & \+: la valeur du paramètre sous forme de chaîne (ou NULL) \\
+\hline
+{\em prive} & \+: un pointeur sur une zone privée (ou NULL) \\
+\hline
+{\em mise\+AJour} & \+: la fonction de mise à jour (ou NULL) \\
+\hline
+{\em listargs} & \+: le nom sous forme de liste de chaînes\\
+\hline
+\end{DoxyParams}
+Le principe est le suivant
+
+si mise\+AJour == NULL alors la valeur est affectée au paramètre si la fonction de mise-\/à-\/jour existe alors elle est invoquée (avec cette nouvelle valeur) finsi sinon si le paramètre n\textquotesingle{}avait pas de valeur définie, alors On lui affecte celle passée en paramètre fin si la fonction de mise-\/à-\/jour est affectée la fonction de mise-\/à-\/jour est invoquée finsi
+
+Dit autrement, si une fonction de mise-\/à-\/jour est passée en paramètre, alors on ne se préoccupe pas de la valeur passée en paramètre, sinon on affecte la valeur (même nulle). Dans tous les cas, on invoque la màj si elle existe. \begin{DoxyVerb}                                                 (C) E. Chaput 2024-2025
+\end{DoxyVerb}
+ 
+
+Définition dans le fichier \mbox{\hyperlink{include_2manux_2registre_8h_source}{registre.\+h}}.
+
+
+
+\doxysubsection{Documentation des définitions de type}
+\Hypertarget{include_2manux_2registre_8h_a95437a522404deb16971b572adf51cfd}\label{include_2manux_2registre_8h_a95437a522404deb16971b572adf51cfd} 
+\index{registre.h@{registre.h}!parametre@{parametre}}
+\index{parametre@{parametre}!registre.h@{registre.h}}
+\doxysubsubsection{\texorpdfstring{parametre}{parametre}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{struct__parametre}{\+\_\+parametre}} \mbox{\hyperlink{include_2manux_2registre_8h_a95437a522404deb16971b572adf51cfd}{parametre}}}
+
+
+
+Définition d\textquotesingle{}un parametre dans un registre. 
+
+
+
+Définition à la ligne \mbox{\hyperlink{include_2manux_2registre_8h_source_l00084}{84}} du fichier \mbox{\hyperlink{include_2manux_2registre_8h_source}{registre.\+h}}.
+
+\Hypertarget{include_2manux_2registre_8h_a595908c85440ba4ee2f66e3c4fe8af66}\label{include_2manux_2registre_8h_a595908c85440ba4ee2f66e3c4fe8af66} 
+\index{registre.h@{registre.h}!registre@{registre}}
+\index{registre@{registre}!registre.h@{registre.h}}
+\doxysubsubsection{\texorpdfstring{registre}{registre}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{struct__registre}{\+\_\+registre}} \mbox{\hyperlink{include_2manux_2registre_8h_a595908c85440ba4ee2f66e3c4fe8af66}{registre}}}
+
+
+
+Le type d\textquotesingle{}un registre. 
+
+
+
+Définition à la ligne \mbox{\hyperlink{include_2manux_2registre_8h_source_l00079}{79}} du fichier \mbox{\hyperlink{include_2manux_2registre_8h_source}{registre.\+h}}.
+
+\Hypertarget{include_2manux_2registre_8h_afd4880d0c171af4503c438127130d952}\label{include_2manux_2registre_8h_afd4880d0c171af4503c438127130d952} 
+\index{registre.h@{registre.h}!registreMiseAJour@{registreMiseAJour}}
+\index{registreMiseAJour@{registreMiseAJour}!registre.h@{registre.h}}
+\doxysubsubsection{\texorpdfstring{registreMiseAJour}{registreMiseAJour}}
+{\footnotesize\ttfamily typedef \mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}}(\texorpdfstring{$\ast$}{*} registre\+Mise\+AJour) (\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} \texorpdfstring{$\ast$}{*}, char \texorpdfstring{$\ast$}{*})}
+
+
+
+La fonction de mise-\/à-\/jour d\textquotesingle{}un registre. 
+
+
+
+Définition à la ligne \mbox{\hyperlink{include_2manux_2registre_8h_source_l00089}{89}} du fichier \mbox{\hyperlink{include_2manux_2registre_8h_source}{registre.\+h}}.
+
+
+
+\doxysubsection{Documentation des fonctions}
+\Hypertarget{include_2manux_2registre_8h_af2366204c72efe94513974eae9daa194}\label{include_2manux_2registre_8h_af2366204c72efe94513974eae9daa194} 
+\index{registre.h@{registre.h}!registreAffecterParametre@{registreAffecterParametre}}
+\index{registreAffecterParametre@{registreAffecterParametre}!registre.h@{registre.h}}
+\doxysubsubsection{\texorpdfstring{registreAffecterParametre()}{registreAffecterParametre()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} registre\+Affecter\+Parametre (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{include_2manux_2registre_8h_a595908c85440ba4ee2f66e3c4fe8af66}{registre}} \texorpdfstring{$\ast$}{*}}]{reg,  }\item[{char \texorpdfstring{$\ast$}{*}}]{valeur,  }\item[{\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} \texorpdfstring{$\ast$}{*}}]{prive,  }\item[{\mbox{\hyperlink{include_2manux_2registre_8h_afd4880d0c171af4503c438127130d952}{registre\+Mise\+AJour}}}]{mise\+AJour,  }\item[{}]{... }\end{DoxyParamCaption})}
+
+
+
+Affecter un paramètre dans un registre. 
+
+Voir la doc générale du registre pour une description de l\textquotesingle{}algorithme
+
+Affecter un paramètre dans un registre. 
+
+Définition à la ligne \mbox{\hyperlink{registre_8c_source_l00449}{449}} du fichier \mbox{\hyperlink{registre_8c_source}{registre.\+c}}.
+
+\Hypertarget{include_2manux_2registre_8h_ada651fa62bac9f50a35bdd1908f8e06e}\label{include_2manux_2registre_8h_ada651fa62bac9f50a35bdd1908f8e06e} 
+\index{registre.h@{registre.h}!registreCreer@{registreCreer}}
+\index{registreCreer@{registreCreer}!registre.h@{registre.h}}
+\doxysubsubsection{\texorpdfstring{registreCreer()}{registreCreer()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{include_2manux_2registre_8h_a595908c85440ba4ee2f66e3c4fe8af66}{registre}} \texorpdfstring{$\ast$}{*} registre\+Creer (\begin{DoxyParamCaption}\item[{char \texorpdfstring{$\ast$}{*}}]{nom }\end{DoxyParamCaption})}
+
+
+
+Création d\textquotesingle{}un registre vide. 
+
+
+
+Définition à la ligne \mbox{\hyperlink{registre_8c_source_l00203}{203}} du fichier \mbox{\hyperlink{registre_8c_source}{registre.\+c}}.
+
+\Hypertarget{include_2manux_2registre_8h_af63f1d827d195edd2d25338101785bf2}\label{include_2manux_2registre_8h_af63f1d827d195edd2d25338101785bf2} 
+\index{registre.h@{registre.h}!registreSystemeAffecterParametre@{registreSystemeAffecterParametre}}
+\index{registreSystemeAffecterParametre@{registreSystemeAffecterParametre}!registre.h@{registre.h}}
+\doxysubsubsection{\texorpdfstring{registreSystemeAffecterParametre()}{registreSystemeAffecterParametre()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} registre\+Systeme\+Affecter\+Parametre (\begin{DoxyParamCaption}\item[{char \texorpdfstring{$\ast$}{*}}]{valeur,  }\item[{\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} \texorpdfstring{$\ast$}{*}}]{prive,  }\item[{\mbox{\hyperlink{include_2manux_2registre_8h_afd4880d0c171af4503c438127130d952}{registre\+Mise\+AJour}}}]{mise\+AJour,  }\item[{}]{... }\end{DoxyParamCaption})}
+
+
+
+Ajouter un paramètre au registre système de ManuX. 
+
+Ajouter un paramètre au registre système de ManuX.
+
+Exemple registre\+Systeme\+Ajouter\+Parametre("{}192.\+168.\+10.\+2/24"{}, \&netif, net\+Ip\+Addr, "{}net"{}, "{}ip"{}, "{}addr"{}, NULL); 
+
+Définition à la ligne \mbox{\hyperlink{registre_8c_source_l00565}{565}} du fichier \mbox{\hyperlink{registre_8c_source}{registre.\+c}}.
+
+\Hypertarget{include_2manux_2registre_8h_a6252c3aafdbed147bac05b3556453ac7}\label{include_2manux_2registre_8h_a6252c3aafdbed147bac05b3556453ac7} 
+\index{registre.h@{registre.h}!registreSystemeAfficher@{registreSystemeAfficher}}
+\index{registreSystemeAfficher@{registreSystemeAfficher}!registre.h@{registre.h}}
+\doxysubsubsection{\texorpdfstring{registreSystemeAfficher()}{registreSystemeAfficher()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} registre\+Systeme\+Afficher (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}}}]{ }\end{DoxyParamCaption})}
+
+
+
+Affichage du registre de ManuX. 
+
+Affichage du registre de ManuX. 
+
+Définition à la ligne \mbox{\hyperlink{registre_8c_source_l00580}{580}} du fichier \mbox{\hyperlink{registre_8c_source}{registre.\+c}}.
+
+\Hypertarget{include_2manux_2registre_8h_aac56ec2b1aa7909b6b41aedc1db7313f}\label{include_2manux_2registre_8h_aac56ec2b1aa7909b6b41aedc1db7313f} 
+\index{registre.h@{registre.h}!registreSystemeAjouterC@{registreSystemeAjouterC}}
+\index{registreSystemeAjouterC@{registreSystemeAjouterC}!registre.h@{registre.h}}
+\doxysubsubsection{\texorpdfstring{registreSystemeAjouterC()}{registreSystemeAjouterC()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} registre\+Systeme\+AjouterC (\begin{DoxyParamCaption}\item[{char \texorpdfstring{$\ast$}{*}}]{chaine }\end{DoxyParamCaption})}
+
+
+
+Ajouter dans le registre système un paramètre décrit dans une chaîne de caractères. 
+
+La chaîne doit être sous la forme "{}a.\+b.\+c=v"{}
+
+Ajouter dans le registre système un paramètre décrit dans une chaîne de caractères.
+
+La chaîne doit être sous la forme "{}a.\+b.\+c=v"{} Attention, elle va être modifiée ! 
+
+Définition à la ligne \mbox{\hyperlink{registre_8c_source_l00552}{552}} du fichier \mbox{\hyperlink{registre_8c_source}{registre.\+c}}.
+
+\Hypertarget{include_2manux_2registre_8h_a63129c6b1232b7c3a5b4e21103ef0d2c}\label{include_2manux_2registre_8h_a63129c6b1232b7c3a5b4e21103ef0d2c} 
+\index{registre.h@{registre.h}!registreSystemeInitialiser@{registreSystemeInitialiser}}
+\index{registreSystemeInitialiser@{registreSystemeInitialiser}!registre.h@{registre.h}}
+\doxysubsubsection{\texorpdfstring{registreSystemeInitialiser()}{registreSystemeInitialiser()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} registre\+Systeme\+Initialiser (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}}}]{ }\end{DoxyParamCaption})}
+
+
+
+Initialisation du registre système. 
+
+Initialisation du registre système. 
+
+Définition à la ligne \mbox{\hyperlink{registre_8c_source_l00536}{536}} du fichier \mbox{\hyperlink{registre_8c_source}{registre.\+c}}.
+

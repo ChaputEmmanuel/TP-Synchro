@@ -1,0 +1,148 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>My Project:  Fichier source de /home/manu/PROGRAMMATION/C/ManuX/include/manux/listetaches.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">My Project
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function() { init_codefold(0); });
+/* @license-end */
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_7ae9ae23548caaa7aeb1f148c6e00073.html">manux</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle"><div class="title">listetaches.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="listetaches_8h.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">/*----------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment">/*      Définition des opérations et types permettant de manipuler des listes */</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment">/*   de tâches.                                                               */</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment">/*                                                                            */</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment">/*                                                       (C) Manu Chaput 2000 */</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment">/*----------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#ifndef LISTETACHES_DEF</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#define LISTETACHES_DEF</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="comment">/*</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="comment"> * Définition des listes de taches</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="comment"> */</span></div>
+<div class="foldopen" id="foldopen00013" data-start="{" data-end="};">
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno"><a class="line" href="struct__CelluleTache.html">   13</a></span><span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code hl_struct" href="struct__CelluleTache.html">_CelluleTache</a> {</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno"><a class="line" href="struct__CelluleTache.html#a2a1ac3d6c4f2620e3c19089e2a706203">   14</a></span>   <span class="keyword">struct </span><a class="code hl_struct" href="struct__Tache.html">_Tache</a>        * <a class="code hl_variable" href="struct__CelluleTache.html#a2a1ac3d6c4f2620e3c19089e2a706203">tache</a>;</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno"><a class="line" href="struct__CelluleTache.html#a9d6a6ee2889b11eeb2d18376426e0c3a">   15</a></span>   <span class="keyword">struct </span><a class="code hl_struct" href="struct__CelluleTache.html">_CelluleTache</a> * <a class="code hl_variable" href="struct__CelluleTache.html#a9d6a6ee2889b11eeb2d18376426e0c3a">suivant</a>;</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="listetaches_8h.html#a27c6fc9c0cd6b955aa6c7e8ee3391eac">   16</a></span>} <a class="code hl_typedef" href="listetaches_8h.html#a27c6fc9c0cd6b955aa6c7e8ee3391eac">CelluleTache</a>;</div>
+</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
+<div class="foldopen" id="foldopen00018" data-start="{" data-end="};">
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="struct__ListeTache.html">   18</a></span><span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code hl_struct" href="struct__ListeTache.html">_ListeTache</a> {</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="struct__ListeTache.html#ac30c886b3b35a885ecd6589631a8220d">   19</a></span>   <a class="code hl_struct" href="struct__CelluleTache.html">CelluleTache</a> * <a class="code hl_variable" href="struct__ListeTache.html#ac30c886b3b35a885ecd6589631a8220d">tete</a>;</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="struct__ListeTache.html#ac9112c95044ae4454ea8d7ee11ef77f7">   20</a></span>   <a class="code hl_struct" href="struct__CelluleTache.html">CelluleTache</a> * <a class="code hl_variable" href="struct__ListeTache.html#ac9112c95044ae4454ea8d7ee11ef77f7">queue</a>;</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="listetaches_8h.html#a4f8dc29eb1e6c258afefb6608ce936b5">   21</a></span>} <a class="code hl_typedef" href="listetaches_8h.html#a4f8dc29eb1e6c258afefb6608ce936b5">ListeTache</a>;</div>
+</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="keywordtype">void</span> <a class="code hl_function" href="listetaches_8h.html#af5baf3857612a0fabb59ad436aec5b9a">initialiserListeTache</a>(<a class="code hl_struct" href="struct__ListeTache.html">ListeTache</a> * listeTache);</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="comment">/*</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="comment"> * Initialisation d&#39;une liste préalablement allouée</span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="keywordtype">void</span> <a class="code hl_function" href="listetaches_8h.html#a47d0e6faac2157f137a3e09608835c79">insererCelluleTache</a>(<a class="code hl_struct" href="struct__ListeTache.html">ListeTache</a>    * listeTaches,</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>                         <span class="keyword">struct</span> <a class="code hl_struct" href="struct__Tache.html">_Tache</a> * tache,</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>                         <a class="code hl_struct" href="struct__CelluleTache.html">CelluleTache</a>  * celluleTache);</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="comment">/*</span></div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="comment"> * Insertion d&#39;une Tache en fin de liste. Le troisième paramètre est</span></div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="comment"> * un pointeur sur une zone de type CelluleTache déjà allouée.</span></div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="keyword">struct </span><a class="code hl_struct" href="struct__Tache.html">_Tache</a> * <a class="code hl_function" href="listetaches_8h.html#ac5545c3621d37831f73cd58e653f7377">extraireTache</a>(<a class="code hl_struct" href="struct__ListeTache.html">ListeTache</a> * listeTaches);</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="comment">/*</span></div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="comment"> * Extraction de la dernière tache de la liste. Attention, aucune</span></div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="comment"> * désallocation de la Cellule n&#39;est faite.</span></div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="preprocessor">#endif</span></div>
+<div class="ttc" id="alistetaches_8h_html_a27c6fc9c0cd6b955aa6c7e8ee3391eac"><div class="ttname"><a href="listetaches_8h.html#a27c6fc9c0cd6b955aa6c7e8ee3391eac">CelluleTache</a></div><div class="ttdeci">struct _CelluleTache CelluleTache</div></div>
+<div class="ttc" id="alistetaches_8h_html_a47d0e6faac2157f137a3e09608835c79"><div class="ttname"><a href="listetaches_8h.html#a47d0e6faac2157f137a3e09608835c79">insererCelluleTache</a></div><div class="ttdeci">void insererCelluleTache(ListeTache *listeTaches, struct _Tache *tache, CelluleTache *celluleTache)</div><div class="ttdef"><b>Definition</b> <a href="listetaches_8c_source.html#l00017">listetaches.c:17</a></div></div>
+<div class="ttc" id="alistetaches_8h_html_a4f8dc29eb1e6c258afefb6608ce936b5"><div class="ttname"><a href="listetaches_8h.html#a4f8dc29eb1e6c258afefb6608ce936b5">ListeTache</a></div><div class="ttdeci">struct _ListeTache ListeTache</div></div>
+<div class="ttc" id="alistetaches_8h_html_ac5545c3621d37831f73cd58e653f7377"><div class="ttname"><a href="listetaches_8h.html#ac5545c3621d37831f73cd58e653f7377">extraireTache</a></div><div class="ttdeci">struct _Tache * extraireTache(ListeTache *listeTaches)</div><div class="ttdef"><b>Definition</b> <a href="listetaches_8c_source.html#l00046">listetaches.c:46</a></div></div>
+<div class="ttc" id="alistetaches_8h_html_af5baf3857612a0fabb59ad436aec5b9a"><div class="ttname"><a href="listetaches_8h.html#af5baf3857612a0fabb59ad436aec5b9a">initialiserListeTache</a></div><div class="ttdeci">void initialiserListeTache(ListeTache *listeTache)</div><div class="ttdef"><b>Definition</b> <a href="listetaches_8c_source.html#l00011">listetaches.c:11</a></div></div>
+<div class="ttc" id="astruct__CelluleTache_html"><div class="ttname"><a href="struct__CelluleTache.html">_CelluleTache</a></div><div class="ttdef"><b>Definition</b> <a href="listetaches_8h_source.html#l00013">listetaches.h:13</a></div></div>
+<div class="ttc" id="astruct__CelluleTache_html_a2a1ac3d6c4f2620e3c19089e2a706203"><div class="ttname"><a href="struct__CelluleTache.html#a2a1ac3d6c4f2620e3c19089e2a706203">_CelluleTache::tache</a></div><div class="ttdeci">struct _Tache * tache</div><div class="ttdef"><b>Definition</b> <a href="listetaches_8h_source.html#l00014">listetaches.h:14</a></div></div>
+<div class="ttc" id="astruct__CelluleTache_html_a9d6a6ee2889b11eeb2d18376426e0c3a"><div class="ttname"><a href="struct__CelluleTache.html#a9d6a6ee2889b11eeb2d18376426e0c3a">_CelluleTache::suivant</a></div><div class="ttdeci">struct _CelluleTache * suivant</div><div class="ttdef"><b>Definition</b> <a href="listetaches_8h_source.html#l00015">listetaches.h:15</a></div></div>
+<div class="ttc" id="astruct__ListeTache_html"><div class="ttname"><a href="struct__ListeTache.html">_ListeTache</a></div><div class="ttdef"><b>Definition</b> <a href="listetaches_8h_source.html#l00018">listetaches.h:18</a></div></div>
+<div class="ttc" id="astruct__ListeTache_html_ac30c886b3b35a885ecd6589631a8220d"><div class="ttname"><a href="struct__ListeTache.html#ac30c886b3b35a885ecd6589631a8220d">_ListeTache::tete</a></div><div class="ttdeci">CelluleTache * tete</div><div class="ttdef"><b>Definition</b> <a href="listetaches_8h_source.html#l00019">listetaches.h:19</a></div></div>
+<div class="ttc" id="astruct__ListeTache_html_ac9112c95044ae4454ea8d7ee11ef77f7"><div class="ttname"><a href="struct__ListeTache.html#ac9112c95044ae4454ea8d7ee11ef77f7">_ListeTache::queue</a></div><div class="ttdeci">CelluleTache * queue</div><div class="ttdef"><b>Definition</b> <a href="listetaches_8h_source.html#l00020">listetaches.h:20</a></div></div>
+<div class="ttc" id="astruct__Tache_html"><div class="ttname"><a href="struct__Tache.html">_Tache</a></div><div class="ttdoc">: Définition du type décrivant une tache.</div><div class="ttdef"><b>Definition</b> <a href="tache_8h_source.html#l00083">tache.h:83</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

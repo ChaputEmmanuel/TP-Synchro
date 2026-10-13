@@ -1,0 +1,106 @@
+\doxysection{atomique.\+h}
+\hypertarget{atomique_8h_source}{}\label{atomique_8h_source}\index{/home/manu/PROGRAMMATION/C/ManuX/include/manux/atomique.h@{/home/manu/PROGRAMMATION/C/ManuX/include/manux/atomique.h}}
+\mbox{\hyperlink{atomique_8h}{Aller à la documentation de ce fichier.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{atomique_8h_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{atomique_8h_source_l00010}00010\ \textcolor{preprocessor}{\#ifndef\ ATOMIQUE\_DEF}}
+\DoxyCodeLine{\Hypertarget{atomique_8h_source_l00011}00011\ \textcolor{preprocessor}{\#define\ ATOMIQUE\_DEF}}
+\DoxyCodeLine{\Hypertarget{atomique_8h_source_l00012}00012\ }
+\DoxyCodeLine{\Hypertarget{atomique_8h_source_l00013}00013\ \textcolor{preprocessor}{\#include\ <manux/types.h>}}
+\DoxyCodeLine{\Hypertarget{atomique_8h_source_l00014}00014\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{scheduler_8h}{manux/scheduler.h}}>}\ \ \ \ \textcolor{comment}{/*\ tacheEnCours\ */}}
+\DoxyCodeLine{\Hypertarget{atomique_8h_source_l00015}00015\ }
+\DoxyCodeLine{\Hypertarget{atomique_8h_source_l00016}00016\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{atomique_8h_source_l00017}00017\ \textcolor{comment}{\ *\ Type\ des\ données\ manipulées\ de\ façon\ atomique}}
+\DoxyCodeLine{\Hypertarget{atomique_8h_source_l00018}00018\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{atomique_8h_source_l00019}\mbox{\hyperlink{atomique_8h_a34aa37778d3701c511b28edcb866cedb}{00019}}\ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\_t}}\ \mbox{\hyperlink{atomique_8h_a34aa37778d3701c511b28edcb866cedb}{Atomique}};}
+\DoxyCodeLine{\Hypertarget{atomique_8h_source_l00020}00020\ }
+\DoxyCodeLine{\Hypertarget{atomique_8h_source_l00021}\mbox{\hyperlink{atomique_8h_a1bb0181b87d9cf1e927b3a15b33f23b5}{00021}}\ \textcolor{preprocessor}{\#define\ atomiqueInit(atom,\ val)\(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{atomique_8h_source_l00022}00022\ \textcolor{preprocessor}{\ \ \ *(atom)\ =\ (val);}}
+\DoxyCodeLine{\Hypertarget{atomique_8h_source_l00023}00023\ }
+\DoxyCodeLine{\Hypertarget{atomique_8h_source_l00024}\mbox{\hyperlink{atomique_8h_a0475d3daa7ff8c2fae21d4274e6b5a4d}{00024}}\ \textcolor{preprocessor}{\#define\ atomiqueLire(atom)\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{atomique_8h_source_l00025}00025\ \textcolor{preprocessor}{\ \ \ (atom)}}
+\DoxyCodeLine{\Hypertarget{atomique_8h_source_l00026}00026\ }
+\DoxyCodeLine{\Hypertarget{atomique_8h_source_l00027}00027\ \textcolor{keyword}{static}\ \_\_inline\_\_\ \mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\_t}}\ compareEtEchange(\mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\_t}}\ *\ ptr,\ \mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\_t}}\ cond,\ \mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\_t}}\ val)}
+\DoxyCodeLine{\Hypertarget{atomique_8h_source_l00028}00028\ \{}
+\DoxyCodeLine{\Hypertarget{atomique_8h_source_l00033}00033\ \ \ \ \mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\_t}}\ resultat;}
+\DoxyCodeLine{\Hypertarget{atomique_8h_source_l00034}00034\ \ \ \ \_\_asm\_\_\ \textcolor{keyword}{volatile}(\textcolor{stringliteral}{"{}cmpxchg\ \%2,\ \%1\ \(\backslash\)n\(\backslash\)t"{}}}
+\DoxyCodeLine{\Hypertarget{atomique_8h_source_l00035}00035\ \ \ \ \ \ \ \ \ \ \ \ \ :\ \textcolor{stringliteral}{"{}=a"{}}(resultat),\ \textcolor{stringliteral}{"{}+m"{}}(*ptr)}
+\DoxyCodeLine{\Hypertarget{atomique_8h_source_l00036}00036\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ \textcolor{stringliteral}{"{}r"{}}(val),\ \textcolor{stringliteral}{"{}0"{}}(cond)}
+\DoxyCodeLine{\Hypertarget{atomique_8h_source_l00037}00037\ \ \ \ \ \ \ \ \ \ \ \ \ :\ \textcolor{stringliteral}{"{}memory"{}});}
+\DoxyCodeLine{\Hypertarget{atomique_8h_source_l00038}00038\ \ \ \ \textcolor{keywordflow}{return}\ resultat;}
+\DoxyCodeLine{\Hypertarget{atomique_8h_source_l00039}00039\ \}}
+\DoxyCodeLine{\Hypertarget{atomique_8h_source_l00040}00040\ }
+\DoxyCodeLine{\Hypertarget{atomique_8h_source_l00041}\mbox{\hyperlink{atomique_8h_a21402071421d990cbda21a50a68cb5a4}{00041}}\ \textcolor{preprocessor}{\#define\ \_compareEtEchange(ptr,\ cond,\ val)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{atomique_8h_source_l00042}00042\ \textcolor{preprocessor}{\ \ \{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{atomique_8h_source_l00043}00043\ \textcolor{preprocessor}{\ \ \ uint32\_t\ \_cmpxchg\_resultat;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{atomique_8h_source_l00044}00044\ \textcolor{preprocessor}{\ \ \ \_\_asm\_\_\ volatile("{}cmpxchg\ \%2,\ \%1\ \(\backslash\)n\(\backslash\)t"{}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{atomique_8h_source_l00045}00045\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ :\ "{}=a"{}(\_cmpxchg\_resultat),\ "{}+m"{}(ptr)\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{atomique_8h_source_l00046}00046\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ "{}r"{}(val),\ "{}0"{}(cond)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{atomique_8h_source_l00047}00047\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ :\ "{}memory"{});\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{atomique_8h_source_l00048}00048\ \textcolor{preprocessor}{\ \ \ \_cmpxchg\_resultat;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{atomique_8h_source_l00049}00049\ \textcolor{preprocessor}{\}}}
+\DoxyCodeLine{\Hypertarget{atomique_8h_source_l00050}00050\ }
+\DoxyCodeLine{\Hypertarget{atomique_8h_source_l00051}00051\ \textcolor{keyword}{static}\ \_\_inline\_\_\ \mbox{\hyperlink{include_2manux_2types_8h_a5b7544e51b136e716e4eccc0602bafd7}{booleen}}\ atomiqueTestInit(\mbox{\hyperlink{atomique_8h_a34aa37778d3701c511b28edcb866cedb}{Atomique}}\ *\ atom,\ \mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\_t}}\ val,\ \mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\_t}}\ cond)}
+\DoxyCodeLine{\Hypertarget{atomique_8h_source_l00052}00052\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{atomique_8h_source_l00053}00053\ \textcolor{comment}{\ *\ La\ valeur\ de\ l'Atomique\ est\ comparée\ à\ la\ valeur\ cond\ ;\ en\ cas\ d'égalité,}}
+\DoxyCodeLine{\Hypertarget{atomique_8h_source_l00054}00054\ \textcolor{comment}{\ *\ l'Atomique\ prend\ la\ valeur\ val\ et\ le\ retour\ est\ 1.\ Sinon\ rien\ n'est\ fait}}
+\DoxyCodeLine{\Hypertarget{atomique_8h_source_l00055}00055\ \textcolor{comment}{\ *\ et\ le\ retour\ est\ 0.}}
+\DoxyCodeLine{\Hypertarget{atomique_8h_source_l00056}00056\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{atomique_8h_source_l00057}00057\ \{}
+\DoxyCodeLine{\Hypertarget{atomique_8h_source_l00058}00058\ \ \ \ \mbox{\hyperlink{include_2manux_2types_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\_t}}\ resultat;}
+\DoxyCodeLine{\Hypertarget{atomique_8h_source_l00059}00059\ }
+\DoxyCodeLine{\Hypertarget{atomique_8h_source_l00060}00060\ \ \ \ \_\_asm\_\_\ (\textcolor{stringliteral}{"{}cmpxchg\ \%3,\ \%2\ \(\backslash\)n\(\backslash\)t"{}}}
+\DoxyCodeLine{\Hypertarget{atomique_8h_source_l00061}00061\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}sete\ \%0\ \(\backslash\)n\(\backslash\)t"{}}}
+\DoxyCodeLine{\Hypertarget{atomique_8h_source_l00062}00062\ \ \ \ \ \ \ \ \ \ \ \ \ :\ \textcolor{stringliteral}{"{}=m"{}}(resultat)}
+\DoxyCodeLine{\Hypertarget{atomique_8h_source_l00063}00063\ \ \ \ \ \ \ \ \ \ \ \ \ :\ \textcolor{stringliteral}{"{}a"{}}(cond),\ \textcolor{stringliteral}{"{}m"{}}(*(\textcolor{keyword}{volatile}\ \mbox{\hyperlink{atomique_8h_a34aa37778d3701c511b28edcb866cedb}{Atomique}}\ *)atom),\ \textcolor{stringliteral}{"{}r"{}}(val));}
+\DoxyCodeLine{\Hypertarget{atomique_8h_source_l00064}00064\ \ \ \ \textcolor{keywordflow}{return}\ resultat;}
+\DoxyCodeLine{\Hypertarget{atomique_8h_source_l00065}00065\ \}}
+\DoxyCodeLine{\Hypertarget{atomique_8h_source_l00066}00066\ }
+\DoxyCodeLine{\Hypertarget{atomique_8h_source_l00072}\mbox{\hyperlink{atomique_8h_adecd92baad52906329fa83905abcda34}{00072}}\ \textcolor{preprocessor}{\#define\ tacheEnCoursInterdirePreemption()\ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{atomique_8h_source_l00073}00073\ \textcolor{preprocessor}{\ \ \ tacheEnCours-\/>nonPreemptible++;}}
+\DoxyCodeLine{\Hypertarget{atomique_8h_source_l00074}00074\ }
+\DoxyCodeLine{\Hypertarget{atomique_8h_source_l00078}\mbox{\hyperlink{atomique_8h_a596cc7fc760ebb62e6511c6b65f4184d}{00078}}\ \textcolor{preprocessor}{\#define\ tacheEnCoursAutoriserPreemption()\ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{atomique_8h_source_l00079}00079\ \textcolor{preprocessor}{\ \ \ tacheEnCours-\/>nonPreemptible-\/-\/;}}
+\DoxyCodeLine{\Hypertarget{atomique_8h_source_l00080}00080\ }
+\DoxyCodeLine{\Hypertarget{atomique_8h_source_l00081}00081\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{atomique_8h_source_l00082}00082\ }
+\DoxyCodeLine{\Hypertarget{atomique_8h_source_l00083}00083\ }
+\DoxyCodeLine{\Hypertarget{atomique_8h_source_l00084}00084\ }
+\DoxyCodeLine{\Hypertarget{atomique_8h_source_l00085}00085\ }
+\DoxyCodeLine{\Hypertarget{atomique_8h_source_l00086}00086\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{atomique_8h_source_l00087}00087\ \textcolor{comment}{\ \ \ Désassemblage\ d'une\ compilation\ sans\ optimisation\ de\ cette\ version}}
+\DoxyCodeLine{\Hypertarget{atomique_8h_source_l00088}00088\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{atomique_8h_source_l00089}00089\ \textcolor{comment}{static\ \_\_inline\_\_\ uint32\_t\ compareEtEchange(uint32\_t\ *\ ptr,\ uint32\_t\ cond,\ uint32\_t\ val)}}
+\DoxyCodeLine{\Hypertarget{atomique_8h_source_l00090}00090\ \textcolor{comment}{\{}}
+\DoxyCodeLine{\Hypertarget{atomique_8h_source_l00091}00091\ \textcolor{comment}{\ \ \ uint32\_t\ resultat;}}
+\DoxyCodeLine{\Hypertarget{atomique_8h_source_l00092}00092\ \textcolor{comment}{\ \ \ \_\_asm\_\_\ volatile("{}cmpxchg\ \%2,\ \%1\ \(\backslash\)n\(\backslash\)t"{}}}
+\DoxyCodeLine{\Hypertarget{atomique_8h_source_l00093}00093\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ :\ "{}=a"{}(resultat),\ "{}+m"{}(ptr)}}
+\DoxyCodeLine{\Hypertarget{atomique_8h_source_l00094}00094\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ "{}r"{}(val),\ "{}0"{}(cond)}}
+\DoxyCodeLine{\Hypertarget{atomique_8h_source_l00095}00095\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ :\ "{}memory"{});}}
+\DoxyCodeLine{\Hypertarget{atomique_8h_source_l00096}00096\ \textcolor{comment}{\ \ \ return\ resultat;}}
+\DoxyCodeLine{\Hypertarget{atomique_8h_source_l00097}00097\ \textcolor{comment}{\}}}
+\DoxyCodeLine{\Hypertarget{atomique_8h_source_l00098}00098\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{atomique_8h_source_l00099}00099\ \textcolor{comment}{\ \ \ État\ de\ la\ pile\ après\ la\ première\ instr\ :}}
+\DoxyCodeLine{\Hypertarget{atomique_8h_source_l00100}00100\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{atomique_8h_source_l00101}00101\ \textcolor{comment}{10(\%esp)\ \ \ val}}
+\DoxyCodeLine{\Hypertarget{atomique_8h_source_l00102}00102\ \textcolor{comment}{0c(\%esp)\ \ \ cond}}
+\DoxyCodeLine{\Hypertarget{atomique_8h_source_l00103}00103\ \textcolor{comment}{08(\%esp)\ \ \ ptr}}
+\DoxyCodeLine{\Hypertarget{atomique_8h_source_l00104}00104\ \textcolor{comment}{04(\%esp)\ \ \ @retour}}
+\DoxyCodeLine{\Hypertarget{atomique_8h_source_l00105}00105\ \textcolor{comment}{00(\%esp)\ \ \ ebp}}
+\DoxyCodeLine{\Hypertarget{atomique_8h_source_l00106}00106\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{atomique_8h_source_l00107}00107\ \textcolor{comment}{\ \ \ 0x00020044\ <+0>:\ \ \ \ \ push\ \ \ \%ebp\ \ \ \ \ \ \ \ \ \ \ \ \ On\ sauve\ epb}}
+\DoxyCodeLine{\Hypertarget{atomique_8h_source_l00108}00108\ \textcolor{comment}{\ \ \ 0x00020045\ <+1>:\ \ \ \ \ mov\ \ \ \ \%esp,\%ebp\ \ \ \ \ \ \ \ On\ l'utilise\ comme\ copie\ de\ esp}}
+\DoxyCodeLine{\Hypertarget{atomique_8h_source_l00109}00109\ \textcolor{comment}{\ \ \ 0x00020047\ <+3>:\ \ \ \ \ sub\ \ \ \ \$0x4,\%esp\ \ \ \ \ \ \ \ esp\ qu'on\ aligne\ (ici\ à\ 2²)}}
+\DoxyCodeLine{\Hypertarget{atomique_8h_source_l00110}00110\ \textcolor{comment}{\ \ \ 0x0002004a\ <+6>:\ \ \ \ \ mov\ \ \ \ 0x10(\%ebp),\%edx\ \ edx\ <-\/\ val}}
+\DoxyCodeLine{\Hypertarget{atomique_8h_source_l00111}00111\ \textcolor{comment}{\ \ \ 0x0002004d\ <+9>:\ \ \ \ \ mov\ \ \ \ 0xc(\%ebp),\%eax\ \ \ eax\ <-\/\ cond}}
+\DoxyCodeLine{\Hypertarget{atomique_8h_source_l00112}00112\ \textcolor{comment}{\ \ \ 0x00020050\ <+12>:\ \ \ \ cmpxchg\ \%edx,0x8(\%ebp)\ \ cmpxchg\ \%edx,\ ptr}}
+\DoxyCodeLine{\Hypertarget{atomique_8h_source_l00113}00113\ \textcolor{comment}{\ \ \ 0x00020054\ <+16>:\ \ \ \ mov\ \ \ \ \%eax,-\/0x4(\%ebp)\ \ result\ <-\/\ \%eax}}
+\DoxyCodeLine{\Hypertarget{atomique_8h_source_l00114}00114\ \textcolor{comment}{\ \ \ 0x00020057\ <+19>:\ \ \ \ mov\ \ \ \ -\/0x4(\%ebp),\%eax\ \ Pas\ d'optimisation}}
+\DoxyCodeLine{\Hypertarget{atomique_8h_source_l00115}00115\ \textcolor{comment}{\ \ \ 0x0002005a\ <+22>:\ \ \ \ mov\ \ \ \ \%ebp,\%esp\ \ \ \ \ \ \ \ On\ remet\ \%esp\ en\ place}}
+\DoxyCodeLine{\Hypertarget{atomique_8h_source_l00116}00116\ \textcolor{comment}{\ \ \ 0x0002005c\ <+24>:\ \ \ \ pop\ \ \ \ \%ebp\ \ \ \ \ \ \ \ \ \ \ \ \ On\ restaure\ \%ebp}}
+\DoxyCodeLine{\Hypertarget{atomique_8h_source_l00117}00117\ \textcolor{comment}{\ \ \ 0x0002005d\ <+25>:\ \ \ \ ret}}
+\DoxyCodeLine{\Hypertarget{atomique_8h_source_l00118}00118\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{atomique_8h_source_l00119}00119\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{atomique_8h_source_l00120}00120\ }
+
+\end{DoxyCode}

@@ -15,6 +15,7 @@
 #define MANUX_FICHIER_MAIN main-nop
 
 #include <config/base.h>
+#include <config/plan-memoire-pc.h>  // MANUX_KERNEL_START_ADDRESS nécessaire pour ldd
 
 #include <config/verifications.h>
 

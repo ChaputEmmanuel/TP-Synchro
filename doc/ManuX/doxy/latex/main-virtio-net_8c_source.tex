@@ -1,0 +1,71 @@
+\doxysection{main-\/virtio-\/net.c}
+\hypertarget{main-virtio-net_8c_source}{}\label{main-virtio-net_8c_source}\index{/home/manu/PROGRAMMATION/C/ManuX/noyau/main-\/virtio-\/net.c@{/home/manu/PROGRAMMATION/C/ManuX/noyau/main-\/virtio-\/net.c}}
+\mbox{\hyperlink{main-virtio-net_8c}{Aller Ã  la documentation de ce fichier.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{main-virtio-net_8c_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{main-virtio-net_8c_source_l00007}00007\ \textcolor{preprocessor}{\#include\ <manux/config.h>}}
+\DoxyCodeLine{\Hypertarget{main-virtio-net_8c_source_l00008}00008\ \textcolor{preprocessor}{\#include\ <manux/errno.h>}}
+\DoxyCodeLine{\Hypertarget{main-virtio-net_8c_source_l00009}00009\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{manux_2debug_8h}{manux/debug.h}}>}\ \ \ \ \ \ \textcolor{comment}{//\ A\ virer\ j'espère\ !}}
+\DoxyCodeLine{\Hypertarget{main-virtio-net_8c_source_l00010}00010\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{include_2manux_2console_8h}{manux/console.h}}>}}
+\DoxyCodeLine{\Hypertarget{main-virtio-net_8c_source_l00011}00011\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{include_2manux_2kmalloc_8h}{manux/kmalloc.h}}>}\ \ \ \ \textcolor{comment}{//\ Pour\ l'initialisation}}
+\DoxyCodeLine{\Hypertarget{main-virtio-net_8c_source_l00012}00012\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{include_2manux_2printk_8h}{manux/printk.h}}>}}
+\DoxyCodeLine{\Hypertarget{main-virtio-net_8c_source_l00013}00013\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{include_2manux_2memoire_8h}{manux/memoire.h}}>}}
+\DoxyCodeLine{\Hypertarget{main-virtio-net_8c_source_l00014}00014\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{manux_2bootloader_8h}{manux/bootloader.h}}>}}
+\DoxyCodeLine{\Hypertarget{main-virtio-net_8c_source_l00015}00015\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{pagination_8h}{manux/pagination.h}}>}}
+\DoxyCodeLine{\Hypertarget{main-virtio-net_8c_source_l00016}00016\ }
+\DoxyCodeLine{\Hypertarget{main-virtio-net_8c_source_l00017}00017\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{manux_2pci_8h}{manux/pci.h}}>}}
+\DoxyCodeLine{\Hypertarget{main-virtio-net_8c_source_l00018}00018\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{manux_2reseau_8h}{manux/reseau.h}}>}}
+\DoxyCodeLine{\Hypertarget{main-virtio-net_8c_source_l00019}00019\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{include_2manux_2virtio-net_8h}{manux/virtio-\/net.h}}>}}
+\DoxyCodeLine{\Hypertarget{main-virtio-net_8c_source_l00020}00020\ }
+\DoxyCodeLine{\Hypertarget{main-virtio-net_8c_source_l00021}\mbox{\hyperlink{main-virtio-net_8c_a3568df994044ade7d37160ef731c223f}{00021}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{main-virtio-net_8c_a3568df994044ade7d37160ef731c223f}{startManuX}}()}
+\DoxyCodeLine{\Hypertarget{main-virtio-net_8c_source_l00022}00022\ \{}
+\DoxyCodeLine{\Hypertarget{main-virtio-net_8c_source_l00023}00023\ \ \ \ \textcolor{comment}{//\ Récupération\ des\ informations\ depuis\ le\ bootloader}}
+\DoxyCodeLine{\Hypertarget{main-virtio-net_8c_source_l00024}00024\ \ \ \ \mbox{\hyperlink{manux_2bootloader_8h_ae56092aa42bf357bf0026df0b0808db4}{bootloaderInitialiser}}();}
+\DoxyCodeLine{\Hypertarget{main-virtio-net_8c_source_l00025}00025\ }
+\DoxyCodeLine{\Hypertarget{main-virtio-net_8c_source_l00026}00026\ \ \ \ \textcolor{comment}{//\ Gestion\ globale\ de\ la\ mémoire}}
+\DoxyCodeLine{\Hypertarget{main-virtio-net_8c_source_l00027}00027\ \ \ \ \mbox{\hyperlink{include_2manux_2memoire_8h_a4338550e2017b7c95021bdc27e4f3345}{initialiserMemoire}}(\mbox{\hyperlink{manux_2bootloader_8h_abf4319b3adb9dd5752045f58f65369e6}{infoSysteme}}.\mbox{\hyperlink{struct__InfoSysteme_a6047965dfba552f4957f7df33b777e8c}{memoireDeBase}},}
+\DoxyCodeLine{\Hypertarget{main-virtio-net_8c_source_l00028}00028\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{manux_2bootloader_8h_abf4319b3adb9dd5752045f58f65369e6}{infoSysteme}}.\mbox{\hyperlink{struct__InfoSysteme_aeed4b08b9edfc29ff917ed26d87c9cda}{memoireEtendue}});}
+\DoxyCodeLine{\Hypertarget{main-virtio-net_8c_source_l00029}00029\ \ \ \ }
+\DoxyCodeLine{\Hypertarget{main-virtio-net_8c_source_l00030}00030\ \ \ \ \textcolor{comment}{//\ Initialisation\ de\ la\ console\ noyau}}
+\DoxyCodeLine{\Hypertarget{main-virtio-net_8c_source_l00031}00031\ \ \ \ \mbox{\hyperlink{include_2manux_2console_8h_a29466c636bd065544638829883090d54}{consoleInitialisation}}();}
+\DoxyCodeLine{\Hypertarget{main-virtio-net_8c_source_l00032}00032\ }
+\DoxyCodeLine{\Hypertarget{main-virtio-net_8c_source_l00033}00033\ \ \ \ \textcolor{comment}{//\ Initilisation\ des\ descripteurs\ de\ segments}}
+\DoxyCodeLine{\Hypertarget{main-virtio-net_8c_source_l00034}00034\ \ \ \ \mbox{\hyperlink{manux_2debug_8h_ad4cabea5084373436d91b5dc4e8d0a49}{printk\_debug}}(\mbox{\hyperlink{manux_2debug_8h_a97cb921ecb429c2c4c3755b2ca69364b}{DBG\_KERNEL\_START}},\ \textcolor{stringliteral}{"{}Initialisation\ de\ la\ GDT\ ...\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{main-virtio-net_8c_source_l00035}00035\ \ \ \ \mbox{\hyperlink{segment_8c_ae0e123e68e81d00dad08bd7a0215e9a8}{initialiserGDT}}();}
+\DoxyCodeLine{\Hypertarget{main-virtio-net_8c_source_l00036}00036\ }
+\DoxyCodeLine{\Hypertarget{main-virtio-net_8c_source_l00037}00037\ \ \ \ \textcolor{comment}{//\ Initialisation\ de\ la\ table\ des\ interruptions}}
+\DoxyCodeLine{\Hypertarget{main-virtio-net_8c_source_l00038}00038\ \ \ \ \mbox{\hyperlink{interruptions_8c_a8bab70dd2ead4ff36a0c2de9b3d3aff8}{initialiserIDT}}();}
+\DoxyCodeLine{\Hypertarget{main-virtio-net_8c_source_l00039}00039\ }
+\DoxyCodeLine{\Hypertarget{main-virtio-net_8c_source_l00040}00040\ \ \ \ \textcolor{comment}{//\ Initialisation\ de\ l'allocateur\ généraliste}}
+\DoxyCodeLine{\Hypertarget{main-virtio-net_8c_source_l00041}00041\ \ \ \ \mbox{\hyperlink{kmalloc-zs_8h_a9834d71816871b865956b59d641f602f}{kmallocInitialisation}}();}
+\DoxyCodeLine{\Hypertarget{main-virtio-net_8c_source_l00042}00042\ \ \ \ }
+\DoxyCodeLine{\Hypertarget{main-virtio-net_8c_source_l00043}00043\ \ \ \ \textcolor{comment}{//\ Initialisation\ de\ la\ gestion\ des\ processus}}
+\DoxyCodeLine{\Hypertarget{main-virtio-net_8c_source_l00044}00044\ \ \ \ \mbox{\hyperlink{manux_2debug_8h_ad4cabea5084373436d91b5dc4e8d0a49}{printk\_debug}}(\mbox{\hyperlink{manux_2debug_8h_a97cb921ecb429c2c4c3755b2ca69364b}{DBG\_KERNEL\_START}},\ \textcolor{stringliteral}{"{}Initialisation\ du\ scheduler\ ...\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{main-virtio-net_8c_source_l00045}00045\ \ \ \ \mbox{\hyperlink{scheduler_8h_a32c7cefad94adc3dd3953dc5c71b32ad}{initialiserScheduler}}();}
+\DoxyCodeLine{\Hypertarget{main-virtio-net_8c_source_l00046}00046\ }
+\DoxyCodeLine{\Hypertarget{main-virtio-net_8c_source_l00047}00047\ \ \ \ \textcolor{comment}{//\ On\ a\ besoin\ de\ l'horloge\ pour\ l'ordonnanceur}}
+\DoxyCodeLine{\Hypertarget{main-virtio-net_8c_source_l00048}00048\ \ \ \ \mbox{\hyperlink{manux_2debug_8h_ad4cabea5084373436d91b5dc4e8d0a49}{printk\_debug}}(\mbox{\hyperlink{manux_2debug_8h_a97cb921ecb429c2c4c3755b2ca69364b}{DBG\_KERNEL\_START}},\ \textcolor{stringliteral}{"{}Initialisation\ de\ l'horloge\ ...\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{main-virtio-net_8c_source_l00049}00049\ \ \ \ \mbox{\hyperlink{horloge_8c_aec6b6ea786b76653d49b3eb7f6d320c0}{initialiserHorloge}}();}
+\DoxyCodeLine{\Hypertarget{main-virtio-net_8c_source_l00050}00050\ }
+\DoxyCodeLine{\Hypertarget{main-virtio-net_8c_source_l00051}00051\ \ \ \ \textcolor{comment}{//\ On\ initialise\ le\ sous-\/système\ réseau}}
+\DoxyCodeLine{\Hypertarget{main-virtio-net_8c_source_l00052}00052\ \ \ \ \mbox{\hyperlink{manux_2debug_8h_ad4cabea5084373436d91b5dc4e8d0a49}{printk\_debug}}(\mbox{\hyperlink{manux_2debug_8h_a97cb921ecb429c2c4c3755b2ca69364b}{DBG\_KERNEL\_START}},\ \textcolor{stringliteral}{"{}Initialisation\ du\ reseau\ ...\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{main-virtio-net_8c_source_l00053}00053\ \ \ \ \mbox{\hyperlink{manux_2reseau_8h_acca8d0ddd01a9fcae4b6694a42a6f51f}{reseauInitialiser}}();}
+\DoxyCodeLine{\Hypertarget{main-virtio-net_8c_source_l00054}00054\ }
+\DoxyCodeLine{\Hypertarget{main-virtio-net_8c_source_l00055}00055\ \ \ \ \textcolor{comment}{//\ Initialisation\ du\ bus\ PCI\ }}
+\DoxyCodeLine{\Hypertarget{main-virtio-net_8c_source_l00056}00056\ \ \ \ \mbox{\hyperlink{manux_2debug_8h_ad4cabea5084373436d91b5dc4e8d0a49}{printk\_debug}}(\mbox{\hyperlink{manux_2debug_8h_a97cb921ecb429c2c4c3755b2ca69364b}{DBG\_KERNEL\_START}},\ \textcolor{stringliteral}{"{}Initialisation\ du\ bus\ PCI\ ...\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{main-virtio-net_8c_source_l00057}00057\ \ \ \ \mbox{\hyperlink{manux_2pci_8h_a883b4a272bc719952fa1b66b9faeec2a}{PCIEnumerationDesEquipements}}();}
+\DoxyCodeLine{\Hypertarget{main-virtio-net_8c_source_l00058}00058\ \ \ \ \mbox{\hyperlink{manux_2debug_8h_ad4cabea5084373436d91b5dc4e8d0a49}{printk\_debug}}(\mbox{\hyperlink{manux_2debug_8h_a97cb921ecb429c2c4c3755b2ca69364b}{DBG\_KERNEL\_START}},\ \textcolor{stringliteral}{"{}Bus\ PCI\ initialise\ ...\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{main-virtio-net_8c_source_l00059}00059\ }
+\DoxyCodeLine{\Hypertarget{main-virtio-net_8c_source_l00060}00060\ \ \ \ \mbox{\hyperlink{manux_2debug_8h_ad4cabea5084373436d91b5dc4e8d0a49}{printk\_debug}}(\mbox{\hyperlink{manux_2debug_8h_a97cb921ecb429c2c4c3755b2ca69364b}{DBG\_KERNEL\_START}},\ \textcolor{stringliteral}{"{}Initialisation\ de\ virtio\ net\ ...\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{main-virtio-net_8c_source_l00061}00061\ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{include_2manux_2virtio-net_8h_ae8ee56f5798a32fb0f3092501b7560ce}{virtioNetInit}}()\ !=\ \mbox{\hyperlink{include_2manux_2errno_8h_a7c87371c2c584aeb5a722830670b9bfd}{ESUCCES}})\ \{}
+\DoxyCodeLine{\Hypertarget{main-virtio-net_8c_source_l00062}00062\ \ \ \ \ \ \ \mbox{\hyperlink{manux_2debug_8h_ad4cabea5084373436d91b5dc4e8d0a49}{printk\_debug}}(\mbox{\hyperlink{manux_2debug_8h_a97cb921ecb429c2c4c3755b2ca69364b}{DBG\_KERNEL\_START}},\ \textcolor{stringliteral}{"{}Impossible\ d'initialiser\ periph\ reseau\ ...\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{main-virtio-net_8c_source_l00063}00063\ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{main-virtio-net_8c_source_l00064}00064\ }
+\DoxyCodeLine{\Hypertarget{main-virtio-net_8c_source_l00065}00065\ \ \ \ \mbox{\hyperlink{manux_2debug_8h_ad4cabea5084373436d91b5dc4e8d0a49}{printk\_debug}}(\mbox{\hyperlink{manux_2debug_8h_a97cb921ecb429c2c4c3755b2ca69364b}{DBG\_KERNEL\_START}},\ \textcolor{stringliteral}{"{}C'est\ parti\ mon\ kiki\ ...\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{main-virtio-net_8c_source_l00066}00066\ }
+\DoxyCodeLine{\Hypertarget{main-virtio-net_8c_source_l00067}00067\ \ \ \ \textcolor{keywordflow}{while}(1)\{\};}
+\DoxyCodeLine{\Hypertarget{main-virtio-net_8c_source_l00068}00068\ \}\ \ \ \textcolor{comment}{/*\ \_startManuX\ */}}
+\DoxyCodeLine{\Hypertarget{main-virtio-net_8c_source_l00069}00069\ }
+\DoxyCodeLine{\Hypertarget{main-virtio-net_8c_source_l00070}00070\ }
+
+\end{DoxyCode}

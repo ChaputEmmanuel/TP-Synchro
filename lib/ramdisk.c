@@ -9,5 +9,6 @@
 
 void initialiserRamDisk(uint32_t adresse, uint16_t tailleKo)
 {
-
+   (void) adresse;
+   (void) tailleKo;
 }

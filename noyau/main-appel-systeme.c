@@ -9,9 +9,9 @@
 #include <manux/interruptions.h>
 #include <manux/intel-8259a.h>
 
-extern void init();
+extern void init(void);
 
-void startManuX()
+void startManuX(void)
 {
    // Initialisation de la console noyau
    consoleInitialisation();

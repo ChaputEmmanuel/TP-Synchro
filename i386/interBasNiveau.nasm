@@ -230,7 +230,7 @@ extern  gestionInterruption
 handlerInt :
 	pushad                   ; Sauvegarde des registres
 	
-        call gestionInterruption ; Invocation de la focntion d'aiguillage
+        call gestionInterruption ; Invocation de la fonction d'aiguillage
 
 	popad                    ; Restauration des registres
         add esp, 4               ; On dépile le numéro d'interruption

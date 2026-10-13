@@ -2,10 +2,7 @@
 %
 % \fichier{chemin}{nom}{ext} (eg \fichier{lib}{console}{c})
 %
-\newcommand{\fichier}[3]{
-\href{../doxy/html/#2_8#3_source.html}{\lstinline!#1/#2.#3!}
-(\href{../doxy/html/#2_8#3.html}{\sc dox})
-}
+\newcommand{\fichier}[3]{\href{/doxy/html/#2_8#3_source.html}{\lstinline!#1/#2.#3!}(\href{/doxy/html/#2_8#3.html}{\sc dox})}
 
 \renewcommand{\labelitemi}{X}
 
@@ -14,10 +11,15 @@
 
 \newcommand{\bios}{{\sc bios} {}}
 \newcommand{\gnu}{{\sc gnu}}
-\newcommand{\nasm}{{NASM} {}}
+\newcommand{\grub}{{GRUB} {}}
+\newcommand{\nasm}{{NASM} {NASM}}
 \newcommand{\irq}{IRQ {}}
 \newcommand{\iso}{{\sc iso}}
 \newcommand{\manux}{{\em ManuX} {}}
 \newcommand{\pic}{PIC {}}
 \newcommand{\pc}{PC {}}
 \newcommand{\qemu}{{\em Qemu}}
+\newcommand{\make}{{\tt make}}
+
+% A étendre pour faire un index
+\newcommand{\macromanux}[1]{\lstinline!#1!}

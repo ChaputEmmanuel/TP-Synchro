@@ -8,13 +8,10 @@
 #define MEMOIRE_DEF
 
 #include <manux/types.h>
+#include <manux/stddef.h>    // NULL
 
 #ifdef MANUX_AS
 #   include <manux/appelsysteme.h> /* ParametreAS */
-#endif
-
-#ifndef NULL
-#   define NULL 0
 #endif
 
 #define MANUX_DEBUT_MEMOIRE_ETENDUE 0x100000
@@ -29,14 +26,17 @@
  */
 extern int nombrePagesSysteme;
 
+/**
+ * @brief Initialisation de la mémoire au niveau pages.
+ *
+ * Cette initialisation est nécessaire avant toute demande
+ * d'allocation. C'est elle qui va permettre de mettre en place le
+ * mécanisme d'allocation des pages dans le système.
+ */
 void initialiserMemoire(uint32_t tailleMemoireDeBase,
 			uint32_t tailleMemoireEtendue);
-/*
- * Initialisation de la mémoire. Nécessaire avant toute
- * demande d'allocation.
- */
 
-void * allouerPage();
+void * allouerPage(void);
 /*
  * Réservation d'une page (de 4 Ko)
  *
@@ -45,7 +45,7 @@ void * allouerPage();
  *    NULL sinon
  */
 
-void * allouerPages(unsigned int nombre);
+void * allouerPages(uint32_t nombre);
 /*
  * Réservation d'un nombre choisi de pages (de 4 Ko) contigues.
  *
@@ -61,9 +61,9 @@ void libererPage(void * pageLiberee);
  * vérification n'est effectuée.
  */
 
-int nombrePagesAllouees();
+int nombrePagesAllouees(void);
 
-int nombrePagesTotal();
+int nombrePagesTotal(void);
 
 #ifdef MANUX_AS
 int AS_obtenirPages(ParametreAS p, int nbPages);

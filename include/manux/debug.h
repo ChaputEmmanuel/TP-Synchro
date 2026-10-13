@@ -1,8 +1,8 @@
-/*----------------------------------------------------------------------------*/
-/*      Ma version des assertions et autres outils de debug.                  */
-/*                                                                            */
-/*                                                  (C) Manu Chaput 2000-2023 */
-/*----------------------------------------------------------------------------*/
+/**
+ *      Ma version des assertions et autres outils de debug.
+ *
+ *                                                     (C) Manu Chaput 2000-2025
+ */
 #ifndef MANUX_DEBUG_DEF
 #define MANUX_DEBUG_DEF
 
@@ -15,7 +15,9 @@
 #   include <manux/horloge.h>    // nbTopHorloge
 #endif
 
-
+/**
+ * @brief Définition des différents flags 
+ */
 #define DBG_KERNEL_ERREUR     0x00000001
 #define DBG_KERNEL_START      0x00000002
 #define DBG_KERNEL_PAGIN      0x00000004
@@ -30,13 +32,30 @@
 #define DBG_KERNEL_A_FAIRE    0x00000800
 #define DBG_KERNEL_BOOTLOADER 0x00001000
 #define DBG_KERNEL_TUBE       0x00002000
+#define DBG_KERNEL_REGISTRE   0x00004000
 #define DBG_KERNEL_ALL        0xFFFFFFFF
 
-#define masqueDebugageConsole (0x00000000 \
+/**
+ * @brief Définition des masques de débogage
+ */
+#define _masqueDebugageConsole (0x00000000 \
+ | DBG_KERNEL_ERREUR     \
  | DBG_KERNEL_START      \
-			       )
-#define masqueDebugageFichier (0x00000000\
-			       )
+ 			       )
+# define _masqueDebugageFichier (0x00000000\
+				)
+/**
+ * @brief On déclare les masques comme des variables ou comme des
+ * macros en fonction de MANUX_DEBUGMASK_VAR.
+ */
+  
+#ifdef MANUX_DEBUGMASK_VAR
+   extern uint32_t masqueDebugageConsole;
+   extern uint32_t masqueDebugageFichier;
+#else
+#   define masqueDebugageConsole _masqueDebugageConsole 
+#   define masqueDebugageFichier _masqueDebugageFichier 
+#endif // MANUX_DEBUGMASK_VAR
 /*
  | DBG_KERNEL_ERREUR     \
  | DBG_KERNEL_START      \
@@ -47,7 +66,11 @@
  | DBG_KERNEL_ALL        \
  | DBG_KERNEL_AS         \
  | DBG_KERNEL_SYSFI      \
+ | DBG_KERNEL_BOOTLOADER \
  | DBG_KERNEL_TUBE       \
+ | DBG_KERNEL_VIRTIO     \
+ | DBG_KERNEL_NET        \
+ | DBG_KERNEL_REGISTRE   \
 */
 
 /**
@@ -107,4 +130,14 @@
 #define assert(cond) {}
 #endif
 
+/**
+ * @brief Initialisation du sytème de débogage
+ *
+ *    Cette phase d'initialisation n'est utile que si les masques de
+ * debogage sont implantés sous forme de variables (c'est-à-dire si
+ * MANUX_DEBUGMASK_VAR est définie) et si le registre est configuré
+ * (donc si MANUX_REGISTRE est définie).
+ *    Elle sert alors à placer les paramètres dans le registre.
+ */
+void debugInitialiser(void);   
 #endif

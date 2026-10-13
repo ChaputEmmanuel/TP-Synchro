@@ -1,0 +1,117 @@
+\doxysection{Référence du fichier /home/manu/\+PROGRAMMATION/\+C/\+Manu\+X/noyau/virtio-\/console.c}
+\hypertarget{virtio-console_8c}{}\label{virtio-console_8c}\index{/home/manu/PROGRAMMATION/C/ManuX/noyau/virtio-\/console.c@{/home/manu/PROGRAMMATION/C/ManuX/noyau/virtio-\/console.c}}
+
+
+Implantation de la console de type virtio.  
+
+
+{\ttfamily \#include $<$manux/virtio-\/console.\+h$>$}\newline
+{\ttfamily \#include $<$manux/intel-\/8259a.\+h$>$}\newline
+{\ttfamily \#include $<$manux/pci.\+h$>$}\newline
+{\ttfamily \#include $<$manux/memoire.\+h$>$}\newline
+{\ttfamily \#include $<$manux/io.\+h$>$}\newline
+{\ttfamily \#include $<$manux/debug.\+h$>$}\newline
+{\ttfamily \#include $<$manux/errno.\+h$>$}\newline
+{\ttfamily \#include $<$manux/string.\+h$>$}\newline
+Graphe des dépendances par inclusion de virtio-\/console.c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{virtio-console_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structVirtioConsole__t}{Virtio\+Console\+\_\+t}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{virtio-console_8c_a3aa7bc24ee0d41414c55faf897b193d5}{NB\+\_\+\+BUFF\+\_\+\+TRAITES}}~16
+\begin{DoxyCompactList}\small\item\em Gestion des buffers utilisés par le périphérique. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Définitions de type}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \mbox{\hyperlink{structVirtioConsole__t}{Virtio\+Console\+\_\+t}} \mbox{\hyperlink{virtio-console_8c_af241654ca930adb8ea2d8e81823a219a}{Virtio\+Console}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{virtio-console_8c_ac49e16140b7d870db12706ab03aa282d}{virtio\+Console\+Initialisation}} (\mbox{\hyperlink{inoeud_8h_a27ca90a5da64ab349726ed0513ec6e73}{INoeud}} \texorpdfstring{$\ast$}{*}i\+Noeud\+Virtio\+Console)
+\begin{DoxyCompactList}\small\item\em Initialisation des périphériques. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{virtio-console_8c_af241654ca930adb8ea2d8e81823a219a}{Virtio\+Console}} \mbox{\hyperlink{virtio-console_8c_add3b40b0ce7fe696ce7d7cde78411235}{virtio\+Console}}
+\begin{DoxyCompactList}\small\item\em Variable globale stockant la seule console virtio ! WARNING \+: pour le moment on crée un unique périphérique. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Implantation de la console de type virtio. 
+
+A faire \+: la gestion de la mémoire n\textquotesingle{}est pas terrible ! J\textquotesingle{}alloue une page pour chaque nouveau message et je la supprime lorsque je récupère les buffers (voir les "{}\+WARNING Pas top"{} dans le code). Idéalement, il vaudrait mieux que ce soit virtio qui gère ça. Par exemple à l\textquotesingle{}initialisation, je lui dit que je veux qu\textquotesingle{}il copie les données. Du coup il alloue une première fois les buffers assiociés aux descripteurs, puis il les récupère avec les buffers, sans les libérer/réallouer. Au pire il peut les faire croitre si nécessaire ! 
+
+Définition dans le fichier \mbox{\hyperlink{virtio-console_8c_source}{virtio-\/console.\+c}}.
+
+
+
+\doxysubsection{Documentation des macros}
+\Hypertarget{virtio-console_8c_a3aa7bc24ee0d41414c55faf897b193d5}\label{virtio-console_8c_a3aa7bc24ee0d41414c55faf897b193d5} 
+\index{virtio-\/console.c@{virtio-\/console.c}!NB\_BUFF\_TRAITES@{NB\_BUFF\_TRAITES}}
+\index{NB\_BUFF\_TRAITES@{NB\_BUFF\_TRAITES}!virtio-\/console.c@{virtio-\/console.c}}
+\doxysubsubsection{\texorpdfstring{NB\_BUFF\_TRAITES}{NB\_BUFF\_TRAITES}}
+{\footnotesize\ttfamily \#define NB\+\_\+\+BUFF\+\_\+\+TRAITES~16}
+
+
+
+Gestion des buffers utilisés par le périphérique. 
+
+Cette fonction va voir si quelquechose est dispo Elle doit sûrement disparaître, mais je vais tenter de faire un peu de polling 
+
+Définition à la ligne \mbox{\hyperlink{virtio-console_8c_source_l00052}{52}} du fichier \mbox{\hyperlink{virtio-console_8c_source}{virtio-\/console.\+c}}.
+
+
+
+\doxysubsection{Documentation des définitions de type}
+\Hypertarget{virtio-console_8c_af241654ca930adb8ea2d8e81823a219a}\label{virtio-console_8c_af241654ca930adb8ea2d8e81823a219a} 
+\index{virtio-\/console.c@{virtio-\/console.c}!VirtioConsole@{VirtioConsole}}
+\index{VirtioConsole@{VirtioConsole}!virtio-\/console.c@{virtio-\/console.c}}
+\doxysubsubsection{\texorpdfstring{VirtioConsole}{VirtioConsole}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{structVirtioConsole__t}{Virtio\+Console\+\_\+t}} \mbox{\hyperlink{virtio-console_8c_af241654ca930adb8ea2d8e81823a219a}{Virtio\+Console}}}
+
+@brif Description d\textquotesingle{}un périphérique virtio console 
+
+\doxysubsection{Documentation des fonctions}
+\Hypertarget{virtio-console_8c_ac49e16140b7d870db12706ab03aa282d}\label{virtio-console_8c_ac49e16140b7d870db12706ab03aa282d} 
+\index{virtio-\/console.c@{virtio-\/console.c}!virtioConsoleInitialisation@{virtioConsoleInitialisation}}
+\index{virtioConsoleInitialisation@{virtioConsoleInitialisation}!virtio-\/console.c@{virtio-\/console.c}}
+\doxysubsubsection{\texorpdfstring{virtioConsoleInitialisation()}{virtioConsoleInitialisation()}}
+{\footnotesize\ttfamily int virtio\+Console\+Initialisation (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{inoeud_8h_a27ca90a5da64ab349726ed0513ec6e73}{INoeud}} \texorpdfstring{$\ast$}{*}}]{i\+Noeud\+Virtio\+Console }\end{DoxyParamCaption})}
+
+
+
+Initialisation des périphériques. 
+
+
+
+Définition à la ligne \mbox{\hyperlink{virtio-console_8c_source_l00255}{255}} du fichier \mbox{\hyperlink{virtio-console_8c_source}{virtio-\/console.\+c}}.
+
+
+
+\doxysubsection{Documentation des variables}
+\Hypertarget{virtio-console_8c_add3b40b0ce7fe696ce7d7cde78411235}\label{virtio-console_8c_add3b40b0ce7fe696ce7d7cde78411235} 
+\index{virtio-\/console.c@{virtio-\/console.c}!virtioConsole@{virtioConsole}}
+\index{virtioConsole@{virtioConsole}!virtio-\/console.c@{virtio-\/console.c}}
+\doxysubsubsection{\texorpdfstring{virtioConsole}{virtioConsole}}
+{\footnotesize\ttfamily \mbox{\hyperlink{virtio-console_8c_af241654ca930adb8ea2d8e81823a219a}{Virtio\+Console}} virtio\+Console}
+
+
+
+Variable globale stockant la seule console virtio ! WARNING \+: pour le moment on crée un unique périphérique. 
+
+
+
+Définition à la ligne \mbox{\hyperlink{virtio-console_8c_source_l00041}{41}} du fichier \mbox{\hyperlink{virtio-console_8c_source}{virtio-\/console.\+c}}.
+

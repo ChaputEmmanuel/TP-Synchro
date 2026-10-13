@@ -1,0 +1,11 @@
+<map id="/home/manu/PROGRAMMATION/C/ManuX/include/config/registre.h" name="/home/manu/PROGRAMMATION/C/ManuX/include/config/registre.h">
+<area shape="rect" id="Node000001" title="Configuration du registre de ManuX." alt="" coords="393,5,620,60"/>
+<area shape="rect" id="Node000002" href="$include_2manux_2config_8h.html" title=" " alt="" coords="5,108,232,163"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="393,66,220,111,219,105,392,61"/>
+<area shape="rect" id="Node000003" href="$boot-reg_8h.html" title="Ajout dans le rergistre systèmes de paramètres fournis au boot." alt="" coords="256,115,483,155"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="462,70,397,117,394,113,458,66"/>
+<area shape="rect" id="Node000004" href="$debmaskdyn-reg_8h.html" title=" " alt="" coords="507,115,783,155"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="555,66,621,113,618,117,552,70"/>
+<area shape="rect" id="Node000005" href="$multiconf_2registre_8h.html" title="Gestion dynamique des paramètres de ManuX dans un registre." alt="" coords="808,115,1035,155"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="628,61,844,113,843,118,627,66"/>
+</map>

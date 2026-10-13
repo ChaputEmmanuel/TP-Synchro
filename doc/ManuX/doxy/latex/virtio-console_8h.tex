@@ -1,0 +1,112 @@
+\doxysection{Référence du fichier /home/manu/\+PROGRAMMATION/\+C/\+Manu\+X/include/manux/virtio-\/console.h}
+\hypertarget{virtio-console_8h}{}\label{virtio-console_8h}\index{/home/manu/PROGRAMMATION/C/ManuX/include/manux/virtio-\/console.h@{/home/manu/PROGRAMMATION/C/ManuX/include/manux/virtio-\/console.h}}
+
+
+Définition des éléments de base des consoles virtio.  
+
+
+{\ttfamily \#include $<$manux/virtio.\+h$>$}\newline
+{\ttfamily \#include $<$manux/periph-\/car.\+h$>$}\newline
+Graphe des dépendances par inclusion de virtio-\/console.h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{virtio-console_8h__incl}
+\end{center}
+\end{figure}
+Ce graphe montre quels fichiers incluent directement ou indirectement ce fichier \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{virtio-console_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{virtio-console_8h_a05487bc9e2a0992472ddbe8483673590}{VIRTIO\+\_\+\+CONSOLE\+\_\+\+F\+\_\+\+SIZE}}~0x01
+\item 
+\#define \mbox{\hyperlink{virtio-console_8h_a54f3e528134c6656328c7e63655b216c}{VIRTIO\+\_\+\+CONSOLE\+\_\+\+F\+\_\+\+MULTIPORT}}~0x02
+\item 
+\#define \mbox{\hyperlink{virtio-console_8h_af28c83b7a2df18ff5cb620e6c5cf777b}{VIRTIO\+\_\+\+CONSOLE\+\_\+\+PORT0\+\_\+\+IN}}~0
+\item 
+\#define \mbox{\hyperlink{virtio-console_8h_a796c69a670b660db8a1a6f5e4c84b557}{VIRTIO\+\_\+\+CONSOLE\+\_\+\+PORT0\+\_\+\+OUT}}~1
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{virtio-console_8h_ac49e16140b7d870db12706ab03aa282d}{virtio\+Console\+Initialisation}} (\mbox{\hyperlink{inoeud_8h_a27ca90a5da64ab349726ed0513ec6e73}{INoeud}} \texorpdfstring{$\ast$}{*}i\+Noeud\+Virtio\+Console)
+\begin{DoxyCompactList}\small\item\em Initialisation des périphériques. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Définition des éléments de base des consoles virtio. 
+
+\begin{DoxyVerb}                                                (C) Manu Chaput 2025-2026
+\end{DoxyVerb}
+ 
+
+Définition dans le fichier \mbox{\hyperlink{virtio-console_8h_source}{virtio-\/console.\+h}}.
+
+
+
+\doxysubsection{Documentation des macros}
+\Hypertarget{virtio-console_8h_a54f3e528134c6656328c7e63655b216c}\label{virtio-console_8h_a54f3e528134c6656328c7e63655b216c} 
+\index{virtio-\/console.h@{virtio-\/console.h}!VIRTIO\_CONSOLE\_F\_MULTIPORT@{VIRTIO\_CONSOLE\_F\_MULTIPORT}}
+\index{VIRTIO\_CONSOLE\_F\_MULTIPORT@{VIRTIO\_CONSOLE\_F\_MULTIPORT}!virtio-\/console.h@{virtio-\/console.h}}
+\doxysubsubsection{\texorpdfstring{VIRTIO\_CONSOLE\_F\_MULTIPORT}{VIRTIO\_CONSOLE\_F\_MULTIPORT}}
+{\footnotesize\ttfamily \#define VIRTIO\+\_\+\+CONSOLE\+\_\+\+F\+\_\+\+MULTIPORT~0x02}
+
+
+
+Définition à la ligne \mbox{\hyperlink{virtio-console_8h_source_l00017}{17}} du fichier \mbox{\hyperlink{virtio-console_8h_source}{virtio-\/console.\+h}}.
+
+\Hypertarget{virtio-console_8h_a05487bc9e2a0992472ddbe8483673590}\label{virtio-console_8h_a05487bc9e2a0992472ddbe8483673590} 
+\index{virtio-\/console.h@{virtio-\/console.h}!VIRTIO\_CONSOLE\_F\_SIZE@{VIRTIO\_CONSOLE\_F\_SIZE}}
+\index{VIRTIO\_CONSOLE\_F\_SIZE@{VIRTIO\_CONSOLE\_F\_SIZE}!virtio-\/console.h@{virtio-\/console.h}}
+\doxysubsubsection{\texorpdfstring{VIRTIO\_CONSOLE\_F\_SIZE}{VIRTIO\_CONSOLE\_F\_SIZE}}
+{\footnotesize\ttfamily \#define VIRTIO\+\_\+\+CONSOLE\+\_\+\+F\+\_\+\+SIZE~0x01}
+
+Les features négociables 
+
+Définition à la ligne \mbox{\hyperlink{virtio-console_8h_source_l00016}{16}} du fichier \mbox{\hyperlink{virtio-console_8h_source}{virtio-\/console.\+h}}.
+
+\Hypertarget{virtio-console_8h_af28c83b7a2df18ff5cb620e6c5cf777b}\label{virtio-console_8h_af28c83b7a2df18ff5cb620e6c5cf777b} 
+\index{virtio-\/console.h@{virtio-\/console.h}!VIRTIO\_CONSOLE\_PORT0\_IN@{VIRTIO\_CONSOLE\_PORT0\_IN}}
+\index{VIRTIO\_CONSOLE\_PORT0\_IN@{VIRTIO\_CONSOLE\_PORT0\_IN}!virtio-\/console.h@{virtio-\/console.h}}
+\doxysubsubsection{\texorpdfstring{VIRTIO\_CONSOLE\_PORT0\_IN}{VIRTIO\_CONSOLE\_PORT0\_IN}}
+{\footnotesize\ttfamily \#define VIRTIO\+\_\+\+CONSOLE\+\_\+\+PORT0\+\_\+\+IN~0}
+
+Les numéros des files. Pour le moment, on n\textquotesingle{}en gère qu\textquotesingle{}un ! 
+
+Définition à la ligne \mbox{\hyperlink{virtio-console_8h_source_l00022}{22}} du fichier \mbox{\hyperlink{virtio-console_8h_source}{virtio-\/console.\+h}}.
+
+\Hypertarget{virtio-console_8h_a796c69a670b660db8a1a6f5e4c84b557}\label{virtio-console_8h_a796c69a670b660db8a1a6f5e4c84b557} 
+\index{virtio-\/console.h@{virtio-\/console.h}!VIRTIO\_CONSOLE\_PORT0\_OUT@{VIRTIO\_CONSOLE\_PORT0\_OUT}}
+\index{VIRTIO\_CONSOLE\_PORT0\_OUT@{VIRTIO\_CONSOLE\_PORT0\_OUT}!virtio-\/console.h@{virtio-\/console.h}}
+\doxysubsubsection{\texorpdfstring{VIRTIO\_CONSOLE\_PORT0\_OUT}{VIRTIO\_CONSOLE\_PORT0\_OUT}}
+{\footnotesize\ttfamily \#define VIRTIO\+\_\+\+CONSOLE\+\_\+\+PORT0\+\_\+\+OUT~1}
+
+
+
+Définition à la ligne \mbox{\hyperlink{virtio-console_8h_source_l00023}{23}} du fichier \mbox{\hyperlink{virtio-console_8h_source}{virtio-\/console.\+h}}.
+
+
+
+\doxysubsection{Documentation des fonctions}
+\Hypertarget{virtio-console_8h_ac49e16140b7d870db12706ab03aa282d}\label{virtio-console_8h_ac49e16140b7d870db12706ab03aa282d} 
+\index{virtio-\/console.h@{virtio-\/console.h}!virtioConsoleInitialisation@{virtioConsoleInitialisation}}
+\index{virtioConsoleInitialisation@{virtioConsoleInitialisation}!virtio-\/console.h@{virtio-\/console.h}}
+\doxysubsubsection{\texorpdfstring{virtioConsoleInitialisation()}{virtioConsoleInitialisation()}}
+{\footnotesize\ttfamily int virtio\+Console\+Initialisation (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{inoeud_8h_a27ca90a5da64ab349726ed0513ec6e73}{INoeud}} \texorpdfstring{$\ast$}{*}}]{i\+Noeud\+Virtio\+Console }\end{DoxyParamCaption})}
+
+
+
+Initialisation des périphériques. 
+
+
+
+Définition à la ligne \mbox{\hyperlink{virtio-console_8c_source_l00255}{255}} du fichier \mbox{\hyperlink{virtio-console_8c_source}{virtio-\/console.\+c}}.
+

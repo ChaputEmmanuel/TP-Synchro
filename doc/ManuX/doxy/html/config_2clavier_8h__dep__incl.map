@@ -1,0 +1,13 @@
+<map id="/home/manu/PROGRAMMATION/C/ManuX/include/config/clavier.h" name="/home/manu/PROGRAMMATION/C/ManuX/include/config/clavier.h">
+<area shape="rect" id="Node000001" title=" " alt="" coords="507,5,733,60"/>
+<area shape="rect" id="Node000002" href="$include_2manux_2config_8h.html" title=" " alt="" coords="5,108,232,163"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="494,61,245,111,233,113,232,108,243,105,493,56"/>
+<area shape="rect" id="Node000003" href="$acces-concurrent_8h.html" title="Exemple de configuration pour un test d&#39;accès concurrents." alt="" coords="256,108,483,163"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="543,67,436,110,434,105,541,62"/>
+<area shape="rect" id="Node000004" href="$outils-synchro_8h.html" title=" " alt="" coords="507,108,733,163"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="623,74,623,108,617,108,617,74"/>
+<area shape="rect" id="Node000005" href="$multiconf_2taches_8h.html" title=" " alt="" coords="757,115,984,155"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="699,63,825,113,823,118,697,67"/>
+<area shape="rect" id="Node000006" href="$verrou-noyau_8h.html" title=" " alt="" coords="1008,108,1235,163"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="747,56,997,105,1008,108,1007,113,995,111,746,61"/>
+</map>

@@ -1,0 +1,96 @@
+\chapter{Introduction}
+\hypertarget{md_docs_2affichage-part}{}\label{md_docs_2affichage-part}\index{Introduction@{Introduction}}
+\label{md_docs_2affichage-part_autotoc_md3}%
+\Hypertarget{md_docs_2affichage-part_autotoc_md3}%
+ Une des premières choses à faire, afin de nous simplifier la vie pour la suite du développement, est de se doter d’un service minimal d’affichage. Nous allons donc mettre en place quelques outils très simples fondés sur ce que nous founit le matériel.
+
+Nous ne nous intéresserons ici qu’à l’affichage des messages du noyau, pas de ceux des éventuels processus utilisateurs. Nous étendrons cependant un peu ces outils de sorte à nous permettre cela par la suite.
+
+Nous allons procéder ici en trois étapes principales.
+
+
+\begin{DoxyItemize}
+\item Dans un premier temps, nous allons écrire le code permettant un accès simple à l’écran et une gestion minimale de ce dernier dans un module “\texorpdfstring{$\ast$}{*}\+Console\texorpdfstring{$\ast$}{*}”. Cet outil est suffisant pour que notre noyau soit capable de nous donner un signe de vie à l’écran. Mais nous n’allons pas nous arrêter en si bon chemin !
+\item Nous pourrons alors écrire une fonction {\ttfamily printk} utilisable partout dans le noyau et chargée de mettre en forme des messages riches et de les afficher sur la console, … ou ailleurs.
+\item Nous construirons là-\/dessus un “journal” du noyau, c’est-\/à-\/dire un outil permettant de rassembler et d’organiser les messages émis par les différents sous-\/systèmes du noyau au travers de {\ttfamily printk}. Ils pourront être affichés sur la console, ou conservés pour être stockés/traités d’une autre façon. Nous modifierons alors la fonction {\ttfamily printk} de sorte à ce qu’elle envoie au journal ce qui doit être affiché. C’est lui qui aiguillera vers la bonne destination.
+\end{DoxyItemize}
+
+L’avantage d’une telle structure est que nous pourrons la faire évoluer. Nous pourrons par exemple créér des consoles virtuelles fournissant le même service que notre outil de gestion de l’écran. Il sera très simple de les intégrer dans le noyau. De même, nous pourrons définir un affichage avec plusieurs niveaux d’importance des messages qui pourront ensuite être aiguillés en fonction de leur criticité.\hypertarget{md_docs_2affichage-part_autotoc_md4}{}\doxysection{\texorpdfstring{Gestion de l’écran \+: la console}{Gestion de l’écran : la console}}\label{md_docs_2affichage-part_autotoc_md4}
+Les fichiers \href{/doxy/html/console_8h_source.html}{\texttt{ {\ttfamily include/manux/console.\+h}}}(\href{/doxy/html/console_8h.html}{\texttt{ dox}}) et \href{/doxy/html/console_8c_source.html}{\texttt{ {\ttfamily lib/console.\+c}}}(\href{/doxy/html/console_8c.html}{\texttt{ dox}}) définissent et implantent un outil de gestion de base de la console.
+
+Nous allons pour le moment initialiser et utiliser une console unique, que nous appellerons la “console noyau”. Tous les messages émis par le noyau y seront transmis.
+
+Nous allons définir essentiellement les éléments suivants
+
+
+\begin{DoxyItemize}
+\item Le type {\ttfamily Console} décrit ce qu’est une console.
+\item La fonction {\ttfamily \doxylink{include_2manux_2console_8h_a29466c636bd065544638829883090d54}{console\+Initialisation()}} initialise le système de gestion de la console. Elle crée en particulier la console noyau. Cette fonction est invoquée une fois et une seule lors du démarrage du noyau.
+\item La fonction {\ttfamily \doxylink{include_2manux_2console_8h_a20cb38c45f235948ac26cd858a5a6556}{console\+Afficher()}} permet d’afficher une chaîne de caractères sur la console.
+\end{DoxyItemize}
+
+Quelques autres fonctions, de moindre importance, sont également définies.\hypertarget{md_docs_2affichage-part_autotoc_md5}{}\doxysubsection{\texorpdfstring{Fonctionnement de base}{Fonctionnement de base}}\label{md_docs_2affichage-part_autotoc_md5}
+Il se trouve que l’écran d’un PC peut être utilisé en mode textuel comme un simple tableau de caractères. Ce tableau est situé à une adresse bien connue {\itshape a} et contient {\itshape l} lignes de {\itshape c} caractères. Chaque caractère est codé sur deux octets \+: l’un définit le code ascii du caractère affiché et l’autre la couleur du texte et du fond.\hypertarget{md_docs_2affichage-part_autotoc_md6}{}\doxysubsection{\texorpdfstring{Définition du type $<$tt$>$\+Console$<$/tt$>$}{Définition du type <tt>Console</tt>}}\label{md_docs_2affichage-part_autotoc_md6}
+Le type permettant de définir une console est défini dans le fichier \href{/doxy/html/console_8h_source.html}{\texttt{ {\ttfamily include/manux/console.\+h}}}(\href{/doxy/html/console_8h.html}{\texttt{ dox}}). Pour le moment nous ne créerons qu’une console, mais lorsque nous allons introduire les consoles virtuelles, nous étendrons ce type.
+
+Le type \href{html/console_8h_source.html\#l00062}{\texttt{ {\ttfamily Console}}} est donc très simple, il comprend quelques champs décrivant les caractéristiques de l’écran (sa taille, l’adresse de la zone mémoire) et l’état actuel de l’affichage (position du curseur et de l’attribut).\hypertarget{md_docs_2affichage-part_autotoc_md7}{}\doxysubsection{\texorpdfstring{Initialisation de la console}{Initialisation de la console}}\label{md_docs_2affichage-part_autotoc_md7}
+L’initialisation du système de gestion de console (assurée par la fonction {\ttfamily \doxylink{include_2manux_2console_8h_a29466c636bd065544638829883090d54}{console\+Initialisation()}}) consiste essentiellement en l’initialisation de la console noyau.
+
+La fonction d’initalisation de la console, implantée dans \href{/doxy/html/console_8c_source.html}{\texttt{ {\ttfamily lib/console.\+c}}}(\href{/doxy/html/console_8c.html}{\texttt{ dox}}), est elle aussi très simple. Elle se contente d’une initialisation à des valeurs par défaut des champs du type {\ttfamily Console}.
+
+Nous n’utilisons ici pour le moment qu’une seule console, elle sera définie comme une variable statique du fichier \href{/doxy/html/console_8c_source.html}{\texttt{ {\ttfamily lib/console.\+c}}}(\href{/doxy/html/console_8c.html}{\texttt{ dox}}) et pourra être obtenue par la fonction {\ttfamily \doxylink{include_2manux_2console_8h_abf2f6aca15463bf0f0114531cea39f15}{console\+Noyau()}} lorsque n’écessaire.
+
+En revanche, en prévision de la création de consoles virtuelles, toutes les fonctions d’affichage prennent en première paramètre un pointeur sur la console.\hypertarget{md_docs_2affichage-part_autotoc_md8}{}\doxysubsection{\texorpdfstring{Affichage sur la console}{Affichage sur la console}}\label{md_docs_2affichage-part_autotoc_md8}
+On construit ici en particulier la fonction suivante, chargée d’afficher sur la console une chaîne de caractères passée en paramètre \+: \begin{DoxyVerb}void afficherConsole(Console * cons, char * msg);
+\end{DoxyVerb}
+ Elle prend en paramètre une chaîne de caractères “classique” (terminée par un caractère nul) et l’affiche sur la console sans aucune mise en forme.
+
+La gestion de la console est une des toutes premières choses initialisées par le noyau, de sorte à pouvoir faire coucou dès que possible.\hypertarget{md_docs_2affichage-part_autotoc_md9}{}\doxysection{\texorpdfstring{Un premier $<$tt$>$printk()$<$/tt$>$}{Un premier <tt>printk()</tt>}}\label{md_docs_2affichage-part_autotoc_md9}
+Grâce à notre console, l’écriture de {\ttfamily \doxylink{include_2manux_2printk_8h_a25b30e8bbadd54650c56895999dd808f}{printk()}} est assez simple, puisque cette fonction n’a plus qu’à se préoccuper de créer une chaîne de caractères et de la transmettre au journal (ou directement à la console si on n’utilise pas le journal).
+
+Elle est définie dans le fichier \href{/doxy/html/printk_8h_source.html}{\texttt{ {\ttfamily include/manux/printk.\+h}}}(\href{/doxy/html/printk_8h.html}{\texttt{ dox}}) et mise en œuvre dans le fichier \href{/doxy/html/printk_8c_source.html}{\texttt{ {\ttfamily noyau/printk.\+c}}}(\href{/doxy/html/printk_8c.html}{\texttt{ dox}})
+
+La fonction essentielle est bien sûr \+: \begin{DoxyVerb}   void printk(char * format, ...);
+\end{DoxyVerb}
+ Dont le rôle est de mettre en forme une chaîne de caractères qu’elle envoie ensuite à la console (ou au journal lorsque nous l’aurons créé). Elle utilise pour cela le code suivant \begin{DoxyVerb}   afficherConsoleN(consoleNoyau(), chaine, indice);  
+\end{DoxyVerb}
+ Le paramètre {\ttfamily indice} donne la longueur de la chaîne de caractères {\ttfamily chaine} qui est ainsi affichée sur la console du noyau.\hypertarget{md_docs_2affichage-part_autotoc_md10}{}\doxysection{\texorpdfstring{Mise en place d’un journal}{Mise en place d’un journal}}\label{md_docs_2affichage-part_autotoc_md10}
+Le journal est spécifié dans le fichier \href{/doxy/html/journal_8h_source.html}{\texttt{ {\ttfamily include/manux/journal.\+h}}}(\href{/doxy/html/journal_8h.html}{\texttt{ dox}}) et implanté dans le fichier \href{/doxy/html/journal_8c_source.html}{\texttt{ {\ttfamily lib/journal.\+c}}}(\href{/doxy/html/journal_8c.html}{\texttt{ dox}}).
+
+Nous allons définir un mécanisme de journal permettant de conserver les messages transmis par le noyau. Pour le moment, notre journal se contente de transmettre ces messages sur l’écran physique. Lorsque nous aurons mis en place des outils de gestion mémoire, nous pourrons étoffer ce mécanisme de journal.
+
+Le journal est implanté dans les fichiers {\ttfamily \doxylink{include_2manux_2journal_8h}{manux/journal.\+h}} et {\ttfamily \doxylink{journal_8c}{lib/journal.\+c}}. Il propose essentiellement la fonction suivante \begin{DoxyVerb}   void journaliser(char * message); 
+\end{DoxyVerb}
+ Elle utilise la fonction {\ttfamily afficher\+Console\+N()} pour envoyer le message à la console.
+
+La fonction {\ttfamily \doxylink{include_2manux_2printk_8h_a25b30e8bbadd54650c56895999dd808f}{printk()}} est alors modifiée pour utiliser la fonction {\ttfamily \doxylink{include_2manux_2journal_8h_afa39ebdefcb62878a46fc77263026d93}{journaliser()}} plutôt que passer directement par la console.
+
+Évidemment, le journal est initialisé juste après la console.\hypertarget{md_docs_2affichage-part_autotoc_md11}{}\doxysubsection{\texorpdfstring{Introduction de plusieurs niveaux de messages}{Introduction de plusieurs niveaux de messages}}\label{md_docs_2affichage-part_autotoc_md11}
+Maintenant que nous avons un système qui permet à tous les sous-\/systèmes d’envoyer des messages, essentiellement {\itshape via} la fonction {\ttfamily \doxylink{include_2manux_2printk_8h_a25b30e8bbadd54650c56895999dd808f}{printk()}}, nous allons mettre en place un système permettra de filtrer un peu tous ces messages.
+
+Pour cela, l’idée est d’utiliser la fonction {\ttfamily \doxylink{include_2manux_2printk_8h_a25b30e8bbadd54650c56895999dd808f}{printk()}} de la façon suivante \begin{DoxyVerb}   printk("{2} Un message\n");
+\end{DoxyVerb}
+ Ce sont les trois premiers caractères qui vont permettre de réaliser cet aiguillage.
+
+C’est plus précisément le chiffre qui va permettre de définir le niveau de criticité du message. Les valeurs suivantes sont définies dans \href{/doxy/html/journal_8h_source.html}{\texttt{ {\ttfamily include/manux/journal.\+h}}}(\href{/doxy/html/journal_8h.html}{\texttt{ dox}}) \+: \begin{DoxyVerb}#define MANUX_JOURNAL_NIVEAU_PANIQUE      0
+#define MANUX_JOURNAL_NIVEAU_URGENCE      1
+#define MANUX_JOURNAL_NIVEAU_CRITIQUE     2
+#define MANUX_JOURNAL_NIVEAU_ERREUR       3
+#define MANUX_JOURNAL_NIVEAU_ATTENTION    4
+#define MANUX_JOURNAL_NIVEAU_NOTIFICATION 5
+#define MANUX_JOURNAL_NIVEAU_INFORMATION  6
+#define MANUX_JOURNAL_NIVEAU_DEBUGAGE     7
+\end{DoxyVerb}
+ Les caractères qui encadrent le niveau de criticité permettent de définir le comportement. Précisons ici en effet que, dès que nous aurons mis en place des outils le permettant, nous allons associer un fichier au journal. Ce fichier permettra par exemple de conserver les messages du noyau, même après l’arrêt du système (ce qui est affiché sur la console disparait, ce qui nest pas pratique pour une analyse a posteriori).
+
+La signification de ces caractères est alors la suivante \+:
+
+
+\begin{DoxyItemize}
+\item {\ttfamily \mbox{[}n\mbox{]}} et le message sera envoyé sur la console ;
+\item {\ttfamily (n)} le message sera envoyé sur le fichier associé au journal ;
+\item {\ttfamily \{n\}} le message sera transmis sur les deux destinations.
+\end{DoxyItemize}
+
+Le code de la fonction {\ttfamily \doxylink{include_2manux_2journal_8h_afa39ebdefcb62878a46fc77263026d93}{journaliser()}} est donc modifier en conséquence. Elle utiliser dans un premier temps la fonction {\ttfamily aiguiller\+Message()} qui traite ce “préfixe” de sorte aue le message soit transmis correctement, puis dans un second temps la fonction {\ttfamily journaliser\+Niveau()} qui transmet effectivement le message à la (ou les) bonne(s) destination(s).\hypertarget{md_docs_2affichage-part_autotoc_md12}{}\doxysection{\texorpdfstring{Plus de souplesse avec les consoles virtuelles}{Plus de souplesse avec les consoles virtuelles}}\label{md_docs_2affichage-part_autotoc_md12}
+Lorsque nous allons mettre en place la notion de tâches, il sera intéressant d’attribuer à chacune d’entre elles une console virtuelle potentiellement différente des autres. Nous pourrons ainsi basculer de l’une à l’autre pour mieux distinguer ce qu’affiche chaque tâche.\hypertarget{md_docs_2affichage-part_autotoc_md13}{}\doxysubsection{\texorpdfstring{Utilisation des fichiers}{Utilisation des fichiers}}\label{md_docs_2affichage-part_autotoc_md13}

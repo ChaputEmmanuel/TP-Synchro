@@ -1,0 +1,745 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>My Project: Référence du fichier /home/manu/PROGRAMMATION/C/ManuX/include/manux/debug.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">My Project
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_7ae9ae23548caaa7aeb1f148c6e00073.html">manux</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#define-members">Macros</a> &#124;
+<a href="#func-members">Fonctions</a>  </div>
+  <div class="headertitle"><div class="title">Référence du fichier debug.h</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &lt;manux/config.h&gt;</code><br />
+<code>#include &lt;<a class="el" href="include_2manux_2printk_8h_source.html">manux/printk.h</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="include_2manux_2stdarg_8h_source.html">manux/stdarg.h</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="scheduler_8h_source.html">manux/scheduler.h</a>&gt;</code><br />
+</div><div class="textblock"><div class="dynheader">
+Graphe des dépendances par inclusion de debug.h:</div>
+<div class="dyncontent">
+<div class="center"><img src="manux_2debug_8h__incl.png" border="0" usemap="#a_2home_2manu_2PROGRAMMATION_2C_2ManuX_2include_2manux_2debug_8h" alt=""/></div>
+<map name="a_2home_2manu_2PROGRAMMATION_2C_2ManuX_2include_2manux_2debug_8h" id="a_2home_2manu_2PROGRAMMATION_2C_2ManuX_2include_2manux_2debug_8h">
+<area shape="rect" title=" " alt="" coords="193,5,420,60"/>
+<area shape="rect" title=" " alt="" coords="141,255,264,280"/>
+<area shape="poly" title=" " alt="" coords="317,60,323,91,326,130,323,170,309,208,285,234,256,251,253,247,282,230,304,205,318,169,321,130,318,92,312,61"/>
+<area shape="rect" href="include_2manux_2printk_8h.html" title="Définition des fonctions de base d&#39;entrée&#45;sortie du noyau." alt="" coords="74,108,195,133"/>
+<area shape="poly" title=" " alt="" coords="255,62,171,104,169,99,253,58"/>
+<area shape="rect" href="include_2manux_2stdarg_8h.html" title=" " alt="" coords="171,181,295,207"/>
+<area shape="poly" title=" " alt="" coords="297,61,247,170,242,168,292,59"/>
+<area shape="rect" href="scheduler_8h.html" title=" " alt="" coords="713,108,858,133"/>
+<area shape="poly" title=" " alt="" coords="420,52,708,103,707,108,419,57"/>
+<area shape="poly" title=" " alt="" coords="90,136,56,148,26,164,16,174,10,183,9,194,14,205,37,228,65,244,96,254,128,261,127,266,95,260,63,249,34,232,10,208,3,195,4,182,11,170,23,160,54,143,89,131"/>
+<area shape="poly" title=" " alt="" coords="152,131,208,171,205,175,149,136"/>
+<area shape="rect" title=" " alt="" coords="24,181,147,207"/>
+<area shape="poly" title=" " alt="" coords="129,135,103,172,99,169,124,132"/>
+<area shape="rect" title=" " alt="" coords="535,401,654,427"/>
+<area shape="poly" title=" " alt="" coords="858,121,892,127,926,138,958,155,983,179,1011,206,1024,219,1031,234,1030,253,1017,278,990,311,946,355,926,368,898,379,825,396,744,406,668,412,667,407,743,401,824,390,896,374,923,364,942,351,986,308,1013,275,1025,252,1026,235,1020,222,1008,210,979,183,955,159,924,143,891,132,857,126"/>
+<area shape="rect" href="tache_8h.html" title=" " alt="" coords="550,181,669,207"/>
+<area shape="poly" title=" " alt="" coords="758,136,652,178,650,174,756,131"/>
+<area shape="rect" title=" " alt="" coords="733,328,907,353"/>
+<area shape="poly" title=" " alt="" coords="790,133,818,314,813,315,784,134"/>
+<area shape="rect" href="listetaches_8h.html" title=" " alt="" coords="371,181,525,207"/>
+<area shape="poly" title=" " alt="" coords="732,136,516,181,515,176,730,131"/>
+<area shape="rect" href="atomique_8h.html" title="Définition des opérations de synchronisation de ManuX." alt="" coords="823,181,969,207"/>
+<area shape="poly" title=" " alt="" coords="798,131,861,172,858,177,795,136"/>
+<area shape="poly" title=" " alt="" coords="550,208,278,256,277,250,549,203"/>
+<area shape="poly" title=" " alt="" coords="550,207,464,227,419,241,377,257,344,277,322,299,318,311,317,324,321,337,330,352,342,362,359,371,408,386,465,397,522,404,521,409,464,402,406,391,357,376,339,366,326,355,316,339,311,324,312,310,318,296,341,273,375,252,417,236,463,222,549,202"/>
+<area shape="rect" href="include_2manux_2interruptions_8h.html" title=" " alt="" coords="339,328,506,353"/>
+<area shape="poly" title=" " alt="" coords="550,207,498,224,473,238,451,256,435,285,427,315,422,314,430,283,447,253,470,234,496,220,549,202"/>
+<area shape="rect" href="segment_8h.html" title=" " alt="" coords="461,255,601,280"/>
+<area shape="poly" title=" " alt="" coords="598,209,555,247,552,244,595,205"/>
+<area shape="rect" href="fichier_8h.html" title=" " alt="" coords="625,255,748,280"/>
+<area shape="poly" title=" " alt="" coords="623,205,665,243,662,247,620,209"/>
+<area shape="poly" title=" " alt="" coords="451,351,555,394,553,398,449,356"/>
+<area shape="poly" title=" " alt="" coords="538,279,586,388,582,390,533,282"/>
+<area shape="rect" href="inoeud_8h.html" title=": description des noeuds d&#39;information (C) Manu Chaput 2002&#45;2023" alt="" coords="582,328,709,353"/>
+<area shape="poly" title=" " alt="" coords="682,282,661,317,657,315,677,279"/>
+<area shape="poly" title=" " alt="" coords="709,278,787,319,785,324,707,282"/>
+<area shape="poly" title=" " alt="" coords="639,355,613,392,609,389,635,352"/>
+<area shape="poly" title=" " alt="" coords="883,183,820,142,823,138,886,179"/>
+<area shape="poly" title=" " alt="" coords="905,206,920,235,934,274,937,316,933,337,922,355,905,369,880,380,815,397,739,407,668,413,667,407,738,402,813,391,878,375,902,364,918,352,928,335,932,316,929,275,915,237,901,208"/>
+</map>
+</div>
+</div><div class="textblock"><div class="dynheader">
+Ce graphe montre quels fichiers incluent directement ou indirectement ce fichier :</div>
+<div class="dyncontent">
+<div class="center"><img src="manux_2debug_8h__dep__incl.png" border="0" usemap="#a_2home_2manu_2PROGRAMMATION_2C_2ManuX_2include_2manux_2debug_8hdep" alt=""/></div>
+<map name="a_2home_2manu_2PROGRAMMATION_2C_2ManuX_2include_2manux_2debug_8hdep" id="a_2home_2manu_2PROGRAMMATION_2C_2ManuX_2include_2manux_2debug_8hdep">
+<area shape="rect" title=" " alt="" coords="4775,5,5001,60"/>
+<area shape="rect" href="horloge_8c.html" title="Implantation des sous&#45;programmes de gestion de l&#39;horloge matérielle." alt="" coords="5,115,232,155"/>
+<area shape="poly" title=" " alt="" coords="4761,37,3825,43,2412,56,1691,66,1045,78,541,93,363,101,244,111,198,118,197,113,244,105,363,96,541,88,1045,73,1691,61,2412,51,3825,38,4761,32"/>
+<area shape="rect" href="interruptions_8c.html" title=": Implémentation des sous&#45;programmes de gestion des déroutements" alt="" coords="256,115,483,155"/>
+<area shape="poly" title=" " alt="" coords="4761,37,3870,44,2536,57,1249,79,775,94,607,102,495,111,449,118,448,113,494,105,606,97,774,89,1249,74,2536,52,3870,38,4761,32"/>
+<area shape="rect" href="segment_8c.html" title=" " alt="" coords="507,115,733,155"/>
+<area shape="poly" title=" " alt="" coords="4761,38,3915,45,2661,59,1452,81,1008,95,746,111,699,118,698,113,745,105,1008,89,1452,75,2661,53,3915,39,4761,32"/>
+<area shape="rect" href="console_8c.html" title="Implantation des fonctions de base d&#39;accés à la console." alt="" coords="757,115,984,155"/>
+<area shape="poly" title=" " alt="" coords="4761,38,3961,45,2785,60,1656,82,1241,95,996,111,950,118,949,113,996,105,1241,90,1656,77,2785,55,3961,40,4761,32"/>
+<area shape="rect" href="printk_8c.html" title=" " alt="" coords="1008,115,1235,155"/>
+<area shape="poly" title=" " alt="" coords="4761,36,4074,36,3057,43,2519,52,2013,65,1576,85,1396,97,1247,111,1201,118,1200,113,1246,105,1395,91,1576,79,2013,60,2519,46,3057,38,4074,30,4761,31"/>
+<area shape="rect" href="registre_8c.html" title="Mise en oeuvre de la notion de registre permettant de gérer des paramètres de façon structurée." alt="" coords="1259,115,1485,155"/>
+<area shape="poly" title=" " alt="" coords="4761,36,4116,37,3172,45,2674,54,2206,68,1802,86,1635,98,1498,111,1452,118,1451,113,1497,105,1635,92,1802,81,2206,62,2674,49,3172,40,4116,32,4761,31"/>
+<area shape="rect" href="appelsysteme_8c.html" title="Implantation des sous&#45;programmes de gestion des appels système." alt="" coords="1509,115,1744,155"/>
+<area shape="poly" title=" " alt="" coords="4761,37,4160,39,3291,49,2835,58,2406,71,2036,88,1756,111,1709,118,1708,113,1756,105,2035,83,2406,66,2835,53,3291,44,4160,34,4761,31"/>
+<area shape="rect" href="bootloader_8c.html" title="Gestion de l&#39;interfaçage avec le bootloader." alt="" coords="1768,115,1995,155"/>
+<area shape="poly" title=" " alt="" coords="4761,37,4203,40,3407,51,2990,60,2599,73,2262,89,2007,111,1961,118,1960,113,2006,105,2261,84,2599,67,2990,55,3407,45,4203,35,4761,32"/>
+<area shape="rect" href="condition_8c.html" title="Implantation des opérations atomiques de ManuX." alt="" coords="2019,115,2245,155"/>
+<area shape="poly" title=" " alt="" coords="4761,37,4247,42,3523,53,3146,63,2793,75,2488,91,2258,111,2212,118,2211,113,2257,105,2488,86,2792,70,3146,57,3523,48,4247,36,4761,32"/>
+<area shape="rect" href="debug_8c.html" title="Les outils de débogage." alt="" coords="2269,115,2496,155"/>
+<area shape="poly" title=" " alt="" coords="4761,38,4291,43,3640,56,2987,78,2714,93,2508,111,2463,118,2462,113,2508,105,2714,87,2986,72,3640,51,4291,38,4761,32"/>
+<area shape="rect" href="dummy-task_8c.html" title="Implantation d&#39;une tâche de fond du noyau, surtout utile pour de l&#39;affichage pour le moment...." alt="" coords="2520,115,2747,155"/>
+<area shape="poly" title=" " alt="" coords="4761,38,4335,45,3757,59,3181,80,2941,94,2759,111,2714,118,2713,113,2758,105,2940,89,3180,75,3757,54,4335,40,4761,33"/>
+<area shape="rect" href="exclusion-mutuelle_8c.html" title="Implantation des exclusions mutuelles." alt="" coords="2771,108,2997,163"/>
+<area shape="poly" title=" " alt="" coords="4760,39,4381,47,3875,62,3375,83,3167,96,3010,111,2998,112,2997,107,3009,105,3167,91,3375,78,3875,56,4380,42,4760,34"/>
+<area shape="rect" href="kmalloc-zs_8c.html" title="Allocation mémoire multi&#45;usage pour des tailles jusqu&#39;à 4092 octets." alt="" coords="3021,115,3248,155"/>
+<area shape="poly" title=" " alt="" coords="4761,36,4489,37,4116,47,3691,69,3473,87,3260,111,3216,118,3215,113,3260,105,3473,82,3690,64,4116,41,4489,32,4761,30"/>
+<area shape="rect" href="listetaches_8c.html" title=" " alt="" coords="3272,115,3499,155"/>
+<area shape="poly" title=" " alt="" coords="4761,37,4527,41,4216,52,3865,74,3686,91,3511,111,3467,118,3466,113,3510,105,3686,85,3865,69,4216,47,4527,36,4761,32"/>
+<area shape="rect" href="main-acces-concurrent_8c.html" title="Un exemple pitoyable de début de noyau." alt="" coords="3523,108,3749,163"/>
+<area shape="poly" title=" " alt="" coords="4761,39,4567,46,4318,59,4040,80,3762,111,3750,112,3749,107,3761,105,4040,74,4318,53,4567,41,4761,34"/>
+<area shape="rect" href="main-bootparam_8c.html" title=": Un exemple de noyau montrant le passage de paramètres au boot." alt="" coords="3774,115,4026,155"/>
+<area shape="poly" title=" " alt="" coords="4761,44,4433,68,4235,87,4038,111,3992,118,3991,113,4037,105,4234,81,4432,62,4760,38"/>
+<area shape="rect" href="main-bootreg_8c.html" title=": Comment peupler le registre en fonction des paramètres de la ligne de commande obtenus par le bootl..." alt="" coords="4050,115,4281,155"/>
+<area shape="poly" title=" " alt="" coords="4761,50,4542,75,4294,111,4253,118,4252,113,4293,105,4542,70,4761,44"/>
+<area shape="rect" href="main-debmaskdyn-reg_8c.html" title=": Comment utiliser les options du bootloader pour modifier les masques de débogage via le registre." alt="" coords="4305,115,4596,155"/>
+<area shape="poly" title=" " alt="" coords="4762,66,4533,118,4532,113,4761,60"/>
+<area shape="rect" href="main-debmaskdyn_8c.html" title=": Comment utiliser les options du bootloader pour modifier les masques de débogage." alt="" coords="4621,115,4886,155"/>
+<area shape="poly" title=" " alt="" coords="4844,70,4780,117,4777,113,4841,66"/>
+<area shape="rect" href="main-outil-synchro_8c.html" title=": Un exemple de début de noyau." alt="" coords="4911,108,5137,163"/>
+<area shape="poly" title=" " alt="" coords="4936,66,4990,106,4987,110,4933,70"/>
+<area shape="rect" href="main-reentrance_8c.html" title="Démonstration de la différence entre un noyau réentrant et un noyau non réentrant." alt="" coords="5161,115,5412,155"/>
+<area shape="poly" title=" " alt="" coords="5006,61,5212,113,5211,118,5004,66"/>
+<area shape="rect" href="main-registre_8c.html" title=":" alt="" coords="5437,115,5667,155"/>
+<area shape="poly" title=" " alt="" coords="5016,47,5209,72,5424,105,5464,113,5463,118,5424,111,5208,77,5015,52"/>
+<area shape="rect" href="main-verrou-noyau_8c.html" title=": Mise en évidence de a (non) ré&#45;entrance du noyau. On compilera une fois avec la macro MANUX_REENTRANT a..." alt="" coords="5692,108,5919,163"/>
+<area shape="poly" title=" " alt="" coords="5016,39,5319,63,5500,82,5680,105,5692,107,5691,112,5680,111,5500,87,5319,68,5015,44"/>
+<area shape="rect" href="main-virtio-cons_8c.html" title=": Un exemple de début de noyau." alt="" coords="5943,115,6193,155"/>
+<area shape="poly" title=" " alt="" coords="5015,36,5424,57,5677,78,5931,105,5978,113,5977,118,5930,111,5677,83,5423,63,5015,41"/>
+<area shape="rect" href="main-virtio-journal_8c.html" title=" " alt="" coords="6217,108,6444,163"/>
+<area shape="poly" title=" " alt="" coords="5015,32,5240,37,5536,49,5870,70,6039,86,6206,105,6217,107,6217,112,6205,111,6039,91,5869,76,5536,54,5239,42,5015,38"/>
+<area shape="rect" href="main-virtio-net_8c.html" title=" " alt="" coords="6468,115,6708,155"/>
+<area shape="poly" title=" " alt="" coords="5015,31,5278,34,5636,44,6044,67,6252,84,6456,105,6503,113,6502,118,6456,111,6252,89,6044,72,5636,50,5278,39,5015,36"/>
+<area shape="rect" href="main_8c.html" title=": Un exemple de début de noyau." alt="" coords="6732,115,6959,155"/>
+<area shape="poly" title=" " alt="" coords="5015,34,5386,42,5878,57,6365,78,6567,91,6720,105,6766,113,6765,118,6720,111,6566,96,6364,83,5878,62,5386,48,5015,39"/>
+<area shape="rect" href="memoire_8c.html" title=" " alt="" coords="6983,115,7209,155"/>
+<area shape="poly" title=" " alt="" coords="5015,33,5432,40,5996,54,6559,75,6793,89,6971,105,7017,113,7016,118,6970,111,6793,95,6559,81,5996,59,5432,46,5015,38"/>
+<area shape="rect" href="pci_8c.html" title=": Fonctions de manipulation du bus PCI" alt="" coords="7233,115,7460,155"/>
+<area shape="poly" title=" " alt="" coords="5015,32,5477,38,6114,51,6753,73,7020,88,7222,105,7267,113,7266,118,7221,111,7019,93,6753,78,6114,57,5477,44,5015,38"/>
+<area shape="rect" href="scheduler_8c.html" title=" " alt="" coords="7484,115,7711,155"/>
+<area shape="poly" title=" " alt="" coords="5015,32,5521,37,6231,48,6947,70,7246,86,7472,105,7518,113,7517,118,7472,111,7246,91,6947,76,6231,54,5521,42,5015,37"/>
+<area shape="rect" href="tache_8c.html" title="Implantation des sous&#45;programmes de gestion des tâches." alt="" coords="7735,115,7961,155"/>
+<area shape="poly" title=" " alt="" coords="5015,32,5564,35,6347,46,6757,55,7141,68,7472,84,7723,105,7769,113,7768,118,7722,111,7472,90,7141,73,6757,61,6347,51,5564,40,5015,37"/>
+<area shape="rect" href="virtio-console_8c.html" title="Implantation de la console de type virtio." alt="" coords="7985,115,8217,155"/>
+<area shape="poly" title=" " alt="" coords="5015,31,5608,34,6463,44,6912,53,7334,66,7698,83,7974,105,8021,113,8020,118,7973,111,7698,89,7334,71,6912,58,6463,49,5607,39,5015,37"/>
+<area shape="rect" href="virtio-net_8c.html" title=" " alt="" coords="8241,115,8468,155"/>
+<area shape="poly" title=" " alt="" coords="5015,31,5651,32,6581,41,7071,50,7532,63,7929,81,8230,105,8276,113,8275,118,8229,111,7929,87,7532,68,7071,55,6581,46,5651,37,5015,36"/>
+<area shape="rect" href="virtio_8c.html" title=" " alt="" coords="8492,115,8719,155"/>
+<area shape="poly" title=" " alt="" coords="5015,31,5694,31,6697,38,7226,47,7725,60,8155,80,8333,92,8480,105,8527,113,8526,118,8480,111,8333,97,8155,85,7725,66,7226,52,6697,43,5694,36,5015,36"/>
+<area shape="rect" href="buffer-reseau_8c.html" title="(C) Manu Chaput 2025" alt="" coords="8743,108,8969,163"/>
+<area shape="poly" title=" " alt="" coords="5015,32,5806,40,6966,55,8080,77,8489,90,8731,105,8743,107,8742,112,8730,111,8489,96,8079,82,6966,60,5806,45,5015,38"/>
+<area shape="rect" href="reseau_8c.html" title="Implantation des éléments principaux du sous système réseau." alt="" coords="8993,115,9220,155"/>
+<area shape="poly" title=" " alt="" coords="5015,32,5851,39,7090,54,8283,76,8722,90,8982,105,9028,113,9027,118,8981,111,8722,95,8283,81,7090,59,5851,45,5015,38"/>
+<area shape="rect" href="fichier_8c.html" title=" " alt="" coords="9244,115,9471,155"/>
+<area shape="poly" title=" " alt="" coords="5015,32,5897,39,7215,52,8487,74,8956,89,9122,97,9232,105,9279,113,9278,118,9232,111,9121,102,8955,94,8487,80,7215,58,5897,44,5015,37"/>
+<area shape="rect" href="tubes_8c.html" title=" " alt="" coords="9495,115,9721,155"/>
+<area shape="poly" title=" " alt="" coords="5015,32,5942,38,7339,51,8053,61,8691,73,9189,88,9365,96,9483,105,9530,113,9529,118,9482,111,9365,102,9189,93,8691,78,8053,66,7339,56,5942,43,5015,37"/>
+</map>
+</div>
+</div>
+<p><a href="manux_2debug_8h_source.html">Aller au code source de ce fichier.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:a933578e200c6ac638f6471f042e7ffc0" id="r_a933578e200c6ac638f6471f042e7ffc0"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="manux_2debug_8h.html#a933578e200c6ac638f6471f042e7ffc0">DBG_KERNEL_ERREUR</a>&#160;&#160;&#160;0x00000001</td></tr>
+<tr class="memdesc:a933578e200c6ac638f6471f042e7ffc0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Définition des différents flags.  <br /></td></tr>
+<tr class="separator:a933578e200c6ac638f6471f042e7ffc0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a97cb921ecb429c2c4c3755b2ca69364b" id="r_a97cb921ecb429c2c4c3755b2ca69364b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="manux_2debug_8h.html#a97cb921ecb429c2c4c3755b2ca69364b">DBG_KERNEL_START</a>&#160;&#160;&#160;0x00000002</td></tr>
+<tr class="separator:a97cb921ecb429c2c4c3755b2ca69364b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a93c46e022e34a6b4c0812315c026e836" id="r_a93c46e022e34a6b4c0812315c026e836"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="manux_2debug_8h.html#a93c46e022e34a6b4c0812315c026e836">DBG_KERNEL_PAGIN</a>&#160;&#160;&#160;0x00000004</td></tr>
+<tr class="separator:a93c46e022e34a6b4c0812315c026e836"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a69ed878fe38be7f569a44a0d85138ed6" id="r_a69ed878fe38be7f569a44a0d85138ed6"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="manux_2debug_8h.html#a69ed878fe38be7f569a44a0d85138ed6">DBG_KERNEL_SYSFI</a>&#160;&#160;&#160;0x00000008</td></tr>
+<tr class="separator:a69ed878fe38be7f569a44a0d85138ed6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab3bd37bd2b7bb8ec9ae73d8a607a6d56" id="r_ab3bd37bd2b7bb8ec9ae73d8a607a6d56"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="manux_2debug_8h.html#ab3bd37bd2b7bb8ec9ae73d8a607a6d56">DBG_KERNEL_ORDON</a>&#160;&#160;&#160;0x00000010</td></tr>
+<tr class="separator:ab3bd37bd2b7bb8ec9ae73d8a607a6d56"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a19609f5d9c6bdc24183e02a0ee4a7e96" id="r_a19609f5d9c6bdc24183e02a0ee4a7e96"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="manux_2debug_8h.html#a19609f5d9c6bdc24183e02a0ee4a7e96">DBG_KERNEL_TACHE</a>&#160;&#160;&#160;0x00000020</td></tr>
+<tr class="separator:a19609f5d9c6bdc24183e02a0ee4a7e96"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a792aa769935a581bc10439a92a648b6b" id="r_a792aa769935a581bc10439a92a648b6b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="manux_2debug_8h.html#a792aa769935a581bc10439a92a648b6b">DBG_KERNEL_MEMOIRE</a>&#160;&#160;&#160;0x00000040</td></tr>
+<tr class="separator:a792aa769935a581bc10439a92a648b6b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afa34597e6ec0f2fec225c45b6408daf9" id="r_afa34597e6ec0f2fec225c45b6408daf9"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="manux_2debug_8h.html#afa34597e6ec0f2fec225c45b6408daf9">DBG_KERNEL_AS</a>&#160;&#160;&#160;0x00000080</td></tr>
+<tr class="separator:afa34597e6ec0f2fec225c45b6408daf9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a52bf70fba6e2076903fb1be25cfc90c8" id="r_a52bf70fba6e2076903fb1be25cfc90c8"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="manux_2debug_8h.html#a52bf70fba6e2076903fb1be25cfc90c8">DBG_KERNEL_PCI</a>&#160;&#160;&#160;0x00000100</td></tr>
+<tr class="separator:a52bf70fba6e2076903fb1be25cfc90c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4f02878f8fb72005eddf2027f869557d" id="r_a4f02878f8fb72005eddf2027f869557d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="manux_2debug_8h.html#a4f02878f8fb72005eddf2027f869557d">DBG_KERNEL_NET</a>&#160;&#160;&#160;0x00000200</td></tr>
+<tr class="separator:a4f02878f8fb72005eddf2027f869557d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a75f152fead74e7da11622606d11d4a96" id="r_a75f152fead74e7da11622606d11d4a96"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="manux_2debug_8h.html#a75f152fead74e7da11622606d11d4a96">DBG_KERNEL_VIRTIO</a>&#160;&#160;&#160;0x00000400</td></tr>
+<tr class="separator:a75f152fead74e7da11622606d11d4a96"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8d713d223ce338433fb2b615c5c7bc70" id="r_a8d713d223ce338433fb2b615c5c7bc70"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="manux_2debug_8h.html#a8d713d223ce338433fb2b615c5c7bc70">DBG_KERNEL_A_FAIRE</a>&#160;&#160;&#160;0x00000800</td></tr>
+<tr class="separator:a8d713d223ce338433fb2b615c5c7bc70"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adc079ad5469c49710c9f8cc16a9fb223" id="r_adc079ad5469c49710c9f8cc16a9fb223"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="manux_2debug_8h.html#adc079ad5469c49710c9f8cc16a9fb223">DBG_KERNEL_BOOTLOADER</a>&#160;&#160;&#160;0x00001000</td></tr>
+<tr class="separator:adc079ad5469c49710c9f8cc16a9fb223"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3e470f6becdc852f2d733ca0ee8cb8f1" id="r_a3e470f6becdc852f2d733ca0ee8cb8f1"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="manux_2debug_8h.html#a3e470f6becdc852f2d733ca0ee8cb8f1">DBG_KERNEL_TUBE</a>&#160;&#160;&#160;0x00002000</td></tr>
+<tr class="separator:a3e470f6becdc852f2d733ca0ee8cb8f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a23325f5502b0b95faca503a28b1d5e77" id="r_a23325f5502b0b95faca503a28b1d5e77"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="manux_2debug_8h.html#a23325f5502b0b95faca503a28b1d5e77">DBG_KERNEL_REGISTRE</a>&#160;&#160;&#160;0x00004000</td></tr>
+<tr class="separator:a23325f5502b0b95faca503a28b1d5e77"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1f680c236714b6616b9b635455d849b5" id="r_a1f680c236714b6616b9b635455d849b5"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="manux_2debug_8h.html#a1f680c236714b6616b9b635455d849b5">DBG_KERNEL_ALL</a>&#160;&#160;&#160;0xFFFFFFFF</td></tr>
+<tr class="separator:a1f680c236714b6616b9b635455d849b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0aa3be7488358b17c7ecf87f67fc820d" id="r_a0aa3be7488358b17c7ecf87f67fc820d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="manux_2debug_8h.html#a0aa3be7488358b17c7ecf87f67fc820d">_masqueDebugageConsole</a></td></tr>
+<tr class="memdesc:a0aa3be7488358b17c7ecf87f67fc820d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Définition des masques de débogage.  <br /></td></tr>
+<tr class="separator:a0aa3be7488358b17c7ecf87f67fc820d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5da5b3d524cfe49bc2f1799b70c2ef44" id="r_a5da5b3d524cfe49bc2f1799b70c2ef44"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="manux_2debug_8h.html#a5da5b3d524cfe49bc2f1799b70c2ef44">_masqueDebugageFichier</a></td></tr>
+<tr class="separator:a5da5b3d524cfe49bc2f1799b70c2ef44"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a895b956a2419f199f255ee6542ed1f2d" id="r_a895b956a2419f199f255ee6542ed1f2d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="manux_2debug_8h.html#a895b956a2419f199f255ee6542ed1f2d">masqueDebugageConsole</a>&#160;&#160;&#160;<a class="el" href="manux_2debug_8h.html#a0aa3be7488358b17c7ecf87f67fc820d">_masqueDebugageConsole</a></td></tr>
+<tr class="memdesc:a895b956a2419f199f255ee6542ed1f2d"><td class="mdescLeft">&#160;</td><td class="mdescRight">On déclare les masques comme des variables ou comme des macros en fonction de MANUX_DEBUGMASK_VAR.  <br /></td></tr>
+<tr class="separator:a895b956a2419f199f255ee6542ed1f2d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4f75a22599327492938e80d95d6e7805" id="r_a4f75a22599327492938e80d95d6e7805"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="manux_2debug_8h.html#a4f75a22599327492938e80d95d6e7805">masqueDebugageFichier</a>&#160;&#160;&#160;<a class="el" href="manux_2debug_8h.html#a5da5b3d524cfe49bc2f1799b70c2ef44">_masqueDebugageFichier</a></td></tr>
+<tr class="separator:a4f75a22599327492938e80d95d6e7805"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad4cabea5084373436d91b5dc4e8d0a49" id="r_ad4cabea5084373436d91b5dc4e8d0a49"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="manux_2debug_8h.html#ad4cabea5084373436d91b5dc4e8d0a49">printk_debug</a>(lvl,  fmt,  args...)</td></tr>
+<tr class="separator:ad4cabea5084373436d91b5dc4e8d0a49"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a94bcf41c2acfb543c52dcb281acba959" id="r_a94bcf41c2acfb543c52dcb281acba959"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="manux_2debug_8h.html#a94bcf41c2acfb543c52dcb281acba959">paniqueNoyau</a>(fmt,  args...)</td></tr>
+<tr class="separator:a94bcf41c2acfb543c52dcb281acba959"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3153a272f18d0f805028fce7e4337b53" id="r_a3153a272f18d0f805028fce7e4337b53"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="manux_2debug_8h.html#a3153a272f18d0f805028fce7e4337b53">assert</a>(cond)&#160;&#160;&#160;{}</td></tr>
+<tr class="separator:a3153a272f18d0f805028fce7e4337b53"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Fonctions</h2></td></tr>
+<tr class="memitem:afecb2fc4768dcaba6f0098c4a46bff0c" id="r_afecb2fc4768dcaba6f0098c4a46bff0c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="include_2manux_2interruptions_8h.html#a4fda31edc92f8ccd48b6f4bb50f2e7e1">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="manux_2debug_8h.html#afecb2fc4768dcaba6f0098c4a46bff0c">debugInitialiser</a> (<a class="el" href="include_2manux_2interruptions_8h.html#a4fda31edc92f8ccd48b6f4bb50f2e7e1">void</a>)</td></tr>
+<tr class="memdesc:afecb2fc4768dcaba6f0098c4a46bff0c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialisation du sytème de débogage.  <br /></td></tr>
+<tr class="separator:afecb2fc4768dcaba6f0098c4a46bff0c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Documentation des macros</h2>
+<a id="a0aa3be7488358b17c7ecf87f67fc820d" name="a0aa3be7488358b17c7ecf87f67fc820d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0aa3be7488358b17c7ecf87f67fc820d">&#9670;&#160;</a></span>_masqueDebugageConsole</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define _masqueDebugageConsole</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Valeur :</b><div class="fragment"><div class="line"> (0x00000000 \</div>
+<div class="line"> | <a class="code hl_define" href="manux_2debug_8h.html#a933578e200c6ac638f6471f042e7ffc0">DBG_KERNEL_ERREUR</a>     \</div>
+<div class="line"> | <a class="code hl_define" href="manux_2debug_8h.html#a97cb921ecb429c2c4c3755b2ca69364b">DBG_KERNEL_START</a>      \</div>
+<div class="line">                   )</div>
+<div class="ttc" id="amanux_2debug_8h_html_a933578e200c6ac638f6471f042e7ffc0"><div class="ttname"><a href="manux_2debug_8h.html#a933578e200c6ac638f6471f042e7ffc0">DBG_KERNEL_ERREUR</a></div><div class="ttdeci">#define DBG_KERNEL_ERREUR</div><div class="ttdoc">Définition des différents flags.</div><div class="ttdef"><b>Definition</b> <a href="manux_2debug_8h_source.html#l00021">debug.h:21</a></div></div>
+<div class="ttc" id="amanux_2debug_8h_html_a97cb921ecb429c2c4c3755b2ca69364b"><div class="ttname"><a href="manux_2debug_8h.html#a97cb921ecb429c2c4c3755b2ca69364b">DBG_KERNEL_START</a></div><div class="ttdeci">#define DBG_KERNEL_START</div><div class="ttdef"><b>Definition</b> <a href="manux_2debug_8h_source.html#l00022">debug.h:22</a></div></div>
+</div><!-- fragment -->
+<p>Définition des masques de débogage. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="manux_2debug_8h_source.html#l00041">41</a> du fichier <a class="el" href="manux_2debug_8h_source.html">debug.h</a>.</p>
+
+</div>
+</div>
+<a id="a5da5b3d524cfe49bc2f1799b70c2ef44" name="a5da5b3d524cfe49bc2f1799b70c2ef44"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5da5b3d524cfe49bc2f1799b70c2ef44">&#9670;&#160;</a></span>_masqueDebugageFichier</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define _masqueDebugageFichier</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Valeur :</b><div class="fragment"><div class="line">                (0x00000000\</div>
+<div class="line">                )</div>
+</div><!-- fragment -->
+<p class="definition">Définition à la ligne <a class="el" href="manux_2debug_8h_source.html#l00045">45</a> du fichier <a class="el" href="manux_2debug_8h_source.html">debug.h</a>.</p>
+
+</div>
+</div>
+<a id="a3153a272f18d0f805028fce7e4337b53" name="a3153a272f18d0f805028fce7e4337b53"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3153a272f18d0f805028fce7e4337b53">&#9670;&#160;</a></span>assert</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define assert</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">cond</td><td>)</td>
+          <td>&#160;&#160;&#160;{}</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="manux_2debug_8h_source.html#l00130">130</a> du fichier <a class="el" href="manux_2debug_8h_source.html">debug.h</a>.</p>
+
+</div>
+</div>
+<a id="a8d713d223ce338433fb2b615c5c7bc70" name="a8d713d223ce338433fb2b615c5c7bc70"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8d713d223ce338433fb2b615c5c7bc70">&#9670;&#160;</a></span>DBG_KERNEL_A_FAIRE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define DBG_KERNEL_A_FAIRE&#160;&#160;&#160;0x00000800</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="manux_2debug_8h_source.html#l00032">32</a> du fichier <a class="el" href="manux_2debug_8h_source.html">debug.h</a>.</p>
+
+</div>
+</div>
+<a id="a1f680c236714b6616b9b635455d849b5" name="a1f680c236714b6616b9b635455d849b5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1f680c236714b6616b9b635455d849b5">&#9670;&#160;</a></span>DBG_KERNEL_ALL</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define DBG_KERNEL_ALL&#160;&#160;&#160;0xFFFFFFFF</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="manux_2debug_8h_source.html#l00036">36</a> du fichier <a class="el" href="manux_2debug_8h_source.html">debug.h</a>.</p>
+
+</div>
+</div>
+<a id="afa34597e6ec0f2fec225c45b6408daf9" name="afa34597e6ec0f2fec225c45b6408daf9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afa34597e6ec0f2fec225c45b6408daf9">&#9670;&#160;</a></span>DBG_KERNEL_AS</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define DBG_KERNEL_AS&#160;&#160;&#160;0x00000080</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="manux_2debug_8h_source.html#l00028">28</a> du fichier <a class="el" href="manux_2debug_8h_source.html">debug.h</a>.</p>
+
+</div>
+</div>
+<a id="adc079ad5469c49710c9f8cc16a9fb223" name="adc079ad5469c49710c9f8cc16a9fb223"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adc079ad5469c49710c9f8cc16a9fb223">&#9670;&#160;</a></span>DBG_KERNEL_BOOTLOADER</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define DBG_KERNEL_BOOTLOADER&#160;&#160;&#160;0x00001000</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="manux_2debug_8h_source.html#l00033">33</a> du fichier <a class="el" href="manux_2debug_8h_source.html">debug.h</a>.</p>
+
+</div>
+</div>
+<a id="a933578e200c6ac638f6471f042e7ffc0" name="a933578e200c6ac638f6471f042e7ffc0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a933578e200c6ac638f6471f042e7ffc0">&#9670;&#160;</a></span>DBG_KERNEL_ERREUR</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define DBG_KERNEL_ERREUR&#160;&#160;&#160;0x00000001</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Définition des différents flags. </p>
+<p>Ma version des assertions et autres outils de debug. </p><pre class="fragment">                                           (C) Manu Chaput 2000-2025
+</pre> 
+<p class="definition">Définition à la ligne <a class="el" href="manux_2debug_8h_source.html#l00021">21</a> du fichier <a class="el" href="manux_2debug_8h_source.html">debug.h</a>.</p>
+
+</div>
+</div>
+<a id="a792aa769935a581bc10439a92a648b6b" name="a792aa769935a581bc10439a92a648b6b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a792aa769935a581bc10439a92a648b6b">&#9670;&#160;</a></span>DBG_KERNEL_MEMOIRE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define DBG_KERNEL_MEMOIRE&#160;&#160;&#160;0x00000040</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="manux_2debug_8h_source.html#l00027">27</a> du fichier <a class="el" href="manux_2debug_8h_source.html">debug.h</a>.</p>
+
+</div>
+</div>
+<a id="a4f02878f8fb72005eddf2027f869557d" name="a4f02878f8fb72005eddf2027f869557d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4f02878f8fb72005eddf2027f869557d">&#9670;&#160;</a></span>DBG_KERNEL_NET</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define DBG_KERNEL_NET&#160;&#160;&#160;0x00000200</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="manux_2debug_8h_source.html#l00030">30</a> du fichier <a class="el" href="manux_2debug_8h_source.html">debug.h</a>.</p>
+
+</div>
+</div>
+<a id="ab3bd37bd2b7bb8ec9ae73d8a607a6d56" name="ab3bd37bd2b7bb8ec9ae73d8a607a6d56"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab3bd37bd2b7bb8ec9ae73d8a607a6d56">&#9670;&#160;</a></span>DBG_KERNEL_ORDON</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define DBG_KERNEL_ORDON&#160;&#160;&#160;0x00000010</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="manux_2debug_8h_source.html#l00025">25</a> du fichier <a class="el" href="manux_2debug_8h_source.html">debug.h</a>.</p>
+
+</div>
+</div>
+<a id="a93c46e022e34a6b4c0812315c026e836" name="a93c46e022e34a6b4c0812315c026e836"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a93c46e022e34a6b4c0812315c026e836">&#9670;&#160;</a></span>DBG_KERNEL_PAGIN</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define DBG_KERNEL_PAGIN&#160;&#160;&#160;0x00000004</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="manux_2debug_8h_source.html#l00023">23</a> du fichier <a class="el" href="manux_2debug_8h_source.html">debug.h</a>.</p>
+
+</div>
+</div>
+<a id="a52bf70fba6e2076903fb1be25cfc90c8" name="a52bf70fba6e2076903fb1be25cfc90c8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a52bf70fba6e2076903fb1be25cfc90c8">&#9670;&#160;</a></span>DBG_KERNEL_PCI</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define DBG_KERNEL_PCI&#160;&#160;&#160;0x00000100</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="manux_2debug_8h_source.html#l00029">29</a> du fichier <a class="el" href="manux_2debug_8h_source.html">debug.h</a>.</p>
+
+</div>
+</div>
+<a id="a23325f5502b0b95faca503a28b1d5e77" name="a23325f5502b0b95faca503a28b1d5e77"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a23325f5502b0b95faca503a28b1d5e77">&#9670;&#160;</a></span>DBG_KERNEL_REGISTRE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define DBG_KERNEL_REGISTRE&#160;&#160;&#160;0x00004000</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="manux_2debug_8h_source.html#l00035">35</a> du fichier <a class="el" href="manux_2debug_8h_source.html">debug.h</a>.</p>
+
+</div>
+</div>
+<a id="a97cb921ecb429c2c4c3755b2ca69364b" name="a97cb921ecb429c2c4c3755b2ca69364b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a97cb921ecb429c2c4c3755b2ca69364b">&#9670;&#160;</a></span>DBG_KERNEL_START</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define DBG_KERNEL_START&#160;&#160;&#160;0x00000002</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="manux_2debug_8h_source.html#l00022">22</a> du fichier <a class="el" href="manux_2debug_8h_source.html">debug.h</a>.</p>
+
+</div>
+</div>
+<a id="a69ed878fe38be7f569a44a0d85138ed6" name="a69ed878fe38be7f569a44a0d85138ed6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a69ed878fe38be7f569a44a0d85138ed6">&#9670;&#160;</a></span>DBG_KERNEL_SYSFI</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define DBG_KERNEL_SYSFI&#160;&#160;&#160;0x00000008</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="manux_2debug_8h_source.html#l00024">24</a> du fichier <a class="el" href="manux_2debug_8h_source.html">debug.h</a>.</p>
+
+</div>
+</div>
+<a id="a19609f5d9c6bdc24183e02a0ee4a7e96" name="a19609f5d9c6bdc24183e02a0ee4a7e96"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a19609f5d9c6bdc24183e02a0ee4a7e96">&#9670;&#160;</a></span>DBG_KERNEL_TACHE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define DBG_KERNEL_TACHE&#160;&#160;&#160;0x00000020</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="manux_2debug_8h_source.html#l00026">26</a> du fichier <a class="el" href="manux_2debug_8h_source.html">debug.h</a>.</p>
+
+</div>
+</div>
+<a id="a3e470f6becdc852f2d733ca0ee8cb8f1" name="a3e470f6becdc852f2d733ca0ee8cb8f1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3e470f6becdc852f2d733ca0ee8cb8f1">&#9670;&#160;</a></span>DBG_KERNEL_TUBE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define DBG_KERNEL_TUBE&#160;&#160;&#160;0x00002000</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="manux_2debug_8h_source.html#l00034">34</a> du fichier <a class="el" href="manux_2debug_8h_source.html">debug.h</a>.</p>
+
+</div>
+</div>
+<a id="a75f152fead74e7da11622606d11d4a96" name="a75f152fead74e7da11622606d11d4a96"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a75f152fead74e7da11622606d11d4a96">&#9670;&#160;</a></span>DBG_KERNEL_VIRTIO</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define DBG_KERNEL_VIRTIO&#160;&#160;&#160;0x00000400</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="manux_2debug_8h_source.html#l00031">31</a> du fichier <a class="el" href="manux_2debug_8h_source.html">debug.h</a>.</p>
+
+</div>
+</div>
+<a id="a895b956a2419f199f255ee6542ed1f2d" name="a895b956a2419f199f255ee6542ed1f2d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a895b956a2419f199f255ee6542ed1f2d">&#9670;&#160;</a></span>masqueDebugageConsole</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define masqueDebugageConsole&#160;&#160;&#160;<a class="el" href="manux_2debug_8h.html#a0aa3be7488358b17c7ecf87f67fc820d">_masqueDebugageConsole</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>On déclare les masques comme des variables ou comme des macros en fonction de MANUX_DEBUGMASK_VAR. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="manux_2debug_8h_source.html#l00056">56</a> du fichier <a class="el" href="manux_2debug_8h_source.html">debug.h</a>.</p>
+
+</div>
+</div>
+<a id="a4f75a22599327492938e80d95d6e7805" name="a4f75a22599327492938e80d95d6e7805"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4f75a22599327492938e80d95d6e7805">&#9670;&#160;</a></span>masqueDebugageFichier</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define masqueDebugageFichier&#160;&#160;&#160;<a class="el" href="manux_2debug_8h.html#a5da5b3d524cfe49bc2f1799b70c2ef44">_masqueDebugageFichier</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="manux_2debug_8h_source.html#l00057">57</a> du fichier <a class="el" href="manux_2debug_8h_source.html">debug.h</a>.</p>
+
+</div>
+</div>
+<a id="a94bcf41c2acfb543c52dcb281acba959" name="a94bcf41c2acfb543c52dcb281acba959"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a94bcf41c2acfb543c52dcb281acba959">&#9670;&#160;</a></span>paniqueNoyau</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define paniqueNoyau</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">fmt, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">args...&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Valeur :</b><div class="fragment"><div class="line">{\</div>
+<div class="line">   printk(<span class="stringliteral">&quot;\n*** PANIQUE NOYAU  ***\n&quot;</span>);                    \</div>
+<div class="line">   printk(<span class="stringliteral">&quot;%s (dans %s ligne %d)\n&quot;</span>, __FUNCTION__, __FILE__, __LINE__);   \</div>
+<div class="line">   printk(<span class="stringliteral">&quot;&quot;</span> fmt, ## args);                                               \</div>
+<div class="line">   asm( <span class="stringliteral">&quot;hlt&quot;</span> ); \</div>
+<div class="line">}</div>
+</div><!-- fragment -->
+<p class="definition">Définition à la ligne <a class="el" href="manux_2debug_8h_source.html#l00111">111</a> du fichier <a class="el" href="manux_2debug_8h_source.html">debug.h</a>.</p>
+
+</div>
+</div>
+<a id="ad4cabea5084373436d91b5dc4e8d0a49" name="ad4cabea5084373436d91b5dc4e8d0a49"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad4cabea5084373436d91b5dc4e8d0a49">&#9670;&#160;</a></span>printk_debug</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define printk_debug</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">lvl, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">fmt, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">args...&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Valeur :</b><div class="fragment"><div class="line">   <span class="keywordflow">if</span> (((lvl)&amp; <a class="code hl_define" href="manux_2debug_8h.html#a895b956a2419f199f255ee6542ed1f2d">masqueDebugageConsole</a>) &amp;&amp; ((lvl)&amp; <a class="code hl_define" href="manux_2debug_8h.html#a4f75a22599327492938e80d95d6e7805">masqueDebugageFichier</a>)) {     \</div>
+<div class="line">      printk(<span class="stringliteral">&quot;{7} %s line %d : &quot;</span> fmt, __FUNCTION__ , __LINE__, ## args); \</div>
+<div class="line">   } <span class="keywordflow">else</span> <span class="keywordflow">if</span> ((lvl)&amp; <a class="code hl_define" href="manux_2debug_8h.html#a4f75a22599327492938e80d95d6e7805">masqueDebugageFichier</a>) {               \</div>
+<div class="line">      printk(<span class="stringliteral">&quot;(7) %s line %d : &quot;</span> fmt, __FUNCTION__ , __LINE__, ## args); \</div>
+<div class="line">   } <span class="keywordflow">else</span> <span class="keywordflow">if</span> ((lvl)&amp; <a class="code hl_define" href="manux_2debug_8h.html#a895b956a2419f199f255ee6542ed1f2d">masqueDebugageConsole</a>) {               \</div>
+<div class="line">      printk(<span class="stringliteral">&quot;[7] %s line %d : &quot;</span> fmt, __FUNCTION__ , __LINE__, ## args); \</div>
+<div class="line">   }</div>
+<div class="ttc" id="amanux_2debug_8h_html_a4f75a22599327492938e80d95d6e7805"><div class="ttname"><a href="manux_2debug_8h.html#a4f75a22599327492938e80d95d6e7805">masqueDebugageFichier</a></div><div class="ttdeci">#define masqueDebugageFichier</div><div class="ttdef"><b>Definition</b> <a href="manux_2debug_8h_source.html#l00057">debug.h:57</a></div></div>
+<div class="ttc" id="amanux_2debug_8h_html_a895b956a2419f199f255ee6542ed1f2d"><div class="ttname"><a href="manux_2debug_8h.html#a895b956a2419f199f255ee6542ed1f2d">masqueDebugageConsole</a></div><div class="ttdeci">#define masqueDebugageConsole</div><div class="ttdoc">On déclare les masques comme des variables ou comme des macros en fonction de MANUX_DEBUGMASK_VAR.</div><div class="ttdef"><b>Definition</b> <a href="manux_2debug_8h_source.html#l00056">debug.h:56</a></div></div>
+</div><!-- fragment --><p>Une fonction permettant d'afficher des messages de debug thématiques et avec un formatage homogène. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="manux_2debug_8h_source.html#l00090">90</a> du fichier <a class="el" href="manux_2debug_8h_source.html">debug.h</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Documentation des fonctions</h2>
+<a id="afecb2fc4768dcaba6f0098c4a46bff0c" name="afecb2fc4768dcaba6f0098c4a46bff0c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afecb2fc4768dcaba6f0098c4a46bff0c">&#9670;&#160;</a></span>debugInitialiser()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="include_2manux_2interruptions_8h.html#a4fda31edc92f8ccd48b6f4bb50f2e7e1">void</a> debugInitialiser </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="include_2manux_2interruptions_8h.html#a4fda31edc92f8ccd48b6f4bb50f2e7e1">void</a>&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Initialisation du sytème de débogage. </p>
+<p>Cette phase d'initialisation n'est utile que si les masques de debogage sont implantés sous forme de variables (c'est-à-dire si MANUX_DEBUGMASK_VAR est définie) et si le registre est configuré (donc si MANUX_REGISTRE est définie). Elle sert alors à placer les paramètres dans le registre. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="debug_8c_source.html#l00037">37</a> du fichier <a class="el" href="debug_8c_source.html">debug.c</a>.</p>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

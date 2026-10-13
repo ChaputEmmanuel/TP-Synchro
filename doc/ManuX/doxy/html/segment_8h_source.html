@@ -1,0 +1,227 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>My Project:  Fichier source de /home/manu/PROGRAMMATION/C/ManuX/include/manux/segment.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">My Project
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function() { init_codefold(0); });
+/* @license-end */
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_7ae9ae23548caaa7aeb1f148c6e00073.html">manux</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle"><div class="title">segment.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="segment_8h.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">/*----------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment">/*      Définition des segments et leurs descripteurs et sélecteurs.          */</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment">/*                                                                            */</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment">/*                                                       (C) Manu Chaput 2000 */</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment">/*----------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#ifndef SEGMENT_DEF</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#define SEGMENT_DEF</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &lt;manux/types.h&gt;</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="comment">/*</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="comment"> * Un descripteur de segment</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="comment"> */</span></div>
+<div class="foldopen" id="foldopen00014" data-start="{" data-end="};">
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno"><a class="line" href="struct__DescSegment.html">   14</a></span><span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code hl_struct" href="struct__DescSegment.html">_DescSegment</a> {</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno"><a class="line" href="struct__DescSegment.html#aaa1016bae9310abe4a6f9c87e759d97f">   15</a></span>   <a class="code hl_typedef" href="include_2manux_2types_8h.html#a273cf69d639a59973b6019625df33e30">uint16_t</a> <a class="code hl_variable" href="struct__DescSegment.html#aaa1016bae9310abe4a6f9c87e759d97f">limiteFaible</a>;</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="struct__DescSegment.html#a06a1d9060b12b7b638cb6ee07d7d1505">   16</a></span>   <a class="code hl_typedef" href="include_2manux_2types_8h.html#a273cf69d639a59973b6019625df33e30">uint16_t</a> <a class="code hl_variable" href="struct__DescSegment.html#a06a1d9060b12b7b638cb6ee07d7d1505">baseFaible</a>;</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno"><a class="line" href="struct__DescSegment.html#a66cfc2edc24d6d7ee1836ff35980198a">   17</a></span>   <a class="code hl_typedef" href="include_2manux_2types_8h.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a>  <a class="code hl_variable" href="struct__DescSegment.html#a66cfc2edc24d6d7ee1836ff35980198a">baseInter</a>;</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="struct__DescSegment.html#ab77cdfae3f849a7cb8d15eefb0631282">   18</a></span>   <a class="code hl_typedef" href="include_2manux_2types_8h.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a>  <a class="code hl_variable" href="struct__DescSegment.html#ab77cdfae3f849a7cb8d15eefb0631282">type</a>;</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="struct__DescSegment.html#a251ec8a74fc148dcd045b23959131400">   19</a></span>   <a class="code hl_typedef" href="include_2manux_2types_8h.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a>  <a class="code hl_variable" href="struct__DescSegment.html#a251ec8a74fc148dcd045b23959131400">limiteFort</a>;</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="struct__DescSegment.html#ae40b1efc708500ffa3394b4c0bc6afae">   20</a></span>   <a class="code hl_typedef" href="include_2manux_2types_8h.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a>  <a class="code hl_variable" href="struct__DescSegment.html#ae40b1efc708500ffa3394b4c0bc6afae">baseFort</a>;</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="segment_8h.html#a80cb7bf88a72fbe13bc4539da990ce5b">   21</a></span>} <a class="code hl_typedef" href="segment_8h.html#a80cb7bf88a72fbe13bc4539da990ce5b">DescSegment</a>;</div>
+</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="comment">/*</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="comment"> * Un descripteur de TSS ([1] p 6-7)</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="comment"> */</span></div>
+<div class="foldopen" id="foldopen00026" data-start="{" data-end="};">
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="struct__DescTSS.html">   26</a></span><span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code hl_struct" href="struct__DescTSS.html">_DescTSS</a> {</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="struct__DescTSS.html#a8b1a7d2d31c6c3acb7bc75c1a5521dad">   27</a></span>   <a class="code hl_typedef" href="include_2manux_2types_8h.html#a273cf69d639a59973b6019625df33e30">uint16_t</a> <a class="code hl_variable" href="struct__DescTSS.html#a8b1a7d2d31c6c3acb7bc75c1a5521dad">limiteFaible</a>;</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="struct__DescTSS.html#a79edebb6f912c512b000cb1cce719725">   28</a></span>   <a class="code hl_typedef" href="include_2manux_2types_8h.html#a273cf69d639a59973b6019625df33e30">uint16_t</a> <a class="code hl_variable" href="struct__DescTSS.html#a79edebb6f912c512b000cb1cce719725">baseFaible</a>;</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno"><a class="line" href="struct__DescTSS.html#ab5b1064213c68bb2cb9d07b5204fcecf">   29</a></span>   <a class="code hl_typedef" href="include_2manux_2types_8h.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a>  <a class="code hl_variable" href="struct__DescTSS.html#ab5b1064213c68bb2cb9d07b5204fcecf">baseInter</a>;  </div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno"><a class="line" href="struct__DescTSS.html#a1ffa53611eb212a29b7089c9daf7ab8a">   30</a></span>   <a class="code hl_typedef" href="include_2manux_2types_8h.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a>  <a class="code hl_variable" href="struct__DescTSS.html#a1ffa53611eb212a29b7089c9daf7ab8a">type</a>;       <span class="comment">/* P,DPL,010B1 */</span></div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="struct__DescTSS.html#aeba21868aa60682c722f50c4a92d2d98">   31</a></span>   <a class="code hl_typedef" href="include_2manux_2types_8h.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a>  <a class="code hl_variable" href="struct__DescTSS.html#aeba21868aa60682c722f50c4a92d2d98">limiteFort</a>; <span class="comment">/* G,00,AVL,lim */</span></div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="struct__DescTSS.html#af68c88388d2109c9eda98ebc2eb0dd1d">   32</a></span>   <a class="code hl_typedef" href="include_2manux_2types_8h.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a>  <a class="code hl_variable" href="struct__DescTSS.html#af68c88388d2109c9eda98ebc2eb0dd1d">baseFort</a>;</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno"><a class="line" href="segment_8h.html#a41dfd815a374d24765469d03fc858d6e">   33</a></span>} <a class="code hl_typedef" href="segment_8h.html#a41dfd815a374d24765469d03fc858d6e">DescTSS</a>;</div>
+</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
+<div class="foldopen" id="foldopen00035" data-start="{" data-end="};">
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="union__Descripteur.html">   35</a></span><span class="keyword">typedef</span> <span class="keyword">union </span><a class="code hl_union" href="union__Descripteur.html">_Descripteur</a> {</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno"><a class="line" href="union__Descripteur.html#a8bafbc4c5182e81587c22d852b9dcc7f">   36</a></span>   <a class="code hl_struct" href="struct__DescSegment.html">DescSegment</a> <a class="code hl_variable" href="union__Descripteur.html#a8bafbc4c5182e81587c22d852b9dcc7f">ds</a>;</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="union__Descripteur.html#aebbba8ba52309981be3829a116d05df2">   37</a></span>   <a class="code hl_struct" href="struct__DescTSS.html">DescTSS</a>     <a class="code hl_variable" href="union__Descripteur.html#aebbba8ba52309981be3829a116d05df2">dt</a>;</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno"><a class="line" href="segment_8h.html#ad0ea392665f248eb1c5d00bdd69fe1f4">   38</a></span>} <a class="code hl_typedef" href="segment_8h.html#ad0ea392665f248eb1c5d00bdd69fe1f4">Descripteur</a>;</div>
+</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="comment">/*</span></div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="comment"> * La DescriptorTable est un tableau de descripteurs de segments auquel on ajoute</span></div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="comment"> * sa taille effective.</span></div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><span class="comment"> */</span></div>
+<div class="foldopen" id="foldopen00044" data-start="{" data-end="};">
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno"><a class="line" href="struct__DescriptorTable.html">   44</a></span><span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code hl_struct" href="struct__DescriptorTable.html">_DescriptorTable</a> {</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno"><a class="line" href="struct__DescriptorTable.html#a506f73d9871220f5639b7f0ce470926b">   45</a></span>  <span class="keywordtype">int</span>         <a class="code hl_variable" href="struct__DescriptorTable.html#a506f73d9871220f5639b7f0ce470926b">capacite</a>;</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno"><a class="line" href="struct__DescriptorTable.html#af383a85f6ad710d325447d0b36cd0dc8">   46</a></span>  <span class="keywordtype">int</span>         <a class="code hl_variable" href="struct__DescriptorTable.html#af383a85f6ad710d325447d0b36cd0dc8">taille</a>;</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno"><a class="line" href="struct__DescriptorTable.html#a315f73e13af36b7bdd5269d4cd5cb58c">   47</a></span>  <a class="code hl_union" href="union__Descripteur.html">Descripteur</a> <a class="code hl_variable" href="struct__DescriptorTable.html#a315f73e13af36b7bdd5269d4cd5cb58c">descripteur</a>[0];</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno"><a class="line" href="segment_8h.html#ae5e4cb3889e9015f7648c7208c5aad01">   48</a></span>} <a class="code hl_typedef" href="segment_8h.html#ae5e4cb3889e9015f7648c7208c5aad01">DescriptorTable</a>;</div>
+</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
+<div class="foldopen" id="foldopen00050" data-start="" data-end="">
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno"><a class="line" href="segment_8h.html#ad22f59f7521cefe856cda77319352e17">   50</a></span><span class="preprocessor">#define tailleGDTSysteme (sizeof(int)+  \</span></div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span><span class="preprocessor">                          sizeof(int)+  \</span></div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span><span class="preprocessor">                          gdtSysteme-&gt;taille*sizeof(Descripteur))</span></div>
+</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span> </div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span><span class="keyword">extern</span> <a class="code hl_struct" href="struct__DescriptorTable.html">DescriptorTable</a> * <a class="code hl_variable" href="segment_8h.html#aa7b2be909929911d7772352d013a9480">gdtSysteme</a>;</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span> </div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span><span class="keywordtype">void</span> <a class="code hl_function" href="segment_8h.html#ae0e123e68e81d00dad08bd7a0215e9a8">initialiserGDT</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span><span class="comment">/*</span></div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span><span class="comment"> * Initiliser la GDT (Global Description Table)</span></div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span> </div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span><span class="keywordtype">void</span> <a class="code hl_function" href="segment_8h.html#a9d73adba0d9db3f42a705fd1789e113e">chargerGDT</a>(<a class="code hl_struct" href="struct__DescriptorTable.html">DescriptorTable</a> * gdt);</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span><span class="comment">/*</span></div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span><span class="comment"> * Chargement de la Global Descriptor Table</span></div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span> </div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span><span class="keywordtype">void</span> <a class="code hl_function" href="segment_8h.html#a7fa1329c2ae053fa9ef8b91043bd02d2">chargerLDT</a>(<a class="code hl_struct" href="struct__DescriptorTable.html">DescriptorTable</a> * ldt);</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span><span class="comment">/*</span></div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span><span class="comment"> * Chargement de la Local Descriptor Table</span></div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span> </div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span><span class="keywordtype">int</span> <a class="code hl_function" href="segment_8h.html#a98c72dee0a629fb7b8ac0171521c52cc">ajouterDescTSS</a>(<a class="code hl_struct" href="struct__DescriptorTable.html">DescriptorTable</a> * dt,</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>           <span class="keywordtype">void</span> * adresse, <a class="code hl_typedef" href="include_2manux_2types_8h.html#a06896e8c53f721507066c079052171f8">uint32_t</a> limite,</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>           <a class="code hl_typedef" href="include_2manux_2types_8h.html#a5b7544e51b136e716e4eccc0602bafd7">booleen</a> busyTask);</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span><span class="comment">/*</span></div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span><span class="comment"> * Ajout d&#39;un descripteur de TSS à la DescriptorTable</span></div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span><span class="comment"> * L&#39;adresse et la limite du segment sont fournies en paramètre.</span></div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span><span class="comment"> * L&#39;indice dans la DescriptorTable est fournie en retour (multiplié</span></div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span><span class="comment"> * par 8 comme l&#39;index Intel).</span></div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span> </div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span><span class="keywordtype">int</span> <a class="code hl_function" href="segment_8h.html#a89a9fc5562cf33c6869b1d0df950d1a6">setDescripteurSegment</a>(<a class="code hl_struct" href="struct__DescriptorTable.html">DescriptorTable</a> * dt,</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>                          <a class="code hl_typedef" href="include_2manux_2types_8h.html#a06896e8c53f721507066c079052171f8">uint32_t</a> adresse, <a class="code hl_typedef" href="include_2manux_2types_8h.html#a06896e8c53f721507066c079052171f8">uint32_t</a> limite,</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>                          <a class="code hl_typedef" href="include_2manux_2types_8h.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> type,</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>                          <a class="code hl_typedef" href="include_2manux_2types_8h.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> gd0a);</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span><span class="comment">/*</span></div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span><span class="comment"> * Initialisation d&#39;un  descripteur de segment dans une table de descripteur</span></div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span><span class="comment"> * gd0a doit contenir dans son quadret de poids fort les bits G, D/B, 0</span></div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span><span class="comment"> * et AVL ([1] p 3-11)</span></div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span> </div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span><span class="preprocessor">#endif</span></div>
+<div class="ttc" id="ainclude_2manux_2types_8h_html_a06896e8c53f721507066c079052171f8"><div class="ttname"><a href="include_2manux_2types_8h.html#a06896e8c53f721507066c079052171f8">uint32_t</a></div><div class="ttdeci">unsigned long uint32_t</div><div class="ttdef"><b>Definition</b> <a href="include_2manux_2types_8h_source.html#l00020">types.h:20</a></div></div>
+<div class="ttc" id="ainclude_2manux_2types_8h_html_a273cf69d639a59973b6019625df33e30"><div class="ttname"><a href="include_2manux_2types_8h.html#a273cf69d639a59973b6019625df33e30">uint16_t</a></div><div class="ttdeci">unsigned short uint16_t</div><div class="ttdef"><b>Definition</b> <a href="include_2manux_2types_8h_source.html#l00016">types.h:16</a></div></div>
+<div class="ttc" id="ainclude_2manux_2types_8h_html_a5b7544e51b136e716e4eccc0602bafd7"><div class="ttname"><a href="include_2manux_2types_8h.html#a5b7544e51b136e716e4eccc0602bafd7">booleen</a></div><div class="ttdeci">int booleen</div><div class="ttdef"><b>Definition</b> <a href="include_2manux_2types_8h_source.html#l00032">types.h:32</a></div></div>
+<div class="ttc" id="ainclude_2manux_2types_8h_html_aba7bc1797add20fe3efdf37ced1182c5"><div class="ttname"><a href="include_2manux_2types_8h.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a></div><div class="ttdeci">unsigned char uint8_t</div><div class="ttdef"><b>Definition</b> <a href="include_2manux_2types_8h_source.html#l00012">types.h:12</a></div></div>
+<div class="ttc" id="asegment_8h_html_a41dfd815a374d24765469d03fc858d6e"><div class="ttname"><a href="segment_8h.html#a41dfd815a374d24765469d03fc858d6e">DescTSS</a></div><div class="ttdeci">struct _DescTSS DescTSS</div></div>
+<div class="ttc" id="asegment_8h_html_a7fa1329c2ae053fa9ef8b91043bd02d2"><div class="ttname"><a href="segment_8h.html#a7fa1329c2ae053fa9ef8b91043bd02d2">chargerLDT</a></div><div class="ttdeci">void chargerLDT(DescriptorTable *ldt)</div><div class="ttdef"><b>Definition</b> <a href="segment_8c_source.html#l00137">segment.c:137</a></div></div>
+<div class="ttc" id="asegment_8h_html_a80cb7bf88a72fbe13bc4539da990ce5b"><div class="ttname"><a href="segment_8h.html#a80cb7bf88a72fbe13bc4539da990ce5b">DescSegment</a></div><div class="ttdeci">struct _DescSegment DescSegment</div></div>
+<div class="ttc" id="asegment_8h_html_a89a9fc5562cf33c6869b1d0df950d1a6"><div class="ttname"><a href="segment_8h.html#a89a9fc5562cf33c6869b1d0df950d1a6">setDescripteurSegment</a></div><div class="ttdeci">int setDescripteurSegment(DescriptorTable *dt, uint32_t adresse, uint32_t limite, uint8_t type, uint8_t gd0a)</div><div class="ttdef"><b>Definition</b> <a href="segment_8c_source.html#l00019">segment.c:19</a></div></div>
+<div class="ttc" id="asegment_8h_html_a98c72dee0a629fb7b8ac0171521c52cc"><div class="ttname"><a href="segment_8h.html#a98c72dee0a629fb7b8ac0171521c52cc">ajouterDescTSS</a></div><div class="ttdeci">int ajouterDescTSS(DescriptorTable *dt, void *adresse, uint32_t limite, booleen busyTask)</div><div class="ttdef"><b>Definition</b> <a href="segment_8c_source.html#l00211">segment.c:211</a></div></div>
+<div class="ttc" id="asegment_8h_html_a9d73adba0d9db3f42a705fd1789e113e"><div class="ttname"><a href="segment_8h.html#a9d73adba0d9db3f42a705fd1789e113e">chargerGDT</a></div><div class="ttdeci">void chargerGDT(DescriptorTable *gdt)</div><div class="ttdef"><b>Definition</b> <a href="segment_8c_source.html#l00065">segment.c:65</a></div></div>
+<div class="ttc" id="asegment_8h_html_aa7b2be909929911d7772352d013a9480"><div class="ttname"><a href="segment_8h.html#aa7b2be909929911d7772352d013a9480">gdtSysteme</a></div><div class="ttdeci">DescriptorTable * gdtSysteme</div><div class="ttdef"><b>Definition</b> <a href="segment_8c_source.html#l00012">segment.c:12</a></div></div>
+<div class="ttc" id="asegment_8h_html_ad0ea392665f248eb1c5d00bdd69fe1f4"><div class="ttname"><a href="segment_8h.html#ad0ea392665f248eb1c5d00bdd69fe1f4">Descripteur</a></div><div class="ttdeci">union _Descripteur Descripteur</div></div>
+<div class="ttc" id="asegment_8h_html_ae0e123e68e81d00dad08bd7a0215e9a8"><div class="ttname"><a href="segment_8h.html#ae0e123e68e81d00dad08bd7a0215e9a8">initialiserGDT</a></div><div class="ttdeci">void initialiserGDT(void)</div><div class="ttdef"><b>Definition</b> <a href="segment_8c_source.html#l00156">segment.c:156</a></div></div>
+<div class="ttc" id="asegment_8h_html_ae5e4cb3889e9015f7648c7208c5aad01"><div class="ttname"><a href="segment_8h.html#ae5e4cb3889e9015f7648c7208c5aad01">DescriptorTable</a></div><div class="ttdeci">struct _DescriptorTable DescriptorTable</div></div>
+<div class="ttc" id="astruct__DescSegment_html"><div class="ttname"><a href="struct__DescSegment.html">_DescSegment</a></div><div class="ttdef"><b>Definition</b> <a href="segment_8h_source.html#l00014">segment.h:14</a></div></div>
+<div class="ttc" id="astruct__DescSegment_html_a06a1d9060b12b7b638cb6ee07d7d1505"><div class="ttname"><a href="struct__DescSegment.html#a06a1d9060b12b7b638cb6ee07d7d1505">_DescSegment::baseFaible</a></div><div class="ttdeci">uint16_t baseFaible</div><div class="ttdef"><b>Definition</b> <a href="segment_8h_source.html#l00016">segment.h:16</a></div></div>
+<div class="ttc" id="astruct__DescSegment_html_a251ec8a74fc148dcd045b23959131400"><div class="ttname"><a href="struct__DescSegment.html#a251ec8a74fc148dcd045b23959131400">_DescSegment::limiteFort</a></div><div class="ttdeci">uint8_t limiteFort</div><div class="ttdef"><b>Definition</b> <a href="segment_8h_source.html#l00019">segment.h:19</a></div></div>
+<div class="ttc" id="astruct__DescSegment_html_a66cfc2edc24d6d7ee1836ff35980198a"><div class="ttname"><a href="struct__DescSegment.html#a66cfc2edc24d6d7ee1836ff35980198a">_DescSegment::baseInter</a></div><div class="ttdeci">uint8_t baseInter</div><div class="ttdef"><b>Definition</b> <a href="segment_8h_source.html#l00017">segment.h:17</a></div></div>
+<div class="ttc" id="astruct__DescSegment_html_aaa1016bae9310abe4a6f9c87e759d97f"><div class="ttname"><a href="struct__DescSegment.html#aaa1016bae9310abe4a6f9c87e759d97f">_DescSegment::limiteFaible</a></div><div class="ttdeci">uint16_t limiteFaible</div><div class="ttdef"><b>Definition</b> <a href="segment_8h_source.html#l00015">segment.h:15</a></div></div>
+<div class="ttc" id="astruct__DescSegment_html_ab77cdfae3f849a7cb8d15eefb0631282"><div class="ttname"><a href="struct__DescSegment.html#ab77cdfae3f849a7cb8d15eefb0631282">_DescSegment::type</a></div><div class="ttdeci">uint8_t type</div><div class="ttdef"><b>Definition</b> <a href="segment_8h_source.html#l00018">segment.h:18</a></div></div>
+<div class="ttc" id="astruct__DescSegment_html_ae40b1efc708500ffa3394b4c0bc6afae"><div class="ttname"><a href="struct__DescSegment.html#ae40b1efc708500ffa3394b4c0bc6afae">_DescSegment::baseFort</a></div><div class="ttdeci">uint8_t baseFort</div><div class="ttdef"><b>Definition</b> <a href="segment_8h_source.html#l00020">segment.h:20</a></div></div>
+<div class="ttc" id="astruct__DescTSS_html"><div class="ttname"><a href="struct__DescTSS.html">_DescTSS</a></div><div class="ttdef"><b>Definition</b> <a href="segment_8h_source.html#l00026">segment.h:26</a></div></div>
+<div class="ttc" id="astruct__DescTSS_html_a1ffa53611eb212a29b7089c9daf7ab8a"><div class="ttname"><a href="struct__DescTSS.html#a1ffa53611eb212a29b7089c9daf7ab8a">_DescTSS::type</a></div><div class="ttdeci">uint8_t type</div><div class="ttdef"><b>Definition</b> <a href="segment_8h_source.html#l00030">segment.h:30</a></div></div>
+<div class="ttc" id="astruct__DescTSS_html_a79edebb6f912c512b000cb1cce719725"><div class="ttname"><a href="struct__DescTSS.html#a79edebb6f912c512b000cb1cce719725">_DescTSS::baseFaible</a></div><div class="ttdeci">uint16_t baseFaible</div><div class="ttdef"><b>Definition</b> <a href="segment_8h_source.html#l00028">segment.h:28</a></div></div>
+<div class="ttc" id="astruct__DescTSS_html_a8b1a7d2d31c6c3acb7bc75c1a5521dad"><div class="ttname"><a href="struct__DescTSS.html#a8b1a7d2d31c6c3acb7bc75c1a5521dad">_DescTSS::limiteFaible</a></div><div class="ttdeci">uint16_t limiteFaible</div><div class="ttdef"><b>Definition</b> <a href="segment_8h_source.html#l00027">segment.h:27</a></div></div>
+<div class="ttc" id="astruct__DescTSS_html_ab5b1064213c68bb2cb9d07b5204fcecf"><div class="ttname"><a href="struct__DescTSS.html#ab5b1064213c68bb2cb9d07b5204fcecf">_DescTSS::baseInter</a></div><div class="ttdeci">uint8_t baseInter</div><div class="ttdef"><b>Definition</b> <a href="segment_8h_source.html#l00029">segment.h:29</a></div></div>
+<div class="ttc" id="astruct__DescTSS_html_aeba21868aa60682c722f50c4a92d2d98"><div class="ttname"><a href="struct__DescTSS.html#aeba21868aa60682c722f50c4a92d2d98">_DescTSS::limiteFort</a></div><div class="ttdeci">uint8_t limiteFort</div><div class="ttdef"><b>Definition</b> <a href="segment_8h_source.html#l00031">segment.h:31</a></div></div>
+<div class="ttc" id="astruct__DescTSS_html_af68c88388d2109c9eda98ebc2eb0dd1d"><div class="ttname"><a href="struct__DescTSS.html#af68c88388d2109c9eda98ebc2eb0dd1d">_DescTSS::baseFort</a></div><div class="ttdeci">uint8_t baseFort</div><div class="ttdef"><b>Definition</b> <a href="segment_8h_source.html#l00032">segment.h:32</a></div></div>
+<div class="ttc" id="astruct__DescriptorTable_html"><div class="ttname"><a href="struct__DescriptorTable.html">_DescriptorTable</a></div><div class="ttdef"><b>Definition</b> <a href="segment_8h_source.html#l00044">segment.h:44</a></div></div>
+<div class="ttc" id="astruct__DescriptorTable_html_a315f73e13af36b7bdd5269d4cd5cb58c"><div class="ttname"><a href="struct__DescriptorTable.html#a315f73e13af36b7bdd5269d4cd5cb58c">_DescriptorTable::descripteur</a></div><div class="ttdeci">Descripteur descripteur[0]</div><div class="ttdef"><b>Definition</b> <a href="segment_8h_source.html#l00047">segment.h:47</a></div></div>
+<div class="ttc" id="astruct__DescriptorTable_html_a506f73d9871220f5639b7f0ce470926b"><div class="ttname"><a href="struct__DescriptorTable.html#a506f73d9871220f5639b7f0ce470926b">_DescriptorTable::capacite</a></div><div class="ttdeci">int capacite</div><div class="ttdef"><b>Definition</b> <a href="segment_8h_source.html#l00045">segment.h:45</a></div></div>
+<div class="ttc" id="astruct__DescriptorTable_html_af383a85f6ad710d325447d0b36cd0dc8"><div class="ttname"><a href="struct__DescriptorTable.html#af383a85f6ad710d325447d0b36cd0dc8">_DescriptorTable::taille</a></div><div class="ttdeci">int taille</div><div class="ttdef"><b>Definition</b> <a href="segment_8h_source.html#l00046">segment.h:46</a></div></div>
+<div class="ttc" id="aunion__Descripteur_html"><div class="ttname"><a href="union__Descripteur.html">_Descripteur</a></div><div class="ttdef"><b>Definition</b> <a href="segment_8h_source.html#l00035">segment.h:35</a></div></div>
+<div class="ttc" id="aunion__Descripteur_html_a8bafbc4c5182e81587c22d852b9dcc7f"><div class="ttname"><a href="union__Descripteur.html#a8bafbc4c5182e81587c22d852b9dcc7f">_Descripteur::ds</a></div><div class="ttdeci">DescSegment ds</div><div class="ttdef"><b>Definition</b> <a href="segment_8h_source.html#l00036">segment.h:36</a></div></div>
+<div class="ttc" id="aunion__Descripteur_html_aebbba8ba52309981be3829a116d05df2"><div class="ttname"><a href="union__Descripteur.html#aebbba8ba52309981be3829a116d05df2">_Descripteur::dt</a></div><div class="ttdeci">DescTSS dt</div><div class="ttdef"><b>Definition</b> <a href="segment_8h_source.html#l00037">segment.h:37</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

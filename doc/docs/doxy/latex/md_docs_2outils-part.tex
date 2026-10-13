@@ -1,0 +1,165 @@
+\chapter{Les principaux outils}
+\hypertarget{md_docs_2outils-part}{}\label{md_docs_2outils-part}\index{Les principaux outils@{Les principaux outils}}
+\label{md_docs_2outils-part_autotoc_md87}%
+\Hypertarget{md_docs_2outils-part_autotoc_md87}%
+ Le but de cette section est de décrire brièvement les outils utilisés pour compiler et exécuter {\itshape ManuX} .
+
+L’essentiel du code de {\itshape ManuX} est écrit en C, et un peu d’assembleur est nécessaire ici ou là, …\+Le processus de compilation est évidemment automatisé avec l’outil {\itshape make}. Je vais décire sommairement cette étape dans la sous-\/section \href{\#subsection:compilation}{\texttt{ \mbox{[}subsection\+:compilation\mbox{]}}}.
+
+{\itshape ManuX} peut ensuite être exécuté sur une machine réelle, mais il est évidemment possible d’utiliser un émulateur. Nous évoquerons les possibilités dans la sous-\/section \href{\#subsection:execution}{\texttt{ \mbox{[}subsection\+:execution\mbox{]}}}.
+
+Le débugage est un élément important dans la phase de développement d’un logiciel, et il se révèle parfois un peu délicat lorsqu’il s’agit de développer un noyau. Nous évoquerons des outils dans les sous-\/sections \href{\#subsection:debugage_interne}{\texttt{ 1.\+3.\+1}} et \href{\#subsection:debugage_externe}{\texttt{ 1.\+4}}.\hypertarget{md_docs_2outils-part_autotoc_md88}{}\doxysection{\texorpdfstring{La chaîne de compilation/documentation}{La chaîne de compilation/documentation}}\label{md_docs_2outils-part_autotoc_md88}
+\hypertarget{md_docs_2outils-part_autotoc_md89}{}\doxysubsection{\texorpdfstring{Le compilateur C}{Le compilateur C}}\label{md_docs_2outils-part_autotoc_md89}
+Le compilateur GCC est utilisé, la version 11.\+3.\+0 avec une cible {\ttfamily x86\+\_\+64-\/linux-\/gnu} fonctionne parfaitement (j’en suis actuellement à la 13.\+3.\+0). Je n’ai jamais eu de problème avec aucune version de GCC jusqu’à présent.\hypertarget{md_docs_2outils-part_autotoc_md90}{}\doxysubsection{\texorpdfstring{L’assembleur}{L’assembleur}}\label{md_docs_2outils-part_autotoc_md90}
+J’utilise NASM NASM\mbox{[}1\mbox{]} pour les quelques fichiers écrits en assembleur, dans sa version 2.\+14.\hypertarget{md_docs_2outils-part_autotoc_md91}{}\doxysubsection{\texorpdfstring{La compilation}{La compilation}}\label{md_docs_2outils-part_autotoc_md91}
+La commpilation générale du noyau est fondée sur l’outil {\ttfamily make}, et j’utilise la version 4.\+2.\+1 de gnu{\ttfamily make}.
+
+Quelques outils de scripts tels que {\ttfamily awk} sont utilisés, rien de très original, et tout système Linux correctement installé devrait fournir ce qui est nécessaire.\hypertarget{md_docs_2outils-part_autotoc_md92}{}\doxysubsection{\texorpdfstring{La gestion des fichiers iso}{La gestion des fichiers iso}}\label{md_docs_2outils-part_autotoc_md92}
+Les fichiers iso son générés par la commande {\ttfamily grub-\/mkrescue} qui utilise {\ttfamily xorriso}.\hypertarget{md_docs_2outils-part_autotoc_md93}{}\doxysubsection{\texorpdfstring{L’exécution dans un émulateur}{L’exécution dans un émulateur}}\label{md_docs_2outils-part_autotoc_md93}
+Bien sûr, l’idée n’est pas de faire fonctionner {\itshape ManuX} sur du matériel réel, même si c’est tout à fait possible, mais plutôt dans un émulateur.
+
+J’utilise pour cela \texorpdfstring{$\ast$}{*}\+Qemu\texorpdfstring{$\ast$}{*}dans sa version 3.\+1.\+0. On peut également utiliser {\ttfamily bochs} ainsi que Virtual\+Box.\hypertarget{md_docs_2outils-part_autotoc_md94}{}\doxysubsection{\texorpdfstring{La documentation}{La documentation}}\label{md_docs_2outils-part_autotoc_md94}
+La maigre documentation (que vous êtes en train de lide) est écrite essentiellement en La\+TeX. N’importe quelle version convient parfaitement.
+
+J’utilise également pandoc, Doxy\+Gen et mkdocs pour générer ensuite une version navigable en ligne.
+
+Le {\ttfamily Makefile} principal défini un certain nombre de cibles utilisables pour compiler et exécuter ManuX.\hypertarget{md_docs_2outils-part_autotoc_md95}{}\doxysubsection{\texorpdfstring{La création du noyau}{La création du noyau}}\label{md_docs_2outils-part_autotoc_md95}
+Sans grande surprise, on compile avec la commande \begin{DoxyVerb}  make
+\end{DoxyVerb}
+ Différentes cibles peuvent être créées
+
+
+\begin{DoxyItemize}
+\item {\ttfamily manux} permet de compiler une image du noyau ;
+\item {\ttfamily run} permet de lancer un émulateur (par défaut pour le moment c’est {\itshape Qemu}) ;
+\item {\ttfamily clean} permet d’effacer tous les fichiers issus de compilation ;
+\item {\ttfamily iso} permet de créer une image iso.
+\end{DoxyItemize}\hypertarget{md_docs_2outils-part_autotoc_md96}{}\doxysubsection{\texorpdfstring{Gestion de configurations multiples}{Gestion de configurations multiples}}\label{md_docs_2outils-part_autotoc_md96}
+L’essentiel de la configuration de ManuX se fait dans le fichier \href{/doxy/html/config_8h_source.html}{\texttt{ {\ttfamily include/manux/config.\+h}}}(\href{/doxy/html/config_8h.html}{\texttt{ dox}}). Il est cependant possible de demander à {\ttfamily make}d’utiliser un fichier différent.
+
+Le répertoire {\ttfamily multiconf} contient différents fichiers de configuration. Chacun de ces fichiers permet alors de générer une version différente de ManuX.
+
+Ainsi, le fichier \href{/doxy/html/printk_8h_source.html}{\texttt{ {\ttfamily multiconf/printk.\+h}}}(\href{/doxy/html/printk_8h.html}{\texttt{ dox}}) définit la configuration permettant de compiler un noyau ManuX montrant l’utilsation de {\ttfamily printk}. On le compile de la façon suivante \begin{DoxyVerb}  make CFG=printk
+\end{DoxyVerb}
+ Il peut alors être exécuté par exemple avec \begin{DoxyVerb}  make run
+\end{DoxyVerb}
+ \hypertarget{md_docs_2outils-part_autotoc_md97}{}\doxysubsection{\texorpdfstring{Réalisation d’une image iso}{Réalisation d’une image iso}}\label{md_docs_2outils-part_autotoc_md97}
+La cible {\ttfamily iso} du {\ttfamily Makefile} principal permet de générer un fichier iso qui peut être utilisé pour démarrer ManuX sur une machine physique ou virtuelle.
+
+La cible {\ttfamily multiso} du {\ttfamily Makefile} principal permet de générer une image iso intégrant un noyau pour chaque fichier de configuration présent dans le répertoire {\ttfamily multiconf}.\hypertarget{md_docs_2outils-part_autotoc_md98}{}\doxysubsection{\texorpdfstring{Création d’un fichier iso}{Création d’un fichier iso}}\label{md_docs_2outils-part_autotoc_md98}
+Il est également possible de créer un fichier isocontenant une ou plusieurs configuration de ManuX.
+
+Pour créer un fichier isocontenant la version actuellement définie dans le fichier \href{/doxy/html/config_8h_source.html}{\texttt{ {\ttfamily include/manux/config.\+h}}}(\href{/doxy/html/config_8h.html}{\texttt{ dox}}) on utilisera simplement \begin{DoxyVerb}  make iso
+\end{DoxyVerb}
+ L’exécution pourra alors se faire via la commande \begin{DoxyVerb}  make runiso
+\end{DoxyVerb}
+ Il est également possible de générer un fichier isocontenant toutes les versions de ManuX décrites par les fichiers du répertoire {\ttfamily multiconf} de la façon suivante \begin{DoxyVerb}  make multiso
+\end{DoxyVerb}
+ On l’exécutera de la même façon \+: \begin{DoxyVerb}  make runiso
+\end{DoxyVerb}
+ \hypertarget{md_docs_2outils-part_autotoc_md99}{}\doxysubsection{\texorpdfstring{L’édition de liens}{L’édition de liens}}\label{md_docs_2outils-part_autotoc_md99}
+Afin d’assembler tous les éléments en un seul fichier {\ttfamily noyau.\+elf} qui pourra ensuite être utilisé par {\itshape Multiboot}, nous allons utiliser l’éditeur de liens {\ttfamily ld}. Le comportement de {\ttfamily ld} est conditionné par un fichier qui s’appelle un {\itshape linker script}. Un tel script décrit en particulier comment les différentes sections des fichiers d’entrée sont disposées dans le fichier de sortie et comment la mémoire est organisée.
+
+Le code suivant montre un exemple simple de script \+: \begin{DoxyVerb}ENTRY(start)
+SECTIONS {
+    . = 1M 
+    .boot :
+    {
+        *(.multiboot)
+    }
+    adresseDebutManuX = .;
+    .text : {
+       *(.text)
+    }        
+    .rodata : {
+       *(.rodata)
+    }
+    .data : {
+       *(.data)
+    }
+    .bss : {
+       *(.bss)
+    }
+}
+\end{DoxyVerb}
+ Dans ce script, nous avous défini le nom du point d’entrée (ici {\ttfamily start}), et nous avons décrit un certain nombre de sections avec leur ordre d’apparition dans le fichier de sortie et leur contenu. Vous remarquerez également que l’on utilise la notation “{\ttfamily .}” pour spécifier l’adresse courante et que cette adresse peut être consultée mais également modifiée. Ainsi la ligne {\ttfamily . = 1M} stipule que l’on se place ) l’adresse 1M. D’un autre côté la ligne {\ttfamily adresse\+Debut\+ManuX = .} stipule que l’on enregistre dans la variable {\ttfamily adresse\+Debut\+ManuX} la valeur de l’adresse courante (celle du début de la section {\ttfamily . text} donc).\hypertarget{md_docs_2outils-part_autotoc_md100}{}\doxysection{\texorpdfstring{Exécution de ManuX}{Exécution de ManuX}}\label{md_docs_2outils-part_autotoc_md100}
+Le but n’est évidemment pas de faire tourner cette merveille sur du vrai matériel, mais plutôt dans un émulateur.\hypertarget{md_docs_2outils-part_autotoc_md101}{}\doxysubsection{\texorpdfstring{L’émulateur Qemu}{L’émulateur Qemu}}\label{md_docs_2outils-part_autotoc_md101}
+C’est maintenant {\itshape Qemu}\mbox{[}2\mbox{]} que j’utilise, par exemple de la façon suivante \begin{DoxyVerb}   qemu-system-i386 -drive format=raw,file=manux,index=0,if=floppy -m 64M
+\end{DoxyVerb}
+ C’est d’ailleurs la commande que lance \begin{DoxyVerb}   make runfloppy
+\end{DoxyVerb}
+ Une autre façon de démarrer {\itshape ManuX} est la suivante \begin{DoxyVerb}   qemu-system-i386 -kernel noyau.elf -m 64M
+\end{DoxyVerb}
+ C’est ce que fait la commande \begin{DoxyVerb}   make run
+\end{DoxyVerb}
+ Mais on préférera probablement passer par une image ISO \+: \begin{DoxyVerb}   qemu-system-i386 -m 64M -cdrom manux.iso
+\end{DoxyVerb}
+ C’est ce que fait la commande \begin{DoxyVerb}   make runiso
+\end{DoxyVerb}
+ De nombreuses options sont disponibles, mais ce n’est pas le moment d’en parler !\hypertarget{md_docs_2outils-part_autotoc_md102}{}\doxysubsection{\texorpdfstring{L’émulateur Bochs}{L’émulateur Bochs}}\label{md_docs_2outils-part_autotoc_md102}
+J’utilisais initialement cet outil, mais les fichiers de configuration ne semblent plus convenir aux dernières versions de Bochs\mbox{[}3\mbox{]} il faudrait les mettre à jour !\hypertarget{md_docs_2outils-part_autotoc_md103}{}\doxysection{\texorpdfstring{Le débugage de ManuX}{Le débugage de ManuX}}\label{md_docs_2outils-part_autotoc_md103}
+\hypertarget{md_docs_2outils-part_autotoc_md104}{}\doxysubsection{\texorpdfstring{Le débugage “interne”}{Le débugage “interne”}}\label{md_docs_2outils-part_autotoc_md104}
+Ce que j’appelle ici le débugage interne, c’est tous les outils que l’on peut utiliser dans le code lui-\/même pour essayer de comprendre ce qu’il s’y passe.
+
+Nous avons pour le moment quelques outils de base, copieusement bugués eux-\/mêmes (!).\hypertarget{md_docs_2outils-part_autotoc_md105}{}\doxysubsection{\texorpdfstring{La fonction $<$tt$>$printk\+\_\+debug$<$/tt$>$}{La fonction <tt>printk\_debug</tt>}}\label{md_docs_2outils-part_autotoc_md105}
+Elle permet de produire des messages d’erreur qui seront envoyés de façon sélective en fonction de la valeur de {\ttfamily masque\+Debugage\+Console} et de {\ttfamily masque\+Debugage\+Fichier}
+
+Elle utilise pour cela les fonctionalités de la fonction {\ttfamily \doxylink{include_2manux_2printk_8h_a25b30e8bbadd54650c56895999dd808f}{printk()}} et du journal, ce qui permet d’envoyer les messages de debug sur la console et/ou dans un fichier.\hypertarget{md_docs_2outils-part_autotoc_md106}{}\doxysubsubsection{\texorpdfstring{Les masques de débogages}{Les masques de débogages}}\label{md_docs_2outils-part_autotoc_md106}
+Deux masques de débogage sont définis \+: {\ttfamily masque\+Debugage\+Console} et {\ttfamily masque\+Debugage\+Fichier}. Ils sont définies dans \href{/doxy/html/debug_8h_source.html}{\texttt{ {\ttfamily include/manux/debug.\+h}}}(\href{/doxy/html/debug_8h.html}{\texttt{ dox}}).
+
+Si le paramètre de compilation {\ttfamily MANUX\+\_\+\+DEBUG\+\_\+\+VAR} n’est pas défini, ces deux masques sont définis comme des macros. On ne peut donc pas trop jouer avec en cours d’exécution du noyau, …
+
+En revanche, si {\ttfamily MANUX\+\_\+\+DEBUG\+\_\+\+VAR} est définie, c’est un nouveau monde qui s’ouvre à nous ! Ces variables sont en effet déclarées et initialisées dans \href{/doxy/html/debug_8c_source.html}{\texttt{ {\ttfamily noyau/debug.\+c}}}(\href{/doxy/html/debug_8c.html}{\texttt{ dox}}), et elles peuvent alors être modifiées durant l’exécution du noyau.
+
+Une utilisation particulièrement intéressante pourra en être faite au travers du registre (voir la doc) et des paramètres de boot, car il est alors possible de définir la valeur de ces masque via une option du bootloader.\hypertarget{md_docs_2outils-part_autotoc_md107}{}\doxysubsection{\texorpdfstring{La macro $<$tt$>$assert$<$/tt$>$}{La macro <tt>assert</tt>}}\label{md_docs_2outils-part_autotoc_md107}
+Elle est définie dans le fichier \href{/doxy/html/debug_8h_source.html}{\texttt{ {\ttfamily include/manux/debug.\+h}}}(\href{/doxy/html/debug_8h.html}{\texttt{ dox}}) et elle permet de vérifier {\itshape lors de l’exécution} qu’une propostion est vérifiée ou non. Si elle ne l’est pas, un message est affiché.\hypertarget{md_docs_2outils-part_autotoc_md108}{}\doxysubsection{\texorpdfstring{Le handler $<$tt$>$handler\+Panique$<$/tt$>$}{Le handler <tt>handlerPanique</tt>}}\label{md_docs_2outils-part_autotoc_md108}
+La fonction {\ttfamily handler\+Panique} est définie dans le fichier \href{/doxy/html/debug_8h_source.html}{\texttt{ {\ttfamily include/manux/debug.\+h}}}(\href{/doxy/html/debug_8h.html}{\texttt{ dox}}) et permet d’afficher un état du système qui peut être utile à des fin de débugage.\hypertarget{md_docs_2outils-part_autotoc_md109}{}\doxysubsection{\texorpdfstring{Le fichier $<$tt$>$noyau/symbols$<$/tt$>$}{Le fichier <tt>noyau/symbols</tt>}}\label{md_docs_2outils-part_autotoc_md109}
+Il va surtout nous servir pour aider au débugage externe, mais il est généré à la compilation du noyau.\hypertarget{md_docs_2outils-part_autotoc_md110}{}\doxysection{\texorpdfstring{Le débugage “externe”}{Le débugage “externe”}}\label{md_docs_2outils-part_autotoc_md110}
+Une technique pour débuguer est d’utiliser {\ttfamily qemu} couplé avec {\ttfamily gdb}. Pour cela, je lance par exemple {\ttfamily qemu} de la façon suivante \begin{DoxyVerb}   qemu-system-i386 -drive format=raw,file=manux,index=0,if=floppy  -rtc base\=localtime -m 64M -gdb tcp::1234  -S 
+\end{DoxyVerb}
+ Je lance ensuite {\ttfamily gdb} dans un autre terminal avec un {\ttfamily .gdbinit} qui contient \+: \begin{DoxyVerb}  target remote :1234
+  dir noyau
+  dir lib
+  file noyau/noyau.elf
+\end{DoxyVerb}
+ La commande {\ttfamily dir} permet de dire à {\ttfamily gdb} où trouver les fichiers sources et la command {\ttfamily file} lui permet de consulter le binaire du noyau pour y trouver l’adresse des fonctions et variables (ici en fait, c’est une autre compilation du noyau au format elf !).\hypertarget{md_docs_2outils-part_autotoc_md111}{}\doxysubsection{\texorpdfstring{Exécution}{Exécution}}\label{md_docs_2outils-part_autotoc_md111}
+Quelques commandes de base pour l’exécution de code dans {\ttfamily gdb}
+
+
+\begin{DoxyItemize}
+\item \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}{\ttfamily r}\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}{\ttfamily un} permet de lancer l’exécution d’un programme (inutilisable ici étant donné notre fonctionnement \+: on débogue à distance) ;
+\item \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}{\ttfamily c}\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}{\ttfamily ontinue} permet de poursuivre l’exécution jusqu’au prochain point d’arrêt/bug/fin/…;
+\item \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}{\ttfamily s}\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}{\ttfamily tep} avance d’une instruction dans le code ;
+\item \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}{\ttfamily n}\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}{\ttfamily ext}
+\item \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}{\ttfamily b}\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}{\ttfamily reakpoint fonction}
+\item \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}{\ttfamily b}\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}{\ttfamily reakpoint fichier\+:ligne}
+\end{DoxyItemize}\hypertarget{md_docs_2outils-part_autotoc_md112}{}\doxysubsection{\texorpdfstring{Affichage des registres}{Affichage des registres}}\label{md_docs_2outils-part_autotoc_md112}
+Il peut être intéressant de consulter le contenu des registres
+
+
+\begin{DoxyItemize}
+\item {\ttfamily info registers} donne le contenu des principaux registres.
+\end{DoxyItemize}\hypertarget{md_docs_2outils-part_autotoc_md113}{}\doxysubsection{\texorpdfstring{Affichage des variables}{Affichage des variables}}\label{md_docs_2outils-part_autotoc_md113}
+{\ttfamily Gdb} permet également de consulter le contenu des variables \+:
+
+
+\begin{DoxyItemize}
+\item {\ttfamily p toto} affiche le contenu de la variable {\ttfamily toto}.
+\end{DoxyItemize}\hypertarget{md_docs_2outils-part_autotoc_md114}{}\doxysubsection{\texorpdfstring{Désassemblage du code}{Désassemblage du code}}\label{md_docs_2outils-part_autotoc_md114}
+Une fonctionnalité intéressante est de pouvoir observer le code assembleur, ce qui peut permettre de comprendre certains comportements étranges, tels que les conséquences de choix d’optimisation du compilateur \+:
+
+
+\begin{DoxyItemize}
+\item {\ttfamily disassemble fonc} affiche le code assembleur de la fonction {\ttfamily fonc}.
+\end{DoxyItemize}\hypertarget{md_docs_2outils-part_autotoc_md115}{}\doxysection{\texorpdfstring{Références}{Références}}\label{md_docs_2outils-part_autotoc_md115}
+“\+Qemu home page,” 2022. Available\+: \href{https://www.qemu.org/}{\texttt{ https\+://www.\+qemu.\+org/}}.
+
+The Bochs Project. “\+Bochs home page,” 2021. Available\+: \href{https://bochs.sourceforge.io/}{\texttt{ https\+://bochs.\+sourceforge.\+io/}}.
+
+The NASM development team. “\+NASM home page,” 2015. Available\+: \href{https://www.nasm.us/}{\texttt{ https\+://www.\+nasm.\+us/}}.
+
+\mbox{[}1\mbox{]} The NASM development team, “\+NASM home page,” 2015, Available\+: \href{https://www.nasm.us/}{\texttt{ https\+://www.\+nasm.\+us/}}.
+
+\mbox{[}2\mbox{]} “\+Qemu home page,” 2022, Available\+: \href{https://www.qemu.org/}{\texttt{ https\+://www.\+qemu.\+org/}}.
+
+\mbox{[}3\mbox{]} The Bochs Project, “\+Bochs home page,” 2021, Available\+: \href{https://bochs.sourceforge.io/}{\texttt{ https\+://bochs.\+sourceforge.\+io/}}. 

@@ -1,0 +1,490 @@
+\doxysection{Référence du fichier /home/manu/\+PROGRAMMATION/\+C/\+Manu\+X/noyau/virtio-\/net.c}
+\hypertarget{virtio-net_8c}{}\label{virtio-net_8c}\index{/home/manu/PROGRAMMATION/C/ManuX/noyau/virtio-\/net.c@{/home/manu/PROGRAMMATION/C/ManuX/noyau/virtio-\/net.c}}
+{\ttfamily \#include $<$manux/virtio-\/net.\+h$>$}\newline
+{\ttfamily \#include $<$manux/memoire.\+h$>$}\newline
+{\ttfamily \#include $<$manux/intel-\/8259a.\+h$>$}\newline
+{\ttfamily \#include $<$manux/pci.\+h$>$}\newline
+{\ttfamily \#include $<$manux/io.\+h$>$}\newline
+{\ttfamily \#include $<$manux/debug.\+h$>$}\newline
+{\ttfamily \#include $<$manux/errno.\+h$>$}\newline
+Graphe des dépendances par inclusion de virtio-\/net.c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{virtio-net_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structVirtioReseau__t}{Virtio\+Reseau\+\_\+t}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{virtio-net_8c_a94c196500ef9ae1ab36f042eab5e9726}{VIRTIO\+\_\+\+TAILLE\+\_\+\+TRAME\+\_\+\+MAX}}~2000
+\item 
+\#define \mbox{\hyperlink{virtio-net_8c_a7b4d2cbe0384379b74085059ae2b7957}{VR\+\_\+\+FILE\+\_\+\+RECEPTION}}~0
+\item 
+\#define \mbox{\hyperlink{virtio-net_8c_a9eb85b70f2fe3f24b6e922ebfff3ac84}{VR\+\_\+\+FILE\+\_\+\+EMISSION}}~1
+\item 
+\#define \mbox{\hyperlink{virtio-net_8c_a1dcc7c8878bfd583c8097790b2a9d0cc}{VIRTIO\+\_\+\+NET\+\_\+\+F\+\_\+\+CSUM}}~0x00000001
+\item 
+\#define \mbox{\hyperlink{virtio-net_8c_a5f4322a66bff0dd9b715c2efac8eb354}{VIRTIO\+\_\+\+NET\+\_\+\+F\+\_\+\+GUEST\+\_\+\+CSUM}}~0x00000002
+\item 
+\#define \mbox{\hyperlink{virtio-net_8c_aba7638feddf167238365cd5585800a20}{VIRTIO\+\_\+\+NET\+\_\+\+F\+\_\+\+CTRL\+\_\+\+GUEST\+\_\+\+OFFLOADS}}~0x00000004
+\item 
+\#define \mbox{\hyperlink{virtio-net_8c_af52bfce6f5b5b8c029e54a2b4ebc0983}{VIRTIO\+\_\+\+NET\+\_\+\+F\+\_\+\+MAC}}~0x00000020
+\item 
+\#define \mbox{\hyperlink{virtio-net_8c_a27b690f89fac40c9316c6b70c5e8a133}{VIRTIO\+\_\+\+NET\+\_\+\+F\+\_\+\+GUEST\+\_\+\+TSO4}}~0x00000080
+\item 
+\#define \mbox{\hyperlink{virtio-net_8c_a70f1c6098223df5efbfbc4758674ebdb}{VIRTIO\+\_\+\+NET\+\_\+\+F\+\_\+\+GUEST\+\_\+\+TSO6}}~0x00000100
+\item 
+\#define \mbox{\hyperlink{virtio-net_8c_a619e01959847e30e7e91a60bcd7112fd}{VIRTIO\+\_\+\+NET\+\_\+\+F\+\_\+\+GUEST\+\_\+\+ECN}}~0x00000200
+\item 
+\#define \mbox{\hyperlink{virtio-net_8c_ae83137741152c003fee2c260d4a0dcae}{VIRTIO\+\_\+\+NET\+\_\+\+F\+\_\+\+GUEST\+\_\+\+UFO}}~0x00000400
+\item 
+\#define \mbox{\hyperlink{virtio-net_8c_a3c5cb9cd255d03e74a063b2da591a57c}{VIRTIO\+\_\+\+NET\+\_\+\+F\+\_\+\+HOST\+\_\+\+TSO4}}~0x00000800
+\item 
+\#define \mbox{\hyperlink{virtio-net_8c_a8246a4099f04b49846f58916b407db32}{VIRTIO\+\_\+\+NET\+\_\+\+F\+\_\+\+HOST\+\_\+\+TSO6}}~0x00001000
+\item 
+\#define \mbox{\hyperlink{virtio-net_8c_a955d477fa52d096243ac80456a329711}{VIRTIO\+\_\+\+NET\+\_\+\+F\+\_\+\+HOST\+\_\+\+ECN}}~0x00002000
+\item 
+\#define \mbox{\hyperlink{virtio-net_8c_a80889918fe36861ef7ebfb867092a166}{VIRTIO\+\_\+\+NET\+\_\+\+F\+\_\+\+HOST\+\_\+\+UFO}}~0x00004000
+\item 
+\#define \mbox{\hyperlink{virtio-net_8c_a82761940cd767d8c46c426a7546f123a}{VIRTIO\+\_\+\+NET\+\_\+\+F\+\_\+\+MRG\+\_\+\+RXBUF}}~0x00008000
+\item 
+\#define \mbox{\hyperlink{virtio-net_8c_ab29d666468fa27d814a432c7e3ecec4e}{VIRTIO\+\_\+\+NET\+\_\+\+F\+\_\+\+STATUS}}~0x00010000
+\item 
+\#define \mbox{\hyperlink{virtio-net_8c_a906f7ea3378205543abb1435692bedef}{VIRTIO\+\_\+\+NET\+\_\+\+F\+\_\+\+CTRL\+\_\+\+VQ}}~0x00020000
+\item 
+\#define \mbox{\hyperlink{virtio-net_8c_a99b9b60102dc7f82aa7ca4286e255088}{VIRTIO\+\_\+\+NET\+\_\+\+F\+\_\+\+CTRL\+\_\+\+RX}}~0x00040000
+\item 
+\#define \mbox{\hyperlink{virtio-net_8c_ab7c26a5e406f19ce1191c81a9fbc39b6}{VIRTIO\+\_\+\+NET\+\_\+\+F\+\_\+\+CTRL\+\_\+\+VLAN}}~0x00080000
+\item 
+\#define \mbox{\hyperlink{virtio-net_8c_ac85f206ff766ad6be43fee56bfd6ef38}{VIRTIO\+\_\+\+NET\+\_\+\+F\+\_\+\+GUEST\+\_\+\+ANNOUNCE}}~0x00200000
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Définitions de type}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \mbox{\hyperlink{structVirtioReseau__t}{Virtio\+Reseau\+\_\+t}} \mbox{\hyperlink{virtio-net_8c_a42bdc707b1059c8a9c708138545e0596}{Virtio\+Reseau}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{virtio-net_8c_ad09246453a4dabd919c7541484046a87}{\+\_\+\+\_\+attribute\+\_\+\+\_\+}} ((\+\_\+\+\_\+packed\+\_\+\+\_\+))
+\begin{DoxyCompactList}\small\item\em Description de l\textquotesingle{}entête ajouté par virtio net. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} \mbox{\hyperlink{virtio-net_8c_a335590b89028273e29abbe24938fb00d}{virtio\+Reseau\+Poll}} (\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}})
+\item 
+int \mbox{\hyperlink{virtio-net_8c_ae8ee56f5798a32fb0f3092501b7560ce}{virtio\+Net\+Init}} (\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}})
+\begin{DoxyCompactList}\small\item\em Initialisation des périphériques. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} \mbox{\hyperlink{virtio-net_8c_abf464b54fed9bfec32c896b2ff9d5935}{virtio\+Net\+Test\+Deuxieme\+Emission}} (\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}})
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{virtio-net_8c_ab44b26fabacceb70024dc1eaacf7e52c}{Virtio\+Reseau\+Entete}}
+\item 
+\mbox{\hyperlink{virtio-net_8c_a42bdc707b1059c8a9c708138545e0596}{Virtio\+Reseau}} \mbox{\hyperlink{virtio-net_8c_af31843169059d11363b765e0ced55934}{virtio\+Reseau}}
+\item 
+\mbox{\hyperlink{virtio-net_8c_ab44b26fabacceb70024dc1eaacf7e52c}{Virtio\+Reseau\+Entete}} \mbox{\hyperlink{virtio-net_8c_af9d9b2d59d95df2367d39a4b947193a0}{virtio\+Reseau\+Entete}}
+\item 
+\mbox{\hyperlink{include_2manux_2types_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}} \mbox{\hyperlink{virtio-net_8c_a703b1ae1561afadaecccb3c4e4822be3}{requete\+ARP}} \mbox{[}$\,$\mbox{]}
+\item 
+\mbox{\hyperlink{include_2manux_2types_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}} \mbox{\hyperlink{virtio-net_8c_a7a7fdfccfc1436dbf5ee41e6a188342e}{requete\+ARP2}} \mbox{[}$\,$\mbox{]}
+\item 
+\mbox{\hyperlink{include_2manux_2types_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}} \mbox{\hyperlink{virtio-net_8c_ab202a765d61bb97c205316763d12ddd8}{un\+Buffer\+ALa\+Con}} \mbox{[}4096\mbox{]} =\{0\}
+\item 
+\mbox{\hyperlink{interface-reseau_8h_a545d375fa5fc74cc0795ee1021d7f924}{Reseau\+Pilote}} \mbox{\hyperlink{virtio-net_8c_a56ba6ac2de4117232f3a00e9ca62a7ef}{virtio\+Pilote\+Reseau}}
+\begin{DoxyCompactList}\small\item\em Description du pilote virtio. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+\begin{DoxyVerb}                                                        (C) Manu Chaput 2020-2025
+\end{DoxyVerb}
+ 
+
+Définition dans le fichier \mbox{\hyperlink{virtio-net_8c_source}{virtio-\/net.\+c}}.
+
+
+
+\doxysubsection{Documentation des macros}
+\Hypertarget{virtio-net_8c_a1dcc7c8878bfd583c8097790b2a9d0cc}\label{virtio-net_8c_a1dcc7c8878bfd583c8097790b2a9d0cc} 
+\index{virtio-\/net.c@{virtio-\/net.c}!VIRTIO\_NET\_F\_CSUM@{VIRTIO\_NET\_F\_CSUM}}
+\index{VIRTIO\_NET\_F\_CSUM@{VIRTIO\_NET\_F\_CSUM}!virtio-\/net.c@{virtio-\/net.c}}
+\doxysubsubsection{\texorpdfstring{VIRTIO\_NET\_F\_CSUM}{VIRTIO\_NET\_F\_CSUM}}
+{\footnotesize\ttfamily \#define VIRTIO\+\_\+\+NET\+\_\+\+F\+\_\+\+CSUM~0x00000001}
+
+Les caractéristiques spécifiques au réseau 
+
+Définition à la ligne \mbox{\hyperlink{virtio-net_8c_source_l00033}{33}} du fichier \mbox{\hyperlink{virtio-net_8c_source}{virtio-\/net.\+c}}.
+
+\Hypertarget{virtio-net_8c_aba7638feddf167238365cd5585800a20}\label{virtio-net_8c_aba7638feddf167238365cd5585800a20} 
+\index{virtio-\/net.c@{virtio-\/net.c}!VIRTIO\_NET\_F\_CTRL\_GUEST\_OFFLOADS@{VIRTIO\_NET\_F\_CTRL\_GUEST\_OFFLOADS}}
+\index{VIRTIO\_NET\_F\_CTRL\_GUEST\_OFFLOADS@{VIRTIO\_NET\_F\_CTRL\_GUEST\_OFFLOADS}!virtio-\/net.c@{virtio-\/net.c}}
+\doxysubsubsection{\texorpdfstring{VIRTIO\_NET\_F\_CTRL\_GUEST\_OFFLOADS}{VIRTIO\_NET\_F\_CTRL\_GUEST\_OFFLOADS}}
+{\footnotesize\ttfamily \#define VIRTIO\+\_\+\+NET\+\_\+\+F\+\_\+\+CTRL\+\_\+\+GUEST\+\_\+\+OFFLOADS~0x00000004}
+
+
+
+Définition à la ligne \mbox{\hyperlink{virtio-net_8c_source_l00035}{35}} du fichier \mbox{\hyperlink{virtio-net_8c_source}{virtio-\/net.\+c}}.
+
+\Hypertarget{virtio-net_8c_a99b9b60102dc7f82aa7ca4286e255088}\label{virtio-net_8c_a99b9b60102dc7f82aa7ca4286e255088} 
+\index{virtio-\/net.c@{virtio-\/net.c}!VIRTIO\_NET\_F\_CTRL\_RX@{VIRTIO\_NET\_F\_CTRL\_RX}}
+\index{VIRTIO\_NET\_F\_CTRL\_RX@{VIRTIO\_NET\_F\_CTRL\_RX}!virtio-\/net.c@{virtio-\/net.c}}
+\doxysubsubsection{\texorpdfstring{VIRTIO\_NET\_F\_CTRL\_RX}{VIRTIO\_NET\_F\_CTRL\_RX}}
+{\footnotesize\ttfamily \#define VIRTIO\+\_\+\+NET\+\_\+\+F\+\_\+\+CTRL\+\_\+\+RX~0x00040000}
+
+
+
+Définition à la ligne \mbox{\hyperlink{virtio-net_8c_source_l00049}{49}} du fichier \mbox{\hyperlink{virtio-net_8c_source}{virtio-\/net.\+c}}.
+
+\Hypertarget{virtio-net_8c_ab7c26a5e406f19ce1191c81a9fbc39b6}\label{virtio-net_8c_ab7c26a5e406f19ce1191c81a9fbc39b6} 
+\index{virtio-\/net.c@{virtio-\/net.c}!VIRTIO\_NET\_F\_CTRL\_VLAN@{VIRTIO\_NET\_F\_CTRL\_VLAN}}
+\index{VIRTIO\_NET\_F\_CTRL\_VLAN@{VIRTIO\_NET\_F\_CTRL\_VLAN}!virtio-\/net.c@{virtio-\/net.c}}
+\doxysubsubsection{\texorpdfstring{VIRTIO\_NET\_F\_CTRL\_VLAN}{VIRTIO\_NET\_F\_CTRL\_VLAN}}
+{\footnotesize\ttfamily \#define VIRTIO\+\_\+\+NET\+\_\+\+F\+\_\+\+CTRL\+\_\+\+VLAN~0x00080000}
+
+
+
+Définition à la ligne \mbox{\hyperlink{virtio-net_8c_source_l00050}{50}} du fichier \mbox{\hyperlink{virtio-net_8c_source}{virtio-\/net.\+c}}.
+
+\Hypertarget{virtio-net_8c_a906f7ea3378205543abb1435692bedef}\label{virtio-net_8c_a906f7ea3378205543abb1435692bedef} 
+\index{virtio-\/net.c@{virtio-\/net.c}!VIRTIO\_NET\_F\_CTRL\_VQ@{VIRTIO\_NET\_F\_CTRL\_VQ}}
+\index{VIRTIO\_NET\_F\_CTRL\_VQ@{VIRTIO\_NET\_F\_CTRL\_VQ}!virtio-\/net.c@{virtio-\/net.c}}
+\doxysubsubsection{\texorpdfstring{VIRTIO\_NET\_F\_CTRL\_VQ}{VIRTIO\_NET\_F\_CTRL\_VQ}}
+{\footnotesize\ttfamily \#define VIRTIO\+\_\+\+NET\+\_\+\+F\+\_\+\+CTRL\+\_\+\+VQ~0x00020000}
+
+
+
+Définition à la ligne \mbox{\hyperlink{virtio-net_8c_source_l00048}{48}} du fichier \mbox{\hyperlink{virtio-net_8c_source}{virtio-\/net.\+c}}.
+
+\Hypertarget{virtio-net_8c_ac85f206ff766ad6be43fee56bfd6ef38}\label{virtio-net_8c_ac85f206ff766ad6be43fee56bfd6ef38} 
+\index{virtio-\/net.c@{virtio-\/net.c}!VIRTIO\_NET\_F\_GUEST\_ANNOUNCE@{VIRTIO\_NET\_F\_GUEST\_ANNOUNCE}}
+\index{VIRTIO\_NET\_F\_GUEST\_ANNOUNCE@{VIRTIO\_NET\_F\_GUEST\_ANNOUNCE}!virtio-\/net.c@{virtio-\/net.c}}
+\doxysubsubsection{\texorpdfstring{VIRTIO\_NET\_F\_GUEST\_ANNOUNCE}{VIRTIO\_NET\_F\_GUEST\_ANNOUNCE}}
+{\footnotesize\ttfamily \#define VIRTIO\+\_\+\+NET\+\_\+\+F\+\_\+\+GUEST\+\_\+\+ANNOUNCE~0x00200000}
+
+
+
+Définition à la ligne \mbox{\hyperlink{virtio-net_8c_source_l00051}{51}} du fichier \mbox{\hyperlink{virtio-net_8c_source}{virtio-\/net.\+c}}.
+
+\Hypertarget{virtio-net_8c_a5f4322a66bff0dd9b715c2efac8eb354}\label{virtio-net_8c_a5f4322a66bff0dd9b715c2efac8eb354} 
+\index{virtio-\/net.c@{virtio-\/net.c}!VIRTIO\_NET\_F\_GUEST\_CSUM@{VIRTIO\_NET\_F\_GUEST\_CSUM}}
+\index{VIRTIO\_NET\_F\_GUEST\_CSUM@{VIRTIO\_NET\_F\_GUEST\_CSUM}!virtio-\/net.c@{virtio-\/net.c}}
+\doxysubsubsection{\texorpdfstring{VIRTIO\_NET\_F\_GUEST\_CSUM}{VIRTIO\_NET\_F\_GUEST\_CSUM}}
+{\footnotesize\ttfamily \#define VIRTIO\+\_\+\+NET\+\_\+\+F\+\_\+\+GUEST\+\_\+\+CSUM~0x00000002}
+
+
+
+Définition à la ligne \mbox{\hyperlink{virtio-net_8c_source_l00034}{34}} du fichier \mbox{\hyperlink{virtio-net_8c_source}{virtio-\/net.\+c}}.
+
+\Hypertarget{virtio-net_8c_a619e01959847e30e7e91a60bcd7112fd}\label{virtio-net_8c_a619e01959847e30e7e91a60bcd7112fd} 
+\index{virtio-\/net.c@{virtio-\/net.c}!VIRTIO\_NET\_F\_GUEST\_ECN@{VIRTIO\_NET\_F\_GUEST\_ECN}}
+\index{VIRTIO\_NET\_F\_GUEST\_ECN@{VIRTIO\_NET\_F\_GUEST\_ECN}!virtio-\/net.c@{virtio-\/net.c}}
+\doxysubsubsection{\texorpdfstring{VIRTIO\_NET\_F\_GUEST\_ECN}{VIRTIO\_NET\_F\_GUEST\_ECN}}
+{\footnotesize\ttfamily \#define VIRTIO\+\_\+\+NET\+\_\+\+F\+\_\+\+GUEST\+\_\+\+ECN~0x00000200}
+
+
+
+Définition à la ligne \mbox{\hyperlink{virtio-net_8c_source_l00039}{39}} du fichier \mbox{\hyperlink{virtio-net_8c_source}{virtio-\/net.\+c}}.
+
+\Hypertarget{virtio-net_8c_a27b690f89fac40c9316c6b70c5e8a133}\label{virtio-net_8c_a27b690f89fac40c9316c6b70c5e8a133} 
+\index{virtio-\/net.c@{virtio-\/net.c}!VIRTIO\_NET\_F\_GUEST\_TSO4@{VIRTIO\_NET\_F\_GUEST\_TSO4}}
+\index{VIRTIO\_NET\_F\_GUEST\_TSO4@{VIRTIO\_NET\_F\_GUEST\_TSO4}!virtio-\/net.c@{virtio-\/net.c}}
+\doxysubsubsection{\texorpdfstring{VIRTIO\_NET\_F\_GUEST\_TSO4}{VIRTIO\_NET\_F\_GUEST\_TSO4}}
+{\footnotesize\ttfamily \#define VIRTIO\+\_\+\+NET\+\_\+\+F\+\_\+\+GUEST\+\_\+\+TSO4~0x00000080}
+
+
+
+Définition à la ligne \mbox{\hyperlink{virtio-net_8c_source_l00037}{37}} du fichier \mbox{\hyperlink{virtio-net_8c_source}{virtio-\/net.\+c}}.
+
+\Hypertarget{virtio-net_8c_a70f1c6098223df5efbfbc4758674ebdb}\label{virtio-net_8c_a70f1c6098223df5efbfbc4758674ebdb} 
+\index{virtio-\/net.c@{virtio-\/net.c}!VIRTIO\_NET\_F\_GUEST\_TSO6@{VIRTIO\_NET\_F\_GUEST\_TSO6}}
+\index{VIRTIO\_NET\_F\_GUEST\_TSO6@{VIRTIO\_NET\_F\_GUEST\_TSO6}!virtio-\/net.c@{virtio-\/net.c}}
+\doxysubsubsection{\texorpdfstring{VIRTIO\_NET\_F\_GUEST\_TSO6}{VIRTIO\_NET\_F\_GUEST\_TSO6}}
+{\footnotesize\ttfamily \#define VIRTIO\+\_\+\+NET\+\_\+\+F\+\_\+\+GUEST\+\_\+\+TSO6~0x00000100}
+
+
+
+Définition à la ligne \mbox{\hyperlink{virtio-net_8c_source_l00038}{38}} du fichier \mbox{\hyperlink{virtio-net_8c_source}{virtio-\/net.\+c}}.
+
+\Hypertarget{virtio-net_8c_ae83137741152c003fee2c260d4a0dcae}\label{virtio-net_8c_ae83137741152c003fee2c260d4a0dcae} 
+\index{virtio-\/net.c@{virtio-\/net.c}!VIRTIO\_NET\_F\_GUEST\_UFO@{VIRTIO\_NET\_F\_GUEST\_UFO}}
+\index{VIRTIO\_NET\_F\_GUEST\_UFO@{VIRTIO\_NET\_F\_GUEST\_UFO}!virtio-\/net.c@{virtio-\/net.c}}
+\doxysubsubsection{\texorpdfstring{VIRTIO\_NET\_F\_GUEST\_UFO}{VIRTIO\_NET\_F\_GUEST\_UFO}}
+{\footnotesize\ttfamily \#define VIRTIO\+\_\+\+NET\+\_\+\+F\+\_\+\+GUEST\+\_\+\+UFO~0x00000400}
+
+
+
+Définition à la ligne \mbox{\hyperlink{virtio-net_8c_source_l00040}{40}} du fichier \mbox{\hyperlink{virtio-net_8c_source}{virtio-\/net.\+c}}.
+
+\Hypertarget{virtio-net_8c_a955d477fa52d096243ac80456a329711}\label{virtio-net_8c_a955d477fa52d096243ac80456a329711} 
+\index{virtio-\/net.c@{virtio-\/net.c}!VIRTIO\_NET\_F\_HOST\_ECN@{VIRTIO\_NET\_F\_HOST\_ECN}}
+\index{VIRTIO\_NET\_F\_HOST\_ECN@{VIRTIO\_NET\_F\_HOST\_ECN}!virtio-\/net.c@{virtio-\/net.c}}
+\doxysubsubsection{\texorpdfstring{VIRTIO\_NET\_F\_HOST\_ECN}{VIRTIO\_NET\_F\_HOST\_ECN}}
+{\footnotesize\ttfamily \#define VIRTIO\+\_\+\+NET\+\_\+\+F\+\_\+\+HOST\+\_\+\+ECN~0x00002000}
+
+
+
+Définition à la ligne \mbox{\hyperlink{virtio-net_8c_source_l00043}{43}} du fichier \mbox{\hyperlink{virtio-net_8c_source}{virtio-\/net.\+c}}.
+
+\Hypertarget{virtio-net_8c_a3c5cb9cd255d03e74a063b2da591a57c}\label{virtio-net_8c_a3c5cb9cd255d03e74a063b2da591a57c} 
+\index{virtio-\/net.c@{virtio-\/net.c}!VIRTIO\_NET\_F\_HOST\_TSO4@{VIRTIO\_NET\_F\_HOST\_TSO4}}
+\index{VIRTIO\_NET\_F\_HOST\_TSO4@{VIRTIO\_NET\_F\_HOST\_TSO4}!virtio-\/net.c@{virtio-\/net.c}}
+\doxysubsubsection{\texorpdfstring{VIRTIO\_NET\_F\_HOST\_TSO4}{VIRTIO\_NET\_F\_HOST\_TSO4}}
+{\footnotesize\ttfamily \#define VIRTIO\+\_\+\+NET\+\_\+\+F\+\_\+\+HOST\+\_\+\+TSO4~0x00000800}
+
+
+
+Définition à la ligne \mbox{\hyperlink{virtio-net_8c_source_l00041}{41}} du fichier \mbox{\hyperlink{virtio-net_8c_source}{virtio-\/net.\+c}}.
+
+\Hypertarget{virtio-net_8c_a8246a4099f04b49846f58916b407db32}\label{virtio-net_8c_a8246a4099f04b49846f58916b407db32} 
+\index{virtio-\/net.c@{virtio-\/net.c}!VIRTIO\_NET\_F\_HOST\_TSO6@{VIRTIO\_NET\_F\_HOST\_TSO6}}
+\index{VIRTIO\_NET\_F\_HOST\_TSO6@{VIRTIO\_NET\_F\_HOST\_TSO6}!virtio-\/net.c@{virtio-\/net.c}}
+\doxysubsubsection{\texorpdfstring{VIRTIO\_NET\_F\_HOST\_TSO6}{VIRTIO\_NET\_F\_HOST\_TSO6}}
+{\footnotesize\ttfamily \#define VIRTIO\+\_\+\+NET\+\_\+\+F\+\_\+\+HOST\+\_\+\+TSO6~0x00001000}
+
+
+
+Définition à la ligne \mbox{\hyperlink{virtio-net_8c_source_l00042}{42}} du fichier \mbox{\hyperlink{virtio-net_8c_source}{virtio-\/net.\+c}}.
+
+\Hypertarget{virtio-net_8c_a80889918fe36861ef7ebfb867092a166}\label{virtio-net_8c_a80889918fe36861ef7ebfb867092a166} 
+\index{virtio-\/net.c@{virtio-\/net.c}!VIRTIO\_NET\_F\_HOST\_UFO@{VIRTIO\_NET\_F\_HOST\_UFO}}
+\index{VIRTIO\_NET\_F\_HOST\_UFO@{VIRTIO\_NET\_F\_HOST\_UFO}!virtio-\/net.c@{virtio-\/net.c}}
+\doxysubsubsection{\texorpdfstring{VIRTIO\_NET\_F\_HOST\_UFO}{VIRTIO\_NET\_F\_HOST\_UFO}}
+{\footnotesize\ttfamily \#define VIRTIO\+\_\+\+NET\+\_\+\+F\+\_\+\+HOST\+\_\+\+UFO~0x00004000}
+
+
+
+Définition à la ligne \mbox{\hyperlink{virtio-net_8c_source_l00044}{44}} du fichier \mbox{\hyperlink{virtio-net_8c_source}{virtio-\/net.\+c}}.
+
+\Hypertarget{virtio-net_8c_af52bfce6f5b5b8c029e54a2b4ebc0983}\label{virtio-net_8c_af52bfce6f5b5b8c029e54a2b4ebc0983} 
+\index{virtio-\/net.c@{virtio-\/net.c}!VIRTIO\_NET\_F\_MAC@{VIRTIO\_NET\_F\_MAC}}
+\index{VIRTIO\_NET\_F\_MAC@{VIRTIO\_NET\_F\_MAC}!virtio-\/net.c@{virtio-\/net.c}}
+\doxysubsubsection{\texorpdfstring{VIRTIO\_NET\_F\_MAC}{VIRTIO\_NET\_F\_MAC}}
+{\footnotesize\ttfamily \#define VIRTIO\+\_\+\+NET\+\_\+\+F\+\_\+\+MAC~0x00000020}
+
+
+
+Définition à la ligne \mbox{\hyperlink{virtio-net_8c_source_l00036}{36}} du fichier \mbox{\hyperlink{virtio-net_8c_source}{virtio-\/net.\+c}}.
+
+\Hypertarget{virtio-net_8c_a82761940cd767d8c46c426a7546f123a}\label{virtio-net_8c_a82761940cd767d8c46c426a7546f123a} 
+\index{virtio-\/net.c@{virtio-\/net.c}!VIRTIO\_NET\_F\_MRG\_RXBUF@{VIRTIO\_NET\_F\_MRG\_RXBUF}}
+\index{VIRTIO\_NET\_F\_MRG\_RXBUF@{VIRTIO\_NET\_F\_MRG\_RXBUF}!virtio-\/net.c@{virtio-\/net.c}}
+\doxysubsubsection{\texorpdfstring{VIRTIO\_NET\_F\_MRG\_RXBUF}{VIRTIO\_NET\_F\_MRG\_RXBUF}}
+{\footnotesize\ttfamily \#define VIRTIO\+\_\+\+NET\+\_\+\+F\+\_\+\+MRG\+\_\+\+RXBUF~0x00008000}
+
+
+
+Définition à la ligne \mbox{\hyperlink{virtio-net_8c_source_l00046}{46}} du fichier \mbox{\hyperlink{virtio-net_8c_source}{virtio-\/net.\+c}}.
+
+\Hypertarget{virtio-net_8c_ab29d666468fa27d814a432c7e3ecec4e}\label{virtio-net_8c_ab29d666468fa27d814a432c7e3ecec4e} 
+\index{virtio-\/net.c@{virtio-\/net.c}!VIRTIO\_NET\_F\_STATUS@{VIRTIO\_NET\_F\_STATUS}}
+\index{VIRTIO\_NET\_F\_STATUS@{VIRTIO\_NET\_F\_STATUS}!virtio-\/net.c@{virtio-\/net.c}}
+\doxysubsubsection{\texorpdfstring{VIRTIO\_NET\_F\_STATUS}{VIRTIO\_NET\_F\_STATUS}}
+{\footnotesize\ttfamily \#define VIRTIO\+\_\+\+NET\+\_\+\+F\+\_\+\+STATUS~0x00010000}
+
+
+
+Définition à la ligne \mbox{\hyperlink{virtio-net_8c_source_l00047}{47}} du fichier \mbox{\hyperlink{virtio-net_8c_source}{virtio-\/net.\+c}}.
+
+\Hypertarget{virtio-net_8c_a94c196500ef9ae1ab36f042eab5e9726}\label{virtio-net_8c_a94c196500ef9ae1ab36f042eab5e9726} 
+\index{virtio-\/net.c@{virtio-\/net.c}!VIRTIO\_TAILLE\_TRAME\_MAX@{VIRTIO\_TAILLE\_TRAME\_MAX}}
+\index{VIRTIO\_TAILLE\_TRAME\_MAX@{VIRTIO\_TAILLE\_TRAME\_MAX}!virtio-\/net.c@{virtio-\/net.c}}
+\doxysubsubsection{\texorpdfstring{VIRTIO\_TAILLE\_TRAME\_MAX}{VIRTIO\_TAILLE\_TRAME\_MAX}}
+{\footnotesize\ttfamily \#define VIRTIO\+\_\+\+TAILLE\+\_\+\+TRAME\+\_\+\+MAX~2000}
+
+
+
+Définition à la ligne \mbox{\hyperlink{virtio-net_8c_source_l00024}{24}} du fichier \mbox{\hyperlink{virtio-net_8c_source}{virtio-\/net.\+c}}.
+
+\Hypertarget{virtio-net_8c_a9eb85b70f2fe3f24b6e922ebfff3ac84}\label{virtio-net_8c_a9eb85b70f2fe3f24b6e922ebfff3ac84} 
+\index{virtio-\/net.c@{virtio-\/net.c}!VR\_FILE\_EMISSION@{VR\_FILE\_EMISSION}}
+\index{VR\_FILE\_EMISSION@{VR\_FILE\_EMISSION}!virtio-\/net.c@{virtio-\/net.c}}
+\doxysubsubsection{\texorpdfstring{VR\_FILE\_EMISSION}{VR\_FILE\_EMISSION}}
+{\footnotesize\ttfamily \#define VR\+\_\+\+FILE\+\_\+\+EMISSION~1}
+
+
+
+Définition à la ligne \mbox{\hyperlink{virtio-net_8c_source_l00028}{28}} du fichier \mbox{\hyperlink{virtio-net_8c_source}{virtio-\/net.\+c}}.
+
+\Hypertarget{virtio-net_8c_a7b4d2cbe0384379b74085059ae2b7957}\label{virtio-net_8c_a7b4d2cbe0384379b74085059ae2b7957} 
+\index{virtio-\/net.c@{virtio-\/net.c}!VR\_FILE\_RECEPTION@{VR\_FILE\_RECEPTION}}
+\index{VR\_FILE\_RECEPTION@{VR\_FILE\_RECEPTION}!virtio-\/net.c@{virtio-\/net.c}}
+\doxysubsubsection{\texorpdfstring{VR\_FILE\_RECEPTION}{VR\_FILE\_RECEPTION}}
+{\footnotesize\ttfamily \#define VR\+\_\+\+FILE\+\_\+\+RECEPTION~0}
+
+
+
+Définition à la ligne \mbox{\hyperlink{virtio-net_8c_source_l00027}{27}} du fichier \mbox{\hyperlink{virtio-net_8c_source}{virtio-\/net.\+c}}.
+
+
+
+\doxysubsection{Documentation des définitions de type}
+\Hypertarget{virtio-net_8c_a42bdc707b1059c8a9c708138545e0596}\label{virtio-net_8c_a42bdc707b1059c8a9c708138545e0596} 
+\index{virtio-\/net.c@{virtio-\/net.c}!VirtioReseau@{VirtioReseau}}
+\index{VirtioReseau@{VirtioReseau}!virtio-\/net.c@{virtio-\/net.c}}
+\doxysubsubsection{\texorpdfstring{VirtioReseau}{VirtioReseau}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{structVirtioReseau__t}{Virtio\+Reseau\+\_\+t}} \mbox{\hyperlink{virtio-net_8c_a42bdc707b1059c8a9c708138545e0596}{Virtio\+Reseau}}}
+
+Description d\textquotesingle{}un périphérique virtio net 
+
+\doxysubsection{Documentation des fonctions}
+\Hypertarget{virtio-net_8c_ad09246453a4dabd919c7541484046a87}\label{virtio-net_8c_ad09246453a4dabd919c7541484046a87} 
+\index{virtio-\/net.c@{virtio-\/net.c}!\_\_attribute\_\_@{\_\_attribute\_\_}}
+\index{\_\_attribute\_\_@{\_\_attribute\_\_}!virtio-\/net.c@{virtio-\/net.c}}
+\doxysubsubsection{\texorpdfstring{\_\_attribute\_\_()}{\_\_attribute\_\_()}}
+{\footnotesize\ttfamily struct \+\_\+\+\_\+attribute\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{(\+\_\+\+\_\+packed\+\_\+\+\_\+)}]{ }\end{DoxyParamCaption})}
+
+
+
+Description de l\textquotesingle{}entête ajouté par virtio net. 
+
+
+
+Définition à la ligne \mbox{\hyperlink{virtio-net_8c_source_l00001}{1}} du fichier \mbox{\hyperlink{virtio-net_8c_source}{virtio-\/net.\+c}}.
+
+\Hypertarget{virtio-net_8c_ae8ee56f5798a32fb0f3092501b7560ce}\label{virtio-net_8c_ae8ee56f5798a32fb0f3092501b7560ce} 
+\index{virtio-\/net.c@{virtio-\/net.c}!virtioNetInit@{virtioNetInit}}
+\index{virtioNetInit@{virtioNetInit}!virtio-\/net.c@{virtio-\/net.c}}
+\doxysubsubsection{\texorpdfstring{virtioNetInit()}{virtioNetInit()}}
+{\footnotesize\ttfamily int virtio\+Net\+Init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}}}]{ }\end{DoxyParamCaption})}
+
+
+
+Initialisation des périphériques. 
+
+
+
+Définition à la ligne \mbox{\hyperlink{virtio-net_8c_source_l00373}{373}} du fichier \mbox{\hyperlink{virtio-net_8c_source}{virtio-\/net.\+c}}.
+
+\Hypertarget{virtio-net_8c_abf464b54fed9bfec32c896b2ff9d5935}\label{virtio-net_8c_abf464b54fed9bfec32c896b2ff9d5935} 
+\index{virtio-\/net.c@{virtio-\/net.c}!virtioNetTestDeuxiemeEmission@{virtioNetTestDeuxiemeEmission}}
+\index{virtioNetTestDeuxiemeEmission@{virtioNetTestDeuxiemeEmission}!virtio-\/net.c@{virtio-\/net.c}}
+\doxysubsubsection{\texorpdfstring{virtioNetTestDeuxiemeEmission()}{virtioNetTestDeuxiemeEmission()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} virtio\+Net\+Test\+Deuxieme\+Emission (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}}}]{ }\end{DoxyParamCaption})}
+
+
+
+Définition à la ligne \mbox{\hyperlink{virtio-net_8c_source_l00402}{402}} du fichier \mbox{\hyperlink{virtio-net_8c_source}{virtio-\/net.\+c}}.
+
+\Hypertarget{virtio-net_8c_a335590b89028273e29abbe24938fb00d}\label{virtio-net_8c_a335590b89028273e29abbe24938fb00d} 
+\index{virtio-\/net.c@{virtio-\/net.c}!virtioReseauPoll@{virtioReseauPoll}}
+\index{virtioReseauPoll@{virtioReseauPoll}!virtio-\/net.c@{virtio-\/net.c}}
+\doxysubsubsection{\texorpdfstring{virtioReseauPoll()}{virtioReseauPoll()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} virtio\+Reseau\+Poll (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}}}]{ }\end{DoxyParamCaption})}
+
+
+
+Définition à la ligne \mbox{\hyperlink{virtio-net_8c_source_l00203}{203}} du fichier \mbox{\hyperlink{virtio-net_8c_source}{virtio-\/net.\+c}}.
+
+
+
+\doxysubsection{Documentation des variables}
+\Hypertarget{virtio-net_8c_a703b1ae1561afadaecccb3c4e4822be3}\label{virtio-net_8c_a703b1ae1561afadaecccb3c4e4822be3} 
+\index{virtio-\/net.c@{virtio-\/net.c}!requeteARP@{requeteARP}}
+\index{requeteARP@{requeteARP}!virtio-\/net.c@{virtio-\/net.c}}
+\doxysubsubsection{\texorpdfstring{requeteARP}{requeteARP}}
+{\footnotesize\ttfamily \mbox{\hyperlink{include_2manux_2types_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}} requete\+ARP\mbox{[}$\,$\mbox{]}}
+
+{\bfseries Valeur initiale \+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ 0xff,\ 0xff,\ 0xff,\ 0xff,\ 0xff,\ 0xff,\ 0xc0,\ 0xff,}
+\DoxyCodeLine{\ \ \ \ \ \ 0xee,\ 0xde,\ 0xad,\ 0xbe,\ 0x08,\ 0x06,\ 0x00,\ 0x01,}
+\DoxyCodeLine{\ \ \ \ \ \ 0x08,\ 0x00,\ 0x06,\ 0x04,\ 0x00,\ 0x01,\ 0xc0,\ 0xff,}
+\DoxyCodeLine{\ \ \ \ \ \ 0xee,\ 0xde,\ 0xad,\ 0xbe,\ 0x0a,\ 0x00,\ 0x02,\ 0x0f,}
+\DoxyCodeLine{\ \ \ \ \ \ 0x00,\ 0x00,\ 0x00,\ 0x00,\ 0x00,\ 0x00,\ 0x0a,\ 0x00,}
+\DoxyCodeLine{\ \ \ \ \ \ 0x02,\ 0x02}
+\DoxyCodeLine{\ \ \ \}}
+
+\end{DoxyCode}
+
+
+Définition à la ligne \mbox{\hyperlink{virtio-net_8c_source_l00087}{87}} du fichier \mbox{\hyperlink{virtio-net_8c_source}{virtio-\/net.\+c}}.
+
+\Hypertarget{virtio-net_8c_a7a7fdfccfc1436dbf5ee41e6a188342e}\label{virtio-net_8c_a7a7fdfccfc1436dbf5ee41e6a188342e} 
+\index{virtio-\/net.c@{virtio-\/net.c}!requeteARP2@{requeteARP2}}
+\index{requeteARP2@{requeteARP2}!virtio-\/net.c@{virtio-\/net.c}}
+\doxysubsubsection{\texorpdfstring{requeteARP2}{requeteARP2}}
+{\footnotesize\ttfamily \mbox{\hyperlink{include_2manux_2types_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}} requete\+ARP2\mbox{[}$\,$\mbox{]}}
+
+{\bfseries Valeur initiale \+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ 0xff,\ 0xff,\ 0xff,\ 0xff,\ 0xff,\ 0xff,\ 0xc0,\ 0xff,}
+\DoxyCodeLine{\ \ \ \ \ \ 0xee,\ 0xde,\ 0xad,\ 0xbe,\ 0x08,\ 0x06,\ 0x00,\ 0x01,}
+\DoxyCodeLine{\ \ \ \ \ \ 0x08,\ 0x00,\ 0x06,\ 0x04,\ 0x00,\ 0x01,\ 0xc0,\ 0xff,}
+\DoxyCodeLine{\ \ \ \ \ \ 0xee,\ 0xde,\ 0xad,\ 0xbe,\ 0x0a,\ 0x00,\ 0x02,\ 0x0f,}
+\DoxyCodeLine{\ \ \ \ \ \ 0x00,\ 0x00,\ 0x00,\ 0x00,\ 0x00,\ 0x00,\ 0x0a,\ 0x00,}
+\DoxyCodeLine{\ \ \ \ \ \ 0x02,\ 0x02}
+\DoxyCodeLine{\ \ \ \}}
+
+\end{DoxyCode}
+
+
+Définition à la ligne \mbox{\hyperlink{virtio-net_8c_source_l00095}{95}} du fichier \mbox{\hyperlink{virtio-net_8c_source}{virtio-\/net.\+c}}.
+
+\Hypertarget{virtio-net_8c_ab202a765d61bb97c205316763d12ddd8}\label{virtio-net_8c_ab202a765d61bb97c205316763d12ddd8} 
+\index{virtio-\/net.c@{virtio-\/net.c}!unBufferALaCon@{unBufferALaCon}}
+\index{unBufferALaCon@{unBufferALaCon}!virtio-\/net.c@{virtio-\/net.c}}
+\doxysubsubsection{\texorpdfstring{unBufferALaCon}{unBufferALaCon}}
+{\footnotesize\ttfamily \mbox{\hyperlink{include_2manux_2types_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}} un\+Buffer\+ALa\+Con\mbox{[}4096\mbox{]} =\{0\}}
+
+WARNING une horreur 
+
+Définition à la ligne \mbox{\hyperlink{virtio-net_8c_source_l00107}{107}} du fichier \mbox{\hyperlink{virtio-net_8c_source}{virtio-\/net.\+c}}.
+
+\Hypertarget{virtio-net_8c_a56ba6ac2de4117232f3a00e9ca62a7ef}\label{virtio-net_8c_a56ba6ac2de4117232f3a00e9ca62a7ef} 
+\index{virtio-\/net.c@{virtio-\/net.c}!virtioPiloteReseau@{virtioPiloteReseau}}
+\index{virtioPiloteReseau@{virtioPiloteReseau}!virtio-\/net.c@{virtio-\/net.c}}
+\doxysubsubsection{\texorpdfstring{virtioPiloteReseau}{virtioPiloteReseau}}
+{\footnotesize\ttfamily \mbox{\hyperlink{interface-reseau_8h_a545d375fa5fc74cc0795ee1021d7f924}{Reseau\+Pilote}} virtio\+Pilote\+Reseau}
+
+{\bfseries Valeur initiale \+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ \{}
+\DoxyCodeLine{\ \ \ .nom\ =\ \textcolor{stringliteral}{"{}virtio-\/net"{}},}
+\DoxyCodeLine{\ \ \ .recevoirTrame\ =\ virtioNetRecevoirTramePartieBasse}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+Description du pilote virtio. 
+
+
+
+Définition à la ligne \mbox{\hyperlink{virtio-net_8c_source_l00239}{239}} du fichier \mbox{\hyperlink{virtio-net_8c_source}{virtio-\/net.\+c}}.
+
+\Hypertarget{virtio-net_8c_af31843169059d11363b765e0ced55934}\label{virtio-net_8c_af31843169059d11363b765e0ced55934} 
+\index{virtio-\/net.c@{virtio-\/net.c}!virtioReseau@{virtioReseau}}
+\index{virtioReseau@{virtioReseau}!virtio-\/net.c@{virtio-\/net.c}}
+\doxysubsubsection{\texorpdfstring{virtioReseau}{virtioReseau}}
+{\footnotesize\ttfamily \mbox{\hyperlink{virtio-net_8c_a42bdc707b1059c8a9c708138545e0596}{Virtio\+Reseau}} virtio\+Reseau}
+
+WARNING \+: pour le moment on crée un unique périphérique 
+
+Définition à la ligne \mbox{\hyperlink{virtio-net_8c_source_l00080}{80}} du fichier \mbox{\hyperlink{virtio-net_8c_source}{virtio-\/net.\+c}}.
+
+\Hypertarget{virtio-net_8c_ab44b26fabacceb70024dc1eaacf7e52c}\label{virtio-net_8c_ab44b26fabacceb70024dc1eaacf7e52c} 
+\index{virtio-\/net.c@{virtio-\/net.c}!VirtioReseauEntete@{VirtioReseauEntete}}
+\index{VirtioReseauEntete@{VirtioReseauEntete}!virtio-\/net.c@{virtio-\/net.c}}
+\doxysubsubsection{\texorpdfstring{VirtioReseauEntete}{VirtioReseauEntete}}
+{\footnotesize\ttfamily Virtio\+Reseau\+Entete}
+
+
+
+Définition à la ligne \mbox{\hyperlink{virtio-net_8c_source_l00075}{75}} du fichier \mbox{\hyperlink{virtio-net_8c_source}{virtio-\/net.\+c}}.
+
+\Hypertarget{virtio-net_8c_af9d9b2d59d95df2367d39a4b947193a0}\label{virtio-net_8c_af9d9b2d59d95df2367d39a4b947193a0} 
+\index{virtio-\/net.c@{virtio-\/net.c}!virtioReseauEntete@{virtioReseauEntete}}
+\index{virtioReseauEntete@{virtioReseauEntete}!virtio-\/net.c@{virtio-\/net.c}}
+\doxysubsubsection{\texorpdfstring{virtioReseauEntete}{virtioReseauEntete}}
+{\footnotesize\ttfamily \mbox{\hyperlink{virtio-net_8c_ab44b26fabacceb70024dc1eaacf7e52c}{Virtio\+Reseau\+Entete}} virtio\+Reseau\+Entete}
+
+WARNING \+: Une affreuse trame ARP requete 
+
+Définition à la ligne \mbox{\hyperlink{virtio-net_8c_source_l00085}{85}} du fichier \mbox{\hyperlink{virtio-net_8c_source}{virtio-\/net.\+c}}.
+

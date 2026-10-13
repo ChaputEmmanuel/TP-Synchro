@@ -1,0 +1,144 @@
+\doxysection{console.\+h}
+\hypertarget{include_2manux_2console_8h_source}{}\label{include_2manux_2console_8h_source}\index{/home/manu/PROGRAMMATION/C/ManuX/include/manux/console.h@{/home/manu/PROGRAMMATION/C/ManuX/include/manux/console.h}}
+\mbox{\hyperlink{include_2manux_2console_8h}{Aller à la documentation de ce fichier.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{include_2manux_2console_8h_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{include_2manux_2console_8h_source_l00015}00015\ \textcolor{preprocessor}{\#ifndef\ MANUX\_CONSOLE\_DEF}}
+\DoxyCodeLine{\Hypertarget{include_2manux_2console_8h_source_l00016}00016\ \textcolor{preprocessor}{\#define\ MANUX\_CONSOLE\_DEF}}
+\DoxyCodeLine{\Hypertarget{include_2manux_2console_8h_source_l00017}00017\ }
+\DoxyCodeLine{\Hypertarget{include_2manux_2console_8h_source_l00018}00018\ \textcolor{preprocessor}{\#include\ <manux/config.h>}}
+\DoxyCodeLine{\Hypertarget{include_2manux_2console_8h_source_l00019}00019\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{horloge_8h}{manux/horloge.h}}>}\ \ \ \ \textcolor{comment}{//\ nbTopHorloge}}
+\DoxyCodeLine{\Hypertarget{include_2manux_2console_8h_source_l00020}00020\ \textcolor{preprocessor}{\#include\ <manux/types.h>}}
+\DoxyCodeLine{\Hypertarget{include_2manux_2console_8h_source_l00021}00021\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{atomique_8h}{manux/atomique.h}}>}\ \ \ \textcolor{comment}{//\ Accés\ unique\ à\ la\ console}}
+\DoxyCodeLine{\Hypertarget{include_2manux_2console_8h_source_l00022}00022\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{ecran_8h}{manux/ecran.h}}>}}
+\DoxyCodeLine{\Hypertarget{include_2manux_2console_8h_source_l00023}00023\ }
+\DoxyCodeLine{\Hypertarget{include_2manux_2console_8h_source_l00024}00024\ \textcolor{preprocessor}{\#ifdef\ MANUX\_FICHIER}}
+\DoxyCodeLine{\Hypertarget{include_2manux_2console_8h_source_l00025}00025\ \textcolor{preprocessor}{\#\ \ \ include\ <\mbox{\hyperlink{fichier_8h}{manux/fichier.h}}>}\ \textcolor{comment}{//\ Une\ console\ est\ un\ fichier}}
+\DoxyCodeLine{\Hypertarget{include_2manux_2console_8h_source_l00026}00026\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{include_2manux_2console_8h_source_l00027}00027\ }
+\DoxyCodeLine{\Hypertarget{include_2manux_2console_8h_source_l00037}\mbox{\hyperlink{struct__Console}{00037}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__Console}{\_Console}}\ \{}
+\DoxyCodeLine{\Hypertarget{include_2manux_2console_8h_source_l00039}\mbox{\hyperlink{struct__Console_a21cbdd08416fe7843ce4759a42605c5b}{00039}}\ \ \ \ \textcolor{keywordtype}{char}\ \ \ \ \ \ \ \ \ \ \ \ \ \ *\ \mbox{\hyperlink{struct__Console_a21cbdd08416fe7843ce4759a42605c5b}{adresseEcran}};}
+\DoxyCodeLine{\Hypertarget{include_2manux_2console_8h_source_l00041}\mbox{\hyperlink{struct__Console_a7f0656c24f9ba80f2ff63d516afc5367}{00041}}\ \ \ \ \mbox{\hyperlink{include_2manux_2types_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\_t}}\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct__Console_a7f0656c24f9ba80f2ff63d516afc5367}{nbLignes}};}
+\DoxyCodeLine{\Hypertarget{include_2manux_2console_8h_source_l00042}\mbox{\hyperlink{struct__Console_a17cf532467b305ab0e21beee89404fbc}{00042}}\ \ \ \ \mbox{\hyperlink{include_2manux_2types_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\_t}}\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct__Console_a17cf532467b305ab0e21beee89404fbc}{nbColonnes}};}
+\DoxyCodeLine{\Hypertarget{include_2manux_2console_8h_source_l00044}\mbox{\hyperlink{struct__Console_a8986488bc079fe4c8fec28a63c0840ea}{00044}}\ \ \ \ \textcolor{keywordtype}{int}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct__Console_aeff356576dc0612e1c92c1d659ded988}{ligne}},\ \mbox{\hyperlink{struct__Console_a8986488bc079fe4c8fec28a63c0840ea}{colonne}}\ ;}
+\DoxyCodeLine{\Hypertarget{include_2manux_2console_8h_source_l00045}\mbox{\hyperlink{struct__Console_a4a6784763053999b74daae4a88096bf3}{00045}}\ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ \ \ \ \ \ \ \mbox{\hyperlink{struct__Console_a4a6784763053999b74daae4a88096bf3}{attribut}};}
+\DoxyCodeLine{\Hypertarget{include_2manux_2console_8h_source_l00046}00046\ }
+\DoxyCodeLine{\Hypertarget{include_2manux_2console_8h_source_l00047}00047\ \textcolor{preprocessor}{\#ifdef\ MANUX\_CONSOLES\_VIRTUELLES}}
+\DoxyCodeLine{\Hypertarget{include_2manux_2console_8h_source_l00049}00049\ \ \ \ \textcolor{keywordtype}{char}\ \ \ \ \ \ \ \ \ \ \ \ \ \ *\ adresseEcranCopie;}
+\DoxyCodeLine{\Hypertarget{include_2manux_2console_8h_source_l00050}00050\ \ \ }
+\DoxyCodeLine{\Hypertarget{include_2manux_2console_8h_source_l00051}00051\ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__Console}{\_Console}}\ \ \ *\ suivante;\ \ \ \ }
+\DoxyCodeLine{\Hypertarget{include_2manux_2console_8h_source_l00052}00052\ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__Console}{\_Console}}\ \ \ *\ precedente;\ \ }
+\DoxyCodeLine{\Hypertarget{include_2manux_2console_8h_source_l00053}00053\ \ \ \ \textcolor{keywordtype}{int}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ numero;\ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{include_2manux_2console_8h_source_l00054}00054\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{include_2manux_2console_8h_source_l00055}00055\ }
+\DoxyCodeLine{\Hypertarget{include_2manux_2console_8h_source_l00056}00056\ \textcolor{preprocessor}{\#ifdef\ MANUX\_CLAVIER\_CONSOLE}}
+\DoxyCodeLine{\Hypertarget{include_2manux_2console_8h_source_l00057}00057\ \ \ \ \textcolor{comment}{//\ WARNING\ :\ à\ mettre\ dans\ clavier.h}}
+\DoxyCodeLine{\Hypertarget{include_2manux_2console_8h_source_l00058}00058\ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ \ \ \ \ *\ bufferClavier;\ \ \ \ \ \textcolor{comment}{//\ Pour\ les\ données\ du\ clavier}}
+\DoxyCodeLine{\Hypertarget{include_2manux_2console_8h_source_l00059}00059\ \ \ \ \mbox{\hyperlink{include_2manux_2types_8h_a273cf69d639a59973b6019625df33e30}{uint16\_t}}\ \ \ \ \ \ \ \ \ \ \ \ tailleBuffer;}
+\DoxyCodeLine{\Hypertarget{include_2manux_2console_8h_source_l00060}00060\ \ \ \ \mbox{\hyperlink{include_2manux_2types_8h_a273cf69d639a59973b6019625df33e30}{uint16\_t}}\ \ \ \ \ \ \ \ \ \ \ \ nbCarAttente;}
+\DoxyCodeLine{\Hypertarget{include_2manux_2console_8h_source_l00061}00061\ \ \ \ \mbox{\hyperlink{include_2manux_2types_8h_a273cf69d639a59973b6019625df33e30}{uint16\_t}}\ \ \ \ \ \ \ \ \ \ \ \ indiceProchainCar;\ \textcolor{comment}{//\ Le\ prochain\ caractère\ à\ lire}}
+\DoxyCodeLine{\Hypertarget{include_2manux_2console_8h_source_l00062}00062\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{include_2manux_2console_8h_source_l00063}00063\ \ \ }
+\DoxyCodeLine{\Hypertarget{include_2manux_2console_8h_source_l00064}\mbox{\hyperlink{include_2manux_2console_8h_aac124f3c894e9f941f5f72cd6fed63e1}{00064}}\ \}\ \mbox{\hyperlink{include_2manux_2console_8h_aac124f3c894e9f941f5f72cd6fed63e1}{Console}};}
+\DoxyCodeLine{\Hypertarget{include_2manux_2console_8h_source_l00065}00065\ }
+\DoxyCodeLine{\Hypertarget{include_2manux_2console_8h_source_l00066}00066\ }
+\DoxyCodeLine{\Hypertarget{include_2manux_2console_8h_source_l00067}00067\ \textcolor{preprocessor}{\#ifdef\ MANUX\_CLAVIER\_CONSOLE}}
+\DoxyCodeLine{\Hypertarget{include_2manux_2console_8h_source_l00074}00074\ \textcolor{keywordtype}{int}\ consoleLireEntier(\mbox{\hyperlink{struct__Console}{Console}}\ *\ cons);}
+\DoxyCodeLine{\Hypertarget{include_2manux_2console_8h_source_l00075}00075\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{include_2manux_2console_8h_source_l00076}00076\ }
+\DoxyCodeLine{\Hypertarget{include_2manux_2console_8h_source_l00081}00081\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{include_2manux_2console_8h_a29466c636bd065544638829883090d54}{consoleInitialisation}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{include_2manux_2console_8h_source_l00082}00082\ }
+\DoxyCodeLine{\Hypertarget{include_2manux_2console_8h_source_l00083}00083\ \textcolor{preprocessor}{\#ifdef\ MANUX\_FICHIER}}
+\DoxyCodeLine{\Hypertarget{include_2manux_2console_8h_source_l00087}00087\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{struct__MethodesFichier}{MethodesFichier}}\ consoleMethodesFichier;}
+\DoxyCodeLine{\Hypertarget{include_2manux_2console_8h_source_l00088}00088\ }
+\DoxyCodeLine{\Hypertarget{include_2manux_2console_8h_source_l00095}00095\ \textcolor{keywordtype}{int}\ consoleInitialisationINoeud(\mbox{\hyperlink{struct__INoeud}{INoeud}}\ *\ \mbox{\hyperlink{main-acces-concurrent_8c_a972ff77e8e64fb59c5b315287496a83e}{iNoeudConsole}});}
+\DoxyCodeLine{\Hypertarget{include_2manux_2console_8h_source_l00096}00096\ }
+\DoxyCodeLine{\Hypertarget{include_2manux_2console_8h_source_l00102}00102\ \mbox{\hyperlink{struct__INoeud}{INoeud}}\ *\ consoleCreerINoeud(\mbox{\hyperlink{struct__Console}{Console}}\ *\ \mbox{\hyperlink{main-bootreg_8c_add06ad5d8520e7cff4ff84b2811c0982}{c}});}
+\DoxyCodeLine{\Hypertarget{include_2manux_2console_8h_source_l00103}00103\ }
+\DoxyCodeLine{\Hypertarget{include_2manux_2console_8h_source_l00104}00104\ \textcolor{preprocessor}{\#ifdef\ MANUX\_KMALLOC}}
+\DoxyCodeLine{\Hypertarget{include_2manux_2console_8h_source_l00110}00110\ \mbox{\hyperlink{struct__INoeud}{INoeud}}\ *\ consoleCreerINOeud(\mbox{\hyperlink{struct__Console}{Console}}\ *\ \mbox{\hyperlink{main-bootreg_8c_add06ad5d8520e7cff4ff84b2811c0982}{c}});}
+\DoxyCodeLine{\Hypertarget{include_2manux_2console_8h_source_l00111}00111\ \textcolor{preprocessor}{\#\ \ \ endif\ }\textcolor{comment}{//\ MANUX\_MALLOC}}
+\DoxyCodeLine{\Hypertarget{include_2manux_2console_8h_source_l00112}00112\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ MANUX\_FICHIER}}
+\DoxyCodeLine{\Hypertarget{include_2manux_2console_8h_source_l00113}00113\ }
+\DoxyCodeLine{\Hypertarget{include_2manux_2console_8h_source_l00117}00117\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{include_2manux_2console_8h_ab2b3d67e4a76348cb620f82f3d153b46}{consoleAffecterCouleurFond}}(\mbox{\hyperlink{struct__Console}{Console}}\ *\ cons,\ \mbox{\hyperlink{ecran_8h_aa304d0ca681f782b1d7735da33037dd7}{Couleur}}\ coul);}
+\DoxyCodeLine{\Hypertarget{include_2manux_2console_8h_source_l00118}00118\ }
+\DoxyCodeLine{\Hypertarget{include_2manux_2console_8h_source_l00119}00119\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{include_2manux_2console_8h_a2d75ffed821ea7376eaf5e38ee8c98a4}{consoleAffecterCouleurTexte}}(\mbox{\hyperlink{struct__Console}{Console}}\ *\ cons,\ \mbox{\hyperlink{ecran_8h_aa304d0ca681f782b1d7735da33037dd7}{Couleur}}\ coul);}
+\DoxyCodeLine{\Hypertarget{include_2manux_2console_8h_source_l00120}00120\ }
+\DoxyCodeLine{\Hypertarget{include_2manux_2console_8h_source_l00127}00127\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{include_2manux_2console_8h_a20cb38c45f235948ac26cd858a5a6556}{consoleAfficher}}(\mbox{\hyperlink{struct__Console}{Console}}\ *\ cons,\ \textcolor{keywordtype}{char}\ *\ msg);}
+\DoxyCodeLine{\Hypertarget{include_2manux_2console_8h_source_l00128}00128\ }
+\DoxyCodeLine{\Hypertarget{include_2manux_2console_8h_source_l00132}00132\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{include_2manux_2console_8h_ae9ea42a9faaae8479fd2c762ddc7d8ae}{consoleNoyauAfficher}}(\textcolor{keywordtype}{char}\ *\ msg);}
+\DoxyCodeLine{\Hypertarget{include_2manux_2console_8h_source_l00133}00133\ }
+\DoxyCodeLine{\Hypertarget{include_2manux_2console_8h_source_l00134}00134\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{include_2manux_2console_8h_source_l00135}00135\ \textcolor{comment}{\ *\ Affichage\ d'un\ message\ à\ l'écran.\ Attention,\ aucun\ formatage}}
+\DoxyCodeLine{\Hypertarget{include_2manux_2console_8h_source_l00136}00136\ \textcolor{comment}{\ *\ n'est\ fait.\ Seuls\ les\ nbOctets\ premiers\ octets\ sont\ affichés,}}
+\DoxyCodeLine{\Hypertarget{include_2manux_2console_8h_source_l00137}00137\ \textcolor{comment}{\ *\ indépemment\ de\ la\ présence\ d'un\ caractère\ nul.}}
+\DoxyCodeLine{\Hypertarget{include_2manux_2console_8h_source_l00138}00138\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{include_2manux_2console_8h_source_l00139}00139\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{include_2manux_2console_8h_ae652ad0556ba11086076c802d5a90991}{consoleAfficherN}}(\mbox{\hyperlink{struct__Console}{Console}}\ *\ cons,\ \textcolor{keywordtype}{char}\ *\ msg,\ \textcolor{keywordtype}{int}\ nbOctets);}
+\DoxyCodeLine{\Hypertarget{include_2manux_2console_8h_source_l00140}00140\ }
+\DoxyCodeLine{\Hypertarget{include_2manux_2console_8h_source_l00141}00141\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{include_2manux_2console_8h_source_l00142}00142\ \textcolor{comment}{\ *\ Effacement\ (avec\ la\ couleur\ courante)\ et\ positionnement\ du\ curseur\ en}}
+\DoxyCodeLine{\Hypertarget{include_2manux_2console_8h_source_l00143}00143\ \textcolor{comment}{\ *\ haut\ à\ gauche.}}
+\DoxyCodeLine{\Hypertarget{include_2manux_2console_8h_source_l00144}00144\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{include_2manux_2console_8h_source_l00145}00145\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{include_2manux_2console_8h_a3d6665f65d72e2b02cf10e3baff370b5}{consoleEffacer}}(\mbox{\hyperlink{struct__Console}{Console}}\ *\ cons);}
+\DoxyCodeLine{\Hypertarget{include_2manux_2console_8h_source_l00146}00146\ }
+\DoxyCodeLine{\Hypertarget{include_2manux_2console_8h_source_l00147}00147\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{include_2manux_2console_8h_source_l00148}00148\ \textcolor{comment}{\ *\ Affichage\ d'un\ entier\ sur\ la\ console}}
+\DoxyCodeLine{\Hypertarget{include_2manux_2console_8h_source_l00149}00149\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{include_2manux_2console_8h_source_l00150}00150\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{include_2manux_2console_8h_a5826d3d4019f3db5bce243517cbdd12f}{consoleAfficherEntier}}(\mbox{\hyperlink{struct__Console}{Console}}\ *\ cons,\ \textcolor{keywordtype}{int}\ n);}
+\DoxyCodeLine{\Hypertarget{include_2manux_2console_8h_source_l00151}00151\ }
+\DoxyCodeLine{\Hypertarget{include_2manux_2console_8h_source_l00152}00152\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{include_2manux_2console_8h_source_l00153}00153\ \textcolor{comment}{\ *\ Affichage\ d'un\ entier\ sur\ la\ console.\ En\ hexa\ sur\ le\ nbre\ d'octets}}
+\DoxyCodeLine{\Hypertarget{include_2manux_2console_8h_source_l00154}00154\ \textcolor{comment}{\ *\ voulu.}}
+\DoxyCodeLine{\Hypertarget{include_2manux_2console_8h_source_l00155}00155\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{include_2manux_2console_8h_source_l00156}\mbox{\hyperlink{include_2manux_2console_8h_a2bdec29eb3d973446be873defbdff3a5}{00156}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{include_2manux_2console_8h_a2bdec29eb3d973446be873defbdff3a5}{consoleAfficherRegistre}}(\mbox{\hyperlink{struct__Console}{Console}}\ *\ cons,\ \textcolor{keywordtype}{int}\ nbOctets,\ \textcolor{keywordtype}{int}\ reg);}
+\DoxyCodeLine{\Hypertarget{include_2manux_2console_8h_source_l00157}00157\ }
+\DoxyCodeLine{\Hypertarget{include_2manux_2console_8h_source_l00161}00161\ \mbox{\hyperlink{struct__Console}{Console}}\ *\ \mbox{\hyperlink{include_2manux_2console_8h_abf2f6aca15463bf0f0114531cea39f15}{consoleNoyau}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{include_2manux_2console_8h_source_l00162}00162\ }
+\DoxyCodeLine{\Hypertarget{include_2manux_2console_8h_source_l00163}00163\ \textcolor{preprocessor}{\#ifdef\ MANUX\_CLAVIER\_CONSOLE}}
+\DoxyCodeLine{\Hypertarget{include_2manux_2console_8h_source_l00167}00167\ \textcolor{keywordtype}{int}\ consoleLire(\mbox{\hyperlink{struct__Console}{Console}}\ *\ cons,\ \textcolor{keywordtype}{void}\ *\ buffer,\ \textcolor{keywordtype}{int}\ nbOctets);}
+\DoxyCodeLine{\Hypertarget{include_2manux_2console_8h_source_l00168}00168\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{include_2manux_2console_8h_source_l00169}00169\ }
+\DoxyCodeLine{\Hypertarget{include_2manux_2console_8h_source_l00170}00170\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{include_2manux_2console_8h_source_l00171}00171\ \textcolor{comment}{\ *\ La\ notion\ de\ console\ virtuelle\ permet\ de\ gérer\ plusieurs\ affichages}}
+\DoxyCodeLine{\Hypertarget{include_2manux_2console_8h_source_l00172}00172\ \textcolor{comment}{\ *\ disjoints.\ Chaque\ console\ est\ donc\ gérée\ indépendemment\ des\ autres.}}
+\DoxyCodeLine{\Hypertarget{include_2manux_2console_8h_source_l00173}00173\ \textcolor{comment}{\ *\ Une\ seule\ est\ affichée\ à\ l'écran\ à\ un\ instant\ t.}}
+\DoxyCodeLine{\Hypertarget{include_2manux_2console_8h_source_l00174}00174\ \textcolor{comment}{\ *\ Les\ consoles\ sont\ stoquées\ dans\ un\ tableau\ et\ repérées\ par\ leur}}
+\DoxyCodeLine{\Hypertarget{include_2manux_2console_8h_source_l00175}00175\ \textcolor{comment}{\ *\ indice\ dans\ ce\ tableau.}}
+\DoxyCodeLine{\Hypertarget{include_2manux_2console_8h_source_l00176}00176\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{include_2manux_2console_8h_source_l00177}00177\ \textcolor{preprocessor}{\#ifdef\ MANUX\_CONSOLES\_VIRTUELLES}}
+\DoxyCodeLine{\Hypertarget{include_2manux_2console_8h_source_l00178}00178\ }
+\DoxyCodeLine{\Hypertarget{include_2manux_2console_8h_source_l00182}00182\ \mbox{\hyperlink{struct__Console}{Console}}\ *\ creerConsoleVirtuelle(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{include_2manux_2console_8h_source_l00183}00183\ }
+\DoxyCodeLine{\Hypertarget{include_2manux_2console_8h_source_l00184}00184\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{include_2manux_2console_8h_source_l00185}00185\ \textcolor{comment}{\ *\ Pointeur\ vers\ la\ console\ active}}
+\DoxyCodeLine{\Hypertarget{include_2manux_2console_8h_source_l00186}00186\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{include_2manux_2console_8h_source_l00187}00187\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{struct__Console}{Console}}\ *\ consoleActive;}
+\DoxyCodeLine{\Hypertarget{include_2manux_2console_8h_source_l00188}00188\ }
+\DoxyCodeLine{\Hypertarget{include_2manux_2console_8h_source_l00189}00189\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{include_2manux_2console_8h_source_l00190}00190\ \textcolor{comment}{\ *\ Forcer\ l'apparition\ d'une\ console\ à\ l'écran}}
+\DoxyCodeLine{\Hypertarget{include_2manux_2console_8h_source_l00191}00191\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{include_2manux_2console_8h_source_l00192}00192\ \textcolor{keywordtype}{void}\ basculerVersConsole(\mbox{\hyperlink{struct__Console}{Console}}\ *\ cons);}
+\DoxyCodeLine{\Hypertarget{include_2manux_2console_8h_source_l00193}00193\ }
+\DoxyCodeLine{\Hypertarget{include_2manux_2console_8h_source_l00194}00194\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{include_2manux_2console_8h_source_l00195}00195\ \textcolor{comment}{\ *\ Basculer\ vers\ la\ prochaine\ console\ virtuelle}}
+\DoxyCodeLine{\Hypertarget{include_2manux_2console_8h_source_l00196}00196\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{include_2manux_2console_8h_source_l00197}00197\ \textcolor{keywordtype}{void}\ basculerVersConsoleSuivante(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{include_2manux_2console_8h_source_l00198}00198\ }
+\DoxyCodeLine{\Hypertarget{include_2manux_2console_8h_source_l00199}00199\ \textcolor{preprocessor}{\#endif\ \ }\textcolor{comment}{//\ MANUX\_CONSOLES\_VIRTUELLES}}
+\DoxyCodeLine{\Hypertarget{include_2manux_2console_8h_source_l00200}00200\ }
+\DoxyCodeLine{\Hypertarget{include_2manux_2console_8h_source_l00201}00201\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{include_2manux_2console_8h_source_l00202}00202\ \textcolor{comment}{\ *\ Écriture\ sur\ une\ console}}
+\DoxyCodeLine{\Hypertarget{include_2manux_2console_8h_source_l00203}00203\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{include_2manux_2console_8h_source_l00204}\mbox{\hyperlink{include_2manux_2console_8h_ab013551f90e5a40b4626b103995364da}{00204}}\ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{include_2manux_2console_8h_ab013551f90e5a40b4626b103995364da}{consoleEcrire}}(\mbox{\hyperlink{struct__Fichier}{Fichier}}\ *\ f,\ \textcolor{keywordtype}{void}\ *\ buffer,\ \textcolor{keywordtype}{size\_t}\ nbOctets);}
+\DoxyCodeLine{\Hypertarget{include_2manux_2console_8h_source_l00205}00205\ }
+\DoxyCodeLine{\Hypertarget{include_2manux_2console_8h_source_l00206}00206\ \textcolor{preprocessor}{\#ifdef\ MANUX\_APPELS\_SYSTEME}}
+\DoxyCodeLine{\Hypertarget{include_2manux_2console_8h_source_l00207}00207\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{include_2manux_2console_8h_source_l00208}00208\ \textcolor{comment}{\ *\ La\ fonction\ réalisant\ l'appel\ système\ \ NBAS\_ECRIRE\_CONS\ }}
+\DoxyCodeLine{\Hypertarget{include_2manux_2console_8h_source_l00209}00209\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{include_2manux_2console_8h_source_l00210}00210\ \textcolor{keywordtype}{int}\ sys\_ecrireConsole(\mbox{\hyperlink{struct__ParametreAS}{ParametreAS}}\ as,\ \textcolor{keywordtype}{void}\ *\ msg,\ \textcolor{keywordtype}{int}\ n);}
+\DoxyCodeLine{\Hypertarget{include_2manux_2console_8h_source_l00211}00211\ }
+\DoxyCodeLine{\Hypertarget{include_2manux_2console_8h_source_l00212}00212\ \textcolor{preprocessor}{\#endif\ \ }\textcolor{comment}{//\ MANUX\_APPELS\_SYSTEME}}
+\DoxyCodeLine{\Hypertarget{include_2manux_2console_8h_source_l00213}00213\ }
+\DoxyCodeLine{\Hypertarget{include_2manux_2console_8h_source_l00214}00214\ \textcolor{preprocessor}{\#endif\ }}
+
+\end{DoxyCode}

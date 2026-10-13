@@ -1,8 +1,8 @@
-/*----------------------------------------------------------------------------*/
-/*      Définition des taches de ManuX-32.                                    */
-/*                                                                            */
-/*                                     (C) Manu Chaput 2000, 2001, 2002, 2003 */
-/*----------------------------------------------------------------------------*/
+/**
+ *      Définition des taches de ManuX-32.
+ *
+ *                                                     (C) Manu Chaput 2000-2026
+ **/
 #ifndef TACHES_DEF
 #define TACHES_DEF
 
@@ -15,7 +15,7 @@
 
 #ifdef MANUX_APPELS_SYSTEME
 #   include  <manux/appelsysteme.h>
-#endif
+#endif // MANUX_APPELS_SYSTEME
 
 /*
  * Taille de la Local Descriptor Table de chaque tâche
@@ -35,7 +35,7 @@ typedef enum _EtatTache {
 /*
  * Définition du type du "main" d'une nouvelle tâche
  */
-typedef void (CorpsTache());
+typedef void (CorpsTache(void));
 
 /*
  * Définition de la structure TSS (Task State Segment)
@@ -108,7 +108,6 @@ typedef struct _Tache {
    uint32_t           nbAppelsSystemeIn[NB_MAX_APPELS_SYSTEME]; //< Décompte du nombre d'AS
    uint32_t           nbAppelsSystemeOut[NB_MAX_APPELS_SYSTEME]; //< Décompte du nombre d'AS
 #endif
-
   
 } Tache;
 
@@ -139,7 +138,7 @@ void basculerVersTache(Tache * tache);
  * Exécuter une tâche. A l'utilisation exclusive du scheduler
  */
 
-TacheID sysFork();
+TacheID sysFork(void);
 /*
  * Implantation de l'appel système fork
  */
@@ -155,5 +154,15 @@ TacheID sysFork();
  */
 int tacheAjouterFichiers(Tache * tache, int n, Fichier * fichiers[], int * fds);
 #endif
+
+/**
+ * @brief Affichage de l'état d'une tâche à des fins de debug
+ */
+void afficherEtatUneTache(Tache * tache);
+
+/**
+ * @brief Affichage des tâches
+ */
+void afficherEtatTaches(void);
 
 #endif

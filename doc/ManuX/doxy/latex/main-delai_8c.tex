@@ -1,0 +1,77 @@
+\doxysection{Référence du fichier /home/manu/\+PROGRAMMATION/\+C/\+Manu\+X/noyau/main-\/delai.c}
+\hypertarget{main-delai_8c}{}\label{main-delai_8c}\index{/home/manu/PROGRAMMATION/C/ManuX/noyau/main-\/delai.c@{/home/manu/PROGRAMMATION/C/ManuX/noyau/main-\/delai.c}}
+{\ttfamily \#include $<$manux/config.\+h$>$}\newline
+{\ttfamily \#include $<$manux/interruptions.\+h$>$}\newline
+{\ttfamily \#include $<$manux/intel-\/8259a.\+h$>$}\newline
+{\ttfamily \#include $<$manux/console.\+h$>$}\newline
+{\ttfamily \#include $<$manux/printk.\+h$>$}\newline
+Graphe des dépendances par inclusion de main-\/delai.c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{main-delai_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{main-delai_8c_a8b33a29316f8f11e0c8506902a1961c5}{NB\+\_\+\+CYCLES}}~10
+\item 
+\#define \mbox{\hyperlink{main-delai_8c_a86ab1b2f6e480654c3eade9dc71da3cb}{NB\+\_\+\+PAUSES}}~500
+\item 
+\#define \mbox{\hyperlink{main-delai_8c_aca79541b7837bc8098b93bf5adeb5a40}{DUREE\+\_\+\+ATTENTE}}~20
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} \mbox{\hyperlink{main-delai_8c_a3568df994044ade7d37160ef731c223f}{start\+ManuX}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Documentation des macros}
+\Hypertarget{main-delai_8c_aca79541b7837bc8098b93bf5adeb5a40}\label{main-delai_8c_aca79541b7837bc8098b93bf5adeb5a40} 
+\index{main-\/delai.c@{main-\/delai.c}!DUREE\_ATTENTE@{DUREE\_ATTENTE}}
+\index{DUREE\_ATTENTE@{DUREE\_ATTENTE}!main-\/delai.c@{main-\/delai.c}}
+\doxysubsubsection{\texorpdfstring{DUREE\_ATTENTE}{DUREE\_ATTENTE}}
+{\footnotesize\ttfamily \#define DUREE\+\_\+\+ATTENTE~20}
+
+
+
+Définition à la ligne \mbox{\hyperlink{main-delai_8c_source_l00014}{14}} du fichier \mbox{\hyperlink{main-delai_8c_source}{main-\/delai.\+c}}.
+
+\Hypertarget{main-delai_8c_a8b33a29316f8f11e0c8506902a1961c5}\label{main-delai_8c_a8b33a29316f8f11e0c8506902a1961c5} 
+\index{main-\/delai.c@{main-\/delai.c}!NB\_CYCLES@{NB\_CYCLES}}
+\index{NB\_CYCLES@{NB\_CYCLES}!main-\/delai.c@{main-\/delai.c}}
+\doxysubsubsection{\texorpdfstring{NB\_CYCLES}{NB\_CYCLES}}
+{\footnotesize\ttfamily \#define NB\+\_\+\+CYCLES~10}
+
+Test et calibrage des fonctions de délai. \begin{DoxyVerb}                                           (C) Manu Chaput 2000-2023
+\end{DoxyVerb}
+ 
+
+Définition à la ligne \mbox{\hyperlink{main-delai_8c_source_l00012}{12}} du fichier \mbox{\hyperlink{main-delai_8c_source}{main-\/delai.\+c}}.
+
+\Hypertarget{main-delai_8c_a86ab1b2f6e480654c3eade9dc71da3cb}\label{main-delai_8c_a86ab1b2f6e480654c3eade9dc71da3cb} 
+\index{main-\/delai.c@{main-\/delai.c}!NB\_PAUSES@{NB\_PAUSES}}
+\index{NB\_PAUSES@{NB\_PAUSES}!main-\/delai.c@{main-\/delai.c}}
+\doxysubsubsection{\texorpdfstring{NB\_PAUSES}{NB\_PAUSES}}
+{\footnotesize\ttfamily \#define NB\+\_\+\+PAUSES~500}
+
+
+
+Définition à la ligne \mbox{\hyperlink{main-delai_8c_source_l00013}{13}} du fichier \mbox{\hyperlink{main-delai_8c_source}{main-\/delai.\+c}}.
+
+
+
+\doxysubsection{Documentation des fonctions}
+\Hypertarget{main-delai_8c_a3568df994044ade7d37160ef731c223f}\label{main-delai_8c_a3568df994044ade7d37160ef731c223f} 
+\index{main-\/delai.c@{main-\/delai.c}!startManuX@{startManuX}}
+\index{startManuX@{startManuX}!main-\/delai.c@{main-\/delai.c}}
+\doxysubsubsection{\texorpdfstring{startManuX()}{startManuX()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} start\+ManuX (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}}}]{ }\end{DoxyParamCaption})}
+
+
+
+Définition à la ligne \mbox{\hyperlink{main-delai_8c_source_l00016}{16}} du fichier \mbox{\hyperlink{main-delai_8c_source}{main-\/delai.\+c}}.
+

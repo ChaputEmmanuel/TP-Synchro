@@ -6,6 +6,7 @@
  * La technique utilisée ici est celle des zones siamoises (buddy
  * system)
  */
+#include "manux/printk.h"
 #include <manux/debug.h>        // assert
 #include <manux/memoire.h>
 #include <manux/kmalloc-zs.h>
@@ -55,29 +56,28 @@ uint32_t nbAlloc[MANUX_KMALLOC_ORDRE_MAX+1] = {0};
 uint32_t nbFree[MANUX_KMALLOC_ORDRE_MAX+1] = {0};
 #endif // MANUX_KMALLOC_STAT
 
-void kmallocAfficherStatistiques(char *prefixe)
+void kmallocAfficherStatistiques(void)
 {
     uint16_t ordre;
     enteteBlocMemoire * bloc;
     int nb;
 
-    printk("%s Pages allouees (kmalloc) / total : %d (%d) / %d\n",
-	   prefixe,
+    printkc("Pages allouees (kmalloc) / total : %d (%d) / %d\n",
 	   nombrePagesAllouees(), nbPagesAllouees, nombrePagesTotal());
-    printk("ordre alloc free  blocs\n");
+    printkc("ordre alloc free  blocs\n");
     for (ordre = MANUX_KMALLOC_ORDRE_MIN ; ordre <= MANUX_KMALLOC_ORDRE_MAX; ordre++) {
        nb=0;
        for (bloc = blocsLibres[ordre]; bloc != NULL; bloc = bloc->e.suivant){
           nb++;
        }
-       printk("   %2d  %4d  %4d  %4d\n", ordre, nbAlloc[ordre], nbFree[ordre], nb);
+       printkc("   %2d  %4d  %4d  %4d\n", ordre, nbAlloc[ordre], nbFree[ordre], nb);
     }
 }
 
 /**
  * @brief Initialisation du sytème kmalloc 
  */
-void kmallocInitialisation()
+void kmallocInitialisation(void)
 {
    // Pour le moment, on commence à vide !
 
@@ -107,6 +107,7 @@ static inline uint16_t ordreDe(uint16_t taille)
 /**
  * @brief Découpe d'un bloc d'ordre o en deux blocs d'ordre o-1
  */
+static
 void decouperUnBloc(uint16_t o)
 {
    enteteBlocMemoire * origine = blocsLibres[o];
@@ -206,6 +207,7 @@ void * kmalloc(size_t n)
  * est sorti des blocsLibres). Il n'est pas modifié si le bloc siamois
  * n'est pas libre. Dans tous les cas, il est réintégré.
  */
+static
 void reintegrerBloc(enteteBlocMemoire * bloc)
 {
    uint16_t ordre = bloc->e.alloue.ordre; //< Ordre du bloc à intégrer

@@ -1,0 +1,127 @@
+\doxysection{Référence du fichier /home/manu/\+PROGRAMMATION/\+C/\+Manu\+X/include/config/base.h}
+\hypertarget{base_8h}{}\label{base_8h}\index{/home/manu/PROGRAMMATION/C/ManuX/include/config/base.h@{/home/manu/PROGRAMMATION/C/ManuX/include/config/base.h}}
+
+
+Eléments de base de la configuration.  
+
+
+Ce graphe montre quels fichiers incluent directement ou indirectement ce fichier \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{base_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{base_8h_aaa04a2cbdf99d70127ff5d2eb0b67ef8}{MANUX\+\_\+\+INIT\+\_\+\+MAGIC}}~0x01c0ffee
+\begin{DoxyCompactList}\small\item\em la signature d\textquotesingle{}un chargement par init-\/manux \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{base_8h_aa3594499e1eed61df06d17199e875181}{MANUX\+\_\+\+FICHIER\+\_\+\+MAIN}}~\mbox{\hyperlink{makeconfig_8c_a0ddf1224851353fc92bfbff6f499fa97}{main}}
+\begin{DoxyCompactList}\small\item\em le nom du fichier qui contient \+\_\+start\+Manu\+X() \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{base_8h_a061b8540217c36ef218c1d30d4f9ff2a}{MANUX\+\_\+\+FREQUENCE\+\_\+\+HORLOGE}}~100
+\begin{DoxyCompactList}\small\item\em La fréquence du timer. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{base_8h_af1f07adf33f5e3d7ae6856bdf632e842}{MANUX\+\_\+\+NB\+\_\+\+CYCLES\+\_\+\+CALIBRAGE}}~\mbox{\hyperlink{base_8h_a061b8540217c36ef218c1d30d4f9ff2a}{MANUX\+\_\+\+FREQUENCE\+\_\+\+HORLOGE}}
+\begin{DoxyCompactList}\small\item\em Durée du calibrage des attentes actives en nombre de cycles du timer. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{base_8h_a2ffaf7a8c303ea1e49cdea2e81ce15d7}{MANUX\+\_\+\+ARCH}}~i386
+\begin{DoxyCompactList}\small\item\em Quelle architecture ? \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{base_8h_a06159baf0f2e69d6cfda9f93bfcc2e3b}{NO\+\_\+\+OPTINO\+\_\+\+OPTIMIZE}}~Attention
+\begin{DoxyCompactList}\small\item\em Quelques macros me permettant de tenir compte du compilateur. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Eléments de base de la configuration. 
+
+Il s\textquotesingle{}agit de quelques macros et constantes de base sans conséquence majeure sur la compilation du noyau. Ce ne sont pas des paramètres qui permettent de sélectionner ou même paramétrer les sous-\/systèmes. \begin{DoxyVerb}                                               (C) E. Chaput 2022-2023 
+\end{DoxyVerb}
+ 
+
+Définition dans le fichier \mbox{\hyperlink{base_8h_source}{base.\+h}}.
+
+
+
+\doxysubsection{Documentation des macros}
+\Hypertarget{base_8h_a2ffaf7a8c303ea1e49cdea2e81ce15d7}\label{base_8h_a2ffaf7a8c303ea1e49cdea2e81ce15d7} 
+\index{base.h@{base.h}!MANUX\_ARCH@{MANUX\_ARCH}}
+\index{MANUX\_ARCH@{MANUX\_ARCH}!base.h@{base.h}}
+\doxysubsubsection{\texorpdfstring{MANUX\_ARCH}{MANUX\_ARCH}}
+{\footnotesize\ttfamily \#define MANUX\+\_\+\+ARCH~i386}
+
+
+
+Quelle architecture ? 
+
+Une seule possible pour le moment, mais on peut rêver non ? 
+
+Définition à la ligne \mbox{\hyperlink{base_8h_source_l00052}{52}} du fichier \mbox{\hyperlink{base_8h_source}{base.\+h}}.
+
+\Hypertarget{base_8h_aa3594499e1eed61df06d17199e875181}\label{base_8h_aa3594499e1eed61df06d17199e875181} 
+\index{base.h@{base.h}!MANUX\_FICHIER\_MAIN@{MANUX\_FICHIER\_MAIN}}
+\index{MANUX\_FICHIER\_MAIN@{MANUX\_FICHIER\_MAIN}!base.h@{base.h}}
+\doxysubsubsection{\texorpdfstring{MANUX\_FICHIER\_MAIN}{MANUX\_FICHIER\_MAIN}}
+{\footnotesize\ttfamily \#define MANUX\+\_\+\+FICHIER\+\_\+\+MAIN~\mbox{\hyperlink{makeconfig_8c_a0ddf1224851353fc92bfbff6f499fa97}{main}}}
+
+
+
+le nom du fichier qui contient \+\_\+start\+Manu\+X() 
+
+
+
+Définition à la ligne \mbox{\hyperlink{base_8h_source_l00023}{23}} du fichier \mbox{\hyperlink{base_8h_source}{base.\+h}}.
+
+\Hypertarget{base_8h_a061b8540217c36ef218c1d30d4f9ff2a}\label{base_8h_a061b8540217c36ef218c1d30d4f9ff2a} 
+\index{base.h@{base.h}!MANUX\_FREQUENCE\_HORLOGE@{MANUX\_FREQUENCE\_HORLOGE}}
+\index{MANUX\_FREQUENCE\_HORLOGE@{MANUX\_FREQUENCE\_HORLOGE}!base.h@{base.h}}
+\doxysubsubsection{\texorpdfstring{MANUX\_FREQUENCE\_HORLOGE}{MANUX\_FREQUENCE\_HORLOGE}}
+{\footnotesize\ttfamily \#define MANUX\+\_\+\+FREQUENCE\+\_\+\+HORLOGE~100}
+
+
+
+La fréquence du timer. 
+
+
+
+Définition à la ligne \mbox{\hyperlink{base_8h_source_l00030}{30}} du fichier \mbox{\hyperlink{base_8h_source}{base.\+h}}.
+
+\Hypertarget{base_8h_aaa04a2cbdf99d70127ff5d2eb0b67ef8}\label{base_8h_aaa04a2cbdf99d70127ff5d2eb0b67ef8} 
+\index{base.h@{base.h}!MANUX\_INIT\_MAGIC@{MANUX\_INIT\_MAGIC}}
+\index{MANUX\_INIT\_MAGIC@{MANUX\_INIT\_MAGIC}!base.h@{base.h}}
+\doxysubsubsection{\texorpdfstring{MANUX\_INIT\_MAGIC}{MANUX\_INIT\_MAGIC}}
+{\footnotesize\ttfamily \#define MANUX\+\_\+\+INIT\+\_\+\+MAGIC~0x01c0ffee}
+
+
+
+la signature d\textquotesingle{}un chargement par init-\/manux 
+
+
+
+Définition à la ligne \mbox{\hyperlink{base_8h_source_l00016}{16}} du fichier \mbox{\hyperlink{base_8h_source}{base.\+h}}.
+
+\Hypertarget{base_8h_af1f07adf33f5e3d7ae6856bdf632e842}\label{base_8h_af1f07adf33f5e3d7ae6856bdf632e842} 
+\index{base.h@{base.h}!MANUX\_NB\_CYCLES\_CALIBRAGE@{MANUX\_NB\_CYCLES\_CALIBRAGE}}
+\index{MANUX\_NB\_CYCLES\_CALIBRAGE@{MANUX\_NB\_CYCLES\_CALIBRAGE}!base.h@{base.h}}
+\doxysubsubsection{\texorpdfstring{MANUX\_NB\_CYCLES\_CALIBRAGE}{MANUX\_NB\_CYCLES\_CALIBRAGE}}
+{\footnotesize\ttfamily \#define MANUX\+\_\+\+NB\+\_\+\+CYCLES\+\_\+\+CALIBRAGE~\mbox{\hyperlink{base_8h_a061b8540217c36ef218c1d30d4f9ff2a}{MANUX\+\_\+\+FREQUENCE\+\_\+\+HORLOGE}}}
+
+
+
+Durée du calibrage des attentes actives en nombre de cycles du timer. 
+
+La valeur MANUX\+\_\+\+FREQUENCE\+\_\+\+HORLOGE conduit donc à un calibrage sur une seconde. Attention, on fait une boucle sur un uint32\+\_\+t donc il faut s\textquotesingle{}assurer de ne pas dépasser 2\texorpdfstring{$^\wedge$}{\string^}32 ! 
+
+Définition à la ligne \mbox{\hyperlink{base_8h_source_l00043}{43}} du fichier \mbox{\hyperlink{base_8h_source}{base.\+h}}.
+
+\Hypertarget{base_8h_a06159baf0f2e69d6cfda9f93bfcc2e3b}\label{base_8h_a06159baf0f2e69d6cfda9f93bfcc2e3b} 
+\index{base.h@{base.h}!NO\_OPTINO\_OPTIMIZE@{NO\_OPTINO\_OPTIMIZE}}
+\index{NO\_OPTINO\_OPTIMIZE@{NO\_OPTINO\_OPTIMIZE}!base.h@{base.h}}
+\doxysubsubsection{\texorpdfstring{NO\_OPTINO\_OPTIMIZE}{NO\_OPTINO\_OPTIMIZE}}
+{\footnotesize\ttfamily \#define NO\+\_\+\+OPTINO\+\_\+\+OPTIMIZE~Attention}
+
+
+
+Quelques macros me permettant de tenir compte du compilateur. 
+
+
+
+Définition à la ligne \mbox{\hyperlink{base_8h_source_l00063}{63}} du fichier \mbox{\hyperlink{base_8h_source}{base.\+h}}.
+

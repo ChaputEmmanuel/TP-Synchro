@@ -1,0 +1,88 @@
+\doxysection{Référence du fichier /home/manu/\+PROGRAMMATION/\+C/\+Manu\+X/include/manux/clavier.h}
+\hypertarget{manux_2clavier_8h}{}\label{manux_2clavier_8h}\index{/home/manu/PROGRAMMATION/C/ManuX/include/manux/clavier.h@{/home/manu/PROGRAMMATION/C/ManuX/include/manux/clavier.h}}
+Ce graphe montre quels fichiers incluent directement ou indirectement ce fichier \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{manux_2clavier_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{manux_2clavier_8h_acb5c861fcc9735048eca33e89bdd5f00}{port\+Donnees\+Clavier}}~0x60
+\item 
+\#define \mbox{\hyperlink{manux_2clavier_8h_aff224d719b2cf928aa1cf16a843707cd}{port\+Cmd\+Clavier}}~0x64
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} \mbox{\hyperlink{manux_2clavier_8h_adeb7648f2d16a4967670148c998f83cc}{initialiser\+Clavier}} (\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}})
+\item 
+\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} \mbox{\hyperlink{manux_2clavier_8h_a21c527b97e8566026400521d3d06ac44}{handler\+Clavier}} (\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} \texorpdfstring{$\ast$}{*}toto)
+\begin{DoxyCompactList}\small\item\em Le handler du clavier. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{manux_2clavier_8h_a1da0a2006b6103711091a36da1113337}{touche\+Touche}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Documentation des macros}
+\Hypertarget{manux_2clavier_8h_aff224d719b2cf928aa1cf16a843707cd}\label{manux_2clavier_8h_aff224d719b2cf928aa1cf16a843707cd} 
+\index{clavier.h@{clavier.h}!portCmdClavier@{portCmdClavier}}
+\index{portCmdClavier@{portCmdClavier}!clavier.h@{clavier.h}}
+\doxysubsubsection{\texorpdfstring{portCmdClavier}{portCmdClavier}}
+{\footnotesize\ttfamily \#define port\+Cmd\+Clavier~0x64}
+
+
+
+Définition à la ligne \mbox{\hyperlink{manux_2clavier_8h_source_l00012}{12}} du fichier \mbox{\hyperlink{manux_2clavier_8h_source}{clavier.\+h}}.
+
+\Hypertarget{manux_2clavier_8h_acb5c861fcc9735048eca33e89bdd5f00}\label{manux_2clavier_8h_acb5c861fcc9735048eca33e89bdd5f00} 
+\index{clavier.h@{clavier.h}!portDonneesClavier@{portDonneesClavier}}
+\index{portDonneesClavier@{portDonneesClavier}!clavier.h@{clavier.h}}
+\doxysubsubsection{\texorpdfstring{portDonneesClavier}{portDonneesClavier}}
+{\footnotesize\ttfamily \#define port\+Donnees\+Clavier~0x60}
+
+
+
+Définition à la ligne \mbox{\hyperlink{manux_2clavier_8h_source_l00011}{11}} du fichier \mbox{\hyperlink{manux_2clavier_8h_source}{clavier.\+h}}.
+
+
+
+\doxysubsection{Documentation des fonctions}
+\Hypertarget{manux_2clavier_8h_a21c527b97e8566026400521d3d06ac44}\label{manux_2clavier_8h_a21c527b97e8566026400521d3d06ac44} 
+\index{clavier.h@{clavier.h}!handlerClavier@{handlerClavier}}
+\index{handlerClavier@{handlerClavier}!clavier.h@{clavier.h}}
+\doxysubsubsection{\texorpdfstring{handlerClavier()}{handlerClavier()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} handler\+Clavier (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} \texorpdfstring{$\ast$}{*}}]{toto }\end{DoxyParamCaption})}
+
+
+
+Le handler du clavier. 
+
+Il n\textquotesingle{}a pas besoin de paramètre, mais il respecte la signature. 
+
+Définition à la ligne \mbox{\hyperlink{clavier_8c_source_l00064}{64}} du fichier \mbox{\hyperlink{clavier_8c_source}{clavier.\+c}}.
+
+\Hypertarget{manux_2clavier_8h_adeb7648f2d16a4967670148c998f83cc}\label{manux_2clavier_8h_adeb7648f2d16a4967670148c998f83cc} 
+\index{clavier.h@{clavier.h}!initialiserClavier@{initialiserClavier}}
+\index{initialiserClavier@{initialiserClavier}!clavier.h@{clavier.h}}
+\doxysubsubsection{\texorpdfstring{initialiserClavier()}{initialiserClavier()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} initialiser\+Clavier (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}}}]{ }\end{DoxyParamCaption})}
+
+
+
+Définition à la ligne \mbox{\hyperlink{clavier_8c_source_l00028}{28}} du fichier \mbox{\hyperlink{clavier_8c_source}{clavier.\+c}}.
+
+
+
+\doxysubsection{Documentation des variables}
+\Hypertarget{manux_2clavier_8h_a1da0a2006b6103711091a36da1113337}\label{manux_2clavier_8h_a1da0a2006b6103711091a36da1113337} 
+\index{clavier.h@{clavier.h}!toucheTouche@{toucheTouche}}
+\index{toucheTouche@{toucheTouche}!clavier.h@{clavier.h}}
+\doxysubsubsection{\texorpdfstring{toucheTouche}{toucheTouche}}
+{\footnotesize\ttfamily int touche\+Touche\hspace{0.3cm}{\ttfamily [extern]}}
+

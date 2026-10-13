@@ -1,0 +1,121 @@
+\doxysection{debug.\+h}
+\hypertarget{manux_2debug_8h_source}{}\label{manux_2debug_8h_source}\index{/home/manu/PROGRAMMATION/C/ManuX/include/manux/debug.h@{/home/manu/PROGRAMMATION/C/ManuX/include/manux/debug.h}}
+\mbox{\hyperlink{manux_2debug_8h}{Aller à la documentation de ce fichier.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{manux_2debug_8h_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{manux_2debug_8h_source_l00006}00006\ \textcolor{preprocessor}{\#ifndef\ MANUX\_DEBUG\_DEF}}
+\DoxyCodeLine{\Hypertarget{manux_2debug_8h_source_l00007}00007\ \textcolor{preprocessor}{\#define\ MANUX\_DEBUG\_DEF}}
+\DoxyCodeLine{\Hypertarget{manux_2debug_8h_source_l00008}00008\ }
+\DoxyCodeLine{\Hypertarget{manux_2debug_8h_source_l00009}00009\ \textcolor{preprocessor}{\#include\ <manux/config.h>}}
+\DoxyCodeLine{\Hypertarget{manux_2debug_8h_source_l00010}00010\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{include_2manux_2printk_8h}{manux/printk.h}}>}}
+\DoxyCodeLine{\Hypertarget{manux_2debug_8h_source_l00011}00011\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{include_2manux_2stdarg_8h}{manux/stdarg.h}}>}}
+\DoxyCodeLine{\Hypertarget{manux_2debug_8h_source_l00012}00012\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{scheduler_8h}{manux/scheduler.h}}>}\ \ \ \ \ \textcolor{comment}{//\ tacheEnCours}}
+\DoxyCodeLine{\Hypertarget{manux_2debug_8h_source_l00013}00013\ \textcolor{preprocessor}{\#ifdef\ MANUX\_LIBI386}}
+\DoxyCodeLine{\Hypertarget{manux_2debug_8h_source_l00014}00014\ \textcolor{preprocessor}{\#\ \ \ include\ <manux/i386.h>}\ \ \ \ \ \ \ \textcolor{comment}{//\ halt()}}
+\DoxyCodeLine{\Hypertarget{manux_2debug_8h_source_l00015}00015\ \textcolor{preprocessor}{\#\ \ \ include\ <\mbox{\hyperlink{horloge_8h}{manux/horloge.h}}>}\ \ \ \ \textcolor{comment}{//\ nbTopHorloge}}
+\DoxyCodeLine{\Hypertarget{manux_2debug_8h_source_l00016}00016\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{manux_2debug_8h_source_l00017}00017\ }
+\DoxyCodeLine{\Hypertarget{manux_2debug_8h_source_l00021}\mbox{\hyperlink{manux_2debug_8h_a933578e200c6ac638f6471f042e7ffc0}{00021}}\ \textcolor{preprocessor}{\#define\ DBG\_KERNEL\_ERREUR\ \ \ \ \ 0x00000001}}
+\DoxyCodeLine{\Hypertarget{manux_2debug_8h_source_l00022}\mbox{\hyperlink{manux_2debug_8h_a97cb921ecb429c2c4c3755b2ca69364b}{00022}}\ \textcolor{preprocessor}{\#define\ DBG\_KERNEL\_START\ \ \ \ \ \ 0x00000002}}
+\DoxyCodeLine{\Hypertarget{manux_2debug_8h_source_l00023}\mbox{\hyperlink{manux_2debug_8h_a93c46e022e34a6b4c0812315c026e836}{00023}}\ \textcolor{preprocessor}{\#define\ DBG\_KERNEL\_PAGIN\ \ \ \ \ \ 0x00000004}}
+\DoxyCodeLine{\Hypertarget{manux_2debug_8h_source_l00024}\mbox{\hyperlink{manux_2debug_8h_a69ed878fe38be7f569a44a0d85138ed6}{00024}}\ \textcolor{preprocessor}{\#define\ DBG\_KERNEL\_SYSFI\ \ \ \ \ \ 0x00000008}}
+\DoxyCodeLine{\Hypertarget{manux_2debug_8h_source_l00025}\mbox{\hyperlink{manux_2debug_8h_ab3bd37bd2b7bb8ec9ae73d8a607a6d56}{00025}}\ \textcolor{preprocessor}{\#define\ DBG\_KERNEL\_ORDON\ \ \ \ \ \ 0x00000010}}
+\DoxyCodeLine{\Hypertarget{manux_2debug_8h_source_l00026}\mbox{\hyperlink{manux_2debug_8h_a19609f5d9c6bdc24183e02a0ee4a7e96}{00026}}\ \textcolor{preprocessor}{\#define\ DBG\_KERNEL\_TACHE\ \ \ \ \ \ 0x00000020}}
+\DoxyCodeLine{\Hypertarget{manux_2debug_8h_source_l00027}\mbox{\hyperlink{manux_2debug_8h_a792aa769935a581bc10439a92a648b6b}{00027}}\ \textcolor{preprocessor}{\#define\ DBG\_KERNEL\_MEMOIRE\ \ \ \ 0x00000040}}
+\DoxyCodeLine{\Hypertarget{manux_2debug_8h_source_l00028}\mbox{\hyperlink{manux_2debug_8h_afa34597e6ec0f2fec225c45b6408daf9}{00028}}\ \textcolor{preprocessor}{\#define\ DBG\_KERNEL\_AS\ \ \ \ \ \ \ \ \ 0x00000080}}
+\DoxyCodeLine{\Hypertarget{manux_2debug_8h_source_l00029}\mbox{\hyperlink{manux_2debug_8h_a52bf70fba6e2076903fb1be25cfc90c8}{00029}}\ \textcolor{preprocessor}{\#define\ DBG\_KERNEL\_PCI\ \ \ \ \ \ \ \ 0x00000100}}
+\DoxyCodeLine{\Hypertarget{manux_2debug_8h_source_l00030}\mbox{\hyperlink{manux_2debug_8h_a4f02878f8fb72005eddf2027f869557d}{00030}}\ \textcolor{preprocessor}{\#define\ DBG\_KERNEL\_NET\ \ \ \ \ \ \ \ 0x00000200}}
+\DoxyCodeLine{\Hypertarget{manux_2debug_8h_source_l00031}\mbox{\hyperlink{manux_2debug_8h_a75f152fead74e7da11622606d11d4a96}{00031}}\ \textcolor{preprocessor}{\#define\ DBG\_KERNEL\_VIRTIO\ \ \ \ \ 0x00000400}}
+\DoxyCodeLine{\Hypertarget{manux_2debug_8h_source_l00032}\mbox{\hyperlink{manux_2debug_8h_a8d713d223ce338433fb2b615c5c7bc70}{00032}}\ \textcolor{preprocessor}{\#define\ DBG\_KERNEL\_A\_FAIRE\ \ \ \ 0x00000800}}
+\DoxyCodeLine{\Hypertarget{manux_2debug_8h_source_l00033}\mbox{\hyperlink{manux_2debug_8h_adc079ad5469c49710c9f8cc16a9fb223}{00033}}\ \textcolor{preprocessor}{\#define\ DBG\_KERNEL\_BOOTLOADER\ 0x00001000}}
+\DoxyCodeLine{\Hypertarget{manux_2debug_8h_source_l00034}\mbox{\hyperlink{manux_2debug_8h_a3e470f6becdc852f2d733ca0ee8cb8f1}{00034}}\ \textcolor{preprocessor}{\#define\ DBG\_KERNEL\_TUBE\ \ \ \ \ \ \ 0x00002000}}
+\DoxyCodeLine{\Hypertarget{manux_2debug_8h_source_l00035}\mbox{\hyperlink{manux_2debug_8h_a23325f5502b0b95faca503a28b1d5e77}{00035}}\ \textcolor{preprocessor}{\#define\ DBG\_KERNEL\_REGISTRE\ \ \ 0x00004000}}
+\DoxyCodeLine{\Hypertarget{manux_2debug_8h_source_l00036}\mbox{\hyperlink{manux_2debug_8h_a1f680c236714b6616b9b635455d849b5}{00036}}\ \textcolor{preprocessor}{\#define\ DBG\_KERNEL\_ALL\ \ \ \ \ \ \ \ 0xFFFFFFFF}}
+\DoxyCodeLine{\Hypertarget{manux_2debug_8h_source_l00037}00037\ }
+\DoxyCodeLine{\Hypertarget{manux_2debug_8h_source_l00041}\mbox{\hyperlink{manux_2debug_8h_a0aa3be7488358b17c7ecf87f67fc820d}{00041}}\ \textcolor{preprocessor}{\#define\ \_masqueDebugageConsole\ (0x00000000\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{manux_2debug_8h_source_l00042}00042\ \textcolor{preprocessor}{\ |\ DBG\_KERNEL\_ERREUR\ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{manux_2debug_8h_source_l00043}00043\ \textcolor{preprocessor}{\ |\ DBG\_KERNEL\_START\ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{manux_2debug_8h_source_l00044}00044\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ )}}
+\DoxyCodeLine{\Hypertarget{manux_2debug_8h_source_l00045}\mbox{\hyperlink{manux_2debug_8h_a5da5b3d524cfe49bc2f1799b70c2ef44}{00045}}\ \textcolor{preprocessor}{\#\ define\ \_masqueDebugageFichier\ (0x00000000\(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{manux_2debug_8h_source_l00046}00046\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ )}}
+\DoxyCodeLine{\Hypertarget{manux_2debug_8h_source_l00052}00052\ \textcolor{preprocessor}{\#ifdef\ MANUX\_DEBUGMASK\_VAR}}
+\DoxyCodeLine{\Hypertarget{manux_2debug_8h_source_l00053}00053\ \ \ \ \textcolor{keyword}{extern}\ \mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\_t}}\ \mbox{\hyperlink{manux_2debug_8h_a895b956a2419f199f255ee6542ed1f2d}{masqueDebugageConsole}};}
+\DoxyCodeLine{\Hypertarget{manux_2debug_8h_source_l00054}00054\ \ \ \ \textcolor{keyword}{extern}\ \mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\_t}}\ \mbox{\hyperlink{manux_2debug_8h_a4f75a22599327492938e80d95d6e7805}{masqueDebugageFichier}};}
+\DoxyCodeLine{\Hypertarget{manux_2debug_8h_source_l00055}00055\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{\Hypertarget{manux_2debug_8h_source_l00056}\mbox{\hyperlink{manux_2debug_8h_a895b956a2419f199f255ee6542ed1f2d}{00056}}\ \textcolor{preprocessor}{\#\ \ \ define\ masqueDebugageConsole\ \_masqueDebugageConsole\ }}
+\DoxyCodeLine{\Hypertarget{manux_2debug_8h_source_l00057}\mbox{\hyperlink{manux_2debug_8h_a4f75a22599327492938e80d95d6e7805}{00057}}\ \textcolor{preprocessor}{\#\ \ \ define\ masqueDebugageFichier\ \_masqueDebugageFichier\ }}
+\DoxyCodeLine{\Hypertarget{manux_2debug_8h_source_l00058}00058\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ MANUX\_DEBUGMASK\_VAR}}
+\DoxyCodeLine{\Hypertarget{manux_2debug_8h_source_l00059}00059\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{manux_2debug_8h_source_l00060}00060\ \textcolor{comment}{\ |\ DBG\_KERNEL\_ERREUR\ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{manux_2debug_8h_source_l00061}00061\ \textcolor{comment}{\ |\ DBG\_KERNEL\_START\ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{manux_2debug_8h_source_l00062}00062\ \textcolor{comment}{\ |\ DBG\_KERNEL\_PAGIN\ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{manux_2debug_8h_source_l00063}00063\ \textcolor{comment}{\ |\ DBG\_KERNEL\_MEMOIRE\ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{manux_2debug_8h_source_l00064}00064\ \textcolor{comment}{\ |\ DBG\_KERNEL\_TACHE\ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{manux_2debug_8h_source_l00065}00065\ \textcolor{comment}{\ |\ DBG\_KERNEL\_ORDON\ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{manux_2debug_8h_source_l00066}00066\ \textcolor{comment}{\ |\ DBG\_KERNEL\_ALL\ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{manux_2debug_8h_source_l00067}00067\ \textcolor{comment}{\ |\ DBG\_KERNEL\_AS\ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{manux_2debug_8h_source_l00068}00068\ \textcolor{comment}{\ |\ DBG\_KERNEL\_SYSFI\ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{manux_2debug_8h_source_l00069}00069\ \textcolor{comment}{\ |\ DBG\_KERNEL\_BOOTLOADER\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{manux_2debug_8h_source_l00070}00070\ \textcolor{comment}{\ |\ DBG\_KERNEL\_TUBE\ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{manux_2debug_8h_source_l00071}00071\ \textcolor{comment}{\ |\ DBG\_KERNEL\_VIRTIO\ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{manux_2debug_8h_source_l00072}00072\ \textcolor{comment}{\ |\ DBG\_KERNEL\_NET\ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{manux_2debug_8h_source_l00073}00073\ \textcolor{comment}{\ |\ DBG\_KERNEL\_REGISTRE\ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{manux_2debug_8h_source_l00074}00074\ \textcolor{comment}{*/}}
+\DoxyCodeLine{\Hypertarget{manux_2debug_8h_source_l00075}00075\ }
+\DoxyCodeLine{\Hypertarget{manux_2debug_8h_source_l00080}00080\ \textcolor{preprocessor}{\#ifdef\ MANUX\_LIBI386\ \ }\textcolor{comment}{//\ pour\ les\ tops\ horloge}}
+\DoxyCodeLine{\Hypertarget{manux_2debug_8h_source_l00081}00081\ \textcolor{preprocessor}{\#define\ printk\_debug(lvl,\ fmt,\ args...)\ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{manux_2debug_8h_source_l00082}00082\ \textcolor{preprocessor}{\ \ \ if\ (((lvl)\&\ masqueDebugageConsole)\ \&\&\ ((lvl)\&\ masqueDebugageFichier))\ \{\ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{manux_2debug_8h_source_l00083}00083\ \textcolor{preprocessor}{\ \ \ \ \ \ printk("{}\{7\}\ [\%d]\ \%s\ line\ \%d\ :\ "{}\ fmt,\ nbTopHorloge,\ \_\_FUNCTION\_\_\ ,\ \_\_LINE\_\_,\ \#\#\ args);\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{manux_2debug_8h_source_l00084}00084\ \textcolor{preprocessor}{\ \ \ \}\ else\ if\ ((lvl)\&\ masqueDebugageFichier)\ \{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{manux_2debug_8h_source_l00085}00085\ \textcolor{preprocessor}{\ \ \ \ \ \ printk("{}(7)\ [\%d]\ \%s\ line\ \%d\ :\ "{}\ fmt,\ nbTopHorloge,\ \_\_FUNCTION\_\_\ ,\ \_\_LINE\_\_,\ \#\#\ args);\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{manux_2debug_8h_source_l00086}00086\ \textcolor{preprocessor}{\ \ \ \}\ else\ if\ ((lvl)\&\ masqueDebugageConsole)\ \{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{manux_2debug_8h_source_l00087}00087\ \textcolor{preprocessor}{\ \ \ \ \ \ printk("{}[7]\ [\%d]\ \%s\ line\ \%d\ :\ "{}\ fmt,\ nbTopHorloge,\ \_\_FUNCTION\_\_\ ,\ \_\_LINE\_\_,\ \#\#\ args);\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{manux_2debug_8h_source_l00088}00088\ \textcolor{preprocessor}{\ \ \ \}}}
+\DoxyCodeLine{\Hypertarget{manux_2debug_8h_source_l00089}00089\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{\Hypertarget{manux_2debug_8h_source_l00090}\mbox{\hyperlink{manux_2debug_8h_ad4cabea5084373436d91b5dc4e8d0a49}{00090}}\ \textcolor{preprocessor}{\#define\ printk\_debug(lvl,\ fmt,\ args...)\ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{manux_2debug_8h_source_l00091}00091\ \textcolor{preprocessor}{\ \ \ if\ (((lvl)\&\ masqueDebugageConsole)\ \&\&\ ((lvl)\&\ masqueDebugageFichier))\ \{\ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{manux_2debug_8h_source_l00092}00092\ \textcolor{preprocessor}{\ \ \ \ \ \ printk("{}\{7\}\ \%s\ line\ \%d\ :\ "{}\ fmt,\ \_\_FUNCTION\_\_\ ,\ \_\_LINE\_\_,\ \#\#\ args);\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{manux_2debug_8h_source_l00093}00093\ \textcolor{preprocessor}{\ \ \ \}\ else\ if\ ((lvl)\&\ masqueDebugageFichier)\ \{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{manux_2debug_8h_source_l00094}00094\ \textcolor{preprocessor}{\ \ \ \ \ \ printk("{}(7)\ \%s\ line\ \%d\ :\ "{}\ fmt,\ \_\_FUNCTION\_\_\ ,\ \_\_LINE\_\_,\ \#\#\ args);\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{manux_2debug_8h_source_l00095}00095\ \textcolor{preprocessor}{\ \ \ \}\ else\ if\ ((lvl)\&\ masqueDebugageConsole)\ \{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{manux_2debug_8h_source_l00096}00096\ \textcolor{preprocessor}{\ \ \ \ \ \ printk("{}[7]\ \%s\ line\ \%d\ :\ "{}\ fmt,\ \_\_FUNCTION\_\_\ ,\ \_\_LINE\_\_,\ \#\#\ args);\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{manux_2debug_8h_source_l00097}00097\ \textcolor{preprocessor}{\ \ \ \}}}
+\DoxyCodeLine{\Hypertarget{manux_2debug_8h_source_l00098}00098\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{manux_2debug_8h_source_l00099}00099\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{manux_2debug_8h_source_l00100}00100\ \textcolor{comment}{\ *\ Affichage\ d'un\ message\ de\ panique}}
+\DoxyCodeLine{\Hypertarget{manux_2debug_8h_source_l00101}00101\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{manux_2debug_8h_source_l00102}00102\ \textcolor{preprocessor}{\#ifdef\ MANUX\_TACHES}}
+\DoxyCodeLine{\Hypertarget{manux_2debug_8h_source_l00103}00103\ \textcolor{preprocessor}{\#define\ paniqueNoyau(fmt,\ args...)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{manux_2debug_8h_source_l00104}00104\ \textcolor{preprocessor}{\ \ \{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{manux_2debug_8h_source_l00105}00105\ \textcolor{preprocessor}{\ \ \ printk("{}\(\backslash\)n***\ PANIQUE\ NOYAU\ (tache\ \%d)\ ***\(\backslash\)n"{},\ tacheEnCours-\/>numero);\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{manux_2debug_8h_source_l00106}00106\ \textcolor{preprocessor}{\ \ \ printk("{}\%s\ (dans\ \%s\ ligne\ \%d)\(\backslash\)n"{},\ \_\_FUNCTION\_\_,\ \_\_FILE\_\_,\ \_\_LINE\_\_);\ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{manux_2debug_8h_source_l00107}00107\ \textcolor{preprocessor}{\ \ \ printk("{}"{}\ fmt,\ \#\#\ args);\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{manux_2debug_8h_source_l00108}00108\ \textcolor{preprocessor}{\ \ \ asm(\ "{}hlt"{}\ );\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{manux_2debug_8h_source_l00109}00109\ \textcolor{preprocessor}{\}}}
+\DoxyCodeLine{\Hypertarget{manux_2debug_8h_source_l00110}00110\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{\Hypertarget{manux_2debug_8h_source_l00111}\mbox{\hyperlink{manux_2debug_8h_a94bcf41c2acfb543c52dcb281acba959}{00111}}\ \textcolor{preprocessor}{\#define\ paniqueNoyau(fmt,\ args...)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{manux_2debug_8h_source_l00112}00112\ \textcolor{preprocessor}{\{\(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{manux_2debug_8h_source_l00113}00113\ \textcolor{preprocessor}{\ \ \ printk("{}\(\backslash\)n***\ PANIQUE\ NOYAU\ \ ***\(\backslash\)n"{});\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{manux_2debug_8h_source_l00114}00114\ \textcolor{preprocessor}{\ \ \ printk("{}\%s\ (dans\ \%s\ ligne\ \%d)\(\backslash\)n"{},\ \_\_FUNCTION\_\_,\ \_\_FILE\_\_,\ \_\_LINE\_\_);\ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{manux_2debug_8h_source_l00115}00115\ \textcolor{preprocessor}{\ \ \ printk("{}"{}\ fmt,\ \#\#\ args);\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{manux_2debug_8h_source_l00116}00116\ \textcolor{preprocessor}{\ \ \ asm(\ "{}hlt"{}\ );\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{manux_2debug_8h_source_l00117}00117\ \textcolor{preprocessor}{\}}}
+\DoxyCodeLine{\Hypertarget{manux_2debug_8h_source_l00118}00118\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{manux_2debug_8h_source_l00119}00119\ }
+\DoxyCodeLine{\Hypertarget{manux_2debug_8h_source_l00120}00120\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{manux_2debug_8h_source_l00121}00121\ \textcolor{comment}{\ *\ Ma\ version\ simplifiée\ de\ assert}}
+\DoxyCodeLine{\Hypertarget{manux_2debug_8h_source_l00122}00122\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{manux_2debug_8h_source_l00123}00123\ \textcolor{preprocessor}{\#ifdef\ MANUX\_ASSERT\_ACTIVES}}
+\DoxyCodeLine{\Hypertarget{manux_2debug_8h_source_l00124}00124\ \textcolor{preprocessor}{\#define\ assert(cond)\ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{manux_2debug_8h_source_l00125}00125\ \textcolor{preprocessor}{\ \ if\ (!(cond))\ \{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{manux_2debug_8h_source_l00126}00126\ \textcolor{preprocessor}{\ \ \ \ paniqueNoyau("{}L'assertion\ '"{}\#cond"{}'\ n'est\ pas\ verifiee"{});\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{manux_2debug_8h_source_l00127}00127\ \textcolor{preprocessor}{\ \ \}}}
+\DoxyCodeLine{\Hypertarget{manux_2debug_8h_source_l00128}00128\ }
+\DoxyCodeLine{\Hypertarget{manux_2debug_8h_source_l00129}00129\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{\Hypertarget{manux_2debug_8h_source_l00130}\mbox{\hyperlink{manux_2debug_8h_a3153a272f18d0f805028fce7e4337b53}{00130}}\ \textcolor{preprocessor}{\#define\ assert(cond)\ \{\}}}
+\DoxyCodeLine{\Hypertarget{manux_2debug_8h_source_l00131}00131\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{manux_2debug_8h_source_l00132}00132\ }
+\DoxyCodeLine{\Hypertarget{manux_2debug_8h_source_l00142}00142\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{manux_2debug_8h_afecb2fc4768dcaba6f0098c4a46bff0c}{debugInitialiser}}(\textcolor{keywordtype}{void});\ \ \ }
+\DoxyCodeLine{\Hypertarget{manux_2debug_8h_source_l00143}00143\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

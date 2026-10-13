@@ -1,0 +1,10 @@
+<map id="_CelluleBufferReseau" name="_CelluleBufferReseau">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,269,167,295"/>
+<area shape="poly" id="edge4_Node000001_Node000001" title=" " alt="" coords="181,274,193,282,185,289,167,292,166,287,183,284,188,282,179,278"/>
+<area shape="rect" id="Node000002" href="$struct__bufferReseau.html" title="Défnition d&#39;un buffer réseau." alt="" coords="29,181,143,207"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="89,221,89,269,83,269,83,221"/>
+<area shape="rect" id="Node000003" href="$struct__ReseauInterface.html" title=" " alt="" coords="19,93,153,119"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="89,133,89,181,83,181,83,133"/>
+<area shape="rect" id="Node000004" href="$struct__ReseauPilote.html" title="Description d&#39;un pilote d&#39;interface réseau." alt="" coords="29,5,143,31"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="89,45,89,93,83,93,83,45"/>
+</map>

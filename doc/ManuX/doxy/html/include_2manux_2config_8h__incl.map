@@ -1,0 +1,56 @@
+<map id="/home/manu/PROGRAMMATION/C/ManuX/include/manux/config.h" name="/home/manu/PROGRAMMATION/C/ManuX/include/manux/config.h">
+<area shape="rect" id="Node000001" title=" " alt="" coords="1745,5,1971,60"/>
+<area shape="rect" id="Node000002" href="$base_8h.html" title="Eléments de base de la configuration." alt="" coords="5,108,113,133"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="1745,37,1461,41,1062,52,601,74,365,90,133,111,128,111,127,106,132,105,364,85,601,69,1062,47,1461,36,1745,32"/>
+<area shape="rect" id="Node000003" href="$pc-i386_8h.html" title=" " alt="" coords="189,108,314,133"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="1744,38,1492,44,1143,56,740,78,328,111,327,105,740,72,1143,51,1492,39,1744,33"/>
+<area shape="rect" id="Node000004" href="$plan-memoire-pc_8h.html" title=" " alt="" coords="57,181,246,207"/>
+<area shape="poly" id="edge5_Node000001_Node000004" title=" " alt="" coords="1745,38,1353,45,846,58,603,68,396,80,247,94,201,102,178,110,168,122,160,137,154,168,149,167,155,135,163,119,175,106,200,97,246,89,396,74,603,63,846,53,1353,39,1745,33"/>
+<area shape="rect" id="Node000006" href="$gestion-memoire_8h.html" title=" " alt="" coords="338,108,527,133"/>
+<area shape="poly" id="edge6_Node000001_Node000006" title=" " alt="" coords="1745,41,1228,66,889,86,541,111,541,105,889,80,1228,60,1744,36"/>
+<area shape="rect" id="Node000007" href="$config_2debug_8h.html" title="Configuration du débugage de ManuX." alt="" coords="551,108,669,133"/>
+<area shape="poly" id="edge7_Node000001_Node000007" title=" " alt="" coords="1745,40,1285,62,987,82,683,111,682,105,987,77,1284,56,1744,35"/>
+<area shape="rect" id="Node000008" href="$config_2bootloader_8h.html" title=" " alt="" coords="693,108,839,133"/>
+<area shape="poly" id="edge8_Node000001_Node000008" title=" " alt="" coords="1745,43,1354,68,1107,87,853,111,853,105,1106,82,1354,63,1744,38"/>
+<area shape="rect" id="Node000009" href="$systeme-fichiers_8h.html" title=" " alt="" coords="864,108,1049,133"/>
+<area shape="poly" id="edge9_Node000001_Node000009" title=" " alt="" coords="1745,47,1063,111,1063,105,1744,41"/>
+<area shape="rect" id="Node000010" href="$config_2ramdisk_8h.html" title=" " alt="" coords="1074,108,1205,133"/>
+<area shape="poly" id="edge10_Node000001_Node000010" title=" " alt="" coords="1745,49,1218,111,1218,105,1744,43"/>
+<area shape="rect" id="Node000011" href="$appels-systeme_8h.html" title=" " alt="" coords="1229,108,1410,133"/>
+<area shape="poly" id="edge11_Node000001_Node000011" title=" " alt="" coords="1745,55,1405,108,1404,103,1744,49"/>
+<area shape="rect" id="Node000012" href="$consoles-virtuelles_8h.html" title=" " alt="" coords="1435,108,1633,133"/>
+<area shape="poly" id="edge12_Node000001_Node000012" title=" " alt="" coords="1760,63,1591,107,1590,102,1758,57"/>
+<area shape="rect" id="Node000014" href="$include_2config_2printk_8h.html" title=" " alt="" coords="1658,108,1773,133"/>
+<area shape="poly" id="edge14_Node000001_Node000014" title=" " alt="" coords="1816,62,1747,103,1745,99,1813,58"/>
+<area shape="rect" id="Node000015" href="$include_2config_2journal_8h.html" title=" " alt="" coords="1797,108,1919,133"/>
+<area shape="poly" id="edge15_Node000001_Node000015" title=" " alt="" coords="1861,60,1861,94,1855,94,1855,60"/>
+<area shape="rect" id="Node000016" href="$include_2config_2registre_8h.html" title="Configuration du registre de ManuX." alt="" coords="1944,108,2071,133"/>
+<area shape="poly" id="edge16_Node000001_Node000016" title=" " alt="" coords="1905,58,1977,99,1974,103,1902,62"/>
+<area shape="rect" id="Node000017" href="$include_2config_2taches_8h.html" title=" " alt="" coords="2095,108,2215,133"/>
+<area shape="poly" id="edge17_Node000001_Node000017" title=" " alt="" coords="1950,58,2103,102,2102,107,1948,63"/>
+<area shape="rect" id="Node000019" href="$synchronisation_8h.html" title="Configuration des outils de synchronisation de ManuX." alt="" coords="2240,108,2420,133"/>
+<area shape="poly" id="edge19_Node000001_Node000019" title=" " alt="" coords="1972,52,2254,103,2253,108,1971,57"/>
+<area shape="rect" id="Node000020" href="$include_2config_2kmalloc_8h.html" title=" " alt="" coords="2444,108,2573,133"/>
+<area shape="poly" id="edge20_Node000001_Node000020" title=" " alt="" coords="1972,45,2431,105,2430,110,1971,51"/>
+<area shape="rect" id="Node000021" href="$config_2clavier_8h.html" title=" " alt="" coords="2598,108,2718,133"/>
+<area shape="poly" id="edge21_Node000001_Node000021" title=" " alt="" coords="1972,41,2247,67,2585,105,2584,111,2246,72,1971,46"/>
+<area shape="rect" id="Node000022" href="$config_2reseau_8h.html" title="Paramètrage du sous sytème réseau (C) Manu Chaput 2025." alt="" coords="2743,108,2864,133"/>
+<area shape="poly" id="edge22_Node000001_Node000022" title=" " alt="" coords="1972,38,2307,64,2516,82,2730,105,2729,111,2515,88,2306,69,1971,44"/>
+<area shape="rect" id="Node000023" href="$config_2pci_8h.html" title=" " alt="" coords="2889,108,2985,133"/>
+<area shape="poly" id="edge23_Node000001_Node000023" title=" " alt="" coords="1972,35,2367,57,2619,77,2875,105,2875,111,2618,83,2367,62,1971,41"/>
+<area shape="rect" id="Node000024" href="$config_2virtio_8h.html" title=" " alt="" coords="3009,108,3120,133"/>
+<area shape="poly" id="edge24_Node000001_Node000024" title=" " alt="" coords="1972,35,2416,56,2703,77,2996,105,2995,111,2702,82,2416,62,1971,40"/>
+<area shape="rect" id="Node000025" href="$config_2stdlib_8h.html" title=" " alt="" coords="3144,108,3257,133"/>
+<area shape="poly" id="edge25_Node000001_Node000025" title=" " alt="" coords="1972,34,2185,41,2471,54,2797,75,3131,105,3130,111,2797,80,2471,59,2185,46,1972,39"/>
+<area shape="rect" id="Node000026" href="$usr_8h.html" title=" " alt="" coords="3282,108,3378,133"/>
+<area shape="poly" id="edge26_Node000001_Node000026" title=" " alt="" coords="1972,32,2206,37,2526,48,2893,70,3082,86,3269,105,3268,111,3082,91,2893,75,2526,53,2206,42,1971,37"/>
+<area shape="rect" id="Node000027" href="$verifications_8h.html" title=" " alt="" coords="3402,108,3559,133"/>
+<area shape="poly" id="edge27_Node000001_Node000027" title=" " alt="" coords="1972,34,2573,55,2976,76,3388,105,3388,111,2975,81,2573,60,1971,39"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="237,136,180,175,177,171,234,131"/>
+<area shape="rect" id="Node000005" href="$config_2intel-8259a_8h.html" title=" " alt="" coords="271,181,421,207"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="268,131,321,171,318,175,265,135"/>
+<area shape="rect" id="Node000013" href="$include_2config_2console_8h.html" title=" " alt="" coords="1471,181,1597,207"/>
+<area shape="poly" id="edge13_Node000012_Node000013" title=" " alt="" coords="1537,134,1537,168,1531,168,1531,134"/>
+<area shape="rect" id="Node000018" href="$config_2dummy-task_8h.html" title="Configuration de la dummyTask." alt="" coords="2075,181,2235,207"/>
+<area shape="poly" id="edge18_Node000017_Node000018" title=" " alt="" coords="2158,134,2158,168,2153,168,2153,134"/>
+</map>

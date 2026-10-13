@@ -1,0 +1,383 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>My Project:  Fichier source de /home/manu/PROGRAMMATION/C/ManuX/i386/segment.c</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">My Project
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- GÃ©nÃ©rÃ© par Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function() { init_codefold(0); });
+/* @license-end */
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_84351cb3cd97e0f1d36fec2809bc3161.html">i386</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle"><div class="title">segment.c</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="segment_8c.html">Aller Ã  la documentation de ce fichier.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">/*----------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment">/*      Implantation des opérations de gestion des segments.                  */</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment">/*                                                                            */</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment">/*                                                       (C) Manu Chaput 2000 */</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment">/*----------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &lt;manux/errno.h&gt;</span>    <span class="comment">// ENOMEM</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &lt;<a class="code" href="manux_2debug_8h.html">manux/debug.h</a>&gt;</span>    <span class="comment">// paniqueNoyau</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &lt;manux/i386.h&gt;</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &lt;<a class="code" href="segment_8h.html">manux/segment.h</a>&gt;</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &lt;<a class="code" href="include_2manux_2printk_8h.html">manux/printk.h</a>&gt;</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
+<div class="foldopen" id="foldopen00012" data-start="{" data-end="}">
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno"><a class="line" href="segment_8c.html#ad09246453a4dabd919c7541484046a87">   12</a></span><a class="code hl_struct" href="struct__DescriptorTable.html">DescriptorTable</a> * <a class="code hl_variable" href="segment_8c.html#aa7b2be909929911d7772352d013a9480">gdtSysteme</a>;</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>  <span class="keyword">struct </span><a class="code hl_function" href="segment_8c.html#ad09246453a4dabd919c7541484046a87">__attribute__</a>((__packed__)) {</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>      <a class="code hl_typedef" href="include_2manux_2types_8h.html#a273cf69d639a59973b6019625df33e30">uint16_t</a> taille;</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>      <a class="code hl_typedef" href="include_2manux_2types_8h.html#a06896e8c53f721507066c079052171f8">uint32_t</a> adresse;</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno"><a class="line" href="segment_8c.html#a34c1f2245ea9dba58d1c4503ade81273">   17</a></span>   } <a class="code hl_variable" href="segment_8c.html#a34c1f2245ea9dba58d1c4503ade81273">descripteurGDT</a>;</div>
+</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
+<div class="foldopen" id="foldopen00019" data-start="{" data-end="}">
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="segment_8c.html#a89a9fc5562cf33c6869b1d0df950d1a6">   19</a></span><span class="keywordtype">int</span> <a class="code hl_function" href="segment_8c.html#a89a9fc5562cf33c6869b1d0df950d1a6">setDescripteurSegment</a>(<a class="code hl_struct" href="struct__DescriptorTable.html">DescriptorTable</a> * dt,</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>                          <a class="code hl_typedef" href="include_2manux_2types_8h.html#a06896e8c53f721507066c079052171f8">uint32_t</a> adresse, <a class="code hl_typedef" href="include_2manux_2types_8h.html#a06896e8c53f721507066c079052171f8">uint32_t</a> limite,</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>                          <a class="code hl_typedef" href="include_2manux_2types_8h.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> type,</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>                          <a class="code hl_typedef" href="include_2manux_2types_8h.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> gd0a)</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="comment">/*</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="comment"> * gd0a doit contenir dans son quadret de poids fort les bits G, D/B, 0</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="comment"> * et AVL ([1] p 3-11)</span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>{</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>   <span class="keywordflow">if</span> (dt-&gt;<a class="code hl_variable" href="struct__DescriptorTable.html#af383a85f6ad710d325447d0b36cd0dc8">taille</a> &gt;= dt-&gt;<a class="code hl_variable" href="struct__DescriptorTable.html#a506f73d9871220f5639b7f0ce470926b">capacite</a>) {</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>      <span class="keywordflow">return</span> -<a class="code hl_define" href="include_2manux_2errno_8h.html#a6a05c923dad0c1208043e9c20a58c8e5">ENOMEM</a>;</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>   }</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>   dt-&gt;<a class="code hl_variable" href="struct__DescriptorTable.html#a315f73e13af36b7bdd5269d4cd5cb58c">descripteur</a>[dt-&gt;<a class="code hl_variable" href="struct__DescriptorTable.html#af383a85f6ad710d325447d0b36cd0dc8">taille</a>].<a class="code hl_variable" href="union__Descripteur.html#a8bafbc4c5182e81587c22d852b9dcc7f">ds</a>.<a class="code hl_variable" href="struct__DescSegment.html#aaa1016bae9310abe4a6f9c87e759d97f">limiteFaible</a> = (<a class="code hl_typedef" href="include_2manux_2types_8h.html#a273cf69d639a59973b6019625df33e30">uint16_t</a>)((limite)&amp;0xFFFF);</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>   dt-&gt;<a class="code hl_variable" href="struct__DescriptorTable.html#a315f73e13af36b7bdd5269d4cd5cb58c">descripteur</a>[dt-&gt;<a class="code hl_variable" href="struct__DescriptorTable.html#af383a85f6ad710d325447d0b36cd0dc8">taille</a>].<a class="code hl_variable" href="union__Descripteur.html#a8bafbc4c5182e81587c22d852b9dcc7f">ds</a>.<a class="code hl_variable" href="struct__DescSegment.html#a06a1d9060b12b7b638cb6ee07d7d1505">baseFaible</a> = (<a class="code hl_typedef" href="include_2manux_2types_8h.html#a273cf69d639a59973b6019625df33e30">uint16_t</a>)((adresse)&amp;0xFFFF); </div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>   dt-&gt;<a class="code hl_variable" href="struct__DescriptorTable.html#a315f73e13af36b7bdd5269d4cd5cb58c">descripteur</a>[dt-&gt;<a class="code hl_variable" href="struct__DescriptorTable.html#af383a85f6ad710d325447d0b36cd0dc8">taille</a>].<a class="code hl_variable" href="union__Descripteur.html#a8bafbc4c5182e81587c22d852b9dcc7f">ds</a>.<a class="code hl_variable" href="struct__DescSegment.html#a66cfc2edc24d6d7ee1836ff35980198a">baseInter</a> = (<a class="code hl_typedef" href="include_2manux_2types_8h.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a>)((adresse&gt;&gt;16)&amp;0xFF);</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>   dt-&gt;<a class="code hl_variable" href="struct__DescriptorTable.html#a315f73e13af36b7bdd5269d4cd5cb58c">descripteur</a>[dt-&gt;<a class="code hl_variable" href="struct__DescriptorTable.html#af383a85f6ad710d325447d0b36cd0dc8">taille</a>].<a class="code hl_variable" href="union__Descripteur.html#a8bafbc4c5182e81587c22d852b9dcc7f">ds</a>.<a class="code hl_variable" href="struct__DescSegment.html#ab77cdfae3f849a7cb8d15eefb0631282">type</a> = type;</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>   dt-&gt;<a class="code hl_variable" href="struct__DescriptorTable.html#a315f73e13af36b7bdd5269d4cd5cb58c">descripteur</a>[dt-&gt;<a class="code hl_variable" href="struct__DescriptorTable.html#af383a85f6ad710d325447d0b36cd0dc8">taille</a>].<a class="code hl_variable" href="union__Descripteur.html#a8bafbc4c5182e81587c22d852b9dcc7f">ds</a>.<a class="code hl_variable" href="struct__DescSegment.html#a251ec8a74fc148dcd045b23959131400">limiteFort</a> = (<a class="code hl_typedef" href="include_2manux_2types_8h.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a>)((limite&gt;&gt;16)&amp;0x0F)|gd0a;</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>   dt-&gt;<a class="code hl_variable" href="struct__DescriptorTable.html#a315f73e13af36b7bdd5269d4cd5cb58c">descripteur</a>[dt-&gt;<a class="code hl_variable" href="struct__DescriptorTable.html#af383a85f6ad710d325447d0b36cd0dc8">taille</a>].<a class="code hl_variable" href="union__Descripteur.html#a8bafbc4c5182e81587c22d852b9dcc7f">ds</a>.<a class="code hl_variable" href="struct__DescSegment.html#ae40b1efc708500ffa3394b4c0bc6afae">baseFort</a> = (<a class="code hl_typedef" href="include_2manux_2types_8h.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a>)((adresse&gt;&gt;24)&amp;0xFF);</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>   <span class="keywordflow">return</span> (dt-&gt;<a class="code hl_variable" href="struct__DescriptorTable.html#af383a85f6ad710d325447d0b36cd0dc8">taille</a>++)&lt;&lt;3;</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>}</div>
+</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="keyword">static</span></div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="keywordtype">int</span> setDescripteurTSS(<a class="code hl_struct" href="struct__DescriptorTable.html">DescriptorTable</a> * dt,</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>              <a class="code hl_typedef" href="include_2manux_2types_8h.html#a06896e8c53f721507066c079052171f8">uint32_t</a> adresse, <a class="code hl_typedef" href="include_2manux_2types_8h.html#a06896e8c53f721507066c079052171f8">uint32_t</a> limite,</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>              <a class="code hl_typedef" href="include_2manux_2types_8h.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> type,</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>              <a class="code hl_typedef" href="include_2manux_2types_8h.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> g00a)</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span><span class="comment">/*</span></div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span><span class="comment"> * g00a doit contenir dans son quadret de poids fort les bits G, 0, 0</span></div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span><span class="comment"> * et AVL ([1] p 6-7)</span></div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>{</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>   <span class="keywordflow">if</span> (dt-&gt;<a class="code hl_variable" href="struct__DescriptorTable.html#af383a85f6ad710d325447d0b36cd0dc8">taille</a> &gt;= dt-&gt;<a class="code hl_variable" href="struct__DescriptorTable.html#a506f73d9871220f5639b7f0ce470926b">capacite</a>) {</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>      <span class="keywordflow">return</span> -1;</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>   }</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>   dt-&gt;<a class="code hl_variable" href="struct__DescriptorTable.html#a315f73e13af36b7bdd5269d4cd5cb58c">descripteur</a>[dt-&gt;<a class="code hl_variable" href="struct__DescriptorTable.html#af383a85f6ad710d325447d0b36cd0dc8">taille</a>].<a class="code hl_variable" href="union__Descripteur.html#aebbba8ba52309981be3829a116d05df2">dt</a>.<a class="code hl_variable" href="struct__DescTSS.html#a8b1a7d2d31c6c3acb7bc75c1a5521dad">limiteFaible</a> = (<a class="code hl_typedef" href="include_2manux_2types_8h.html#a273cf69d639a59973b6019625df33e30">uint16_t</a>)((limite)&amp;0xFFFF);</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>   dt-&gt;<a class="code hl_variable" href="struct__DescriptorTable.html#a315f73e13af36b7bdd5269d4cd5cb58c">descripteur</a>[dt-&gt;<a class="code hl_variable" href="struct__DescriptorTable.html#af383a85f6ad710d325447d0b36cd0dc8">taille</a>].<a class="code hl_variable" href="union__Descripteur.html#aebbba8ba52309981be3829a116d05df2">dt</a>.<a class="code hl_variable" href="struct__DescTSS.html#a79edebb6f912c512b000cb1cce719725">baseFaible</a> = (<a class="code hl_typedef" href="include_2manux_2types_8h.html#a273cf69d639a59973b6019625df33e30">uint16_t</a>)((adresse)&amp;0xFFFF); </div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>   dt-&gt;<a class="code hl_variable" href="struct__DescriptorTable.html#a315f73e13af36b7bdd5269d4cd5cb58c">descripteur</a>[dt-&gt;<a class="code hl_variable" href="struct__DescriptorTable.html#af383a85f6ad710d325447d0b36cd0dc8">taille</a>].<a class="code hl_variable" href="union__Descripteur.html#aebbba8ba52309981be3829a116d05df2">dt</a>.<a class="code hl_variable" href="struct__DescTSS.html#ab5b1064213c68bb2cb9d07b5204fcecf">baseInter</a> = (<a class="code hl_typedef" href="include_2manux_2types_8h.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a>)((adresse&gt;&gt;16)&amp;0xFF);</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>   dt-&gt;<a class="code hl_variable" href="struct__DescriptorTable.html#a315f73e13af36b7bdd5269d4cd5cb58c">descripteur</a>[dt-&gt;<a class="code hl_variable" href="struct__DescriptorTable.html#af383a85f6ad710d325447d0b36cd0dc8">taille</a>].<a class="code hl_variable" href="union__Descripteur.html#aebbba8ba52309981be3829a116d05df2">dt</a>.<a class="code hl_variable" href="struct__DescTSS.html#a1ffa53611eb212a29b7089c9daf7ab8a">type</a> = type;</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>   dt-&gt;<a class="code hl_variable" href="struct__DescriptorTable.html#a315f73e13af36b7bdd5269d4cd5cb58c">descripteur</a>[dt-&gt;<a class="code hl_variable" href="struct__DescriptorTable.html#af383a85f6ad710d325447d0b36cd0dc8">taille</a>].<a class="code hl_variable" href="union__Descripteur.html#aebbba8ba52309981be3829a116d05df2">dt</a>.<a class="code hl_variable" href="struct__DescTSS.html#aeba21868aa60682c722f50c4a92d2d98">limiteFort</a> = (<a class="code hl_typedef" href="include_2manux_2types_8h.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a>)((limite&gt;&gt;16)&amp;0x0F)|g00a;</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>   dt-&gt;<a class="code hl_variable" href="struct__DescriptorTable.html#a315f73e13af36b7bdd5269d4cd5cb58c">descripteur</a>[dt-&gt;<a class="code hl_variable" href="struct__DescriptorTable.html#af383a85f6ad710d325447d0b36cd0dc8">taille</a>].<a class="code hl_variable" href="union__Descripteur.html#aebbba8ba52309981be3829a116d05df2">dt</a>.<a class="code hl_variable" href="struct__DescTSS.html#af68c88388d2109c9eda98ebc2eb0dd1d">baseFort</a> = (<a class="code hl_typedef" href="include_2manux_2types_8h.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a>)((adresse&gt;&gt;24)&amp;0xFF);</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span> </div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>   <span class="keywordflow">return</span> (dt-&gt;<a class="code hl_variable" href="struct__DescriptorTable.html#af383a85f6ad710d325447d0b36cd0dc8">taille</a>++)&lt;&lt;3;</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>}</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span><span class="keyword">inline</span></div>
+<div class="foldopen" id="foldopen00065" data-start="{" data-end="}">
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno"><a class="line" href="segment_8c.html#a9d73adba0d9db3f42a705fd1789e113e">   65</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="segment_8c.html#a9d73adba0d9db3f42a705fd1789e113e">chargerGDT</a>(<a class="code hl_struct" href="struct__DescriptorTable.html">DescriptorTable</a> * gdt)</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span><span class="comment">/*</span></div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span><span class="comment"> * Chargement effectif de la GDT ; lgdt prend en paramètre l&#39;adresse</span></div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span><span class="comment"> * d&#39;une zone contenant la taille puis l&#39;adresse de la GDT.</span></div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span><span class="comment"> * On va mettre en place ici un modèle &quot;flat&quot; (deux segments qui</span></div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span><span class="comment"> * couvrent 4G)</span></div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>{</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span><span class="preprocessor">#define USE_LEGACY_NO</span></div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span> </div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span><span class="preprocessor">#ifdef USE_LEGACY</span></div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>   <a class="code hl_typedef" href="include_2manux_2types_8h.html#a273cf69d639a59973b6019625df33e30">uint16_t</a> limite = 8*gdt-&gt;<a class="code hl_variable" href="struct__DescriptorTable.html#af383a85f6ad710d325447d0b36cd0dc8">taille</a> - 1;</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span><span class="preprocessor">#else</span></div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>   <a class="code hl_variable" href="segment_8c.html#a34c1f2245ea9dba58d1c4503ade81273">descripteurGDT</a>.taille = 8*gdt-&gt;<a class="code hl_variable" href="struct__DescriptorTable.html#af383a85f6ad710d325447d0b36cd0dc8">taille</a> - 1;</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>   <a class="code hl_variable" href="segment_8c.html#a34c1f2245ea9dba58d1c4503ade81273">descripteurGDT</a>.adresse = (<a class="code hl_typedef" href="include_2manux_2types_8h.html#a06896e8c53f721507066c079052171f8">uint32_t</a>)&amp;gdt-&gt;<a class="code hl_variable" href="struct__DescriptorTable.html#a315f73e13af36b7bdd5269d4cd5cb58c">descripteur</a>[0];</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>   </div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span><span class="preprocessor">#ifdef USE_LEGACY</span></div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>   <span class="comment">/*   volatile uint8_t argument[6];</span></div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span><span class="comment">  </span></div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span><span class="comment">   argument[0] = (limite) &amp; 0xFF;</span></div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span><span class="comment">   argument[1] = (limite&gt;&gt;8) &amp; 0xFF;</span></div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span><span class="comment">   argument[2] = ((uint32_t)(&amp;gdt-&gt;descripteur[0]) &amp; 0xFF);</span></div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span><span class="comment">   argument[3] = (((uint32_t)(&amp;gdt-&gt;descripteur[0])&gt;&gt;8) &amp; 0xFF);</span></div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span><span class="comment">   argument[4] = (((uint32_t)(&amp;gdt-&gt;descripteur[0])&gt;&gt;16) &amp; 0xFF);</span></div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span><span class="comment">   argument[5] = (((uint32_t)(&amp;gdt-&gt;descripteur[0])&gt;&gt;24) &amp; 0xFF);</span></div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span><span class="comment">   */</span></div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>  <a class="code hl_function" href="include_2manux_2i386_8h.html#a5ddec76aa3b45e17cc782fa6a0673a6f">_chargerGDT</a>((<a class="code hl_typedef" href="include_2manux_2types_8h.html#a06896e8c53f721507066c079052171f8">uint32_t</a>)(&amp;gdt-&gt;<a class="code hl_variable" href="struct__DescriptorTable.html#a315f73e13af36b7bdd5269d4cd5cb58c">descripteur</a>[0]), limite);</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span> </div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span><span class="preprocessor">#else</span></div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>   <span class="comment">/*</span></div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span><span class="comment">   asm volatile (</span></div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span><span class="comment">      &quot;movl %0, %%eax \n\t&quot;</span></div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span><span class="comment">      &quot;lgdt (%%eax) \n\t&quot;</span></div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span><span class="comment">      &quot;movl %%cr0, %%eax \n\t&quot;</span></div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span><span class="comment">      &quot;or $1, %%eax \n\t&quot;</span></div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span><span class="comment">      &quot;movl %%eax, %%cr0 \n\t&quot;</span></div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span><span class="comment">      &quot;movw $0x08, %%ax \n\t&quot;</span></div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span><span class="comment">      &quot;movw %%ax, %%cs \n\t&quot;</span></div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span><span class="comment">      &quot;movw $0x10, %%ax \n\t&quot;</span></div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span><span class="comment">      &quot;movw %%ax, %%ds \n\t&quot;</span></div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span><span class="comment">      &quot;movw %%ax, %%es \n\t&quot;</span></div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span><span class="comment">      &quot;movw %%ax, %%fs \n\t&quot;</span></div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span><span class="comment">      &quot;movw %%ax, %%gs \n\t&quot;</span></div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span><span class="comment">      &quot;movw $0x18, %%ax \n\t&quot;</span></div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span><span class="comment">      &quot;movw %%ax, %%ss \n\t&quot;</span></div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span><span class="comment">      &quot;ljmp $0x08,$vidageCache \n\t&quot;</span></div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span><span class="comment">      &quot;vidageCache : \n\t&quot;</span></div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span><span class="comment">      ::&quot;r&quot;((uint32_t)&amp;descripteurGDT):&quot;eax&quot;</span></div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span><span class="comment">   );</span></div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span><span class="comment"></span> </div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span><span class="comment">    */</span>   </div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>   <span class="keyword">asm</span> <span class="keyword">volatile</span> (</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>      <span class="stringliteral">&quot;movl %0, %%eax \n\t&quot;</span></div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>      <span class="stringliteral">&quot;lgdt (%%eax) \n\t&quot;</span></div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>      <span class="stringliteral">&quot;ljmp $0x08,$vidageDuCache_%= \n\t&quot;</span></div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>      <span class="stringliteral">&quot;vidageDuCache_%= : \n\t&quot;</span></div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>      <span class="stringliteral">&quot;movw $0x10, %%ax \n\t&quot;</span></div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>      <span class="stringliteral">&quot;movw %%ax, %%ds \n\t&quot;</span></div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>      <span class="stringliteral">&quot;movw %%ax, %%es \n\t&quot;</span></div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>      <span class="stringliteral">&quot;movw %%ax, %%fs \n\t&quot;</span></div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>      <span class="stringliteral">&quot;movw %%ax, %%gs \n\t&quot;</span></div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>      <span class="stringliteral">&quot;movw $0x18, %%ax \n\t&quot;</span></div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>      <span class="stringliteral">&quot;movw %%ax, %%ss \n\t&quot;</span></div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>      <span class="stringliteral">&quot;movl %%cr0, %%eax \n\t&quot;</span></div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>      <span class="stringliteral">&quot;or $1, %%eax \n\t&quot;</span></div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>      <span class="stringliteral">&quot;movl %%eax, %%cr0 \n\t&quot;</span></div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>      ::<span class="stringliteral">&quot;r&quot;</span>((<a class="code hl_typedef" href="include_2manux_2types_8h.html#a06896e8c53f721507066c079052171f8">uint32_t</a>)&amp;<a class="code hl_variable" href="segment_8c.html#a34c1f2245ea9dba58d1c4503ade81273">descripteurGDT</a>):<span class="stringliteral">&quot;eax&quot;</span></div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>   );</div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>}</div>
+</div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span> </div>
+<div class="foldopen" id="foldopen00137" data-start="{" data-end="}">
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno"><a class="line" href="segment_8c.html#a7fa1329c2ae053fa9ef8b91043bd02d2">  137</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="segment_8c.html#a7fa1329c2ae053fa9ef8b91043bd02d2">chargerLDT</a>(<a class="code hl_struct" href="struct__DescriptorTable.html">DescriptorTable</a> * ldt)</div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span><span class="comment">/*</span></div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span><span class="comment"> * Chargement effectif de la LDT ; lldt prend en paramètre l&#39;adresse</span></div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span><span class="comment"> * d&#39;une zone contenant la taille puis l&#39;adresse de la LDT.</span></div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span>{</div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>   <a class="code hl_typedef" href="include_2manux_2types_8h.html#a273cf69d639a59973b6019625df33e30">uint16_t</a> limite = 8*ldt-&gt;<a class="code hl_variable" href="struct__DescriptorTable.html#af383a85f6ad710d325447d0b36cd0dc8">taille</a> - 1;</div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>   <span class="keyword">volatile</span> <a class="code hl_typedef" href="include_2manux_2types_8h.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> argument[6];</div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span> </div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>   argument[0] = (limite) &amp; 0xFF;</div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>   argument[1] = (limite&gt;&gt;8) &amp; 0xFF;</div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>   argument[2] = ((<a class="code hl_typedef" href="include_2manux_2types_8h.html#a06896e8c53f721507066c079052171f8">uint32_t</a>)(&amp;ldt-&gt;<a class="code hl_variable" href="struct__DescriptorTable.html#a315f73e13af36b7bdd5269d4cd5cb58c">descripteur</a>[0]) &amp; 0xFF);</div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>   argument[3] = (((<a class="code hl_typedef" href="include_2manux_2types_8h.html#a06896e8c53f721507066c079052171f8">uint32_t</a>)(&amp;ldt-&gt;<a class="code hl_variable" href="struct__DescriptorTable.html#a315f73e13af36b7bdd5269d4cd5cb58c">descripteur</a>[0])&gt;&gt;8) &amp; 0xFF);</div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>   argument[4] = (((<a class="code hl_typedef" href="include_2manux_2types_8h.html#a06896e8c53f721507066c079052171f8">uint32_t</a>)(&amp;ldt-&gt;<a class="code hl_variable" href="struct__DescriptorTable.html#a315f73e13af36b7bdd5269d4cd5cb58c">descripteur</a>[0])&gt;&gt;16) &amp; 0xFF);</div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>   argument[5] = (((<a class="code hl_typedef" href="include_2manux_2types_8h.html#a06896e8c53f721507066c079052171f8">uint32_t</a>)(&amp;ldt-&gt;<a class="code hl_variable" href="struct__DescriptorTable.html#a315f73e13af36b7bdd5269d4cd5cb58c">descripteur</a>[0])&gt;&gt;24) &amp; 0xFF);</div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span> </div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>   __asm__ __volatile__ (<span class="stringliteral">&quot;lldt (%0)&quot;</span>: :<span class="stringliteral">&quot;a&quot;</span> ((<span class="keywordtype">char</span> *)argument));<span class="comment">// + sti ?</span></div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>}</div>
+</div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span> </div>
+<div class="foldopen" id="foldopen00156" data-start="{" data-end="}">
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno"><a class="line" href="segment_8c.html#ae0e123e68e81d00dad08bd7a0215e9a8">  156</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="segment_8c.html#ae0e123e68e81d00dad08bd7a0215e9a8">initialiserGDT</a>(<span class="keywordtype">void</span>)</div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>{</div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span>   <span class="keywordtype">int</span> resultat;</div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span><span class="preprocessor">#define MANUX_GDT_CS 0x08</span></div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span><span class="preprocessor">#define MANUX_GDT_DS 0x10</span></div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span><span class="preprocessor">#define MANUX_GDT_SS 0x18</span></div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span> </div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span>   <a class="code hl_variable" href="segment_8c.html#aa7b2be909929911d7772352d013a9480">gdtSysteme</a> = (<a class="code hl_struct" href="struct__DescriptorTable.html">DescriptorTable</a> *) <a class="code hl_define" href="plan-memoire-pc_8h.html#ab5e25660831ed8f2f45c1cce5c2261f1">MANUX_ADRESSE_GDT</a>;</div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span> </div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span>   <a class="code hl_variable" href="segment_8c.html#aa7b2be909929911d7772352d013a9480">gdtSysteme</a>-&gt;<a class="code hl_variable" href="struct__DescriptorTable.html#a506f73d9871220f5639b7f0ce470926b">capacite</a> = <a class="code hl_define" href="plan-memoire-pc_8h.html#a47a480233a5bb67636294c6f3b243039">MANUX_GDT_NB_PAGES</a> * <a class="code hl_define" href="gestion-memoire_8h.html#ae8ff0cb54526f5b759984090d013d49f">MANUX_TAILLE_PAGE</a> / <span class="keyword">sizeof</span>(<a class="code hl_typedef" href="segment_8h.html#ad0ea392665f248eb1c5d00bdd69fe1f4">Descripteur</a>);</div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span>   <a class="code hl_variable" href="segment_8c.html#aa7b2be909929911d7772352d013a9480">gdtSysteme</a>-&gt;<a class="code hl_variable" href="struct__DescriptorTable.html#af383a85f6ad710d325447d0b36cd0dc8">taille</a> = 0;</div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span> </div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span>   <span class="comment">/* Le segment nul (obligatoire) */</span></div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span>   resultat = <a class="code hl_function" href="segment_8c.html#a89a9fc5562cf33c6869b1d0df950d1a6">setDescripteurSegment</a>(<a class="code hl_variable" href="segment_8c.html#aa7b2be909929911d7772352d013a9480">gdtSysteme</a>, 0, 0, 0, 0);</div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span>   <span class="keywordflow">if</span> (resultat != 0x00) {</div>
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span>      <a class="code hl_define" href="manux_2debug_8h.html#a94bcf41c2acfb543c52dcb281acba959">paniqueNoyau</a>(<span class="stringliteral">&quot;Probleme sur le segment nul en %d\n&quot;</span>, resultat);</div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span>   }</div>
+<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span> </div>
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span>   <span class="comment">// WARNING pour quoi si je change l&#39;ordre de création (et donc bien</span></div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>   <span class="comment">// sur le numéro de façon cohérente) cela ne fonctionne pas !?</span></div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span>   <span class="comment">//</span></div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span>   <span class="comment">// Le segment de code qui commmence à l&#39;adresse 0, avec une limite</span></div>
+<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span>   <span class="comment">// à 1 méga(pages puisque Gr=1), donc 4G de mémoire.</span></div>
+<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span>   <span class="comment">// g00a = 1100  (Gr=1 : blocs de 4K, Sz=1 32 bits protected)</span></div>
+<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span>   <span class="comment">// type = 10011010</span></div>
+<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span>   <span class="comment">//    present, priv=0, code/data, exec, dir up, read, access = 0</span></div>
+<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span>   resultat = <a class="code hl_function" href="segment_8c.html#a89a9fc5562cf33c6869b1d0df950d1a6">setDescripteurSegment</a>(<a class="code hl_variable" href="segment_8c.html#aa7b2be909929911d7772352d013a9480">gdtSysteme</a>, 0, 0xFFFFFFFF, 0x9A, 0xC0);</div>
+<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span>   <span class="keywordflow">if</span> (resultat != <a class="code hl_define" href="segment_8c.html#a791cf0e3353529dd1a1503535e05a10d">MANUX_GDT_CS</a>) {</div>
+<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span>      <a class="code hl_define" href="manux_2debug_8h.html#a94bcf41c2acfb543c52dcb281acba959">paniqueNoyau</a>(<span class="stringliteral">&quot;Probleme sur le segment de code en %d\n&quot;</span>, resultat);</div>
+<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span>   }</div>
+<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span> </div>
+<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span>   <span class="comment">// Le segment de data qui commmence à l&#39;adresse 0, avec une limite</span></div>
+<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span>   <span class="comment">// à 1 méga(pages puisque Gr=1), donc 4G de mémoire.</span></div>
+<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span>   <span class="comment">// g00a = 1100  (Gr=1 : blocs de 4K, Sz=1 32 bits protected)</span></div>
+<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span>   <span class="comment">// type = 10010010</span></div>
+<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span>   <span class="comment">//    present, priv=0, code/data, noexec, dir up, rw, access = 0</span></div>
+<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span>   resultat = <a class="code hl_function" href="segment_8c.html#a89a9fc5562cf33c6869b1d0df950d1a6">setDescripteurSegment</a>(<a class="code hl_variable" href="segment_8c.html#aa7b2be909929911d7772352d013a9480">gdtSysteme</a>, 0, 0xFFFFFFFF, 0x92, 0xC0);</div>
+<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span>   <span class="keywordflow">if</span> (resultat != <a class="code hl_define" href="segment_8c.html#a200f5ab1a83704de7f701eab698b3fb2">MANUX_GDT_DS</a>) {</div>
+<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span>      <a class="code hl_define" href="manux_2debug_8h.html#a94bcf41c2acfb543c52dcb281acba959">paniqueNoyau</a>(<span class="stringliteral">&quot;Probleme sur le segment de donnees en %d\n&quot;</span>, resultat);</div>
+<div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span>   }</div>
+<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span> </div>
+<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span>   <span class="comment">// Le segment de pile qui commmence à l&#39;adresse 0, avec une limite</span></div>
+<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span>   <span class="comment">// à 1 méga(pages puisque Gr=1), donc 4G de mémoire.</span></div>
+<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span>   <span class="comment">// g00a = 1100  (Gr=1 : blocs de 4K, Sz=1 32 bits protected)</span></div>
+<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span>   <span class="comment">// type = 10010010</span></div>
+<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span>   <span class="comment">//    present, priv=0, code/data, noexec, dir up, rw, access = 0</span></div>
+<div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span>   resultat = <a class="code hl_function" href="segment_8c.html#a89a9fc5562cf33c6869b1d0df950d1a6">setDescripteurSegment</a>(<a class="code hl_variable" href="segment_8c.html#aa7b2be909929911d7772352d013a9480">gdtSysteme</a>, 0, 0xFFFFFFFF, 0x92, 0xC0);</div>
+<div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span>   <span class="keywordflow">if</span> (resultat != <a class="code hl_define" href="segment_8c.html#ad0ada4399c16de173f144895022c03d3">MANUX_GDT_SS</a>) {</div>
+<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span>      <a class="code hl_define" href="manux_2debug_8h.html#a94bcf41c2acfb543c52dcb281acba959">paniqueNoyau</a>(<span class="stringliteral">&quot;Probleme sur le segment de pile en %d\n&quot;</span>, resultat);</div>
+<div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span>   }</div>
+<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span> </div>
+<div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span>   <span class="comment">/* On charge la GDT */</span></div>
+<div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span>   <a class="code hl_function" href="segment_8c.html#a9d73adba0d9db3f42a705fd1789e113e">chargerGDT</a>(<a class="code hl_variable" href="segment_8c.html#aa7b2be909929911d7772352d013a9480">gdtSysteme</a>);</div>
+<div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span>}</div>
+</div>
+<div class="line"><a id="l00210" name="l00210"></a><span class="lineno">  210</span> </div>
+<div class="foldopen" id="foldopen00211" data-start="{" data-end="}">
+<div class="line"><a id="l00211" name="l00211"></a><span class="lineno"><a class="line" href="segment_8c.html#a98c72dee0a629fb7b8ac0171521c52cc">  211</a></span><span class="keywordtype">int</span> <a class="code hl_function" href="segment_8c.html#a98c72dee0a629fb7b8ac0171521c52cc">ajouterDescTSS</a>(<a class="code hl_struct" href="struct__DescriptorTable.html">DescriptorTable</a> * dt,</div>
+<div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span>           <span class="keywordtype">void</span> * adresse, <a class="code hl_typedef" href="include_2manux_2types_8h.html#a06896e8c53f721507066c079052171f8">uint32_t</a> limite,</div>
+<div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span>           <a class="code hl_typedef" href="include_2manux_2types_8h.html#a5b7544e51b136e716e4eccc0602bafd7">booleen</a> busyTask)</div>
+<div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span>{</div>
+<div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span>   <span class="keywordtype">int</span> resultat;</div>
+<div class="line"><a id="l00216" name="l00216"></a><span class="lineno">  216</span> </div>
+<div class="line"><a id="l00217" name="l00217"></a><span class="lineno">  217</span>   <span class="keywordflow">if</span> (busyTask) {</div>
+<div class="line"><a id="l00218" name="l00218"></a><span class="lineno">  218</span>      resultat = setDescripteurTSS(dt, (<a class="code hl_typedef" href="include_2manux_2types_8h.html#a06896e8c53f721507066c079052171f8">uint32_t</a>)adresse, limite, 0x8B, 0x90);</div>
+<div class="line"><a id="l00219" name="l00219"></a><span class="lineno">  219</span>   } <span class="keywordflow">else</span> {</div>
+<div class="line"><a id="l00220" name="l00220"></a><span class="lineno">  220</span>      resultat = setDescripteurTSS(dt, (<a class="code hl_typedef" href="include_2manux_2types_8h.html#a06896e8c53f721507066c079052171f8">uint32_t</a>)adresse, limite, 0x89, 0x90);</div>
+<div class="line"><a id="l00221" name="l00221"></a><span class="lineno">  221</span>   }</div>
+<div class="line"><a id="l00222" name="l00222"></a><span class="lineno">  222</span> </div>
+<div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span>   <span class="keywordflow">return</span> resultat;</div>
+<div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span>}</div>
+</div>
+<div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span> </div>
+<div class="line"><a id="l00226" name="l00226"></a><span class="lineno">  226</span>[[maybe_unused]]</div>
+<div class="line"><a id="l00227" name="l00227"></a><span class="lineno">  227</span><span class="keyword">static</span></div>
+<div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span><span class="keywordtype">void</span> busifier(<a class="code hl_typedef" href="include_2manux_2types_8h.html#a273cf69d639a59973b6019625df33e30">uint16_t</a> offsetTSS)</div>
+<div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span>{</div>
+<div class="line"><a id="l00230" name="l00230"></a><span class="lineno">  230</span>   <a class="code hl_variable" href="segment_8c.html#aa7b2be909929911d7772352d013a9480">gdtSysteme</a>-&gt;<a class="code hl_variable" href="struct__DescriptorTable.html#a315f73e13af36b7bdd5269d4cd5cb58c">descripteur</a>[offsetTSS&gt;&gt;3].<a class="code hl_variable" href="union__Descripteur.html#aebbba8ba52309981be3829a116d05df2">dt</a>.<a class="code hl_variable" href="struct__DescTSS.html#a1ffa53611eb212a29b7089c9daf7ab8a">type</a> |= 0x02;</div>
+<div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span>}</div>
+<div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span> </div>
+<div class="line"><a id="l00233" name="l00233"></a><span class="lineno">  233</span>[[maybe_unused]]</div>
+<div class="line"><a id="l00234" name="l00234"></a><span class="lineno">  234</span><span class="keyword">static</span></div>
+<div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span><span class="keywordtype">void</span> debusifier(<a class="code hl_typedef" href="include_2manux_2types_8h.html#a273cf69d639a59973b6019625df33e30">uint16_t</a> offsetTSS)</div>
+<div class="line"><a id="l00236" name="l00236"></a><span class="lineno">  236</span>{</div>
+<div class="line"><a id="l00237" name="l00237"></a><span class="lineno">  237</span>   <a class="code hl_variable" href="segment_8c.html#aa7b2be909929911d7772352d013a9480">gdtSysteme</a>-&gt;<a class="code hl_variable" href="struct__DescriptorTable.html#a315f73e13af36b7bdd5269d4cd5cb58c">descripteur</a>[offsetTSS&gt;&gt;3].<a class="code hl_variable" href="union__Descripteur.html#aebbba8ba52309981be3829a116d05df2">dt</a>.<a class="code hl_variable" href="struct__DescTSS.html#a1ffa53611eb212a29b7089c9daf7ab8a">type</a> &amp;= 0xFD;</div>
+<div class="line"><a id="l00238" name="l00238"></a><span class="lineno">  238</span>}</div>
+<div class="ttc" id="agestion-memoire_8h_html_ae8ff0cb54526f5b759984090d013d49f"><div class="ttname"><a href="gestion-memoire_8h.html#ae8ff0cb54526f5b759984090d013d49f">MANUX_TAILLE_PAGE</a></div><div class="ttdeci">#define MANUX_TAILLE_PAGE</div><div class="ttdef"><b>Definition</b> <a href="gestion-memoire_8h_source.html#l00014">gestion-memoire.h:14</a></div></div>
+<div class="ttc" id="ainclude_2manux_2errno_8h_html_a6a05c923dad0c1208043e9c20a58c8e5"><div class="ttname"><a href="include_2manux_2errno_8h.html#a6a05c923dad0c1208043e9c20a58c8e5">ENOMEM</a></div><div class="ttdeci">#define ENOMEM</div><div class="ttdef"><b>Definition</b> <a href="include_2manux_2errno_8h_source.html#l00013">errno.h:13</a></div></div>
+<div class="ttc" id="ainclude_2manux_2i386_8h_html_a5ddec76aa3b45e17cc782fa6a0673a6f"><div class="ttname"><a href="include_2manux_2i386_8h.html#a5ddec76aa3b45e17cc782fa6a0673a6f">_chargerGDT</a></div><div class="ttdeci">void _chargerGDT(uint32_t ad, uint16_t limite)</div></div>
+<div class="ttc" id="ainclude_2manux_2printk_8h_html"><div class="ttname"><a href="include_2manux_2printk_8h.html">printk.h</a></div><div class="ttdoc">DÃ©finition des fonctions de base d'entrÃ©e-sortie du noyau.</div></div>
+<div class="ttc" id="ainclude_2manux_2types_8h_html_a06896e8c53f721507066c079052171f8"><div class="ttname"><a href="include_2manux_2types_8h.html#a06896e8c53f721507066c079052171f8">uint32_t</a></div><div class="ttdeci">unsigned long uint32_t</div><div class="ttdef"><b>Definition</b> <a href="include_2manux_2types_8h_source.html#l00020">types.h:20</a></div></div>
+<div class="ttc" id="ainclude_2manux_2types_8h_html_a273cf69d639a59973b6019625df33e30"><div class="ttname"><a href="include_2manux_2types_8h.html#a273cf69d639a59973b6019625df33e30">uint16_t</a></div><div class="ttdeci">unsigned short uint16_t</div><div class="ttdef"><b>Definition</b> <a href="include_2manux_2types_8h_source.html#l00016">types.h:16</a></div></div>
+<div class="ttc" id="ainclude_2manux_2types_8h_html_a5b7544e51b136e716e4eccc0602bafd7"><div class="ttname"><a href="include_2manux_2types_8h.html#a5b7544e51b136e716e4eccc0602bafd7">booleen</a></div><div class="ttdeci">int booleen</div><div class="ttdef"><b>Definition</b> <a href="include_2manux_2types_8h_source.html#l00032">types.h:32</a></div></div>
+<div class="ttc" id="ainclude_2manux_2types_8h_html_aba7bc1797add20fe3efdf37ced1182c5"><div class="ttname"><a href="include_2manux_2types_8h.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a></div><div class="ttdeci">unsigned char uint8_t</div><div class="ttdef"><b>Definition</b> <a href="include_2manux_2types_8h_source.html#l00012">types.h:12</a></div></div>
+<div class="ttc" id="amanux_2debug_8h_html"><div class="ttname"><a href="manux_2debug_8h.html">debug.h</a></div></div>
+<div class="ttc" id="amanux_2debug_8h_html_a94bcf41c2acfb543c52dcb281acba959"><div class="ttname"><a href="manux_2debug_8h.html#a94bcf41c2acfb543c52dcb281acba959">paniqueNoyau</a></div><div class="ttdeci">#define paniqueNoyau(fmt, args...)</div><div class="ttdef"><b>Definition</b> <a href="manux_2debug_8h_source.html#l00111">debug.h:111</a></div></div>
+<div class="ttc" id="aplan-memoire-pc_8h_html_a47a480233a5bb67636294c6f3b243039"><div class="ttname"><a href="plan-memoire-pc_8h.html#a47a480233a5bb67636294c6f3b243039">MANUX_GDT_NB_PAGES</a></div><div class="ttdeci">#define MANUX_GDT_NB_PAGES</div><div class="ttdef"><b>Definition</b> <a href="plan-memoire-pc_8h_source.html#l00066">plan-memoire-pc.h:66</a></div></div>
+<div class="ttc" id="aplan-memoire-pc_8h_html_ab5e25660831ed8f2f45c1cce5c2261f1"><div class="ttname"><a href="plan-memoire-pc_8h.html#ab5e25660831ed8f2f45c1cce5c2261f1">MANUX_ADRESSE_GDT</a></div><div class="ttdeci">#define MANUX_ADRESSE_GDT</div><div class="ttdef"><b>Definition</b> <a href="plan-memoire-pc_8h_source.html#l00062">plan-memoire-pc.h:62</a></div></div>
+<div class="ttc" id="asegment_8c_html_a200f5ab1a83704de7f701eab698b3fb2"><div class="ttname"><a href="segment_8c.html#a200f5ab1a83704de7f701eab698b3fb2">MANUX_GDT_DS</a></div><div class="ttdeci">#define MANUX_GDT_DS</div></div>
+<div class="ttc" id="asegment_8c_html_a34c1f2245ea9dba58d1c4503ade81273"><div class="ttname"><a href="segment_8c.html#a34c1f2245ea9dba58d1c4503ade81273">descripteurGDT</a></div><div class="ttdeci">descripteurGDT</div><div class="ttdef"><b>Definition</b> <a href="segment_8c_source.html#l00017">segment.c:17</a></div></div>
+<div class="ttc" id="asegment_8c_html_a791cf0e3353529dd1a1503535e05a10d"><div class="ttname"><a href="segment_8c.html#a791cf0e3353529dd1a1503535e05a10d">MANUX_GDT_CS</a></div><div class="ttdeci">#define MANUX_GDT_CS</div></div>
+<div class="ttc" id="asegment_8c_html_a7fa1329c2ae053fa9ef8b91043bd02d2"><div class="ttname"><a href="segment_8c.html#a7fa1329c2ae053fa9ef8b91043bd02d2">chargerLDT</a></div><div class="ttdeci">void chargerLDT(DescriptorTable *ldt)</div><div class="ttdef"><b>Definition</b> <a href="segment_8c_source.html#l00137">segment.c:137</a></div></div>
+<div class="ttc" id="asegment_8c_html_a89a9fc5562cf33c6869b1d0df950d1a6"><div class="ttname"><a href="segment_8c.html#a89a9fc5562cf33c6869b1d0df950d1a6">setDescripteurSegment</a></div><div class="ttdeci">int setDescripteurSegment(DescriptorTable *dt, uint32_t adresse, uint32_t limite, uint8_t type, uint8_t gd0a)</div><div class="ttdef"><b>Definition</b> <a href="segment_8c_source.html#l00019">segment.c:19</a></div></div>
+<div class="ttc" id="asegment_8c_html_a98c72dee0a629fb7b8ac0171521c52cc"><div class="ttname"><a href="segment_8c.html#a98c72dee0a629fb7b8ac0171521c52cc">ajouterDescTSS</a></div><div class="ttdeci">int ajouterDescTSS(DescriptorTable *dt, void *adresse, uint32_t limite, booleen busyTask)</div><div class="ttdef"><b>Definition</b> <a href="segment_8c_source.html#l00211">segment.c:211</a></div></div>
+<div class="ttc" id="asegment_8c_html_a9d73adba0d9db3f42a705fd1789e113e"><div class="ttname"><a href="segment_8c.html#a9d73adba0d9db3f42a705fd1789e113e">chargerGDT</a></div><div class="ttdeci">void chargerGDT(DescriptorTable *gdt)</div><div class="ttdef"><b>Definition</b> <a href="segment_8c_source.html#l00065">segment.c:65</a></div></div>
+<div class="ttc" id="asegment_8c_html_aa7b2be909929911d7772352d013a9480"><div class="ttname"><a href="segment_8c.html#aa7b2be909929911d7772352d013a9480">gdtSysteme</a></div><div class="ttdeci">DescriptorTable * gdtSysteme</div><div class="ttdef"><b>Definition</b> <a href="segment_8c_source.html#l00012">segment.c:12</a></div></div>
+<div class="ttc" id="asegment_8c_html_ad09246453a4dabd919c7541484046a87"><div class="ttname"><a href="segment_8c.html#ad09246453a4dabd919c7541484046a87">__attribute__</a></div><div class="ttdeci">struct __attribute__((__packed__))</div><div class="ttdef"><b>Definition</b> <a href="segment_8c_source.html#l00012">segment.c:14</a></div></div>
+<div class="ttc" id="asegment_8c_html_ad0ada4399c16de173f144895022c03d3"><div class="ttname"><a href="segment_8c.html#ad0ada4399c16de173f144895022c03d3">MANUX_GDT_SS</a></div><div class="ttdeci">#define MANUX_GDT_SS</div></div>
+<div class="ttc" id="asegment_8c_html_ae0e123e68e81d00dad08bd7a0215e9a8"><div class="ttname"><a href="segment_8c.html#ae0e123e68e81d00dad08bd7a0215e9a8">initialiserGDT</a></div><div class="ttdeci">void initialiserGDT(void)</div><div class="ttdef"><b>Definition</b> <a href="segment_8c_source.html#l00156">segment.c:156</a></div></div>
+<div class="ttc" id="asegment_8h_html"><div class="ttname"><a href="segment_8h.html">segment.h</a></div></div>
+<div class="ttc" id="asegment_8h_html_ad0ea392665f248eb1c5d00bdd69fe1f4"><div class="ttname"><a href="segment_8h.html#ad0ea392665f248eb1c5d00bdd69fe1f4">Descripteur</a></div><div class="ttdeci">union _Descripteur Descripteur</div></div>
+<div class="ttc" id="astruct__DescSegment_html_a06a1d9060b12b7b638cb6ee07d7d1505"><div class="ttname"><a href="struct__DescSegment.html#a06a1d9060b12b7b638cb6ee07d7d1505">_DescSegment::baseFaible</a></div><div class="ttdeci">uint16_t baseFaible</div><div class="ttdef"><b>Definition</b> <a href="segment_8h_source.html#l00016">segment.h:16</a></div></div>
+<div class="ttc" id="astruct__DescSegment_html_a251ec8a74fc148dcd045b23959131400"><div class="ttname"><a href="struct__DescSegment.html#a251ec8a74fc148dcd045b23959131400">_DescSegment::limiteFort</a></div><div class="ttdeci">uint8_t limiteFort</div><div class="ttdef"><b>Definition</b> <a href="segment_8h_source.html#l00019">segment.h:19</a></div></div>
+<div class="ttc" id="astruct__DescSegment_html_a66cfc2edc24d6d7ee1836ff35980198a"><div class="ttname"><a href="struct__DescSegment.html#a66cfc2edc24d6d7ee1836ff35980198a">_DescSegment::baseInter</a></div><div class="ttdeci">uint8_t baseInter</div><div class="ttdef"><b>Definition</b> <a href="segment_8h_source.html#l00017">segment.h:17</a></div></div>
+<div class="ttc" id="astruct__DescSegment_html_aaa1016bae9310abe4a6f9c87e759d97f"><div class="ttname"><a href="struct__DescSegment.html#aaa1016bae9310abe4a6f9c87e759d97f">_DescSegment::limiteFaible</a></div><div class="ttdeci">uint16_t limiteFaible</div><div class="ttdef"><b>Definition</b> <a href="segment_8h_source.html#l00015">segment.h:15</a></div></div>
+<div class="ttc" id="astruct__DescSegment_html_ab77cdfae3f849a7cb8d15eefb0631282"><div class="ttname"><a href="struct__DescSegment.html#ab77cdfae3f849a7cb8d15eefb0631282">_DescSegment::type</a></div><div class="ttdeci">uint8_t type</div><div class="ttdef"><b>Definition</b> <a href="segment_8h_source.html#l00018">segment.h:18</a></div></div>
+<div class="ttc" id="astruct__DescSegment_html_ae40b1efc708500ffa3394b4c0bc6afae"><div class="ttname"><a href="struct__DescSegment.html#ae40b1efc708500ffa3394b4c0bc6afae">_DescSegment::baseFort</a></div><div class="ttdeci">uint8_t baseFort</div><div class="ttdef"><b>Definition</b> <a href="segment_8h_source.html#l00020">segment.h:20</a></div></div>
+<div class="ttc" id="astruct__DescTSS_html_a1ffa53611eb212a29b7089c9daf7ab8a"><div class="ttname"><a href="struct__DescTSS.html#a1ffa53611eb212a29b7089c9daf7ab8a">_DescTSS::type</a></div><div class="ttdeci">uint8_t type</div><div class="ttdef"><b>Definition</b> <a href="segment_8h_source.html#l00030">segment.h:30</a></div></div>
+<div class="ttc" id="astruct__DescTSS_html_a79edebb6f912c512b000cb1cce719725"><div class="ttname"><a href="struct__DescTSS.html#a79edebb6f912c512b000cb1cce719725">_DescTSS::baseFaible</a></div><div class="ttdeci">uint16_t baseFaible</div><div class="ttdef"><b>Definition</b> <a href="segment_8h_source.html#l00028">segment.h:28</a></div></div>
+<div class="ttc" id="astruct__DescTSS_html_a8b1a7d2d31c6c3acb7bc75c1a5521dad"><div class="ttname"><a href="struct__DescTSS.html#a8b1a7d2d31c6c3acb7bc75c1a5521dad">_DescTSS::limiteFaible</a></div><div class="ttdeci">uint16_t limiteFaible</div><div class="ttdef"><b>Definition</b> <a href="segment_8h_source.html#l00027">segment.h:27</a></div></div>
+<div class="ttc" id="astruct__DescTSS_html_ab5b1064213c68bb2cb9d07b5204fcecf"><div class="ttname"><a href="struct__DescTSS.html#ab5b1064213c68bb2cb9d07b5204fcecf">_DescTSS::baseInter</a></div><div class="ttdeci">uint8_t baseInter</div><div class="ttdef"><b>Definition</b> <a href="segment_8h_source.html#l00029">segment.h:29</a></div></div>
+<div class="ttc" id="astruct__DescTSS_html_aeba21868aa60682c722f50c4a92d2d98"><div class="ttname"><a href="struct__DescTSS.html#aeba21868aa60682c722f50c4a92d2d98">_DescTSS::limiteFort</a></div><div class="ttdeci">uint8_t limiteFort</div><div class="ttdef"><b>Definition</b> <a href="segment_8h_source.html#l00031">segment.h:31</a></div></div>
+<div class="ttc" id="astruct__DescTSS_html_af68c88388d2109c9eda98ebc2eb0dd1d"><div class="ttname"><a href="struct__DescTSS.html#af68c88388d2109c9eda98ebc2eb0dd1d">_DescTSS::baseFort</a></div><div class="ttdeci">uint8_t baseFort</div><div class="ttdef"><b>Definition</b> <a href="segment_8h_source.html#l00032">segment.h:32</a></div></div>
+<div class="ttc" id="astruct__DescriptorTable_html"><div class="ttname"><a href="struct__DescriptorTable.html">_DescriptorTable</a></div><div class="ttdef"><b>Definition</b> <a href="segment_8h_source.html#l00044">segment.h:44</a></div></div>
+<div class="ttc" id="astruct__DescriptorTable_html_a315f73e13af36b7bdd5269d4cd5cb58c"><div class="ttname"><a href="struct__DescriptorTable.html#a315f73e13af36b7bdd5269d4cd5cb58c">_DescriptorTable::descripteur</a></div><div class="ttdeci">Descripteur descripteur[0]</div><div class="ttdef"><b>Definition</b> <a href="segment_8h_source.html#l00047">segment.h:47</a></div></div>
+<div class="ttc" id="astruct__DescriptorTable_html_a506f73d9871220f5639b7f0ce470926b"><div class="ttname"><a href="struct__DescriptorTable.html#a506f73d9871220f5639b7f0ce470926b">_DescriptorTable::capacite</a></div><div class="ttdeci">int capacite</div><div class="ttdef"><b>Definition</b> <a href="segment_8h_source.html#l00045">segment.h:45</a></div></div>
+<div class="ttc" id="astruct__DescriptorTable_html_af383a85f6ad710d325447d0b36cd0dc8"><div class="ttname"><a href="struct__DescriptorTable.html#af383a85f6ad710d325447d0b36cd0dc8">_DescriptorTable::taille</a></div><div class="ttdeci">int taille</div><div class="ttdef"><b>Definition</b> <a href="segment_8h_source.html#l00046">segment.h:46</a></div></div>
+<div class="ttc" id="aunion__Descripteur_html_a8bafbc4c5182e81587c22d852b9dcc7f"><div class="ttname"><a href="union__Descripteur.html#a8bafbc4c5182e81587c22d852b9dcc7f">_Descripteur::ds</a></div><div class="ttdeci">DescSegment ds</div><div class="ttdef"><b>Definition</b> <a href="segment_8h_source.html#l00036">segment.h:36</a></div></div>
+<div class="ttc" id="aunion__Descripteur_html_aebbba8ba52309981be3829a116d05df2"><div class="ttname"><a href="union__Descripteur.html#aebbba8ba52309981be3829a116d05df2">_Descripteur::dt</a></div><div class="ttdeci">DescTSS dt</div><div class="ttdef"><b>Definition</b> <a href="segment_8h_source.html#l00037">segment.h:37</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+GÃ©nÃ©rÃ© par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

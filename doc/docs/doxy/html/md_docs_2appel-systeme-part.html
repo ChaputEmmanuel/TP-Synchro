@@ -1,0 +1,140 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>My Project: Les appels systèmes</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">My Project
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+</div><!-- top -->
+<div><div class="header">
+  <div class="headertitle"><div class="title">Les appels systèmes</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><p><a class="anchor" id="autotoc_md14"></a> Les appels systèmes constituent une part importante de l’interface entre le noyau et les applications. Dans ManuX, le choix a été fait d’implanter ce mécanisme au travers d’une interruption. C’est une technique classique (utilisée par exemple par Linux).</p>
+<p>Leur mise en œuvre passe par plusieurs étapes que je vais détailler ici. L’objectif d’un appel système est d’offrir à une application utilisateur un service qui ne peut être rendu que part le noyau. Pour des raisons de confort d’utilisation, ces services sont rendus sous la forme de fonctions classiques, comme une librairie traditionnelle. Pour en arriver là, nous pouvons distinguer quatre étapes</p>
+<ul>
+<li>L’application utilise une fonction C pour invoquer un appel système. Le code de cette fonction doit donc être construit de sorte à préparer puis mettre en œuvre la sollicitation du service auprès du noyau (par le biais d’une interruption ici).</li>
+<li>L’interruption est déclanchée et le code du handler de cette interruption est exécuté.</li>
+<li>Le handler va devoir déterminer quelle est la fonction du noyau qui doit être utilisée pour rendre le service voulu à l’application.</li>
+<li>La fonction en question va être exécutée et le service fourni à l’application.</li>
+</ul>
+<p>Nous allons maintenant décrire la mise en œuvre de ces étapes en prenant comme exemple un appel système qui nous permettra d’envoyer un message sur la console. Nous pourrons ainsi écrire un <code>printf</code> pour les applications !</p>
+<h1><a class="anchor" id="autotoc_md15"></a>
+Définition des éléments communs noyau/application</h1>
+<p>Le fichier <a href="/doxy/html/appelsystemenum_8h_source.html"><code>manux/appelsystemenum.h</code></a>(<a href="/doxy/html/appelsystemenum_8h.html">dox</a>) donne en particulier les numéros des différents appels systèmes. Il doit donc absolument être commun au noyau et aux “applications” (voir la documentation sur l’espace utilisateur).</p>
+<h1><a class="anchor" id="autotoc_md16"></a>
+Définition de l’interface</h1>
+<p>Ce que j’appelle interface est la signature de la fonction directement utilisable dans une application pour invoquer un appel système.</p>
+<p>Cette interface est donc décrite côté applications, dans les fichiers de <code>usr</code>.</p>
+<p>Des macros ont été créées dans le fichier <a href="/doxy/html/appelsysteme_8h_source.html"><code>usr/include/manux/appelsysteme.h</code></a>(<a href="/doxy/html/appelsysteme_8h.html">dox</a>) pour simplifier une telle définition. Ce sont par exemple les “fonctions” <code>appelSysteme0</code>, <code>appelSysteme1</code>, …</p>
+<p>On utilisera donc une telle macro chaque fois qu’il sera nécessaire de définir un nouvel appel système. C’est ainsi que dans le fichier <code><a class="el" href="unistd_8h.html">usr/include/unistd.h</a></code> on trouve par exemple : </p><pre class="fragment">appelSysteme2(NBAS_AFFICHER, int, afficherConsole, void *, int);
+</pre><p> Cette ligne défini donc la fonction <code>afficherConsole()</code> qui va permettre à une application d’envoyer un message sur la console.</p>
+<h1><a class="anchor" id="autotoc_md17"></a>
+Écriture de l’appel système</h1>
+<p>La partie la plus importante est naturellement d’écrire le code de l’appel système. Celui-ci consiste simplement en une fonction C classique (qui en utilise éventuellement d’autres, naturellement). La seule contrainte étant que si cette fonction a des paramètres, le premier d’entre eux (qui ne présente aucun intéret pour le programmeur) doit être de type <code>ParametreAS</code>.</p>
+<p>Ce paramètre sert uniquement a “recadrer” les paramètres suivants dans la pile suite aux décalages induits dans celle-là par les appels successifs à l’interface de l’appel système, à l’interruption, et à l’appel système lui-même d’une part, et à la sauvegarde des registres d’autre part.</p>
+<p>Observons par exemple le code permettant la mise en œuve de l’appel système <code>ecrireConsole</code>. Il se trouve dans le fichier <code><a class="el" href="console_8c.html" title="Implantation des fonctions de base d&#39;accés à la console.">lib/console.c</a></code> : </p><pre class="fragment">/**
+ * L'implantation de l'AS ecrireConsole
+ */
+int sys_ecrireConsole(ParametreAS as, void * msg, int n)
+{
+   assert(tacheEnCours != NULL);
+   Console * cons = tacheEnCours-&gt;console;
+
+   assert(cons != NULL);
+   afficherConsoleN(cons, msg, n);
+
+   return n; 
+}
+</pre><p> Bien sûr, cette fonction utilise le code de manipulation de la console déjà écrit.</p>
+<h1><a class="anchor" id="autotoc_md18"></a>
+Enregistrement de l’appel système</h1>
+<p>L’enregistrement de l’appel système dans le système d’exploitation est réalisé par une invocation de la fonction suivante, définie dans <code>appelsysteme.h</code> et codée dans <code><a class="el" href="appelsysteme_8c.html" title="Implantation des sous-programmes de gestion des appels syst�me.">noyau/appelsysteme.c</a></code> : </p><pre class="fragment">{}
+int definirAppelSysteme(int num, void * appel);
+</pre><p> où</p>
+<p><code>num</code> <br  />
+ est le numéro de l’appel système enregistré ;</p>
+<p><code>appel</code> <br  />
+ est la fonction de traitement de cet appel système.</p>
+<p>Le travail de cette fonction est donc simplement de placer dans la table des appels systèmes (<code>vecteurAppelsSysteme</code>) la fonction de traitement de cet appel système.</p>
+<p>C’est donc ici la “partie noyau” qui est réalisée, c’est-à-dire la définition des actions à mener lorsque l’appel système est invoqué.</p>
+<p>Nous trouvons par exemple dans la fonction <code><a class="el" href="include_2manux_2appelsysteme_8h.html#ae9c459f3384b085e316b0d43a308d69b">initialiserAppelsSysteme()</a></code> du fichier <code><a class="el" href="appelsysteme_8c.html" title="Implantation des sous-programmes de gestion des appels syst�me.">noyau/appelsysteme.c</a></code> la ligne de déclaration de notre appel système <code>ecrireConsole</code> : </p><pre class="fragment">{}
+void initialiserAppelsSysteme()
+{
+   ...
+
+   /* Envoyer une chaine de caracteres sur la console */
+   definirAppelSysteme(NBAS_ECRIRE_CONS, sys_ecrireConsole);
+
+   ...
+}
+</pre> </div></div><!-- contents -->
+</div><!-- PageDoc -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

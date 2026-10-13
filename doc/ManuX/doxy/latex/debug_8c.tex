@@ -1,0 +1,52 @@
+\doxysection{Référence du fichier /home/manu/\+PROGRAMMATION/\+C/\+Manu\+X/noyau/debug.c}
+\hypertarget{debug_8c}{}\label{debug_8c}\index{/home/manu/PROGRAMMATION/C/ManuX/noyau/debug.c@{/home/manu/PROGRAMMATION/C/ManuX/noyau/debug.c}}
+
+
+Les outils de débogage.  
+
+
+{\ttfamily \#include $<$manux/debug.\+h$>$}\newline
+{\ttfamily \#include $<$manux/printk.\+h$>$}\newline
+{\ttfamily \#include $<$manux/stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$manux/registre.\+h$>$}\newline
+Graphe des dépendances par inclusion de debug.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{debug_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} \mbox{\hyperlink{debug_8c_afecb2fc4768dcaba6f0098c4a46bff0c}{debug\+Initialiser}} (\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}})
+\begin{DoxyCompactList}\small\item\em Initialisation du sytème de débogage. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Les outils de débogage. 
+
+\begin{DoxyVerb}                                                (C) Manu Chaput 2023-2025
+\end{DoxyVerb}
+ 
+
+Définition dans le fichier \mbox{\hyperlink{debug_8c_source}{debug.\+c}}.
+
+
+
+\doxysubsection{Documentation des fonctions}
+\Hypertarget{debug_8c_afecb2fc4768dcaba6f0098c4a46bff0c}\label{debug_8c_afecb2fc4768dcaba6f0098c4a46bff0c} 
+\index{debug.c@{debug.c}!debugInitialiser@{debugInitialiser}}
+\index{debugInitialiser@{debugInitialiser}!debug.c@{debug.c}}
+\doxysubsubsection{\texorpdfstring{debugInitialiser()}{debugInitialiser()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} debug\+Initialiser (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}}}]{ }\end{DoxyParamCaption})}
+
+
+
+Initialisation du sytème de débogage. 
+
+Cette phase d\textquotesingle{}initialisation n\textquotesingle{}est utile que si les masques de debogage sont implantés sous forme de variables (c\textquotesingle{}est-\/à-\/dire si MANUX\+\_\+\+DEBUGMASK\+\_\+\+VAR est définie) et si le registre est configuré (donc si MANUX\+\_\+\+REGISTRE est définie). Elle sert alors à placer les paramètres dans le registre. 
+
+Définition à la ligne \mbox{\hyperlink{debug_8c_source_l00037}{37}} du fichier \mbox{\hyperlink{debug_8c_source}{debug.\+c}}.
+

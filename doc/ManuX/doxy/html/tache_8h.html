@@ -1,0 +1,582 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>My Project: Référence du fichier /home/manu/PROGRAMMATION/C/ManuX/include/manux/tache.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">My Project
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_7ae9ae23548caaa7aeb1f148c6e00073.html">manux</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">Classes</a> &#124;
+<a href="#define-members">Macros</a> &#124;
+<a href="#typedef-members">Définitions de type</a> &#124;
+<a href="#enum-members">Énumérations</a> &#124;
+<a href="#func-members">Fonctions</a> &#124;
+<a href="#var-members">Variables</a>  </div>
+  <div class="headertitle"><div class="title">Référence du fichier tache.h</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &lt;manux/config.h&gt;</code><br />
+<code>#include &lt;manux/types.h&gt;</code><br />
+<code>#include &lt;<a class="el" href="include_2manux_2interruptions_8h_source.html">manux/interruptions.h</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="segment_8h_source.html">manux/segment.h</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="fichier_8h_source.html">manux/fichier.h</a>&gt;</code><br />
+</div><div class="textblock"><div class="dynheader">
+Graphe des dépendances par inclusion de tache.h:</div>
+<div class="dyncontent">
+<div class="center"><img src="tache_8h__incl.png" border="0" usemap="#a_2home_2manu_2PROGRAMMATION_2C_2ManuX_2include_2manux_2tache_8h" alt=""/></div>
+<map name="a_2home_2manu_2PROGRAMMATION_2C_2ManuX_2include_2manux_2tache_8h" id="a_2home_2manu_2PROGRAMMATION_2C_2ManuX_2include_2manux_2tache_8h">
+<area shape="rect" title=" " alt="" coords="152,5,379,60"/>
+<area shape="rect" title=" " alt="" coords="5,108,128,133"/>
+<area shape="poly" title=" " alt="" coords="206,63,107,105,105,100,204,58"/>
+<area shape="rect" title=" " alt="" coords="287,255,406,280"/>
+<area shape="poly" title=" " alt="" coords="241,62,215,93,192,130,185,149,182,169,185,188,193,205,209,223,229,237,275,254,273,259,227,241,206,227,188,208,179,189,177,169,180,148,188,128,210,90,236,58"/>
+<area shape="rect" href="include_2manux_2interruptions_8h.html" title=" " alt="" coords="203,181,370,207"/>
+<area shape="poly" title=" " alt="" coords="271,60,286,167,281,168,266,61"/>
+<area shape="rect" href="segment_8h.html" title=" " alt="" coords="303,108,443,133"/>
+<area shape="poly" title=" " alt="" coords="300,58,349,97,346,101,297,62"/>
+<area shape="rect" href="fichier_8h.html" title=" " alt="" coords="468,108,591,133"/>
+<area shape="poly" title=" " alt="" coords="347,58,482,101,480,106,345,63"/>
+<area shape="poly" title=" " alt="" coords="299,205,330,242,326,246,295,209"/>
+<area shape="poly" title=" " alt="" coords="380,133,386,167,387,187,384,207,366,245,361,242,379,206,382,187,381,167,374,134"/>
+<area shape="rect" href="inoeud_8h.html" title=": description des noeuds d&#39;information (C) Manu Chaput 2002&#45;2023" alt="" coords="446,181,573,207"/>
+<area shape="poly" title=" " alt="" coords="529,134,519,169,514,167,523,133"/>
+<area shape="rect" title=" " alt="" coords="597,181,771,207"/>
+<area shape="poly" title=" " alt="" coords="555,131,647,173,645,178,553,136"/>
+<area shape="poly" title=" " alt="" coords="484,209,387,251,385,247,482,204"/>
+</map>
+</div>
+</div><div class="textblock"><div class="dynheader">
+Ce graphe montre quels fichiers incluent directement ou indirectement ce fichier :</div>
+<div class="dyncontent">
+<div class="center"><img src="tache_8h__dep__incl.png" border="0" usemap="#a_2home_2manu_2PROGRAMMATION_2C_2ManuX_2include_2manux_2tache_8hdep" alt=""/></div>
+<map name="a_2home_2manu_2PROGRAMMATION_2C_2ManuX_2include_2manux_2tache_8hdep" id="a_2home_2manu_2PROGRAMMATION_2C_2ManuX_2include_2manux_2tache_8hdep">
+<area shape="rect" title=" " alt="" coords="9429,5,9656,60"/>
+<area shape="rect" href="interruptions_8c.html" title=": Implémentation des sous&#45;programmes de gestion des déroutements" alt="" coords="5,423,232,463"/>
+<area shape="poly" title=" " alt="" coords="9415,37,8176,41,6156,52,5062,61,4024,74,3125,90,2448,111,2057,124,1752,135,1606,145,1449,160,1271,182,1062,213,933,236,803,263,550,323,334,381,180,426,179,421,332,376,549,318,801,258,932,231,1061,208,1270,177,1448,155,1605,140,1752,130,2057,119,2448,105,3125,85,4024,69,5062,56,6156,46,8176,35,9415,32"/>
+<area shape="rect" href="scheduler_8h.html" title=" " alt="" coords="7349,108,7576,163"/>
+<area shape="poly" title=" " alt="" coords="9415,43,7576,131,7576,126,9415,37"/>
+<area shape="rect" href="main-mutex_8c.html" title=": Démonstration d&#39;utilisation des exclusions mutuelles" alt="" coords="10259,423,10485,463"/>
+<area shape="poly" title=" " alt="" coords="9614,63,9705,106,10075,288,10337,421,10334,426,10072,292,9703,110,9612,68"/>
+<area shape="rect" href="main-outil-synchro_8c.html" title=": Un exemple de début de noyau." alt="" coords="9507,416,9733,471"/>
+<area shape="poly" title=" " alt="" coords="9553,73,9618,415,9612,416,9548,74"/>
+<area shape="rect" href="main-taches_8c.html" title=": Démonstration d&#39;utilisation des tâches" alt="" coords="10509,423,10736,463"/>
+<area shape="poly" title=" " alt="" coords="9645,61,9780,105,10018,194,10249,285,10580,421,10578,426,10247,290,10016,199,9778,111,9643,67"/>
+<area shape="rect" href="main-verrou-noyau_8c.html" title=": Mise en évidence de a (non) ré&#45;entrance du noyau. On compilera une fois avec la macro MANUX_REENTRANT a..." alt="" coords="9256,416,9483,471"/>
+<area shape="poly" title=" " alt="" coords="9529,74,9383,417,9378,415,9524,72"/>
+<area shape="rect" href="tubes_8c.html" title=" " alt="" coords="9757,423,9984,463"/>
+<area shape="poly" title=" " alt="" coords="9574,69,9857,421,9853,425,9570,72"/>
+<area shape="rect" href="main_8c.html" title=": Un exemple de début de noyau." alt="" coords="507,423,733,463"/>
+<area shape="poly" title=" " alt="" coords="9415,37,8064,43,7013,52,5835,67,4624,89,3474,120,2951,139,2478,161,2068,186,1731,213,1553,233,1416,253,1279,279,1105,316,871,373,683,426,682,421,870,368,1103,311,1278,274,1415,248,1553,227,1730,208,2067,180,2478,156,2951,134,3474,115,4624,84,5834,62,7013,47,8064,38,9415,32"/>
+<area shape="rect" href="tache_8c.html" title="Implantation des sous&#45;programmes de gestion des tâches." alt="" coords="757,423,984,463"/>
+<area shape="poly" title=" " alt="" coords="9416,39,8540,56,7061,91,5247,143,4298,176,3367,213,3225,217,3095,216,2861,204,2654,186,2462,171,2367,168,2272,168,2174,174,2073,185,1966,204,1852,232,1729,268,1597,316,1577,328,1564,342,1550,357,1529,370,1452,397,1385,411,1325,416,1267,415,1147,409,1077,410,996,419,954,426,954,421,996,413,1077,405,1147,404,1268,410,1325,410,1385,405,1451,392,1527,366,1547,353,1560,339,1573,324,1595,311,1728,263,1850,226,1965,199,2072,180,2174,168,2272,163,2367,162,2462,166,2655,181,2861,199,3095,211,3225,212,3367,208,4298,171,5247,138,7061,86,8540,51,9415,34"/>
+<area shape="rect" href="listetaches_8c.html" title=" " alt="" coords="10008,423,10235,463"/>
+<area shape="poly" title=" " alt="" coords="9592,66,10096,421,10093,425,9589,70"/>
+<area shape="poly" title=" " alt="" coords="7335,139,6142,142,4273,151,3308,161,2442,173,1765,191,1526,201,1367,213,1228,232,1121,254,878,316,778,345,735,358,678,371,557,389,461,397,366,403,244,419,204,426,203,421,244,413,365,398,461,392,556,384,677,365,734,353,777,340,877,311,1120,249,1227,227,1366,208,1525,196,1765,186,2442,168,3308,155,4273,146,6142,136,7335,134"/>
+<area shape="rect" href="atomique_8h.html" title="Définition des opérations de synchronisation de ManuX." alt="" coords="7349,211,7576,265"/>
+<area shape="poly" title=" " alt="" coords="7457,176,7457,211,7452,211,7451,176"/>
+<area shape="rect" href="printk_8c.html" title=" " alt="" coords="8245,423,8472,463"/>
+<area shape="poly" title=" " alt="" coords="7553,165,8305,421,8303,426,7551,170"/>
+<area shape="rect" href="appelsysteme_8c.html" title="Implantation des sous&#45;programmes de gestion des appels système." alt="" coords="8496,423,8731,463"/>
+<area shape="poly" title=" " alt="" coords="7590,162,7781,208,8221,327,8550,421,8549,426,8220,332,7779,213,7588,167"/>
+<area shape="poly" title=" " alt="" coords="7590,137,7898,145,8293,160,8678,181,8838,193,8959,208,9069,227,9155,247,9238,273,9344,311,9468,363,9572,413,9569,418,9466,368,9342,316,9236,278,9153,252,9068,232,8958,213,8837,199,8678,186,8293,165,7898,151,7590,142"/>
+<area shape="poly" title=" " alt="" coords="7590,134,7880,138,8282,149,8743,171,8979,187,9211,208,9575,250,9857,293,10498,413,10536,421,10535,426,10497,419,9856,299,9574,255,9210,213,8979,193,8743,176,8282,154,7880,143,7590,140"/>
+<area shape="poly" title=" " alt="" coords="7590,135,7957,145,8193,156,8441,172,8686,195,8912,225,9014,243,9104,263,9182,286,9245,311,9280,333,9310,360,9355,414,9351,418,9306,364,9277,337,9243,316,9180,291,9103,268,9013,248,8912,230,8686,200,8440,178,8192,161,7957,151,7590,141"/>
+<area shape="rect" href="scheduler_8c.html" title=" " alt="" coords="8755,423,8981,463"/>
+<area shape="poly" title=" " alt="" coords="7590,154,7897,208,8158,265,8414,325,8797,421,8796,426,8413,330,8157,270,7895,213,7589,159"/>
+<area shape="poly" title=" " alt="" coords="7590,136,7925,142,8361,155,8789,177,8966,191,9101,208,9403,296,9810,421,9809,426,9402,302,9099,213,8965,196,8788,182,8360,161,7925,148,7589,141"/>
+<area shape="rect" href="semaphore_8c.html" title=" " alt="" coords="256,423,483,463"/>
+<area shape="poly" title=" " alt="" coords="7336,139,6338,139,4766,147,3921,156,3121,169,2429,188,2143,200,1908,213,1679,231,1502,249,1325,275,1099,316,1037,330,989,343,941,357,878,371,771,387,686,396,602,404,495,419,455,426,454,421,494,413,602,398,686,391,770,382,877,365,939,352,987,338,1035,325,1098,311,1324,270,1501,244,1679,225,1908,208,2143,194,2429,183,3121,164,3921,150,4766,141,6338,134,7336,134"/>
+<area shape="poly" title=" " alt="" coords="7335,141,6126,156,4227,190,3246,214,2367,243,1994,260,1681,277,1438,296,1278,316,1229,328,1191,342,1154,357,1105,371,1004,389,926,398,846,405,746,419,707,426,706,421,745,413,846,399,925,392,1004,384,1103,365,1152,352,1189,337,1227,323,1277,311,1437,291,1680,272,1994,254,2367,238,3246,209,4226,185,6126,151,7335,135"/>
+<area shape="poly" title=" " alt="" coords="7336,141,6127,161,5260,182,4371,213,3738,245,2682,303,1628,368,1233,396,996,419,953,426,952,421,996,413,1232,391,1627,363,2682,298,3737,240,4371,208,5260,177,6127,155,7336,135"/>
+<area shape="rect" href="manux_2debug_8h.html" title=" " alt="" coords="5288,313,5515,368"/>
+<area shape="poly" title=" " alt="" coords="7336,152,5515,331,5515,326,7335,146"/>
+<area shape="rect" href="dummy-task_8c.html" title="Implantation d&#39;une tâche de fond du noyau, surtout utile pour de l&#39;affichage pour le moment...." alt="" coords="1008,423,1235,463"/>
+<area shape="poly" title=" " alt="" coords="7336,139,6932,142,6337,153,5639,175,5278,192,4924,213,4660,235,4455,258,3987,316,3761,347,3662,359,3535,371,3187,389,2891,392,2631,387,2389,379,2147,372,1888,373,1594,387,1247,419,1201,426,1200,421,1246,413,1593,381,1888,368,2147,367,2389,373,2631,382,2891,387,3186,383,3534,365,3662,354,3761,341,3986,311,4454,252,4659,230,4924,208,5278,187,5638,170,6337,147,6932,137,7336,134"/>
+<area shape="rect" href="fichier_8c.html" title=" " alt="" coords="1259,423,1485,463"/>
+<area shape="poly" title=" " alt="" coords="7336,146,6831,174,6182,213,5564,258,5085,299,4605,336,3987,371,3744,377,3442,380,2741,381,2381,383,2041,389,1740,400,1498,419,1451,426,1450,421,1497,413,1739,395,2040,383,2381,378,2741,376,3442,375,3744,372,3987,365,4604,331,5084,294,5564,253,6181,208,6831,169,7335,141"/>
+<area shape="rect" href="clavier_8c.html" title=" " alt="" coords="4936,218,5163,258"/>
+<area shape="poly" title=" " alt="" coords="7335,141,6883,147,6261,161,5638,182,5378,197,5182,213,5134,221,5133,215,5181,208,5378,191,5637,177,6260,156,6882,142,7335,135"/>
+<area shape="poly" title=" " alt="" coords="7335,243,1277,316,1165,327,1078,341,990,356,878,371,699,385,560,391,422,399,244,419,202,426,201,421,244,413,421,393,560,386,699,380,877,365,990,351,1077,336,1164,322,1277,311,7335,238"/>
+<area shape="poly" title=" " alt="" coords="7469,197,7468,163,7473,163,7474,197"/>
+<area shape="rect" href="include_2manux_2console_8h.html" title="Définition des fonctions de base d&#39;accés à la console." alt="" coords="7349,313,7576,368"/>
+<area shape="poly" title=" " alt="" coords="7465,279,7465,313,7460,313,7460,279"/>
+<area shape="poly" title=" " alt="" coords="7590,237,7953,241,8430,252,8674,262,8901,274,9097,291,9245,311,9370,351,9548,413,9547,418,9369,356,9243,316,9096,296,8901,280,8674,267,8430,258,7953,247,7590,243"/>
+<area shape="poly" title=" " alt="" coords="7590,245,7885,266,8296,301,8767,350,9008,380,9244,413,9256,415,9255,421,9244,419,9008,385,8766,355,8295,306,7885,271,7590,250"/>
+<area shape="rect" href="memoire_8c.html" title=" " alt="" coords="7995,423,8221,463"/>
+<area shape="poly" title=" " alt="" coords="7559,267,8049,421,8047,426,7558,272"/>
+<area shape="rect" href="exclusion-mutuelle_8h.html" title="Définition des exlusions mutuelles." alt="" coords="9005,313,9232,368"/>
+<area shape="poly" title=" " alt="" coords="7590,244,9005,330,9005,335,7590,250"/>
+<area shape="rect" href="semaphore_8h.html" title=" " alt="" coords="1289,313,1516,368"/>
+<area shape="poly" title=" " alt="" coords="7335,244,1516,340,1516,335,7335,239"/>
+<area shape="poly" title=" " alt="" coords="7336,244,5875,268,4805,289,3703,316,2223,356,1299,387,953,403,746,419,700,426,699,421,745,413,952,398,1299,382,2223,351,3703,311,4805,284,5875,263,7336,238"/>
+<area shape="poly" title=" " alt="" coords="7335,246,5276,316,4489,345,3703,371,3438,375,3110,375,2348,376,1957,378,1587,385,1259,398,996,419,950,426,949,421,996,413,1259,393,1586,380,1957,373,2348,370,3110,370,3438,369,3703,365,4489,340,5276,311,7335,241"/>
+<area shape="rect" href="console_8c.html" title="Implantation des fonctions de base d&#39;accés à la console." alt="" coords="4773,423,5000,463"/>
+<area shape="poly" title=" " alt="" coords="7336,346,6853,351,6182,363,5507,385,5225,400,5012,419,4967,426,4966,421,5012,413,5225,395,5506,380,6181,358,6853,346,7335,340"/>
+<area shape="poly" title=" " alt="" coords="7590,347,7885,371,8060,390,8234,413,8275,421,8274,426,8233,419,8059,395,7884,377,7589,353"/>
+<area shape="poly" title=" " alt="" coords="7590,343,7990,365,8237,385,8484,413,8528,421,8528,426,8484,419,8236,390,7989,370,7590,349"/>
+<area shape="rect" href="main-acces-concurrent_8c.html" title="Un exemple pitoyable de début de noyau." alt="" coords="5024,416,5251,471"/>
+<area shape="poly" title=" " alt="" coords="7336,346,6898,353,6300,366,5702,388,5453,402,5264,419,5251,420,5250,415,5264,413,5453,397,5701,382,6300,361,6898,348,7336,341"/>
+<area shape="rect" href="main-bootparam_8c.html" title=": Un exemple de noyau montrant le passage de paramètres au boot." alt="" coords="5275,423,5527,463"/>
+<area shape="poly" title=" " alt="" coords="7335,347,6430,371,5916,392,5702,405,5540,419,5491,426,5490,421,5540,413,5702,399,5916,387,6429,366,7335,342"/>
+<area shape="rect" href="main-bootreg_8c.html" title=": Comment peupler le registre en fonction des paramètres de la ligne de commande obtenus par le bootl..." alt="" coords="5551,423,5782,463"/>
+<area shape="poly" title=" " alt="" coords="7336,344,7057,345,6675,354,6237,377,6014,395,5795,419,5749,426,5749,421,5794,413,6013,390,6237,372,6674,349,7057,340,7335,338"/>
+<area shape="rect" href="main-debmaskdyn-reg_8c.html" title=": Comment utiliser les options du bootloader pour modifier les masques de débogage via le registre." alt="" coords="5807,423,6097,463"/>
+<area shape="poly" title=" " alt="" coords="7336,347,7106,354,6802,367,6458,388,6111,419,6056,426,6056,421,6110,413,6457,382,6801,361,7106,348,7336,342"/>
+<area shape="rect" href="main-debmaskdyn_8c.html" title=": Comment utiliser les options du bootloader pour modifier les masques de débogage." alt="" coords="6122,423,6387,463"/>
+<area shape="poly" title=" " alt="" coords="7336,349,6919,371,6660,391,6400,419,6351,426,6351,421,6400,413,6660,386,6919,366,7335,344"/>
+<area shape="rect" href="main-memoire_8c.html" title="Un exemple pitoyable de début de noyau." alt="" coords="6412,423,6652,463"/>
+<area shape="poly" title=" " alt="" coords="7336,352,7029,377,6847,395,6664,419,6621,426,6620,421,6664,413,6846,390,7029,371,7335,347"/>
+<area shape="poly" title=" " alt="" coords="7590,341,9010,369,9791,390,10077,402,10247,413,10293,421,10292,426,10246,419,10077,407,9791,396,9010,374,7590,347"/>
+<area shape="poly" title=" " alt="" coords="7590,341,7998,349,8548,363,9095,384,9322,398,9495,413,9507,415,9506,420,9494,419,9322,403,9094,389,8547,368,7998,354,7590,346"/>
+<area shape="rect" href="main-reentrance_8c.html" title="Démonstration de la différence entre un noyau réentrant et un noyau non réentrant." alt="" coords="6676,423,6927,463"/>
+<area shape="poly" title=" " alt="" coords="7336,361,6940,419,6898,426,6897,421,6940,413,7336,356"/>
+<area shape="rect" href="main-registre_8c.html" title=":" alt="" coords="6951,423,7182,463"/>
+<area shape="poly" title=" " alt="" coords="7347,374,7142,426,7140,421,7346,369"/>
+<area shape="poly" title=" " alt="" coords="7590,342,9198,375,10060,397,10353,406,10498,413,10544,421,10543,426,10497,419,10353,411,10060,402,9198,381,7590,347"/>
+<area shape="poly" title=" " alt="" coords="7590,342,8429,366,8900,387,9096,399,9244,413,9256,415,9255,420,9244,419,9095,405,8900,392,8429,371,7590,347"/>
+<area shape="rect" href="main-virtio-cons_8c.html" title=": Un exemple de début de noyau." alt="" coords="7206,423,7455,463"/>
+<area shape="poly" title=" " alt="" coords="7419,379,7357,425,7354,421,7416,374"/>
+<area shape="rect" href="main-virtio-journal_8c.html" title=" " alt="" coords="7480,416,7707,471"/>
+<area shape="poly" title=" " alt="" coords="7509,374,7561,414,7557,418,7506,378"/>
+<area shape="rect" href="main-virtio-net_8c.html" title=" " alt="" coords="7731,423,7971,463"/>
+<area shape="poly" title=" " alt="" coords="7577,369,7778,421,7777,426,7576,374"/>
+<area shape="poly" title=" " alt="" coords="7590,355,7776,381,7983,413,8022,421,8021,426,7982,419,7775,386,7589,360"/>
+<area shape="poly" title=" " alt="" coords="7590,341,7808,346,8095,357,8418,379,8582,394,8743,413,8787,421,8786,426,8742,419,8582,400,8418,384,8095,363,7808,351,7590,346"/>
+<area shape="poly" title=" " alt="" coords="9197,370,9305,413,9303,418,9195,375"/>
+<area shape="rect" href="exclusion-mutuelle_8c.html" title="Implantation des exclusions mutuelles." alt="" coords="9005,416,9232,471"/>
+<area shape="poly" title=" " alt="" coords="9121,382,9121,416,9116,416,9116,382"/>
+<area shape="poly" title=" " alt="" coords="9246,351,9479,376,9746,413,9786,421,9785,426,9745,419,9478,382,9246,356"/>
+<area shape="poly" title=" " alt="" coords="1276,354,827,389,495,419,453,426,452,421,494,413,826,384,1275,349"/>
+<area shape="poly" title=" " alt="" coords="5274,345,4246,350,2672,362,1865,371,1142,384,577,399,377,409,244,419,198,426,197,421,244,413,377,403,577,394,1142,378,1865,366,2672,356,4246,344,5274,340"/>
+<area shape="poly" title=" " alt="" coords="5275,370,5270,371,5013,419,4976,426,4975,421,5011,413,5269,365,5274,364"/>
+<area shape="poly" title=" " alt="" coords="5528,341,6972,369,7769,390,8061,402,8234,413,8280,421,8279,426,8233,419,8060,407,7769,395,6972,374,5528,347"/>
+<area shape="poly" title=" " alt="" coords="5529,341,7099,368,7974,389,8294,401,8484,413,8532,421,8531,426,8484,419,8294,406,7974,394,7099,373,5529,346"/>
+<area shape="poly" title=" " alt="" coords="5321,375,5207,418,5205,413,5319,370"/>
+<area shape="poly" title=" " alt="" coords="5404,382,5404,423,5399,423,5399,382"/>
+<area shape="poly" title=" " alt="" coords="5484,370,5618,421,5616,426,5482,375"/>
+<area shape="poly" title=" " alt="" coords="5529,362,5849,421,5848,426,5528,368"/>
+<area shape="poly" title=" " alt="" coords="5529,350,5797,375,6110,413,6156,421,6155,426,6109,419,5796,381,5528,355"/>
+<area shape="poly" title=" " alt="" coords="5528,344,5919,366,6159,386,6400,413,6445,421,6444,426,6400,419,6159,391,5918,371,5528,349"/>
+<area shape="poly" title=" " alt="" coords="5528,341,7687,372,8884,394,9294,404,9495,413,9507,415,9506,420,9494,419,9294,409,8884,399,7687,377,5528,346"/>
+<area shape="poly" title=" " alt="" coords="5529,341,5744,348,6027,360,6345,381,6664,413,6712,421,6711,426,6664,419,6344,387,6027,365,5744,353,5529,347"/>
+<area shape="poly" title=" " alt="" coords="5528,339,5787,342,6137,352,6536,374,6740,392,6939,413,6984,421,6984,426,6938,419,6739,397,6536,380,6137,357,5786,347,5528,344"/>
+<area shape="poly" title=" " alt="" coords="5528,341,7557,373,8675,394,9057,405,9244,413,9256,415,9255,420,9244,419,9057,410,8674,400,7557,378,5528,346"/>
+<area shape="poly" title=" " alt="" coords="5529,342,6373,367,6848,388,7045,400,7195,413,7244,421,7243,426,7194,419,7045,405,6848,393,6373,372,5529,347"/>
+<area shape="poly" title=" " alt="" coords="5529,341,5943,348,6503,362,7060,384,7292,397,7468,413,7480,415,7479,420,7468,419,7292,403,7060,389,6503,368,5943,354,5529,346"/>
+<area shape="poly" title=" " alt="" coords="5528,341,5987,347,6620,360,7254,382,7519,396,7719,413,7767,421,7766,426,7718,419,7518,402,7254,387,6619,366,5987,353,5528,346"/>
+<area shape="poly" title=" " alt="" coords="5528,340,6034,345,6743,357,7459,378,7757,394,7983,413,8029,421,8028,426,7982,419,7757,399,7458,384,6743,362,6034,350,5528,345"/>
+<area shape="poly" title=" " alt="" coords="5528,341,7229,366,8185,387,8535,400,8743,413,8789,421,8788,426,8742,419,8535,405,8184,393,7229,371,5528,346"/>
+<area shape="poly" title=" " alt="" coords="5528,341,7427,373,8465,395,8820,405,8994,413,9005,415,9005,420,8993,419,8819,410,8465,400,7427,379,5528,347"/>
+<area shape="poly" title=" " alt="" coords="5529,341,7861,377,9140,398,9746,413,9792,421,9791,426,9745,419,9140,404,7861,382,5529,347"/>
+<area shape="poly" title=" " alt="" coords="5274,347,2742,386,746,419,699,426,698,421,745,413,2742,380,5274,341"/>
+<area shape="poly" title=" " alt="" coords="5275,370,5270,371,5076,386,4853,397,4605,403,4336,405,3751,402,3132,393,2514,384,1929,382,1660,385,1412,391,1189,402,996,419,950,426,949,421,996,413,1189,397,1412,386,1660,379,1929,376,2514,379,3133,388,3751,396,4336,400,4605,397,4853,391,5076,381,5269,365,5274,365"/>
+<area shape="rect" href="horloge_8c.html" title="Implantation des sous&#45;programmes de gestion de l&#39;horloge matérielle." alt="" coords="3520,423,3747,463"/>
+<area shape="poly" title=" " alt="" coords="5275,370,5270,371,5040,391,4846,399,4674,398,4514,393,4354,389,4182,388,3988,397,3759,419,3714,426,3713,421,3758,413,3988,392,4182,383,4354,383,4514,388,4674,393,4845,394,5040,386,5269,365,5274,365"/>
+<area shape="rect" href="segment_8c.html" title=" " alt="" coords="3771,423,3997,463"/>
+<area shape="poly" title=" " alt="" coords="5275,370,5270,371,5078,389,4916,396,4773,397,4639,394,4506,391,4363,392,4201,400,4010,419,3965,426,3964,421,4009,413,4200,394,4363,386,4506,385,4639,388,4773,391,4916,391,5078,383,5269,365,5274,365"/>
+<area shape="rect" href="registre_8c.html" title="Mise en oeuvre de la notion de registre permettant de gérer des paramètres de façon structurée." alt="" coords="4021,423,4248,463"/>
+<area shape="poly" title=" " alt="" coords="5275,370,5270,371,5116,386,4986,393,4765,394,4543,395,4413,403,4260,419,4216,426,4215,421,4260,413,4413,397,4543,390,4765,388,4986,388,5116,381,5269,365,5274,365"/>
+<area shape="rect" href="bootloader_8c.html" title="Gestion de l&#39;interfaçage avec le bootloader." alt="" coords="4272,423,4499,463"/>
+<area shape="poly" title=" " alt="" coords="5275,370,5270,371,5155,383,5057,390,4890,394,4723,398,4626,405,4511,419,4467,426,4467,421,4510,413,4625,400,4723,393,4890,389,5056,385,5154,378,5269,365,5274,365"/>
+<area shape="rect" href="condition_8c.html" title="Implantation des opérations atomiques de ManuX." alt="" coords="4523,423,4749,463"/>
+<area shape="poly" title=" " alt="" coords="5275,370,5270,371,5127,387,5015,394,4904,402,4762,419,4720,426,4719,421,4761,413,4904,396,5015,389,5127,382,5269,365,5274,365"/>
+<area shape="rect" href="debug_8c.html" title="Les outils de débogage." alt="" coords="1509,423,1736,463"/>
+<area shape="poly" title=" " alt="" coords="5275,370,5270,371,5110,384,4927,393,4500,400,4018,399,3508,393,2999,387,2517,387,2091,395,1907,405,1748,419,1702,426,1701,421,1748,413,1907,400,2091,390,2517,381,2999,382,3509,388,4018,394,4500,395,4926,387,5110,378,5269,365,5274,365"/>
+<area shape="poly" title=" " alt="" coords="5275,370,5270,371,5088,385,4878,395,4391,403,3840,401,3258,393,2676,385,2125,383,1872,386,1638,393,1429,403,1247,419,1200,426,1199,421,1246,413,1428,398,1638,387,1872,381,2125,378,2676,380,3258,388,3840,396,4391,398,4878,390,5087,380,5269,365,5274,365"/>
+<area shape="rect" href="kmalloc-zs_8c.html" title="Allocation mémoire multi&#45;usage pour des tailles jusqu&#39;à 4092 octets." alt="" coords="1760,423,1987,463"/>
+<area shape="poly" title=" " alt="" coords="5275,370,5270,371,5122,383,4951,391,4555,399,4107,398,3634,393,3160,389,2713,388,2317,397,2147,406,1999,419,1952,426,1951,421,1998,413,2146,401,2317,392,2713,383,3160,383,3634,388,4107,393,4555,394,4951,386,5121,378,5269,365,5274,365"/>
+<area shape="poly" title=" " alt="" coords="5528,341,7993,376,9352,398,9996,413,10043,421,10042,426,9996,419,9352,403,7993,381,5528,346"/>
+<area shape="rect" href="pci_8c.html" title=": Fonctions de manipulation du bus PCI" alt="" coords="2011,423,2237,463"/>
+<area shape="poly" title=" " alt="" coords="5275,370,5270,371,5133,382,4975,390,4610,398,4196,397,3759,393,3322,390,2909,390,2543,398,2386,407,2250,419,2203,426,2202,421,2249,413,2386,401,2543,393,2909,385,3322,384,3759,388,4196,392,4610,392,4975,385,5133,377,5269,365,5274,365"/>
+<area shape="rect" href="virtio-console_8c.html" title="Implantation de la console de type virtio." alt="" coords="2261,423,2493,463"/>
+<area shape="poly" title=" " alt="" coords="5275,370,5270,371,5051,391,4850,405,4665,412,4494,414,4180,408,3887,393,3594,379,3281,373,3109,376,2925,384,2724,398,2506,419,2458,426,2457,421,2505,413,2724,392,2925,378,3109,370,3281,368,3595,374,3887,388,4180,402,4494,409,4665,407,4850,399,5050,386,5269,365,5274,365"/>
+<area shape="rect" href="virtio-net_8c.html" title=" " alt="" coords="2517,423,2744,463"/>
+<area shape="poly" title=" " alt="" coords="5275,370,5270,371,5070,389,4888,402,4720,409,4564,411,4279,405,4012,393,3746,380,3461,375,3305,378,3137,386,2955,399,2756,419,2710,426,2709,421,2756,413,2955,394,3137,380,3305,373,3461,370,3746,375,4013,387,4279,400,4564,406,4720,403,4888,396,5070,384,5269,365,5274,365"/>
+<area shape="rect" href="virtio_8c.html" title=" " alt="" coords="2768,423,2995,463"/>
+<area shape="poly" title=" " alt="" coords="5275,370,5270,371,5090,388,4926,399,4775,406,4634,408,4377,404,4138,393,3898,382,3641,379,3501,381,3350,389,3186,401,3007,419,2961,426,2960,421,3006,413,3186,395,3350,383,3501,376,3641,373,3898,377,4138,387,4378,398,4634,403,4775,400,4926,394,5090,382,5269,365,5274,365"/>
+<area shape="rect" href="buffer-reseau_8c.html" title="(C) Manu Chaput 2025" alt="" coords="3019,416,3245,471"/>
+<area shape="poly" title=" " alt="" coords="5275,370,5270,371,5110,386,4964,397,4705,405,4476,402,4263,393,4050,384,3822,382,3563,391,3417,402,3258,419,3246,420,3245,415,3257,413,3416,397,3562,386,3822,377,4050,379,4263,388,4476,396,4705,400,4964,391,5110,381,5269,365,5274,365"/>
+<area shape="rect" href="reseau_8c.html" title="Implantation des éléments principaux du sous système réseau." alt="" coords="3269,423,3496,463"/>
+<area shape="poly" title=" " alt="" coords="5275,370,5270,371,5002,394,4775,402,4575,400,4388,393,4202,387,4002,385,3775,394,3508,419,3463,426,3462,421,3508,413,3775,389,4002,380,4202,381,4389,388,4575,395,4775,397,5002,389,5269,365,5274,365"/>
+<area shape="poly" title=" " alt="" coords="5275,370,5270,371,5099,384,4902,394,4445,402,3929,400,3383,393,2837,386,2321,385,1865,394,1668,404,1498,419,1451,426,1450,421,1497,413,1668,399,1864,389,2321,380,2837,381,3383,388,3929,395,4445,397,4902,389,5099,379,5269,365,5274,365"/>
+</map>
+</div>
+</div>
+<p><a href="tache_8h_source.html">Aller au code source de ce fichier.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct__IntelTSS.html">_IntelTSS</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct__Tache.html">_Tache</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">: Définition du type décrivant une tache.  <a href="struct__Tache.html#details">Plus de détails...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:acdde11eb37bf8b0a6bdad4612335ae58" id="r_acdde11eb37bf8b0a6bdad4612335ae58"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tache_8h.html#acdde11eb37bf8b0a6bdad4612335ae58">LDT_NB_BYTES</a>&#160;&#160;&#160;1024 /* WARNING, pas top */</td></tr>
+<tr class="separator:acdde11eb37bf8b0a6bdad4612335ae58"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
+Définitions de type</h2></td></tr>
+<tr class="memitem:a4ef64c3567697a3cbcb901cc34fbf3bd" id="r_a4ef64c3567697a3cbcb901cc34fbf3bd"><td class="memItemLeft" align="right" valign="top">typedef enum <a class="el" href="tache_8h.html#a079625c76ac29238ace165d5958d82e5">_EtatTache</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tache_8h.html#a4ef64c3567697a3cbcb901cc34fbf3bd">EtatTache</a></td></tr>
+<tr class="separator:a4ef64c3567697a3cbcb901cc34fbf3bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af5b9601373a4046cda03c6c8f1a17f98" id="r_af5b9601373a4046cda03c6c8f1a17f98"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="struct__IntelTSS.html">_IntelTSS</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tache_8h.html#af5b9601373a4046cda03c6c8f1a17f98">IntelTSS</a></td></tr>
+<tr class="separator:af5b9601373a4046cda03c6c8f1a17f98"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5e93bfec061525341810ac895de87af3" id="r_a5e93bfec061525341810ac895de87af3"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="struct__Tache.html">_Tache</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tache_8h.html#a5e93bfec061525341810ac895de87af3">Tache</a></td></tr>
+<tr class="memdesc:a5e93bfec061525341810ac895de87af3"><td class="mdescLeft">&#160;</td><td class="mdescRight">: Définition du type décrivant une tache.  <br /></td></tr>
+<tr class="separator:a5e93bfec061525341810ac895de87af3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="enum-members" name="enum-members"></a>
+Énumérations</h2></td></tr>
+<tr class="memitem:a079625c76ac29238ace165d5958d82e5" id="r_a079625c76ac29238ace165d5958d82e5"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tache_8h.html#a079625c76ac29238ace165d5958d82e5">_EtatTache</a> { <a class="el" href="tache_8h.html#a079625c76ac29238ace165d5958d82e5a6b2e382d78b8c9db8db762366c22f2b3">Tache_En_Cours</a> = 1
+, <a class="el" href="tache_8h.html#a079625c76ac29238ace165d5958d82e5abd18ea3758daaa8a8012e928416be362">Tache_Prete</a> = 2
+, <a class="el" href="tache_8h.html#a079625c76ac29238ace165d5958d82e5a110b28c8c38510bc8d8deec91a117f99">Tache_Bloquee</a> = 3
+, <a class="el" href="tache_8h.html#a079625c76ac29238ace165d5958d82e5a36920ae871fc48a1e7cd206327af7f6b">Tache_Terminee</a> = 4
+ }</td></tr>
+<tr class="separator:a079625c76ac29238ace165d5958d82e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Fonctions</h2></td></tr>
+<tr class="memitem:a8cdfdbee5b3891f88dff0dc3a94cfdce" id="r_a8cdfdbee5b3891f88dff0dc3a94cfdce"><td class="memItemLeft" align="right" valign="top">typedef&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tache_8h.html#a8cdfdbee5b3891f88dff0dc3a94cfdce">void</a> (CorpsTache(void))</td></tr>
+<tr class="separator:a8cdfdbee5b3891f88dff0dc3a94cfdce"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae73130353eaec375c352eee5e35e19ea" id="r_ae73130353eaec375c352eee5e35e19ea"><td class="memItemLeft" align="right" valign="top"><a class="el" href="tache_8h.html#a5e93bfec061525341810ac895de87af3">Tache</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tache_8h.html#ae73130353eaec375c352eee5e35e19ea">tacheCreer</a> (CorpsTache corpsTache)</td></tr>
+<tr class="memdesc:ae73130353eaec375c352eee5e35e19ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Création d'une nouvelle tâche.  <br /></td></tr>
+<tr class="separator:ae73130353eaec375c352eee5e35e19ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0ec51dfb4bb630c26867bc04036b99bd" id="r_a0ec51dfb4bb630c26867bc04036b99bd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="include_2manux_2interruptions_8h.html#a4fda31edc92f8ccd48b6f4bb50f2e7e1">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tache_8h.html#a0ec51dfb4bb630c26867bc04036b99bd">basculerVersTache</a> (<a class="el" href="tache_8h.html#a5e93bfec061525341810ac895de87af3">Tache</a> *tache)</td></tr>
+<tr class="separator:a0ec51dfb4bb630c26867bc04036b99bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2865950b5889449d62cf32a5e077f2aa" id="r_a2865950b5889449d62cf32a5e077f2aa"><td class="memItemLeft" align="right" valign="top"><a class="el" href="include_2manux_2types_8h.html#a1aa19b97c742cff758e6532b519954c4">TacheID</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tache_8h.html#a2865950b5889449d62cf32a5e077f2aa">sysFork</a> (<a class="el" href="include_2manux_2interruptions_8h.html#a4fda31edc92f8ccd48b6f4bb50f2e7e1">void</a>)</td></tr>
+<tr class="separator:a2865950b5889449d62cf32a5e077f2aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af485409e4fc8a5c06ff9e06e50de8647" id="r_af485409e4fc8a5c06ff9e06e50de8647"><td class="memItemLeft" align="right" valign="top"><a class="el" href="include_2manux_2interruptions_8h.html#a4fda31edc92f8ccd48b6f4bb50f2e7e1">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tache_8h.html#af485409e4fc8a5c06ff9e06e50de8647">afficherEtatUneTache</a> (<a class="el" href="tache_8h.html#a5e93bfec061525341810ac895de87af3">Tache</a> *tache)</td></tr>
+<tr class="memdesc:af485409e4fc8a5c06ff9e06e50de8647"><td class="mdescLeft">&#160;</td><td class="mdescRight">Affichage de l'état d'une tâche à des fins de debug.  <br /></td></tr>
+<tr class="separator:af485409e4fc8a5c06ff9e06e50de8647"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a86f9c6ef6df4fb54c3cbb5fa14061f63" id="r_a86f9c6ef6df4fb54c3cbb5fa14061f63"><td class="memItemLeft" align="right" valign="top"><a class="el" href="include_2manux_2interruptions_8h.html#a4fda31edc92f8ccd48b6f4bb50f2e7e1">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tache_8h.html#a86f9c6ef6df4fb54c3cbb5fa14061f63">afficherEtatTaches</a> (<a class="el" href="include_2manux_2interruptions_8h.html#a4fda31edc92f8ccd48b6f4bb50f2e7e1">void</a>)</td></tr>
+<tr class="memdesc:a86f9c6ef6df4fb54c3cbb5fa14061f63"><td class="mdescLeft">&#160;</td><td class="mdescRight">Affichage des tâches.  <br /></td></tr>
+<tr class="separator:a86f9c6ef6df4fb54c3cbb5fa14061f63"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:a3312a33abf1a07a9ef3bbf2697a0dbc2" id="r_a3312a33abf1a07a9ef3bbf2697a0dbc2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="tache_8h.html#a5e93bfec061525341810ac895de87af3">Tache</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tache_8h.html#a3312a33abf1a07a9ef3bbf2697a0dbc2">tacheCourante</a></td></tr>
+<tr class="memdesc:a3312a33abf1a07a9ef3bbf2697a0dbc2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Chaque tâche pourra voir les infos la concernant via cette variable.  <br /></td></tr>
+<tr class="separator:a3312a33abf1a07a9ef3bbf2697a0dbc2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Documentation des macros</h2>
+<a id="acdde11eb37bf8b0a6bdad4612335ae58" name="acdde11eb37bf8b0a6bdad4612335ae58"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acdde11eb37bf8b0a6bdad4612335ae58">&#9670;&#160;</a></span>LDT_NB_BYTES</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define LDT_NB_BYTES&#160;&#160;&#160;1024 /* WARNING, pas top */</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="tache_8h_source.html#l00023">23</a> du fichier <a class="el" href="tache_8h_source.html">tache.h</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Documentation des définitions de type</h2>
+<a id="a4ef64c3567697a3cbcb901cc34fbf3bd" name="a4ef64c3567697a3cbcb901cc34fbf3bd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4ef64c3567697a3cbcb901cc34fbf3bd">&#9670;&#160;</a></span>EtatTache</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef enum <a class="el" href="tache_8h.html#a079625c76ac29238ace165d5958d82e5">_EtatTache</a> <a class="el" href="tache_8h.html#a4ef64c3567697a3cbcb901cc34fbf3bd">EtatTache</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af5b9601373a4046cda03c6c8f1a17f98" name="af5b9601373a4046cda03c6c8f1a17f98"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af5b9601373a4046cda03c6c8f1a17f98">&#9670;&#160;</a></span>IntelTSS</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef struct <a class="el" href="struct__IntelTSS.html">_IntelTSS</a> <a class="el" href="tache_8h.html#af5b9601373a4046cda03c6c8f1a17f98">IntelTSS</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5e93bfec061525341810ac895de87af3" name="a5e93bfec061525341810ac895de87af3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5e93bfec061525341810ac895de87af3">&#9670;&#160;</a></span>Tache</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef struct <a class="el" href="struct__Tache.html">_Tache</a> <a class="el" href="tache_8h.html#a5e93bfec061525341810ac895de87af3">Tache</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>: Définition du type décrivant une tache. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Documentation du type de l'énumération</h2>
+<a id="a079625c76ac29238ace165d5958d82e5" name="a079625c76ac29238ace165d5958d82e5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a079625c76ac29238ace165d5958d82e5">&#9670;&#160;</a></span>_EtatTache</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="tache_8h.html#a079625c76ac29238ace165d5958d82e5">_EtatTache</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Valeurs énumérées</th></tr><tr><td class="fieldname"><a id="a079625c76ac29238ace165d5958d82e5a6b2e382d78b8c9db8db762366c22f2b3" name="a079625c76ac29238ace165d5958d82e5a6b2e382d78b8c9db8db762366c22f2b3"></a>Tache_En_Cours&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a079625c76ac29238ace165d5958d82e5abd18ea3758daaa8a8012e928416be362" name="a079625c76ac29238ace165d5958d82e5abd18ea3758daaa8a8012e928416be362"></a>Tache_Prete&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a079625c76ac29238ace165d5958d82e5a110b28c8c38510bc8d8deec91a117f99" name="a079625c76ac29238ace165d5958d82e5a110b28c8c38510bc8d8deec91a117f99"></a>Tache_Bloquee&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a079625c76ac29238ace165d5958d82e5a36920ae871fc48a1e7cd206327af7f6b" name="a079625c76ac29238ace165d5958d82e5a36920ae871fc48a1e7cd206327af7f6b"></a>Tache_Terminee&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+<p class="definition">Définition à la ligne <a class="el" href="tache_8h_source.html#l00028">28</a> du fichier <a class="el" href="tache_8h_source.html">tache.h</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Documentation des fonctions</h2>
+<a id="a86f9c6ef6df4fb54c3cbb5fa14061f63" name="a86f9c6ef6df4fb54c3cbb5fa14061f63"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a86f9c6ef6df4fb54c3cbb5fa14061f63">&#9670;&#160;</a></span>afficherEtatTaches()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="include_2manux_2interruptions_8h.html#a4fda31edc92f8ccd48b6f4bb50f2e7e1">void</a> afficherEtatTaches </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="include_2manux_2interruptions_8h.html#a4fda31edc92f8ccd48b6f4bb50f2e7e1">void</a>&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Affichage des tâches. </p>
+<p>Affichage des tâches. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="tache_8c_source.html#l00373">373</a> du fichier <a class="el" href="tache_8c_source.html">tache.c</a>.</p>
+
+</div>
+</div>
+<a id="af485409e4fc8a5c06ff9e06e50de8647" name="af485409e4fc8a5c06ff9e06e50de8647"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af485409e4fc8a5c06ff9e06e50de8647">&#9670;&#160;</a></span>afficherEtatUneTache()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="include_2manux_2interruptions_8h.html#a4fda31edc92f8ccd48b6f4bb50f2e7e1">void</a> afficherEtatUneTache </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="tache_8h.html#a5e93bfec061525341810ac895de87af3">Tache</a> *&#160;</td>
+          <td class="paramname"><em>tache</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Affichage de l'état d'une tâche à des fins de debug. </p>
+<p>Affichage de l'état d'une tâche à des fins de debug. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="tache_8c_source.html#l00353">353</a> du fichier <a class="el" href="tache_8c_source.html">tache.c</a>.</p>
+
+</div>
+</div>
+<a id="a0ec51dfb4bb630c26867bc04036b99bd" name="a0ec51dfb4bb630c26867bc04036b99bd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0ec51dfb4bb630c26867bc04036b99bd">&#9670;&#160;</a></span>basculerVersTache()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="include_2manux_2interruptions_8h.html#a4fda31edc92f8ccd48b6f4bb50f2e7e1">void</a> basculerVersTache </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="tache_8h.html#a5e93bfec061525341810ac895de87af3">Tache</a> *&#160;</td>
+          <td class="paramname"><em>tache</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="tache_8c_source.html#l00038">38</a> du fichier <a class="el" href="tache_8c_source.html">tache.c</a>.</p>
+
+</div>
+</div>
+<a id="a2865950b5889449d62cf32a5e077f2aa" name="a2865950b5889449d62cf32a5e077f2aa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2865950b5889449d62cf32a5e077f2aa">&#9670;&#160;</a></span>sysFork()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="include_2manux_2types_8h.html#a1aa19b97c742cff758e6532b519954c4">TacheID</a> sysFork </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="include_2manux_2interruptions_8h.html#a4fda31edc92f8ccd48b6f4bb50f2e7e1">void</a>&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae73130353eaec375c352eee5e35e19ea" name="ae73130353eaec375c352eee5e35e19ea"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae73130353eaec375c352eee5e35e19ea">&#9670;&#160;</a></span>tacheCreer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="tache_8h.html#a5e93bfec061525341810ac895de87af3">Tache</a> * tacheCreer </td>
+          <td>(</td>
+          <td class="paramtype">CorpsTache&#160;</td>
+          <td class="paramname"><em>corpsTache</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Création d'une nouvelle tâche. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">corpsTache</td><td>pointeur vers la fonction à exécuter par la tâche </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>pointeur vers la tâche créée, NULL en cas d'erreur.</dd></dl>
+<p>Attention, elle doit ensuite être insérée dans la liste des tâches en cours.</p>
+<p>Création d'une nouvelle tâche.</p>
+<p>Attention, elle n'est pas ins�r�e dans la liste des t�ches pr�tes, elle ne sera donc pas ex�cut�e tant que ce ne sera pas fait. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="tache_8c_source.html#l00113">113</a> du fichier <a class="el" href="tache_8c_source.html">tache.c</a>.</p>
+
+</div>
+</div>
+<a id="a8cdfdbee5b3891f88dff0dc3a94cfdce" name="a8cdfdbee5b3891f88dff0dc3a94cfdce"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8cdfdbee5b3891f88dff0dc3a94cfdce">&#9670;&#160;</a></span>void()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef void </td>
+          <td>(</td>
+          <td class="paramtype">CorpsTache(void)&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Documentation des variables</h2>
+<a id="a3312a33abf1a07a9ef3bbf2697a0dbc2" name="a3312a33abf1a07a9ef3bbf2697a0dbc2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3312a33abf1a07a9ef3bbf2697a0dbc2">&#9670;&#160;</a></span>tacheCourante</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="tache_8h.html#a5e93bfec061525341810ac895de87af3">Tache</a>* tacheCourante</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">extern</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Chaque tâche pourra voir les infos la concernant via cette variable. </p>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

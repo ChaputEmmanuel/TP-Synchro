@@ -1,0 +1,644 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>My Project: Référence du fichier /home/manu/PROGRAMMATION/C/ManuX/i386/interruptions.c</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">My Project
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_84351cb3cd97e0f1d36fec2809bc3161.html">i386</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#define-members">Macros</a> &#124;
+<a href="#func-members">Fonctions</a> &#124;
+<a href="#var-members">Variables</a>  </div>
+  <div class="headertitle"><div class="title">Référence du fichier interruptions.c</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>: Impl�mentation des sous-programmes de gestion des d�routements  
+<a href="#details">Plus de détails...</a></p>
+<div class="textblock"><code>#include &quot;<a class="el" href="include_2manux_2printk_8h_source.html">manux/printk.h</a>&quot;</code><br />
+<code>#include &lt;manux/config.h&gt;</code><br />
+<code>#include &lt;<a class="el" href="manux_2debug_8h_source.html">manux/debug.h</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="include_2manux_2interruptions_8h_source.html">manux/interruptions.h</a>&gt;</code><br />
+<code>#include &quot;<a class="el" href="manux_2intel-8259a_8h_source.html">manux/intel-8259a.h</a>&quot;</code><br />
+<code>#include &lt;<a class="el" href="include_2manux_2memoire_8h_source.html">manux/memoire.h</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="interBasNiveau_8h_source.html">manux/interBasNiveau.h</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="io_8h_source.html">manux/io.h</a>&gt;</code><br />
+<code>#include &lt;manux/i386.h&gt;</code><br />
+<code>#include &lt;<a class="el" href="segment_8h_source.html">manux/segment.h</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="scheduler_8h_source.html">manux/scheduler.h</a>&gt;</code><br />
+<code>#include &lt;manux/appelsysteme.h&gt;</code><br />
+<code>#include &lt;<a class="el" href="atomique_8h_source.html">manux/atomique.h</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="ecran_8h_source.html">manux/ecran.h</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="tache_8h_source.html">manux/tache.h</a>&gt;</code><br />
+<code>#include &lt;manux/string.h&gt;</code><br />
+</div><div class="textblock"><div class="dynheader">
+Graphe des dépendances par inclusion de interruptions.c:</div>
+<div class="dyncontent">
+<div class="center"><img src="interruptions_8c__incl.png" border="0" usemap="#a_2home_2manu_2PROGRAMMATION_2C_2ManuX_2i386_2interruptions_8c" alt=""/></div>
+<map name="a_2home_2manu_2PROGRAMMATION_2C_2ManuX_2i386_2interruptions_8c" id="a_2home_2manu_2PROGRAMMATION_2C_2ManuX_2i386_2interruptions_8c">
+<area shape="rect" title=": Implémentation des sous&#45;programmes de gestion des déroutements" alt="" coords="966,5,1193,45"/>
+<area shape="rect" href="include_2manux_2printk_8h.html" title="Définition des fonctions de base d&#39;entrée&#45;sortie du noyau." alt="" coords="151,167,272,192"/>
+<area shape="poly" title=" " alt="" coords="966,29,798,32,602,42,507,51,420,62,347,77,293,96,273,108,256,123,228,157,224,153,252,120,270,104,290,91,346,72,419,57,506,45,601,37,797,27,966,24"/>
+<area shape="rect" title=" " alt="" coords="104,313,226,339"/>
+<area shape="poly" title=" " alt="" coords="966,31,736,36,463,48,222,67,137,80,89,96,44,131,28,150,16,171,10,193,9,216,14,239,27,264,40,279,55,291,92,308,89,313,53,295,36,283,23,267,9,241,3,216,4,192,11,169,24,147,41,127,86,91,136,75,221,62,462,43,736,31,966,26"/>
+<area shape="rect" href="manux_2debug_8h.html" title=" " alt="" coords="100,93,222,119"/>
+<area shape="poly" title=" " alt="" coords="966,36,640,59,241,96,236,97,236,91,241,91,640,54,966,31"/>
+<area shape="rect" href="scheduler_8h.html" title=" " alt="" coords="667,167,812,192"/>
+<area shape="poly" title=" " alt="" coords="1021,48,960,70,895,96,828,130,771,162,768,157,826,125,893,91,958,65,1019,43"/>
+<area shape="rect" href="tache_8h.html" title=" " alt="" coords="728,240,847,265"/>
+<area shape="poly" title=" " alt="" coords="1057,48,815,234,812,229,1054,43"/>
+<area shape="rect" href="include_2manux_2interruptions_8h.html" title=" " alt="" coords="854,313,1020,339"/>
+<area shape="poly" title=" " alt="" coords="1083,46,1081,89,1075,146,1059,208,1046,239,1030,267,1006,291,979,309,976,305,1003,287,1026,264,1041,236,1054,207,1069,145,1076,88,1078,46"/>
+<area shape="rect" href="segment_8h.html" title=" " alt="" coords="1044,313,1184,339"/>
+<area shape="poly" title=" " alt="" coords="1085,45,1114,299,1109,300,1079,46"/>
+<area shape="rect" title=" " alt="" coords="406,387,580,412"/>
+<area shape="poly" title=" " alt="" coords="967,43,789,70,585,113,488,139,403,170,335,204,310,222,291,242,281,264,283,285,297,305,319,324,379,356,441,380,439,385,376,361,316,328,293,309,278,287,275,263,287,238,306,218,332,199,401,165,486,134,583,107,788,65,966,38"/>
+<area shape="rect" href="atomique_8h.html" title="Définition des opérations de synchronisation de ManuX." alt="" coords="871,240,1016,265"/>
+<area shape="poly" title=" " alt="" coords="1069,47,1038,95,959,229,954,227,1033,92,1064,44"/>
+<area shape="rect" href="manux_2intel-8259a_8h.html" title=" " alt="" coords="1310,387,1468,412"/>
+<area shape="poly" title=" " alt="" coords="1112,43,1222,110,1272,143,1299,165,1334,218,1359,276,1377,330,1387,373,1382,374,1372,332,1354,278,1329,221,1295,168,1269,148,1219,115,1110,48"/>
+<area shape="rect" href="include_2manux_2memoire_8h.html" title=" " alt="" coords="1143,167,1286,192"/>
+<area shape="poly" title=" " alt="" coords="1099,44,1197,154,1193,158,1095,48"/>
+<area shape="rect" href="interBasNiveau_8h.html" title=" " alt="" coords="1244,93,1427,119"/>
+<area shape="poly" title=" " alt="" coords="1142,43,1286,87,1285,92,1140,48"/>
+<area shape="rect" href="io_8h.html" title=" " alt="" coords="1451,93,1546,119"/>
+<area shape="poly" title=" " alt="" coords="1182,43,1438,90,1437,96,1181,48"/>
+<area shape="rect" title=" " alt="" coords="1570,93,1680,119"/>
+<area shape="poly" title=" " alt="" coords="1194,39,1556,90,1555,96,1193,44"/>
+<area shape="rect" href="ecran_8h.html" title="Définition des caractéristiques de base de l&#39;écran." alt="" coords="1492,240,1611,265"/>
+<area shape="poly" title=" " alt="" coords="1193,28,1338,36,1494,49,1625,67,1670,78,1695,91,1706,112,1706,133,1697,154,1680,173,1636,209,1590,236,1587,231,1633,204,1677,170,1692,151,1701,132,1701,113,1691,95,1668,83,1624,72,1494,54,1337,41,1193,34"/>
+<area shape="rect" title=" " alt="" coords="1756,93,1876,119"/>
+<area shape="poly" title=" " alt="" coords="1193,34,1443,58,1737,91,1742,91,1742,97,1737,96,1443,63,1193,39"/>
+<area shape="poly" title=" " alt="" coords="211,193,189,266,177,301,172,299,184,265,206,191"/>
+<area shape="rect" href="include_2manux_2stdarg_8h.html" title=" " alt="" coords="51,240,175,265"/>
+<area shape="poly" title=" " alt="" coords="197,194,142,234,138,230,194,190"/>
+<area shape="rect" title=" " alt="" coords="301,240,424,265"/>
+<area shape="poly" title=" " alt="" coords="237,190,326,232,324,236,235,194"/>
+<area shape="poly" title=" " alt="" coords="172,117,198,154,193,157,167,121"/>
+<area shape="poly" title=" " alt="" coords="141,121,102,146,61,181,45,201,35,222,33,243,41,264,66,289,98,306,95,311,62,294,36,267,28,244,30,221,40,199,57,178,99,142,138,116"/>
+<area shape="poly" title=" " alt="" coords="159,120,141,168,122,227,117,226,136,166,154,118"/>
+<area shape="poly" title=" " alt="" coords="223,112,654,165,653,170,222,117"/>
+<area shape="rect" title=" " alt="" coords="1055,460,1174,485"/>
+<area shape="poly" title=" " alt="" coords="732,194,684,254,660,288,646,314,630,366,632,388,645,410,664,420,699,429,805,445,1041,465,1041,470,805,450,698,435,662,425,642,414,627,389,625,366,641,312,655,285,679,251,728,191"/>
+<area shape="poly" title=" " alt="" coords="750,191,775,227,770,230,745,194"/>
+<area shape="poly" title=" " alt="" coords="728,194,673,242,518,379,514,375,670,238,725,190"/>
+<area shape="rect" href="listetaches_8h.html" title=" " alt="" coords="448,240,602,265"/>
+<area shape="poly" title=" " alt="" coords="706,195,574,238,572,233,704,189"/>
+<area shape="poly" title=" " alt="" coords="766,190,892,233,890,238,765,195"/>
+<area shape="poly" title=" " alt="" coords="728,263,240,319,240,314,728,258"/>
+<area shape="poly" title=" " alt="" coords="795,265,813,300,843,337,896,377,955,410,1013,435,1063,453,1061,458,1011,440,953,414,894,381,839,341,809,302,790,267"/>
+<area shape="poly" title=" " alt="" coords="813,263,901,305,899,310,810,268"/>
+<area shape="poly" title=" " alt="" coords="841,263,1049,308,1047,313,840,268"/>
+<area shape="rect" href="fichier_8h.html" title=" " alt="" coords="656,313,778,339"/>
+<area shape="poly" title=" " alt="" coords="778,268,740,306,736,302,774,264"/>
+<area shape="poly" title=" " alt="" coords="953,337,1091,449,1088,453,950,341"/>
+<area shape="poly" title=" " alt="" coords="1117,339,1117,446,1112,446,1112,339"/>
+<area shape="rect" href="inoeud_8h.html" title=": description des noeuds d&#39;information (C) Manu Chaput 2002&#45;2023" alt="" coords="656,387,783,412"/>
+<area shape="poly" title=" " alt="" coords="720,339,721,373,716,373,715,339"/>
+<area shape="poly" title=" " alt="" coords="682,341,543,385,541,380,680,336"/>
+<area shape="poly" title=" " alt="" coords="784,409,1042,456,1041,461,783,415"/>
+<area shape="poly" title=" " alt="" coords="916,242,791,199,793,194,918,237"/>
+<area shape="poly" title=" " alt="" coords="1017,259,1123,277,1169,292,1186,301,1198,312,1207,330,1209,349,1205,369,1196,388,1170,424,1141,453,1137,449,1165,421,1191,386,1200,367,1204,349,1202,331,1194,315,1183,306,1167,297,1122,282,1016,264"/>
+<area shape="poly" title=" " alt="" coords="1346,415,1173,459,1171,454,1344,409"/>
+<area shape="poly" title=" " alt="" coords="1143,187,840,206,642,222,438,243,437,237,641,217,840,201,1143,182"/>
+<area shape="poly" title=" " alt="" coords="1220,191,1229,231,1236,289,1236,321,1231,354,1222,385,1207,414,1184,438,1156,456,1153,451,1180,434,1203,410,1217,383,1226,352,1230,321,1231,289,1224,232,1215,193"/>
+<area shape="poly" title=" " alt="" coords="1492,260,240,324,240,318,1492,254"/>
+<area shape="poly" title=" " alt="" coords="1550,267,1522,345,1502,387,1481,414,1459,426,1429,437,1352,453,1267,464,1188,470,1188,465,1266,458,1352,448,1428,432,1457,421,1478,410,1497,384,1517,343,1545,265"/>
+<area shape="rect" href="ascii_8h.html" title="Définition des codes ASCII (C) Manu Chaput 2026&#45;2026." alt="" coords="1543,313,1656,339"/>
+<area shape="poly" title=" " alt="" coords="1562,264,1587,301,1582,304,1557,267"/>
+</map>
+</div>
+</div>
+<p><a href="interruptions_8c_source.html">Aller au code source de ce fichier.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:accd1d6580f267c1af47eaa7913458c1e" id="r_accd1d6580f267c1af47eaa7913458c1e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interruptions_8c.html#accd1d6580f267c1af47eaa7913458c1e">MANUX_SELECTEUR_SEGMENT_CODE</a>&#160;&#160;&#160;0x08      /* WARNING <a class="el" href="main-bootreg_8c.html#acc5bda773ae19389879f3886f8ecf123">a</a> mettre ailleurs */</td></tr>
+<tr class="separator:accd1d6580f267c1af47eaa7913458c1e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab3c9e305eb5c9c6c64c7abf07eff9b72" id="r_ab3c9e305eb5c9c6c64c7abf07eff9b72"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interruptions_8c.html#ab3c9e305eb5c9c6c64c7abf07eff9b72">MANUX_NB_SOFT_INT</a>&#160;&#160;&#160;  (<a class="el" href="pc-i386_8h.html#ab5548f00ea513aad00307cef92ac24ac">MANUX_NB_INTERRUPTIONS</a> - (<a class="el" href="pc-i386_8h.html#add17ebfce684a3313a36a88096f7cdcb">MANUX_NB_EXCEPTIONS</a> + <a class="el" href="config_2intel-8259a_8h.html#a08f24105d9d260a9d2dd70c1f1f99031">MANUX_NB_IRQ</a>))</td></tr>
+<tr class="memdesc:ab3c9e305eb5c9c6c64c7abf07eff9b72"><td class="mdescLeft">&#160;</td><td class="mdescRight">Combien y a-t-il d'interruptions logicielles ?  <br /></td></tr>
+<tr class="separator:ab3c9e305eb5c9c6c64c7abf07eff9b72"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2b3e128e6ad8b47ada69d801721cfa47" id="r_a2b3e128e6ad8b47ada69d801721cfa47"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interruptions_8c.html#a2b3e128e6ad8b47ada69d801721cfa47">afficherHexa</a>(v,  n,  l,  <a class="el" href="main-bootreg_8c.html#add06ad5d8520e7cff4ff84b2811c0982">c</a>)</td></tr>
+<tr class="separator:a2b3e128e6ad8b47ada69d801721cfa47"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a73d574ce1f622bf15d3fcf2eaed8e93f" id="r_a73d574ce1f622bf15d3fcf2eaed8e93f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interruptions_8c.html#a73d574ce1f622bf15d3fcf2eaed8e93f">afficherBin</a>(v,  n,  l,  <a class="el" href="main-bootreg_8c.html#add06ad5d8520e7cff4ff84b2811c0982">c</a>)</td></tr>
+<tr class="separator:a73d574ce1f622bf15d3fcf2eaed8e93f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Fonctions</h2></td></tr>
+<tr class="memitem:a0d3279f4e117a28f75cc2593c5f2aba5" id="r_a0d3279f4e117a28f75cc2593c5f2aba5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="include_2manux_2interruptions_8h.html#a4fda31edc92f8ccd48b6f4bb50f2e7e1">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interruptions_8c.html#a0d3279f4e117a28f75cc2593c5f2aba5">gestionExceptionPanique</a> (TousRegistres registres, <a class="el" href="include_2manux_2types_8h.html#a06896e8c53f721507066c079052171f8">uint32_t</a> numEx, <a class="el" href="include_2manux_2types_8h.html#a06896e8c53f721507066c079052171f8">uint32_t</a> errCode, <a class="el" href="include_2manux_2types_8h.html#a06896e8c53f721507066c079052171f8">uint32_t</a> eip, <a class="el" href="include_2manux_2types_8h.html#a06896e8c53f721507066c079052171f8">uint32_t</a> cs, <a class="el" href="include_2manux_2types_8h.html#a06896e8c53f721507066c079052171f8">uint32_t</a> eFlags)</td></tr>
+<tr class="memdesc:a0d3279f4e117a28f75cc2593c5f2aba5"><td class="mdescLeft">&#160;</td><td class="mdescRight">D�compte des interruptions re�ues.  <br /></td></tr>
+<tr class="separator:a0d3279f4e117a28f75cc2593c5f2aba5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab8ede39e92b659dc067644ea9a5d43ba" id="r_ab8ede39e92b659dc067644ea9a5d43ba"><td class="memItemLeft" align="right" valign="top"><a class="el" href="include_2manux_2interruptions_8h.html#a4fda31edc92f8ccd48b6f4bb50f2e7e1">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interruptions_8c.html#ab8ede39e92b659dc067644ea9a5d43ba">gestionException</a> (TousRegistres registres, <a class="el" href="include_2manux_2types_8h.html#a06896e8c53f721507066c079052171f8">uint32_t</a> numEx, <a class="el" href="include_2manux_2types_8h.html#a06896e8c53f721507066c079052171f8">uint32_t</a> errCode, <a class="el" href="include_2manux_2types_8h.html#a06896e8c53f721507066c079052171f8">uint32_t</a> eip, <a class="el" href="include_2manux_2types_8h.html#a06896e8c53f721507066c079052171f8">uint32_t</a> cs, <a class="el" href="include_2manux_2types_8h.html#a06896e8c53f721507066c079052171f8">uint32_t</a> eFlags)</td></tr>
+<tr class="memdesc:ab8ede39e92b659dc067644ea9a5d43ba"><td class="mdescLeft">&#160;</td><td class="mdescRight">: Fonction de base de gestion d'une exception  <br /></td></tr>
+<tr class="separator:ab8ede39e92b659dc067644ea9a5d43ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1c93a6acba307c0339b7208e55cf9c29" id="r_a1c93a6acba307c0339b7208e55cf9c29"><td class="memItemLeft" align="right" valign="top"><a class="el" href="include_2manux_2interruptions_8h.html#a4fda31edc92f8ccd48b6f4bb50f2e7e1">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interruptions_8c.html#a1c93a6acba307c0339b7208e55cf9c29">gestionInterruption</a> (TousRegistres registres, <a class="el" href="include_2manux_2types_8h.html#a06896e8c53f721507066c079052171f8">uint32_t</a> numIt, <a class="el" href="include_2manux_2types_8h.html#a06896e8c53f721507066c079052171f8">uint32_t</a> eip, <a class="el" href="include_2manux_2types_8h.html#a06896e8c53f721507066c079052171f8">uint32_t</a> cs, <a class="el" href="include_2manux_2types_8h.html#a06896e8c53f721507066c079052171f8">uint32_t</a> eFlags)</td></tr>
+<tr class="memdesc:a1c93a6acba307c0339b7208e55cf9c29"><td class="mdescLeft">&#160;</td><td class="mdescRight">: Fonction de base de gestion d'une exception  <br /></td></tr>
+<tr class="separator:a1c93a6acba307c0339b7208e55cf9c29"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a30b0f4c7aa0fe2acf51d23228cd34a38" id="r_a30b0f4c7aa0fe2acf51d23228cd34a38"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interruptions_8c.html#a30b0f4c7aa0fe2acf51d23228cd34a38">definirFonctionGestionInterruption</a> (int num, <a class="el" href="include_2manux_2interruptions_8h.html#aeba1bb9393b1868b44581e72a4206150">FonctionGestionInterruption</a> fg)</td></tr>
+<tr class="separator:a30b0f4c7aa0fe2acf51d23228cd34a38"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8bab70dd2ead4ff36a0c2de9b3d3aff8" id="r_a8bab70dd2ead4ff36a0c2de9b3d3aff8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="include_2manux_2interruptions_8h.html#a4fda31edc92f8ccd48b6f4bb50f2e7e1">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interruptions_8c.html#a8bab70dd2ead4ff36a0c2de9b3d3aff8">initialiserIDT</a> (<a class="el" href="include_2manux_2interruptions_8h.html#a4fda31edc92f8ccd48b6f4bb50f2e7e1">void</a>)</td></tr>
+<tr class="memdesc:a8bab70dd2ead4ff36a0c2de9b3d3aff8"><td class="mdescLeft">&#160;</td><td class="mdescRight">! Initialiser l'IDT (Interrupt Description Table)  <br /></td></tr>
+<tr class="separator:a8bab70dd2ead4ff36a0c2de9b3d3aff8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:a870c3dcd1f823849da17414d02f4d68d" id="r_a870c3dcd1f823849da17414d02f4d68d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="include_2manux_2interruptions_8h.html#a4fda31edc92f8ccd48b6f4bb50f2e7e1">void</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interruptions_8c.html#a870c3dcd1f823849da17414d02f4d68d">handlerBasNiveauInterruption</a> [<a class="el" href="interruptions_8c.html#ab3c9e305eb5c9c6c64c7abf07eff9b72">MANUX_NB_SOFT_INT</a>]</td></tr>
+<tr class="memdesc:a870c3dcd1f823849da17414d02f4d68d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Une table (initialis�e par la fonction initialiserHandlersInterruption de interBasNiveau.nasm) des handlers bas niveau des interruptions logicielles.  <br /></td></tr>
+<tr class="separator:a870c3dcd1f823849da17414d02f4d68d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a20b55997b895e2fad936573867a3d7a1" id="r_a20b55997b895e2fad936573867a3d7a1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="include_2manux_2interruptions_8h.html#a4b86502c050e73afc4f906e73dc06cec">FonctionGestionException</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interruptions_8c.html#a20b55997b895e2fad936573867a3d7a1">fonctionDeGestionException</a> [<a class="el" href="pc-i386_8h.html#add17ebfce684a3313a36a88096f7cdcb">MANUX_NB_EXCEPTIONS</a>]</td></tr>
+<tr class="memdesc:a20b55997b895e2fad936573867a3d7a1"><td class="mdescLeft">&#160;</td><td class="mdescRight">: la table de gestion des exceptions  <br /></td></tr>
+<tr class="separator:a20b55997b895e2fad936573867a3d7a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af118ea95ebb0ba8b09e58ac1e7b328c5" id="r_af118ea95ebb0ba8b09e58ac1e7b328c5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="include_2manux_2interruptions_8h.html#aeba1bb9393b1868b44581e72a4206150">FonctionGestionInterruption</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interruptions_8c.html#af118ea95ebb0ba8b09e58ac1e7b328c5">fonctionDeGestionInterruption</a> [<a class="el" href="interruptions_8c.html#ab3c9e305eb5c9c6c64c7abf07eff9b72">MANUX_NB_SOFT_INT</a>]</td></tr>
+<tr class="separator:af118ea95ebb0ba8b09e58ac1e7b328c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
+<div class="textblock"><p>: Impl�mentation des sous-programmes de gestion des d�routements </p>
+<pre class="fragment">                                               (C) Manu Chaput 2000-2023
+</pre> 
+<p class="definition">Définition dans le fichier <a class="el" href="interruptions_8c_source.html">interruptions.c</a>.</p>
+</div><h2 class="groupheader">Documentation des macros</h2>
+<a id="a73d574ce1f622bf15d3fcf2eaed8e93f" name="a73d574ce1f622bf15d3fcf2eaed8e93f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a73d574ce1f622bf15d3fcf2eaed8e93f">&#9670;&#160;</a></span>afficherBin</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define afficherBin</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">v, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">n, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">l, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><a class="el" href="main-bootreg_8c.html#add06ad5d8520e7cff4ff84b2811c0982">c</a>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Valeur :</b><div class="fragment"><div class="line">{                                                                       \</div>
+<div class="line">   <a class="code hl_typedef" href="include_2manux_2types_8h.html#a06896e8c53f721507066c079052171f8">uint32_t</a> __val = (<a class="code hl_typedef" href="include_2manux_2types_8h.html#a06896e8c53f721507066c079052171f8">uint32_t</a>) v;                       \</div>
+<div class="line">   for (<span class="keywordtype">int</span> __i = <a class="code hl_define" href="ecran_8h.html#a2d2474bd7bcb1773d94f27ce4a99b622">MANUX_CON_COLONNES</a>*l+<a class="code hl_variable" href="main-bootreg_8c.html#add06ad5d8520e7cff4ff84b2811c0982">c</a>+n-1; __i&gt;=<a class="code hl_define" href="ecran_8h.html#a2d2474bd7bcb1773d94f27ce4a99b622">MANUX_CON_COLONNES</a>*l+<a class="code hl_variable" href="main-bootreg_8c.html#add06ad5d8520e7cff4ff84b2811c0982">c</a>; __i--) { \</div>
+<div class="line">      ecran[2*__i] = <a class="code hl_define" href="printk_8c.html#a751b71485e6bb228423b412943328232">chiffre</a>[__val&amp;1] ;                                 \</div>
+<div class="line">      __val /=2 ;                                           \</div>
+<div class="line">   }                                                                    \</div>
+<div class="line">}</div>
+<div class="ttc" id="aecran_8h_html_a2d2474bd7bcb1773d94f27ce4a99b622"><div class="ttname"><a href="ecran_8h.html#a2d2474bd7bcb1773d94f27ce4a99b622">MANUX_CON_COLONNES</a></div><div class="ttdeci">#define MANUX_CON_COLONNES</div><div class="ttdef"><b>Definition</b> <a href="ecran_8h_source.html#l00028">ecran.h:28</a></div></div>
+<div class="ttc" id="ainclude_2manux_2types_8h_html_a06896e8c53f721507066c079052171f8"><div class="ttname"><a href="include_2manux_2types_8h.html#a06896e8c53f721507066c079052171f8">uint32_t</a></div><div class="ttdeci">unsigned long uint32_t</div><div class="ttdef"><b>Definition</b> <a href="include_2manux_2types_8h_source.html#l00020">types.h:20</a></div></div>
+<div class="ttc" id="amain-bootreg_8c_html_add06ad5d8520e7cff4ff84b2811c0982"><div class="ttname"><a href="main-bootreg_8c.html#add06ad5d8520e7cff4ff84b2811c0982">c</a></div><div class="ttdeci">uint16_t c</div><div class="ttdef"><b>Definition</b> <a href="main-bootreg_8c_source.html#l00024">main-bootreg.c:24</a></div></div>
+<div class="ttc" id="aprintk_8c_html_a751b71485e6bb228423b412943328232"><div class="ttname"><a href="printk_8c.html#a751b71485e6bb228423b412943328232">chiffre</a></div><div class="ttdeci">#define chiffre</div><div class="ttdef"><b>Definition</b> <a href="printk_8c_source.html#l00024">printk.c:24</a></div></div>
+</div><!-- fragment -->
+<p class="definition">Définition à la ligne <a class="el" href="interruptions_8c_source.html#l00298">298</a> du fichier <a class="el" href="interruptions_8c_source.html">interruptions.c</a>.</p>
+
+</div>
+</div>
+<a id="a2b3e128e6ad8b47ada69d801721cfa47" name="a2b3e128e6ad8b47ada69d801721cfa47"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2b3e128e6ad8b47ada69d801721cfa47">&#9670;&#160;</a></span>afficherHexa</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define afficherHexa</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">v, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">n, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">l, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><a class="el" href="main-bootreg_8c.html#add06ad5d8520e7cff4ff84b2811c0982">c</a>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Valeur :</b><div class="fragment"><div class="line">{                                                                       \</div>
+<div class="line">   <a class="code hl_typedef" href="include_2manux_2types_8h.html#a06896e8c53f721507066c079052171f8">uint32_t</a> __val = (<a class="code hl_typedef" href="include_2manux_2types_8h.html#a06896e8c53f721507066c079052171f8">uint32_t</a>) v;                       \</div>
+<div class="line">   for (<span class="keywordtype">int</span> __i = <a class="code hl_define" href="ecran_8h.html#a2d2474bd7bcb1773d94f27ce4a99b622">MANUX_CON_COLONNES</a>*l+<a class="code hl_variable" href="main-bootreg_8c.html#add06ad5d8520e7cff4ff84b2811c0982">c</a>+n-1; __i&gt;=<a class="code hl_define" href="ecran_8h.html#a2d2474bd7bcb1773d94f27ce4a99b622">MANUX_CON_COLONNES</a>*l+<a class="code hl_variable" href="main-bootreg_8c.html#add06ad5d8520e7cff4ff84b2811c0982">c</a>; __i--) { \</div>
+<div class="line">      ecran[2*__i] = <a class="code hl_define" href="printk_8c.html#a751b71485e6bb228423b412943328232">chiffre</a>[__val&amp;15] ;                                \</div>
+<div class="line">      __val /=16 ;                                          \</div>
+<div class="line">   }                                                                    \</div>
+<div class="line">}</div>
+</div><!-- fragment -->
+<p class="definition">Définition à la ligne <a class="el" href="interruptions_8c_source.html#l00290">290</a> du fichier <a class="el" href="interruptions_8c_source.html">interruptions.c</a>.</p>
+
+</div>
+</div>
+<a id="ab3c9e305eb5c9c6c64c7abf07eff9b72" name="ab3c9e305eb5c9c6c64c7abf07eff9b72"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab3c9e305eb5c9c6c64c7abf07eff9b72">&#9670;&#160;</a></span>MANUX_NB_SOFT_INT</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define MANUX_NB_SOFT_INT&#160;&#160;&#160;  (<a class="el" href="pc-i386_8h.html#ab5548f00ea513aad00307cef92ac24ac">MANUX_NB_INTERRUPTIONS</a> - (<a class="el" href="pc-i386_8h.html#add17ebfce684a3313a36a88096f7cdcb">MANUX_NB_EXCEPTIONS</a> + <a class="el" href="config_2intel-8259a_8h.html#a08f24105d9d260a9d2dd70c1f1f99031">MANUX_NB_IRQ</a>))</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Combien y a-t-il d'interruptions logicielles ? </p>
+<p>Il y a en tout MANUX_NB_INTERRUPTIONS interruptions, dont MANUX_NB_EXCEPTIONS exceptions et MANUX_NB_IRQ IRQs. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="interruptions_8c_source.html#l00040">40</a> du fichier <a class="el" href="interruptions_8c_source.html">interruptions.c</a>.</p>
+
+</div>
+</div>
+<a id="accd1d6580f267c1af47eaa7913458c1e" name="accd1d6580f267c1af47eaa7913458c1e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#accd1d6580f267c1af47eaa7913458c1e">&#9670;&#160;</a></span>MANUX_SELECTEUR_SEGMENT_CODE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define MANUX_SELECTEUR_SEGMENT_CODE&#160;&#160;&#160;0x08      /* WARNING <a class="el" href="main-bootreg_8c.html#acc5bda773ae19389879f3886f8ecf123">a</a> mettre ailleurs */</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="interruptions_8c_source.html#l00028">28</a> du fichier <a class="el" href="interruptions_8c_source.html">interruptions.c</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Documentation des fonctions</h2>
+<a id="a30b0f4c7aa0fe2acf51d23228cd34a38" name="a30b0f4c7aa0fe2acf51d23228cd34a38"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a30b0f4c7aa0fe2acf51d23228cd34a38">&#9670;&#160;</a></span>definirFonctionGestionInterruption()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int definirFonctionGestionInterruption </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>num</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="include_2manux_2interruptions_8h.html#aeba1bb9393b1868b44581e72a4206150">FonctionGestionInterruption</a>&#160;</td>
+          <td class="paramname"><em>fg</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>D�finition de la fonction de gestion d'une interruption </p><dl class="section return"><dt>Renvoie</dt><dd>: 0 si c'est bon </dd></dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="interruptions_8c_source.html#l00174">174</a> du fichier <a class="el" href="interruptions_8c_source.html">interruptions.c</a>.</p>
+
+</div>
+</div>
+<a id="ab8ede39e92b659dc067644ea9a5d43ba" name="ab8ede39e92b659dc067644ea9a5d43ba"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab8ede39e92b659dc067644ea9a5d43ba">&#9670;&#160;</a></span>gestionException()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="include_2manux_2interruptions_8h.html#a4fda31edc92f8ccd48b6f4bb50f2e7e1">void</a> gestionException </td>
+          <td>(</td>
+          <td class="paramtype">TousRegistres&#160;</td>
+          <td class="paramname"><em>registres</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="include_2manux_2types_8h.html#a06896e8c53f721507066c079052171f8">uint32_t</a>&#160;</td>
+          <td class="paramname"><em>numEx</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="include_2manux_2types_8h.html#a06896e8c53f721507066c079052171f8">uint32_t</a>&#160;</td>
+          <td class="paramname"><em>errCode</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="include_2manux_2types_8h.html#a06896e8c53f721507066c079052171f8">uint32_t</a>&#160;</td>
+          <td class="paramname"><em>eip</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="include_2manux_2types_8h.html#a06896e8c53f721507066c079052171f8">uint32_t</a>&#160;</td>
+          <td class="paramname"><em>cs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="include_2manux_2types_8h.html#a06896e8c53f721507066c079052171f8">uint32_t</a>&#160;</td>
+          <td class="paramname"><em>eFlags</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>: Fonction de base de gestion d'une exception </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="interruptions_8c_source.html#l00083">83</a> du fichier <a class="el" href="interruptions_8c_source.html">interruptions.c</a>.</p>
+
+</div>
+</div>
+<a id="a0d3279f4e117a28f75cc2593c5f2aba5" name="a0d3279f4e117a28f75cc2593c5f2aba5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0d3279f4e117a28f75cc2593c5f2aba5">&#9670;&#160;</a></span>gestionExceptionPanique()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="include_2manux_2interruptions_8h.html#a4fda31edc92f8ccd48b6f4bb50f2e7e1">void</a> gestionExceptionPanique </td>
+          <td>(</td>
+          <td class="paramtype">TousRegistres&#160;</td>
+          <td class="paramname"><em>registres</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="include_2manux_2types_8h.html#a06896e8c53f721507066c079052171f8">uint32_t</a>&#160;</td>
+          <td class="paramname"><em>numIt</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="include_2manux_2types_8h.html#a06896e8c53f721507066c079052171f8">uint32_t</a>&#160;</td>
+          <td class="paramname"><em>errCode</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="include_2manux_2types_8h.html#a06896e8c53f721507066c079052171f8">uint32_t</a>&#160;</td>
+          <td class="paramname"><em>eip</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="include_2manux_2types_8h.html#a06896e8c53f721507066c079052171f8">uint32_t</a>&#160;</td>
+          <td class="paramname"><em>cs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="include_2manux_2types_8h.html#a06896e8c53f721507066c079052171f8">uint32_t</a>&#160;</td>
+          <td class="paramname"><em>eFlags</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>D�compte des interruptions re�ues. </p>
+<p>: Gestion (non) d'une exception non connue.</p>
+<p>On affichera ce que l'on peut � l'�cran pour aider l'utilisateur, ... </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="interruptions_8c_source.html#l00384">384</a> du fichier <a class="el" href="interruptions_8c_source.html">interruptions.c</a>.</p>
+
+</div>
+</div>
+<a id="a1c93a6acba307c0339b7208e55cf9c29" name="a1c93a6acba307c0339b7208e55cf9c29"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1c93a6acba307c0339b7208e55cf9c29">&#9670;&#160;</a></span>gestionInterruption()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="include_2manux_2interruptions_8h.html#a4fda31edc92f8ccd48b6f4bb50f2e7e1">void</a> gestionInterruption </td>
+          <td>(</td>
+          <td class="paramtype">TousRegistres&#160;</td>
+          <td class="paramname"><em>registres</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="include_2manux_2types_8h.html#a06896e8c53f721507066c079052171f8">uint32_t</a>&#160;</td>
+          <td class="paramname"><em>numIt</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="include_2manux_2types_8h.html#a06896e8c53f721507066c079052171f8">uint32_t</a>&#160;</td>
+          <td class="paramname"><em>eip</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="include_2manux_2types_8h.html#a06896e8c53f721507066c079052171f8">uint32_t</a>&#160;</td>
+          <td class="paramname"><em>cs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="include_2manux_2types_8h.html#a06896e8c53f721507066c079052171f8">uint32_t</a>&#160;</td>
+          <td class="paramname"><em>eFlags</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>: Fonction de base de gestion d'une exception </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="interruptions_8c_source.html#l00119">119</a> du fichier <a class="el" href="interruptions_8c_source.html">interruptions.c</a>.</p>
+
+</div>
+</div>
+<a id="a8bab70dd2ead4ff36a0c2de9b3d3aff8" name="a8bab70dd2ead4ff36a0c2de9b3d3aff8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8bab70dd2ead4ff36a0c2de9b3d3aff8">&#9670;&#160;</a></span>initialiserIDT()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="include_2manux_2interruptions_8h.html#a4fda31edc92f8ccd48b6f4bb50f2e7e1">void</a> initialiserIDT </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="include_2manux_2interruptions_8h.html#a4fda31edc92f8ccd48b6f4bb50f2e7e1">void</a>&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>! Initialiser l'IDT (Interrupt Description Table) </p>
+<p>@brieg Initialisation de de la table des descripteurs d'interruption </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="interruptions_8c_source.html#l00185">185</a> du fichier <a class="el" href="interruptions_8c_source.html">interruptions.c</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Documentation des variables</h2>
+<a id="a20b55997b895e2fad936573867a3d7a1" name="a20b55997b895e2fad936573867a3d7a1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a20b55997b895e2fad936573867a3d7a1">&#9670;&#160;</a></span>fonctionDeGestionException</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="include_2manux_2interruptions_8h.html#a4b86502c050e73afc4f906e73dc06cec">FonctionGestionException</a> fonctionDeGestionException[<a class="el" href="pc-i386_8h.html#add17ebfce684a3313a36a88096f7cdcb">MANUX_NB_EXCEPTIONS</a>]</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>: la table de gestion des exceptions </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="interruptions_8c_source.html#l00053">53</a> du fichier <a class="el" href="interruptions_8c_source.html">interruptions.c</a>.</p>
+
+</div>
+</div>
+<a id="af118ea95ebb0ba8b09e58ac1e7b328c5" name="af118ea95ebb0ba8b09e58ac1e7b328c5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af118ea95ebb0ba8b09e58ac1e7b328c5">&#9670;&#160;</a></span>fonctionDeGestionInterruption</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="include_2manux_2interruptions_8h.html#aeba1bb9393b1868b44581e72a4206150">FonctionGestionInterruption</a> fonctionDeGestionInterruption[<a class="el" href="interruptions_8c.html#ab3c9e305eb5c9c6c64c7abf07eff9b72">MANUX_NB_SOFT_INT</a>]</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>@frief La table des fonctions de gestion des interruptions </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="interruptions_8c_source.html#l00096">96</a> du fichier <a class="el" href="interruptions_8c_source.html">interruptions.c</a>.</p>
+
+</div>
+</div>
+<a id="a870c3dcd1f823849da17414d02f4d68d" name="a870c3dcd1f823849da17414d02f4d68d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a870c3dcd1f823849da17414d02f4d68d">&#9670;&#160;</a></span>handlerBasNiveauInterruption</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="include_2manux_2interruptions_8h.html#a4fda31edc92f8ccd48b6f4bb50f2e7e1">void</a>* handlerBasNiveauInterruption[<a class="el" href="interruptions_8c.html#ab3c9e305eb5c9c6c64c7abf07eff9b72">MANUX_NB_SOFT_INT</a>]</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Une table (initialis�e par la fonction initialiserHandlersInterruption de interBasNiveau.nasm) des handlers bas niveau des interruptions logicielles. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="interruptions_8c_source.html#l00048">48</a> du fichier <a class="el" href="interruptions_8c_source.html">interruptions.c</a>.</p>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

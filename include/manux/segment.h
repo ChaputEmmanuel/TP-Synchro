@@ -53,7 +53,7 @@ typedef struct _DescriptorTable {
 
 extern DescriptorTable * gdtSysteme;
 
-void initialiserGDT();
+void initialiserGDT(void);
 /*
  * Initiliser la GDT (Global Description Table)
  */

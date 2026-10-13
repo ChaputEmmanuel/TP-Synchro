@@ -1,0 +1,156 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>My Project:  Fichier source de /home/manu/PROGRAMMATION/C/ManuX/noyau/main-printk.c</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">My Project
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function() { init_codefold(0); });
+/* @license-end */
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_b49ee5e1e1e78348df5ce57bc52e7bb8.html">noyau</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle"><div class="title">main-printk.c</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="main-printk_8c.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &quot;<a class="code" href="ascii_8h.html">manux/ascii.h</a>&quot;</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &quot;<a class="code" href="ecran_8h.html">manux/ecran.h</a>&quot;</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &lt;manux/config.h&gt;</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &lt;<a class="code" href="include_2manux_2console_8h.html">manux/console.h</a>&gt;</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &lt;<a class="code" href="include_2manux_2printk_8h.html">manux/printk.h</a>&gt;</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
+<div class="foldopen" id="foldopen00013" data-start="{" data-end="}">
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno"><a class="line" href="main-printk_8c.html#a3568df994044ade7d37160ef731c223f">   13</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="main-printk_8c.html#a3568df994044ade7d37160ef731c223f">startManuX</a>()</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>{</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>  <a class="code hl_typedef" href="include_2manux_2types_8h.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> fond, texte, l, <a class="code hl_variable" href="main-bootreg_8c.html#add06ad5d8520e7cff4ff84b2811c0982">c</a>;</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>   <span class="comment">// Initialisation de la console noyau</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>   <a class="code hl_function" href="include_2manux_2console_8h.html#a29466c636bd065544638829883090d54">consoleInitialisation</a>();</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>   <span class="comment">// Un petit message</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>   <a class="code hl_function" href="include_2manux_2printk_8h.html#a25b30e8bbadd54650c56895999dd808f">printk</a>(<span class="stringliteral">&quot;Printk dit bonjour !\n\n&quot;</span>);</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>   <a class="code hl_function" href="include_2manux_2printk_8h.html#a25b30e8bbadd54650c56895999dd808f">printk</a>(<span class="stringliteral">&quot;Voici les couleurs utilisables pour le fond (colonne) et le texte (ligne)&quot;</span>);</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>   </div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>   <span class="comment">// On affiche un tableau des diff�rentes couleurs</span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>   <span class="comment">// 1 - La premi�re ligne des couleurs de fond</span></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>   <a class="code hl_variable" href="main-bootreg_8c.html#add06ad5d8520e7cff4ff84b2811c0982">c</a> = 4;</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>   <span class="keywordflow">for</span> (fond = 40; fond &lt;= 107; fond ++) {</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>      <a class="code hl_function" href="include_2manux_2printk_8h.html#a25b30e8bbadd54650c56895999dd808f">printk</a>(<span class="stringliteral">&quot;%c[%d;%dH%3d&quot;</span>, <a class="code hl_define" href="ascii_8h.html#af499a0b34ddf61832ae3dab05677ac7b">ASCII_ESC</a>, 4, <a class="code hl_variable" href="main-bootreg_8c.html#add06ad5d8520e7cff4ff84b2811c0982">c</a>, fond); <span class="comment">// goto ligne colonne</span></div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>      <span class="keywordflow">if</span> (fond == 47) {fond = 99;} <span class="comment">// J&#39;ai honte !</span></div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>      <a class="code hl_variable" href="main-bootreg_8c.html#add06ad5d8520e7cff4ff84b2811c0982">c</a>+=4;</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>   }</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>   <span class="comment">// 2 - La colonne des couleurs de texte</span></div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>   l = 5;</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>   <span class="keywordflow">for</span> (texte = 30; texte &lt;= 97; texte ++){</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>      <a class="code hl_function" href="include_2manux_2printk_8h.html#a25b30e8bbadd54650c56895999dd808f">printk</a>(<span class="stringliteral">&quot;%c[%d;%dH%2d&quot;</span>, <a class="code hl_define" href="ascii_8h.html#af499a0b34ddf61832ae3dab05677ac7b">ASCII_ESC</a>, l, 1, texte);   <span class="comment">// goto ligne colonne</span></div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>      <span class="keywordflow">if</span> (texte == 37) {texte = 89;} <span class="comment">// J&#39;ai honte !</span></div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>      l++;</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>   }   </div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>   l = 5;</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>   <span class="keywordflow">for</span> (texte = 30; texte &lt;= 97; texte ++){</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>      <a class="code hl_variable" href="main-bootreg_8c.html#add06ad5d8520e7cff4ff84b2811c0982">c</a> = 4;</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>      <span class="keywordflow">for</span> (fond = 40; fond &lt;= 107; fond ++) {</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>         <a class="code hl_function" href="include_2manux_2printk_8h.html#a25b30e8bbadd54650c56895999dd808f">printk</a>(<span class="stringliteral">&quot;%c[%d;%dH&quot;</span>, <a class="code hl_define" href="ascii_8h.html#af499a0b34ddf61832ae3dab05677ac7b">ASCII_ESC</a>, l, <a class="code hl_variable" href="main-bootreg_8c.html#add06ad5d8520e7cff4ff84b2811c0982">c</a>);   <span class="comment">// goto ligne colonne</span></div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>         <a class="code hl_function" href="include_2manux_2printk_8h.html#a25b30e8bbadd54650c56895999dd808f">printk</a>(<span class="stringliteral">&quot;%c[%dm&quot;</span>, <a class="code hl_define" href="ascii_8h.html#af499a0b34ddf61832ae3dab05677ac7b">ASCII_ESC</a>, texte);     <span class="comment">// couleur de texte</span></div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>         <a class="code hl_function" href="include_2manux_2printk_8h.html#a25b30e8bbadd54650c56895999dd808f">printk</a>(<span class="stringliteral">&quot;%c[%dm&quot;</span>, <a class="code hl_define" href="ascii_8h.html#af499a0b34ddf61832ae3dab05677ac7b">ASCII_ESC</a>, fond);      <span class="comment">// couleur de fond</span></div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>     <a class="code hl_function" href="include_2manux_2printk_8h.html#a25b30e8bbadd54650c56895999dd808f">printk</a>(<span class="stringliteral">&quot; XY &quot;</span>);</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>         <span class="keywordflow">if</span> (fond == 47) {fond = 99;} <span class="comment">// J&#39;ai toujours honte !</span></div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>     <a class="code hl_variable" href="main-bootreg_8c.html#add06ad5d8520e7cff4ff84b2811c0982">c</a>+=4;</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>      }</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>      <span class="keywordflow">if</span> (texte == 37) {texte = 89;} <span class="comment">// J&#39;ai encore honte !</span></div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>      l++;</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>   }</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>   </div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>}   <span class="comment">/* startManuX */</span></div>
+</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span> </div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span> </div>
+<div class="ttc" id="aascii_8h_html"><div class="ttname"><a href="ascii_8h.html">ascii.h</a></div><div class="ttdoc">Définition des codes ASCII (C) Manu Chaput 2026-2026.</div></div>
+<div class="ttc" id="aascii_8h_html_af499a0b34ddf61832ae3dab05677ac7b"><div class="ttname"><a href="ascii_8h.html#af499a0b34ddf61832ae3dab05677ac7b">ASCII_ESC</a></div><div class="ttdeci">#define ASCII_ESC</div><div class="ttdef"><b>Definition</b> <a href="ascii_8h_source.html#l00012">ascii.h:12</a></div></div>
+<div class="ttc" id="aecran_8h_html"><div class="ttname"><a href="ecran_8h.html">ecran.h</a></div><div class="ttdoc">Définition des caractéristiques de base de l'écran.</div></div>
+<div class="ttc" id="ainclude_2manux_2console_8h_html"><div class="ttname"><a href="include_2manux_2console_8h.html">console.h</a></div><div class="ttdoc">Définition des fonctions de base d'accés à la console.</div></div>
+<div class="ttc" id="ainclude_2manux_2console_8h_html_a29466c636bd065544638829883090d54"><div class="ttname"><a href="include_2manux_2console_8h.html#a29466c636bd065544638829883090d54">consoleInitialisation</a></div><div class="ttdeci">int consoleInitialisation(void)</div><div class="ttdoc">Initialisation du système de console sans notion de fichier.</div><div class="ttdef"><b>Definition</b> <a href="console_8c_source.html#l00869">console.c:869</a></div></div>
+<div class="ttc" id="ainclude_2manux_2printk_8h_html"><div class="ttname"><a href="include_2manux_2printk_8h.html">printk.h</a></div><div class="ttdoc">Définition des fonctions de base d'entrée-sortie du noyau.</div></div>
+<div class="ttc" id="ainclude_2manux_2printk_8h_html_a25b30e8bbadd54650c56895999dd808f"><div class="ttname"><a href="include_2manux_2printk_8h.html#a25b30e8bbadd54650c56895999dd808f">printk</a></div><div class="ttdeci">void printk(char *format,...)</div><div class="ttdoc">Fonction principale d'affichage dans le noyau.</div><div class="ttdef"><b>Definition</b> <a href="printk_8c_source.html#l00166">printk.c:166</a></div></div>
+<div class="ttc" id="ainclude_2manux_2types_8h_html_aba7bc1797add20fe3efdf37ced1182c5"><div class="ttname"><a href="include_2manux_2types_8h.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a></div><div class="ttdeci">unsigned char uint8_t</div><div class="ttdef"><b>Definition</b> <a href="include_2manux_2types_8h_source.html#l00012">types.h:12</a></div></div>
+<div class="ttc" id="amain-bootreg_8c_html_add06ad5d8520e7cff4ff84b2811c0982"><div class="ttname"><a href="main-bootreg_8c.html#add06ad5d8520e7cff4ff84b2811c0982">c</a></div><div class="ttdeci">uint16_t c</div><div class="ttdef"><b>Definition</b> <a href="main-bootreg_8c_source.html#l00024">main-bootreg.c:24</a></div></div>
+<div class="ttc" id="amain-printk_8c_html_a3568df994044ade7d37160ef731c223f"><div class="ttname"><a href="main-printk_8c.html#a3568df994044ade7d37160ef731c223f">startManuX</a></div><div class="ttdeci">void startManuX()</div><div class="ttdef"><b>Definition</b> <a href="main-printk_8c_source.html#l00013">main-printk.c:13</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

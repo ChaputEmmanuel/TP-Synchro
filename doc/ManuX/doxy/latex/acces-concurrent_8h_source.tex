@@ -1,0 +1,38 @@
+\doxysection{acces-\/concurrent.h}
+\hypertarget{acces-concurrent_8h_source}{}\label{acces-concurrent_8h_source}\index{/home/manu/PROGRAMMATION/C/ManuX/multiconf/acces-\/concurrent.h@{/home/manu/PROGRAMMATION/C/ManuX/multiconf/acces-\/concurrent.h}}
+\mbox{\hyperlink{acces-concurrent_8h}{Aller à la documentation de ce fichier.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{acces-concurrent_8h_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{acces-concurrent_8h_source_l00008}00008\ \textcolor{preprocessor}{\#ifdef\ MANUX\_FICHIER\_CONFIG}}
+\DoxyCodeLine{\Hypertarget{acces-concurrent_8h_source_l00009}00009\ \textcolor{preprocessor}{\#\ \ \ error\ "{}Cette\ chose\ ne\ devrait\ pas\ se\ produire\ !"{}}}
+\DoxyCodeLine{\Hypertarget{acces-concurrent_8h_source_l00010}00010\ \textcolor{preprocessor}{\#\ \ \ include\ MANUX\_FICHIER\_CONFIG}}
+\DoxyCodeLine{\Hypertarget{acces-concurrent_8h_source_l00011}00011\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{\Hypertarget{acces-concurrent_8h_source_l00012}00012\ \textcolor{preprocessor}{\#ifndef\ MANUX\_CONFIG}}
+\DoxyCodeLine{\Hypertarget{acces-concurrent_8h_source_l00013}00013\ \textcolor{preprocessor}{\#define\ MANUX\_CONFIG}}
+\DoxyCodeLine{\Hypertarget{acces-concurrent_8h_source_l00014}00014\ }
+\DoxyCodeLine{\Hypertarget{acces-concurrent_8h_source_l00015}\mbox{\hyperlink{acces-concurrent_8h_aa3594499e1eed61df06d17199e875181}{00015}}\ \textcolor{preprocessor}{\#define\ MANUX\_FICHIER\_MAIN\ main-\/acces-\/concurrent}}
+\DoxyCodeLine{\Hypertarget{acces-concurrent_8h_source_l00016}\mbox{\hyperlink{acces-concurrent_8h_aebb6ade5da1613b93b30fdc922a92f99}{00016}}\ \textcolor{preprocessor}{\#define\ MANUX\_USR\_INIT\ init-\/acces-\/concurrent.o}}
+\DoxyCodeLine{\Hypertarget{acces-concurrent_8h_source_l00017}00017\ }
+\DoxyCodeLine{\Hypertarget{acces-concurrent_8h_source_l00018}00018\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{base_8h}{config/base.h}}>}}
+\DoxyCodeLine{\Hypertarget{acces-concurrent_8h_source_l00019}00019\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{config_2bootloader_8h}{config/bootloader.h}}>}\ \ \ \ \ \ \ \textcolor{comment}{//\ Nécessaire\ pour\ construire\ mon\ bootloader}}
+\DoxyCodeLine{\Hypertarget{acces-concurrent_8h_source_l00020}00020\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{systeme-fichiers_8h}{config/systeme-\/fichiers.h}}>}}
+\DoxyCodeLine{\Hypertarget{acces-concurrent_8h_source_l00021}00021\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{config_2ramdisk_8h}{config/ramdisk.h}}>}}
+\DoxyCodeLine{\Hypertarget{acces-concurrent_8h_source_l00022}00022\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{pc-i386_8h}{config/pc-\/i386.h}}>}}
+\DoxyCodeLine{\Hypertarget{acces-concurrent_8h_source_l00023}00023\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{appels-systeme_8h}{config/appels-\/systeme.h}}>}\ \ \textcolor{comment}{//\ pour\ le\ mode\ utilisateur}}
+\DoxyCodeLine{\Hypertarget{acces-concurrent_8h_source_l00024}00024\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{consoles-virtuelles_8h}{config/consoles-\/virtuelles.h}}>}}
+\DoxyCodeLine{\Hypertarget{acces-concurrent_8h_source_l00025}00025\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{synchronisation_8h}{config/synchronisation.h}}>}}
+\DoxyCodeLine{\Hypertarget{acces-concurrent_8h_source_l00026}00026\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{include_2config_2printk_8h}{config/printk.h}}>}}
+\DoxyCodeLine{\Hypertarget{acces-concurrent_8h_source_l00027}00027\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{include_2config_2journal_8h}{config/journal.h}}>}}
+\DoxyCodeLine{\Hypertarget{acces-concurrent_8h_source_l00028}00028\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{include_2config_2taches_8h}{config/taches.h}}>}}
+\DoxyCodeLine{\Hypertarget{acces-concurrent_8h_source_l00029}00029\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{gestion-memoire_8h}{config/gestion-\/memoire.h}}>}}
+\DoxyCodeLine{\Hypertarget{acces-concurrent_8h_source_l00030}00030\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{include_2config_2kmalloc_8h}{config/kmalloc.h}}>}}
+\DoxyCodeLine{\Hypertarget{acces-concurrent_8h_source_l00031}00031\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{config_2clavier_8h}{config/clavier.h}}>}}
+\DoxyCodeLine{\Hypertarget{acces-concurrent_8h_source_l00032}00032\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{config_2stdlib_8h}{config/stdlib.h}}>}}
+\DoxyCodeLine{\Hypertarget{acces-concurrent_8h_source_l00033}00033\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{usr_8h}{config/usr.h}}>}}
+\DoxyCodeLine{\Hypertarget{acces-concurrent_8h_source_l00034}00034\ }
+\DoxyCodeLine{\Hypertarget{acces-concurrent_8h_source_l00035}00035\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{verifications_8h}{config/verifications.h}}>}}
+\DoxyCodeLine{\Hypertarget{acces-concurrent_8h_source_l00036}00036\ }
+\DoxyCodeLine{\Hypertarget{acces-concurrent_8h_source_l00037}00037\ \textcolor{preprocessor}{\#endif\ \ }\textcolor{comment}{//\ MANUX\_CONFIG}}
+\DoxyCodeLine{\Hypertarget{acces-concurrent_8h_source_l00038}00038\ \textcolor{preprocessor}{\#endif\ \ }\textcolor{comment}{//\ MANUX\_FICHIER\_CONFIG}}
+
+\end{DoxyCode}

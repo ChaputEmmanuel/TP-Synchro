@@ -1,0 +1,47 @@
+<map id="/home/manu/PROGRAMMATION/C/ManuX/include/config/gestion&#45;memoire.h" name="/home/manu/PROGRAMMATION/C/ManuX/include/config/gestion&#45;memoire.h">
+<area shape="rect" id="Node000001" title=" " alt="" coords="2747,5,2973,60"/>
+<area shape="rect" id="Node000002" href="$include_2manux_2config_8h.html" title=" " alt="" coords="5,108,232,163"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="2733,37,2222,42,1502,53,1127,63,776,75,473,91,244,111,233,112,232,107,244,105,473,86,776,70,1127,58,1502,48,2222,36,2733,32"/>
+<area shape="rect" id="Node000003" href="$acces-concurrent_8h.html" title="Exemple de configuration pour un test d&#39;accès concurrents." alt="" coords="256,108,483,163"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="2733,38,2265,44,1619,56,970,78,700,93,495,111,483,112,483,107,494,105,699,87,970,73,1619,51,2265,38,2733,32"/>
+<area shape="rect" id="Node000004" href="$appel-systeme_8h.html" title=" " alt="" coords="507,108,733,163"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="2732,38,2310,45,1736,59,1164,80,926,94,746,111,734,112,733,107,745,105,926,89,1164,75,1736,54,2309,40,2732,33"/>
+<area shape="rect" id="Node000005" href="$boot-reg_8h.html" title="Ajout dans le rergistre systèmes de paramètres fournis au boot." alt="" coords="757,115,984,155"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="2733,39,2356,47,1855,62,1359,83,1153,96,996,111,951,118,950,113,996,105,1152,91,1358,78,1855,57,2356,42,2733,34"/>
+<area shape="rect" id="Node000006" href="$bootparam_8h.html" title="Passage de paramètres par le bootloader." alt="" coords="1008,115,1245,155"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="2733,36,2465,38,2098,48,1680,71,1467,88,1258,111,1211,118,1211,113,1257,105,1466,83,1680,66,2098,43,2464,33,2733,31"/>
+<area shape="rect" id="Node000007" href="$debmaskdyn-reg_8h.html" title=" " alt="" coords="1270,115,1546,155"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="2733,39,2511,46,2219,59,1890,80,1559,111,1507,118,1506,113,1558,105,1890,74,2219,53,2511,40,2733,34"/>
+<area shape="rect" id="Node000008" href="$debmaskdyn_8h.html" title=" " alt="" coords="1571,115,1821,155"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="2733,41,2331,63,2083,83,1834,111,1787,118,1786,113,1833,105,2082,78,2331,58,2733,36"/>
+<area shape="rect" id="Node000009" href="$delai_8h.html" title="Exemple de configuration permettant de tester les délais." alt="" coords="1845,115,2072,155"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="2733,44,2436,69,2260,87,2084,111,2043,118,2042,113,2084,105,2259,82,2436,63,2733,39"/>
+<area shape="rect" id="Node000010" href="$multiconf_2interruptions_8h.html" title="Exemple de configuration permettant d&#39;observer des interruptions." alt="" coords="2097,115,2346,155"/>
+<area shape="poly" id="edge9_Node000001_Node000010" title=" " alt="" coords="2733,54,2359,111,2318,118,2317,113,2358,105,2733,49"/>
+<area shape="rect" id="Node000011" href="$journal_09fichier_8h.html" title=" " alt="" coords="2371,108,2597,163"/>
+<area shape="poly" id="edge10_Node000001_Node000011" title=" " alt="" coords="2750,66,2583,111,2581,105,2749,61"/>
+<area shape="rect" id="Node000012" href="$multiconf_2kmalloc_8h.html" title="Exemple de configuration pour l&#39;utilisation de kmalloc." alt="" coords="2621,115,2848,155"/>
+<area shape="poly" id="edge11_Node000001_Node000012" title=" " alt="" coords="2818,71,2760,117,2757,113,2815,67"/>
+<area shape="rect" id="Node000013" href="$multiconf_2memoire_8h.html" title="Exemple de configuration pour l&#39;allocation/libération de pages mémoire." alt="" coords="2872,115,3099,155"/>
+<area shape="poly" id="edge12_Node000001_Node000013" title=" " alt="" coords="2905,67,2963,113,2960,117,2902,71"/>
+<area shape="rect" id="Node000014" href="$mutex_8h.html" title="Exemple de configuration pour l&#39;utilisation des exclusions mutuelles." alt="" coords="3123,115,3349,155"/>
+<area shape="poly" id="edge13_Node000001_Node000014" title=" " alt="" coords="2972,61,3166,113,3165,118,2970,66"/>
+<area shape="rect" id="Node000015" href="$outils-synchro_8h.html" title=" " alt="" coords="3373,108,3600,163"/>
+<area shape="poly" id="edge14_Node000001_Node000015" title=" " alt="" coords="2988,48,3165,73,3362,105,3374,108,3373,113,3361,111,3164,79,2987,53"/>
+<area shape="rect" id="Node000016" href="$reentrance_8h.html" title="Comparaison noyau réentrant vs non réentrant." alt="" coords="3625,115,3861,155"/>
+<area shape="poly" id="edge15_Node000001_Node000016" title=" " alt="" coords="2988,40,3274,65,3444,83,3612,105,3655,113,3655,118,3612,111,3443,88,3274,70,2987,45"/>
+<area shape="rect" id="Node000017" href="$multiconf_2registre_8h.html" title="Gestion dynamique des paramètres de ManuX dans un registre." alt="" coords="3885,115,4112,155"/>
+<area shape="poly" id="edge16_Node000001_Node000017" title=" " alt="" coords="2987,35,3162,43,3384,56,3628,77,3874,105,3917,113,3916,118,3873,111,3628,82,3383,62,3162,48,2987,41"/>
+<area shape="rect" id="Node000018" href="$multiconf_2taches_8h.html" title=" " alt="" coords="4136,115,4363,155"/>
+<area shape="poly" id="edge17_Node000001_Node000018" title=" " alt="" coords="2987,33,3203,38,3486,50,3804,71,3966,87,4124,105,4168,113,4167,118,4124,111,3966,92,3804,77,3486,55,3203,43,2987,38"/>
+<area shape="rect" id="Node000019" href="$test-synchro_8h.html" title="Exemple de besoin de synchronisation dans le noyau." alt="" coords="4387,108,4613,163"/>
+<area shape="poly" id="edge18_Node000001_Node000019" title=" " alt="" coords="2987,31,3242,34,3587,44,3979,66,4179,83,4375,105,4387,107,4386,112,4374,111,4179,89,3979,72,3587,49,3242,39,2987,36"/>
+<area shape="rect" id="Node000020" href="$verrou-noyau_8h.html" title=" " alt="" coords="4637,108,4864,163"/>
+<area shape="poly" id="edge19_Node000001_Node000020" title=" " alt="" coords="2987,34,3819,58,4285,79,4478,91,4626,105,4637,107,4637,112,4625,111,4478,97,4285,84,3818,63,2987,39"/>
+<area shape="rect" id="Node000021" href="$virtio-cons_8h.html" title="Affichage de messages sur une console virtuelle de type virtio." alt="" coords="4888,115,5123,155"/>
+<area shape="poly" id="edge20_Node000001_Node000021" title=" " alt="" coords="2988,33,3393,41,3937,55,4480,77,4705,90,4876,105,4923,113,4922,118,4876,111,4705,95,4479,82,3937,61,3392,46,2987,39"/>
+<area shape="rect" id="Node000022" href="$virtio-journal_8h.html" title=" " alt="" coords="5147,108,5373,163"/>
+<area shape="poly" id="edge21_Node000001_Node000022" title=" " alt="" coords="2987,33,3439,39,4059,52,4680,73,4939,88,5135,105,5147,107,5146,112,5134,111,4938,93,4680,79,4059,57,3439,44,2987,38"/>
+<area shape="rect" id="Node000023" href="$multiconf_2virtio-net_8h.html" title="Utilisation d&#39;une interface réseau de type virtio." alt="" coords="5397,115,5624,155"/>
+<area shape="poly" id="edge22_Node000001_Node000023" title=" " alt="" coords="2987,32,3483,37,4176,49,4874,71,5165,86,5386,105,5432,113,5431,118,5385,111,5165,92,4874,76,4176,54,3483,42,2987,37"/>
+</map>

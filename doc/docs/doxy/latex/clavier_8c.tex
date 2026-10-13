@@ -1,0 +1,244 @@
+\doxysection{Référence du fichier /home/manu/\+PROGRAMMATION/\+C/\+Manu\+X/lib/clavier.c}
+\hypertarget{clavier_8c}{}\label{clavier_8c}\index{/home/manu/PROGRAMMATION/C/ManuX/lib/clavier.c@{/home/manu/PROGRAMMATION/C/ManuX/lib/clavier.c}}
+{\ttfamily \#include $<$manux/clavier.\+h$>$}\newline
+{\ttfamily \#include $<$manux/io.\+h$>$}\newline
+{\ttfamily \#include $<$manux/intel-\/8259a.\+h$>$}\newline
+{\ttfamily \#include $<$manux/printk.\+h$>$}\newline
+{\ttfamily \#include $<$manux/inter\+Bas\+Niveau.\+h$>$}\newline
+{\ttfamily \#include $<$manux/memoire.\+h$>$}\newline
+{\ttfamily \#include $<$manux/scheduler.\+h$>$}\newline
+{\ttfamily \#include $<$keymaps/french.\+h$>$}\newline
+Graphe des dépendances par inclusion de clavier.\+c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{clavier_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{clavier_8c_ab63d0f794b5c9fe5ea51d818bc76d142}{KEYCODE\+\_\+\+ESC}}~0x01
+\item 
+\#define \mbox{\hyperlink{clavier_8c_aa07f16e09fb4d04fa51ccb26aff0f2d1}{KEYCODE\+\_\+\+TAB}}~0x0F
+\item 
+\#define \mbox{\hyperlink{clavier_8c_a91d398bb7a3bc5a900f8685a14d177fb}{KEYCODE\+\_\+\+F1}}~0x3b
+\item 
+\#define \mbox{\hyperlink{clavier_8c_aa0dc4252df81cffac8ac155a4837aaff}{KEYCODE\+\_\+\+F2}}~0x3c
+\item 
+\#define \mbox{\hyperlink{clavier_8c_affb3e1f597ef638cf1ca246c19cb73c4}{KEYCODE\+\_\+\+F3}}~0x3d
+\item 
+\#define \mbox{\hyperlink{clavier_8c_a0049ce5464f22e42199869efa01e3e14}{KEYCODE\+\_\+\+F4}}~0x3e
+\item 
+\#define \mbox{\hyperlink{clavier_8c_a563c25a294e5936e1af81ea3c6f8f20f}{KEYCODE\+\_\+\+F5}}~0x3f
+\item 
+\#define \mbox{\hyperlink{clavier_8c_a4e2859d4d3d47c0b5d8b43a4539fd24b}{KEYCODE\+\_\+\+F6}}~0x40
+\item 
+\#define \mbox{\hyperlink{clavier_8c_a6f6d1fdac0129eca5902127c3388f8e5}{KEYCODE\+\_\+\+F7}}~0x41
+\item 
+\#define \mbox{\hyperlink{clavier_8c_a736913c7c5503be488f48c2e368f1c06}{KEYCODE\+\_\+\+F8}}~0x42
+\item 
+\#define \mbox{\hyperlink{clavier_8c_a5ad8cd27506319efd3e46039961c85e0}{KEYCODE\+\_\+\+F9}}~0x43
+\item 
+\#define \mbox{\hyperlink{clavier_8c_a062871ae26949da6b20ae542f684730e}{KEYCODE\+\_\+\+F10}}~0x44
+\item 
+\#define \mbox{\hyperlink{clavier_8c_a1f4467123e8f5b63124ab1ab082c9e43}{SC\+\_\+\+SHIFT\+\_\+\+GAUCHE}}~0x2a
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} \mbox{\hyperlink{clavier_8c_adeb7648f2d16a4967670148c998f83cc}{initialiser\+Clavier}} (\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}})
+\item 
+\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} \mbox{\hyperlink{clavier_8c_a21c527b97e8566026400521d3d06ac44}{handler\+Clavier}} (\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} \texorpdfstring{$\ast$}{*}toto)
+\begin{DoxyCompactList}\small\item\em Le handler du clavier. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{clavier_8c_afb665ec27226cbb78cea21a6e309dea1}{code\+Clavier}} = 0
+\item 
+int \mbox{\hyperlink{clavier_8c_aea6378db7413868718bfe76a2f3f7c26}{shift\+Actif}} = 0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Documentation des macros}
+\Hypertarget{clavier_8c_ab63d0f794b5c9fe5ea51d818bc76d142}\label{clavier_8c_ab63d0f794b5c9fe5ea51d818bc76d142} 
+\index{clavier.c@{clavier.c}!KEYCODE\_ESC@{KEYCODE\_ESC}}
+\index{KEYCODE\_ESC@{KEYCODE\_ESC}!clavier.c@{clavier.c}}
+\doxysubsubsection{\texorpdfstring{KEYCODE\_ESC}{KEYCODE\_ESC}}
+{\footnotesize\ttfamily \#define KEYCODE\+\_\+\+ESC~0x01}
+
+
+
+Définition à la ligne \mbox{\hyperlink{clavier_8c_source_l00044}{44}} du fichier \mbox{\hyperlink{clavier_8c_source}{clavier.\+c}}.
+
+\Hypertarget{clavier_8c_a91d398bb7a3bc5a900f8685a14d177fb}\label{clavier_8c_a91d398bb7a3bc5a900f8685a14d177fb} 
+\index{clavier.c@{clavier.c}!KEYCODE\_F1@{KEYCODE\_F1}}
+\index{KEYCODE\_F1@{KEYCODE\_F1}!clavier.c@{clavier.c}}
+\doxysubsubsection{\texorpdfstring{KEYCODE\_F1}{KEYCODE\_F1}}
+{\footnotesize\ttfamily \#define KEYCODE\+\_\+\+F1~0x3b}
+
+
+
+Définition à la ligne \mbox{\hyperlink{clavier_8c_source_l00046}{46}} du fichier \mbox{\hyperlink{clavier_8c_source}{clavier.\+c}}.
+
+\Hypertarget{clavier_8c_a062871ae26949da6b20ae542f684730e}\label{clavier_8c_a062871ae26949da6b20ae542f684730e} 
+\index{clavier.c@{clavier.c}!KEYCODE\_F10@{KEYCODE\_F10}}
+\index{KEYCODE\_F10@{KEYCODE\_F10}!clavier.c@{clavier.c}}
+\doxysubsubsection{\texorpdfstring{KEYCODE\_F10}{KEYCODE\_F10}}
+{\footnotesize\ttfamily \#define KEYCODE\+\_\+\+F10~0x44}
+
+
+
+Définition à la ligne \mbox{\hyperlink{clavier_8c_source_l00055}{55}} du fichier \mbox{\hyperlink{clavier_8c_source}{clavier.\+c}}.
+
+\Hypertarget{clavier_8c_aa0dc4252df81cffac8ac155a4837aaff}\label{clavier_8c_aa0dc4252df81cffac8ac155a4837aaff} 
+\index{clavier.c@{clavier.c}!KEYCODE\_F2@{KEYCODE\_F2}}
+\index{KEYCODE\_F2@{KEYCODE\_F2}!clavier.c@{clavier.c}}
+\doxysubsubsection{\texorpdfstring{KEYCODE\_F2}{KEYCODE\_F2}}
+{\footnotesize\ttfamily \#define KEYCODE\+\_\+\+F2~0x3c}
+
+
+
+Définition à la ligne \mbox{\hyperlink{clavier_8c_source_l00047}{47}} du fichier \mbox{\hyperlink{clavier_8c_source}{clavier.\+c}}.
+
+\Hypertarget{clavier_8c_affb3e1f597ef638cf1ca246c19cb73c4}\label{clavier_8c_affb3e1f597ef638cf1ca246c19cb73c4} 
+\index{clavier.c@{clavier.c}!KEYCODE\_F3@{KEYCODE\_F3}}
+\index{KEYCODE\_F3@{KEYCODE\_F3}!clavier.c@{clavier.c}}
+\doxysubsubsection{\texorpdfstring{KEYCODE\_F3}{KEYCODE\_F3}}
+{\footnotesize\ttfamily \#define KEYCODE\+\_\+\+F3~0x3d}
+
+
+
+Définition à la ligne \mbox{\hyperlink{clavier_8c_source_l00048}{48}} du fichier \mbox{\hyperlink{clavier_8c_source}{clavier.\+c}}.
+
+\Hypertarget{clavier_8c_a0049ce5464f22e42199869efa01e3e14}\label{clavier_8c_a0049ce5464f22e42199869efa01e3e14} 
+\index{clavier.c@{clavier.c}!KEYCODE\_F4@{KEYCODE\_F4}}
+\index{KEYCODE\_F4@{KEYCODE\_F4}!clavier.c@{clavier.c}}
+\doxysubsubsection{\texorpdfstring{KEYCODE\_F4}{KEYCODE\_F4}}
+{\footnotesize\ttfamily \#define KEYCODE\+\_\+\+F4~0x3e}
+
+
+
+Définition à la ligne \mbox{\hyperlink{clavier_8c_source_l00049}{49}} du fichier \mbox{\hyperlink{clavier_8c_source}{clavier.\+c}}.
+
+\Hypertarget{clavier_8c_a563c25a294e5936e1af81ea3c6f8f20f}\label{clavier_8c_a563c25a294e5936e1af81ea3c6f8f20f} 
+\index{clavier.c@{clavier.c}!KEYCODE\_F5@{KEYCODE\_F5}}
+\index{KEYCODE\_F5@{KEYCODE\_F5}!clavier.c@{clavier.c}}
+\doxysubsubsection{\texorpdfstring{KEYCODE\_F5}{KEYCODE\_F5}}
+{\footnotesize\ttfamily \#define KEYCODE\+\_\+\+F5~0x3f}
+
+
+
+Définition à la ligne \mbox{\hyperlink{clavier_8c_source_l00050}{50}} du fichier \mbox{\hyperlink{clavier_8c_source}{clavier.\+c}}.
+
+\Hypertarget{clavier_8c_a4e2859d4d3d47c0b5d8b43a4539fd24b}\label{clavier_8c_a4e2859d4d3d47c0b5d8b43a4539fd24b} 
+\index{clavier.c@{clavier.c}!KEYCODE\_F6@{KEYCODE\_F6}}
+\index{KEYCODE\_F6@{KEYCODE\_F6}!clavier.c@{clavier.c}}
+\doxysubsubsection{\texorpdfstring{KEYCODE\_F6}{KEYCODE\_F6}}
+{\footnotesize\ttfamily \#define KEYCODE\+\_\+\+F6~0x40}
+
+
+
+Définition à la ligne \mbox{\hyperlink{clavier_8c_source_l00051}{51}} du fichier \mbox{\hyperlink{clavier_8c_source}{clavier.\+c}}.
+
+\Hypertarget{clavier_8c_a6f6d1fdac0129eca5902127c3388f8e5}\label{clavier_8c_a6f6d1fdac0129eca5902127c3388f8e5} 
+\index{clavier.c@{clavier.c}!KEYCODE\_F7@{KEYCODE\_F7}}
+\index{KEYCODE\_F7@{KEYCODE\_F7}!clavier.c@{clavier.c}}
+\doxysubsubsection{\texorpdfstring{KEYCODE\_F7}{KEYCODE\_F7}}
+{\footnotesize\ttfamily \#define KEYCODE\+\_\+\+F7~0x41}
+
+
+
+Définition à la ligne \mbox{\hyperlink{clavier_8c_source_l00052}{52}} du fichier \mbox{\hyperlink{clavier_8c_source}{clavier.\+c}}.
+
+\Hypertarget{clavier_8c_a736913c7c5503be488f48c2e368f1c06}\label{clavier_8c_a736913c7c5503be488f48c2e368f1c06} 
+\index{clavier.c@{clavier.c}!KEYCODE\_F8@{KEYCODE\_F8}}
+\index{KEYCODE\_F8@{KEYCODE\_F8}!clavier.c@{clavier.c}}
+\doxysubsubsection{\texorpdfstring{KEYCODE\_F8}{KEYCODE\_F8}}
+{\footnotesize\ttfamily \#define KEYCODE\+\_\+\+F8~0x42}
+
+
+
+Définition à la ligne \mbox{\hyperlink{clavier_8c_source_l00053}{53}} du fichier \mbox{\hyperlink{clavier_8c_source}{clavier.\+c}}.
+
+\Hypertarget{clavier_8c_a5ad8cd27506319efd3e46039961c85e0}\label{clavier_8c_a5ad8cd27506319efd3e46039961c85e0} 
+\index{clavier.c@{clavier.c}!KEYCODE\_F9@{KEYCODE\_F9}}
+\index{KEYCODE\_F9@{KEYCODE\_F9}!clavier.c@{clavier.c}}
+\doxysubsubsection{\texorpdfstring{KEYCODE\_F9}{KEYCODE\_F9}}
+{\footnotesize\ttfamily \#define KEYCODE\+\_\+\+F9~0x43}
+
+
+
+Définition à la ligne \mbox{\hyperlink{clavier_8c_source_l00054}{54}} du fichier \mbox{\hyperlink{clavier_8c_source}{clavier.\+c}}.
+
+\Hypertarget{clavier_8c_aa07f16e09fb4d04fa51ccb26aff0f2d1}\label{clavier_8c_aa07f16e09fb4d04fa51ccb26aff0f2d1} 
+\index{clavier.c@{clavier.c}!KEYCODE\_TAB@{KEYCODE\_TAB}}
+\index{KEYCODE\_TAB@{KEYCODE\_TAB}!clavier.c@{clavier.c}}
+\doxysubsubsection{\texorpdfstring{KEYCODE\_TAB}{KEYCODE\_TAB}}
+{\footnotesize\ttfamily \#define KEYCODE\+\_\+\+TAB~0x0F}
+
+
+
+Définition à la ligne \mbox{\hyperlink{clavier_8c_source_l00045}{45}} du fichier \mbox{\hyperlink{clavier_8c_source}{clavier.\+c}}.
+
+\Hypertarget{clavier_8c_a1f4467123e8f5b63124ab1ab082c9e43}\label{clavier_8c_a1f4467123e8f5b63124ab1ab082c9e43} 
+\index{clavier.c@{clavier.c}!SC\_SHIFT\_GAUCHE@{SC\_SHIFT\_GAUCHE}}
+\index{SC\_SHIFT\_GAUCHE@{SC\_SHIFT\_GAUCHE}!clavier.c@{clavier.c}}
+\doxysubsubsection{\texorpdfstring{SC\_SHIFT\_GAUCHE}{SC\_SHIFT\_GAUCHE}}
+{\footnotesize\ttfamily \#define SC\+\_\+\+SHIFT\+\_\+\+GAUCHE~0x2a}
+
+
+
+Définition à la ligne \mbox{\hyperlink{clavier_8c_source_l00057}{57}} du fichier \mbox{\hyperlink{clavier_8c_source}{clavier.\+c}}.
+
+
+
+\doxysubsection{Documentation des fonctions}
+\Hypertarget{clavier_8c_a21c527b97e8566026400521d3d06ac44}\label{clavier_8c_a21c527b97e8566026400521d3d06ac44} 
+\index{clavier.c@{clavier.c}!handlerClavier@{handlerClavier}}
+\index{handlerClavier@{handlerClavier}!clavier.c@{clavier.c}}
+\doxysubsubsection{\texorpdfstring{handlerClavier()}{handlerClavier()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} handler\+Clavier (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} \texorpdfstring{$\ast$}{*}}]{toto }\end{DoxyParamCaption})}
+
+
+
+Le handler du clavier. 
+
+Il n\textquotesingle{}a pas besoin de paramètre, mais il respecte la signature. 
+
+Définition à la ligne \mbox{\hyperlink{clavier_8c_source_l00064}{64}} du fichier \mbox{\hyperlink{clavier_8c_source}{clavier.\+c}}.
+
+\Hypertarget{clavier_8c_adeb7648f2d16a4967670148c998f83cc}\label{clavier_8c_adeb7648f2d16a4967670148c998f83cc} 
+\index{clavier.c@{clavier.c}!initialiserClavier@{initialiserClavier}}
+\index{initialiserClavier@{initialiserClavier}!clavier.c@{clavier.c}}
+\doxysubsubsection{\texorpdfstring{initialiserClavier()}{initialiserClavier()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} initialiser\+Clavier (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}}}]{ }\end{DoxyParamCaption})}
+
+
+
+Définition à la ligne \mbox{\hyperlink{clavier_8c_source_l00028}{28}} du fichier \mbox{\hyperlink{clavier_8c_source}{clavier.\+c}}.
+
+
+
+\doxysubsection{Documentation des variables}
+\Hypertarget{clavier_8c_afb665ec27226cbb78cea21a6e309dea1}\label{clavier_8c_afb665ec27226cbb78cea21a6e309dea1} 
+\index{clavier.c@{clavier.c}!codeClavier@{codeClavier}}
+\index{codeClavier@{codeClavier}!clavier.c@{clavier.c}}
+\doxysubsubsection{\texorpdfstring{codeClavier}{codeClavier}}
+{\footnotesize\ttfamily int code\+Clavier = 0}
+
+\DoxyHorRuler{0}
+ 
+
+Définition à la ligne \mbox{\hyperlink{clavier_8c_source_l00025}{25}} du fichier \mbox{\hyperlink{clavier_8c_source}{clavier.\+c}}.
+
+\Hypertarget{clavier_8c_aea6378db7413868718bfe76a2f3f7c26}\label{clavier_8c_aea6378db7413868718bfe76a2f3f7c26} 
+\index{clavier.c@{clavier.c}!shiftActif@{shiftActif}}
+\index{shiftActif@{shiftActif}!clavier.c@{clavier.c}}
+\doxysubsubsection{\texorpdfstring{shiftActif}{shiftActif}}
+{\footnotesize\ttfamily int shift\+Actif = 0}
+
+
+
+Définition à la ligne \mbox{\hyperlink{clavier_8c_source_l00026}{26}} du fichier \mbox{\hyperlink{clavier_8c_source}{clavier.\+c}}.
+

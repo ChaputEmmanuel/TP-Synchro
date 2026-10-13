@@ -18,6 +18,11 @@
 #if defined(MANUX_VIRTIO_CONSOLE) && !defined(MANUX_FICHIER)
 #   error "MANUX_VIRTIO_CONSOLE nécessite MANUX_FICHIER"
 #endif
+
+#if defined(MANUX_PRINTK) && !defined(MANUX_CONSOLE)
+#   error "MANUX_PRINTK nécessite MANUX_CONSOLE"
+#endif
+
 /*
 #if defined(MANUX_CLAVIER_CONSOLE) && !defined(MANUX_APPELS_SYSTEME)
 #   error "MANUX_CLAVIER_CONSOLE nécessite MANUX_APPELS_SYSTEME"
@@ -52,6 +57,10 @@
 #   error "MANUX_CLAVIER_CONSOLE nécessite MANUX_CLAVIER"
 #endif
 
+#if defined(MANUX_KMALLOC) && !defined(MANUX_GESTION_MEMOIRE)
+#   error "MANUX_KMALLOC nécessite MANUX_GESTION_MEMOIRE"
+#endif
+
 #if defined(MANUX_KMALLOC_STAT) && !defined(MANUX_KMALLOC)
 #   error "MANUX_KMALLOC_STAT nécessite MANUX_KMALLOC"
 #endif
@@ -64,6 +73,38 @@
 #   error "MANUX_TUBES nécessite MANUX_KMALLOC"
 #endif
 
+#if defined(MANUX_ATOMIQUE) && !defined(MANUX_TACHES)
+#   error "MANUX_ATOMIQUE nécessite MANUX_TACHES"
+#endif
+
 #if defined(MANUX_ATOMIQUE_AUDIT) && !defined(MANUX_KMALLOC)
 #   error "MANUX_ATOMIQUE_AUDIT nécessite MANUX_KMALLOC"
+#endif
+
+#if defined(MANUX_EXCLUSION_MUTUELLE_AUDIT) && !defined(MANUX_KMALLOC)
+#   error "MANUX_EXCLUSION_MUTUELLE_AUDIT nécessite MANUX_KMALLOC"
+#endif
+
+#if defined(MANUX_HERITER_FICHIERS) && !defined(MANUX_KMALLOC)
+#   error "MANUX_HERITER_FICHIERS nécessite MANUX_KMALLOC"
+#endif
+
+#if defined(MANUX_FICHIER) && !defined(MANUX_PRINTK)
+#   error "MANUX_FICHIER nécessite MANUX_PRINTK"
+#endif
+
+#if defined(MANUX_GESTION_MEMOIRE) && !defined(MANUX_LIBI386)
+#   error "MANUX_GESTION_MEMOIRE nécessite MANUX_LIBI386"
+#endif
+
+#if defined(MANUX_REGISTRE) && !defined(MANUX_KMALLOC)
+#   error "MANUX_REGISTRE nécessite MANUX_KMALLOC"
+#endif
+
+#if defined(MANUX_DEBUGMASK_VAR) && !defined(MANUX_STDLIB)
+#   error "MANUX_DEBUGMASK_VAR nécessite MANUX_STDLIB"
+#endif
+
+#if defined(MANUX_DEBUGMASK_VAR) && !defined(MANUX_PRINTK)
+#   error "MANUX_DEBUGMASK_VAR nécessite MANUX_PRINTK"
 #endif

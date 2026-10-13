@@ -1,0 +1,24 @@
+\doxysection{kmalloc-\/zs.h}
+\hypertarget{kmalloc-zs_8h_source}{}\label{kmalloc-zs_8h_source}\index{/home/manu/PROGRAMMATION/C/ManuX/include/manux/kmalloc-\/zs.h@{/home/manu/PROGRAMMATION/C/ManuX/include/manux/kmalloc-\/zs.h}}
+\mbox{\hyperlink{kmalloc-zs_8h}{Aller à la documentation de ce fichier.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8h_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8h_source_l00006}00006\ \textcolor{preprocessor}{\#ifndef\ DEF\_KMALLOC\_ZS}}
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8h_source_l00007}00007\ \textcolor{preprocessor}{\#define\ DEF\_KMALLOC\_ZS}}
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8h_source_l00008}00008\ }
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8h_source_l00009}00009\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{include_2manux_2memoire_8h}{manux/memoire.h}}>}}
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8h_source_l00010}00010\ \textcolor{preprocessor}{\#include\ <manux/types.h>}}
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8h_source_l00011}00011\ }
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8h_source_l00015}00015\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{kmalloc-zs_8h_a9834d71816871b865956b59d641f602f}{kmallocInitialisation}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8h_source_l00016}00016\ }
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8h_source_l00021}00021\ \textcolor{keywordtype}{void}\ *\ \mbox{\hyperlink{kmalloc-zs_8h_af549fce4aa887cd31918e6c5dd0950f5}{kmalloc}}(\textcolor{keywordtype}{size\_t}\ n);}
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8h_source_l00022}00022\ }
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8h_source_l00026}00026\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{kmalloc-zs_8h_af7105034bf054e37218d6ade20db4684}{kfree}}(\textcolor{keywordtype}{void}\ *\ p);}
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8h_source_l00027}00027\ }
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8h_source_l00028}00028\ \textcolor{preprocessor}{\#ifdef\ MANUX\_KMALLOC\_STAT}}
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8h_source_l00029}00029\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{kmalloc-zs_8c_a612af40ff50bab56d5d2ce7b0e37dc53}{kmallocAfficherStatistiques}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8h_source_l00030}00030\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ KMALLOC\_STAT}}
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8h_source_l00031}00031\ }
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8h_source_l00032}00032\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ DEF\_KMALLOC\_ZS}}
+
+\end{DoxyCode}

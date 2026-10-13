@@ -4,6 +4,7 @@
  *
  *                                                    (C) Manu Chaput 2000-2023
  */
+#include "manux/printk.h"
 #include <manux/config.h>
 #include <manux/debug.h>          // assert
 #include <manux/interruptions.h>
@@ -24,11 +25,10 @@
 #endif
 #include <manux/tache.h>          // IntelTSS 
 #include <manux/string.h>         // memcpy 
-
 #define MANUX_SELECTEUR_SEGMENT_CODE 0x08      /* WARNING a mettre ailleurs */
 
 #ifdef MANUX_APPELS_SYSTEME
-extern void handlerAppelSysteme();  /* WARNING à définir dans un .h */
+extern void handlerAppelSysteme(void);  /* WARNING à définir dans un .h */
 #endif
 
 /**
@@ -67,11 +67,11 @@ void gestionExceptionPanique(TousRegistres registres,
  * @brief : En cas de division par zéro
  *
  */
+static
 void gestionExceptionDiv0(TousRegistres registres,
 			  uint32_t numEx, uint32_t errCode,
 			  uint32_t eip, uint32_t cs, uint32_t eFlags)
 {
-   printk("Vers l'infini et au dela, ...\n");
    gestionExceptionPanique(registres, numEx, errCode, eip, cs, eFlags);
 }
 
@@ -97,10 +97,17 @@ FonctionGestionInterruption fonctionDeGestionInterruption[MANUX_NB_SOFT_INT];
 /**
  * Une fonction de gestion qui ne fait rien !
  */
+static
 void neRienFaire(TousRegistres registres,
 		 uint32_t eip, uint32_t cs, uint32_t eFlags,
 		 uint32_t numIt)
 {
+   (void) registres;
+   (void) eip;
+   (void) cs;
+   (void) eFlags;
+   (void) numIt;
+   
    printk("neRienFaire %d\n", numIt);
 }
 
@@ -114,6 +121,7 @@ void gestionInterruption(TousRegistres registres,
 {
    int idx = numIt-(MANUX_NB_EXCEPTIONS + MANUX_NB_IRQ);
 
+   printk("Coucou\n");
 #ifdef MANUX_INT_AUDIT
    nbItRecues[numIt] ++;
 #endif
@@ -124,6 +132,7 @@ void gestionInterruption(TousRegistres registres,
 /**
  * @brief Affectation du gestionnaire de l'interruption i
  */
+static
 void positionnerHandlerInterruption(IDT idt, int i, Handler handler)
 {
    idt[i].itg.offsetFaible = ((uint32_t)handler & 0xFFFF);
@@ -138,6 +147,7 @@ void positionnerHandlerInterruption(IDT idt, int i, Handler handler)
  * lidt prend en paramètre l'adresse d'une zone contenant la taille puis
  * l'adresse de l'IDT.
  */
+static
 void chargerIDT(IDT idt)
 {
    volatile uint8_t argument[6];
@@ -172,7 +182,7 @@ int definirFonctionGestionInterruption(int num,
 /**
  * @brieg Initialisation de de la table des descripteurs d'interruption
  */
-void initialiserIDT()
+void initialiserIDT(void)
 {
    int i;
    IDT idt = (IDT) MANUX_ADRESSE_IDT;
@@ -299,9 +309,12 @@ void initialiserIDT()
  */
 static char bufferEcran[4000];
 
+static
 void ecranDeLaMort(uint32_t errCode, uint32_t itNum, TousRegistres registres,
 		    uint32_t eip, uint32_t cs, uint32_t eFlags)
 {
+   (void) registres;
+  
    /* A définir ailleurs lorsque ce sera au point */
    char *ecranPanique ="\
 +-------------+-------------------+--------32--28--24--20--16--12---8---4---0--+\
@@ -314,14 +327,14 @@ void ecranDeLaMort(uint32_t errCode, uint32_t itNum, TousRegistres registres,
 | ds : 0x---- | esi  = 0x-------- |                                            |\
 +-------------+-------------------+--------------------------------------------+\
 |             | edi  = 0x-------- | err = 0x                                   |\
-+-------------+-----------------(ESC pour cacher)------------------------------+";
++-------------+-----------------(Esp pour cacher)------------------------------+";
    
    char chiffre[16] = "0123456789ABCDEF";
    char * ecran = MANUX_CON_SCREEN;
    int i;
    uint32_t indice;
 
-   /* Sauvegardons l'écran dans un buffer avant de le pourrir */
+   // Sauvegardons l'écran dans un buffer avant de le pourrir
    memcpy(bufferEcran, ecran, 4000);
 
    // On fait un peu de place en haut de l'écran
@@ -374,7 +387,7 @@ void gestionExceptionPanique(TousRegistres registres,
 {
    char * ecran = MANUX_CON_SCREEN;
    int d = 1;
-   char c;
+   unsigned char c;
 
    ecranDeLaMort(errCode, numIt, registres, eip, cs, eFlags);
 

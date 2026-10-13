@@ -1,6 +1,7 @@
 /**
  * @file virtio-net.c
  *
+ *                                                             (C) Manu Chaput 2020-2025
  */
 #include <manux/virtio-net.h>
 #include <manux/memoire.h>      // allouerPages
@@ -11,6 +12,12 @@
 #include <manux/io.h>           // outb
 #include <manux/debug.h>
 #include <manux/errno.h>
+#ifdef MANUX_RESEAU            // Est-ce que ça a vraiment du sens ?
+#   include <manux/reseau.h>
+#endif
+#ifdef MANUX_BUFFER_RESEAU     // Idem ? (un peu plus, à la limite)
+#   include <manux/buffer-reseau.h>
+#endif
 
 // La taille des buffers utilisés par virtio réseau
 #ifndef VIRTIO_TAILLE_TRAME_MAX
@@ -103,10 +110,20 @@ uint8_t unBufferALaCon[4096] ={0};
 /**
  * @brief Affichage d'un paquet
  */
-void netDumpPacket(void * packet)
+static
+void netDumpPacket(uint8_t * packet, int lg)
 {
+   int i;
+   for (i = 0; i < lg; i++) {
+      printk("%2x ", packet[i]);
+      if (i % 8 == 7) printk(" ");
+      if (i % 16 == 15) printk("\n");
+   }
+   if (i % 16 != 15) printk("\n");
 }
 
+[[maybe_unused]]
+static
 void virtioNetTraiterEmissions(VirtioReseau * vr)
 {
    // OK, mais on les traite de quoi ?
@@ -123,13 +140,6 @@ void virtioNetTraiterEmissions(VirtioReseau * vr)
    // On va chercher une trame, a priori dans une chaîne de buffers
    virtioFileRecupererBuffers(fv, (void*)buffers, longueurs, 2);
 
-   // WARNING Horreur de debogage 
-   /*printk("\n (E)Recu %d + %d :\n", longueurs[0], longueurs[1]);
-   for (int i = 0; i < longueurs[1]; i++) {
-     printk(" %x ", buffers[1][i]);
-   }
-   printk("\n");*/
-   
    // On peut reprendre une activité normale
    //   virtioFileAutoriserInterruption(fv);
 }
@@ -138,6 +148,7 @@ void virtioNetTraiterEmissions(VirtioReseau * vr)
  * Lorsque le périphérique nous prévient, on doit aller chercher une
  * trame (ou plusieurs) sur la file de réception.
  */
+static
 void virtioNetRecevoirTrame(VirtioReseau * vr)
 {
    uint8_t             * buffers[2];
@@ -145,40 +156,51 @@ void virtioNetRecevoirTrame(VirtioReseau * vr)
    int                   nbLu;
    VirtioFileVirtuelle * fv = &(vr->virtioPeripherique.filesVirtuelles[VR_FILE_RECEPTION]);
 
-   /*
-   printk_debug(DBG_KERNEL_NET, "reception (file %x)!!!\n", fv);
-
-   printk_debug(DBG_KERNEL_NET, "File emission :\n");
-   virtioAfficherFile(&(vr->virtioPeripherique.filesVirtuelles[VR_FILE_EMISSION]));
-   
-   printk_debug(DBG_KERNEL_NET, "File reception :\n");
-   virtioAfficherFile(&(vr->virtioPeripherique.filesVirtuelles[VR_FILE_RECEPTION]));
-   */
-   
    // On ne veut plus être embêté
    //   virtioFileInterdireInterruption(fv);
 
+   // WARNING tout ce qui suit devrait être reporté à la partie basse
+   
    // On va chercher une trame, a priori dans une chaîne de buffers
    nbLu = virtioFileRecupererBuffers(fv, (void*)buffers, longueurs, 2);
 
+#ifdef MANUX_BUFFER_RESEAU
+   BufferReseau * br;
+
+   // On fait une copie, mais ce serait mieux de la faire plus tard
+   br = bufferReseauCreer(buffers[1], longueurs[1]);
+
+   // On va maintenant le placer dans une liste qui sera traitée plus tard.
+   printk("on insere ...\n");
+   listeBufferReseauInserer(listeBuffersRecus, br);
+#endif
+   
    printk_debug(DBG_KERNEL_NET, "%d IT recues, trame : %d/%d+%d\n",
 		vr->nbItRecues, nbLu, longueurs[0], longueurs[1]);
 
-   /*
-   if (nbLu) {
-      // WARNING Horreur de debogage 
-      printk("\n (R)Recu %d + %d :\n", longueurs[0], longueurs[1]);
-      for (int i = 0; i < 42 ; i++) {
-        printk(" 0x%x ", buffers[1][i]);
-      }
-      printk("\n");
+   if (nbLu) {printk("RECU : \n");
+      netDumpPacket(buffers[1], longueurs[1]);
    }
-   */
+
    // On peut reprendre une activité normale
    //   virtioFileAutoriserInterruption(fv);
 }
 
-void virtioReseauPoll()
+/**
+ * @brief
+ */
+static
+void virtioNetRecevoirTramePartieBasse(void * _vr)
+{
+   VirtioReseau * vr = (VirtioReseau *)_vr;
+  
+   printk("C'est triste je ne fais rien avec %d!\n", vr);
+}
+
+/**
+ * @brief
+ */
+void virtioReseauPoll(void)
 {
   virtioNetRecevoirTrame(&virtioReseau);
 }
@@ -186,6 +208,7 @@ void virtioReseauPoll()
 /**
  *  Cf [3] section 2.4.2
  */
+static
 void virtioNetGestionInt(void * pr)
 {
    VirtioReseau * vr = (VirtioReseau *) pr;
@@ -209,12 +232,22 @@ void virtioNetGestionInt(void * pr)
    }
 }
 
+
+/**
+ * @brief Description du pilote virtio
+ */ 
+ReseauPilote virtioPiloteReseau = {
+   .nom = "virtio-net",
+   .recevoirTrame = virtioNetRecevoirTramePartieBasse
+};
+
 /**
  * @brief Initialisation d'un périphérique réseau virtio
  *
  * Séquence d'après [3] page 25 et section 2.2.1 (voir aussi [1]
  * section 3 mais en restant prudent !)
  */
+static
 int virtioNetInitPeripherique(int PCINumeroPeripherique)
 {
    PCIEquipement       * pciEquip = PCIEquipementNumero(PCINumeroPeripherique);
@@ -248,7 +281,7 @@ int virtioNetInitPeripherique(int PCINumeroPeripherique)
    // d'où VIRTIO_TAILLE_TRAME_MAX qui remplace sizeof ...
    
    // Pas de malloc, ...
-   pointeur = allouerPages(NB_PAGES(fr->taille*(VIRTIO_TAILLE_TRAME_MAX/*sizeof(VirtioReseauEntete)*/
+   pointeur = allouerPages(NB_PAGES(fr->taille*(sizeof(VirtioReseauEntete)
 						+ VIRTIO_TAILLE_TRAME_MAX)/2));
 
    // Concrètement, puisque le réseau préfixe systématiquement par un
@@ -274,7 +307,13 @@ int virtioNetInitPeripherique(int PCINumeroPeripherique)
       inb((uint16_t)(pciEquip->adresseES + 0x14 + i), addr);
       virtioReseau.adresseMAC[i] = addr;
    }
-
+   /*
+   printk("MAC@ = ");
+   for (int i = 0 ; i < 5 ; i++) {
+      printk("%x:", virtioReseau.adresseMAC[i]);
+   }
+   printk("%x\n", virtioReseau.adresseMAC[5]);
+   */
    // On définit notre fonction de gestion des interuptions
    if (i8259aAjouterHandler(pciEquip->interruption,
 			virtioNetGestionInt,
@@ -285,21 +324,27 @@ int virtioNetInitPeripherique(int PCINumeroPeripherique)
    }
    i8259aAutoriserIRQ(pciEquip->interruption);
    virtioReseau.nbItRecues = 0;
-   
+
+   // On l'enregistre auprès du système réseau
+   reseauAjouterInterface(&virtioPiloteReseau, &virtioReseau);
+
    return ESUCCES;
 }
 
 /**
  * Émission d'une trame via une interface ...
  */
+static
 void virtioNetEmettre(VirtioReseau * vr, uint8_t * trame)
 {
+   (void) vr; // WARNING, pas normal
+   
    // On va construire un tableau de buffers (et un de leurs
    // longueurs) pour passer à virtioFournirBuffers
    void                * buffers[2];
    int                   longueurs[2];
 
-   //   printk_debug(DBG_KERNEL_NET, "IN\n");
+   printk_debug(DBG_KERNEL_NET, "IN\n");
 
    // On ne délègue rien à l'interface
    virtioReseauEntete.flags = 0;
@@ -319,25 +364,30 @@ void virtioNetEmettre(VirtioReseau * vr, uint8_t * trame)
                         2,
 		        0); // pour émettre
 
-   //   printk_debug(DBG_KERNEL_NET, "OUT\n");
+    printk_debug(DBG_KERNEL_NET, "OUT\n");
 } 
 
 /**
  * @brief Initialisation des périphériques
  */
-int virtioNetInit()
+int virtioNetInit(void)
 {
    int PCINumeroPeripherique;
   
    printk_debug(DBG_KERNEL_NET, "IN\n");
 
+   // On s'identifie comme pilote réseau
+   reseauEnregistrerPilote(&virtioPiloteReseau);
+
    // On va chercher un peripherique virtio net
+   printk_debug(DBG_KERNEL_NET, "Je cherche un PCI vendeur/Id %d/%d\n",
+		PCI_VENDEUR_VIRTIO,PCI_PERIPHERIQUE_VIRTIO_NET);
    PCINumeroPeripherique = PCIObtenirProchainEquipement(PCI_VENDEUR_VIRTIO,
 							PCI_PERIPHERIQUE_VIRTIO_NET, -1);
    printk_debug(DBG_KERNEL_NET, "Peripherique PCI %d\n", PCINumeroPeripherique);
 
    // Initialisation de l'unique périphérique pour le moment
-   if (virtioNetInitPeripherique(PCINumeroPeripherique)== 0) {
+   if (virtioNetInitPeripherique(PCINumeroPeripherique) == 0) {
       printk_debug(DBG_KERNEL_NET, "Peripherique initialise !\n");
    }
 
@@ -349,7 +399,7 @@ int virtioNetInit()
 }
 
 //Pour voir si je peux en faire 2 et avoir 2 IT
-void virtioNetTestDeuxiemeEmission()
+void virtioNetTestDeuxiemeEmission(void)
 {
    printk_debug(DBG_KERNEL_NET, "in\n");
    virtioNetEmettre(&virtioReseau, requeteARP2);

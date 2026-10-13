@@ -1,0 +1,519 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>My Project: Référence du fichier /home/manu/PROGRAMMATION/C/ManuX/lib/registre.c</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">My Project
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_97aefd0d527b934f1d99a682da8fe6a9.html">lib</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">Classes</a> &#124;
+<a href="#define-members">Macros</a> &#124;
+<a href="#typedef-members">Définitions de type</a> &#124;
+<a href="#func-members">Fonctions</a>  </div>
+  <div class="headertitle"><div class="title">Référence du fichier registre.c</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Mise en oeuvre de la notion de registre permettant de gérer des paramètres de façon structurée.  
+<a href="#details">Plus de détails...</a></p>
+<div class="textblock"><code>#include &lt;<a class="el" href="include_2manux_2registre_8h_source.html">manux/registre.h</a>&gt;</code><br />
+<code>#include &lt;manux/string.h&gt;</code><br />
+<code>#include &lt;<a class="el" href="include_2manux_2printk_8h_source.html">manux/printk.h</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="include_2manux_2kmalloc_8h_source.html">manux/kmalloc.h</a>&gt;</code><br />
+<code>#include &lt;manux/errno.h&gt;</code><br />
+<code>#include &lt;<a class="el" href="manux_2debug_8h_source.html">manux/debug.h</a>&gt;</code><br />
+</div><div class="textblock"><div class="dynheader">
+Graphe des dépendances par inclusion de registre.c:</div>
+<div class="dyncontent">
+<div class="center"><img src="registre_8c__incl.png" border="0" usemap="#a_2home_2manu_2PROGRAMMATION_2C_2ManuX_2lib_2registre_8c" alt=""/></div>
+<map name="a_2home_2manu_2PROGRAMMATION_2C_2ManuX_2lib_2registre_8c" id="a_2home_2manu_2PROGRAMMATION_2C_2ManuX_2lib_2registre_8c">
+<area shape="rect" title="Mise en oeuvre de la notion de registre permettant de gérer des paramètres de façon structurée." alt="" coords="268,5,495,45"/>
+<area shape="rect" href="include_2manux_2registre_8h.html" title="Gestion des registres (outils permettant de stocker des paramètres)" alt="" coords="836,167,969,192"/>
+<area shape="poly" title=" " alt="" coords="462,43,646,91,858,160,857,165,645,96,461,48"/>
+<area shape="rect" title=" " alt="" coords="175,93,295,119"/>
+<area shape="poly" title=" " alt="" coords="347,48,270,89,267,84,345,43"/>
+<area shape="rect" href="include_2manux_2printk_8h.html" title="Définition des fonctions de base d&#39;entrée&#45;sortie du noyau." alt="" coords="251,167,373,192"/>
+<area shape="poly" title=" " alt="" coords="375,47,325,155,320,153,370,45"/>
+<area shape="rect" href="include_2manux_2kmalloc_8h.html" title="Définition de kmalloc." alt="" coords="15,93,150,119"/>
+<area shape="poly" title=" " alt="" coords="310,48,140,92,139,87,309,43"/>
+<area shape="rect" title=" " alt="" coords="516,93,633,119"/>
+<area shape="poly" title=" " alt="" coords="429,43,535,86,533,91,427,48"/>
+<area shape="rect" href="manux_2debug_8h.html" title=" " alt="" coords="369,93,492,119"/>
+<area shape="poly" title=" " alt="" coords="396,44,418,80,414,83,391,47"/>
+<area shape="rect" href="include_2manux_2stdarg_8h.html" title=" " alt="" coords="299,240,423,265"/>
+<area shape="poly" title=" " alt="" coords="836,193,823,195,438,245,437,239,822,189,836,188"/>
+<area shape="rect" title=" " alt="" coords="793,460,911,485"/>
+<area shape="poly" title=" " alt="" coords="970,183,999,190,1028,201,1054,216,1075,238,1101,284,1108,305,1110,327,1108,348,1102,369,1075,414,1052,431,1015,445,926,464,925,459,1013,439,1049,426,1071,410,1097,367,1103,347,1105,327,1102,306,1096,286,1071,242,1051,221,1025,205,997,195,969,188"/>
+<area shape="poly" title=" " alt="" coords="322,191,348,227,343,230,318,194"/>
+<area shape="rect" title=" " alt="" coords="400,313,523,339"/>
+<area shape="poly" title=" " alt="" coords="305,193,286,228,283,247,289,264,308,284,333,299,360,310,387,316,386,322,358,315,330,304,305,288,284,267,278,247,281,226,300,191"/>
+<area shape="rect" title=" " alt="" coords="147,313,269,339"/>
+<area shape="poly" title=" " alt="" coords="296,194,270,215,245,242,228,271,217,301,212,299,224,269,241,238,266,211,293,190"/>
+<area shape="rect" href="kmalloc-zs_8h.html" title="Une implatation simple de kmalloc fondé sur les zones siamoises (buddy areas) (C) Emmanuel Chaput 202..." alt="" coords="5,167,160,192"/>
+<area shape="poly" title=" " alt="" coords="85,119,85,153,80,153,80,119"/>
+<area shape="poly" title=" " alt="" coords="64,194,46,208,29,225,18,244,20,265,47,318,78,355,118,383,173,410,223,426,291,439,458,456,634,465,779,468,779,474,634,470,458,462,290,444,222,431,171,414,115,387,74,359,43,321,15,266,13,243,24,222,42,204,61,190"/>
+<area shape="rect" href="include_2manux_2memoire_8h.html" title=" " alt="" coords="30,240,173,265"/>
+<area shape="poly" title=" " alt="" coords="88,192,97,226,92,228,83,193"/>
+<area shape="poly" title=" " alt="" coords="107,265,117,299,137,337,174,382,195,396,224,410,270,424,332,435,484,452,646,462,779,467,779,473,645,468,484,458,331,441,268,429,222,414,192,400,170,385,132,340,112,301,101,267"/>
+<area shape="poly" title=" " alt="" coords="120,263,181,303,178,308,117,268"/>
+<area shape="poly" title=" " alt="" coords="427,120,375,229,370,226,423,118"/>
+<area shape="poly" title=" " alt="" coords="413,121,345,162,342,157,410,116"/>
+<area shape="poly" title=" " alt="" coords="435,119,460,299,455,300,430,119"/>
+<area shape="rect" href="scheduler_8h.html" title=" " alt="" coords="666,167,811,192"/>
+<area shape="poly" title=" " alt="" coords="481,116,676,161,675,166,480,121"/>
+<area shape="poly" title=" " alt="" coords="812,188,946,211,1002,224,1031,238,1058,261,1068,270,1072,283,1067,300,1051,325,975,414,943,440,907,458,904,453,940,435,971,410,1047,322,1062,298,1067,283,1064,273,1055,265,1028,242,1000,229,945,216,811,193"/>
+<area shape="rect" href="tache_8h.html" title=" " alt="" coords="729,240,847,265"/>
+<area shape="poly" title=" " alt="" coords="749,191,774,227,770,230,745,194"/>
+<area shape="rect" title=" " alt="" coords="426,387,601,412"/>
+<area shape="poly" title=" " alt="" coords="732,194,667,267,599,330,540,380,537,376,596,326,663,263,728,190"/>
+<area shape="rect" href="listetaches_8h.html" title=" " alt="" coords="499,240,653,265"/>
+<area shape="poly" title=" " alt="" coords="714,194,616,237,614,232,711,190"/>
+<area shape="rect" href="atomique_8h.html" title="Définition des opérations de synchronisation de ManuX." alt="" coords="871,240,1017,265"/>
+<area shape="poly" title=" " alt="" coords="766,190,892,233,890,238,764,195"/>
+<area shape="poly" title=" " alt="" coords="849,261,893,279,913,294,929,312,942,338,946,362,942,386,930,413,913,437,890,455,887,451,909,433,926,411,937,384,941,362,937,339,924,315,909,298,890,284,847,266"/>
+<area shape="poly" title=" " alt="" coords="736,268,528,313,527,308,735,263"/>
+<area shape="rect" href="include_2manux_2interruptions_8h.html" title=" " alt="" coords="235,387,402,412"/>
+<area shape="poly" title=" " alt="" coords="757,268,535,341,376,386,375,381,534,336,755,263"/>
+<area shape="rect" href="segment_8h.html" title=" " alt="" coords="625,387,765,412"/>
+<area shape="poly" title=" " alt="" coords="783,267,712,377,707,374,778,264"/>
+<area shape="rect" href="fichier_8h.html" title=" " alt="" coords="792,313,915,339"/>
+<area shape="poly" title=" " alt="" coords="801,264,835,301,832,305,797,267"/>
+<area shape="poly" title=" " alt="" coords="402,409,779,459,779,464,402,414"/>
+<area shape="poly" title=" " alt="" coords="721,410,815,452,813,457,719,414"/>
+<area shape="rect" href="inoeud_8h.html" title=": description des noeuds d&#39;information (C) Manu Chaput 2002&#45;2023" alt="" coords="789,387,915,412"/>
+<area shape="poly" title=" " alt="" coords="856,339,855,373,850,373,850,339"/>
+<area shape="poly" title=" " alt="" coords="799,341,582,386,581,381,798,336"/>
+<area shape="poly" title=" " alt="" coords="855,412,855,446,849,446,849,412"/>
+<area shape="poly" title=" " alt="" coords="951,265,959,293,966,331,966,373,961,394,953,413,931,439,902,457,899,452,927,435,948,411,956,392,961,372,961,331,954,294,946,266"/>
+<area shape="poly" title=" " alt="" coords="916,242,791,199,792,194,918,237"/>
+</map>
+</div>
+</div>
+<p><a href="registre_8c_source.html">Aller au code source de ce fichier.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct__parametre.html">_parametre</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Un paramètre est simplement une valeur sous forme de chaîne de caractères associée à un nom.  <a href="struct__parametre.html#details">Plus de détails...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct__chainonParametre.html">_chainonParametre</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">On va construire des listes de paramètres.  <a href="struct__chainonParametre.html#details">Plus de détails...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct__listeParametres.html">_listeParametres</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct__registre.html">_registre</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Un registre est simplement une liste (nommée) de paramètres. Les paramètres peuvent être eux-mêmes des registres.  <a href="struct__registre.html#details">Plus de détails...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:a933306d635e06d8f4c7da63f6f037c17" id="r_a933306d635e06d8f4c7da63f6f037c17"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="registre_8c.html#a933306d635e06d8f4c7da63f6f037c17">REGISTRE_NOM_SEPARATEUR</a>&#160;&#160;&#160;'.'</td></tr>
+<tr class="memdesc:a933306d635e06d8f4c7da63f6f037c17"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ajouter dans un registre un paramètre décrit dans une chaîne de caractères.  <br /></td></tr>
+<tr class="separator:a933306d635e06d8f4c7da63f6f037c17"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac278dc901ef4a4c3210543c8b1ab384b" id="r_ac278dc901ef4a4c3210543c8b1ab384b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="registre_8c.html#ac278dc901ef4a4c3210543c8b1ab384b">REGISTRE_AFFECTATION</a>&#160;&#160;&#160;'='</td></tr>
+<tr class="separator:ac278dc901ef4a4c3210543c8b1ab384b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
+Définitions de type</h2></td></tr>
+<tr class="memitem:a95437a522404deb16971b572adf51cfd" id="r_a95437a522404deb16971b572adf51cfd"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="struct__parametre.html">_parametre</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="registre_8c.html#a95437a522404deb16971b572adf51cfd">parametre</a></td></tr>
+<tr class="memdesc:a95437a522404deb16971b572adf51cfd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Un paramètre est simplement une valeur sous forme de chaîne de caractères associée à un nom.  <br /></td></tr>
+<tr class="separator:a95437a522404deb16971b572adf51cfd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af53892c5987c21f8b87dac57bd87cc32" id="r_af53892c5987c21f8b87dac57bd87cc32"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="struct__chainonParametre.html">_chainonParametre</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="registre_8c.html#af53892c5987c21f8b87dac57bd87cc32">chainonParametre</a></td></tr>
+<tr class="memdesc:af53892c5987c21f8b87dac57bd87cc32"><td class="mdescLeft">&#160;</td><td class="mdescRight">On va construire des listes de paramètres.  <br /></td></tr>
+<tr class="separator:af53892c5987c21f8b87dac57bd87cc32"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad5748da738b44dd836ba4805c331f921" id="r_ad5748da738b44dd836ba4805c331f921"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="struct__listeParametres.html">_listeParametres</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="registre_8c.html#ad5748da738b44dd836ba4805c331f921">listeParametres</a></td></tr>
+<tr class="separator:ad5748da738b44dd836ba4805c331f921"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a595908c85440ba4ee2f66e3c4fe8af66" id="r_a595908c85440ba4ee2f66e3c4fe8af66"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="struct__registre.html">_registre</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="registre_8c.html#a595908c85440ba4ee2f66e3c4fe8af66">registre</a></td></tr>
+<tr class="memdesc:a595908c85440ba4ee2f66e3c4fe8af66"><td class="mdescLeft">&#160;</td><td class="mdescRight">Un registre est simplement une liste (nommée) de paramètres. Les paramètres peuvent être eux-mêmes des registres.  <br /></td></tr>
+<tr class="separator:a595908c85440ba4ee2f66e3c4fe8af66"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Fonctions</h2></td></tr>
+<tr class="memitem:ada651fa62bac9f50a35bdd1908f8e06e" id="r_ada651fa62bac9f50a35bdd1908f8e06e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="include_2manux_2registre_8h.html#a595908c85440ba4ee2f66e3c4fe8af66">registre</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="registre_8c.html#ada651fa62bac9f50a35bdd1908f8e06e">registreCreer</a> (char *nom)</td></tr>
+<tr class="memdesc:ada651fa62bac9f50a35bdd1908f8e06e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Création d'un registre vide.  <br /></td></tr>
+<tr class="separator:ada651fa62bac9f50a35bdd1908f8e06e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af2366204c72efe94513974eae9daa194" id="r_af2366204c72efe94513974eae9daa194"><td class="memItemLeft" align="right" valign="top"><a class="el" href="include_2manux_2interruptions_8h.html#a4fda31edc92f8ccd48b6f4bb50f2e7e1">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="registre_8c.html#af2366204c72efe94513974eae9daa194">registreAffecterParametre</a> (<a class="el" href="include_2manux_2registre_8h.html#a595908c85440ba4ee2f66e3c4fe8af66">registre</a> *reg, char *valeur, <a class="el" href="include_2manux_2interruptions_8h.html#a4fda31edc92f8ccd48b6f4bb50f2e7e1">void</a> *prive, <a class="el" href="include_2manux_2registre_8h.html#afd4880d0c171af4503c438127130d952">registreMiseAJour</a> miseAJour,...)</td></tr>
+<tr class="memdesc:af2366204c72efe94513974eae9daa194"><td class="mdescLeft">&#160;</td><td class="mdescRight">La fonction fournie pour affecter un paramètre dans un registre.  <br /></td></tr>
+<tr class="separator:af2366204c72efe94513974eae9daa194"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a63129c6b1232b7c3a5b4e21103ef0d2c" id="r_a63129c6b1232b7c3a5b4e21103ef0d2c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="include_2manux_2interruptions_8h.html#a4fda31edc92f8ccd48b6f4bb50f2e7e1">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="registre_8c.html#a63129c6b1232b7c3a5b4e21103ef0d2c">registreSystemeInitialiser</a> (<a class="el" href="include_2manux_2interruptions_8h.html#a4fda31edc92f8ccd48b6f4bb50f2e7e1">void</a>)</td></tr>
+<tr class="memdesc:a63129c6b1232b7c3a5b4e21103ef0d2c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Création du registre du système.  <br /></td></tr>
+<tr class="separator:a63129c6b1232b7c3a5b4e21103ef0d2c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aac56ec2b1aa7909b6b41aedc1db7313f" id="r_aac56ec2b1aa7909b6b41aedc1db7313f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="include_2manux_2interruptions_8h.html#a4fda31edc92f8ccd48b6f4bb50f2e7e1">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="registre_8c.html#aac56ec2b1aa7909b6b41aedc1db7313f">registreSystemeAjouterC</a> (char *chaine)</td></tr>
+<tr class="memdesc:aac56ec2b1aa7909b6b41aedc1db7313f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ajouter dans un registre système un paramètre décrit dans une chaîne de caractères.  <br /></td></tr>
+<tr class="separator:aac56ec2b1aa7909b6b41aedc1db7313f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af63f1d827d195edd2d25338101785bf2" id="r_af63f1d827d195edd2d25338101785bf2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="include_2manux_2interruptions_8h.html#a4fda31edc92f8ccd48b6f4bb50f2e7e1">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="registre_8c.html#af63f1d827d195edd2d25338101785bf2">registreSystemeAffecterParametre</a> (char *valeur, <a class="el" href="include_2manux_2interruptions_8h.html#a4fda31edc92f8ccd48b6f4bb50f2e7e1">void</a> *prive, <a class="el" href="include_2manux_2registre_8h.html#afd4880d0c171af4503c438127130d952">registreMiseAJour</a> miseAJour,...)</td></tr>
+<tr class="memdesc:af63f1d827d195edd2d25338101785bf2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ajouter au registre système un paramètre dont le nom est donné comme une liste de paramètres.  <br /></td></tr>
+<tr class="separator:af63f1d827d195edd2d25338101785bf2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6252c3aafdbed147bac05b3556453ac7" id="r_a6252c3aafdbed147bac05b3556453ac7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="include_2manux_2interruptions_8h.html#a4fda31edc92f8ccd48b6f4bb50f2e7e1">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="registre_8c.html#a6252c3aafdbed147bac05b3556453ac7">registreSystemeAfficher</a> (<a class="el" href="include_2manux_2interruptions_8h.html#a4fda31edc92f8ccd48b6f4bb50f2e7e1">void</a>)</td></tr>
+<tr class="memdesc:a6252c3aafdbed147bac05b3556453ac7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Affichage du registre système.  <br /></td></tr>
+<tr class="separator:a6252c3aafdbed147bac05b3556453ac7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
+<div class="textblock"><p>Mise en oeuvre de la notion de registre permettant de gérer des paramètres de façon structurée. </p>
+<pre class="fragment">                                                  (C) E. Chaput 2024-2025
+</pre> 
+<p class="definition">Définition dans le fichier <a class="el" href="registre_8c_source.html">registre.c</a>.</p>
+</div><h2 class="groupheader">Documentation des macros</h2>
+<a id="ac278dc901ef4a4c3210543c8b1ab384b" name="ac278dc901ef4a4c3210543c8b1ab384b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac278dc901ef4a4c3210543c8b1ab384b">&#9670;&#160;</a></span>REGISTRE_AFFECTATION</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define REGISTRE_AFFECTATION&#160;&#160;&#160;'='</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="registre_8c_source.html#l00293">293</a> du fichier <a class="el" href="registre_8c_source.html">registre.c</a>.</p>
+
+</div>
+</div>
+<a id="a933306d635e06d8f4c7da63f6f037c17" name="a933306d635e06d8f4c7da63f6f037c17"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a933306d635e06d8f4c7da63f6f037c17">&#9670;&#160;</a></span>REGISTRE_NOM_SEPARATEUR</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define REGISTRE_NOM_SEPARATEUR&#160;&#160;&#160;'.'</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Ajouter dans un registre un paramètre décrit dans une chaîne de caractères. </p>
+<p>La chaîne doit être sous la forme "a.b.c=v" </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="registre_8c_source.html#l00290">290</a> du fichier <a class="el" href="registre_8c_source.html">registre.c</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Documentation des définitions de type</h2>
+<a id="af53892c5987c21f8b87dac57bd87cc32" name="af53892c5987c21f8b87dac57bd87cc32"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af53892c5987c21f8b87dac57bd87cc32">&#9670;&#160;</a></span>chainonParametre</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef struct <a class="el" href="struct__chainonParametre.html">_chainonParametre</a> <a class="el" href="registre_8c.html#af53892c5987c21f8b87dac57bd87cc32">chainonParametre</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>On va construire des listes de paramètres. </p>
+
+</div>
+</div>
+<a id="ad5748da738b44dd836ba4805c331f921" name="ad5748da738b44dd836ba4805c331f921"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad5748da738b44dd836ba4805c331f921">&#9670;&#160;</a></span>listeParametres</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef struct <a class="el" href="struct__listeParametres.html">_listeParametres</a> <a class="el" href="registre_8c.html#ad5748da738b44dd836ba4805c331f921">listeParametres</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a95437a522404deb16971b572adf51cfd" name="a95437a522404deb16971b572adf51cfd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a95437a522404deb16971b572adf51cfd">&#9670;&#160;</a></span>parametre</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef struct <a class="el" href="struct__parametre.html">_parametre</a> <a class="el" href="include_2manux_2registre_8h.html#a95437a522404deb16971b572adf51cfd">parametre</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Un paramètre est simplement une valeur sous forme de chaîne de caractères associée à un nom. </p>
+
+</div>
+</div>
+<a id="a595908c85440ba4ee2f66e3c4fe8af66" name="a595908c85440ba4ee2f66e3c4fe8af66"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a595908c85440ba4ee2f66e3c4fe8af66">&#9670;&#160;</a></span>registre</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef struct <a class="el" href="struct__registre.html">_registre</a> <a class="el" href="include_2manux_2registre_8h.html#a595908c85440ba4ee2f66e3c4fe8af66">registre</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Un registre est simplement une liste (nommée) de paramètres. Les paramètres peuvent être eux-mêmes des registres. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Documentation des fonctions</h2>
+<a id="af2366204c72efe94513974eae9daa194" name="af2366204c72efe94513974eae9daa194"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af2366204c72efe94513974eae9daa194">&#9670;&#160;</a></span>registreAffecterParametre()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="include_2manux_2interruptions_8h.html#a4fda31edc92f8ccd48b6f4bb50f2e7e1">void</a> registreAffecterParametre </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="include_2manux_2registre_8h.html#a595908c85440ba4ee2f66e3c4fe8af66">registre</a> *&#160;</td>
+          <td class="paramname"><em>reg</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>valeur</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="include_2manux_2interruptions_8h.html#a4fda31edc92f8ccd48b6f4bb50f2e7e1">void</a> *&#160;</td>
+          <td class="paramname"><em>prive</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="include_2manux_2registre_8h.html#afd4880d0c171af4503c438127130d952">registreMiseAJour</a>&#160;</td>
+          <td class="paramname"><em>miseAJour</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>...</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>La fonction fournie pour affecter un paramètre dans un registre. </p>
+<p>Affecter un paramètre dans un registre. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="registre_8c_source.html#l00449">449</a> du fichier <a class="el" href="registre_8c_source.html">registre.c</a>.</p>
+
+</div>
+</div>
+<a id="ada651fa62bac9f50a35bdd1908f8e06e" name="ada651fa62bac9f50a35bdd1908f8e06e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ada651fa62bac9f50a35bdd1908f8e06e">&#9670;&#160;</a></span>registreCreer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="include_2manux_2registre_8h.html#a595908c85440ba4ee2f66e3c4fe8af66">registre</a> * registreCreer </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>nom</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Création d'un registre vide. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="registre_8c_source.html#l00203">203</a> du fichier <a class="el" href="registre_8c_source.html">registre.c</a>.</p>
+
+</div>
+</div>
+<a id="af63f1d827d195edd2d25338101785bf2" name="af63f1d827d195edd2d25338101785bf2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af63f1d827d195edd2d25338101785bf2">&#9670;&#160;</a></span>registreSystemeAffecterParametre()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="include_2manux_2interruptions_8h.html#a4fda31edc92f8ccd48b6f4bb50f2e7e1">void</a> registreSystemeAffecterParametre </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>valeur</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="include_2manux_2interruptions_8h.html#a4fda31edc92f8ccd48b6f4bb50f2e7e1">void</a> *&#160;</td>
+          <td class="paramname"><em>prive</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="include_2manux_2registre_8h.html#afd4880d0c171af4503c438127130d952">registreMiseAJour</a>&#160;</td>
+          <td class="paramname"><em>miseAJour</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>...</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Ajouter au registre système un paramètre dont le nom est donné comme une liste de paramètres. </p>
+<p>Ajouter un paramètre au registre système de ManuX.</p>
+<p>Exemple registreSystemeAjouterParametre("192.168.10.2/24", &amp;netif, netIpAddr, "net", "ip", "addr", NULL); </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="registre_8c_source.html#l00565">565</a> du fichier <a class="el" href="registre_8c_source.html">registre.c</a>.</p>
+
+</div>
+</div>
+<a id="a6252c3aafdbed147bac05b3556453ac7" name="a6252c3aafdbed147bac05b3556453ac7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6252c3aafdbed147bac05b3556453ac7">&#9670;&#160;</a></span>registreSystemeAfficher()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="include_2manux_2interruptions_8h.html#a4fda31edc92f8ccd48b6f4bb50f2e7e1">void</a> registreSystemeAfficher </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="include_2manux_2interruptions_8h.html#a4fda31edc92f8ccd48b6f4bb50f2e7e1">void</a>&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Affichage du registre système. </p>
+<p>Affichage du registre de ManuX. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="registre_8c_source.html#l00580">580</a> du fichier <a class="el" href="registre_8c_source.html">registre.c</a>.</p>
+
+</div>
+</div>
+<a id="aac56ec2b1aa7909b6b41aedc1db7313f" name="aac56ec2b1aa7909b6b41aedc1db7313f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aac56ec2b1aa7909b6b41aedc1db7313f">&#9670;&#160;</a></span>registreSystemeAjouterC()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="include_2manux_2interruptions_8h.html#a4fda31edc92f8ccd48b6f4bb50f2e7e1">void</a> registreSystemeAjouterC </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>chaine</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Ajouter dans un registre système un paramètre décrit dans une chaîne de caractères. </p>
+<p>Ajouter dans le registre système un paramètre décrit dans une chaîne de caractères.</p>
+<p>La chaîne doit être sous la forme "a.b.c=v" Attention, elle va être modifiée ! </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="registre_8c_source.html#l00552">552</a> du fichier <a class="el" href="registre_8c_source.html">registre.c</a>.</p>
+
+</div>
+</div>
+<a id="a63129c6b1232b7c3a5b4e21103ef0d2c" name="a63129c6b1232b7c3a5b4e21103ef0d2c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a63129c6b1232b7c3a5b4e21103ef0d2c">&#9670;&#160;</a></span>registreSystemeInitialiser()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="include_2manux_2interruptions_8h.html#a4fda31edc92f8ccd48b6f4bb50f2e7e1">void</a> registreSystemeInitialiser </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="include_2manux_2interruptions_8h.html#a4fda31edc92f8ccd48b6f4bb50f2e7e1">void</a>&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Création du registre du système. </p>
+<p>Initialisation du registre système. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="registre_8c_source.html#l00536">536</a> du fichier <a class="el" href="registre_8c_source.html">registre.c</a>.</p>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

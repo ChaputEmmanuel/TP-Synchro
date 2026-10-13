@@ -1,9 +1,11 @@
-/*----------------------------------------------------------------------------*/
-/*      Implantation des sous-programmes de gestion des taches.               */
-/*                                                                            */
-/*                                                  (C) Manu Chaput 2000-2021 */
-/*----------------------------------------------------------------------------*/
+/**
+ * @file tache.c
+ * @brief Implantation des sous-programmes de gestion des tâches.
+ *
+ *                                                     (C) Manu Chaput 2000-2026
+ */
 #include <manux/tache.h>
+#include <manux/temps.h>
 #include <manux/scheduler.h>  /* tacheEnCours */
 #include <manux/memoire.h>
 #include <manux/segment.h>
@@ -20,6 +22,11 @@
 #include <manux/printk.h>
 #include <manux/debug.h>
 
+//#define printkc printk
+
+#if defined(MANUX_TACHES) && defined(MANUX_EXCLUSION_MUTUELLE) && !defined(MANUX_REENTRANT)
+#   include <manux/exclusion-mutuelle.h>
+#endif 
 /**
  * @brief :Le numero de la prochaine tache
  * (WARNING : et si on cycle ?) 
@@ -35,7 +42,7 @@ void basculerVersTache(Tache * tache)
 {
    volatile uint32_t selecteur[2] = {0 , tache->indiceTSSDescriptor};
 
-   __asm__ __volatile__ ("ljmp %0"::"m" (*selecteur));
+   __asm__ __volatile__ ("ljmp * %0"::"m" (*selecteur));
 }
 
 /**
@@ -44,11 +51,12 @@ void basculerVersTache(Tache * tache)
  * C'est cette fonction qui va invoquer la fonction associée à la
  * tâche et qui devra nettoyer à la fin.
  */
-void tacheExecuter()
+static
+void tacheExecuter(void)
 {
-#if defined(MANUX_TACHES) && !defined(MANUX_REENTRANT)
+#if defined(MANUX_TACHES) && defined(MANUX_EXCLUSION_MUTUELLE) && !defined(MANUX_REENTRANT)
    // On commmence en mode noyau, ...
-   entrerExclusionMutuelle(&verrouGeneralDuNoyau);
+   exclusionMutuelleEntrer(&verrouGeneralDuNoyau);
    assert(tacheDansLeNoyau == 0);
    tacheDansLeNoyau = tacheEnCours->numero;
 #endif
@@ -58,17 +66,17 @@ void tacheExecuter()
 		moi->numero,
 		moi->fonctionPrincipale);
 
-#if defined(MANUX_TACHES) && !defined(MANUX_REENTRANT)
+#if defined(MANUX_TACHES) && defined(MANUX_EXCLUSION_MUTUELLE) && !defined(MANUX_REENTRANT)
    // On commmence en mode noyau, ...
    tacheDansLeNoyau = 0;
-   sortirExclusionMutuelle(&verrouGeneralDuNoyau);
+   exclusionMutuelleSortir(&verrouGeneralDuNoyau);
 #endif
 
    moi->fonctionPrincipale();
 
-#if defined(MANUX_TACHES) && !defined(MANUX_REENTRANT)
+#if defined(MANUX_TACHES) && defined(MANUX_EXCLUSION_MUTUELLE) && !defined(MANUX_REENTRANT)
       // On commmence en mode noyau, ...
-      entrerExclusionMutuelle(&verrouGeneralDuNoyau);
+      exclusionMutuelleEntrer(&verrouGeneralDuNoyau);
       assert(tacheDansLeNoyau == 0);
       tacheDansLeNoyau = tacheEnCours->numero;
 #endif
@@ -86,10 +94,10 @@ void tacheExecuter()
 
    // WARNING : à faire !
 
-#if defined(MANUX_TACHES) && !defined(MANUX_REENTRANT)
+#if defined(MANUX_TACHES) && defined(MANUX_EXCLUSION_MUTUELLE) && !defined(MANUX_REENTRANT)
    // On commmence en mode noyau, ...
    tacheDansLeNoyau = 0;
-   sortirExclusionMutuelle(&verrouGeneralDuNoyau);
+   exclusionMutuelleSortir(&verrouGeneralDuNoyau);
 #endif
 
    // On rend la main
@@ -265,7 +273,7 @@ Tache * tacheCreer(CorpsTache corpsTache)
    return tache;
 }
 
-#ifdef MANUX_TACHE_CONSOLE   
+#ifdef MANUX_TACHE_CONSOLE
 /**
  * @brief Affectation d'une console à une tâche
  */
@@ -281,7 +289,7 @@ void tacheSetConsole(Tache * tache, struct _Console * cons)
    f = fichierCreer(i, O_WRONLY, 0);
    
    tache->fichiers[0] =  f;
-#endif
+#endif  // MANUX_FICHIER
 }
 
 #ifdef MANUX_FICHIER
@@ -290,7 +298,9 @@ void tacheSetConsole(Tache * tache, struct _Console * cons)
  *
  * Attention : doit être protégé par un mutex !
  */
-static int inline tacheNumFichierLibre(Tache * tache)
+inline
+static
+int tacheNumFichierLibre(Tache * tache)
 {
    int result = 0;
 
@@ -333,6 +343,49 @@ int tacheAjouterFichiers(Tache * tache, int n, Fichier * fichiers[], int * fds)
 
    return result;
 }
-#endif
+#endif   // MANUX_FICHIER
 
+#endif   // MANUX_TACHE_CONSOLE
+
+/**
+ * @brief Affichage de l'état d'une tâche à des fins de debug
+ */
+void afficherEtatUneTache(Tache * tache)
+{
+   printkc(" [  %d]  %s   %4d  %2d:%2d  0x%x   0x%x  0x%x\n",
+       tache->numero,
+         (tache->etat == Tache_En_Cours)?"c":(((tache->etat == Tache_Prete)?"p":((tache->etat == Tache_Terminee)?"t":"b"))),
+          tache->nbActivations,
+	  totalMinutesDansTemps(tache->tempsExecution),
+	  secondesDansTemps(tache->tempsExecution),
+          tache,
+#ifdef MANUX_TACHE_CONSOLE
+          tache->console,
+#else
+          0x00, // WARNING : bof
 #endif
+          tache->ldt);
+}
+
+/**
+ * @brief Affichage des tâches
+ */
+void afficherEtatTaches(void)
+{
+   CelluleTache * celluleTache;
+
+   printkc("\n ------------------------<SCHEDULER t = %d:%d (%d)>----------------------------\n",
+	  totalMinutesDansTemps(nbTopHorloge),
+	  secondesDansTemps(nbTopHorloge),
+	  nbTopHorloge);
+
+   printkc("\n Num prochaine tache : %d\n", numeroProchaineTache);
+   printkc(" [num] et   nbAc  tpsEx    tache   console       ldt\n");
+   for (celluleTache = listeToutesLesTaches.tete;
+      celluleTache != NULL;
+      celluleTache = celluleTache->suivant){
+        afficherEtatUneTache(celluleTache->tache);
+   }
+   printkc("\n------------------------------------------------------------------------------\n");
+}
+

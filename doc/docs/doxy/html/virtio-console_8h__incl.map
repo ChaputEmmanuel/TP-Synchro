@@ -1,0 +1,22 @@
+<map id="/home/manu/PROGRAMMATION/C/ManuX/include/manux/virtio&#45;console.h" name="/home/manu/PROGRAMMATION/C/ManuX/include/manux/virtio&#45;console.h">
+<area shape="rect" id="Node000001" title="Définition des éléments de base des consoles virtio." alt="" coords="51,5,277,60"/>
+<area shape="rect" id="Node000002" href="$manux_2virtio_8h.html" title=" " alt="" coords="49,181,167,207"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="155,61,136,109,117,169,112,167,131,107,150,59"/>
+<area shape="rect" id="Node000006" href="$periph-car_8h.html" title="définition des périphériques orientés caractère" alt="" coords="146,108,294,133"/>
+<area shape="poly" id="edge6_Node000001_Node000006" title=" " alt="" coords="183,59,207,95,203,98,179,62"/>
+<area shape="rect" id="Node000003" href="$manux_2pci_8h.html" title=" " alt="" coords="21,255,123,280"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="104,208,86,244,82,241,100,206"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="153,328,271,353"/>
+<area shape="poly" id="edge5_Node000002_Node000005" title=" " alt="" coords="119,206,198,315,194,318,114,209"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="5,328,128,353"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="74,281,71,315,66,314,68,280"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="96,278,178,319,176,324,93,282"/>
+<area shape="poly" id="edge7_Node000006_Node000005" title=" " alt="" coords="222,134,216,314,210,314,217,134"/>
+<area shape="rect" id="Node000007" href="$fichier_8h.html" title=" " alt="" coords="252,181,375,207"/>
+<area shape="poly" id="edge8_Node000006_Node000007" title=" " alt="" coords="237,131,289,171,286,175,233,135"/>
+<area shape="rect" id="Node000008" href="$inoeud_8h.html" title=": description des noeuds d&#39;information (C) Manu Chaput 2002&#45;2023" alt="" coords="250,255,377,280"/>
+<area shape="poly" id="edge9_Node000007_Node000008" title=" " alt="" coords="316,207,316,241,311,241,311,207"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="401,255,575,280"/>
+<area shape="poly" id="edge11_Node000007_Node000009" title=" " alt="" coords="342,204,448,247,446,252,340,209"/>
+<area shape="poly" id="edge10_Node000008_Node000005" title=" " alt="" coords="299,282,241,322,238,318,296,278"/>
+</map>

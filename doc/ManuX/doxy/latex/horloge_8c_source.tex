@@ -1,0 +1,115 @@
+\doxysection{horloge.\+c}
+\hypertarget{horloge_8c_source}{}\label{horloge_8c_source}\index{/home/manu/PROGRAMMATION/C/ManuX/i386/horloge.c@{/home/manu/PROGRAMMATION/C/ManuX/i386/horloge.c}}
+\mbox{\hyperlink{horloge_8c}{Aller à la documentation de ce fichier.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{horloge_8c_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{horloge_8c_source_l00008}00008\ \textcolor{preprocessor}{\#include\ <manux/config.h>}}
+\DoxyCodeLine{\Hypertarget{horloge_8c_source_l00009}00009\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{manux_2debug_8h}{manux/debug.h}}>}}
+\DoxyCodeLine{\Hypertarget{horloge_8c_source_l00010}00010\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{manux_2intel-8259a_8h}{manux/intel-\/8259a.h}}>}}
+\DoxyCodeLine{\Hypertarget{horloge_8c_source_l00011}00011\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{horloge_8h}{manux/horloge.h}}>}}
+\DoxyCodeLine{\Hypertarget{horloge_8c_source_l00012}00012\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{io_8h}{manux/io.h}}>}\ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ outb}}
+\DoxyCodeLine{\Hypertarget{horloge_8c_source_l00013}00013\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{include_2manux_2memoire_8h}{manux/memoire.h}}>}\ \ \ \ \ \ \textcolor{comment}{//\ NULL}}
+\DoxyCodeLine{\Hypertarget{horloge_8c_source_l00014}00014\ \textcolor{preprocessor}{\#ifdef\ MANUX\_TACHES}}
+\DoxyCodeLine{\Hypertarget{horloge_8c_source_l00015}00015\ \textcolor{preprocessor}{\#\ \ \ include\ <\mbox{\hyperlink{scheduler_8h}{manux/scheduler.h}}>}\ \ \ \ \textcolor{comment}{//\ ordonnanceur}}
+\DoxyCodeLine{\Hypertarget{horloge_8c_source_l00016}00016\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{horloge_8c_source_l00017}00017\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{include_2manux_2printk_8h}{manux/printk.h}}>}}
+\DoxyCodeLine{\Hypertarget{horloge_8c_source_l00018}00018\ }
+\DoxyCodeLine{\Hypertarget{horloge_8c_source_l00019}00019\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{horloge_8c_source_l00020}00020\ \textcolor{comment}{\ *\ Nous\ allons\ décompter\ avec\ cette\ variable\ le\ nombre\ d'interruptions\ d'horloge}}
+\DoxyCodeLine{\Hypertarget{horloge_8c_source_l00021}00021\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{horloge_8c_source_l00022}\mbox{\hyperlink{horloge_8c_a1ebf6a786f9fbcd719425d9ebeb027e6}{00022}}\ \mbox{\hyperlink{include_2manux_2types_8h_abe4acab18c967c397d24aa95c2d48b27}{Temps}}\ \mbox{\hyperlink{horloge_8c_a1ebf6a786f9fbcd719425d9ebeb027e6}{nbTopHorloge}}\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{horloge_8c_source_l00023}00023\ }
+\DoxyCodeLine{\Hypertarget{horloge_8c_source_l00024}00024\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{horloge_8c_source_l00025}00025\ \textcolor{comment}{\ *\ Le\ calibre\ pour\ les\ attentes\ courtes\ actives}}
+\DoxyCodeLine{\Hypertarget{horloge_8c_source_l00026}00026\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{horloge_8c_source_l00027}\mbox{\hyperlink{horloge_8c_aa8c27541c2c37691ce2511109d8af6b1}{00027}}\ \mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\_t}}\ \mbox{\hyperlink{horloge_8c_aa8c27541c2c37691ce2511109d8af6b1}{attenteCalibre}};}
+\DoxyCodeLine{\Hypertarget{horloge_8c_source_l00028}00028\ }
+\DoxyCodeLine{\Hypertarget{horloge_8c_source_l00029}00029\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{horloge_8c_source_l00030}00030\ \textcolor{comment}{\ *\ Le\ handler\ du\ timer}}
+\DoxyCodeLine{\Hypertarget{horloge_8c_source_l00031}00031\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{horloge_8c_source_l00032}00032\ \textcolor{keyword}{static}}
+\DoxyCodeLine{\Hypertarget{horloge_8c_source_l00033}00033\ \textcolor{keywordtype}{void}\ handlerHorloge(\textcolor{keywordtype}{void}\ *\ inutile)}
+\DoxyCodeLine{\Hypertarget{horloge_8c_source_l00034}00034\ \{}
+\DoxyCodeLine{\Hypertarget{horloge_8c_source_l00035}00035\ \ \ \ (\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}})\ inutile;}
+\DoxyCodeLine{\Hypertarget{horloge_8c_source_l00036}00036\ \ \ \ }
+\DoxyCodeLine{\Hypertarget{horloge_8c_source_l00037}00037\ \ \ \ \mbox{\hyperlink{horloge_8c_a1ebf6a786f9fbcd719425d9ebeb027e6}{nbTopHorloge}}++;}
+\DoxyCodeLine{\Hypertarget{horloge_8c_source_l00038}00038\ }
+\DoxyCodeLine{\Hypertarget{horloge_8c_source_l00039}00039\ \textcolor{preprocessor}{\#if\ defined(MANUX\_TACHES)\ \&\&\ defined(MANUX\_PREEMPTIF)\ }}
+\DoxyCodeLine{\Hypertarget{horloge_8c_source_l00040}00040\ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{scheduler_8h_aafdf44b33a86f1bef6141d33a4abb94b}{tacheEnCours}})\ \{}
+\DoxyCodeLine{\Hypertarget{horloge_8c_source_l00041}00041\ \ \ \ \ \ \ \mbox{\hyperlink{scheduler_8h_ae00507099d51c08195d42c08daad4f41}{ordonnanceur}}();}
+\DoxyCodeLine{\Hypertarget{horloge_8c_source_l00042}00042\ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{horloge_8c_source_l00043}00043\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{horloge_8c_source_l00044}00044\ \}}
+\DoxyCodeLine{\Hypertarget{horloge_8c_source_l00045}00045\ }
+\DoxyCodeLine{\Hypertarget{horloge_8c_source_l00046}00046\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{horloge_8c_source_l00047}00047\ \textcolor{comment}{\ *\ Configuration\ de\ la\ fréquence\ du\ circuit}}
+\DoxyCodeLine{\Hypertarget{horloge_8c_source_l00048}00048\ \textcolor{comment}{\ */}\ }
+\DoxyCodeLine{\Hypertarget{horloge_8c_source_l00049}00049\ \textcolor{keyword}{static}}
+\DoxyCodeLine{\Hypertarget{horloge_8c_source_l00050}00050\ \textcolor{keywordtype}{void}\ setFrequenceHorloge(\mbox{\hyperlink{include_2manux_2types_8h_a273cf69d639a59973b6019625df33e30}{uint16\_t}}\ freqHz)}
+\DoxyCodeLine{\Hypertarget{horloge_8c_source_l00051}00051\ \{}
+\DoxyCodeLine{\Hypertarget{horloge_8c_source_l00052}00052\ \ \ \ \mbox{\hyperlink{include_2manux_2types_8h_a273cf69d639a59973b6019625df33e30}{uint16\_t}}\ decompte;}
+\DoxyCodeLine{\Hypertarget{horloge_8c_source_l00053}00053\ }
+\DoxyCodeLine{\Hypertarget{horloge_8c_source_l00054}00054\ \ \ \ decompte\ =\ 1193200\ /\ freqHz;}
+\DoxyCodeLine{\Hypertarget{horloge_8c_source_l00055}00055\ }
+\DoxyCodeLine{\Hypertarget{horloge_8c_source_l00056}00056\ \ \ \ \textcolor{comment}{//\ On\ initialise\ la\ fréquence\ du\ timer\ 0\ WARNING\ a\ rendre\ plus\ propre}}
+\DoxyCodeLine{\Hypertarget{horloge_8c_source_l00057}00057\ \ \ \ \mbox{\hyperlink{io_8h_a01385861b7c9bd988991a73868c29905}{outb}}(0x43,\ 0x34);\ \textcolor{comment}{//\ Was\ 36}}
+\DoxyCodeLine{\Hypertarget{horloge_8c_source_l00058}00058\ \ \ \ \mbox{\hyperlink{io_8h_a01385861b7c9bd988991a73868c29905}{outb}}(0x40,\ decompte\ \&\ 0xFF);}
+\DoxyCodeLine{\Hypertarget{horloge_8c_source_l00059}00059\ \ \ \ \mbox{\hyperlink{io_8h_a01385861b7c9bd988991a73868c29905}{outb}}(0x40,\ (decompte\ >>\ 8)\ \&\ 0xFF);}
+\DoxyCodeLine{\Hypertarget{horloge_8c_source_l00060}00060\ \}}
+\DoxyCodeLine{\Hypertarget{horloge_8c_source_l00061}00061\ }
+\DoxyCodeLine{\Hypertarget{horloge_8c_source_l00065}00065\ NO\_OPTIMIZE}
+\DoxyCodeLine{\Hypertarget{horloge_8c_source_l00066}00066\ \textcolor{keyword}{static}}
+\DoxyCodeLine{\Hypertarget{horloge_8c_source_l00067}00067\ \textcolor{keywordtype}{void}\ attenteCalibrer(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\Hypertarget{horloge_8c_source_l00068}00068\ \{}
+\DoxyCodeLine{\Hypertarget{horloge_8c_source_l00069}00069\ \ \ \ \mbox{\hyperlink{include_2manux_2types_8h_abe4acab18c967c397d24aa95c2d48b27}{Temps}}\ \ \ \ t;}
+\DoxyCodeLine{\Hypertarget{horloge_8c_source_l00070}00070\ \ \ \ \mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\_t}}\ n\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{horloge_8c_source_l00071}00071\ }
+\DoxyCodeLine{\Hypertarget{horloge_8c_source_l00072}00072\ \ \ \ t\ =\ \mbox{\hyperlink{horloge_8c_a1ebf6a786f9fbcd719425d9ebeb027e6}{nbTopHorloge}};}
+\DoxyCodeLine{\Hypertarget{horloge_8c_source_l00073}00073\ \ \ \ }
+\DoxyCodeLine{\Hypertarget{horloge_8c_source_l00074}00074\ \ \ \ \textcolor{comment}{//\ On\ attend\ le\ prochain\ top}}
+\DoxyCodeLine{\Hypertarget{horloge_8c_source_l00075}00075\ \ \ \ \textcolor{keywordflow}{do}\ \{}
+\DoxyCodeLine{\Hypertarget{horloge_8c_source_l00076}00076\ \ \ \ \}\ \textcolor{keywordflow}{while}\ (t\ ==\ \mbox{\hyperlink{horloge_8c_a1ebf6a786f9fbcd719425d9ebeb027e6}{nbTopHorloge}});}
+\DoxyCodeLine{\Hypertarget{horloge_8c_source_l00077}00077\ \ \ \ t\ +=\ 1\ +\ \mbox{\hyperlink{base_8h_af1f07adf33f5e3d7ae6856bdf632e842}{MANUX\_NB\_CYCLES\_CALIBRAGE}};}
+\DoxyCodeLine{\Hypertarget{horloge_8c_source_l00078}00078\ \ \ \ }
+\DoxyCodeLine{\Hypertarget{horloge_8c_source_l00079}00079\ \ \ \ \textcolor{comment}{//\ On\ compte\ le\ nombre\ de\ boucles\ entre\ deux\ tops}}
+\DoxyCodeLine{\Hypertarget{horloge_8c_source_l00080}00080\ \ \ \ \textcolor{keywordflow}{do}\ \{}
+\DoxyCodeLine{\Hypertarget{horloge_8c_source_l00081}00081\ \ \ \ \ \ \ n++;}
+\DoxyCodeLine{\Hypertarget{horloge_8c_source_l00082}00082\ \ \ \ \}\ \textcolor{keywordflow}{while}\ (\mbox{\hyperlink{horloge_8c_a1ebf6a786f9fbcd719425d9ebeb027e6}{nbTopHorloge}}\ <\ t);}
+\DoxyCodeLine{\Hypertarget{horloge_8c_source_l00083}00083\ }
+\DoxyCodeLine{\Hypertarget{horloge_8c_source_l00084}00084\ \ \ \ \textcolor{comment}{//\ On\ a\ donc\ fait\ n\ boucles\ entre\ deux\ tops\ soit\ une\ durée\ de}}
+\DoxyCodeLine{\Hypertarget{horloge_8c_source_l00085}00085\ \ \ \ \textcolor{comment}{//\ 1000*NB\_CYCLES\_CALIBRAGE/MANUX\_FREQUENCE\_HORLOGE\ ms.\ Donc\ pour}}
+\DoxyCodeLine{\Hypertarget{horloge_8c_source_l00086}00086\ \ \ \ \textcolor{comment}{//\ une\ milliseconde\ il\ nous\ faut\ }}
+\DoxyCodeLine{\Hypertarget{horloge_8c_source_l00087}00087\ \ \ \ \mbox{\hyperlink{horloge_8c_aa8c27541c2c37691ce2511109d8af6b1}{attenteCalibre}}\ =\ ((\mbox{\hyperlink{base_8h_a061b8540217c36ef218c1d30d4f9ff2a}{MANUX\_FREQUENCE\_HORLOGE}}/\mbox{\hyperlink{base_8h_af1f07adf33f5e3d7ae6856bdf632e842}{MANUX\_NB\_CYCLES\_CALIBRAGE}})\ *\ n)/1000;}
+\DoxyCodeLine{\Hypertarget{horloge_8c_source_l00088}00088\ }
+\DoxyCodeLine{\Hypertarget{horloge_8c_source_l00089}00089\ \ \ \ \textcolor{comment}{//printk("{}Calibrage\ :\ n\ =\ \%d,\ f\ =\ \%d,\ c\ =\ \%d\(\backslash\)n"{},\ n,\ MANUX\_FREQUENCE\_HORLOGE,\ attenteCalibre);}}
+\DoxyCodeLine{\Hypertarget{horloge_8c_source_l00090}00090\ \}}
+\DoxyCodeLine{\Hypertarget{horloge_8c_source_l00091}00091\ }
+\DoxyCodeLine{\Hypertarget{horloge_8c_source_l00095}\mbox{\hyperlink{horloge_8c_aec6b6ea786b76653d49b3eb7f6d320c0}{00095}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{horloge_8c_aec6b6ea786b76653d49b3eb7f6d320c0}{initialiserHorloge}}(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\Hypertarget{horloge_8c_source_l00096}00096\ \{}
+\DoxyCodeLine{\Hypertarget{horloge_8c_source_l00097}00097\ }
+\DoxyCodeLine{\Hypertarget{horloge_8c_source_l00098}00098\ \ \ \ \textcolor{comment}{//\ Initialisation\ de\ la\ fréquence\ de\ l'horloge\ matérielle}}
+\DoxyCodeLine{\Hypertarget{horloge_8c_source_l00099}00099\ \ \ \ setFrequenceHorloge(\mbox{\hyperlink{base_8h_a061b8540217c36ef218c1d30d4f9ff2a}{MANUX\_FREQUENCE\_HORLOGE}});}
+\DoxyCodeLine{\Hypertarget{horloge_8c_source_l00100}00100\ }
+\DoxyCodeLine{\Hypertarget{horloge_8c_source_l00101}00101\ \ \ \ \textcolor{comment}{//\ Enregistrement\ auprès\ du\ PIC}}
+\DoxyCodeLine{\Hypertarget{horloge_8c_source_l00102}00102\ \ \ \ \mbox{\hyperlink{intel-8259a_8c_a8c849c456bff2b144e72c0d55873647a}{i8259aAjouterHandler}}(\mbox{\hyperlink{pc-i386_8h_adf6423221c28748360f9b34b021d1434}{IRQ\_HORLOGE}},\ handlerHorloge,\ \mbox{\hyperlink{include_2manux_2stddef_8h_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}});}
+\DoxyCodeLine{\Hypertarget{horloge_8c_source_l00103}00103\ }
+\DoxyCodeLine{\Hypertarget{horloge_8c_source_l00104}00104\ \ \ \ \textcolor{comment}{//\ Autorisation\ de\ l'IRQ}}
+\DoxyCodeLine{\Hypertarget{horloge_8c_source_l00105}00105\ \ \ \ \mbox{\hyperlink{intel-8259a_8c_a9b846f608e7cad3491d9bff7e870ef00}{i8259aAutoriserIRQ}}(\mbox{\hyperlink{pc-i386_8h_adf6423221c28748360f9b34b021d1434}{IRQ\_HORLOGE}});}
+\DoxyCodeLine{\Hypertarget{horloge_8c_source_l00106}00106\ }
+\DoxyCodeLine{\Hypertarget{horloge_8c_source_l00107}00107\ \ \ \ \textcolor{comment}{//\ Calibrage\ du\ système\ d'attente\ active}}
+\DoxyCodeLine{\Hypertarget{horloge_8c_source_l00108}00108\ \ \ \ attenteCalibrer();}
+\DoxyCodeLine{\Hypertarget{horloge_8c_source_l00109}00109\ \}}
+\DoxyCodeLine{\Hypertarget{horloge_8c_source_l00110}00110\ }
+\DoxyCodeLine{\Hypertarget{horloge_8c_source_l00114}00114\ NO\_OPTIMIZE}
+\DoxyCodeLine{\Hypertarget{horloge_8c_source_l00115}\mbox{\hyperlink{horloge_8c_ac294bb36fab5e27f2b306bbbcb5dc0bc}{00115}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{horloge_8c_ac294bb36fab5e27f2b306bbbcb5dc0bc}{attenteMilliSecondes}}(\textcolor{keywordtype}{int}\ n)}
+\DoxyCodeLine{\Hypertarget{horloge_8c_source_l00116}00116\ \{}
+\DoxyCodeLine{\Hypertarget{horloge_8c_source_l00117}00117\ \ \ \ \mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\_t}}\ m\ =\ n\ *\ \mbox{\hyperlink{horloge_8c_aa8c27541c2c37691ce2511109d8af6b1}{attenteCalibre}};}
+\DoxyCodeLine{\Hypertarget{horloge_8c_source_l00118}00118\ \ \ \ \mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\_t}}\ \mbox{\hyperlink{main-bootreg_8c_add06ad5d8520e7cff4ff84b2811c0982}{c}}\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{horloge_8c_source_l00119}00119\ }
+\DoxyCodeLine{\Hypertarget{horloge_8c_source_l00120}00120\ \ \ \ \textcolor{keywordflow}{do}\ \{}
+\DoxyCodeLine{\Hypertarget{horloge_8c_source_l00121}00121\ \ \ \ \ \ \ \mbox{\hyperlink{main-bootreg_8c_add06ad5d8520e7cff4ff84b2811c0982}{c}}++;}
+\DoxyCodeLine{\Hypertarget{horloge_8c_source_l00122}00122\ \ \ \ \}\ \textcolor{keywordflow}{while}\ (\mbox{\hyperlink{main-bootreg_8c_add06ad5d8520e7cff4ff84b2811c0982}{c}}\ <\ m);}
+\DoxyCodeLine{\Hypertarget{horloge_8c_source_l00123}00123\ \}}
+\DoxyCodeLine{\Hypertarget{horloge_8c_source_l00124}00124\ }
+
+\end{DoxyCode}

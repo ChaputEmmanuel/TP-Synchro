@@ -1,0 +1,28 @@
+\doxysection{interface-\/reseau.h}
+\hypertarget{interface-reseau_8h_source}{}\label{interface-reseau_8h_source}\index{/home/manu/PROGRAMMATION/C/ManuX/include/manux/interface-\/reseau.h@{/home/manu/PROGRAMMATION/C/ManuX/include/manux/interface-\/reseau.h}}
+\mbox{\hyperlink{interface-reseau_8h}{Aller à la documentation de ce fichier.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{interface-reseau_8h_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{interface-reseau_8h_source_l00007}00007\ \textcolor{preprocessor}{\#ifndef\ MANUX\_RESEAU\_INTERFACE}}
+\DoxyCodeLine{\Hypertarget{interface-reseau_8h_source_l00008}00008\ \textcolor{preprocessor}{\#define\ MANUX\_RESEAU\_INTERFACE}}
+\DoxyCodeLine{\Hypertarget{interface-reseau_8h_source_l00009}00009\ }
+\DoxyCodeLine{\Hypertarget{interface-reseau_8h_source_l00013}\mbox{\hyperlink{struct__ReseauPilote}{00013}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__ReseauPilote}{\_ReseauPilote}}\ \{}
+\DoxyCodeLine{\Hypertarget{interface-reseau_8h_source_l00014}\mbox{\hyperlink{struct__ReseauPilote_aa14897deb53262eb26a2f3888b169104}{00014}}\ \ \ \ \textcolor{keywordtype}{char}\ *\ \mbox{\hyperlink{struct__ReseauPilote_aa14897deb53262eb26a2f3888b169104}{nom}};}
+\DoxyCodeLine{\Hypertarget{interface-reseau_8h_source_l00015}\mbox{\hyperlink{struct__ReseauPilote_ad59134a9f85e99b2e9fd547f8d53f4b4}{00015}}\ \ \ \ \mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}}\ (*\ \mbox{\hyperlink{struct__ReseauPilote_ad59134a9f85e99b2e9fd547f8d53f4b4}{recevoirTrame}})(\textcolor{keywordtype}{void}\ *);\ \textcolor{comment}{//\ La\ fonction\ permettant\ d'aller}}
+\DoxyCodeLine{\Hypertarget{interface-reseau_8h_source_l00016}00016\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ récupérer\ des\ trames\ de\ façon}}
+\DoxyCodeLine{\Hypertarget{interface-reseau_8h_source_l00017}00017\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ asynchrone\ }}
+\DoxyCodeLine{\Hypertarget{interface-reseau_8h_source_l00018}\mbox{\hyperlink{interface-reseau_8h_a545d375fa5fc74cc0795ee1021d7f924}{00018}}\ \}\ \mbox{\hyperlink{interface-reseau_8h_a545d375fa5fc74cc0795ee1021d7f924}{ReseauPilote}};}
+\DoxyCodeLine{\Hypertarget{interface-reseau_8h_source_l00019}00019\ }
+\DoxyCodeLine{\Hypertarget{interface-reseau_8h_source_l00020}\mbox{\hyperlink{struct__ReseauInterface}{00020}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__ReseauInterface}{\_ReseauInterface}}\ \{}
+\DoxyCodeLine{\Hypertarget{interface-reseau_8h_source_l00021}\mbox{\hyperlink{struct__ReseauInterface_a80568f491dd70467bf1f802aafda61e5}{00021}}\ \ \ \ \mbox{\hyperlink{struct__ReseauPilote}{ReseauPilote}}\ *\ \mbox{\hyperlink{struct__ReseauInterface_a80568f491dd70467bf1f802aafda61e5}{pilote}};}
+\DoxyCodeLine{\Hypertarget{interface-reseau_8h_source_l00022}\mbox{\hyperlink{struct__ReseauInterface_aa0af146355fd6a17ff8b2fd704f6eb27}{00022}}\ \ \ \ \textcolor{keywordtype}{void}\ *\ \mbox{\hyperlink{struct__ReseauInterface_aa0af146355fd6a17ff8b2fd704f6eb27}{prive}};}
+\DoxyCodeLine{\Hypertarget{interface-reseau_8h_source_l00023}\mbox{\hyperlink{interface-reseau_8h_a1389bdb33aaf02a2e1f9ca021ea3e97c}{00023}}\ \}\ \mbox{\hyperlink{interface-reseau_8h_a1389bdb33aaf02a2e1f9ca021ea3e97c}{ReseauInterface}};}
+\DoxyCodeLine{\Hypertarget{interface-reseau_8h_source_l00024}00024\ }
+\DoxyCodeLine{\Hypertarget{interface-reseau_8h_source_l00028}00028\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{interface-reseau_8h_a0d183caf398492294fdf9dea14a09527}{reseauEnregistrerPilote}}(\mbox{\hyperlink{struct__ReseauPilote}{ReseauPilote}}\ *\ p);}
+\DoxyCodeLine{\Hypertarget{interface-reseau_8h_source_l00029}00029\ }
+\DoxyCodeLine{\Hypertarget{interface-reseau_8h_source_l00033}00033\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{interface-reseau_8h_a141b7c3a7e49373fed361414dd478915}{reseauAjouterInterface}}(\mbox{\hyperlink{struct__ReseauPilote}{ReseauPilote}}\ *\ p,\ \textcolor{keywordtype}{void}\ *\ \mbox{\hyperlink{main-registre_8c_aaa0e9a03072c04ebe2d49f53bc7bc785}{d}});}
+\DoxyCodeLine{\Hypertarget{interface-reseau_8h_source_l00034}00034\ }
+\DoxyCodeLine{\Hypertarget{interface-reseau_8h_source_l00035}00035\ }
+\DoxyCodeLine{\Hypertarget{interface-reseau_8h_source_l00036}00036\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

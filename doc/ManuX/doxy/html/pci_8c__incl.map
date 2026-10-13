@@ -1,0 +1,53 @@
+<map id="/home/manu/PROGRAMMATION/C/ManuX/noyau/pci.c" name="/home/manu/PROGRAMMATION/C/ManuX/noyau/pci.c">
+<area shape="rect" id="Node000001" title=": Fonctions de manipulation du bus PCI" alt="" coords="853,5,1079,45"/>
+<area shape="rect" id="Node000002" href="$manux_2pci_8h.html" title=" " alt="" coords="1047,240,1149,265"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="993,44,1047,94,1074,128,1095,166,1103,197,1103,226,1098,226,1097,197,1090,168,1070,131,1043,98,990,48"/>
+<area shape="rect" id="Node000005" href="$io_8h.html" title=" " alt="" coords="876,93,971,119"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="958,47,938,83,934,80,953,44"/>
+<area shape="rect" id="Node000006" href="$include_2manux_2memoire_8h.html" title=" " alt="" coords="937,167,1080,192"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="974,45,1004,153,999,154,969,47"/>
+<area shape="rect" id="Node000008" href="$manux_2debug_8h.html" title=" " alt="" coords="699,93,822,119"/>
+<area shape="poly" id="edge8_Node000001_Node000008" title=" " alt="" coords="918,48,805,91,803,86,916,43"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="807,313,930,339"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="1062,268,920,312,918,307,1060,263"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="556,460,675,485"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="1099,266,1094,296,1081,337,1061,379,1046,398,1029,414,1003,428,968,439,878,456,778,467,688,472,688,466,777,461,877,451,966,434,1001,423,1026,410,1042,394,1056,376,1076,335,1088,295,1094,265"/>
+<area shape="poly" id="edge6_Node000006_Node000004" title=" " alt="" coords="1008,193,987,258,968,300,944,340,907,384,859,414,817,433,773,447,689,465,688,460,771,442,815,428,857,410,904,380,940,337,963,298,982,257,1003,191"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="798,240,921,265"/>
+<area shape="poly" id="edge7_Node000006_Node000007" title=" " alt="" coords="986,194,897,236,895,232,984,190"/>
+<area shape="poly" id="edge9_Node000008_Node000003" title=" " alt="" coords="789,116,825,135,866,161,905,196,935,239,938,259,931,277,917,294,901,308,897,304,913,290,926,275,933,258,930,241,901,199,862,165,822,139,787,121"/>
+<area shape="rect" id="Node000009" href="$include_2manux_2printk_8h.html" title="Définition des fonctions de base d&#39;entrée&#45;sortie du noyau." alt="" coords="700,167,821,192"/>
+<area shape="poly" id="edge10_Node000008_Node000009" title=" " alt="" coords="763,119,763,153,758,153,758,119"/>
+<area shape="rect" id="Node000010" href="$include_2manux_2stdarg_8h.html" title=" " alt="" coords="599,240,723,265"/>
+<area shape="poly" id="edge14_Node000008_Node000010" title=" " alt="" coords="742,121,715,141,690,168,675,197,667,227,662,225,670,196,685,165,711,137,739,117"/>
+<area shape="rect" id="Node000011" href="$scheduler_8h.html" title=" " alt="" coords="167,167,312,192"/>
+<area shape="poly" id="edge15_Node000008_Node000011" title=" " alt="" coords="700,118,326,169,326,164,699,113"/>
+<area shape="poly" id="edge11_Node000009_Node000003" title=" " alt="" coords="764,192,771,226,778,246,788,264,810,286,835,304,831,308,806,290,784,267,773,248,766,227,759,193"/>
+<area shape="poly" id="edge13_Node000009_Node000007" title=" " alt="" coords="778,190,834,230,831,234,775,194"/>
+<area shape="poly" id="edge12_Node000009_Node000010" title=" " alt="" coords="746,194,690,234,687,230,743,190"/>
+<area shape="poly" id="edge16_Node000011_Node000004" title=" " alt="" coords="235,193,216,234,197,292,193,324,193,355,200,384,216,410,237,426,269,439,355,457,453,466,542,469,542,474,453,471,354,462,267,444,234,431,212,414,195,386,188,356,187,323,192,291,211,232,231,191"/>
+<area shape="rect" id="Node000012" href="$tache_8h.html" title=" " alt="" coords="277,240,396,265"/>
+<area shape="poly" id="edge17_Node000011_Node000012" title=" " alt="" coords="257,190,311,229,308,234,253,194"/>
+<area shape="rect" id="Node000017" title=" " alt="" coords="227,387,401,412"/>
+<area shape="poly" id="edge32_Node000011_Node000017" title=" " alt="" coords="242,192,246,256,254,297,267,338,279,358,294,375,290,379,275,361,262,340,248,299,241,257,236,193"/>
+<area shape="rect" id="Node000018" href="$listetaches_8h.html" title=" " alt="" coords="419,240,574,265"/>
+<area shape="poly" id="edge28_Node000011_Node000018" title=" " alt="" coords="281,189,443,234,441,239,280,195"/>
+<area shape="rect" id="Node000019" href="$atomique_8h.html" title="Définition des opérations de synchronisation de ManuX." alt="" coords="5,240,151,265"/>
+<area shape="poly" id="edge29_Node000011_Node000019" title=" " alt="" coords="208,194,111,236,109,231,206,190"/>
+<area shape="poly" id="edge18_Node000012_Node000003" title=" " alt="" coords="396,261,408,263,794,313,793,318,407,268,396,266"/>
+<area shape="poly" id="edge19_Node000012_Node000004" title=" " alt="" coords="397,261,518,285,570,299,597,311,616,344,625,380,626,416,623,447,617,446,620,416,619,381,611,346,594,315,568,304,517,290,396,267"/>
+<area shape="rect" id="Node000013" href="$include_2manux_2interruptions_8h.html" title=" " alt="" coords="679,387,845,412"/>
+<area shape="poly" id="edge20_Node000012_Node000013" title=" " alt="" coords="397,262,557,290,660,311,708,341,744,375,741,379,704,345,658,316,556,295,396,267"/>
+<area shape="rect" id="Node000014" href="$segment_8h.html" title=" " alt="" coords="444,313,584,339"/>
+<area shape="poly" id="edge22_Node000012_Node000014" title=" " alt="" coords="366,263,474,306,472,311,364,268"/>
+<area shape="rect" id="Node000015" href="$fichier_8h.html" title=" " alt="" coords="277,313,399,339"/>
+<area shape="poly" id="edge24_Node000012_Node000015" title=" " alt="" coords="340,266,340,300,335,300,334,266"/>
+<area shape="poly" id="edge21_Node000013_Node000004" title=" " alt="" coords="740,414,653,456,650,452,737,410"/>
+<area shape="poly" id="edge23_Node000014_Node000004" title=" " alt="" coords="526,337,565,385,604,446,600,449,561,388,522,340"/>
+<area shape="rect" id="Node000016" href="$inoeud_8h.html" title=": description des noeuds d&#39;information (C) Manu Chaput 2002&#45;2023" alt="" coords="425,387,552,412"/>
+<area shape="poly" id="edge25_Node000015_Node000016" title=" " alt="" coords="363,336,453,378,450,383,361,341"/>
+<area shape="poly" id="edge27_Node000015_Node000017" title=" " alt="" coords="337,340,325,374,320,373,332,338"/>
+<area shape="poly" id="edge26_Node000016_Node000004" title=" " alt="" coords="510,410,584,451,581,455,508,414"/>
+<area shape="poly" id="edge30_Node000019_Node000004" title=" " alt="" coords="83,265,93,295,111,335,136,376,153,395,171,410,199,423,238,434,337,451,446,461,542,467,542,472,446,467,337,457,237,440,198,428,169,414,149,398,132,380,106,338,88,297,78,266"/>
+<area shape="poly" id="edge31_Node000019_Node000011" title=" " alt="" coords="110,237,207,195,209,200,112,242"/>
+</map>

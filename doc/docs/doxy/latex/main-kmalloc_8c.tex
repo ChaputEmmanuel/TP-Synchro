@@ -1,0 +1,98 @@
+\doxysection{Référence du fichier /home/manu/\+PROGRAMMATION/\+C/\+Manu\+X/noyau/main-\/kmalloc.c}
+\hypertarget{main-kmalloc_8c}{}\label{main-kmalloc_8c}\index{/home/manu/PROGRAMMATION/C/ManuX/noyau/main-\/kmalloc.c@{/home/manu/PROGRAMMATION/C/ManuX/noyau/main-\/kmalloc.c}}
+
+
+Un exemple de noyau utilisant les fonctions de kmalloc.  
+
+
+{\ttfamily \#include $<$manux/config.\+h$>$}\newline
+{\ttfamily \#include $<$manux/bootloader.\+h$>$}\newline
+{\ttfamily \#include $<$manux/errno.\+h$>$}\newline
+{\ttfamily \#include $<$manux/console.\+h$>$}\newline
+{\ttfamily \#include $<$manux/segment.\+h$>$}\newline
+{\ttfamily \#include $<$manux/memoire.\+h$>$}\newline
+{\ttfamily \#include $<$manux/kmalloc.\+h$>$}\newline
+{\ttfamily \#include $<$manux/printk.\+h$>$}\newline
+{\ttfamily \#include $<$manux/stdlib.\+h$>$}\newline
+Graphe des dépendances par inclusion de main-\/kmalloc.c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{main-kmalloc_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{main-kmalloc_8c_aa46b494d5fec94fa825c98dbbcffb32b}{NB\+\_\+\+ELEMENTS}}~200
+\begin{DoxyCompactList}\small\item\em Une fonction qu iinvoque kmalloc et kfree. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{main-kmalloc_8c_a428b0073af3ea626a69546b24e5e0aaf}{NB\+\_\+\+APPELS}}~10000
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} \mbox{\hyperlink{main-kmalloc_8c_a9c796c764070654103bdb779007447b7}{tester\+Kmalloc}} ()
+\item 
+\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} \mbox{\hyperlink{main-kmalloc_8c_a3568df994044ade7d37160ef731c223f}{start\+ManuX}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Un exemple de noyau utilisant les fonctions de kmalloc. 
+
+\begin{DoxyVerb}                                                (C) Manu Chaput 2000-2023
+\end{DoxyVerb}
+ 
+
+Définition dans le fichier \mbox{\hyperlink{main-kmalloc_8c_source}{main-\/kmalloc.\+c}}.
+
+
+
+\doxysubsection{Documentation des macros}
+\Hypertarget{main-kmalloc_8c_a428b0073af3ea626a69546b24e5e0aaf}\label{main-kmalloc_8c_a428b0073af3ea626a69546b24e5e0aaf} 
+\index{main-\/kmalloc.c@{main-\/kmalloc.c}!NB\_APPELS@{NB\_APPELS}}
+\index{NB\_APPELS@{NB\_APPELS}!main-\/kmalloc.c@{main-\/kmalloc.c}}
+\doxysubsubsection{\texorpdfstring{NB\_APPELS}{NB\_APPELS}}
+{\footnotesize\ttfamily \#define NB\+\_\+\+APPELS~10000}
+
+
+
+Définition à la ligne \mbox{\hyperlink{main-kmalloc_8c_source_l00021}{21}} du fichier \mbox{\hyperlink{main-kmalloc_8c_source}{main-\/kmalloc.\+c}}.
+
+\Hypertarget{main-kmalloc_8c_aa46b494d5fec94fa825c98dbbcffb32b}\label{main-kmalloc_8c_aa46b494d5fec94fa825c98dbbcffb32b} 
+\index{main-\/kmalloc.c@{main-\/kmalloc.c}!NB\_ELEMENTS@{NB\_ELEMENTS}}
+\index{NB\_ELEMENTS@{NB\_ELEMENTS}!main-\/kmalloc.c@{main-\/kmalloc.c}}
+\doxysubsubsection{\texorpdfstring{NB\_ELEMENTS}{NB\_ELEMENTS}}
+{\footnotesize\ttfamily \#define NB\+\_\+\+ELEMENTS~200}
+
+
+
+Une fonction qu iinvoque kmalloc et kfree. 
+
+
+
+Définition à la ligne \mbox{\hyperlink{main-kmalloc_8c_source_l00020}{20}} du fichier \mbox{\hyperlink{main-kmalloc_8c_source}{main-\/kmalloc.\+c}}.
+
+
+
+\doxysubsection{Documentation des fonctions}
+\Hypertarget{main-kmalloc_8c_a3568df994044ade7d37160ef731c223f}\label{main-kmalloc_8c_a3568df994044ade7d37160ef731c223f} 
+\index{main-\/kmalloc.c@{main-\/kmalloc.c}!startManuX@{startManuX}}
+\index{startManuX@{startManuX}!main-\/kmalloc.c@{main-\/kmalloc.c}}
+\doxysubsubsection{\texorpdfstring{startManuX()}{startManuX()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} start\+ManuX (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}}}]{ }\end{DoxyParamCaption})}
+
+
+
+Définition à la ligne \mbox{\hyperlink{main-kmalloc_8c_source_l00046}{46}} du fichier \mbox{\hyperlink{main-kmalloc_8c_source}{main-\/kmalloc.\+c}}.
+
+\Hypertarget{main-kmalloc_8c_a9c796c764070654103bdb779007447b7}\label{main-kmalloc_8c_a9c796c764070654103bdb779007447b7} 
+\index{main-\/kmalloc.c@{main-\/kmalloc.c}!testerKmalloc@{testerKmalloc}}
+\index{testerKmalloc@{testerKmalloc}!main-\/kmalloc.c@{main-\/kmalloc.c}}
+\doxysubsubsection{\texorpdfstring{testerKmalloc()}{testerKmalloc()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} tester\+Kmalloc (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Définition à la ligne \mbox{\hyperlink{main-kmalloc_8c_source_l00023}{23}} du fichier \mbox{\hyperlink{main-kmalloc_8c_source}{main-\/kmalloc.\+c}}.
+

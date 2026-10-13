@@ -1,0 +1,26 @@
+\doxysection{userland.\+h}
+\hypertarget{userland_8h_source}{}\label{userland_8h_source}\index{/home/manu/PROGRAMMATION/C/ManuX/multiconf/userland.h@{/home/manu/PROGRAMMATION/C/ManuX/multiconf/userland.h}}
+\mbox{\hyperlink{userland_8h}{Aller à la documentation de ce fichier.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{userland_8h_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{userland_8h_source_l00008}00008\ \textcolor{preprocessor}{\#ifdef\ MANUX\_FICHIER\_CONFIG}}
+\DoxyCodeLine{\Hypertarget{userland_8h_source_l00009}00009\ \textcolor{preprocessor}{\#\ \ \ error\ "{}Cette\ chose\ ne\ devrait\ pas\ se\ produire\ !"{}}}
+\DoxyCodeLine{\Hypertarget{userland_8h_source_l00010}00010\ \textcolor{preprocessor}{\#\ \ \ include\ MANUX\_FICHIER\_CONFIG}}
+\DoxyCodeLine{\Hypertarget{userland_8h_source_l00011}00011\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{\Hypertarget{userland_8h_source_l00012}00012\ \textcolor{preprocessor}{\#ifndef\ MANUX\_CONFIG}}
+\DoxyCodeLine{\Hypertarget{userland_8h_source_l00013}00013\ \textcolor{preprocessor}{\#define\ MANUX\_CONFIG}}
+\DoxyCodeLine{\Hypertarget{userland_8h_source_l00014}00014\ }
+\DoxyCodeLine{\Hypertarget{userland_8h_source_l00015}\mbox{\hyperlink{userland_8h_aa3594499e1eed61df06d17199e875181}{00015}}\ \textcolor{preprocessor}{\#define\ MANUX\_FICHIER\_MAIN\ main-\/userland}}
+\DoxyCodeLine{\Hypertarget{userland_8h_source_l00016}\mbox{\hyperlink{userland_8h_aebb6ade5da1613b93b30fdc922a92f99}{00016}}\ \textcolor{preprocessor}{\#define\ MANUX\_USR\_INIT\ init-\/userland.o}}
+\DoxyCodeLine{\Hypertarget{userland_8h_source_l00017}00017\ }
+\DoxyCodeLine{\Hypertarget{userland_8h_source_l00018}00018\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{plan-memoire-pc_8h}{config/plan-\/memoire-\/pc.h}}>}\ \ \ \textcolor{comment}{//\ Obligatoire\ pour\ le\ linker}}
+\DoxyCodeLine{\Hypertarget{userland_8h_source_l00019}00019\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{base_8h}{config/base.h}}>}\ \ \textcolor{comment}{//\ Définitions\ de\ base}}
+\DoxyCodeLine{\Hypertarget{userland_8h_source_l00020}00020\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{include_2config_2console_8h}{config/console.h}}>}\ \ \textcolor{comment}{//\ Pour\ afficher\ des\ choses\ à\ l'écran}}
+\DoxyCodeLine{\Hypertarget{userland_8h_source_l00021}00021\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{usr_8h}{config/usr.h}}>}\ \ \ \textcolor{comment}{//\ On\ veut\ un\ userland}}
+\DoxyCodeLine{\Hypertarget{userland_8h_source_l00022}00022\ }
+\DoxyCodeLine{\Hypertarget{userland_8h_source_l00023}00023\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{verifications_8h}{config/verifications.h}}>}}
+\DoxyCodeLine{\Hypertarget{userland_8h_source_l00024}00024\ }
+\DoxyCodeLine{\Hypertarget{userland_8h_source_l00025}00025\ \textcolor{preprocessor}{\#endif\ \ }\textcolor{comment}{//\ MANUX\_CONFIG}}
+\DoxyCodeLine{\Hypertarget{userland_8h_source_l00026}00026\ \textcolor{preprocessor}{\#endif\ \ }\textcolor{comment}{//\ MANUX\_FICHIER\_CONFIG}}
+
+\end{DoxyCode}

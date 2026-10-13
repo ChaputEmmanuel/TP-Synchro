@@ -1,0 +1,46 @@
+\doxysection{Référence du fichier /home/manu/\+PROGRAMMATION/\+C/\+Manu\+X/include/manux/dummy-\/task.h}
+\hypertarget{manux_2dummy-task_8h}{}\label{manux_2dummy-task_8h}\index{/home/manu/PROGRAMMATION/C/ManuX/include/manux/dummy-\/task.h@{/home/manu/PROGRAMMATION/C/ManuX/include/manux/dummy-\/task.h}}
+
+
+Définition d\textquotesingle{}une tâche minimaliste qui est là pour afficher quelques éléments à la demande de l’utilisateur.  
+
+
+Ce graphe montre quels fichiers incluent directement ou indirectement ce fichier \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=250pt]{manux_2dummy-task_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} \mbox{\hyperlink{manux_2dummy-task_8h_a93c3a7223e0a1bdb1070c19d45d49494}{a\+Dummy\+Kernel\+Task}} (\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}})
+\begin{DoxyCompactList}\small\item\em Le corps d\textquotesingle{}une tâche à exécuter lorsqu\textquotesingle{}on n\textquotesingle{}a que ça à faire, ... \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Définition d\textquotesingle{}une tâche minimaliste qui est là pour afficher quelques éléments à la demande de l’utilisateur. 
+
+Elle peut être lancée par le scheduler (si MANUX\+\_\+\+TACHES est défini), mais elle peut aussi être utilisée comme une fonction quelconque. (C) Manu Chaput 2000-\/2026 
+
+Définition dans le fichier \mbox{\hyperlink{manux_2dummy-task_8h_source}{dummy-\/task.\+h}}.
+
+
+
+\doxysubsection{Documentation des fonctions}
+\Hypertarget{manux_2dummy-task_8h_a93c3a7223e0a1bdb1070c19d45d49494}\label{manux_2dummy-task_8h_a93c3a7223e0a1bdb1070c19d45d49494} 
+\index{dummy-\/task.h@{dummy-\/task.h}!aDummyKernelTask@{aDummyKernelTask}}
+\index{aDummyKernelTask@{aDummyKernelTask}!dummy-\/task.h@{dummy-\/task.h}}
+\doxysubsubsection{\texorpdfstring{aDummyKernelTask()}{aDummyKernelTask()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} a\+Dummy\+Kernel\+Task (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}}}]{ }\end{DoxyParamCaption})}
+
+
+
+Le corps d\textquotesingle{}une tâche à exécuter lorsqu\textquotesingle{}on n\textquotesingle{}a que ça à faire, ... 
+
+Cette tâche ne fait rien de très important, si ce n\textquotesingle{}est récupérer les événements clavier sur la console noyau. Grâce à ça c\textquotesingle{}est elle qui permet d\textquotesingle{}afficher quelques informations sur le système 
+
+Définition à la ligne \mbox{\hyperlink{dummy-task_8c_source_l00389}{389}} du fichier \mbox{\hyperlink{dummy-task_8c_source}{dummy-\/task.\+c}}.
+

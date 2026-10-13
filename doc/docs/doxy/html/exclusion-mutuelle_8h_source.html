@@ -1,0 +1,132 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>My Project:  Fichier source de /home/manu/PROGRAMMATION/C/ManuX/include/manux/exclusion-mutuelle.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">My Project
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function() { init_codefold(0); });
+/* @license-end */
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_7ae9ae23548caaa7aeb1f148c6e00073.html">manux</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle"><div class="title">exclusion-mutuelle.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="exclusion-mutuelle_8h.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#ifndef EXCLUSION_MUTUELLE_DEF</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#define EXCLUSION_MUTUELLE_DEF</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &lt;manux/types.h&gt;</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#include &lt;<a class="code" href="atomique_8h.html">manux/atomique.h</a>&gt;</span>     <span class="comment">// Atomique</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#include &lt;<a class="code" href="listetaches_8h.html">manux/listetaches.h</a>&gt;</span>  <span class="comment">// Pour les listes de tâches en attente</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
+<div class="foldopen" id="foldopen00018" data-start="{" data-end="};">
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="struct__ExclusionMutuelle.html">   18</a></span><span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code hl_struct" href="struct__ExclusionMutuelle.html">_ExclusionMutuelle</a> {</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="struct__ExclusionMutuelle.html#aefe8e8651e45b8f86bc5f17e3d681363">   19</a></span>   <a class="code hl_typedef" href="atomique_8h.html#a34aa37778d3701c511b28edcb866cedb">Atomique</a>   <a class="code hl_variable" href="struct__ExclusionMutuelle.html#aefe8e8651e45b8f86bc5f17e3d681363">verrou</a>;</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="struct__ExclusionMutuelle.html#acce5d30580065f581b8eb87530d2f35e">   20</a></span>   <a class="code hl_struct" href="struct__ListeTache.html">ListeTache</a> <a class="code hl_variable" href="struct__ExclusionMutuelle.html#acce5d30580065f581b8eb87530d2f35e">tachesEnAttente</a>;</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="preprocessor">#if defined(MANUX_EXCLUSION_MUTUELLE_AUDIT)</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>   <span class="keywordtype">int</span>        nbEntrees;</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>   <span class="keywordtype">int</span>        nbSorties;</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="exclusion-mutuelle_8h.html#a6db19bcf66a0fdb35100271a766103db">   25</a></span>} <a class="code hl_typedef" href="exclusion-mutuelle_8h.html#a6db19bcf66a0fdb35100271a766103db">ExclusionMutuelle</a>;</div>
+</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="keywordtype">void</span> <a class="code hl_function" href="exclusion-mutuelle_8h.html#aadab68f4af630c6abd0ca306539c9d60">exclusionMutuelleInitialiser</a>(<a class="code hl_struct" href="struct__ExclusionMutuelle.html">ExclusionMutuelle</a> * em);</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="keywordtype">void</span> <a class="code hl_function" href="exclusion-mutuelle_8h.html#a9b966fcfd5b19565e2734f33eb5bbf1c">exclusionMutuelleEntrer</a>(<a class="code hl_struct" href="struct__ExclusionMutuelle.html">ExclusionMutuelle</a> * em);</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="keywordtype">void</span> <a class="code hl_function" href="exclusion-mutuelle_8h.html#ace5c194a9dd43e021d611e79612d6f13">exclusionMutuelleSortir</a>(<a class="code hl_struct" href="struct__ExclusionMutuelle.html">ExclusionMutuelle</a> * em);</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><span class="preprocessor">#if defined(MANUX_EXCLUSION_MUTUELLE_AUDIT)</span></div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span><span class="keywordtype">void</span> exclusionsMutuellesAfficherEtat(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span><span class="preprocessor">#endif </span><span class="comment">// defined(MANUX_EXCLUSION_MUTUELLE_AUDIT)</span></div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span><span class="preprocessor">#endif</span></div>
+<div class="ttc" id="aatomique_8h_html"><div class="ttname"><a href="atomique_8h.html">atomique.h</a></div><div class="ttdoc">Définition des opérations de synchronisation de ManuX.</div></div>
+<div class="ttc" id="aatomique_8h_html_a34aa37778d3701c511b28edcb866cedb"><div class="ttname"><a href="atomique_8h.html#a34aa37778d3701c511b28edcb866cedb">Atomique</a></div><div class="ttdeci">uint32_t Atomique</div><div class="ttdef"><b>Definition</b> <a href="atomique_8h_source.html#l00019">atomique.h:19</a></div></div>
+<div class="ttc" id="aexclusion-mutuelle_8h_html_a6db19bcf66a0fdb35100271a766103db"><div class="ttname"><a href="exclusion-mutuelle_8h.html#a6db19bcf66a0fdb35100271a766103db">ExclusionMutuelle</a></div><div class="ttdeci">struct _ExclusionMutuelle ExclusionMutuelle</div><div class="ttdoc">Définition des exclusions mutuelles.</div></div>
+<div class="ttc" id="aexclusion-mutuelle_8h_html_a9b966fcfd5b19565e2734f33eb5bbf1c"><div class="ttname"><a href="exclusion-mutuelle_8h.html#a9b966fcfd5b19565e2734f33eb5bbf1c">exclusionMutuelleEntrer</a></div><div class="ttdeci">void exclusionMutuelleEntrer(ExclusionMutuelle *em)</div><div class="ttdoc">Entrée en exclusion mutuelle.</div><div class="ttdef"><b>Definition</b> <a href="exclusion-mutuelle_8c_source.html#l00134">exclusion-mutuelle.c:134</a></div></div>
+<div class="ttc" id="aexclusion-mutuelle_8h_html_aadab68f4af630c6abd0ca306539c9d60"><div class="ttname"><a href="exclusion-mutuelle_8h.html#aadab68f4af630c6abd0ca306539c9d60">exclusionMutuelleInitialiser</a></div><div class="ttdeci">void exclusionMutuelleInitialiser(ExclusionMutuelle *em)</div><div class="ttdoc">Initialisation d'une exclusion mutuelle.</div><div class="ttdef"><b>Definition</b> <a href="exclusion-mutuelle_8c_source.html#l00109">exclusion-mutuelle.c:109</a></div></div>
+<div class="ttc" id="aexclusion-mutuelle_8h_html_ace5c194a9dd43e021d611e79612d6f13"><div class="ttname"><a href="exclusion-mutuelle_8h.html#ace5c194a9dd43e021d611e79612d6f13">exclusionMutuelleSortir</a></div><div class="ttdeci">void exclusionMutuelleSortir(ExclusionMutuelle *em)</div><div class="ttdef"><b>Definition</b> <a href="exclusion-mutuelle_8c_source.html#l00161">exclusion-mutuelle.c:161</a></div></div>
+<div class="ttc" id="alistetaches_8h_html"><div class="ttname"><a href="listetaches_8h.html">listetaches.h</a></div></div>
+<div class="ttc" id="astruct__ExclusionMutuelle_html"><div class="ttname"><a href="struct__ExclusionMutuelle.html">_ExclusionMutuelle</a></div><div class="ttdoc">Définition des exclusions mutuelles.</div><div class="ttdef"><b>Definition</b> <a href="exclusion-mutuelle_8h_source.html#l00018">exclusion-mutuelle.h:18</a></div></div>
+<div class="ttc" id="astruct__ExclusionMutuelle_html_acce5d30580065f581b8eb87530d2f35e"><div class="ttname"><a href="struct__ExclusionMutuelle.html#acce5d30580065f581b8eb87530d2f35e">_ExclusionMutuelle::tachesEnAttente</a></div><div class="ttdeci">ListeTache tachesEnAttente</div><div class="ttdef"><b>Definition</b> <a href="exclusion-mutuelle_8h_source.html#l00020">exclusion-mutuelle.h:20</a></div></div>
+<div class="ttc" id="astruct__ExclusionMutuelle_html_aefe8e8651e45b8f86bc5f17e3d681363"><div class="ttname"><a href="struct__ExclusionMutuelle.html#aefe8e8651e45b8f86bc5f17e3d681363">_ExclusionMutuelle::verrou</a></div><div class="ttdeci">Atomique verrou</div><div class="ttdef"><b>Definition</b> <a href="exclusion-mutuelle_8h_source.html#l00019">exclusion-mutuelle.h:19</a></div></div>
+<div class="ttc" id="astruct__ListeTache_html"><div class="ttname"><a href="struct__ListeTache.html">_ListeTache</a></div><div class="ttdef"><b>Definition</b> <a href="listetaches_8h_source.html#l00018">listetaches.h:18</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

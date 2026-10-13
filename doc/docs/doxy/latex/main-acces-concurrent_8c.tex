@@ -1,0 +1,89 @@
+\doxysection{Référence du fichier /home/manu/\+PROGRAMMATION/\+C/\+Manu\+X/noyau/main-\/acces-\/concurrent.c}
+\hypertarget{main-acces-concurrent_8c}{}\label{main-acces-concurrent_8c}\index{/home/manu/PROGRAMMATION/C/ManuX/noyau/main-\/acces-\/concurrent.c@{/home/manu/PROGRAMMATION/C/ManuX/noyau/main-\/acces-\/concurrent.c}}
+
+
+Un exemple pitoyable de d�but de noyau.  
+
+
+{\ttfamily \#include $<$manux/config.\+h$>$}\newline
+{\ttfamily \#include $<$manux/errno.\+h$>$}\newline
+{\ttfamily \#include $<$manux/debug.\+h$>$}\newline
+{\ttfamily \#include $<$manux/console.\+h$>$}\newline
+{\ttfamily \#include $<$manux/kmalloc.\+h$>$}\newline
+{\ttfamily \#include $<$manux/printk.\+h$>$}\newline
+{\ttfamily \#include $<$manux/memoire.\+h$>$}\newline
+{\ttfamily \#include $<$manux/journal.\+h$>$}\newline
+{\ttfamily \#include $<$manux/fichier.\+h$>$}\newline
+{\ttfamily \#include $<$manux/bootloader.\+h$>$}\newline
+{\ttfamily \#include $<$manux/clavier.\+h$>$}\newline
+{\ttfamily \#include $<$manux/pagination.\+h$>$}\newline
+Graphe des dépendances par inclusion de main-\/acces-\/concurrent.c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{main-acces-concurrent_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} \mbox{\hyperlink{main-acces-concurrent_8c_a02fd73d861ef2e4aabb38c0c9ff82947}{init}} ()
+\item 
+\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} \mbox{\hyperlink{main-acces-concurrent_8c_a3568df994044ade7d37160ef731c223f}{start\+ManuX}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{inoeud_8h_a27ca90a5da64ab349726ed0513ec6e73}{INoeud}} \mbox{\hyperlink{main-acces-concurrent_8c_a972ff77e8e64fb59c5b315287496a83e}{i\+Noeud\+Console}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Un exemple pitoyable de d�but de noyau. 
+
+\begin{DoxyVerb}                                                (C) Manu Chaput 2000-2023
+\end{DoxyVerb}
+
+
+\begin{DoxyVerb}                                                (C) Manu Chaput 2000-2026
+\end{DoxyVerb}
+ 
+
+Définition dans le fichier \mbox{\hyperlink{main-acces-concurrent_8c_source}{main-\/acces-\/concurrent.\+c}}.
+
+
+
+\doxysubsection{Documentation des fonctions}
+\Hypertarget{main-acces-concurrent_8c_a02fd73d861ef2e4aabb38c0c9ff82947}\label{main-acces-concurrent_8c_a02fd73d861ef2e4aabb38c0c9ff82947} 
+\index{main-\/acces-\/concurrent.c@{main-\/acces-\/concurrent.c}!init@{init}}
+\index{init@{init}!main-\/acces-\/concurrent.c@{main-\/acces-\/concurrent.c}}
+\doxysubsubsection{\texorpdfstring{init()}{init()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} init (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+Définition à la ligne \mbox{\hyperlink{init-acces-concurrent_8c_source_l00074}{74}} du fichier \mbox{\hyperlink{init-acces-concurrent_8c_source}{init-\/acces-\/concurrent.\+c}}.
+
+\Hypertarget{main-acces-concurrent_8c_a3568df994044ade7d37160ef731c223f}\label{main-acces-concurrent_8c_a3568df994044ade7d37160ef731c223f} 
+\index{main-\/acces-\/concurrent.c@{main-\/acces-\/concurrent.c}!startManuX@{startManuX}}
+\index{startManuX@{startManuX}!main-\/acces-\/concurrent.c@{main-\/acces-\/concurrent.c}}
+\doxysubsubsection{\texorpdfstring{startManuX()}{startManuX()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} start\+ManuX (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}}}]{ }\end{DoxyParamCaption})}
+
+
+
+Définition à la ligne \mbox{\hyperlink{main-acces-concurrent_8c_source_l00027}{27}} du fichier \mbox{\hyperlink{main-acces-concurrent_8c_source}{main-\/acces-\/concurrent.\+c}}.
+
+
+
+\doxysubsection{Documentation des variables}
+\Hypertarget{main-acces-concurrent_8c_a972ff77e8e64fb59c5b315287496a83e}\label{main-acces-concurrent_8c_a972ff77e8e64fb59c5b315287496a83e} 
+\index{main-\/acces-\/concurrent.c@{main-\/acces-\/concurrent.c}!iNoeudConsole@{iNoeudConsole}}
+\index{iNoeudConsole@{iNoeudConsole}!main-\/acces-\/concurrent.c@{main-\/acces-\/concurrent.c}}
+\doxysubsubsection{\texorpdfstring{iNoeudConsole}{iNoeudConsole}}
+{\footnotesize\ttfamily \mbox{\hyperlink{inoeud_8h_a27ca90a5da64ab349726ed0513ec6e73}{INoeud}} i\+Noeud\+Console}
+
+Configuration de la console 
+
+Définition à la ligne \mbox{\hyperlink{main-acces-concurrent_8c_source_l00023}{23}} du fichier \mbox{\hyperlink{main-acces-concurrent_8c_source}{main-\/acces-\/concurrent.\+c}}.
+

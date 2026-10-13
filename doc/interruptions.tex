@@ -27,7 +27,7 @@ processeur. Nous pouvons les classifier en deux catégories
      exceptions}) sont déclanchées par le processeur lui-même comme
      conséquence de l'exécution (ou de la tentative d'exécution) d'une
      instruction. 
-\end{description}
+\end{itemize}
 
    Une interruption, qu'elle soit synchrone ou non, aura pour
 conséquence l'exécution par le processeur d'un code, appelé
@@ -275,7 +275,7 @@ suivants~:
 
    La figure suivante illustre cette logique.
 
-\includegraphcs{images/interruptions.png}
+\includegraphics{images/interruptions.png}
 
    Observons maintenant ces différents éléments. Nous allons commencer
 par écrire les handlers bas niveau en assembleur dans la prochaine
@@ -306,13 +306,13 @@ d'erreur~:
 
 \begin{lstlisting}{language=nasm}
 golbal stubHandlerExceptionDivO
-stubHandlerExceptionDivO :      ; Exception "division par zéro"
+stubHandlerExceptionDivO :      ; Exception "division par zero"
        push dword 0x0           ; On empile un "code"
-       push dword 0x0           ; On empile le numéro de l'exception
+       push dword 0x0           ; On empile le numero de l'exception
        pushad                   ; sauvegarde des registres
        call gestionException    ; appel de la fonction d'aiguillage
        popad                    ; restauration des registres
-       add esp, 0x08            ; on "dépile" le code et le numéro
+       add esp, 0x08            ; on "depile" le code et le numero
        iret
 \end{lstlisting}
 
@@ -323,11 +323,11 @@ erreur~:
 \begin{lstlisting}{language=nasm}
 global stubHandlerExceptionInvalidTSS
 stubHandlerExceptionInvalidTSS :
-       push dword 0x0a          ; On empile le numéro de l'exception
+       push dword 0x0a          ; On empile le numero de l'exception
        pushad                   ; sauvegarde des registres
        call gestionException    ; appel de la fonction d'aiguillage
        popad                    ; restauration des registres
-       add esp, 0x08            ; on "dépile" le code et le numéro
+       add esp, 0x08            ; on "depile" le code et le numero
        iret
 \end{lstlisting}
 
@@ -353,14 +353,14 @@ sont générées (encore via une macro) avec des noms génériques.
    
 \begin{lstlisting}
 stubHandlerIRQ0 :
-   push dword 0            ; On empile le numéro de l'IRQ
+   push dword 0            ; On empile le numero de l'IRQ
    jmp  handlerIRQ
 
 handlerIRQ :
    pusha                   ; On empile les registres
    call MANUX_HANDLER_IRQ  ; On appelle la fonction d'aiguillage
-   popa                    ; On dépile les registres
-   add esp, 4              ; Dépile le numéro d'IRQ
+   popa                    ; On depile les registres
+   add esp, 4              ; Depile le numero d'IRQ
    iret
 \end{lstlisting}
 
@@ -375,14 +375,14 @@ ressemble au code suivant
 
 \begin{lstlisting}
 stubHandlerInt42 :
-        push dword 42            ; On empile le numéro de l'interruption
+        push dword 42            ; On empile le numero de l'interruption
 	jmp  handlerInt
         
 handlerInt :
 	pushad                   ; Sauvegarde des registres
-        call gestionInterruption ; Invocation de la focntion d'aiguillage
+        call gestionInterruption ; Invocation de la fonction d'aiguillage
 	popad                    ; Restauration des registres
-        add esp, 4               ; On dépile le numéro d'interruption
+        add esp, 4               ; On depile le numero d'interruption
         iret
 \end{lstlisting}
 

@@ -1,0 +1,124 @@
+\doxysection{Référence du fichier /home/manu/\+PROGRAMMATION/\+C/\+Manu\+X/usr/init-\/acces-\/concurrent.c}
+\hypertarget{init-acces-concurrent_8c}{}\label{init-acces-concurrent_8c}\index{/home/manu/PROGRAMMATION/C/ManuX/usr/init-\/acces-\/concurrent.c@{/home/manu/PROGRAMMATION/C/ManuX/usr/init-\/acces-\/concurrent.c}}
+{\ttfamily \#include $<$manux/types.\+h$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$manux/errno.\+h$>$}\newline
+{\ttfamily \#include $<$unistd.\+h$>$}\newline
+{\ttfamily \#include $<$manux/string.\+h$>$}\newline
+Graphe des dépendances par inclusion de init-\/acces-\/concurrent.c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{init-acces-concurrent_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{init-acces-concurrent_8c_afa7b7638d0ac972327d9fadc93db9802}{TAILLE\+\_\+\+BUFFER}}~16
+\begin{DoxyCompactList}\small\item\em Taille du buffer utilisé en lecture. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{init-acces-concurrent_8c_a4555b23c30d8218901d05b82e3285c7d}{NB\+\_\+\+LECTEURS}}~2
+\begin{DoxyCompactList}\small\item\em Nombres de lecteurs et écrivains. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{init-acces-concurrent_8c_a5e2163deb903618b0564223548c831a7}{NB\+\_\+\+ECRIVAINS}}~2
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} \mbox{\hyperlink{init-acces-concurrent_8c_addee7001bdfdeeb5f4853e467b4c34de}{lecteur}} ()
+\item 
+\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} \mbox{\hyperlink{init-acces-concurrent_8c_aef0b8c8afc9d6871eaacfe54ea39c33e}{ecrivain}} ()
+\item 
+\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} \mbox{\hyperlink{init-acces-concurrent_8c_a02fd73d861ef2e4aabb38c0c9ff82947}{init}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{init-acces-concurrent_8c_a62d2d983a3da1fde907ff0f255bf4956}{fd}} \mbox{[}2\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Documentation des macros}
+\Hypertarget{init-acces-concurrent_8c_a5e2163deb903618b0564223548c831a7}\label{init-acces-concurrent_8c_a5e2163deb903618b0564223548c831a7} 
+\index{init-\/acces-\/concurrent.c@{init-\/acces-\/concurrent.c}!NB\_ECRIVAINS@{NB\_ECRIVAINS}}
+\index{NB\_ECRIVAINS@{NB\_ECRIVAINS}!init-\/acces-\/concurrent.c@{init-\/acces-\/concurrent.c}}
+\doxysubsubsection{\texorpdfstring{NB\_ECRIVAINS}{NB\_ECRIVAINS}}
+{\footnotesize\ttfamily \#define NB\+\_\+\+ECRIVAINS~2}
+
+
+
+Définition à la ligne \mbox{\hyperlink{init-acces-concurrent_8c_source_l00022}{22}} du fichier \mbox{\hyperlink{init-acces-concurrent_8c_source}{init-\/acces-\/concurrent.\+c}}.
+
+\Hypertarget{init-acces-concurrent_8c_a4555b23c30d8218901d05b82e3285c7d}\label{init-acces-concurrent_8c_a4555b23c30d8218901d05b82e3285c7d} 
+\index{init-\/acces-\/concurrent.c@{init-\/acces-\/concurrent.c}!NB\_LECTEURS@{NB\_LECTEURS}}
+\index{NB\_LECTEURS@{NB\_LECTEURS}!init-\/acces-\/concurrent.c@{init-\/acces-\/concurrent.c}}
+\doxysubsubsection{\texorpdfstring{NB\_LECTEURS}{NB\_LECTEURS}}
+{\footnotesize\ttfamily \#define NB\+\_\+\+LECTEURS~2}
+
+
+
+Nombres de lecteurs et écrivains. 
+
+
+
+Définition à la ligne \mbox{\hyperlink{init-acces-concurrent_8c_source_l00021}{21}} du fichier \mbox{\hyperlink{init-acces-concurrent_8c_source}{init-\/acces-\/concurrent.\+c}}.
+
+\Hypertarget{init-acces-concurrent_8c_afa7b7638d0ac972327d9fadc93db9802}\label{init-acces-concurrent_8c_afa7b7638d0ac972327d9fadc93db9802} 
+\index{init-\/acces-\/concurrent.c@{init-\/acces-\/concurrent.c}!TAILLE\_BUFFER@{TAILLE\_BUFFER}}
+\index{TAILLE\_BUFFER@{TAILLE\_BUFFER}!init-\/acces-\/concurrent.c@{init-\/acces-\/concurrent.c}}
+\doxysubsubsection{\texorpdfstring{TAILLE\_BUFFER}{TAILLE\_BUFFER}}
+{\footnotesize\ttfamily \#define TAILLE\+\_\+\+BUFFER~16}
+
+
+
+Taille du buffer utilisé en lecture. 
+
+
+
+Définition à la ligne \mbox{\hyperlink{init-acces-concurrent_8c_source_l00016}{16}} du fichier \mbox{\hyperlink{init-acces-concurrent_8c_source}{init-\/acces-\/concurrent.\+c}}.
+
+
+
+\doxysubsection{Documentation des fonctions}
+\Hypertarget{init-acces-concurrent_8c_aef0b8c8afc9d6871eaacfe54ea39c33e}\label{init-acces-concurrent_8c_aef0b8c8afc9d6871eaacfe54ea39c33e} 
+\index{init-\/acces-\/concurrent.c@{init-\/acces-\/concurrent.c}!ecrivain@{ecrivain}}
+\index{ecrivain@{ecrivain}!init-\/acces-\/concurrent.c@{init-\/acces-\/concurrent.c}}
+\doxysubsubsection{\texorpdfstring{ecrivain()}{ecrivain()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} ecrivain (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Définition à la ligne \mbox{\hyperlink{init-acces-concurrent_8c_source_l00049}{49}} du fichier \mbox{\hyperlink{init-acces-concurrent_8c_source}{init-\/acces-\/concurrent.\+c}}.
+
+\Hypertarget{init-acces-concurrent_8c_a02fd73d861ef2e4aabb38c0c9ff82947}\label{init-acces-concurrent_8c_a02fd73d861ef2e4aabb38c0c9ff82947} 
+\index{init-\/acces-\/concurrent.c@{init-\/acces-\/concurrent.c}!init@{init}}
+\index{init@{init}!init-\/acces-\/concurrent.c@{init-\/acces-\/concurrent.c}}
+\doxysubsubsection{\texorpdfstring{init()}{init()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}}}]{ }\end{DoxyParamCaption})}
+
+
+
+Définition à la ligne \mbox{\hyperlink{init-acces-concurrent_8c_source_l00074}{74}} du fichier \mbox{\hyperlink{init-acces-concurrent_8c_source}{init-\/acces-\/concurrent.\+c}}.
+
+\Hypertarget{init-acces-concurrent_8c_addee7001bdfdeeb5f4853e467b4c34de}\label{init-acces-concurrent_8c_addee7001bdfdeeb5f4853e467b4c34de} 
+\index{init-\/acces-\/concurrent.c@{init-\/acces-\/concurrent.c}!lecteur@{lecteur}}
+\index{lecteur@{lecteur}!init-\/acces-\/concurrent.c@{init-\/acces-\/concurrent.c}}
+\doxysubsubsection{\texorpdfstring{lecteur()}{lecteur()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} lecteur (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Définition à la ligne \mbox{\hyperlink{init-acces-concurrent_8c_source_l00026}{26}} du fichier \mbox{\hyperlink{init-acces-concurrent_8c_source}{init-\/acces-\/concurrent.\+c}}.
+
+
+
+\doxysubsection{Documentation des variables}
+\Hypertarget{init-acces-concurrent_8c_a62d2d983a3da1fde907ff0f255bf4956}\label{init-acces-concurrent_8c_a62d2d983a3da1fde907ff0f255bf4956} 
+\index{init-\/acces-\/concurrent.c@{init-\/acces-\/concurrent.c}!fd@{fd}}
+\index{fd@{fd}!init-\/acces-\/concurrent.c@{init-\/acces-\/concurrent.c}}
+\doxysubsubsection{\texorpdfstring{fd}{fd}}
+{\footnotesize\ttfamily int fd\mbox{[}2\mbox{]}}
+
+
+
+Définition à la ligne \mbox{\hyperlink{init-acces-concurrent_8c_source_l00024}{24}} du fichier \mbox{\hyperlink{init-acces-concurrent_8c_source}{init-\/acces-\/concurrent.\+c}}.
+

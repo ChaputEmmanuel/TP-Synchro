@@ -1,0 +1,132 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>My Project:  Fichier source de /home/manu/PROGRAMMATION/C/ManuX/noyau/main-test-synchro.c</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">My Project
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function() { init_codefold(0); });
+/* @license-end */
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_b49ee5e1e1e78348df5ce57bc52e7bb8.html">noyau</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle"><div class="title">main-test-synchro.c</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="main-test-synchro_8c.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &lt;manux/config.h&gt;</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &lt;<a class="code" href="include_2manux_2console_8h.html">manux/console.h</a>&gt;</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &lt;<a class="code" href="include_2manux_2printk_8h.html">manux/printk.h</a>&gt;</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &lt;<a class="code" href="include_2manux_2interruptions_8h.html">manux/interruptions.h</a>&gt;</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &lt;<a class="code" href="manux_2intel-8259a_8h.html">manux/intel-8259a.h</a>&gt;</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="keyword">extern</span> <span class="keywordtype">void</span> <a class="code hl_function" href="main-test-synchro_8c.html#a02fd73d861ef2e4aabb38c0c9ff82947">init</a>();</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
+<div class="foldopen" id="foldopen00014" data-start="{" data-end="}">
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno"><a class="line" href="main-test-synchro_8c.html#a3568df994044ade7d37160ef731c223f">   14</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="main-test-synchro_8c.html#a3568df994044ade7d37160ef731c223f">startManuX</a>()</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>{</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>   <span class="comment">// Initialisation de la console noyau</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>   <a class="code hl_function" href="include_2manux_2console_8h.html#a29466c636bd065544638829883090d54">consoleInitialisation</a>();</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>   <span class="comment">// Initialisation de la table des interruptions</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>   <a class="code hl_function" href="interruptions_8c.html#a8bab70dd2ead4ff36a0c2de9b3d3aff8">initialiserIDT</a>();   </div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>   <a class="code hl_function" href="intel-8259a_8c.html#ab3ca008de7fbd6c1917bead0ace48463">i8259aInit</a>(<a class="code hl_define" href="pc-i386_8h.html#aa16fe4051fc8254307ded29de196bbfc">MANUX_INT_BASE_IRQ</a>);</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>   </div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>   <a class="code hl_function" href="include_2manux_2appelsysteme_8h.html#ae9c459f3384b085e316b0d43a308d69b">initialiserAppelsSysteme</a>();</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>   </div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>   <span class="comment">// Un petit message</span></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>   <a class="code hl_function" href="include_2manux_2printk_8h.html#a25b30e8bbadd54650c56895999dd808f">printk</a>(<span class="stringliteral">&quot;Printk dit bonjour !\n&quot;</span>);</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>   <a class="code hl_function" href="main-test-synchro_8c.html#a02fd73d861ef2e4aabb38c0c9ff82947">init</a>();</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>}   <span class="comment">/* startManuX */</span></div>
+</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
+<div class="ttc" id="ainclude_2manux_2appelsysteme_8h_html_ae9c459f3384b085e316b0d43a308d69b"><div class="ttname"><a href="include_2manux_2appelsysteme_8h.html#ae9c459f3384b085e316b0d43a308d69b">initialiserAppelsSysteme</a></div><div class="ttdeci">void initialiserAppelsSysteme(void)</div><div class="ttdef"><b>Definition</b> <a href="appelsysteme_8c_source.html#l00108">appelsysteme.c:108</a></div></div>
+<div class="ttc" id="ainclude_2manux_2console_8h_html"><div class="ttname"><a href="include_2manux_2console_8h.html">console.h</a></div><div class="ttdoc">Définition des fonctions de base d'accés à la console.</div></div>
+<div class="ttc" id="ainclude_2manux_2console_8h_html_a29466c636bd065544638829883090d54"><div class="ttname"><a href="include_2manux_2console_8h.html#a29466c636bd065544638829883090d54">consoleInitialisation</a></div><div class="ttdeci">int consoleInitialisation(void)</div><div class="ttdoc">Initialisation du système de console sans notion de fichier.</div><div class="ttdef"><b>Definition</b> <a href="console_8c_source.html#l00869">console.c:869</a></div></div>
+<div class="ttc" id="ainclude_2manux_2interruptions_8h_html"><div class="ttname"><a href="include_2manux_2interruptions_8h.html">interruptions.h</a></div></div>
+<div class="ttc" id="ainclude_2manux_2printk_8h_html"><div class="ttname"><a href="include_2manux_2printk_8h.html">printk.h</a></div><div class="ttdoc">Définition des fonctions de base d'entrée-sortie du noyau.</div></div>
+<div class="ttc" id="ainclude_2manux_2printk_8h_html_a25b30e8bbadd54650c56895999dd808f"><div class="ttname"><a href="include_2manux_2printk_8h.html#a25b30e8bbadd54650c56895999dd808f">printk</a></div><div class="ttdeci">void printk(char *format,...)</div><div class="ttdoc">Fonction principale d'affichage dans le noyau.</div><div class="ttdef"><b>Definition</b> <a href="printk_8c_source.html#l00166">printk.c:166</a></div></div>
+<div class="ttc" id="aintel-8259a_8c_html_ab3ca008de7fbd6c1917bead0ace48463"><div class="ttname"><a href="intel-8259a_8c.html#ab3ca008de7fbd6c1917bead0ace48463">i8259aInit</a></div><div class="ttdeci">void i8259aInit(uint8_t intBase)</div><div class="ttdef"><b>Definition</b> <a href="intel-8259a_8c_source.html#l00061">intel-8259a.c:61</a></div></div>
+<div class="ttc" id="ainterruptions_8c_html_a8bab70dd2ead4ff36a0c2de9b3d3aff8"><div class="ttname"><a href="interruptions_8c.html#a8bab70dd2ead4ff36a0c2de9b3d3aff8">initialiserIDT</a></div><div class="ttdeci">void initialiserIDT(void)</div><div class="ttdoc">! Initialiser l'IDT (Interrupt Description Table)</div><div class="ttdef"><b>Definition</b> <a href="interruptions_8c_source.html#l00185">interruptions.c:185</a></div></div>
+<div class="ttc" id="amain-test-synchro_8c_html_a02fd73d861ef2e4aabb38c0c9ff82947"><div class="ttname"><a href="main-test-synchro_8c.html#a02fd73d861ef2e4aabb38c0c9ff82947">init</a></div><div class="ttdeci">void init()</div><div class="ttdef"><b>Definition</b> <a href="init-acces-concurrent_8c_source.html#l00074">init-acces-concurrent.c:74</a></div></div>
+<div class="ttc" id="amain-test-synchro_8c_html_a3568df994044ade7d37160ef731c223f"><div class="ttname"><a href="main-test-synchro_8c.html#a3568df994044ade7d37160ef731c223f">startManuX</a></div><div class="ttdeci">void startManuX()</div><div class="ttdef"><b>Definition</b> <a href="main-test-synchro_8c_source.html#l00014">main-test-synchro.c:14</a></div></div>
+<div class="ttc" id="amanux_2intel-8259a_8h_html"><div class="ttname"><a href="manux_2intel-8259a_8h.html">intel-8259a.h</a></div></div>
+<div class="ttc" id="apc-i386_8h_html_aa16fe4051fc8254307ded29de196bbfc"><div class="ttname"><a href="pc-i386_8h.html#aa16fe4051fc8254307ded29de196bbfc">MANUX_INT_BASE_IRQ</a></div><div class="ttdeci">#define MANUX_INT_BASE_IRQ</div><div class="ttdef"><b>Definition</b> <a href="pc-i386_8h_source.html#l00033">pc-i386.h:33</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

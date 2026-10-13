@@ -1,0 +1,191 @@
+\doxysection{Référence du fichier /home/manu/\+PROGRAMMATION/\+C/\+Manu\+X/noyau/kmalloc-\/zs.c}
+\hypertarget{kmalloc-zs_8c}{}\label{kmalloc-zs_8c}\index{/home/manu/PROGRAMMATION/C/ManuX/noyau/kmalloc-\/zs.c@{/home/manu/PROGRAMMATION/C/ManuX/noyau/kmalloc-\/zs.c}}
+
+
+Allocation mémoire multi-\/usage pour des tailles jusqu\textquotesingle{}à 4092 octets.  
+
+
+{\ttfamily \#include "{}manux/printk.\+h"{}}\newline
+{\ttfamily \#include $<$manux/debug.\+h$>$}\newline
+{\ttfamily \#include $<$manux/memoire.\+h$>$}\newline
+{\ttfamily \#include $<$manux/kmalloc-\/zs.\+h$>$}\newline
+Graphe des dépendances par inclusion de kmalloc-\/zs.c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{kmalloc-zs_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct__enteteBlocMemoire}{\+\_\+entete\+Bloc\+Memoire}}
+\begin{DoxyCompactList}\small\item\em Description d\textquotesingle{}un bloc mémoire fourni à l\textquotesingle{}utilisateur En fait, on ne lui fourni que le pointeur vers la partie qu\textquotesingle{}il peut utiliser. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{kmalloc-zs_8c_a39753000a6c327c0f33daa798d5b7357}{MANUX\+\_\+\+KMALLOC\+\_\+\+MAGIQUE}}~0x4832
+\begin{DoxyCompactList}\small\item\em Un nombre qui nous permettra d\textquotesingle{}avoir un peu plus confiance dans les blocs mémoire rendus par l\textquotesingle{}utilisateur. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{kmalloc-zs_8c_ae89de83ab36636d777d5dcde5b1675a8}{MANUX\+\_\+\+KMALLOC\+\_\+\+ORDRE\+\_\+\+MIN}}~3
+\begin{DoxyCompactList}\small\item\em Log2 de la taille max allouée. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{kmalloc-zs_8c_a68c5237b82c6bd6925f8767b62dbf6a4}{MANUX\+\_\+\+KMALLOC\+\_\+\+ORDRE\+\_\+\+MAX}}~12
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Définitions de type}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \mbox{\hyperlink{struct__enteteBlocMemoire}{\+\_\+entete\+Bloc\+Memoire}} \mbox{\hyperlink{kmalloc-zs_8c_a9ddc11628cf9571287c41a7fdbde4549}{entete\+Bloc\+Memoire}}
+\begin{DoxyCompactList}\small\item\em Description d\textquotesingle{}un bloc mémoire fourni à l\textquotesingle{}utilisateur En fait, on ne lui fourni que le pointeur vers la partie qu\textquotesingle{}il peut utiliser. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} \mbox{\hyperlink{kmalloc-zs_8c_a612af40ff50bab56d5d2ce7b0e37dc53}{kmalloc\+Afficher\+Statistiques}} (\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}})
+\item 
+\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} \mbox{\hyperlink{kmalloc-zs_8c_a9834d71816871b865956b59d641f602f}{kmalloc\+Initialisation}} (\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}})
+\begin{DoxyCompactList}\small\item\em Initialisation du sytème kmalloc. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{kmalloc-zs_8c_af549fce4aa887cd31918e6c5dd0950f5}{kmalloc}} (\mbox{\hyperlink{include_2manux_2stddef_8h_acf18a0d6c4b39d531e021702e9a77984}{size\+\_\+t}} n)
+\begin{DoxyCompactList}\small\item\em Allocation d\textquotesingle{}une zone de n octets. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} \mbox{\hyperlink{kmalloc-zs_8c_af7105034bf054e37218d6ade20db4684}{kfree}} (\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} \texorpdfstring{$\ast$}{*}p)
+\begin{DoxyCompactList}\small\item\em Libération d\textquotesingle{}une zone mémoire allouée Si le bloc avait été légitiment alloué, il est réintégré dans les listes de blocs libres, si possible en le fusionnant avec son bloc siamois de sorte à reconstituer un plus gros bloc. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{kmalloc-zs_8c_a9ddc11628cf9571287c41a7fdbde4549}{entete\+Bloc\+Memoire}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{kmalloc-zs_8c_a8a4e30f5bbfcad6f64ab7a4de58cb256}{blocs\+Libres}} \mbox{[}\mbox{\hyperlink{kmalloc-zs_8c_a68c5237b82c6bd6925f8767b62dbf6a4}{MANUX\+\_\+\+KMALLOC\+\_\+\+ORDRE\+\_\+\+MAX}}+1\mbox{]} = \{\mbox{\hyperlink{include_2manux_2stddef_8h_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}}\}
+\begin{DoxyCompactList}\small\item\em Listes d\textquotesingle{}entêtes de blos libres. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Allocation mémoire multi-\/usage pour des tailles jusqu\textquotesingle{}à 4092 octets. 
+
+La technique utilisée ici est celle des zones siamoises (buddy system) 
+
+Définition dans le fichier \mbox{\hyperlink{kmalloc-zs_8c_source}{kmalloc-\/zs.\+c}}.
+
+
+
+\doxysubsection{Documentation des macros}
+\Hypertarget{kmalloc-zs_8c_a39753000a6c327c0f33daa798d5b7357}\label{kmalloc-zs_8c_a39753000a6c327c0f33daa798d5b7357} 
+\index{kmalloc-\/zs.c@{kmalloc-\/zs.c}!MANUX\_KMALLOC\_MAGIQUE@{MANUX\_KMALLOC\_MAGIQUE}}
+\index{MANUX\_KMALLOC\_MAGIQUE@{MANUX\_KMALLOC\_MAGIQUE}!kmalloc-\/zs.c@{kmalloc-\/zs.c}}
+\doxysubsubsection{\texorpdfstring{MANUX\_KMALLOC\_MAGIQUE}{MANUX\_KMALLOC\_MAGIQUE}}
+{\footnotesize\ttfamily \#define MANUX\+\_\+\+KMALLOC\+\_\+\+MAGIQUE~0x4832}
+
+
+
+Un nombre qui nous permettra d\textquotesingle{}avoir un peu plus confiance dans les blocs mémoire rendus par l\textquotesingle{}utilisateur. 
+
+
+
+Définition à la ligne \mbox{\hyperlink{kmalloc-zs_8c_source_l00018}{18}} du fichier \mbox{\hyperlink{kmalloc-zs_8c_source}{kmalloc-\/zs.\+c}}.
+
+\Hypertarget{kmalloc-zs_8c_a68c5237b82c6bd6925f8767b62dbf6a4}\label{kmalloc-zs_8c_a68c5237b82c6bd6925f8767b62dbf6a4} 
+\index{kmalloc-\/zs.c@{kmalloc-\/zs.c}!MANUX\_KMALLOC\_ORDRE\_MAX@{MANUX\_KMALLOC\_ORDRE\_MAX}}
+\index{MANUX\_KMALLOC\_ORDRE\_MAX@{MANUX\_KMALLOC\_ORDRE\_MAX}!kmalloc-\/zs.c@{kmalloc-\/zs.c}}
+\doxysubsubsection{\texorpdfstring{MANUX\_KMALLOC\_ORDRE\_MAX}{MANUX\_KMALLOC\_ORDRE\_MAX}}
+{\footnotesize\ttfamily \#define MANUX\+\_\+\+KMALLOC\+\_\+\+ORDRE\+\_\+\+MAX~12}
+
+
+
+Définition à la ligne \mbox{\hyperlink{kmalloc-zs_8c_source_l00024}{24}} du fichier \mbox{\hyperlink{kmalloc-zs_8c_source}{kmalloc-\/zs.\+c}}.
+
+\Hypertarget{kmalloc-zs_8c_ae89de83ab36636d777d5dcde5b1675a8}\label{kmalloc-zs_8c_ae89de83ab36636d777d5dcde5b1675a8} 
+\index{kmalloc-\/zs.c@{kmalloc-\/zs.c}!MANUX\_KMALLOC\_ORDRE\_MIN@{MANUX\_KMALLOC\_ORDRE\_MIN}}
+\index{MANUX\_KMALLOC\_ORDRE\_MIN@{MANUX\_KMALLOC\_ORDRE\_MIN}!kmalloc-\/zs.c@{kmalloc-\/zs.c}}
+\doxysubsubsection{\texorpdfstring{MANUX\_KMALLOC\_ORDRE\_MIN}{MANUX\_KMALLOC\_ORDRE\_MIN}}
+{\footnotesize\ttfamily \#define MANUX\+\_\+\+KMALLOC\+\_\+\+ORDRE\+\_\+\+MIN~3}
+
+
+
+Log2 de la taille max allouée. 
+
+
+
+Définition à la ligne \mbox{\hyperlink{kmalloc-zs_8c_source_l00023}{23}} du fichier \mbox{\hyperlink{kmalloc-zs_8c_source}{kmalloc-\/zs.\+c}}.
+
+
+
+\doxysubsection{Documentation des définitions de type}
+\Hypertarget{kmalloc-zs_8c_a9ddc11628cf9571287c41a7fdbde4549}\label{kmalloc-zs_8c_a9ddc11628cf9571287c41a7fdbde4549} 
+\index{kmalloc-\/zs.c@{kmalloc-\/zs.c}!enteteBlocMemoire@{enteteBlocMemoire}}
+\index{enteteBlocMemoire@{enteteBlocMemoire}!kmalloc-\/zs.c@{kmalloc-\/zs.c}}
+\doxysubsubsection{\texorpdfstring{enteteBlocMemoire}{enteteBlocMemoire}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{struct__enteteBlocMemoire}{\+\_\+entete\+Bloc\+Memoire}} \mbox{\hyperlink{kmalloc-zs_8c_a9ddc11628cf9571287c41a7fdbde4549}{entete\+Bloc\+Memoire}}}
+
+
+
+Description d\textquotesingle{}un bloc mémoire fourni à l\textquotesingle{}utilisateur En fait, on ne lui fourni que le pointeur vers la partie qu\textquotesingle{}il peut utiliser. 
+
+L\textquotesingle{}entête est une union car elle peut prendre deux formes. Lorsque le bloc est alloué et fourni à l\textquotesingle{}utilisateur, on y stocque un nombre "{}magique"{} qu\textquotesingle{}on espère retrouver, et une taille qui nous permettra de savoir combien d\textquotesingle{}octets ont été alloués. Lorsque le bloc est libre, on utilise cet entête pour mettre en place une liste chaînée. 
+
+\doxysubsection{Documentation des fonctions}
+\Hypertarget{kmalloc-zs_8c_af7105034bf054e37218d6ade20db4684}\label{kmalloc-zs_8c_af7105034bf054e37218d6ade20db4684} 
+\index{kmalloc-\/zs.c@{kmalloc-\/zs.c}!kfree@{kfree}}
+\index{kfree@{kfree}!kmalloc-\/zs.c@{kmalloc-\/zs.c}}
+\doxysubsubsection{\texorpdfstring{kfree()}{kfree()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} kfree (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} \texorpdfstring{$\ast$}{*}}]{p }\end{DoxyParamCaption})}
+
+
+
+Libération d\textquotesingle{}une zone mémoire allouée Si le bloc avait été légitiment alloué, il est réintégré dans les listes de blocs libres, si possible en le fusionnant avec son bloc siamois de sorte à reconstituer un plus gros bloc. 
+
+Libération d\textquotesingle{}une zone mémoire allouée. 
+
+Définition à la ligne \mbox{\hyperlink{kmalloc-zs_8c_source_l00265}{265}} du fichier \mbox{\hyperlink{kmalloc-zs_8c_source}{kmalloc-\/zs.\+c}}.
+
+\Hypertarget{kmalloc-zs_8c_af549fce4aa887cd31918e6c5dd0950f5}\label{kmalloc-zs_8c_af549fce4aa887cd31918e6c5dd0950f5} 
+\index{kmalloc-\/zs.c@{kmalloc-\/zs.c}!kmalloc@{kmalloc}}
+\index{kmalloc@{kmalloc}!kmalloc-\/zs.c@{kmalloc-\/zs.c}}
+\doxysubsubsection{\texorpdfstring{kmalloc()}{kmalloc()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} \texorpdfstring{$\ast$}{*} kmalloc (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{include_2manux_2stddef_8h_acf18a0d6c4b39d531e021702e9a77984}{size\+\_\+t}}}]{n }\end{DoxyParamCaption})}
+
+
+
+Allocation d\textquotesingle{}une zone de n octets. 
+
+\begin{DoxyReturn}{Renvoie}
+Pointeur sur la zone en cas de succès, NULL en cas d\textquotesingle{}échec 
+\end{DoxyReturn}
+
+
+Définition à la ligne \mbox{\hyperlink{kmalloc-zs_8c_source_l00139}{139}} du fichier \mbox{\hyperlink{kmalloc-zs_8c_source}{kmalloc-\/zs.\+c}}.
+
+\Hypertarget{kmalloc-zs_8c_a612af40ff50bab56d5d2ce7b0e37dc53}\label{kmalloc-zs_8c_a612af40ff50bab56d5d2ce7b0e37dc53} 
+\index{kmalloc-\/zs.c@{kmalloc-\/zs.c}!kmallocAfficherStatistiques@{kmallocAfficherStatistiques}}
+\index{kmallocAfficherStatistiques@{kmallocAfficherStatistiques}!kmalloc-\/zs.c@{kmalloc-\/zs.c}}
+\doxysubsubsection{\texorpdfstring{kmallocAfficherStatistiques()}{kmallocAfficherStatistiques()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} kmalloc\+Afficher\+Statistiques (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}}}]{ }\end{DoxyParamCaption})}
+
+
+
+Définition à la ligne \mbox{\hyperlink{kmalloc-zs_8c_source_l00059}{59}} du fichier \mbox{\hyperlink{kmalloc-zs_8c_source}{kmalloc-\/zs.\+c}}.
+
+\Hypertarget{kmalloc-zs_8c_a9834d71816871b865956b59d641f602f}\label{kmalloc-zs_8c_a9834d71816871b865956b59d641f602f} 
+\index{kmalloc-\/zs.c@{kmalloc-\/zs.c}!kmallocInitialisation@{kmallocInitialisation}}
+\index{kmallocInitialisation@{kmallocInitialisation}!kmalloc-\/zs.c@{kmalloc-\/zs.c}}
+\doxysubsubsection{\texorpdfstring{kmallocInitialisation()}{kmallocInitialisation()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} kmalloc\+Initialisation (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}}}]{ }\end{DoxyParamCaption})}
+
+
+
+Initialisation du sytème kmalloc. 
+
+
+
+Définition à la ligne \mbox{\hyperlink{kmalloc-zs_8c_source_l00080}{80}} du fichier \mbox{\hyperlink{kmalloc-zs_8c_source}{kmalloc-\/zs.\+c}}.
+
+
+
+\doxysubsection{Documentation des variables}
+\Hypertarget{kmalloc-zs_8c_a8a4e30f5bbfcad6f64ab7a4de58cb256}\label{kmalloc-zs_8c_a8a4e30f5bbfcad6f64ab7a4de58cb256} 
+\index{kmalloc-\/zs.c@{kmalloc-\/zs.c}!blocsLibres@{blocsLibres}}
+\index{blocsLibres@{blocsLibres}!kmalloc-\/zs.c@{kmalloc-\/zs.c}}
+\doxysubsubsection{\texorpdfstring{blocsLibres}{blocsLibres}}
+{\footnotesize\ttfamily \mbox{\hyperlink{kmalloc-zs_8c_a9ddc11628cf9571287c41a7fdbde4549}{entete\+Bloc\+Memoire}}\texorpdfstring{$\ast$}{*} blocs\+Libres\mbox{[}\mbox{\hyperlink{kmalloc-zs_8c_a68c5237b82c6bd6925f8767b62dbf6a4}{MANUX\+\_\+\+KMALLOC\+\_\+\+ORDRE\+\_\+\+MAX}}+1\mbox{]} = \{\mbox{\hyperlink{include_2manux_2stddef_8h_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}}\}}
+
+
+
+Listes d\textquotesingle{}entêtes de blos libres. 
+
+
+
+Définition à la ligne \mbox{\hyperlink{kmalloc-zs_8c_source_l00051}{51}} du fichier \mbox{\hyperlink{kmalloc-zs_8c_source}{kmalloc-\/zs.\+c}}.
+

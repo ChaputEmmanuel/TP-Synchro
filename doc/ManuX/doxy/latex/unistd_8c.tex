@@ -1,0 +1,75 @@
+\doxysection{Référence du fichier /home/manu/\+PROGRAMMATION/\+C/\+Manu\+X/usr/unistd.c}
+\hypertarget{unistd_8c}{}\label{unistd_8c}\index{/home/manu/PROGRAMMATION/C/ManuX/usr/unistd.c@{/home/manu/PROGRAMMATION/C/ManuX/usr/unistd.c}}
+
+
+Implantation des fonctions de base du mode utilisateur.  
+
+
+{\ttfamily \#include $<$manux/config.\+h$>$}\newline
+{\ttfamily \#include $<$manux/appelsysteme.\+h$>$}\newline
+{\ttfamily \#include $<$unistd.\+h$>$}\newline
+Graphe des dépendances par inclusion de unistd.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{unistd_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{unistd_8c_aa7d19b3c72ce326db9c3813d3c3628f6}{appel\+Systeme0}} (\mbox{\hyperlink{include_2manux_2appelsystemenum_8h_a3e18211ea522a478c94efc68b359063a}{NBAS\+\_\+\+BASCULER\+\_\+\+TACHE}}, int, \mbox{\hyperlink{unistd_8h_a3d9572ab938a72bddfc58ab5f224d831}{basculer\+Tache}})
+\item 
+\mbox{\hyperlink{unistd_8c_a9cd7567a5333d36cdcb5571eae2816bb}{appel\+Systeme0}} (\mbox{\hyperlink{include_2manux_2appelsystemenum_8h_ae0200ee1c8ec09ed15ff119ad17afa2d}{NBAS\+\_\+\+IDENTIFIANT\+\_\+\+TACHE}}, int, \mbox{\hyperlink{unistd_8h_a321e672f528d0dd0927c93ff3a09c5c7}{identifiant\+Tache}})
+\item 
+\mbox{\hyperlink{unistd_8c_ae60e4a0f81df6b8c9a2dcc7430575adc}{appel\+Systeme0}} (\mbox{\hyperlink{include_2manux_2appelsystemenum_8h_a2bc38972d09552a7f7334ac03e1a70f0}{NBAS\+\_\+\+DUMB}}, int, \mbox{\hyperlink{unistd_8h_abf637d92e7036ee63342a8693dc9c228}{appel\+Systeme\+Inutile}})
+\item 
+typedef \mbox{\hyperlink{unistd_8c_a8b557317cab839f44554f513f498e057}{void}} (Corps\+Tache())
+\item 
+\mbox{\hyperlink{unistd_8c_a52f8debe514b16952e6f81b6309cb0b0}{appel\+Systeme2}} (\mbox{\hyperlink{include_2manux_2appelsystemenum_8h_a0be4551c809b51ac7a4103b267ee9ba7}{NBAS\+\_\+\+CREER\+\_\+\+TACHE}}, int, \mbox{\hyperlink{unistd_8h_aa504f61bfbbdfa9a463450f8b21db44f}{creer\+Nouvelle\+Tache}}, Corps\+Tache, \mbox{\hyperlink{include_2manux_2types_8h_a5b7544e51b136e716e4eccc0602bafd7}{booleen}})
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Implantation des fonctions de base du mode utilisateur. 
+
+\begin{DoxyVerb}                                                 (C) Manu Chaput 2002-2025
+\end{DoxyVerb}
+ 
+
+Définition dans le fichier \mbox{\hyperlink{unistd_8c_source}{unistd.\+c}}.
+
+
+
+\doxysubsection{Documentation des fonctions}
+\Hypertarget{unistd_8c_aa7d19b3c72ce326db9c3813d3c3628f6}\label{unistd_8c_aa7d19b3c72ce326db9c3813d3c3628f6} 
+\index{unistd.c@{unistd.c}!appelSysteme0@{appelSysteme0}}
+\index{appelSysteme0@{appelSysteme0}!unistd.c@{unistd.c}}
+\doxysubsubsection{\texorpdfstring{appelSysteme0()}{appelSysteme0()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily appel\+Systeme0 (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{include_2manux_2appelsystemenum_8h_a3e18211ea522a478c94efc68b359063a}{NBAS\+\_\+\+BASCULER\+\_\+\+TACHE}}}]{,  }\item[{int}]{,  }\item[{\mbox{\hyperlink{unistd_8h_a3d9572ab938a72bddfc58ab5f224d831}{basculer\+Tache}}}]{ }\end{DoxyParamCaption})}
+
+\Hypertarget{unistd_8c_ae60e4a0f81df6b8c9a2dcc7430575adc}\label{unistd_8c_ae60e4a0f81df6b8c9a2dcc7430575adc} 
+\index{unistd.c@{unistd.c}!appelSysteme0@{appelSysteme0}}
+\index{appelSysteme0@{appelSysteme0}!unistd.c@{unistd.c}}
+\doxysubsubsection{\texorpdfstring{appelSysteme0()}{appelSysteme0()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily appel\+Systeme0 (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{include_2manux_2appelsystemenum_8h_a2bc38972d09552a7f7334ac03e1a70f0}{NBAS\+\_\+\+DUMB}}}]{,  }\item[{int}]{,  }\item[{\mbox{\hyperlink{unistd_8h_abf637d92e7036ee63342a8693dc9c228}{appel\+Systeme\+Inutile}}}]{ }\end{DoxyParamCaption})}
+
+\Hypertarget{unistd_8c_a9cd7567a5333d36cdcb5571eae2816bb}\label{unistd_8c_a9cd7567a5333d36cdcb5571eae2816bb} 
+\index{unistd.c@{unistd.c}!appelSysteme0@{appelSysteme0}}
+\index{appelSysteme0@{appelSysteme0}!unistd.c@{unistd.c}}
+\doxysubsubsection{\texorpdfstring{appelSysteme0()}{appelSysteme0()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily appel\+Systeme0 (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{include_2manux_2appelsystemenum_8h_ae0200ee1c8ec09ed15ff119ad17afa2d}{NBAS\+\_\+\+IDENTIFIANT\+\_\+\+TACHE}}}]{,  }\item[{int}]{,  }\item[{\mbox{\hyperlink{unistd_8h_a321e672f528d0dd0927c93ff3a09c5c7}{identifiant\+Tache}}}]{ }\end{DoxyParamCaption})}
+
+\Hypertarget{unistd_8c_a52f8debe514b16952e6f81b6309cb0b0}\label{unistd_8c_a52f8debe514b16952e6f81b6309cb0b0} 
+\index{unistd.c@{unistd.c}!appelSysteme2@{appelSysteme2}}
+\index{appelSysteme2@{appelSysteme2}!unistd.c@{unistd.c}}
+\doxysubsubsection{\texorpdfstring{appelSysteme2()}{appelSysteme2()}}
+{\footnotesize\ttfamily appel\+Systeme2 (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{include_2manux_2appelsystemenum_8h_a0be4551c809b51ac7a4103b267ee9ba7}{NBAS\+\_\+\+CREER\+\_\+\+TACHE}}}]{,  }\item[{int}]{,  }\item[{\mbox{\hyperlink{unistd_8h_aa504f61bfbbdfa9a463450f8b21db44f}{creer\+Nouvelle\+Tache}}}]{,  }\item[{Corps\+Tache}]{,  }\item[{\mbox{\hyperlink{include_2manux_2types_8h_a5b7544e51b136e716e4eccc0602bafd7}{booleen}}}]{ }\end{DoxyParamCaption})}
+
+\Hypertarget{unistd_8c_a8b557317cab839f44554f513f498e057}\label{unistd_8c_a8b557317cab839f44554f513f498e057} 
+\index{unistd.c@{unistd.c}!void@{void}}
+\index{void@{void}!unistd.c@{unistd.c}}
+\doxysubsubsection{\texorpdfstring{void()}{void()}}
+{\footnotesize\ttfamily typedef void (\begin{DoxyParamCaption}\item[{Corps\+Tache()}]{ }\end{DoxyParamCaption})}
+

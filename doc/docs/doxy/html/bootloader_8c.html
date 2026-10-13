@@ -1,0 +1,331 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>My Project: Référence du fichier /home/manu/PROGRAMMATION/C/ManuX/noyau/bootloader.c</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">My Project
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_b49ee5e1e1e78348df5ce57bc52e7bb8.html">noyau</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#define-members">Macros</a> &#124;
+<a href="#func-members">Fonctions</a> &#124;
+<a href="#var-members">Variables</a>  </div>
+  <div class="headertitle"><div class="title">Référence du fichier bootloader.c</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Gestion de l'interfaçage avec le bootloader.  
+<a href="#details">Plus de détails...</a></p>
+<div class="textblock"><code>#include &lt;<a class="el" href="manux_2bootloader_8h_source.html">manux/bootloader.h</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="manux_2stdlib_8h_source.html">manux/stdlib.h</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="manux_2debug_8h_source.html">manux/debug.h</a>&gt;</code><br />
+<code>#include &lt;manux/string.h&gt;</code><br />
+<code>#include &lt;<a class="el" href="include_2manux_2registre_8h_source.html">manux/registre.h</a>&gt;</code><br />
+</div><div class="textblock"><div class="dynheader">
+Graphe des dépendances par inclusion de bootloader.c:</div>
+<div class="dyncontent">
+<div class="center"><img src="bootloader_8c__incl.png" border="0" usemap="#a_2home_2manu_2PROGRAMMATION_2C_2ManuX_2noyau_2bootloader_8c" alt=""/></div>
+<map name="a_2home_2manu_2PROGRAMMATION_2C_2ManuX_2noyau_2bootloader_8c" id="a_2home_2manu_2PROGRAMMATION_2C_2ManuX_2noyau_2bootloader_8c">
+<area shape="rect" title="Gestion de l&#39;interfaçage avec le bootloader." alt="" coords="587,5,813,45"/>
+<area shape="rect" href="manux_2bootloader_8h.html" title="Interfaçage avec les bootloader." alt="" coords="165,93,317,119"/>
+<area shape="poly" title=" " alt="" coords="591,48,322,94,321,88,590,43"/>
+<area shape="rect" title=" " alt="" coords="181,167,301,192"/>
+<area shape="poly" title=" " alt="" coords="644,48,290,165,288,160,642,43"/>
+<area shape="rect" href="manux_2stdlib_8h.html" title="Définition de quelques fonctions de base (C) Manu Chaput 2020&#45;2023." alt="" coords="1086,387,1205,412"/>
+<area shape="poly" title=" " alt="" coords="814,42,915,63,1015,93,1058,111,1092,131,1115,153,1124,178,1124,254,1130,319,1141,373,1136,374,1125,319,1119,254,1119,178,1111,156,1089,135,1056,115,1013,98,914,68,813,47"/>
+<area shape="rect" href="manux_2debug_8h.html" title=" " alt="" coords="639,93,761,119"/>
+<area shape="poly" title=" " alt="" coords="703,46,703,79,697,79,697,46"/>
+<area shape="rect" href="include_2manux_2registre_8h.html" title="Gestion des registres (outils permettant de stocker des paramètres)" alt="" coords="885,167,1019,192"/>
+<area shape="poly" title=" " alt="" coords="733,43,922,157,919,161,730,48"/>
+<area shape="rect" title=" " alt="" coords="518,460,637,485"/>
+<area shape="poly" title=" " alt="" coords="175,121,119,137,65,163,42,181,24,201,12,224,8,252,8,327,12,345,22,360,40,375,63,389,123,412,198,430,279,444,362,454,505,466,504,471,361,460,278,449,196,435,122,417,60,393,37,380,18,364,7,347,3,328,3,251,7,223,20,198,39,177,62,159,118,132,174,116"/>
+<area shape="poly" title=" " alt="" coords="244,119,244,153,239,153,239,119"/>
+<area shape="poly" title=" " alt="" coords="1086,412,1067,415,651,466,650,460,1066,409,1085,407"/>
+<area shape="rect" title=" " alt="" coords="767,313,889,339"/>
+<area shape="poly" title=" " alt="" coords="697,120,687,141,680,167,678,197,683,220,697,241,718,263,749,288,784,306,781,310,746,292,714,267,693,244,679,222,672,197,675,166,682,140,692,118"/>
+<area shape="rect" href="include_2manux_2printk_8h.html" title="Définition des fonctions de base d&#39;entrée&#45;sortie du noyau." alt="" coords="689,167,810,192"/>
+<area shape="poly" title=" " alt="" coords="710,117,736,154,731,157,706,121"/>
+<area shape="rect" href="include_2manux_2stdarg_8h.html" title=" " alt="" coords="886,240,1010,265"/>
+<area shape="poly" title=" " alt="" coords="728,116,824,164,923,230,920,234,821,169,725,121"/>
+<area shape="rect" href="scheduler_8h.html" title=" " alt="" coords="326,167,471,192"/>
+<area shape="poly" title=" " alt="" coords="652,121,461,166,460,161,651,116"/>
+<area shape="poly" title=" " alt="" coords="743,193,727,227,724,246,729,264,751,288,779,305,776,310,747,292,724,267,719,246,722,226,739,191"/>
+<area shape="poly" title=" " alt="" coords="782,190,903,233,902,238,780,195"/>
+<area shape="rect" title=" " alt="" coords="739,240,861,265"/>
+<area shape="poly" title=" " alt="" coords="760,191,786,227,782,230,756,194"/>
+<area shape="poly" title=" " alt="" coords="327,195,286,212,269,225,254,242,229,271,219,284,214,297,216,315,228,338,253,369,294,410,308,420,328,429,382,443,504,462,504,467,381,449,327,434,305,424,290,414,249,373,224,341,211,316,208,297,214,281,225,267,250,238,265,221,284,207,325,190"/>
+<area shape="rect" href="tache_8h.html" title=" " alt="" coords="494,240,613,265"/>
+<area shape="poly" title=" " alt="" coords="425,190,517,232,515,237,422,194"/>
+<area shape="rect" title=" " alt="" coords="315,387,490,412"/>
+<area shape="poly" title=" " alt="" coords="412,191,433,225,438,246,433,267,423,279,412,286,387,292,364,298,354,304,345,315,341,331,347,347,360,363,375,377,372,381,356,366,343,350,336,331,340,312,350,300,362,293,386,287,409,281,420,275,428,264,433,246,428,227,407,194"/>
+<area shape="rect" href="listetaches_8h.html" title=" " alt="" coords="264,240,419,265"/>
+<area shape="poly" title=" " alt="" coords="391,194,361,231,357,227,387,191"/>
+<area shape="rect" href="atomique_8h.html" title="Définition des opérations de synchronisation de ManuX." alt="" coords="43,240,189,265"/>
+<area shape="poly" title=" " alt="" coords="347,195,169,239,167,234,346,189"/>
+<area shape="poly" title=" " alt="" coords="591,263,627,282,643,295,656,312,668,339,671,362,667,386,656,413,638,437,615,455,612,451,634,433,651,411,662,385,666,362,663,340,651,315,639,299,624,286,589,268"/>
+<area shape="poly" title=" " alt="" coords="598,263,771,307,770,312,597,268"/>
+<area shape="rect" href="include_2manux_2interruptions_8h.html" title=" " alt="" coords="717,387,883,412"/>
+<area shape="poly" title=" " alt="" coords="590,263,642,283,699,311,744,343,780,375,777,379,740,347,696,316,640,288,588,268"/>
+<area shape="rect" href="segment_8h.html" title=" " alt="" coords="354,313,494,339"/>
+<area shape="poly" title=" " alt="" coords="534,268,459,309,456,304,531,263"/>
+<area shape="rect" href="fichier_8h.html" title=" " alt="" coords="519,313,641,339"/>
+<area shape="poly" title=" " alt="" coords="560,265,573,300,568,302,555,267"/>
+<area shape="poly" title=" " alt="" coords="765,415,627,458,625,453,763,409"/>
+<area shape="poly" title=" " alt="" coords="382,341,348,354,317,370,307,380,301,389,300,399,306,410,318,421,336,430,387,445,446,456,504,463,504,468,445,461,385,450,335,435,315,425,302,414,295,400,296,388,303,376,314,366,346,349,380,336"/>
+<area shape="rect" href="inoeud_8h.html" title=": description des noeuds d&#39;information (C) Manu Chaput 2002&#45;2023" alt="" coords="514,387,641,412"/>
+<area shape="poly" title=" " alt="" coords="582,339,581,373,576,373,577,339"/>
+<area shape="poly" title=" " alt="" coords="552,341,445,384,443,379,551,336"/>
+<area shape="poly" title=" " alt="" coords="580,412,580,446,575,446,575,412"/>
+<area shape="poly" title=" " alt="" coords="122,265,131,295,149,335,175,376,191,394,209,410,231,421,262,431,339,446,426,457,505,464,504,470,425,463,338,452,260,436,229,426,207,414,187,398,170,379,144,337,126,297,116,266"/>
+<area shape="poly" title=" " alt="" coords="168,237,346,193,348,198,169,242"/>
+<area shape="poly" title=" " alt="" coords="976,190,1003,210,1025,239,1029,253,1025,266,1003,318,978,355,945,384,897,414,836,442,771,459,707,469,651,474,650,469,707,464,770,454,834,437,895,410,941,380,974,351,998,315,1020,264,1023,253,1020,241,999,214,973,194"/>
+<area shape="poly" title=" " alt="" coords="954,192,952,227,947,226,949,192"/>
+</map>
+</div>
+</div>
+<p><a href="bootloader_8c_source.html">Aller au code source de ce fichier.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:a2f926e382390cda8c3c997c5db7c4fa2" id="r_a2f926e382390cda8c3c997c5db7c4fa2"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bootloader_8c.html#a2f926e382390cda8c3c997c5db7c4fa2">CMDLINE_MAX_LENGTH</a>&#160;&#160;&#160;512</td></tr>
+<tr class="separator:a2f926e382390cda8c3c997c5db7c4fa2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0912cdd57774a8db7941915d1294eefb" id="r_a0912cdd57774a8db7941915d1294eefb"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bootloader_8c.html#a0912cdd57774a8db7941915d1294eefb">BOOTLOADER_CMD_SEPARATEUR</a>&#160;&#160;&#160;','</td></tr>
+<tr class="memdesc:a0912cdd57774a8db7941915d1294eefb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Analyse de la ligne de commande et insertion de paramètres dans le registre.  <br /></td></tr>
+<tr class="separator:a0912cdd57774a8db7941915d1294eefb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Fonctions</h2></td></tr>
+<tr class="memitem:ae56092aa42bf357bf0026df0b0808db4" id="r_ae56092aa42bf357bf0026df0b0808db4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="include_2manux_2interruptions_8h.html#a4fda31edc92f8ccd48b6f4bb50f2e7e1">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bootloader_8c.html#ae56092aa42bf357bf0026df0b0808db4">bootloaderInitialiser</a> (<a class="el" href="include_2manux_2interruptions_8h.html#a4fda31edc92f8ccd48b6f4bb50f2e7e1">void</a>)</td></tr>
+<tr class="memdesc:ae56092aa42bf357bf0026df0b0808db4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Lecture des informations fournies par le bootloader.  <br /></td></tr>
+<tr class="separator:ae56092aa42bf357bf0026df0b0808db4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a42deb6a81c1a6411ef8390967dddf837" id="r_a42deb6a81c1a6411ef8390967dddf837"><td class="memItemLeft" align="right" valign="top"><a class="el" href="include_2manux_2interruptions_8h.html#a4fda31edc92f8ccd48b6f4bb50f2e7e1">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bootloader_8c.html#a42deb6a81c1a6411ef8390967dddf837">bootloaderLireLigneCmd</a> (<a class="el" href="include_2manux_2interruptions_8h.html#a4fda31edc92f8ccd48b6f4bb50f2e7e1">void</a>)</td></tr>
+<tr class="memdesc:a42deb6a81c1a6411ef8390967dddf837"><td class="mdescLeft">&#160;</td><td class="mdescRight">Analyse de la ligne de commande et modification de certains paramètres. Cette fonction estparticulièrement utile avec un regsitre.  <br /></td></tr>
+<tr class="separator:a42deb6a81c1a6411ef8390967dddf837"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:a1e90c03140ae6d42c414e1593656dbdf" id="r_a1e90c03140ae6d42c414e1593656dbdf"><td class="memItemLeft" align="right" valign="top"><a class="el" href="include_2manux_2types_8h.html#a06896e8c53f721507066c079052171f8">uint32_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bootloader_8c.html#a1e90c03140ae6d42c414e1593656dbdf">signatureBootloader</a></td></tr>
+<tr class="memdesc:a1e90c03140ae6d42c414e1593656dbdf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Valeur passée via eax par le bootloader pour s'identifier.  <br /></td></tr>
+<tr class="separator:a1e90c03140ae6d42c414e1593656dbdf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abf4319b3adb9dd5752045f58f65369e6" id="r_abf4319b3adb9dd5752045f58f65369e6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="manux_2bootloader_8h.html#aa0111f31993601255859b4d7fbb3758c">InfoSysteme</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bootloader_8c.html#abf4319b3adb9dd5752045f58f65369e6">infoSysteme</a></td></tr>
+<tr class="memdesc:abf4319b3adb9dd5752045f58f65369e6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stockage des informations décrivant le système fournies par le bootloader.  <br /></td></tr>
+<tr class="separator:abf4319b3adb9dd5752045f58f65369e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa85dc51cfdf9c6e6e69730e417681cd7" id="r_aa85dc51cfdf9c6e6e69730e417681cd7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="manux_2bootloader_8h.html#aa0111f31993601255859b4d7fbb3758c">InfoSysteme</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bootloader_8c.html#aa85dc51cfdf9c6e6e69730e417681cd7">_infoSysteme</a></td></tr>
+<tr class="memdesc:aa85dc51cfdf9c6e6e69730e417681cd7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adresse de la zone mémoire dans laquelle le bootloader nous fournit les informations sur le système.  <br /></td></tr>
+<tr class="separator:aa85dc51cfdf9c6e6e69730e417681cd7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
+<div class="textblock"><p>Gestion de l'interfaçage avec le bootloader. </p>
+<pre class="fragment">                                                (C) Manu Chaput 2000-2025 
+</pre> 
+<p class="definition">Définition dans le fichier <a class="el" href="bootloader_8c_source.html">bootloader.c</a>.</p>
+</div><h2 class="groupheader">Documentation des macros</h2>
+<a id="a0912cdd57774a8db7941915d1294eefb" name="a0912cdd57774a8db7941915d1294eefb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0912cdd57774a8db7941915d1294eefb">&#9670;&#160;</a></span>BOOTLOADER_CMD_SEPARATEUR</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define BOOTLOADER_CMD_SEPARATEUR&#160;&#160;&#160;','</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Analyse de la ligne de commande et insertion de paramètres dans le registre. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="bootloader_8c_source.html#l00101">101</a> du fichier <a class="el" href="bootloader_8c_source.html">bootloader.c</a>.</p>
+
+</div>
+</div>
+<a id="a2f926e382390cda8c3c997c5db7c4fa2" name="a2f926e382390cda8c3c997c5db7c4fa2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2f926e382390cda8c3c997c5db7c4fa2">&#9670;&#160;</a></span>CMDLINE_MAX_LENGTH</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define CMDLINE_MAX_LENGTH&#160;&#160;&#160;512</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="bootloader_8c_source.html#l00013">13</a> du fichier <a class="el" href="bootloader_8c_source.html">bootloader.c</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Documentation des fonctions</h2>
+<a id="ae56092aa42bf357bf0026df0b0808db4" name="ae56092aa42bf357bf0026df0b0808db4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae56092aa42bf357bf0026df0b0808db4">&#9670;&#160;</a></span>bootloaderInitialiser()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="include_2manux_2interruptions_8h.html#a4fda31edc92f8ccd48b6f4bb50f2e7e1">void</a> bootloaderInitialiser </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="include_2manux_2interruptions_8h.html#a4fda31edc92f8ccd48b6f4bb50f2e7e1">void</a>&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Lecture des informations fournies par le bootloader. </p>
+<p>Cette fonction doit être invoquée relativement tôt, car elle a la charge de recopier des informations fournies par le bootloader. Ces informations étant dans une zone mémoire que l'on risque ensuite d'utiliser. Il s'agit de infoSysteme et cmdLine. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="bootloader_8c_source.html#l00046">46</a> du fichier <a class="el" href="bootloader_8c_source.html">bootloader.c</a>.</p>
+
+</div>
+</div>
+<a id="a42deb6a81c1a6411ef8390967dddf837" name="a42deb6a81c1a6411ef8390967dddf837"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a42deb6a81c1a6411ef8390967dddf837">&#9670;&#160;</a></span>bootloaderLireLigneCmd()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="include_2manux_2interruptions_8h.html#a4fda31edc92f8ccd48b6f4bb50f2e7e1">void</a> bootloaderLireLigneCmd </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="include_2manux_2interruptions_8h.html#a4fda31edc92f8ccd48b6f4bb50f2e7e1">void</a>&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Analyse de la ligne de commande et modification de certains paramètres. Cette fonction estparticulièrement utile avec un regsitre. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="bootloader_8c_source.html#l00104">104</a> du fichier <a class="el" href="bootloader_8c_source.html">bootloader.c</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Documentation des variables</h2>
+<a id="aa85dc51cfdf9c6e6e69730e417681cd7" name="aa85dc51cfdf9c6e6e69730e417681cd7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa85dc51cfdf9c6e6e69730e417681cd7">&#9670;&#160;</a></span>_infoSysteme</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="manux_2bootloader_8h.html#aa0111f31993601255859b4d7fbb3758c">InfoSysteme</a>* _infoSysteme</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Adresse de la zone mémoire dans laquelle le bootloader nous fournit les informations sur le système. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="bootloader_8c_source.html#l00035">35</a> du fichier <a class="el" href="bootloader_8c_source.html">bootloader.c</a>.</p>
+
+</div>
+</div>
+<a id="abf4319b3adb9dd5752045f58f65369e6" name="abf4319b3adb9dd5752045f58f65369e6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abf4319b3adb9dd5752045f58f65369e6">&#9670;&#160;</a></span>infoSysteme</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="manux_2bootloader_8h.html#aa0111f31993601255859b4d7fbb3758c">InfoSysteme</a> infoSysteme</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Stockage des informations décrivant le système fournies par le bootloader. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="bootloader_8c_source.html#l00029">29</a> du fichier <a class="el" href="bootloader_8c_source.html">bootloader.c</a>.</p>
+
+</div>
+</div>
+<a id="a1e90c03140ae6d42c414e1593656dbdf" name="a1e90c03140ae6d42c414e1593656dbdf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1e90c03140ae6d42c414e1593656dbdf">&#9670;&#160;</a></span>signatureBootloader</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="include_2manux_2types_8h.html#a06896e8c53f721507066c079052171f8">uint32_t</a> signatureBootloader</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Valeur passée via eax par le bootloader pour s'identifier. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="bootloader_8c_source.html#l00023">23</a> du fichier <a class="el" href="bootloader_8c_source.html">bootloader.c</a>.</p>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

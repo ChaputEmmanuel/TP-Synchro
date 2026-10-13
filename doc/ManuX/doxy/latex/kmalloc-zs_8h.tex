@@ -1,0 +1,91 @@
+\doxysection{Référence du fichier /home/manu/\+PROGRAMMATION/\+C/\+Manu\+X/include/manux/kmalloc-\/zs.h}
+\hypertarget{kmalloc-zs_8h}{}\label{kmalloc-zs_8h}\index{/home/manu/PROGRAMMATION/C/ManuX/include/manux/kmalloc-\/zs.h@{/home/manu/PROGRAMMATION/C/ManuX/include/manux/kmalloc-\/zs.h}}
+
+
+Une implatation simple de kmalloc fondé sur les zones siamoises (buddy areas) (C) Emmanuel Chaput 2023.  
+
+
+{\ttfamily \#include $<$manux/memoire.\+h$>$}\newline
+{\ttfamily \#include $<$manux/types.\+h$>$}\newline
+Graphe des dépendances par inclusion de kmalloc-\/zs.h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=280pt]{kmalloc-zs_8h__incl}
+\end{center}
+\end{figure}
+Ce graphe montre quels fichiers incluent directement ou indirectement ce fichier \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{kmalloc-zs_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} \mbox{\hyperlink{kmalloc-zs_8h_a9834d71816871b865956b59d641f602f}{kmalloc\+Initialisation}} (\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}})
+\begin{DoxyCompactList}\small\item\em Initialisation du sytème kmalloc. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{kmalloc-zs_8h_af549fce4aa887cd31918e6c5dd0950f5}{kmalloc}} (\mbox{\hyperlink{include_2manux_2stddef_8h_acf18a0d6c4b39d531e021702e9a77984}{size\+\_\+t}} n)
+\begin{DoxyCompactList}\small\item\em Allocation d\textquotesingle{}une zone de n octets. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} \mbox{\hyperlink{kmalloc-zs_8h_af7105034bf054e37218d6ade20db4684}{kfree}} (\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} \texorpdfstring{$\ast$}{*}p)
+\begin{DoxyCompactList}\small\item\em Libération d\textquotesingle{}une zone mémoire allouée. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Une implatation simple de kmalloc fondé sur les zones siamoises (buddy areas) (C) Emmanuel Chaput 2023. 
+
+
+
+Définition dans le fichier \mbox{\hyperlink{kmalloc-zs_8h_source}{kmalloc-\/zs.\+h}}.
+
+
+
+\doxysubsection{Documentation des fonctions}
+\Hypertarget{kmalloc-zs_8h_af7105034bf054e37218d6ade20db4684}\label{kmalloc-zs_8h_af7105034bf054e37218d6ade20db4684} 
+\index{kmalloc-\/zs.h@{kmalloc-\/zs.h}!kfree@{kfree}}
+\index{kfree@{kfree}!kmalloc-\/zs.h@{kmalloc-\/zs.h}}
+\doxysubsubsection{\texorpdfstring{kfree()}{kfree()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} kfree (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} \texorpdfstring{$\ast$}{*}}]{p }\end{DoxyParamCaption})}
+
+
+
+Libération d\textquotesingle{}une zone mémoire allouée. 
+
+Libération d\textquotesingle{}une zone mémoire allouée. 
+
+Définition à la ligne \mbox{\hyperlink{kmalloc-zs_8c_source_l00265}{265}} du fichier \mbox{\hyperlink{kmalloc-zs_8c_source}{kmalloc-\/zs.\+c}}.
+
+\Hypertarget{kmalloc-zs_8h_af549fce4aa887cd31918e6c5dd0950f5}\label{kmalloc-zs_8h_af549fce4aa887cd31918e6c5dd0950f5} 
+\index{kmalloc-\/zs.h@{kmalloc-\/zs.h}!kmalloc@{kmalloc}}
+\index{kmalloc@{kmalloc}!kmalloc-\/zs.h@{kmalloc-\/zs.h}}
+\doxysubsubsection{\texorpdfstring{kmalloc()}{kmalloc()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} \texorpdfstring{$\ast$}{*} kmalloc (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{include_2manux_2stddef_8h_acf18a0d6c4b39d531e021702e9a77984}{size\+\_\+t}}}]{n }\end{DoxyParamCaption})}
+
+
+
+Allocation d\textquotesingle{}une zone de n octets. 
+
+\begin{DoxyReturn}{Renvoie}
+Pointeur sur la zone en cas de succès, NULL en cas d\textquotesingle{}échec 
+\end{DoxyReturn}
+
+
+Définition à la ligne \mbox{\hyperlink{kmalloc-zs_8c_source_l00139}{139}} du fichier \mbox{\hyperlink{kmalloc-zs_8c_source}{kmalloc-\/zs.\+c}}.
+
+\Hypertarget{kmalloc-zs_8h_a9834d71816871b865956b59d641f602f}\label{kmalloc-zs_8h_a9834d71816871b865956b59d641f602f} 
+\index{kmalloc-\/zs.h@{kmalloc-\/zs.h}!kmallocInitialisation@{kmallocInitialisation}}
+\index{kmallocInitialisation@{kmallocInitialisation}!kmalloc-\/zs.h@{kmalloc-\/zs.h}}
+\doxysubsubsection{\texorpdfstring{kmallocInitialisation()}{kmallocInitialisation()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} kmalloc\+Initialisation (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}}}]{ }\end{DoxyParamCaption})}
+
+
+
+Initialisation du sytème kmalloc. 
+
+
+
+Définition à la ligne \mbox{\hyperlink{kmalloc-zs_8c_source_l00080}{80}} du fichier \mbox{\hyperlink{kmalloc-zs_8c_source}{kmalloc-\/zs.\+c}}.
+

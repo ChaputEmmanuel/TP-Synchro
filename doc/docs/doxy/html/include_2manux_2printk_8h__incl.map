@@ -1,0 +1,9 @@
+<map id="/home/manu/PROGRAMMATION/C/ManuX/include/manux/printk.h" name="/home/manu/PROGRAMMATION/C/ManuX/include/manux/printk.h">
+<area shape="rect" id="Node000001" title="Définition des fonctions de base d&#39;entrée&#45;sortie du noyau." alt="" coords="101,5,328,60"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,108,128,133"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="171,62,100,103,97,99,168,58"/>
+<area shape="rect" id="Node000003" href="$include_2manux_2stdarg_8h.html" title=" " alt="" coords="153,108,277,133"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="217,60,217,94,212,94,212,60"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="301,108,424,133"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="261,58,332,99,330,103,259,62"/>
+</map>

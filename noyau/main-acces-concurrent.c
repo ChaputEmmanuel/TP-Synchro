@@ -22,18 +22,12 @@
  */
 INoeud  iNoeudConsole;  // Le INoeud qui décrit la console
 
-extern void init(); // Faire un init.h
+extern void init(void); // Faire un init.h
+void startManuX(void);
 
-#ifdef MANUX_VIRTIO_CONSOLE
-INoeud iNoeudVirtioConsole;
-Fichier fichierVirtioConsole;
-#endif
-
-void startManuX()
+void startManuX(void)
 {
    // Récupération des informations depuis le bootloader
-   bootloaderLireInfo();
-
    bootloaderInitialiser();
 
    initialiserMemoire(infoSysteme.memoireDeBase,
@@ -53,6 +47,7 @@ void startManuX()
    kmallocInitialisation();
    
    // Le clavier nous permettra de basculer entre consoles
+   printk_debug(DBG_KERNEL_START, "Initialisation du clavier ...\n");
    initialiserClavier();
 
    // Initialisation du journal
@@ -63,12 +58,8 @@ void startManuX()
    printk_debug(DBG_KERNEL_START, "Initialisation des AS ...\n");
    initialiserAppelsSysteme();
 
-   // Le clavier va nous servir à basculer entre consoles
-   printk_debug(DBG_KERNEL_START, "Initialisation du clavier ...\n");
-   initialiserClavier();
-
    // On va utiliser des tubes, donc le système de fichiers
-   printk_debug(DBG_KERNEL_START, "Initialisation des fichiers ...\n");
+   //printk_debug(DBG_KERNEL_START, "Initialisation des fichiers ...\n");
    sfInitialiser();
 
    // Initialisation de la gestion des processus

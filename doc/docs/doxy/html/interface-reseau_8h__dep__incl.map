@@ -1,0 +1,16 @@
+<map id="/home/manu/PROGRAMMATION/C/ManuX/include/manux/interface&#45;reseau.h" name="/home/manu/PROGRAMMATION/C/ManuX/include/manux/interface&#45;reseau.h">
+<area shape="rect" id="Node000001" title=" " alt="" coords="395,5,621,60"/>
+<area shape="rect" id="Node000002" href="$buffer-reseau_8h.html" title="Définition des buffers réseau et les fonctions associcées." alt="" coords="269,108,496,163"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="466,71,417,110,414,106,463,67"/>
+<area shape="rect" id="Node000007" href="$interface-reseau_8c.html" title="Implantation des interfaces réseau." alt="" coords="520,108,747,163"/>
+<area shape="poly" id="edge7_Node000001_Node000007" title=" " alt="" coords="553,67,602,106,599,110,550,71"/>
+<area shape="rect" id="Node000003" href="$manux_2reseau_8h.html" title=" " alt="" coords="119,211,345,265"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="334,172,273,213,270,208,331,168"/>
+<area shape="rect" id="Node000005" href="$reseau_8c.html" title="Implantation des éléments principaux du sous système réseau." alt="" coords="269,313,496,353"/>
+<area shape="poly" id="edge6_Node000002_Node000005" title=" " alt="" coords="385,177,385,313,380,313,380,177"/>
+<area shape="rect" id="Node000006" href="$buffer-reseau_8c.html" title="(C) Manu Chaput 2025" alt="" coords="420,211,647,265"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="435,168,495,208,492,213,432,172"/>
+<area shape="rect" id="Node000004" href="$main-virtio-net_8c.html" title=" " alt="" coords="5,313,245,353"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="193,277,149,315,145,311,190,272"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="288,270,353,311,351,315,285,275"/>
+</map>

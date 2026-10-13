@@ -1,0 +1,81 @@
+\doxysection{sfm.\+h}
+\hypertarget{sfm_8h_source}{}\label{sfm_8h_source}\index{/home/manu/PROGRAMMATION/C/ManuX/include/manux/sfm.h@{/home/manu/PROGRAMMATION/C/ManuX/include/manux/sfm.h}}
+\mbox{\hyperlink{sfm_8h}{Aller à la documentation de ce fichier.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{sfm_8h_source_l00001}00001\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{sfm_8h_source_l00002}00002\ \textcolor{comment}{/*\ \ \ \ \ \ Définition\ de\ l'interface\ du\ Système\ de\ Fichier\ de\ Manux.\ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{sfm_8h_source_l00003}00003\ \textcolor{comment}{/*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{sfm_8h_source_l00004}00004\ \textcolor{comment}{/*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (C)\ Manu\ Chaput\ 2000\ */}}
+\DoxyCodeLine{\Hypertarget{sfm_8h_source_l00005}00005\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{sfm_8h_source_l00006}00006\ \textcolor{preprocessor}{\#ifndef\ SFM\_DEF}}
+\DoxyCodeLine{\Hypertarget{sfm_8h_source_l00007}00007\ \textcolor{preprocessor}{\#define\ SFM\_DEF}}
+\DoxyCodeLine{\Hypertarget{sfm_8h_source_l00008}00008\ }
+\DoxyCodeLine{\Hypertarget{sfm_8h_source_l00009}00009\ \textcolor{preprocessor}{\#include\ <manux/types.h>}}
+\DoxyCodeLine{\Hypertarget{sfm_8h_source_l00010}00010\ }
+\DoxyCodeLine{\Hypertarget{sfm_8h_source_l00011}00011\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{sfm_8h_source_l00012}00012\ \textcolor{comment}{\ *\ La\ clef\ "{}magique"{}\ permettant\ de\ reconnaitre\ un\ SFM}}
+\DoxyCodeLine{\Hypertarget{sfm_8h_source_l00013}00013\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{sfm_8h_source_l00014}\mbox{\hyperlink{sfm_8h_a6f3c71af7b99e53c6a1740e25b3239a3}{00014}}\ \textcolor{preprocessor}{\#define\ SFM\_MAGIC\ 0x18273645}}
+\DoxyCodeLine{\Hypertarget{sfm_8h_source_l00015}00015\ }
+\DoxyCodeLine{\Hypertarget{sfm_8h_source_l00016}00016\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{sfm_8h_source_l00017}00017\ \textcolor{comment}{\ *\ Taille\ d'un\ bloc}}
+\DoxyCodeLine{\Hypertarget{sfm_8h_source_l00018}00018\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{sfm_8h_source_l00019}\mbox{\hyperlink{sfm_8h_ab2e7e3655084d4d572029c1feb3fa158}{00019}}\ \textcolor{preprocessor}{\#define\ SFM\_TAILLE\_BLOC\ 512}}
+\DoxyCodeLine{\Hypertarget{sfm_8h_source_l00020}00020\ }
+\DoxyCodeLine{\Hypertarget{sfm_8h_source_l00021}00021\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{sfm_8h_source_l00022}00022\ \textcolor{comment}{\ *\ Nombre\ de\ blocs\ en\ accés\ direct}}
+\DoxyCodeLine{\Hypertarget{sfm_8h_source_l00023}00023\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{sfm_8h_source_l00024}\mbox{\hyperlink{sfm_8h_a4d15907007c27151cada1ce46d54f945}{00024}}\ \textcolor{preprocessor}{\#define\ SFM\_NB\_BLOCS\_DIRECTS\ 8}}
+\DoxyCodeLine{\Hypertarget{sfm_8h_source_l00025}00025\ }
+\DoxyCodeLine{\Hypertarget{sfm_8h_source_l00026}00026\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{sfm_8h_source_l00027}00027\ \textcolor{comment}{\ *\ Longueur\ (maximale)\ d'un\ nom\ de\ fichier}}
+\DoxyCodeLine{\Hypertarget{sfm_8h_source_l00028}00028\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{sfm_8h_source_l00029}\mbox{\hyperlink{sfm_8h_a599298c8e02e111219518c88a2e4e0a4}{00029}}\ \textcolor{preprocessor}{\#define\ SFM\_LONGUEUR\_NOM\ 32}}
+\DoxyCodeLine{\Hypertarget{sfm_8h_source_l00030}00030\ }
+\DoxyCodeLine{\Hypertarget{sfm_8h_source_l00031}00031\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{sfm_8h_source_l00032}00032\ \textcolor{comment}{\ *\ Le\ superbloc}}
+\DoxyCodeLine{\Hypertarget{sfm_8h_source_l00033}00033\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{sfm_8h_source_l00034}\mbox{\hyperlink{struct__SFMSuperBloc}{00034}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__SFMSuperBloc}{\_SFMSuperBloc}}\ \{}
+\DoxyCodeLine{\Hypertarget{sfm_8h_source_l00035}\mbox{\hyperlink{struct__SFMSuperBloc_a077b6ebb307247405245d0918a91525c}{00035}}\ \ \ \ \mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\_t}}\ \mbox{\hyperlink{struct__SFMSuperBloc_a077b6ebb307247405245d0918a91525c}{magic}};}
+\DoxyCodeLine{\Hypertarget{sfm_8h_source_l00036}\mbox{\hyperlink{struct__SFMSuperBloc_aa902364d2308cb2f02fb5936f7492ada}{00036}}\ \ \ \ \mbox{\hyperlink{include_2manux_2types_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\_t}}\ \ \mbox{\hyperlink{struct__SFMSuperBloc_aa902364d2308cb2f02fb5936f7492ada}{version}};}
+\DoxyCodeLine{\Hypertarget{sfm_8h_source_l00037}\mbox{\hyperlink{struct__SFMSuperBloc_aeed253817885f70a1c604a0f7bbe76f3}{00037}}\ \ \ \ \mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\_t}}\ \mbox{\hyperlink{struct__SFMSuperBloc_aeed253817885f70a1c604a0f7bbe76f3}{offsetPremierBlocLibre}};}
+\DoxyCodeLine{\Hypertarget{sfm_8h_source_l00038}\mbox{\hyperlink{struct__SFMSuperBloc_a5b638d6acff30c9ce32f5f1de317b5d9}{00038}}\ \ \ \ \mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\_t}}\ \mbox{\hyperlink{struct__SFMSuperBloc_a5b638d6acff30c9ce32f5f1de317b5d9}{offsetInodeRacine}};}
+\DoxyCodeLine{\Hypertarget{sfm_8h_source_l00039}\mbox{\hyperlink{sfm_8h_a202c02081fc4044e6b6032550f4d42d4}{00039}}\ \}\ \mbox{\hyperlink{sfm_8h_a202c02081fc4044e6b6032550f4d42d4}{SFMSuperBloc}};}
+\DoxyCodeLine{\Hypertarget{sfm_8h_source_l00040}00040\ }
+\DoxyCodeLine{\Hypertarget{sfm_8h_source_l00041}00041\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{sfm_8h_source_l00042}00042\ \textcolor{comment}{\ *\ Les\ différents\ types\ de\ fichier}}
+\DoxyCodeLine{\Hypertarget{sfm_8h_source_l00043}00043\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{sfm_8h_source_l00044}\mbox{\hyperlink{sfm_8h_aa8b9ef6ee1d79fd0521b27e7e55a0c45}{00044}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \mbox{\hyperlink{sfm_8h_aa8b9ef6ee1d79fd0521b27e7e55a0c45}{\_SFMTypeFichier}}\ \{}
+\DoxyCodeLine{\Hypertarget{sfm_8h_source_l00045}\mbox{\hyperlink{sfm_8h_aa8b9ef6ee1d79fd0521b27e7e55a0c45a1516d1e9480d6a7e227ab8b8002840a5}{00045}}\ \ \ \ \mbox{\hyperlink{sfm_8h_aa8b9ef6ee1d79fd0521b27e7e55a0c45a1516d1e9480d6a7e227ab8b8002840a5}{SFM\_FICHIER\_ELEMENTAIRE}}\ =\ 0,}
+\DoxyCodeLine{\Hypertarget{sfm_8h_source_l00046}00046\ \ \ \ \mbox{\hyperlink{sfm_8h_aa8b9ef6ee1d79fd0521b27e7e55a0c45af83f3efff8ba9d6133b30f5867dbd13e}{SFM\_REPERTOIRE}}\ \ \ \ \ \ \ \ \ \ =\ 1}
+\DoxyCodeLine{\Hypertarget{sfm_8h_source_l00047}\mbox{\hyperlink{sfm_8h_aa8b9ef6ee1d79fd0521b27e7e55a0c45af83f3efff8ba9d6133b30f5867dbd13e}{00047}}\ \}\ \mbox{\hyperlink{sfm_8h_a7145bba42f429b666618cb9d3ee2ef48}{SFMTypeFichier}};}
+\DoxyCodeLine{\Hypertarget{sfm_8h_source_l00048}00048\ }
+\DoxyCodeLine{\Hypertarget{sfm_8h_source_l00049}00049\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{sfm_8h_source_l00050}00050\ \textcolor{comment}{\ *\ Structure\ d'un\ inode}}
+\DoxyCodeLine{\Hypertarget{sfm_8h_source_l00051}00051\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{sfm_8h_source_l00052}\mbox{\hyperlink{struct__SFMInode}{00052}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__SFMInode}{\_SFMInode}}\ \{}
+\DoxyCodeLine{\Hypertarget{sfm_8h_source_l00053}\mbox{\hyperlink{struct__SFMInode_a651ee577857eec154f1fff840029e5d3}{00053}}\ \ \ \ \mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\_t}}\ \mbox{\hyperlink{struct__SFMInode_a651ee577857eec154f1fff840029e5d3}{taille}};}
+\DoxyCodeLine{\Hypertarget{sfm_8h_source_l00054}\mbox{\hyperlink{struct__SFMInode_afefa1e7fda0bdd14bb8044127848101a}{00054}}\ \ \ \ \mbox{\hyperlink{sfm_8h_a7145bba42f429b666618cb9d3ee2ef48}{SFMTypeFichier}}\ \mbox{\hyperlink{struct__SFMInode_afefa1e7fda0bdd14bb8044127848101a}{type}};\ \ \ }
+\DoxyCodeLine{\Hypertarget{sfm_8h_source_l00055}\mbox{\hyperlink{struct__SFMInode_ab3c2f692299ee70fbc63a62919a8bc37}{00055}}\ \ \ \ \mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\_t}}\ \mbox{\hyperlink{struct__SFMInode_ab3c2f692299ee70fbc63a62919a8bc37}{blocsDirects}}[\mbox{\hyperlink{sfm_8h_a4d15907007c27151cada1ce46d54f945}{SFM\_NB\_BLOCS\_DIRECTS}}];}
+\DoxyCodeLine{\Hypertarget{sfm_8h_source_l00056}\mbox{\hyperlink{sfm_8h_ade2f6eb8932d5d42d06df0b4445bb9a3}{00056}}\ \}\ \mbox{\hyperlink{sfm_8h_ade2f6eb8932d5d42d06df0b4445bb9a3}{SFMInode}};}
+\DoxyCodeLine{\Hypertarget{sfm_8h_source_l00057}00057\ }
+\DoxyCodeLine{\Hypertarget{sfm_8h_source_l00058}00058\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{sfm_8h_source_l00059}00059\ \textcolor{comment}{\ *\ Structure\ d'une\ entrée\ dans\ un\ répertoire}}
+\DoxyCodeLine{\Hypertarget{sfm_8h_source_l00060}00060\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{sfm_8h_source_l00061}\mbox{\hyperlink{struct__SFMEntreeRepertoire}{00061}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__SFMEntreeRepertoire}{\_SFMEntreeRepertoire}}\ \{}
+\DoxyCodeLine{\Hypertarget{sfm_8h_source_l00062}00062\ \ \ \ \mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\_t}}\ offsetInode}
+\DoxyCodeLine{\Hypertarget{sfm_8h_source_l00063}\mbox{\hyperlink{struct__SFMEntreeRepertoire_aaf701767d007bb2b457536bbdc12391c}{00063}}\ \ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{struct__SFMEntreeRepertoire_aaf701767d007bb2b457536bbdc12391c}{nomFichier}}[\mbox{\hyperlink{sfm_8h_a599298c8e02e111219518c88a2e4e0a4}{SFM\_LONGUEUR\_NOM}}];}
+\DoxyCodeLine{\Hypertarget{sfm_8h_source_l00064}\mbox{\hyperlink{sfm_8h_a9e4a7abde846aca4e3ca544292568597}{00064}}\ \}\ \mbox{\hyperlink{sfm_8h_a9e4a7abde846aca4e3ca544292568597}{SFMEntreeRepertoire}};}
+\DoxyCodeLine{\Hypertarget{sfm_8h_source_l00065}00065\ }
+\DoxyCodeLine{\Hypertarget{sfm_8h_source_l00066}00066\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{sfm_8h_source_l00067}00067\ \textcolor{comment}{\ *\ Structure\ d'un\ répertoire}}
+\DoxyCodeLine{\Hypertarget{sfm_8h_source_l00068}00068\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{sfm_8h_source_l00069}\mbox{\hyperlink{struct__SFMRepertoire}{00069}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__SFMRepertoire}{\_SFMRepertoire}}\ \{}
+\DoxyCodeLine{\Hypertarget{sfm_8h_source_l00070}\mbox{\hyperlink{struct__SFMRepertoire_a4ea067a60cd3a53d08b25a76db6f82d1}{00070}}\ \ \ \ \mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\_t}}\ \mbox{\hyperlink{struct__SFMRepertoire_a4ea067a60cd3a53d08b25a76db6f82d1}{nombreEntrees}};}
+\DoxyCodeLine{\Hypertarget{sfm_8h_source_l00071}\mbox{\hyperlink{struct__SFMRepertoire_af207ce605b3511732dcb65e8a2250453}{00071}}\ \ \ \ \mbox{\hyperlink{struct__SFMEntreeRepertoire}{SFMEntreeRepertoire}}\ \mbox{\hyperlink{struct__SFMRepertoire_af207ce605b3511732dcb65e8a2250453}{entrees}}[0];}
+\DoxyCodeLine{\Hypertarget{sfm_8h_source_l00072}\mbox{\hyperlink{sfm_8h_a497ac796fb0bc9c23bb40bddcd394ac4}{00072}}\ \}\ \mbox{\hyperlink{sfm_8h_a497ac796fb0bc9c23bb40bddcd394ac4}{SFMRepertoire}};}
+\DoxyCodeLine{\Hypertarget{sfm_8h_source_l00073}00073\ }
+\DoxyCodeLine{\Hypertarget{sfm_8h_source_l00074}00074\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{sfm_8h_source_l00075}00075\ }
+
+\end{DoxyCode}

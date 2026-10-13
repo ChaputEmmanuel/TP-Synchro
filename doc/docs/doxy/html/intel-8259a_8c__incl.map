@@ -1,0 +1,19 @@
+<map id="/home/manu/PROGRAMMATION/C/ManuX/i386/intel&#45;8259a.c" name="/home/manu/PROGRAMMATION/C/ManuX/i386/intel&#45;8259a.c">
+<area shape="rect" id="Node000001" title=" " alt="" coords="276,5,503,45"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,93,128,119"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="313,48,128,93,126,88,311,43"/>
+<area shape="rect" id="Node000003" href="$include_2manux_2memoire_8h.html" title=" " alt="" coords="645,93,787,119"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="468,43,656,88,654,93,467,48"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="287,167,406,192"/>
+<area shape="poly" id="edge6_Node000001_Node000004" title=" " alt="" coords="386,47,356,154,351,153,381,45"/>
+<area shape="rect" id="Node000006" href="$io_8h.html" title=" " alt="" coords="385,93,479,119"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="402,44,422,80,417,83,397,47"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="504,93,621,119"/>
+<area shape="poly" id="edge7_Node000001_Node000007" title=" " alt="" coords="432,43,526,85,524,90,430,48"/>
+<area shape="rect" id="Node000008" href="$manux_2intel-8259a_8h.html" title=" " alt="" coords="152,93,309,119"/>
+<area shape="poly" id="edge8_Node000001_Node000008" title=" " alt="" coords="353,48,267,90,265,85,350,43"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="657,121,420,167,419,161,656,116"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="655,167,777,192"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="719,119,719,153,713,153,713,119"/>
+<area shape="poly" id="edge9_Node000008_Node000004" title=" " alt="" coords="251,116,317,157,315,162,248,121"/>
+</map>

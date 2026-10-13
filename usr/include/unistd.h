@@ -6,6 +6,7 @@
 #ifndef _UNISTD_H
 #define _UNISTD_H
 
+#include <manux/config.h>
 #include <manux/types.h>
 
 /**
@@ -37,5 +38,11 @@ int tube(int * fd);
  */
 int identifiantTache();
 
+/**
+ * @brief un appel système sans intérêt si ce n'est de faire des tests/demo
+ */
+#ifdef MANUX_AS_TEST_SYNCHRO
+int testSynchro(int increment, int action);
+#endif
 
 #endif

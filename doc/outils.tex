@@ -2,6 +2,7 @@
 %
 %===============================================================================
 \section{Les principaux outils}
+\label{section:outils}
 
    Le but de cette section est de décrire brièvement les outils
 utilisés pour compiler et exécuter \manux.
@@ -22,14 +23,25 @@ de développer un noyau. Nous évoquerons des outils dans les
 sous-sections \ref{subsection:debugage_interne} et
 \ref{subsection:debugage_externe}.
 
+% sudo apt-get install xorriso nasm qemu-system-i386 mtools pandoc
+
+%-------------------------------------------------------------------------------
+%
+%-------------------------------------------------------------------------------
+\subsection{La chaîne de compilation/documentation}
 %...............................................................................
 %
 %...............................................................................
 \subsubsection{Le compilateur C}
 
-   Le compilateur GCC est utilisé, la version 11.3.0 avec une cible
-\lstinline!x86_64-linux-gnu! fonctionne parfaitement. Je n'ai jamais
-eu de problème avec aucune version de GCC jusqu'à présent.
+   Le compilateur \emph{gcc} est utilisé, la version 11.3.0 avec une cible
+\lstinline!x86_64-linux-gnu! fonctionne parfaitement (j'en suis
+actuellement à la 13.3.0). Je n'ai jamais eu de problème avec aucune
+version de \emph{gcc} jusqu'à présent.
+
+   Il est également possible d'utiliser le compilateur \emph{clang},
+j'utilise actuellement la version 18.1.3 avec une cible
+x86_64-pc-linux-gnu.
 
 %...............................................................................
 %
@@ -42,7 +54,8 @@ eu de problème avec aucune version de GCC jusqu'à présent.
 %-------------------------------------------------------------------------------
 %
 %-------------------------------------------------------------------------------
-\subsection{La compilation}
+\subsubsection{La compilation}
+\label{subection:compilation}
 
    La commpilation générale du noyau est fondée sur l'outil {\tt
 make}, et j'utilise la version 4.2.1 de \gnu {\tt make}.
@@ -50,7 +63,7 @@ make}, et j'utilise la version 4.2.1 de \gnu {\tt make}.
 %-------------------------------------------------------------------------------
 %
 %-------------------------------------------------------------------------------
-\subsection{Les scripts}
+\susubsection{Les scripts}
 
    Quelques outils de scripts tels que {\tt awk} sont utilisés, rien
 de très original, et tout système Linux correctement installé devrait
@@ -59,7 +72,7 @@ fournir ce qui est nécessaire.
 %-------------------------------------------------------------------------------
 %
 %-------------------------------------------------------------------------------
-\subsection{La gestion des fichiers {\sc iso}}
+\subsubsection{La gestion des fichiers {\sc iso}}
 
    Les fichiers {\sc iso} son générés par la commande {\tt
      grub-mkrescue} qui utilise {\tt xorriso}.
@@ -67,9 +80,9 @@ fournir ce qui est nécessaire.
 %-------------------------------------------------------------------------------
 %
 %-------------------------------------------------------------------------------
-\subsection{L'exécution dans un émulateur}
+\subsubsection{L'exécution dans un émulateur}
 
-   Bien sûr, l'idée n'est pas de faire fonctionner ManuX sur du
+   Bien sûr, l'idée n'est pas de faire fonctionner \manux sur du
 matériel réel, même si c'est tout à fait possible, mais plutôt dans un
 émulateur.
 
@@ -79,19 +92,19 @@ matériel réel, même si c'est tout à fait possible, mais plutôt dans un
 %-------------------------------------------------------------------------------
 %
 %-------------------------------------------------------------------------------
-\subsection{La documentation}
+\subsubsection{La documentation}
 
    La maigre documentation (que vous êtes  en train de lide) est
 écrite essentiellement en LaTeX. N'importe quelle version convient
 parfaitement.
 
-   J'utilise également DoxyGen et mkdocs pour générer ensuite une
+   J'utilise également pandoc, DoxyGen et mkdocs pour générer ensuite une
 version navigable en ligne.
 
 %===============================================================================
 %
 %===============================================================================
-\section{Compilation de ManuX}
+\subection{Compilation de ManuX}
 
    Le {\tt Makefile} principal défini un certain nombre de cibles
 utilisables pour compiler et exécuter ManuX.
@@ -99,7 +112,7 @@ utilisables pour compiler et exécuter ManuX.
 %-------------------------------------------------------------------------------
 %
 %-------------------------------------------------------------------------------
-\subsection{La création du noyau}
+\subsubsection{La création du noyau}
 
    Sans grande surprise, on compile avec la commande
 
@@ -119,7 +132,7 @@ utilisables pour compiler et exécuter ManuX.
 %-------------------------------------------------------------------------------
 %
 %-------------------------------------------------------------------------------
-\subsection{Gestion de configurations multiples}
+\subsubsection{Gestion de configurations multiples}
 
    L'essentiel de la configuration de ManuX se fait dans le fichier
 \fichier{include/manux}{config}{h}. Il est cependant possible de
@@ -146,7 +159,20 @@ l'utilsation de {\tt printk}. On le compile de la façon suivante
 %-------------------------------------------------------------------------------
 %
 %-------------------------------------------------------------------------------
-\subsection{Création d'un fichier \iso}
+\subsubsection{Réalisation d'une image {\sc iso}}
+
+   La cible {\tt iso}  du {\tt Makefile} principal permet de générer
+un fichier {\sc iso} qui peut être utilisé pour démarrer ManuX sur une
+machine physique ou virtuelle.
+
+   La cible {\tt multiso} du {\tt Makefile} principal permet de
+générer une image {\sc iso} intégrant un noyau pour chaque fichier de
+configuration présent dans le répertoire {\tt multiconf}.
+
+%-------------------------------------------------------------------------------
+%
+%-------------------------------------------------------------------------------
+\subsubsection{Création d'un fichier \iso}
 
    Il est également possible de créer un fichier \iso contenant une ou
 plusieurs configuration de ManuX.
@@ -182,7 +208,7 @@ On l'exécutera de la même façon :
 %-------------------------------------------------------------------------------
 %
 %-------------------------------------------------------------------------------
-\subsection{L'édition de liens}
+\subsubsection{L'édition de liens}
 
    Afin d'assembler tous les éléments en un seul fichier
 \lstinline!noyau.elf! qui pourra ensuite être utilisé par {\em
@@ -235,7 +261,7 @@ variable {\tt adresseDebutManuX} la valeur de l'adresse courante
 %===============================================================================
 %
 %===============================================================================
-\section{Exécution de ManuX}
+\subsection{Exécution de ManuX}
 \label{section:execution}
 
    Le but n'est évidemment pas de faire tourner cette merveille sur du
@@ -244,7 +270,7 @@ vrai matériel, mais plutôt dans un émulateur.
 %...............................................................................
 %
 %...............................................................................
-\subsection{L'émulateur Qemu}
+\subsubsection{L'émulateur Qemu}
 
    C'est maintenant \qemu \cite{qemu-website}  que j'utilise, par exemple de la façon
 suivante
@@ -289,7 +315,7 @@ d'en parler !
 %...............................................................................
 %
 %...............................................................................
-\subsection{L'émulateur Bochs}
+\subsubsection{L'émulateur Bochs}
 
    J'utilisais initialement cet outil, mais les fichiers de
 configuration ne semblent plus convenir aux dernières versions de
@@ -298,12 +324,12 @@ Bochs {} \cite{bochs-website} il faudrait les mettre à jour !
 %===============================================================================
 %
 %===============================================================================
-\section{Le débugage de ManuX}
+\subsection{Le débugage de ManuX}
 
 %-------------------------------------------------------------------------------
 %
 %-------------------------------------------------------------------------------
-\subsection{Le débugage ``interne''}
+\subsubsection{Le débugage ``interne''}
 \label{subsection:debugage_interne}
 
    Ce que j'appelle ici le débugage interne, c'est tous les outils que
@@ -319,8 +345,35 @@ eux-mêmes (!).
 \subsubsection{La fonction {\tt printk\_debug}}
 
    Elle permet de produire des messages d'erreur qui seront envoyés de
-façon sélective en fonction de la valeur de \lstinline!masqueDebugage!
-qui doit être construite dans {\tt manux/debug.h}.
+façon sélective en fonction de la valeur de \lstinline!masqueDebugageConsole!
+et de \lstinline!masqueDebugageFichier!
+
+   Elle utilise pour cela les fonctionalités de la fonction
+\lstinline!printk()! et du journal, ce qui permet d'envoyer les
+messages de debug sur la console et/ou dans un fichier.
+
+%
+%
+%
+\paragraph{Les masques de débogages}
+
+   Deux masques de débogage sont définis : \lstinline!masqueDebugageConsole! et
+\lstinline!masqueDebugageFichier!. Ils sont définies dans
+\fichier{include/manux}{debug}{h}.
+
+   Si le paramètre de compilation \lstinline!MANUX_DEBUG_VAR! n'est
+pas défini, ces deux masques sont définis comme des macros. On ne peut
+donc pas trop jouer avec en cours d'exécution du noyau, \ldots
+
+   En revanche, si \lstinline!MANUX_DEBUG_VAR! est définie, c'est un
+nouveau monde qui s'ouvre à nous ! Ces variables sont en effet
+déclarées et initialisées dans \fichier{noyau}{debug}{c}, et elles
+peuvent alors être modifiées durant l'exécution du noyau.
+
+   Une utilisation particulièrement intéressante pourra en être faite
+au travers du registre (voir la doc) et des paramètres de boot, car il
+est alors possible de définir la valeur de ces masque via une option
+du bootloader.
 
 %...............................................................................
 %
@@ -358,8 +411,7 @@ est généré à la compilation du noyau.
 {\tt gdb}. Pour cela, je lance par exemple {\tt qemu} de la façon suivante
 
 \begin{lstlisting}
-   qemu-system-i386 -drive format=raw,file=manux,index=0,if=floppy  -rtc
-base=localtime -m 64M -gdb tcp::1234  -S 
+   qemu-system-i386 -drive format=raw,file=manux,index=0,if=floppy  -rtc base\=localtime -m 64M -gdb tcp::1234  -S 
 \end{lstlisting}
 
    Je lance ensuite {\tt gdb} dans un autre terminal avec un

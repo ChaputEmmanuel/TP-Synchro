@@ -1,0 +1,56 @@
+\doxysection{main-\/bootparam.c}
+\hypertarget{main-bootparam_8c_source}{}\label{main-bootparam_8c_source}\index{/home/manu/PROGRAMMATION/C/ManuX/noyau/main-\/bootparam.c@{/home/manu/PROGRAMMATION/C/ManuX/noyau/main-\/bootparam.c}}
+\mbox{\hyperlink{main-bootparam_8c}{Aller à la documentation de ce fichier.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{main-bootparam_8c_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{main-bootparam_8c_source_l00007}00007\ \textcolor{preprocessor}{\#include\ <manux/config.h>}}
+\DoxyCodeLine{\Hypertarget{main-bootparam_8c_source_l00008}00008\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{include_2manux_2console_8h}{manux/console.h}}>}}
+\DoxyCodeLine{\Hypertarget{main-bootparam_8c_source_l00009}00009\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{include_2manux_2printk_8h}{manux/printk.h}}>}}
+\DoxyCodeLine{\Hypertarget{main-bootparam_8c_source_l00010}00010\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{manux_2bootloader_8h}{manux/bootloader.h}}>}}
+\DoxyCodeLine{\Hypertarget{main-bootparam_8c_source_l00011}00011\ }
+\DoxyCodeLine{\Hypertarget{main-bootparam_8c_source_l00012}00012\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{manux_2debug_8h}{manux/debug.h}}>}}
+\DoxyCodeLine{\Hypertarget{main-bootparam_8c_source_l00013}00013\ }
+\DoxyCodeLine{\Hypertarget{main-bootparam_8c_source_l00014}\mbox{\hyperlink{main-bootparam_8c_a3568df994044ade7d37160ef731c223f}{00014}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{main-bootparam_8c_a3568df994044ade7d37160ef731c223f}{startManuX}}()}
+\DoxyCodeLine{\Hypertarget{main-bootparam_8c_source_l00015}00015\ \{}
+\DoxyCodeLine{\Hypertarget{main-bootparam_8c_source_l00016}00016\ \ \ \ \textcolor{comment}{//\ Initialisation\ de\ la\ console\ noyau}}
+\DoxyCodeLine{\Hypertarget{main-bootparam_8c_source_l00017}00017\ \ \ \ \mbox{\hyperlink{include_2manux_2console_8h_a29466c636bd065544638829883090d54}{consoleInitialisation}}();}
+\DoxyCodeLine{\Hypertarget{main-bootparam_8c_source_l00018}00018\ }
+\DoxyCodeLine{\Hypertarget{main-bootparam_8c_source_l00019}00019\ \ \ \ \mbox{\hyperlink{manux_2bootloader_8h_ae56092aa42bf357bf0026df0b0808db4}{bootloaderInitialiser}}();}
+\DoxyCodeLine{\Hypertarget{main-bootparam_8c_source_l00020}00020\ }
+\DoxyCodeLine{\Hypertarget{main-bootparam_8c_source_l00021}00021\ \ \ \ \textcolor{comment}{//\ Un\ petit\ message}}
+\DoxyCodeLine{\Hypertarget{main-bootparam_8c_source_l00022}00022\ \ \ \ \mbox{\hyperlink{include_2manux_2printk_8h_a25b30e8bbadd54650c56895999dd808f}{printk}}(\textcolor{stringliteral}{"{}SignatureBootloader\ =\ 0x\%x,\ is=0x\%x\ (flags\ =\ 0x\%x)\(\backslash\)n"{}},}
+\DoxyCodeLine{\Hypertarget{main-bootparam_8c_source_l00023}00023\ \ \ \ \ \ \ \mbox{\hyperlink{manux_2bootloader_8h_a1e90c03140ae6d42c414e1593656dbdf}{signatureBootloader}},}
+\DoxyCodeLine{\Hypertarget{main-bootparam_8c_source_l00024}00024\ \ \ \ \ \ \ \mbox{\hyperlink{manux_2bootloader_8h_abf4319b3adb9dd5752045f58f65369e6}{infoSysteme}},}
+\DoxyCodeLine{\Hypertarget{main-bootparam_8c_source_l00025}00025\ \ \ \ \ \ \ \mbox{\hyperlink{manux_2bootloader_8h_abf4319b3adb9dd5752045f58f65369e6}{infoSysteme}}.\mbox{\hyperlink{struct__InfoSysteme_a0709d04021d153f97d3f24d1dec94a77}{flags}});}
+\DoxyCodeLine{\Hypertarget{main-bootparam_8c_source_l00026}00026\ \ \ \ }
+\DoxyCodeLine{\Hypertarget{main-bootparam_8c_source_l00027}00027\ \ \ \ \textcolor{keywordflow}{switch}\ (\mbox{\hyperlink{manux_2bootloader_8h_a1e90c03140ae6d42c414e1593656dbdf}{signatureBootloader}})\ \{}
+\DoxyCodeLine{\Hypertarget{main-bootparam_8c_source_l00028}00028\ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{manux_2bootloader_8h_aeebc872fce330a0401cbb598e685747a}{MULTIBOOT\_SIGNATURE}}\ :}
+\DoxyCodeLine{\Hypertarget{main-bootparam_8c_source_l00029}00029\ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{include_2manux_2printk_8h_a25b30e8bbadd54650c56895999dd808f}{printk}}(\textcolor{stringliteral}{"{}C'est\ multiboot\ qui\ nous\ a\ lance.\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{main-bootparam_8c_source_l00030}00030\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{main-bootparam_8c_source_l00031}00031\ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{manux_2bootloader_8h_a73a48a509476717a563b9d265c3d07b7}{MANUX\_INIT\_SIGNATURE}}\ :}
+\DoxyCodeLine{\Hypertarget{main-bootparam_8c_source_l00032}00032\ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{include_2manux_2printk_8h_a25b30e8bbadd54650c56895999dd808f}{printk}}(\textcolor{stringliteral}{"{}C'est\ init-\/manux\ qui\ nous\ a\ lance.\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{main-bootparam_8c_source_l00033}00033\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{main-bootparam_8c_source_l00034}00034\ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{main-bootparam_8c_source_l00035}00035\ }
+\DoxyCodeLine{\Hypertarget{main-bootparam_8c_source_l00036}00036\ \ \ \ \textcolor{keywordflow}{if}\ ((\mbox{\hyperlink{manux_2bootloader_8h_abf4319b3adb9dd5752045f58f65369e6}{infoSysteme}}.\mbox{\hyperlink{struct__InfoSysteme_a0709d04021d153f97d3f24d1dec94a77}{flags}}\ \&\ \ \mbox{\hyperlink{manux_2bootloader_8h_aab5e5487e858de2a031cd3f1232f7b60}{MULTIBOOT\_PAGE\_ALIGN}})\ ==\ \ \mbox{\hyperlink{manux_2bootloader_8h_aab5e5487e858de2a031cd3f1232f7b60}{MULTIBOOT\_PAGE\_ALIGN}})\ \{}
+\DoxyCodeLine{\Hypertarget{main-bootparam_8c_source_l00037}00037\ \ \ \ \ \ \mbox{\hyperlink{include_2manux_2printk_8h_a25b30e8bbadd54650c56895999dd808f}{printk}}(\textcolor{stringliteral}{"{}Alignement\ a\ la\ page\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{main-bootparam_8c_source_l00038}00038\ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{main-bootparam_8c_source_l00039}00039\ }
+\DoxyCodeLine{\Hypertarget{main-bootparam_8c_source_l00040}00040\ \ \ \ \textcolor{keywordflow}{if}\ ((\mbox{\hyperlink{manux_2bootloader_8h_abf4319b3adb9dd5752045f58f65369e6}{infoSysteme}}.\mbox{\hyperlink{struct__InfoSysteme_a0709d04021d153f97d3f24d1dec94a77}{flags}}\ \&\ \mbox{\hyperlink{manux_2bootloader_8h_afdfca6bbbf4b7dca40e9d43e58201f55}{MULTIBOOT\_MEMORY\_INFO}})\ ==\ \mbox{\hyperlink{manux_2bootloader_8h_afdfca6bbbf4b7dca40e9d43e58201f55}{MULTIBOOT\_MEMORY\_INFO}})\ \{}
+\DoxyCodeLine{\Hypertarget{main-bootparam_8c_source_l00041}00041\ \ \ \ \ \ \mbox{\hyperlink{include_2manux_2printk_8h_a25b30e8bbadd54650c56895999dd808f}{printk}}(\textcolor{stringliteral}{"{}Base\ =\ \%d,\ etendue\ =\ \%d\(\backslash\)n"{}},}
+\DoxyCodeLine{\Hypertarget{main-bootparam_8c_source_l00042}00042\ \ \ \ \ \ \ \mbox{\hyperlink{manux_2bootloader_8h_abf4319b3adb9dd5752045f58f65369e6}{infoSysteme}}.\mbox{\hyperlink{struct__InfoSysteme_a6047965dfba552f4957f7df33b777e8c}{memoireDeBase}},}
+\DoxyCodeLine{\Hypertarget{main-bootparam_8c_source_l00043}00043\ \ \ \ \ \ \ \mbox{\hyperlink{manux_2bootloader_8h_abf4319b3adb9dd5752045f58f65369e6}{infoSysteme}}.\mbox{\hyperlink{struct__InfoSysteme_aeed4b08b9edfc29ff917ed26d87c9cda}{memoireEtendue}});}
+\DoxyCodeLine{\Hypertarget{main-bootparam_8c_source_l00044}00044\ }
+\DoxyCodeLine{\Hypertarget{main-bootparam_8c_source_l00045}00045\ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{main-bootparam_8c_source_l00046}00046\ }
+\DoxyCodeLine{\Hypertarget{main-bootparam_8c_source_l00047}00047\ \ \ \ \textcolor{keywordflow}{if}\ ((\mbox{\hyperlink{manux_2bootloader_8h_abf4319b3adb9dd5752045f58f65369e6}{infoSysteme}}.\mbox{\hyperlink{struct__InfoSysteme_a0709d04021d153f97d3f24d1dec94a77}{flags}}\ \&\ \mbox{\hyperlink{manux_2bootloader_8h_ae75fb4f821b7ab405d46318d9b90a677}{MULTIBOOT\_INFO\_CMDLINE}})\ ==\ \mbox{\hyperlink{manux_2bootloader_8h_ae75fb4f821b7ab405d46318d9b90a677}{MULTIBOOT\_INFO\_CMDLINE}})\ \{}
+\DoxyCodeLine{\Hypertarget{main-bootparam_8c_source_l00048}00048\ \ \ \ \ \ \mbox{\hyperlink{include_2manux_2printk_8h_a25b30e8bbadd54650c56895999dd808f}{printk}}(\textcolor{stringliteral}{"{}Command\ line\ :\ \(\backslash\)"{}\%s\(\backslash\)"{}\(\backslash\)n"{}},\ \mbox{\hyperlink{manux_2bootloader_8h_abf4319b3adb9dd5752045f58f65369e6}{infoSysteme}}.\mbox{\hyperlink{struct__InfoSysteme_a02864dcf91522d932915b30fe83e423a}{ligneCommande}});}
+\DoxyCodeLine{\Hypertarget{main-bootparam_8c_source_l00049}00049\ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{main-bootparam_8c_source_l00050}00050\ }
+\DoxyCodeLine{\Hypertarget{main-bootparam_8c_source_l00051}00051\ \ \ \ \mbox{\hyperlink{include_2manux_2printk_8h_a25b30e8bbadd54650c56895999dd808f}{printk}}(\textcolor{stringliteral}{"{}That's\ all\ she\ wrote\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{main-bootparam_8c_source_l00052}00052\ }
+\DoxyCodeLine{\Hypertarget{main-bootparam_8c_source_l00053}00053\ \}\ \ \ \textcolor{comment}{/*\ startManuX\ */}}
+\DoxyCodeLine{\Hypertarget{main-bootparam_8c_source_l00054}00054\ }
+\DoxyCodeLine{\Hypertarget{main-bootparam_8c_source_l00055}00055\ }
+
+\end{DoxyCode}

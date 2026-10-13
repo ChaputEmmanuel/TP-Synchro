@@ -1,0 +1,25 @@
+\doxysection{temps.\+h}
+\hypertarget{temps_8h_source}{}\label{temps_8h_source}\index{/home/manu/PROGRAMMATION/C/ManuX/include/manux/temps.h@{/home/manu/PROGRAMMATION/C/ManuX/include/manux/temps.h}}
+\mbox{\hyperlink{temps_8h}{Aller à la documentation de ce fichier.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{temps_8h_source_l00001}00001\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{temps_8h_source_l00002}00002\ \textcolor{comment}{/*\ \ \ \ \ \ Implantation\ des\ sous-\/programmes\ de\ manipulation\ des\ dates\ et\ durées.\ */}}
+\DoxyCodeLine{\Hypertarget{temps_8h_source_l00003}00003\ \textcolor{comment}{/*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{temps_8h_source_l00004}00004\ \textcolor{comment}{/*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (C)\ Manu\ Chaput\ 2000-\/2021\ */}}
+\DoxyCodeLine{\Hypertarget{temps_8h_source_l00005}00005\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{temps_8h_source_l00006}00006\ \textcolor{preprocessor}{\#include\ <manux/config.h>}\ \ \ \textcolor{comment}{//\ MANUX\_FREQUENCE\_HORLOGE}}
+\DoxyCodeLine{\Hypertarget{temps_8h_source_l00007}00007\ \textcolor{preprocessor}{\#include\ <manux/types.h>}\ \ \ \ \textcolor{comment}{//\ Temps}}
+\DoxyCodeLine{\Hypertarget{temps_8h_source_l00008}00008\ }
+\DoxyCodeLine{\Hypertarget{temps_8h_source_l00009}00009\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{temps_8h_source_l00010}00010\ \textcolor{comment}{\ *\ Conversion\ d'une\ date/durée\ exprimée\ en\ nombre\ de\ top\ horloges\ vers}}
+\DoxyCodeLine{\Hypertarget{temps_8h_source_l00011}00011\ \textcolor{comment}{\ *\ une\ structure\ ValTemps.\ }}
+\DoxyCodeLine{\Hypertarget{temps_8h_source_l00012}00012\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{temps_8h_source_l00013}\mbox{\hyperlink{temps_8h_a74abbf3018e3a7618a85af519521720a}{00013}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{temps_8h_a74abbf3018e3a7618a85af519521720a}{nbTopVersValTemps}}(\mbox{\hyperlink{include_2manux_2types_8h_abe4acab18c967c397d24aa95c2d48b27}{Temps}}\ nbTop,\ \mbox{\hyperlink{struct__ValTemps}{ValTemps}}\ *\ vt);}
+\DoxyCodeLine{\Hypertarget{temps_8h_source_l00014}00014\ }
+\DoxyCodeLine{\Hypertarget{temps_8h_source_l00015}\mbox{\hyperlink{temps_8h_ae41ccde64086afdc7ea1b5036153b0fe}{00015}}\ \textcolor{preprocessor}{\#define\ totalSecondesDansTemps(t)\ (t\ /\ MANUX\_FREQUENCE\_HORLOGE)}}
+\DoxyCodeLine{\Hypertarget{temps_8h_source_l00016}00016\ }
+\DoxyCodeLine{\Hypertarget{temps_8h_source_l00017}\mbox{\hyperlink{temps_8h_a676e0fb5f238dccd6c1e58a56427c054}{00017}}\ \textcolor{preprocessor}{\#define\ totalMinutesDansTemps(t)\ (totalSecondesDansTemps(t)/60)}}
+\DoxyCodeLine{\Hypertarget{temps_8h_source_l00018}00018\ }
+\DoxyCodeLine{\Hypertarget{temps_8h_source_l00019}\mbox{\hyperlink{temps_8h_aa931629379ea6d3aaeafdcc54c4b0303}{00019}}\ \textcolor{preprocessor}{\#define\ secondesDansTemps(t)\ (totalSecondesDansTemps(t)\ -\/\ 60*(totalMinutesDansTemps(t)))}}
+
+\end{DoxyCode}

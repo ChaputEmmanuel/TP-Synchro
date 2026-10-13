@@ -1,0 +1,122 @@
+\doxysection{Référence du fichier /home/manu/\+PROGRAMMATION/\+C/\+Manu\+X/usr/stdio.c}
+\hypertarget{stdio_8c}{}\label{stdio_8c}\index{/home/manu/PROGRAMMATION/C/ManuX/usr/stdio.c@{/home/manu/PROGRAMMATION/C/ManuX/usr/stdio.c}}
+{\ttfamily \#include $<$manux/config.\+h$>$}\newline
+{\ttfamily \#include $<$manux/appelsysteme.\+h$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+Graphe des dépendances par inclusion de stdio.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{stdio_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{stdio_8c_a6fb514b92925e962cc3576445492ad06}{MAX\+\_\+\+PRINTF\+\_\+\+LENGTH}}~64
+\item 
+\#define \mbox{\hyperlink{stdio_8c_a751b71485e6bb228423b412943328232}{chiffre}}~"{}0123456789abcdef"{}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{stdio_8c_a35c1f462c29ba66bacdb8819d37c502e}{vsnprintk}} (char \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{include_2manux_2i386_8h_a78b6d0d522b49e5b375731d08f4c39fd}{str}}, const \mbox{\hyperlink{include_2manux_2stddef_8h_acf18a0d6c4b39d531e021702e9a77984}{size\+\_\+t}} l, char \texorpdfstring{$\ast$}{*}format, \mbox{\hyperlink{include_2manux_2stdarg_8h_af53f622e3b6c080daeb167c1955d7ec1}{va\+\_\+list}} arg\+List)
+\item 
+\mbox{\hyperlink{stdio_8c_a85f127722c8d051635ac6fac12c99571}{appel\+Systeme3}} (\mbox{\hyperlink{include_2manux_2appelsystemenum_8h_af6f2b6432cfa9ae465218edc7dce87d8}{NBAS\+\_\+\+ECRIRE}}, int, \mbox{\hyperlink{stdio_8h_afb8a53c515b7e4b7b0c2d9abf9f7d0c0}{ecrire}}, int, \mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} \texorpdfstring{$\ast$}{*}, int)
+\item 
+\mbox{\hyperlink{stdio_8c_a2ccd5a40c9a25558db6fa1887ecce751}{appel\+Systeme3}} (\mbox{\hyperlink{include_2manux_2appelsystemenum_8h_aaf3a5c58d84af2705d30a45914274b7c}{NBAS\+\_\+\+LIRE}}, int, \mbox{\hyperlink{stdio_8h_a0d64d8b56640a3dea27ca2d59f711e35}{lire}}, int, \mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} \texorpdfstring{$\ast$}{*}, int)
+\item 
+\mbox{\hyperlink{stdio_8c_ac0840e2d8114956f8614d2427bd8c726}{appel\+Systeme1}} (\mbox{\hyperlink{include_2manux_2appelsystemenum_8h_a8bc3e6338e5b025a7e139f7e33181447}{NBAS\+\_\+\+FERMER}}, int, \mbox{\hyperlink{stdio_8h_a66a9ef9199d2ddbbf2b6b0c7f7b99ab5}{fermer}}, int)
+\item 
+\mbox{\hyperlink{stdio_8c_af7790270f6ec0e3a8b4535c070602a37}{appel\+Systeme2}} (\mbox{\hyperlink{include_2manux_2appelsystemenum_8h_a5b97a0359c72a132c3943c5678d2321e}{NBAS\+\_\+\+ECRIRE\+\_\+\+CONS}}, int, \mbox{\hyperlink{stdio_8h_a861f236a5adfcd353291fd93b2498226}{ecrire\+Console}}, char \texorpdfstring{$\ast$}{*}, int)
+\item 
+int \mbox{\hyperlink{stdio_8c_a0daccbeb6277ebc17e52e3ae03e11c27}{vsnprintf}} (char \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{include_2manux_2i386_8h_a78b6d0d522b49e5b375731d08f4c39fd}{str}}, const \mbox{\hyperlink{include_2manux_2stddef_8h_acf18a0d6c4b39d531e021702e9a77984}{size\+\_\+t}} l, char \texorpdfstring{$\ast$}{*}format, \mbox{\hyperlink{include_2manux_2stdarg_8h_af53f622e3b6c080daeb167c1955d7ec1}{va\+\_\+list}} arg\+List)
+\begin{DoxyCompactList}\small\item\em Le formatage effectf. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} \mbox{\hyperlink{stdio_8c_a63c54f1d737929378b379911b1ca4a45}{printf}} (char \texorpdfstring{$\ast$}{*}format,...)
+\begin{DoxyCompactList}\small\item\em Un premier printf. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Documentation des macros}
+\Hypertarget{stdio_8c_a751b71485e6bb228423b412943328232}\label{stdio_8c_a751b71485e6bb228423b412943328232} 
+\index{stdio.c@{stdio.c}!chiffre@{chiffre}}
+\index{chiffre@{chiffre}!stdio.c@{stdio.c}}
+\doxysubsubsection{\texorpdfstring{chiffre}{chiffre}}
+{\footnotesize\ttfamily \#define chiffre~"{}0123456789abcdef"{}}
+
+
+
+Définition à la ligne \mbox{\hyperlink{stdio_8c_source_l00018}{18}} du fichier \mbox{\hyperlink{stdio_8c_source}{stdio.\+c}}.
+
+\Hypertarget{stdio_8c_a6fb514b92925e962cc3576445492ad06}\label{stdio_8c_a6fb514b92925e962cc3576445492ad06} 
+\index{stdio.c@{stdio.c}!MAX\_PRINTF\_LENGTH@{MAX\_PRINTF\_LENGTH}}
+\index{MAX\_PRINTF\_LENGTH@{MAX\_PRINTF\_LENGTH}!stdio.c@{stdio.c}}
+\doxysubsubsection{\texorpdfstring{MAX\_PRINTF\_LENGTH}{MAX\_PRINTF\_LENGTH}}
+{\footnotesize\ttfamily \#define MAX\+\_\+\+PRINTF\+\_\+\+LENGTH~64}
+
+
+
+Définition à la ligne \mbox{\hyperlink{stdio_8c_source_l00016}{16}} du fichier \mbox{\hyperlink{stdio_8c_source}{stdio.\+c}}.
+
+
+
+\doxysubsection{Documentation des fonctions}
+\Hypertarget{stdio_8c_ac0840e2d8114956f8614d2427bd8c726}\label{stdio_8c_ac0840e2d8114956f8614d2427bd8c726} 
+\index{stdio.c@{stdio.c}!appelSysteme1@{appelSysteme1}}
+\index{appelSysteme1@{appelSysteme1}!stdio.c@{stdio.c}}
+\doxysubsubsection{\texorpdfstring{appelSysteme1()}{appelSysteme1()}}
+{\footnotesize\ttfamily appel\+Systeme1 (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{include_2manux_2appelsystemenum_8h_a8bc3e6338e5b025a7e139f7e33181447}{NBAS\+\_\+\+FERMER}}}]{,  }\item[{int}]{,  }\item[{\mbox{\hyperlink{stdio_8h_a66a9ef9199d2ddbbf2b6b0c7f7b99ab5}{fermer}}}]{,  }\item[{int}]{ }\end{DoxyParamCaption})}
+
+\Hypertarget{stdio_8c_af7790270f6ec0e3a8b4535c070602a37}\label{stdio_8c_af7790270f6ec0e3a8b4535c070602a37} 
+\index{stdio.c@{stdio.c}!appelSysteme2@{appelSysteme2}}
+\index{appelSysteme2@{appelSysteme2}!stdio.c@{stdio.c}}
+\doxysubsubsection{\texorpdfstring{appelSysteme2()}{appelSysteme2()}}
+{\footnotesize\ttfamily appel\+Systeme2 (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{include_2manux_2appelsystemenum_8h_a5b97a0359c72a132c3943c5678d2321e}{NBAS\+\_\+\+ECRIRE\+\_\+\+CONS}}}]{,  }\item[{int}]{,  }\item[{\mbox{\hyperlink{stdio_8h_a861f236a5adfcd353291fd93b2498226}{ecrire\+Console}}}]{,  }\item[{char \texorpdfstring{$\ast$}{*}}]{,  }\item[{int}]{ }\end{DoxyParamCaption})}
+
+\Hypertarget{stdio_8c_a85f127722c8d051635ac6fac12c99571}\label{stdio_8c_a85f127722c8d051635ac6fac12c99571} 
+\index{stdio.c@{stdio.c}!appelSysteme3@{appelSysteme3}}
+\index{appelSysteme3@{appelSysteme3}!stdio.c@{stdio.c}}
+\doxysubsubsection{\texorpdfstring{appelSysteme3()}{appelSysteme3()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily appel\+Systeme3 (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{include_2manux_2appelsystemenum_8h_af6f2b6432cfa9ae465218edc7dce87d8}{NBAS\+\_\+\+ECRIRE}}}]{,  }\item[{int}]{,  }\item[{\mbox{\hyperlink{stdio_8h_afb8a53c515b7e4b7b0c2d9abf9f7d0c0}{ecrire}}}]{,  }\item[{int}]{,  }\item[{\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} \texorpdfstring{$\ast$}{*}}]{,  }\item[{int}]{ }\end{DoxyParamCaption})}
+
+\Hypertarget{stdio_8c_a2ccd5a40c9a25558db6fa1887ecce751}\label{stdio_8c_a2ccd5a40c9a25558db6fa1887ecce751} 
+\index{stdio.c@{stdio.c}!appelSysteme3@{appelSysteme3}}
+\index{appelSysteme3@{appelSysteme3}!stdio.c@{stdio.c}}
+\doxysubsubsection{\texorpdfstring{appelSysteme3()}{appelSysteme3()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily appel\+Systeme3 (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{include_2manux_2appelsystemenum_8h_aaf3a5c58d84af2705d30a45914274b7c}{NBAS\+\_\+\+LIRE}}}]{,  }\item[{int}]{,  }\item[{\mbox{\hyperlink{stdio_8h_a0d64d8b56640a3dea27ca2d59f711e35}{lire}}}]{,  }\item[{int}]{,  }\item[{\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} \texorpdfstring{$\ast$}{*}}]{,  }\item[{int}]{ }\end{DoxyParamCaption})}
+
+\Hypertarget{stdio_8c_a63c54f1d737929378b379911b1ca4a45}\label{stdio_8c_a63c54f1d737929378b379911b1ca4a45} 
+\index{stdio.c@{stdio.c}!printf@{printf}}
+\index{printf@{printf}!stdio.c@{stdio.c}}
+\doxysubsubsection{\texorpdfstring{printf()}{printf()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} printf (\begin{DoxyParamCaption}\item[{char \texorpdfstring{$\ast$}{*}}]{format,  }\item[{}]{... }\end{DoxyParamCaption})}
+
+
+
+Un premier printf. 
+
+
+
+Définition à la ligne \mbox{\hyperlink{stdio_8c_source_l00142}{142}} du fichier \mbox{\hyperlink{stdio_8c_source}{stdio.\+c}}.
+
+\Hypertarget{stdio_8c_a0daccbeb6277ebc17e52e3ae03e11c27}\label{stdio_8c_a0daccbeb6277ebc17e52e3ae03e11c27} 
+\index{stdio.c@{stdio.c}!vsnprintf@{vsnprintf}}
+\index{vsnprintf@{vsnprintf}!stdio.c@{stdio.c}}
+\doxysubsubsection{\texorpdfstring{vsnprintf()}{vsnprintf()}}
+{\footnotesize\ttfamily int vsnprintf (\begin{DoxyParamCaption}\item[{char \texorpdfstring{$\ast$}{*}}]{str,  }\item[{const \mbox{\hyperlink{include_2manux_2stddef_8h_acf18a0d6c4b39d531e021702e9a77984}{size\+\_\+t}}}]{l,  }\item[{char \texorpdfstring{$\ast$}{*}}]{format,  }\item[{\mbox{\hyperlink{include_2manux_2stdarg_8h_af53f622e3b6c080daeb167c1955d7ec1}{va\+\_\+list}}}]{arg\+List }\end{DoxyParamCaption})}
+
+
+
+Le formatage effectf. 
+
+WARNING \+: attention, c\textquotesingle{}est un clone de vsnprintk, ... 
+
+Définition à la ligne \mbox{\hyperlink{stdio_8c_source_l00038}{38}} du fichier \mbox{\hyperlink{stdio_8c_source}{stdio.\+c}}.
+
+\Hypertarget{stdio_8c_a35c1f462c29ba66bacdb8819d37c502e}\label{stdio_8c_a35c1f462c29ba66bacdb8819d37c502e} 
+\index{stdio.c@{stdio.c}!vsnprintk@{vsnprintk}}
+\index{vsnprintk@{vsnprintk}!stdio.c@{stdio.c}}
+\doxysubsubsection{\texorpdfstring{vsnprintk()}{vsnprintk()}}
+{\footnotesize\ttfamily int vsnprintk (\begin{DoxyParamCaption}\item[{char \texorpdfstring{$\ast$}{*}}]{str,  }\item[{const \mbox{\hyperlink{include_2manux_2stddef_8h_acf18a0d6c4b39d531e021702e9a77984}{size\+\_\+t}}}]{l,  }\item[{char \texorpdfstring{$\ast$}{*}}]{format,  }\item[{\mbox{\hyperlink{include_2manux_2stdarg_8h_af53f622e3b6c080daeb167c1955d7ec1}{va\+\_\+list}}}]{arg\+List }\end{DoxyParamCaption})}
+
+WARNING \+: On utilise ici cette fonction d�finie dans le noyau, il faudra t�t ou tard changer �a, ... 

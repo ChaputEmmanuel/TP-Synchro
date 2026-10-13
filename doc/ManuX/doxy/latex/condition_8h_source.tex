@@ -1,0 +1,37 @@
+\doxysection{condition.\+h}
+\hypertarget{condition_8h_source}{}\label{condition_8h_source}\index{/home/manu/PROGRAMMATION/C/ManuX/include/manux/condition.h@{/home/manu/PROGRAMMATION/C/ManuX/include/manux/condition.h}}
+\mbox{\hyperlink{condition_8h}{Aller à la documentation de ce fichier.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{condition_8h_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{condition_8h_source_l00008}00008\ \textcolor{preprocessor}{\#ifndef\ CONDITION\_DEF}}
+\DoxyCodeLine{\Hypertarget{condition_8h_source_l00009}00009\ \textcolor{preprocessor}{\#define\ CONDITION\_DEF}}
+\DoxyCodeLine{\Hypertarget{condition_8h_source_l00010}00010\ }
+\DoxyCodeLine{\Hypertarget{condition_8h_source_l00011}00011\ \textcolor{preprocessor}{\#include\ <manux/types.h>}}
+\DoxyCodeLine{\Hypertarget{condition_8h_source_l00012}00012\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{listetaches_8h}{manux/listetaches.h}}>}\ \ \textcolor{comment}{//\ Pour\ les\ listes\ de\ tâches\ en\ attente\ }}
+\DoxyCodeLine{\Hypertarget{condition_8h_source_l00013}00013\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{exclusion-mutuelle_8h}{manux/exclusion-\/mutuelle.h}}>}}
+\DoxyCodeLine{\Hypertarget{condition_8h_source_l00014}00014\ }
+\DoxyCodeLine{\Hypertarget{condition_8h_source_l00018}\mbox{\hyperlink{struct__condition}{00018}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__condition}{\_condition}}\ \{}
+\DoxyCodeLine{\Hypertarget{condition_8h_source_l00019}\mbox{\hyperlink{struct__condition_ab352144f2da6522fc251fdf4e89d60b3}{00019}}\ \ \ \ \mbox{\hyperlink{struct__ListeTache}{ListeTache}}\ \mbox{\hyperlink{struct__condition_ab352144f2da6522fc251fdf4e89d60b3}{tachesEnAttente}};}
+\DoxyCodeLine{\Hypertarget{condition_8h_source_l00020}00020\ \textcolor{preprocessor}{\#if\ defined(MANUX\_CONDITION\_AUDIT)}}
+\DoxyCodeLine{\Hypertarget{condition_8h_source_l00021}00021\ \ \ \ \textcolor{keywordtype}{int}\ nbSignaler;}
+\DoxyCodeLine{\Hypertarget{condition_8h_source_l00022}00022\ \ \ \ \textcolor{keywordtype}{int}\ nbDiffuser;}
+\DoxyCodeLine{\Hypertarget{condition_8h_source_l00023}00023\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{condition_8h_source_l00024}\mbox{\hyperlink{condition_8h_ab91c26375b7fadf2f031d6971fb63883}{00024}}\ \}\ \mbox{\hyperlink{condition_8h_ab91c26375b7fadf2f031d6971fb63883}{Condition}};}
+\DoxyCodeLine{\Hypertarget{condition_8h_source_l00025}00025\ }
+\DoxyCodeLine{\Hypertarget{condition_8h_source_l00029}00029\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{condition_8h_a3460e36fff72bf9770ab388c1c0fe52a}{conditionInitialiser}}(\mbox{\hyperlink{struct__condition}{Condition}}\ *\ cond);}
+\DoxyCodeLine{\Hypertarget{condition_8h_source_l00030}00030\ }
+\DoxyCodeLine{\Hypertarget{condition_8h_source_l00038}00038\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{condition_8h_a283dd6896b1ae21d561d22dc15bfabcd}{conditionAttendre}}(\mbox{\hyperlink{struct__condition}{Condition}}\ *\ cond,\ \mbox{\hyperlink{struct__ExclusionMutuelle}{ExclusionMutuelle}}\ *\ em);}
+\DoxyCodeLine{\Hypertarget{condition_8h_source_l00039}00039\ }
+\DoxyCodeLine{\Hypertarget{condition_8h_source_l00048}00048\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{condition_8h_ad7b5eb5ca0c1862a588861fe17c8bbf3}{conditionSignaler}}(\mbox{\hyperlink{struct__condition}{Condition}}\ *\ cond);}
+\DoxyCodeLine{\Hypertarget{condition_8h_source_l00049}00049\ }
+\DoxyCodeLine{\Hypertarget{condition_8h_source_l00058}00058\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{condition_8h_aff6ab3bc6f674c26f84cc74475081613}{conditionDiffuser}}(\mbox{\hyperlink{struct__condition}{Condition}}\ *\ cond);}
+\DoxyCodeLine{\Hypertarget{condition_8h_source_l00059}00059\ }
+\DoxyCodeLine{\Hypertarget{condition_8h_source_l00060}00060\ \textcolor{preprocessor}{\#if\ defined(MANUX\_CONDITION\_AUDIT)}}
+\DoxyCodeLine{\Hypertarget{condition_8h_source_l00061}00061\ }
+\DoxyCodeLine{\Hypertarget{condition_8h_source_l00065}00065\ \textcolor{keywordtype}{void}\ conditionsAfficherEtat(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{condition_8h_source_l00066}00066\ }
+\DoxyCodeLine{\Hypertarget{condition_8h_source_l00067}00067\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ \ defined(MANUX\_CONDITION\_AUDIT)}}
+\DoxyCodeLine{\Hypertarget{condition_8h_source_l00068}00068\ }
+\DoxyCodeLine{\Hypertarget{condition_8h_source_l00069}00069\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ CONDITION\_DEF}}
+
+\end{DoxyCode}

@@ -4,6 +4,7 @@ ROOTDIR := $(shell cd .. ; pwd)
 
 include ../make.commons
 include ../make.conf # Idéalement il faudait pouvoir s'en passer
+include ../make.rules
 
 CFLAGS = $(UCFLAGS)
 
@@ -18,13 +19,6 @@ OBJETS      = stdio.o  \
 
 libusr.a : $(OBJETS) 
 	ar rf libusr.a $(OBJETS)
-
-.$(ASM_EXT).bin :
-	$(ASM) $(ASM_BIN_OPT) $< -o $@
-
-.c.o :
-	gcc $(CFLAGS) -c $<
-
 
 clean :
 	rm -f bochs.out *.bin *.obj *.o *.a

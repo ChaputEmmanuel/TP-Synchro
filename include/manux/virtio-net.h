@@ -8,9 +8,9 @@
 /**
  * @brief Initialisation des périphériques
  */
-int virtioNetInit();
+int virtioNetInit(void);
 
-void virtioNetTestDeuxiemeEmission();
-void virtioReseauPoll();
+void virtioNetTestDeuxiemeEmission(void);
+void virtioReseauPoll(void);
 
 #endif

@@ -1,0 +1,35 @@
+\doxysection{init-\/verrou-\/noyau.c}
+\hypertarget{init-verrou-noyau_8c_source}{}\label{init-verrou-noyau_8c_source}\index{/home/manu/PROGRAMMATION/C/ManuX/usr/init-\/verrou-\/noyau.c@{/home/manu/PROGRAMMATION/C/ManuX/usr/init-\/verrou-\/noyau.c}}
+\mbox{\hyperlink{init-verrou-noyau_8c}{Aller à la documentation de ce fichier.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{init-verrou-noyau_8c_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{init-verrou-noyau_8c_source_l00007}00007\ \textcolor{preprocessor}{\#include\ <manux/types.h>}}
+\DoxyCodeLine{\Hypertarget{init-verrou-noyau_8c_source_l00008}00008\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{stdio_8h}{stdio.h}}>}}
+\DoxyCodeLine{\Hypertarget{init-verrou-noyau_8c_source_l00009}00009\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{stdio_8h}{stdio.h}}>}}
+\DoxyCodeLine{\Hypertarget{init-verrou-noyau_8c_source_l00010}00010\ \textcolor{preprocessor}{\#include\ <manux/errno.h>}}
+\DoxyCodeLine{\Hypertarget{init-verrou-noyau_8c_source_l00011}00011\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{unistd_8h}{unistd.h}}>}\ \ \ \textcolor{comment}{//\ creerNouvelleTache}}
+\DoxyCodeLine{\Hypertarget{init-verrou-noyau_8c_source_l00012}00012\ \textcolor{preprocessor}{\#include\ <manux/string.h>}}
+\DoxyCodeLine{\Hypertarget{init-verrou-noyau_8c_source_l00013}00013\ }
+\DoxyCodeLine{\Hypertarget{init-verrou-noyau_8c_source_l00014}\mbox{\hyperlink{init-verrou-noyau_8c_a1c8e1e8c4499e9b09e6699257721418d}{00014}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{init-verrou-noyau_8c_a1c8e1e8c4499e9b09e6699257721418d}{uneActiviteQuelconque}}()}
+\DoxyCodeLine{\Hypertarget{init-verrou-noyau_8c_source_l00015}00015\ \{}
+\DoxyCodeLine{\Hypertarget{init-verrou-noyau_8c_source_l00016}00016\ \ \ \ \textcolor{keywordtype}{int}\ i\ =\ 1;}
+\DoxyCodeLine{\Hypertarget{init-verrou-noyau_8c_source_l00017}00017\ }
+\DoxyCodeLine{\Hypertarget{init-verrou-noyau_8c_source_l00018}00018\ \ \ \ \mbox{\hyperlink{stdio_8h_a63c54f1d737929378b379911b1ca4a45}{printf}}(\textcolor{stringliteral}{"{}[\%d]\ va\ incrementer\(\backslash\)n"{}},\ \mbox{\hyperlink{unistd_8h_a321e672f528d0dd0927c93ff3a09c5c7}{identifiantTache}}());}
+\DoxyCodeLine{\Hypertarget{init-verrou-noyau_8c_source_l00019}00019\ }
+\DoxyCodeLine{\Hypertarget{init-verrou-noyau_8c_source_l00020}00020\ \ \ \ i\ =\ testSynchro(1,\ 2);}
+\DoxyCodeLine{\Hypertarget{init-verrou-noyau_8c_source_l00021}00021\ }
+\DoxyCodeLine{\Hypertarget{init-verrou-noyau_8c_source_l00022}00022\ \ \ \ \mbox{\hyperlink{stdio_8h_a63c54f1d737929378b379911b1ca4a45}{printf}}(\textcolor{stringliteral}{"{}[\%d]\ trouve\ \%d\(\backslash\)n"{}},\ \mbox{\hyperlink{unistd_8h_a321e672f528d0dd0927c93ff3a09c5c7}{identifiantTache}}(),\ i);}
+\DoxyCodeLine{\Hypertarget{init-verrou-noyau_8c_source_l00023}00023\ \}}
+\DoxyCodeLine{\Hypertarget{init-verrou-noyau_8c_source_l00024}00024\ }
+\DoxyCodeLine{\Hypertarget{init-verrou-noyau_8c_source_l00025}\mbox{\hyperlink{init-verrou-noyau_8c_a02fd73d861ef2e4aabb38c0c9ff82947}{00025}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{init-verrou-noyau_8c_a02fd73d861ef2e4aabb38c0c9ff82947}{init}}()}
+\DoxyCodeLine{\Hypertarget{init-verrou-noyau_8c_source_l00026}00026\ \{}
+\DoxyCodeLine{\Hypertarget{init-verrou-noyau_8c_source_l00027}00027\ }
+\DoxyCodeLine{\Hypertarget{init-verrou-noyau_8c_source_l00028}00028\ \ \ \ \mbox{\hyperlink{stdio_8h_a63c54f1d737929378b379911b1ca4a45}{printf}}(\textcolor{stringliteral}{"{}Sympa\ le\ mode\ utilisateur\ !\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{init-verrou-noyau_8c_source_l00029}00029\ \ \ \ }
+\DoxyCodeLine{\Hypertarget{init-verrou-noyau_8c_source_l00030}00030\ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ n\ =\ 0\ ;\ n\ <\ 2;\ n++)\{}
+\DoxyCodeLine{\Hypertarget{init-verrou-noyau_8c_source_l00031}00031\ \ \ \ \ \ \ \mbox{\hyperlink{unistd_8h_aa504f61bfbbdfa9a463450f8b21db44f}{creerNouvelleTache}}(\mbox{\hyperlink{init-verrou-noyau_8c_a1c8e1e8c4499e9b09e6699257721418d}{uneActiviteQuelconque}},\ \mbox{\hyperlink{include_2manux_2types_8h_aa93f0eb578d23995850d61f7d61c55c1}{FALSE}});}
+\DoxyCodeLine{\Hypertarget{init-verrou-noyau_8c_source_l00032}00032\ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{init-verrou-noyau_8c_source_l00033}00033\ \ \ \ \textcolor{keywordflow}{while}(1)\{\};}
+\DoxyCodeLine{\Hypertarget{init-verrou-noyau_8c_source_l00034}00034\ \}}
+
+\end{DoxyCode}

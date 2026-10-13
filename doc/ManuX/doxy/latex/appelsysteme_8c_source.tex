@@ -1,0 +1,181 @@
+\doxysection{appelsysteme.\+c}
+\hypertarget{appelsysteme_8c_source}{}\label{appelsysteme_8c_source}\index{/home/manu/PROGRAMMATION/C/ManuX/noyau/appelsysteme.c@{/home/manu/PROGRAMMATION/C/ManuX/noyau/appelsysteme.c}}
+\mbox{\hyperlink{appelsysteme_8c}{Aller Ã  la documentation de ce fichier.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{appelsysteme_8c_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{appelsysteme_8c_source_l00007}00007\ \textcolor{preprocessor}{\#include\ <manux/appelsysteme.h>}}
+\DoxyCodeLine{\Hypertarget{appelsysteme_8c_source_l00008}00008\ }
+\DoxyCodeLine{\Hypertarget{appelsysteme_8c_source_l00009}00009\ \textcolor{preprocessor}{\#include\ <manux/errno.h>}}
+\DoxyCodeLine{\Hypertarget{appelsysteme_8c_source_l00010}00010\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{include_2manux_2printk_8h}{manux/printk.h}}>}}
+\DoxyCodeLine{\Hypertarget{appelsysteme_8c_source_l00011}00011\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{manux_2debug_8h}{manux/debug.h}}>}}
+\DoxyCodeLine{\Hypertarget{appelsysteme_8c_source_l00012}00012\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{scheduler_8h}{manux/scheduler.h}}>}\ \ \ \ \ \ \textcolor{comment}{//\ sys\_basculerTache}}
+\DoxyCodeLine{\Hypertarget{appelsysteme_8c_source_l00013}00013\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{include_2manux_2memoire_8h}{manux/memoire.h}}>}\ \ \ \ \ \ \ \ \textcolor{comment}{//\ AS\_obtenirPages,\ à virer\ aprés dispatch\ \ }}
+\DoxyCodeLine{\Hypertarget{appelsysteme_8c_source_l00014}00014\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{include_2manux_2console_8h}{manux/console.h}}>}\ \ \ \ \ \ \ \ \textcolor{comment}{//\ Console}}
+\DoxyCodeLine{\Hypertarget{appelsysteme_8c_source_l00015}00015\ \textcolor{preprocessor}{\#ifdef\ MANUX\_TACHES}}
+\DoxyCodeLine{\Hypertarget{appelsysteme_8c_source_l00016}00016\ \textcolor{preprocessor}{\#\ \ \ include\ <\mbox{\hyperlink{tache_8h}{manux/tache.h}}>}\ \ \ \ \ \ \ \textcolor{comment}{//\ sysFork}}
+\DoxyCodeLine{\Hypertarget{appelsysteme_8c_source_l00017}00017\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{appelsysteme_8c_source_l00018}00018\ \textcolor{preprocessor}{\#ifdef\ MANUX\_TUBES}}
+\DoxyCodeLine{\Hypertarget{appelsysteme_8c_source_l00019}00019\ \textcolor{preprocessor}{\#\ \ \ include\ <\mbox{\hyperlink{tubes_8h}{manux/tubes.h}}>}\ \ \ \ \ \ \ \textcolor{comment}{//\ sys\_tube}}
+\DoxyCodeLine{\Hypertarget{appelsysteme_8c_source_l00020}00020\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{appelsysteme_8c_source_l00021}00021\ \textcolor{preprocessor}{\#if\ defined(MANUX\_TACHES)\ \&\&\ !defined(MANUX\_REENTRANT)}}
+\DoxyCodeLine{\Hypertarget{appelsysteme_8c_source_l00022}00022\ \textcolor{preprocessor}{\#\ \ \ include\ <\mbox{\hyperlink{exclusion-mutuelle_8h}{manux/exclusion-\/mutuelle.h}}>}\ \ \ \ \textcolor{comment}{//\ Mutex}}
+\DoxyCodeLine{\Hypertarget{appelsysteme_8c_source_l00023}00023\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{appelsysteme_8c_source_l00024}00024\ }
+\DoxyCodeLine{\Hypertarget{appelsysteme_8c_source_l00025}00025\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{horloge_8h}{manux/horloge.h}}>}}
+\DoxyCodeLine{\Hypertarget{appelsysteme_8c_source_l00026}00026\ }
+\DoxyCodeLine{\Hypertarget{appelsysteme_8c_source_l00027}\mbox{\hyperlink{include_2manux_2appelsysteme_8h_a6a3be0481ad3feffe2f40d25cb35b01f}{00027}}\ \textcolor{keywordtype}{void}\ *\ \mbox{\hyperlink{appelsysteme_8c_a6a3be0481ad3feffe2f40d25cb35b01f}{vecteurAppelsSysteme}}[\mbox{\hyperlink{include_2manux_2appelsysteme_8h_aed080930d50d6014826e9bafa7af5b1a}{NB\_MAX\_APPELS\_SYSTEME}}];}
+\DoxyCodeLine{\Hypertarget{appelsysteme_8c_source_l00028}00028\ }
+\DoxyCodeLine{\Hypertarget{appelsysteme_8c_source_l00032}00032\ \textcolor{keyword}{static}}
+\DoxyCodeLine{\Hypertarget{appelsysteme_8c_source_l00033}00033\ \textcolor{keywordtype}{int}\ sys\_dumbAS(\mbox{\hyperlink{struct__ParametreAS}{ParametreAS}}\ as)}
+\DoxyCodeLine{\Hypertarget{appelsysteme_8c_source_l00034}00034\ \{}
+\DoxyCodeLine{\Hypertarget{appelsysteme_8c_source_l00035}00035\ \ \ \ (\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}})\ as;}
+\DoxyCodeLine{\Hypertarget{appelsysteme_8c_source_l00036}00036\ \ \ \ \mbox{\hyperlink{include_2manux_2printk_8h_a25b30e8bbadd54650c56895999dd808f}{printk}}(\textcolor{stringliteral}{"{}I\ am\ so\ useless,\ ...\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{appelsysteme_8c_source_l00037}00037\ }
+\DoxyCodeLine{\Hypertarget{appelsysteme_8c_source_l00038}00038\ \ \ \ \mbox{\hyperlink{horloge_8c_ac294bb36fab5e27f2b306bbbcb5dc0bc}{attenteMilliSecondes}}(500);}
+\DoxyCodeLine{\Hypertarget{appelsysteme_8c_source_l00039}00039\ }
+\DoxyCodeLine{\Hypertarget{appelsysteme_8c_source_l00040}00040\ \ \ \ \mbox{\hyperlink{include_2manux_2printk_8h_a25b30e8bbadd54650c56895999dd808f}{printk}}(\textcolor{stringliteral}{"{}It\ took\ me\ some\ time,\ ...\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{appelsysteme_8c_source_l00041}00041\ \ \ \ }
+\DoxyCodeLine{\Hypertarget{appelsysteme_8c_source_l00042}00042\ \ \ \ \textcolor{keywordflow}{return}\ 4832;}
+\DoxyCodeLine{\Hypertarget{appelsysteme_8c_source_l00043}00043\ \}}
+\DoxyCodeLine{\Hypertarget{appelsysteme_8c_source_l00044}00044\ }
+\DoxyCodeLine{\Hypertarget{appelsysteme_8c_source_l00045}00045\ \textcolor{preprocessor}{\#ifdef\ MANUX\_AS\_TEST\_SYNCHRO}}
+\DoxyCodeLine{\Hypertarget{appelsysteme_8c_source_l00053}00053\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{int}\ testSynchroCompteur\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{appelsysteme_8c_source_l00054}00054\ \textcolor{preprocessor}{\#define\ MANUX\_AS\_TEST\_SYNCHRO\_DELAI\ 500}}
+\DoxyCodeLine{\Hypertarget{appelsysteme_8c_source_l00055}00055\ }
+\DoxyCodeLine{\Hypertarget{appelsysteme_8c_source_l00056}00056\ \textcolor{keywordtype}{int}\ sys\_testSynchroAS(\mbox{\hyperlink{struct__ParametreAS}{ParametreAS}}\ as,\ \textcolor{keywordtype}{int}\ inc,\ \textcolor{keywordtype}{int}\ action)}
+\DoxyCodeLine{\Hypertarget{appelsysteme_8c_source_l00057}00057\ \{}
+\DoxyCodeLine{\Hypertarget{appelsysteme_8c_source_l00058}00058\ \ \ \ \textcolor{keywordtype}{int}\ x;}
+\DoxyCodeLine{\Hypertarget{appelsysteme_8c_source_l00059}00059\ }
+\DoxyCodeLine{\Hypertarget{appelsysteme_8c_source_l00060}00060\ \ \ \ x\ =\ testSynchroCompteur;}
+\DoxyCodeLine{\Hypertarget{appelsysteme_8c_source_l00061}00061\ }
+\DoxyCodeLine{\Hypertarget{appelsysteme_8c_source_l00062}00062\ \ \ \ \textcolor{keywordflow}{switch}\ (action)\ \{}
+\DoxyCodeLine{\Hypertarget{appelsysteme_8c_source_l00063}00063\ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 1\ :}
+\DoxyCodeLine{\Hypertarget{appelsysteme_8c_source_l00064}00064\ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{scheduler_8h_ae00507099d51c08195d42c08daad4f41}{ordonnanceur}}();}
+\DoxyCodeLine{\Hypertarget{appelsysteme_8c_source_l00065}00065\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{appelsysteme_8c_source_l00066}00066\ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 2:}
+\DoxyCodeLine{\Hypertarget{appelsysteme_8c_source_l00067}00067\ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{horloge_8c_ac294bb36fab5e27f2b306bbbcb5dc0bc}{attenteMilliSecondes}}(MANUX\_AS\_TEST\_SYNCHRO\_DELAI);}
+\DoxyCodeLine{\Hypertarget{appelsysteme_8c_source_l00068}00068\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{appelsysteme_8c_source_l00069}00069\ \ \ \ \ \ \ default\ :}
+\DoxyCodeLine{\Hypertarget{appelsysteme_8c_source_l00070}00070\ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{appelsysteme_8c_source_l00071}00071\ }
+\DoxyCodeLine{\Hypertarget{appelsysteme_8c_source_l00072}00072\ \ \ \ x\ +=\ inc;}
+\DoxyCodeLine{\Hypertarget{appelsysteme_8c_source_l00073}00073\ \ \ \ testSynchroCompteur\ =\ x;}
+\DoxyCodeLine{\Hypertarget{appelsysteme_8c_source_l00074}00074\ \ \ \ }
+\DoxyCodeLine{\Hypertarget{appelsysteme_8c_source_l00075}00075\ \ \ \ \textcolor{keywordflow}{return}\ testSynchroCompteur;}
+\DoxyCodeLine{\Hypertarget{appelsysteme_8c_source_l00076}00076\ \}}
+\DoxyCodeLine{\Hypertarget{appelsysteme_8c_source_l00077}00077\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ MANUX\_AS\_TEST\_SYNCHRO}}
+\DoxyCodeLine{\Hypertarget{appelsysteme_8c_source_l00078}00078\ }
+\DoxyCodeLine{\Hypertarget{appelsysteme_8c_source_l00082}00082\ \textcolor{keyword}{static}}
+\DoxyCodeLine{\Hypertarget{appelsysteme_8c_source_l00083}00083\ \textcolor{keywordtype}{int}\ sys\_erreurAS(\mbox{\hyperlink{struct__ParametreAS}{ParametreAS}}\ as)}
+\DoxyCodeLine{\Hypertarget{appelsysteme_8c_source_l00084}00084\ \{}
+\DoxyCodeLine{\Hypertarget{appelsysteme_8c_source_l00085}00085\ \ \ \ \mbox{\hyperlink{manux_2debug_8h_a94bcf41c2acfb543c52dcb281acba959}{paniqueNoyau}}(\textcolor{stringliteral}{"{}Appel\ systeme\ \%d\ non\ implante\ !\(\backslash\)n"{}},\ as.\mbox{\hyperlink{struct__ParametreAS_af9f0f28e81bafb4b4cae759c3f070bd0}{eax}});}
+\DoxyCodeLine{\Hypertarget{appelsysteme_8c_source_l00086}00086\ }
+\DoxyCodeLine{\Hypertarget{appelsysteme_8c_source_l00087}00087\ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\Hypertarget{appelsysteme_8c_source_l00088}00088\ \}}
+\DoxyCodeLine{\Hypertarget{appelsysteme_8c_source_l00089}00089\ }
+\DoxyCodeLine{\Hypertarget{appelsysteme_8c_source_l00090}\mbox{\hyperlink{include_2manux_2appelsysteme_8h_ab2afb7ddcc5b7c7d47eb2f88c1dc0282}{00090}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{appelsysteme_8c_ab2afb7ddcc5b7c7d47eb2f88c1dc0282}{definirAppelSysteme}}(\textcolor{keywordtype}{int}\ num,\ \textcolor{keywordtype}{void}\ *\ appel)}
+\DoxyCodeLine{\Hypertarget{appelsysteme_8c_source_l00091}00091\ \{}
+\DoxyCodeLine{\Hypertarget{appelsysteme_8c_source_l00092}00092\ \ \ \ \textcolor{comment}{//\ C'est\ plus\ prudent}}
+\DoxyCodeLine{\Hypertarget{appelsysteme_8c_source_l00093}00093\ \ \ \ \mbox{\hyperlink{manux_2debug_8h_a3153a272f18d0f805028fce7e4337b53}{assert}}(num\ <\ \mbox{\hyperlink{include_2manux_2appelsysteme_8h_aed080930d50d6014826e9bafa7af5b1a}{NB\_MAX\_APPELS\_SYSTEME}})\ ;}
+\DoxyCodeLine{\Hypertarget{appelsysteme_8c_source_l00094}00094\ }
+\DoxyCodeLine{\Hypertarget{appelsysteme_8c_source_l00095}00095\ \ \ \ \textcolor{comment}{//\ Attention,\ il\ faut\ tenir\ compte\ de\ la\ valeur\ de\ retour\ !!}}
+\DoxyCodeLine{\Hypertarget{appelsysteme_8c_source_l00096}00096\ \ \ \ \textcolor{comment}{//\ Pour\ le\ moment,\ je\ ne\ suis\ pas\ très clair\ là dessus\ (voir\ par}}
+\DoxyCodeLine{\Hypertarget{appelsysteme_8c_source_l00097}00097\ \ \ \ \textcolor{comment}{//\ exemple\ la\ fonction\ suivante)\ donc\ on\ maintient\ l'assert}}
+\DoxyCodeLine{\Hypertarget{appelsysteme_8c_source_l00098}00098\ \ \ \ \textcolor{comment}{//\ précédente.\ }}
+\DoxyCodeLine{\Hypertarget{appelsysteme_8c_source_l00099}00099\ \ \ \ \textcolor{keywordflow}{if}\ ((num\ <\ 0)\ ||\ (num\ >=\ \mbox{\hyperlink{include_2manux_2appelsysteme_8h_aed080930d50d6014826e9bafa7af5b1a}{NB\_MAX\_APPELS\_SYSTEME}}))\ \{}
+\DoxyCodeLine{\Hypertarget{appelsysteme_8c_source_l00100}00100\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{include_2manux_2errno_8h_a2d1678d5a7cc8ce499643f3b8957def4}{EINVAL}};}
+\DoxyCodeLine{\Hypertarget{appelsysteme_8c_source_l00101}00101\ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{appelsysteme_8c_source_l00102}00102\ \ \ \ \ \ \ \mbox{\hyperlink{manux_2debug_8h_ad4cabea5084373436d91b5dc4e8d0a49}{printk\_debug}}(\mbox{\hyperlink{manux_2debug_8h_afa34597e6ec0f2fec225c45b6408daf9}{DBG\_KERNEL\_AS}},\ \textcolor{stringliteral}{"{}Appel\ sys\ \%d\ loaded\(\backslash\)n"{}},\ num);}
+\DoxyCodeLine{\Hypertarget{appelsysteme_8c_source_l00103}00103\ \ \ \ \ \ \ \mbox{\hyperlink{appelsysteme_8c_a6a3be0481ad3feffe2f40d25cb35b01f}{vecteurAppelsSysteme}}[num]\ =\ appel;}
+\DoxyCodeLine{\Hypertarget{appelsysteme_8c_source_l00104}00104\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{include_2manux_2errno_8h_a7c87371c2c584aeb5a722830670b9bfd}{ESUCCES}};}
+\DoxyCodeLine{\Hypertarget{appelsysteme_8c_source_l00105}00105\ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{appelsysteme_8c_source_l00106}00106\ \}}
+\DoxyCodeLine{\Hypertarget{appelsysteme_8c_source_l00107}00107\ }
+\DoxyCodeLine{\Hypertarget{appelsysteme_8c_source_l00108}\mbox{\hyperlink{include_2manux_2appelsysteme_8h_ae9c459f3384b085e316b0d43a308d69b}{00108}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{appelsysteme_8c_ae9c459f3384b085e316b0d43a308d69b}{initialiserAppelsSysteme}}(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\Hypertarget{appelsysteme_8c_source_l00109}00109\ \{}
+\DoxyCodeLine{\Hypertarget{appelsysteme_8c_source_l00110}00110\ \ \ \ \mbox{\hyperlink{manux_2debug_8h_ad4cabea5084373436d91b5dc4e8d0a49}{printk\_debug}}(\mbox{\hyperlink{manux_2debug_8h_afa34597e6ec0f2fec225c45b6408daf9}{DBG\_KERNEL\_AS}},\ \textcolor{stringliteral}{"{}vecteur\ des\ AS\ =\ 0x\%x\(\backslash\)n"{}},\ \mbox{\hyperlink{appelsysteme_8c_a6a3be0481ad3feffe2f40d25cb35b01f}{vecteurAppelsSysteme}});}
+\DoxyCodeLine{\Hypertarget{appelsysteme_8c_source_l00111}00111\ }
+\DoxyCodeLine{\Hypertarget{appelsysteme_8c_source_l00112}00112\ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ \mbox{\hyperlink{main-bootreg_8c_acc5bda773ae19389879f3886f8ecf123}{a}}\ =\ 0;\ \mbox{\hyperlink{main-bootreg_8c_acc5bda773ae19389879f3886f8ecf123}{a}}\ <\ \mbox{\hyperlink{include_2manux_2appelsysteme_8h_aed080930d50d6014826e9bafa7af5b1a}{NB\_MAX\_APPELS\_SYSTEME}};\ \mbox{\hyperlink{main-bootreg_8c_acc5bda773ae19389879f3886f8ecf123}{a}}++)\ \{}
+\DoxyCodeLine{\Hypertarget{appelsysteme_8c_source_l00113}00113\ \ \ \ \ \ \ \mbox{\hyperlink{appelsysteme_8c_ab2afb7ddcc5b7c7d47eb2f88c1dc0282}{definirAppelSysteme}}(\mbox{\hyperlink{main-bootreg_8c_acc5bda773ae19389879f3886f8ecf123}{a}},\ sys\_erreurAS);}
+\DoxyCodeLine{\Hypertarget{appelsysteme_8c_source_l00114}00114\ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{appelsysteme_8c_source_l00115}00115\ \ \ \ }
+\DoxyCodeLine{\Hypertarget{appelsysteme_8c_source_l00116}00116\ \ \ \ \mbox{\hyperlink{appelsysteme_8c_ab2afb7ddcc5b7c7d47eb2f88c1dc0282}{definirAppelSysteme}}(\mbox{\hyperlink{include_2manux_2appelsystemenum_8h_a2bc38972d09552a7f7334ac03e1a70f0}{NBAS\_DUMB}},\ sys\_dumbAS);}
+\DoxyCodeLine{\Hypertarget{appelsysteme_8c_source_l00117}00117\ }
+\DoxyCodeLine{\Hypertarget{appelsysteme_8c_source_l00118}00118\ \textcolor{preprocessor}{\#ifdef\ MANUX\_AS\_TEST\_SYNCHRO}}
+\DoxyCodeLine{\Hypertarget{appelsysteme_8c_source_l00119}00119\ \ \ \ \mbox{\hyperlink{appelsysteme_8c_ab2afb7ddcc5b7c7d47eb2f88c1dc0282}{definirAppelSysteme}}(NBAS\_TEST\_SYNC,\ sys\_testSynchroAS);}
+\DoxyCodeLine{\Hypertarget{appelsysteme_8c_source_l00120}00120\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{appelsysteme_8c_source_l00121}00121\ \ \ \ }
+\DoxyCodeLine{\Hypertarget{appelsysteme_8c_source_l00122}00122\ \ \ \ \textcolor{comment}{/*\ Envoyer\ une\ chaîne\ de\ caractères\ sur\ la\ console\ */}}
+\DoxyCodeLine{\Hypertarget{appelsysteme_8c_source_l00123}00123\ \ \ \ \mbox{\hyperlink{appelsysteme_8c_ab2afb7ddcc5b7c7d47eb2f88c1dc0282}{definirAppelSysteme}}(\mbox{\hyperlink{include_2manux_2appelsystemenum_8h_a5b97a0359c72a132c3943c5678d2321e}{NBAS\_ECRIRE\_CONS}},\ sys\_ecrireConsole);}
+\DoxyCodeLine{\Hypertarget{appelsysteme_8c_source_l00124}00124\ }
+\DoxyCodeLine{\Hypertarget{appelsysteme_8c_source_l00125}00125\ \textcolor{preprocessor}{\#ifdef\ MANUX\_TACHES}}
+\DoxyCodeLine{\Hypertarget{appelsysteme_8c_source_l00126}00126\ \ \ \ \textcolor{comment}{//\ Création\ d'une\ nouvelle\ tâche}}
+\DoxyCodeLine{\Hypertarget{appelsysteme_8c_source_l00127}00127\ \ \ \ \mbox{\hyperlink{appelsysteme_8c_ab2afb7ddcc5b7c7d47eb2f88c1dc0282}{definirAppelSysteme}}(\mbox{\hyperlink{include_2manux_2appelsystemenum_8h_a0be4551c809b51ac7a4103b267ee9ba7}{NBAS\_CREER\_TACHE}},\ \mbox{\hyperlink{scheduler_8h_a8f577acc503b6c76a2f531bc3c9bf6e3}{sys\_creerTache}});\ \ \ }
+\DoxyCodeLine{\Hypertarget{appelsysteme_8c_source_l00128}00128\ }
+\DoxyCodeLine{\Hypertarget{appelsysteme_8c_source_l00129}00129\ \ \ \ \textcolor{comment}{//\ Invocation\ explicite\ de\ l'ordonnanceur}}
+\DoxyCodeLine{\Hypertarget{appelsysteme_8c_source_l00130}00130\ \ \ \ \mbox{\hyperlink{appelsysteme_8c_ab2afb7ddcc5b7c7d47eb2f88c1dc0282}{definirAppelSysteme}}(\mbox{\hyperlink{include_2manux_2appelsystemenum_8h_a3e18211ea522a478c94efc68b359063a}{NBAS\_BASCULER\_TACHE}},\ \mbox{\hyperlink{scheduler_8h_ae066204c3c4fc47d9bc5cd4a9a4c7d39}{sys\_basculerTache}});}
+\DoxyCodeLine{\Hypertarget{appelsysteme_8c_source_l00131}00131\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{appelsysteme_8c_source_l00132}00132\ }
+\DoxyCodeLine{\Hypertarget{appelsysteme_8c_source_l00133}00133\ \textcolor{preprocessor}{\#ifdef\ MANUX\_TUBES}}
+\DoxyCodeLine{\Hypertarget{appelsysteme_8c_source_l00134}00134\ \ \ \ \textcolor{comment}{//\ Création\ d'un\ tube\ de\ communiations\ entre\ tâches}}
+\DoxyCodeLine{\Hypertarget{appelsysteme_8c_source_l00135}00135\ \ \ \ \mbox{\hyperlink{appelsysteme_8c_ab2afb7ddcc5b7c7d47eb2f88c1dc0282}{definirAppelSysteme}}(NBAS\_TUBE,\ sys\_tube);}
+\DoxyCodeLine{\Hypertarget{appelsysteme_8c_source_l00136}00136\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{appelsysteme_8c_source_l00137}00137\ }
+\DoxyCodeLine{\Hypertarget{appelsysteme_8c_source_l00138}00138\ \ \ \ \mbox{\hyperlink{appelsysteme_8c_ab2afb7ddcc5b7c7d47eb2f88c1dc0282}{definirAppelSysteme}}(\mbox{\hyperlink{include_2manux_2appelsystemenum_8h_ae0200ee1c8ec09ed15ff119ad17afa2d}{NBAS\_IDENTIFIANT\_TACHE}},\ \mbox{\hyperlink{scheduler_8h_a2bf4d87db2a0e2c668709171410ea88c}{sys\_identifiantTache}});}
+\DoxyCodeLine{\Hypertarget{appelsysteme_8c_source_l00139}00139\ }
+\DoxyCodeLine{\Hypertarget{appelsysteme_8c_source_l00140}00140\ \ \ \ \textcolor{comment}{/*\ Les\ suivants\ sont\ à revoir\ */}}
+\DoxyCodeLine{\Hypertarget{appelsysteme_8c_source_l00141}00141\ \ \ \ \textcolor{comment}{//definirAppelSysteme(NBAS\_CONSOLE,\ \ \ \ \ \ \ \ AS\_console);}}
+\DoxyCodeLine{\Hypertarget{appelsysteme_8c_source_l00142}00142\ \ \ \ \textcolor{comment}{//definirAppelSysteme(NBAS\_OBTENIR\_PAGES,\ \ AS\_obtenirPages);}}
+\DoxyCodeLine{\Hypertarget{appelsysteme_8c_source_l00143}00143\ \ \ \ \textcolor{comment}{//definirAppelSysteme(NBAS\_FORK,\ \ \ \ \ \ \ \ \ \ \ sysFork);}}
+\DoxyCodeLine{\Hypertarget{appelsysteme_8c_source_l00144}00144\ }
+\DoxyCodeLine{\Hypertarget{appelsysteme_8c_source_l00145}00145\ \textcolor{preprocessor}{\#if\ defined(MANUX\_TACHES)\ \&\&\ !defined(MANUX\_REENTRANT)}}
+\DoxyCodeLine{\Hypertarget{appelsysteme_8c_source_l00146}00146\ \ \ \ tacheDansLeNoyau=\ 0;}
+\DoxyCodeLine{\Hypertarget{appelsysteme_8c_source_l00147}00147\ \ \ \ \mbox{\hyperlink{exclusion-mutuelle_8h_aadab68f4af630c6abd0ca306539c9d60}{exclusionMutuelleInitialiser}}(\&verrouGeneralDuNoyau);}
+\DoxyCodeLine{\Hypertarget{appelsysteme_8c_source_l00148}00148\ \textcolor{preprocessor}{\#endif\ \ \ }}
+\DoxyCodeLine{\Hypertarget{appelsysteme_8c_source_l00149}00149\ \}}
+\DoxyCodeLine{\Hypertarget{appelsysteme_8c_source_l00150}00150\ }
+\DoxyCodeLine{\Hypertarget{appelsysteme_8c_source_l00154}\mbox{\hyperlink{include_2manux_2appelsysteme_8h_a8690365ab42febd44ff8842b106fd8c7}{00154}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{appelsysteme_8c_a8690365ab42febd44ff8842b106fd8c7}{entrerAppelSysteme}}(\mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\_t}}\ num)}
+\DoxyCodeLine{\Hypertarget{appelsysteme_8c_source_l00155}00155\ \{}
+\DoxyCodeLine{\Hypertarget{appelsysteme_8c_source_l00156}00156\ \ \ \ \mbox{\hyperlink{manux_2debug_8h_ad4cabea5084373436d91b5dc4e8d0a49}{printk\_debug}}(\mbox{\hyperlink{manux_2debug_8h_afa34597e6ec0f2fec225c45b6408daf9}{DBG\_KERNEL\_AS}},\ \textcolor{stringliteral}{"{}Appel\ sys\ \%d\ IN\(\backslash\)n"{}},\ num);}
+\DoxyCodeLine{\Hypertarget{appelsysteme_8c_source_l00157}00157\ }
+\DoxyCodeLine{\Hypertarget{appelsysteme_8c_source_l00158}00158\ \textcolor{preprocessor}{\#if\ defined(MANUX\_TACHES)\ \&\&\ !defined(MANUX\_REENTRANT)}}
+\DoxyCodeLine{\Hypertarget{appelsysteme_8c_source_l00163}00163\ \textcolor{preprocessor}{\#\ \ \ ifdef\ MANUX\_TUBE\_REENTRANT}}
+\DoxyCodeLine{\Hypertarget{appelsysteme_8c_source_l00164}00164\ \ \ \ \textcolor{keywordflow}{if}\ (num\ !=\ NBAS\_TUBE)\ \{}
+\DoxyCodeLine{\Hypertarget{appelsysteme_8c_source_l00165}00165\ \textcolor{preprocessor}{\#\ \ \ endif}}
+\DoxyCodeLine{\Hypertarget{appelsysteme_8c_source_l00166}00166\ \ \ \ \mbox{\hyperlink{exclusion-mutuelle_8h_a9b966fcfd5b19565e2734f33eb5bbf1c}{exclusionMutuelleEntrer}}(\&verrouGeneralDuNoyau);}
+\DoxyCodeLine{\Hypertarget{appelsysteme_8c_source_l00167}00167\ \ \ \ \mbox{\hyperlink{manux_2debug_8h_a3153a272f18d0f805028fce7e4337b53}{assert}}(tacheDansLeNoyau\ ==\ 0);}
+\DoxyCodeLine{\Hypertarget{appelsysteme_8c_source_l00168}00168\ \ \ \ tacheDansLeNoyau\ =\ \mbox{\hyperlink{scheduler_8h_aafdf44b33a86f1bef6141d33a4abb94b}{tacheEnCours}}-\/>\mbox{\hyperlink{struct__Tache_adcc9e272e58793e4bae000102d6537a3}{numero}};}
+\DoxyCodeLine{\Hypertarget{appelsysteme_8c_source_l00169}00169\ \textcolor{preprocessor}{\#\ \ \ ifdef\ MANUX\_TUBE\_REENTRANT}}
+\DoxyCodeLine{\Hypertarget{appelsysteme_8c_source_l00170}00170\ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{appelsysteme_8c_source_l00171}00171\ \textcolor{preprocessor}{\#\ \ \ endif}}
+\DoxyCodeLine{\Hypertarget{appelsysteme_8c_source_l00172}00172\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{appelsysteme_8c_source_l00173}00173\ }
+\DoxyCodeLine{\Hypertarget{appelsysteme_8c_source_l00174}00174\ \textcolor{preprocessor}{\#ifdef\ MANUX\_AS\_AUDIT}}
+\DoxyCodeLine{\Hypertarget{appelsysteme_8c_source_l00175}00175\ \ \ \ \mbox{\hyperlink{scheduler_8h_aafdf44b33a86f1bef6141d33a4abb94b}{tacheEnCours}}-\/>nbAppelsSystemeIn[num]++;}
+\DoxyCodeLine{\Hypertarget{appelsysteme_8c_source_l00176}00176\ \textcolor{preprocessor}{\#endif\ \ \ }}
+\DoxyCodeLine{\Hypertarget{appelsysteme_8c_source_l00177}00177\ \}}
+\DoxyCodeLine{\Hypertarget{appelsysteme_8c_source_l00178}00178\ }
+\DoxyCodeLine{\Hypertarget{appelsysteme_8c_source_l00182}\mbox{\hyperlink{include_2manux_2appelsysteme_8h_ae628937cde201d4c003072368703ae3c}{00182}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{appelsysteme_8c_ae628937cde201d4c003072368703ae3c}{sortirAppelSysteme}}(\mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\_t}}\ num)}
+\DoxyCodeLine{\Hypertarget{appelsysteme_8c_source_l00183}00183\ \{}
+\DoxyCodeLine{\Hypertarget{appelsysteme_8c_source_l00184}00184\ \ \ \ }
+\DoxyCodeLine{\Hypertarget{appelsysteme_8c_source_l00185}00185\ \ \ \ \mbox{\hyperlink{manux_2debug_8h_ad4cabea5084373436d91b5dc4e8d0a49}{printk\_debug}}(\mbox{\hyperlink{manux_2debug_8h_afa34597e6ec0f2fec225c45b6408daf9}{DBG\_KERNEL\_AS}},\ \textcolor{stringliteral}{"{}Appel\ sys\ \%d\ OUT\(\backslash\)n"{}},\ num);}
+\DoxyCodeLine{\Hypertarget{appelsysteme_8c_source_l00186}00186\ }
+\DoxyCodeLine{\Hypertarget{appelsysteme_8c_source_l00187}00187\ \textcolor{preprocessor}{\#if\ defined(MANUX\_TACHES)\ \&\&\ !defined(MANUX\_REENTRANT)}}
+\DoxyCodeLine{\Hypertarget{appelsysteme_8c_source_l00192}00192\ \textcolor{preprocessor}{\#\ \ \ ifdef\ MANUX\_TUBE\_REENTRANT}}
+\DoxyCodeLine{\Hypertarget{appelsysteme_8c_source_l00193}00193\ \ \ \ \textcolor{keywordflow}{if}\ (num\ !=\ NBAS\_TUBE)\ \{}
+\DoxyCodeLine{\Hypertarget{appelsysteme_8c_source_l00194}00194\ \textcolor{preprocessor}{\#\ \ \ endif}}
+\DoxyCodeLine{\Hypertarget{appelsysteme_8c_source_l00195}00195\ \ \ \ tacheDansLeNoyau\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{appelsysteme_8c_source_l00196}00196\ \ \ \ \mbox{\hyperlink{exclusion-mutuelle_8h_ace5c194a9dd43e021d611e79612d6f13}{exclusionMutuelleSortir}}(\&verrouGeneralDuNoyau);}
+\DoxyCodeLine{\Hypertarget{appelsysteme_8c_source_l00197}00197\ \textcolor{preprocessor}{\#\ \ \ ifdef\ MANUX\_TUBE\_REENTRANT}}
+\DoxyCodeLine{\Hypertarget{appelsysteme_8c_source_l00198}00198\ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{appelsysteme_8c_source_l00199}00199\ \textcolor{preprocessor}{\#\ \ \ endif}}
+\DoxyCodeLine{\Hypertarget{appelsysteme_8c_source_l00200}00200\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{appelsysteme_8c_source_l00201}00201\ }
+\DoxyCodeLine{\Hypertarget{appelsysteme_8c_source_l00202}00202\ \textcolor{preprocessor}{\#ifdef\ MANUX\_AS\_AUDIT}}
+\DoxyCodeLine{\Hypertarget{appelsysteme_8c_source_l00203}00203\ \ \ \ \mbox{\hyperlink{scheduler_8h_aafdf44b33a86f1bef6141d33a4abb94b}{tacheEnCours}}-\/>nbAppelsSystemeOut[num]++;}
+\DoxyCodeLine{\Hypertarget{appelsysteme_8c_source_l00204}00204\ \textcolor{preprocessor}{\#endif\ \ \ }}
+\DoxyCodeLine{\Hypertarget{appelsysteme_8c_source_l00205}00205\ \}}
+\DoxyCodeLine{\Hypertarget{appelsysteme_8c_source_l00206}00206\ }
+\DoxyCodeLine{\Hypertarget{appelsysteme_8c_source_l00207}00207\ }
+
+\end{DoxyCode}

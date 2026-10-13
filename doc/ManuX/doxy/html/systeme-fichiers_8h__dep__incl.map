@@ -1,0 +1,13 @@
+<map id="/home/manu/PROGRAMMATION/C/ManuX/include/config/systeme&#45;fichiers.h" name="/home/manu/PROGRAMMATION/C/ManuX/include/config/systeme&#45;fichiers.h">
+<area shape="rect" id="Node000001" title=" " alt="" coords="507,5,733,60"/>
+<area shape="rect" id="Node000002" href="$include_2manux_2config_8h.html" title=" " alt="" coords="5,108,232,163"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="494,61,245,111,233,113,232,108,243,105,493,56"/>
+<area shape="rect" id="Node000003" href="$acces-concurrent_8h.html" title="Exemple de configuration pour un test d&#39;accès concurrents." alt="" coords="256,108,483,163"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="543,67,436,110,434,105,541,62"/>
+<area shape="rect" id="Node000004" href="$journal_09fichier_8h.html" title=" " alt="" coords="507,108,733,163"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="623,74,623,108,617,108,617,74"/>
+<area shape="rect" id="Node000005" href="$virtio-cons_8h.html" title="Affichage de messages sur une console virtuelle de type virtio." alt="" coords="757,115,992,155"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="700,63,828,113,826,118,698,67"/>
+<area shape="rect" id="Node000006" href="$virtio-journal_8h.html" title=" " alt="" coords="1016,108,1243,163"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="747,55,1005,105,1016,108,1015,113,1003,111,746,61"/>
+</map>

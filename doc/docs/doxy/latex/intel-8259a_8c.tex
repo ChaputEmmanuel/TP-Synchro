@@ -1,0 +1,234 @@
+\doxysection{Référence du fichier /home/manu/\+PROGRAMMATION/\+C/\+Manu\+X/i386/intel-\/8259a.c}
+\hypertarget{intel-8259a_8c}{}\label{intel-8259a_8c}\index{/home/manu/PROGRAMMATION/C/ManuX/i386/intel-\/8259a.c@{/home/manu/PROGRAMMATION/C/ManuX/i386/intel-\/8259a.c}}
+{\ttfamily \#include $<$manux/config.\+h$>$}\newline
+{\ttfamily \#include $<$manux/memoire.\+h$>$}\newline
+{\ttfamily \#include $<$manux/io.\+h$>$}\newline
+{\ttfamily \#include $<$manux/types.\+h$>$}\newline
+{\ttfamily \#include $<$manux/errno.\+h$>$}\newline
+{\ttfamily \#include $<$manux/intel-\/8259a.\+h$>$}\newline
+Graphe des dépendances par inclusion de intel-\/8259a.c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{intel-8259a_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structi8259aClient}{i8259a\+Client}}
+\begin{DoxyCompactList}\small\item\em Structure permettant de définir un matériel "{}client"{}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{intel-8259a_8c_a170d8eebdb48c16cfcd60cbd46760cb2}{PIC\+\_\+\+EOI}}~0x20
+\item 
+\#define \mbox{\hyperlink{intel-8259a_8c_a286dc251f3d73c08e08a53a4696f31ef}{ICW1\+\_\+\+INIT}}~0x10
+\item 
+\#define \mbox{\hyperlink{intel-8259a_8c_a964d12193d2b36e8a7ec7fa57438e313}{ICW1\+\_\+\+ICW4}}~0x01
+\item 
+\#define \mbox{\hyperlink{intel-8259a_8c_a978a66e8c7ea854f1cee264e47e9a438}{ICW3\+\_\+\+ESCLAVE2}}~0x02
+\item 
+\#define \mbox{\hyperlink{intel-8259a_8c_a2e57bbb3b7c6661f2065e22c076ec8a1}{ICW3\+\_\+\+MAITRE2}}~0x04
+\item 
+\#define \mbox{\hyperlink{intel-8259a_8c_a42803c5ddcec9e120a6dbf7bc5c1b7af}{ICW4\+\_\+8086}}~0x01
+\item 
+\#define \mbox{\hyperlink{intel-8259a_8c_af692f0972fdd280b92bfa4b95ad642ca}{delai\+OutB}}~\{for(int \+\_\+\+\_\+x = 0; \+\_\+\+\_\+x$<$20; \+\_\+\+\_\+x++)\{asm("{}"{});\}\}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} \mbox{\hyperlink{intel-8259a_8c_ab3ca008de7fbd6c1917bead0ace48463}{i8259a\+Init}} (\mbox{\hyperlink{include_2manux_2types_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}} int\+Base)
+\item 
+int \mbox{\hyperlink{intel-8259a_8c_a8c849c456bff2b144e72c0d55873647a}{i8259a\+Ajouter\+Handler}} (int num\+IRQ, \mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}}(\texorpdfstring{$\ast$}{*}handler)(\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} \texorpdfstring{$\ast$}{*}), \mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} \texorpdfstring{$\ast$}{*}private)
+\begin{DoxyCompactList}\small\item\em Ajout d\textquotesingle{}un handler. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} \mbox{\hyperlink{intel-8259a_8c_a15912416949d2100da9c775b75457997}{i8259a\+Interdire\+IRQ}} (\mbox{\hyperlink{include_2manux_2types_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}} num\+IRQ)
+\item 
+\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} \mbox{\hyperlink{intel-8259a_8c_a9b846f608e7cad3491d9bff7e870ef00}{i8259a\+Autoriser\+IRQ}} (\mbox{\hyperlink{include_2manux_2types_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}} num\+IRQ)
+\begin{DoxyCompactList}\small\item\em Masquage d\textquotesingle{}une IRQ. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} \mbox{\hyperlink{intel-8259a_8c_aef0ce770a3c3cc5cf26e59bab1023a31}{i8259a\+Ack\+IRQ}} (\mbox{\hyperlink{include_2manux_2types_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}} num\+IRQ)
+\begin{DoxyCompactList}\small\item\em Accusé de réception d\textquotesingle{}une IRQ. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} \mbox{\hyperlink{intel-8259a_8c_a4f1329d91f27772623bca9f4012ef4b4}{i8259a\+Gestion\+IRQ}} (Tous\+Registres registres, \mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\+\_\+t}} num\+IRQ, \mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\+\_\+t}} eip, \mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\+\_\+t}} cs, \mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\+\_\+t}} e\+Flags)
+\begin{DoxyCompactList}\small\item\em Le handler de gestion effective des IRQ. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structi8259aClient}{i8259a\+Client}} \mbox{\hyperlink{intel-8259a_8c_ac8baec0ca9b1d8f19d104d0f13a88a14}{handler\+Clients}} \mbox{[}\mbox{\hyperlink{config_2intel-8259a_8h_a1ff9f13e49ec081b24a660036d65b970}{I8259\+A\+\_\+\+NB\+\_\+\+IRQ}}\mbox{]}\mbox{[}\mbox{\hyperlink{config_2intel-8259a_8h_a3b992b2431ea5d1ae88304c600035461}{MANUX\+\_\+\+NB\+\_\+\+HANDLER\+\_\+\+PAR\+\_\+\+IRQ}}\mbox{]}
+\item 
+int \mbox{\hyperlink{intel-8259a_8c_acb3034cc89229d1d07761a564b37b210}{nb\+Handler\+Clients}} \mbox{[}\mbox{\hyperlink{config_2intel-8259a_8h_a1ff9f13e49ec081b24a660036d65b970}{I8259\+A\+\_\+\+NB\+\_\+\+IRQ}}\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Documentation des macros}
+\Hypertarget{intel-8259a_8c_af692f0972fdd280b92bfa4b95ad642ca}\label{intel-8259a_8c_af692f0972fdd280b92bfa4b95ad642ca} 
+\index{intel-\/8259a.c@{intel-\/8259a.c}!delaiOutB@{delaiOutB}}
+\index{delaiOutB@{delaiOutB}!intel-\/8259a.c@{intel-\/8259a.c}}
+\doxysubsubsection{\texorpdfstring{delaiOutB}{delaiOutB}}
+{\footnotesize\ttfamily \#define delai\+OutB~\{for(int \+\_\+\+\_\+x = 0; \+\_\+\+\_\+x$<$20; \+\_\+\+\_\+x++)\{asm("{}"{});\}\}}
+
+
+
+Définition à la ligne \mbox{\hyperlink{intel-8259a_8c_source_l00054}{54}} du fichier \mbox{\hyperlink{intel-8259a_8c_source}{intel-\/8259a.\+c}}.
+
+\Hypertarget{intel-8259a_8c_a964d12193d2b36e8a7ec7fa57438e313}\label{intel-8259a_8c_a964d12193d2b36e8a7ec7fa57438e313} 
+\index{intel-\/8259a.c@{intel-\/8259a.c}!ICW1\_ICW4@{ICW1\_ICW4}}
+\index{ICW1\_ICW4@{ICW1\_ICW4}!intel-\/8259a.c@{intel-\/8259a.c}}
+\doxysubsubsection{\texorpdfstring{ICW1\_ICW4}{ICW1\_ICW4}}
+{\footnotesize\ttfamily \#define ICW1\+\_\+\+ICW4~0x01}
+
+
+
+Définition à la ligne \mbox{\hyperlink{intel-8259a_8c_source_l00044}{44}} du fichier \mbox{\hyperlink{intel-8259a_8c_source}{intel-\/8259a.\+c}}.
+
+\Hypertarget{intel-8259a_8c_a286dc251f3d73c08e08a53a4696f31ef}\label{intel-8259a_8c_a286dc251f3d73c08e08a53a4696f31ef} 
+\index{intel-\/8259a.c@{intel-\/8259a.c}!ICW1\_INIT@{ICW1\_INIT}}
+\index{ICW1\_INIT@{ICW1\_INIT}!intel-\/8259a.c@{intel-\/8259a.c}}
+\doxysubsubsection{\texorpdfstring{ICW1\_INIT}{ICW1\_INIT}}
+{\footnotesize\ttfamily \#define ICW1\+\_\+\+INIT~0x10}
+
+
+
+Définition à la ligne \mbox{\hyperlink{intel-8259a_8c_source_l00043}{43}} du fichier \mbox{\hyperlink{intel-8259a_8c_source}{intel-\/8259a.\+c}}.
+
+\Hypertarget{intel-8259a_8c_a978a66e8c7ea854f1cee264e47e9a438}\label{intel-8259a_8c_a978a66e8c7ea854f1cee264e47e9a438} 
+\index{intel-\/8259a.c@{intel-\/8259a.c}!ICW3\_ESCLAVE2@{ICW3\_ESCLAVE2}}
+\index{ICW3\_ESCLAVE2@{ICW3\_ESCLAVE2}!intel-\/8259a.c@{intel-\/8259a.c}}
+\doxysubsubsection{\texorpdfstring{ICW3\_ESCLAVE2}{ICW3\_ESCLAVE2}}
+{\footnotesize\ttfamily \#define ICW3\+\_\+\+ESCLAVE2~0x02}
+
+
+
+Définition à la ligne \mbox{\hyperlink{intel-8259a_8c_source_l00047}{47}} du fichier \mbox{\hyperlink{intel-8259a_8c_source}{intel-\/8259a.\+c}}.
+
+\Hypertarget{intel-8259a_8c_a2e57bbb3b7c6661f2065e22c076ec8a1}\label{intel-8259a_8c_a2e57bbb3b7c6661f2065e22c076ec8a1} 
+\index{intel-\/8259a.c@{intel-\/8259a.c}!ICW3\_MAITRE2@{ICW3\_MAITRE2}}
+\index{ICW3\_MAITRE2@{ICW3\_MAITRE2}!intel-\/8259a.c@{intel-\/8259a.c}}
+\doxysubsubsection{\texorpdfstring{ICW3\_MAITRE2}{ICW3\_MAITRE2}}
+{\footnotesize\ttfamily \#define ICW3\+\_\+\+MAITRE2~0x04}
+
+
+
+Définition à la ligne \mbox{\hyperlink{intel-8259a_8c_source_l00048}{48}} du fichier \mbox{\hyperlink{intel-8259a_8c_source}{intel-\/8259a.\+c}}.
+
+\Hypertarget{intel-8259a_8c_a42803c5ddcec9e120a6dbf7bc5c1b7af}\label{intel-8259a_8c_a42803c5ddcec9e120a6dbf7bc5c1b7af} 
+\index{intel-\/8259a.c@{intel-\/8259a.c}!ICW4\_8086@{ICW4\_8086}}
+\index{ICW4\_8086@{ICW4\_8086}!intel-\/8259a.c@{intel-\/8259a.c}}
+\doxysubsubsection{\texorpdfstring{ICW4\_8086}{ICW4\_8086}}
+{\footnotesize\ttfamily \#define ICW4\+\_\+8086~0x01}
+
+
+
+Définition à la ligne \mbox{\hyperlink{intel-8259a_8c_source_l00051}{51}} du fichier \mbox{\hyperlink{intel-8259a_8c_source}{intel-\/8259a.\+c}}.
+
+\Hypertarget{intel-8259a_8c_a170d8eebdb48c16cfcd60cbd46760cb2}\label{intel-8259a_8c_a170d8eebdb48c16cfcd60cbd46760cb2} 
+\index{intel-\/8259a.c@{intel-\/8259a.c}!PIC\_EOI@{PIC\_EOI}}
+\index{PIC\_EOI@{PIC\_EOI}!intel-\/8259a.c@{intel-\/8259a.c}}
+\doxysubsubsection{\texorpdfstring{PIC\_EOI}{PIC\_EOI}}
+{\footnotesize\ttfamily \#define PIC\+\_\+\+EOI~0x20}
+
+
+
+Définition à la ligne \mbox{\hyperlink{intel-8259a_8c_source_l00040}{40}} du fichier \mbox{\hyperlink{intel-8259a_8c_source}{intel-\/8259a.\+c}}.
+
+
+
+\doxysubsection{Documentation des fonctions}
+\Hypertarget{intel-8259a_8c_aef0ce770a3c3cc5cf26e59bab1023a31}\label{intel-8259a_8c_aef0ce770a3c3cc5cf26e59bab1023a31} 
+\index{intel-\/8259a.c@{intel-\/8259a.c}!i8259aAckIRQ@{i8259aAckIRQ}}
+\index{i8259aAckIRQ@{i8259aAckIRQ}!intel-\/8259a.c@{intel-\/8259a.c}}
+\doxysubsubsection{\texorpdfstring{i8259aAckIRQ()}{i8259aAckIRQ()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} i8259a\+Ack\+IRQ (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{include_2manux_2types_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}}}]{num\+IRQ }\end{DoxyParamCaption})}
+
+
+
+Accusé de réception d\textquotesingle{}une IRQ. 
+
+Note \+: on envoie ici un EOI non spécifique (cf \mbox{[}5\mbox{]} p 15) alors que Linux semble faire du specifique. 
+
+Définition à la ligne \mbox{\hyperlink{intel-8259a_8c_source_l00181}{181}} du fichier \mbox{\hyperlink{intel-8259a_8c_source}{intel-\/8259a.\+c}}.
+
+\Hypertarget{intel-8259a_8c_a8c849c456bff2b144e72c0d55873647a}\label{intel-8259a_8c_a8c849c456bff2b144e72c0d55873647a} 
+\index{intel-\/8259a.c@{intel-\/8259a.c}!i8259aAjouterHandler@{i8259aAjouterHandler}}
+\index{i8259aAjouterHandler@{i8259aAjouterHandler}!intel-\/8259a.c@{intel-\/8259a.c}}
+\doxysubsubsection{\texorpdfstring{i8259aAjouterHandler()}{i8259aAjouterHandler()}}
+{\footnotesize\ttfamily int i8259a\+Ajouter\+Handler (\begin{DoxyParamCaption}\item[{int}]{num\+IRQ,  }\item[{\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}}(\texorpdfstring{$\ast$}{*})(\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} \texorpdfstring{$\ast$}{*})}]{handler,  }\item[{\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} \texorpdfstring{$\ast$}{*}}]{private }\end{DoxyParamCaption})}
+
+
+
+Ajout d\textquotesingle{}un handler. 
+
+
+
+Définition à la ligne \mbox{\hyperlink{intel-8259a_8c_source_l00118}{118}} du fichier \mbox{\hyperlink{intel-8259a_8c_source}{intel-\/8259a.\+c}}.
+
+\Hypertarget{intel-8259a_8c_a9b846f608e7cad3491d9bff7e870ef00}\label{intel-8259a_8c_a9b846f608e7cad3491d9bff7e870ef00} 
+\index{intel-\/8259a.c@{intel-\/8259a.c}!i8259aAutoriserIRQ@{i8259aAutoriserIRQ}}
+\index{i8259aAutoriserIRQ@{i8259aAutoriserIRQ}!intel-\/8259a.c@{intel-\/8259a.c}}
+\doxysubsubsection{\texorpdfstring{i8259aAutoriserIRQ()}{i8259aAutoriserIRQ()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} i8259a\+Autoriser\+IRQ (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{include_2manux_2types_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}}}]{num\+IRQ }\end{DoxyParamCaption})}
+
+
+
+Masquage d\textquotesingle{}une IRQ. 
+
+
+
+Définition à la ligne \mbox{\hyperlink{intel-8259a_8c_source_l00157}{157}} du fichier \mbox{\hyperlink{intel-8259a_8c_source}{intel-\/8259a.\+c}}.
+
+\Hypertarget{intel-8259a_8c_a4f1329d91f27772623bca9f4012ef4b4}\label{intel-8259a_8c_a4f1329d91f27772623bca9f4012ef4b4} 
+\index{intel-\/8259a.c@{intel-\/8259a.c}!i8259aGestionIRQ@{i8259aGestionIRQ}}
+\index{i8259aGestionIRQ@{i8259aGestionIRQ}!intel-\/8259a.c@{intel-\/8259a.c}}
+\doxysubsubsection{\texorpdfstring{i8259aGestionIRQ()}{i8259aGestionIRQ()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} i8259a\+Gestion\+IRQ (\begin{DoxyParamCaption}\item[{Tous\+Registres}]{registres,  }\item[{\mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\+\_\+t}}}]{num\+IRQ,  }\item[{\mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\+\_\+t}}}]{eip,  }\item[{\mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\+\_\+t}}}]{cs,  }\item[{\mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\+\_\+t}}}]{e\+Flags }\end{DoxyParamCaption})}
+
+
+
+Le handler de gestion effective des IRQ. 
+
+C\textquotesingle{}est cette fonction qui est invoquée lors d\textquotesingle{}une interruption matérielle. 
+
+Définition à la ligne \mbox{\hyperlink{intel-8259a_8c_source_l00196}{196}} du fichier \mbox{\hyperlink{intel-8259a_8c_source}{intel-\/8259a.\+c}}.
+
+\Hypertarget{intel-8259a_8c_ab3ca008de7fbd6c1917bead0ace48463}\label{intel-8259a_8c_ab3ca008de7fbd6c1917bead0ace48463} 
+\index{intel-\/8259a.c@{intel-\/8259a.c}!i8259aInit@{i8259aInit}}
+\index{i8259aInit@{i8259aInit}!intel-\/8259a.c@{intel-\/8259a.c}}
+\doxysubsubsection{\texorpdfstring{i8259aInit()}{i8259aInit()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} i8259a\+Init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{include_2manux_2types_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}}}]{int\+Base }\end{DoxyParamCaption})}
+
+
+
+Définition à la ligne \mbox{\hyperlink{intel-8259a_8c_source_l00061}{61}} du fichier \mbox{\hyperlink{intel-8259a_8c_source}{intel-\/8259a.\+c}}.
+
+\Hypertarget{intel-8259a_8c_a15912416949d2100da9c775b75457997}\label{intel-8259a_8c_a15912416949d2100da9c775b75457997} 
+\index{intel-\/8259a.c@{intel-\/8259a.c}!i8259aInterdireIRQ@{i8259aInterdireIRQ}}
+\index{i8259aInterdireIRQ@{i8259aInterdireIRQ}!intel-\/8259a.c@{intel-\/8259a.c}}
+\doxysubsubsection{\texorpdfstring{i8259aInterdireIRQ()}{i8259aInterdireIRQ()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} i8259a\+Interdire\+IRQ (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{include_2manux_2types_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}}}]{num\+IRQ }\end{DoxyParamCaption})}
+
+Masquage d\textquotesingle{}une IRQ 
+
+Définition à la ligne \mbox{\hyperlink{intel-8259a_8c_source_l00136}{136}} du fichier \mbox{\hyperlink{intel-8259a_8c_source}{intel-\/8259a.\+c}}.
+
+
+
+\doxysubsection{Documentation des variables}
+\Hypertarget{intel-8259a_8c_ac8baec0ca9b1d8f19d104d0f13a88a14}\label{intel-8259a_8c_ac8baec0ca9b1d8f19d104d0f13a88a14} 
+\index{intel-\/8259a.c@{intel-\/8259a.c}!handlerClients@{handlerClients}}
+\index{handlerClients@{handlerClients}!intel-\/8259a.c@{intel-\/8259a.c}}
+\doxysubsubsection{\texorpdfstring{handlerClients}{handlerClients}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structi8259aClient}{i8259a\+Client}} handler\+Clients\mbox{[}\mbox{\hyperlink{config_2intel-8259a_8h_a1ff9f13e49ec081b24a660036d65b970}{I8259\+A\+\_\+\+NB\+\_\+\+IRQ}}\mbox{]}\mbox{[}\mbox{\hyperlink{config_2intel-8259a_8h_a3b992b2431ea5d1ae88304c600035461}{MANUX\+\_\+\+NB\+\_\+\+HANDLER\+\_\+\+PAR\+\_\+\+IRQ}}\mbox{]}}
+
+Tableau des handlers et data 
+
+Définition à la ligne \mbox{\hyperlink{intel-8259a_8c_source_l00030}{30}} du fichier \mbox{\hyperlink{intel-8259a_8c_source}{intel-\/8259a.\+c}}.
+
+\Hypertarget{intel-8259a_8c_acb3034cc89229d1d07761a564b37b210}\label{intel-8259a_8c_acb3034cc89229d1d07761a564b37b210} 
+\index{intel-\/8259a.c@{intel-\/8259a.c}!nbHandlerClients@{nbHandlerClients}}
+\index{nbHandlerClients@{nbHandlerClients}!intel-\/8259a.c@{intel-\/8259a.c}}
+\doxysubsubsection{\texorpdfstring{nbHandlerClients}{nbHandlerClients}}
+{\footnotesize\ttfamily int nb\+Handler\+Clients\mbox{[}\mbox{\hyperlink{config_2intel-8259a_8h_a1ff9f13e49ec081b24a660036d65b970}{I8259\+A\+\_\+\+NB\+\_\+\+IRQ}}\mbox{]}}
+
+Nombre de handlers enregistrés par IRQ 
+
+Définition à la ligne \mbox{\hyperlink{intel-8259a_8c_source_l00035}{35}} du fichier \mbox{\hyperlink{intel-8259a_8c_source}{intel-\/8259a.\+c}}.
+

@@ -1,0 +1,114 @@
+\doxysection{Référence du fichier /home/manu/\+PROGRAMMATION/\+C/\+Manu\+X/noyau/appelsysteme.c}
+\hypertarget{appelsysteme_8c}{}\label{appelsysteme_8c}\index{/home/manu/PROGRAMMATION/C/ManuX/noyau/appelsysteme.c@{/home/manu/PROGRAMMATION/C/ManuX/noyau/appelsysteme.c}}
+
+
+Implantation des sous-\/programmes de gestion des appels syst�me.  
+
+
+{\ttfamily \#include $<$manux/appelsysteme.\+h$>$}\newline
+{\ttfamily \#include $<$manux/errno.\+h$>$}\newline
+{\ttfamily \#include $<$manux/printk.\+h$>$}\newline
+{\ttfamily \#include $<$manux/debug.\+h$>$}\newline
+{\ttfamily \#include $<$manux/scheduler.\+h$>$}\newline
+{\ttfamily \#include $<$manux/memoire.\+h$>$}\newline
+{\ttfamily \#include $<$manux/console.\+h$>$}\newline
+{\ttfamily \#include $<$manux/horloge.\+h$>$}\newline
+Graphe des dépendances par inclusion de appelsysteme.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{appelsysteme_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{appelsysteme_8c_ab2afb7ddcc5b7c7d47eb2f88c1dc0282}{definir\+Appel\+Systeme}} (int num, \mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} \texorpdfstring{$\ast$}{*}appel)
+\item 
+\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} \mbox{\hyperlink{appelsysteme_8c_ae9c459f3384b085e316b0d43a308d69b}{initialiser\+Appels\+Systeme}} (\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}})
+\item 
+\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} \mbox{\hyperlink{appelsysteme_8c_a8690365ab42febd44ff8842b106fd8c7}{entrer\+Appel\+Systeme}} (\mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\+\_\+t}} num)
+\begin{DoxyCompactList}\small\item\em Pr�lude � un appel syst�me. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} \mbox{\hyperlink{appelsysteme_8c_ae628937cde201d4c003072368703ae3c}{sortir\+Appel\+Systeme}} (\mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\+\_\+t}} num)
+\begin{DoxyCompactList}\small\item\em Fin d\textquotesingle{}un appel syst�me. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{appelsysteme_8c_a6a3be0481ad3feffe2f40d25cb35b01f}{vecteur\+Appels\+Systeme}} \mbox{[}\mbox{\hyperlink{include_2manux_2appelsysteme_8h_aed080930d50d6014826e9bafa7af5b1a}{NB\+\_\+\+MAX\+\_\+\+APPELS\+\_\+\+SYSTEME}}\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Implantation des sous-\/programmes de gestion des appels syst�me. 
+
+\begin{DoxyVerb}                                              (C) Manu Chaput 2000-2025
+\end{DoxyVerb}
+ 
+
+Définition dans le fichier \mbox{\hyperlink{appelsysteme_8c_source}{appelsysteme.\+c}}.
+
+
+
+\doxysubsection{Documentation des fonctions}
+\Hypertarget{appelsysteme_8c_ab2afb7ddcc5b7c7d47eb2f88c1dc0282}\label{appelsysteme_8c_ab2afb7ddcc5b7c7d47eb2f88c1dc0282} 
+\index{appelsysteme.c@{appelsysteme.c}!definirAppelSysteme@{definirAppelSysteme}}
+\index{definirAppelSysteme@{definirAppelSysteme}!appelsysteme.c@{appelsysteme.c}}
+\doxysubsubsection{\texorpdfstring{definirAppelSysteme()}{definirAppelSysteme()}}
+{\footnotesize\ttfamily int definir\+Appel\+Systeme (\begin{DoxyParamCaption}\item[{int}]{num,  }\item[{\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} \texorpdfstring{$\ast$}{*}}]{appel }\end{DoxyParamCaption})}
+
+
+
+Définition à la ligne \mbox{\hyperlink{appelsysteme_8c_source_l00090}{90}} du fichier \mbox{\hyperlink{appelsysteme_8c_source}{appelsysteme.\+c}}.
+
+\Hypertarget{appelsysteme_8c_a8690365ab42febd44ff8842b106fd8c7}\label{appelsysteme_8c_a8690365ab42febd44ff8842b106fd8c7} 
+\index{appelsysteme.c@{appelsysteme.c}!entrerAppelSysteme@{entrerAppelSysteme}}
+\index{entrerAppelSysteme@{entrerAppelSysteme}!appelsysteme.c@{appelsysteme.c}}
+\doxysubsubsection{\texorpdfstring{entrerAppelSysteme()}{entrerAppelSysteme()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} entrer\+Appel\+Systeme (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\+\_\+t}}}]{num }\end{DoxyParamCaption})}
+
+
+
+Pr�lude � un appel syst�me. 
+
+Prélude à un appel système. 
+
+Définition à la ligne \mbox{\hyperlink{appelsysteme_8c_source_l00154}{154}} du fichier \mbox{\hyperlink{appelsysteme_8c_source}{appelsysteme.\+c}}.
+
+\Hypertarget{appelsysteme_8c_ae9c459f3384b085e316b0d43a308d69b}\label{appelsysteme_8c_ae9c459f3384b085e316b0d43a308d69b} 
+\index{appelsysteme.c@{appelsysteme.c}!initialiserAppelsSysteme@{initialiserAppelsSysteme}}
+\index{initialiserAppelsSysteme@{initialiserAppelsSysteme}!appelsysteme.c@{appelsysteme.c}}
+\doxysubsubsection{\texorpdfstring{initialiserAppelsSysteme()}{initialiserAppelsSysteme()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} initialiser\+Appels\+Systeme (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}}}]{ }\end{DoxyParamCaption})}
+
+
+
+Définition à la ligne \mbox{\hyperlink{appelsysteme_8c_source_l00108}{108}} du fichier \mbox{\hyperlink{appelsysteme_8c_source}{appelsysteme.\+c}}.
+
+\Hypertarget{appelsysteme_8c_ae628937cde201d4c003072368703ae3c}\label{appelsysteme_8c_ae628937cde201d4c003072368703ae3c} 
+\index{appelsysteme.c@{appelsysteme.c}!sortirAppelSysteme@{sortirAppelSysteme}}
+\index{sortirAppelSysteme@{sortirAppelSysteme}!appelsysteme.c@{appelsysteme.c}}
+\doxysubsubsection{\texorpdfstring{sortirAppelSysteme()}{sortirAppelSysteme()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} sortir\+Appel\+Systeme (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\+\_\+t}}}]{num }\end{DoxyParamCaption})}
+
+
+
+Fin d\textquotesingle{}un appel syst�me. 
+
+Fin d\textquotesingle{}un appel système. 
+
+Définition à la ligne \mbox{\hyperlink{appelsysteme_8c_source_l00182}{182}} du fichier \mbox{\hyperlink{appelsysteme_8c_source}{appelsysteme.\+c}}.
+
+
+
+\doxysubsection{Documentation des variables}
+\Hypertarget{appelsysteme_8c_a6a3be0481ad3feffe2f40d25cb35b01f}\label{appelsysteme_8c_a6a3be0481ad3feffe2f40d25cb35b01f} 
+\index{appelsysteme.c@{appelsysteme.c}!vecteurAppelsSysteme@{vecteurAppelsSysteme}}
+\index{vecteurAppelsSysteme@{vecteurAppelsSysteme}!appelsysteme.c@{appelsysteme.c}}
+\doxysubsubsection{\texorpdfstring{vecteurAppelsSysteme}{vecteurAppelsSysteme}}
+{\footnotesize\ttfamily \mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}}\texorpdfstring{$\ast$}{*} vecteur\+Appels\+Systeme\mbox{[}\mbox{\hyperlink{include_2manux_2appelsysteme_8h_aed080930d50d6014826e9bafa7af5b1a}{NB\+\_\+\+MAX\+\_\+\+APPELS\+\_\+\+SYSTEME}}\mbox{]}}
+
+
+
+Définition à la ligne \mbox{\hyperlink{appelsysteme_8c_source_l00027}{27}} du fichier \mbox{\hyperlink{appelsysteme_8c_source}{appelsysteme.\+c}}.
+

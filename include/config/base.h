@@ -44,14 +44,22 @@
 #endif
 
 /**
- * @brief Le noyau est-il réentrant ?
+ * @brief Quelle architecture ?
  *
- * Si un élément ne l'est pas, cette macro ne doit pas être définie
+ * Une seule possible pour le moment, mais on peut rêver non ?
  */
-#define MANUX_REENTRANT
-//#undef MANUX_REENTRANT
+#ifndef MANUX_ARCH
+#  define MANUX_ARCH i386
+#endif
 
 /**
- * @brief Utilisation d'outils de synchronisation ?
+ * @brief Quelques macros me permettant de tenir compte du compilateur
  */
-#define MANUX_ATOMIQUE
+#ifdef __clang__
+# define NO_OPTIMIZE __attribute__((optnone))
+#elif defined(__GNUC__)
+# define NO_OPTIMIZE __attribute__((optimize("O0")))
+#else
+# define NO_OPTINO_OPTIMIZE Attention
+#endif
+

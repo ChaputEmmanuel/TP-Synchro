@@ -1,0 +1,73 @@
+\doxysection{plan-\/memoire-\/pc.h}
+\hypertarget{plan-memoire-pc_8h_source}{}\label{plan-memoire-pc_8h_source}\index{/home/manu/PROGRAMMATION/C/ManuX/include/config/plan-\/memoire-\/pc.h@{/home/manu/PROGRAMMATION/C/ManuX/include/config/plan-\/memoire-\/pc.h}}
+\mbox{\hyperlink{plan-memoire-pc_8h}{Aller à la documentation de ce fichier.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{plan-memoire-pc_8h_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{plan-memoire-pc_8h_source_l00008}00008\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{plan-memoire-pc_8h_source_l00009}00009\ \textcolor{comment}{/*\ Organisation\ de\ la\ mémoire\ lors\ du\ boot.\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{plan-memoire-pc_8h_source_l00010}00010\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{plan-memoire-pc_8h_source_l00011}00011\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{plan-memoire-pc_8h_source_l00012}00012\ \textcolor{comment}{\ *\ Positionnement\ du\ code\ d'init,\ utilisé\ en\ cas\ de\ boot\ sur\ disquette.\ On\ peut}}
+\DoxyCodeLine{\Hypertarget{plan-memoire-pc_8h_source_l00013}00013\ \textcolor{comment}{\ *\ réutiliser\ cette\ mémoire\ dans\ le\ noyau,\ puisque\ le\ code\ d'init\ est\ terminé}}
+\DoxyCodeLine{\Hypertarget{plan-memoire-pc_8h_source_l00014}00014\ \textcolor{comment}{\ *\ lorsque\ le\ noyau\ est\ initialisé.}}
+\DoxyCodeLine{\Hypertarget{plan-memoire-pc_8h_source_l00015}00015\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{plan-memoire-pc_8h_source_l00016}00016\ \textcolor{preprocessor}{\#ifndef\ MANUX\_BOOT\_START\_ADDRESS}}
+\DoxyCodeLine{\Hypertarget{plan-memoire-pc_8h_source_l00017}\mbox{\hyperlink{plan-memoire-pc_8h_a1374963f85bcb1c48a93f0e52cc86633}{00017}}\ \textcolor{preprocessor}{\#\ \ \ define\ MANUX\_BOOT\_START\_ADDRESS\ \ 0x7c00}}
+\DoxyCodeLine{\Hypertarget{plan-memoire-pc_8h_source_l00018}00018\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{plan-memoire-pc_8h_source_l00019}00019\ \textcolor{preprocessor}{\#ifndef\ MANUX\_INIT\_START\_ADDRESS}}
+\DoxyCodeLine{\Hypertarget{plan-memoire-pc_8h_source_l00020}\mbox{\hyperlink{plan-memoire-pc_8h_a28b589324e233e3b4a45519dc7036ac7}{00020}}\ \textcolor{preprocessor}{\#\ \ \ define\ MANUX\_INIT\_START\_ADDRESS\ \ 0x7e00}}
+\DoxyCodeLine{\Hypertarget{plan-memoire-pc_8h_source_l00021}00021\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{plan-memoire-pc_8h_source_l00022}00022\ }
+\DoxyCodeLine{\Hypertarget{plan-memoire-pc_8h_source_l00023}00023\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{plan-memoire-pc_8h_source_l00024}00024\ \textcolor{comment}{/*\ Organisation\ de\ la\ mémoire\ au\ démarrage.\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{plan-memoire-pc_8h_source_l00025}00025\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{plan-memoire-pc_8h_source_l00032}00032\ \textcolor{preprocessor}{\#ifndef\ MANUX\_ADRESSE\_BIOS}}
+\DoxyCodeLine{\Hypertarget{plan-memoire-pc_8h_source_l00033}\mbox{\hyperlink{plan-memoire-pc_8h_a388a07c865445c2f274a778c1f50ca3d}{00033}}\ \textcolor{preprocessor}{\#\ \ \ define\ MANUX\_ADRESSE\_BIOS\ 0x80000}}
+\DoxyCodeLine{\Hypertarget{plan-memoire-pc_8h_source_l00034}00034\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{plan-memoire-pc_8h_source_l00035}00035\ }
+\DoxyCodeLine{\Hypertarget{plan-memoire-pc_8h_source_l00036}00036\ \textcolor{preprocessor}{\#ifndef\ MANUX\_BIOS\_NB\_PAGES}}
+\DoxyCodeLine{\Hypertarget{plan-memoire-pc_8h_source_l00037}\mbox{\hyperlink{plan-memoire-pc_8h_a31a76702a9c442daf7d70fa850e362c3}{00037}}\ \textcolor{preprocessor}{\#\ \ \ define\ MANUX\_BIOS\_NB\_PAGES\ 0x80}}
+\DoxyCodeLine{\Hypertarget{plan-memoire-pc_8h_source_l00038}00038\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{plan-memoire-pc_8h_source_l00039}00039\ }
+\DoxyCodeLine{\Hypertarget{plan-memoire-pc_8h_source_l00043}00043\ \textcolor{preprocessor}{\#ifndef\ MANUX\_ADRESSE\_ECRAN}}
+\DoxyCodeLine{\Hypertarget{plan-memoire-pc_8h_source_l00044}\mbox{\hyperlink{plan-memoire-pc_8h_a9ef01c49cb4a8dcc6b1ddb898d0c8ab9}{00044}}\ \textcolor{preprocessor}{\#\ \ \ define\ MANUX\_ADRESSE\_ECRAN\ 0xb8000}}
+\DoxyCodeLine{\Hypertarget{plan-memoire-pc_8h_source_l00045}00045\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{plan-memoire-pc_8h_source_l00046}00046\ }
+\DoxyCodeLine{\Hypertarget{plan-memoire-pc_8h_source_l00050}00050\ \textcolor{preprocessor}{\#ifndef\ MANUX\_ADRESSE\_IDT}}
+\DoxyCodeLine{\Hypertarget{plan-memoire-pc_8h_source_l00051}\mbox{\hyperlink{plan-memoire-pc_8h_a3dac2f2810749b6bc48abc5444e83503}{00051}}\ \textcolor{preprocessor}{\#\ \ \ define\ MANUX\_ADRESSE\_IDT\ \ 0x1000\ }\textcolor{comment}{//0x48000\ //0x41000\ //0x31000}}
+\DoxyCodeLine{\Hypertarget{plan-memoire-pc_8h_source_l00052}00052\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{plan-memoire-pc_8h_source_l00053}00053\ }
+\DoxyCodeLine{\Hypertarget{plan-memoire-pc_8h_source_l00054}00054\ \textcolor{preprocessor}{\#ifndef\ MANUX\_IDT\_NB\_PAGES}}
+\DoxyCodeLine{\Hypertarget{plan-memoire-pc_8h_source_l00055}00055\ \textcolor{preprocessor}{\#\ \ \ define\ MANUX\_IDT\_NB\_PAGES\ 1}}
+\DoxyCodeLine{\Hypertarget{plan-memoire-pc_8h_source_l00056}00056\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{plan-memoire-pc_8h_source_l00057}00057\ }
+\DoxyCodeLine{\Hypertarget{plan-memoire-pc_8h_source_l00061}00061\ \textcolor{preprocessor}{\#ifndef\ MANUX\_ADRESSE\_GDT}}
+\DoxyCodeLine{\Hypertarget{plan-memoire-pc_8h_source_l00062}\mbox{\hyperlink{plan-memoire-pc_8h_ab5e25660831ed8f2f45c1cce5c2261f1}{00062}}\ \textcolor{preprocessor}{\#\ \ \ define\ MANUX\_ADRESSE\_GDT\ \ 0x2000\ }\textcolor{comment}{//0x49000\ //0x42000\ //0x32000}}
+\DoxyCodeLine{\Hypertarget{plan-memoire-pc_8h_source_l00063}00063\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{plan-memoire-pc_8h_source_l00064}00064\ }
+\DoxyCodeLine{\Hypertarget{plan-memoire-pc_8h_source_l00065}00065\ \textcolor{preprocessor}{\#ifndef\ MANUX\_GDT\_NB\_PAGES}}
+\DoxyCodeLine{\Hypertarget{plan-memoire-pc_8h_source_l00066}\mbox{\hyperlink{plan-memoire-pc_8h_a47a480233a5bb67636294c6f3b243039}{00066}}\ \textcolor{preprocessor}{\#\ \ \ define\ MANUX\_GDT\_NB\_PAGES\ 1}}
+\DoxyCodeLine{\Hypertarget{plan-memoire-pc_8h_source_l00067}00067\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{plan-memoire-pc_8h_source_l00068}00068\ }
+\DoxyCodeLine{\Hypertarget{plan-memoire-pc_8h_source_l00072}00072\ \textcolor{preprocessor}{\#ifndef\ MANUX\_KERNEL\_START\_ADDRESS}}
+\DoxyCodeLine{\Hypertarget{plan-memoire-pc_8h_source_l00073}\mbox{\hyperlink{plan-memoire-pc_8h_a90e73b4a95861b66b3a04ed56c246643}{00073}}\ \textcolor{preprocessor}{\#\ \ \ define\ MANUX\_KERNEL\_START\_ADDRESS\ 0x10000}}
+\DoxyCodeLine{\Hypertarget{plan-memoire-pc_8h_source_l00074}00074\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{plan-memoire-pc_8h_source_l00075}00075\ }
+\DoxyCodeLine{\Hypertarget{plan-memoire-pc_8h_source_l00076}00076\ \textcolor{preprocessor}{\#ifndef\ MANUX\_STACK\_SEG\_16}}
+\DoxyCodeLine{\Hypertarget{plan-memoire-pc_8h_source_l00077}\mbox{\hyperlink{plan-memoire-pc_8h_ac1911f2c247c7256109cbb0a6689cf52}{00077}}\ \textcolor{preprocessor}{\#\ \ \ define\ MANUX\_STACK\_SEG\_16\ 0x9000}}
+\DoxyCodeLine{\Hypertarget{plan-memoire-pc_8h_source_l00078}00078\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{plan-memoire-pc_8h_source_l00079}00079\ }
+\DoxyCodeLine{\Hypertarget{plan-memoire-pc_8h_source_l00083}00083\ \textcolor{preprocessor}{\#ifndef\ MANUX\_TAILLE\_PILE}}
+\DoxyCodeLine{\Hypertarget{plan-memoire-pc_8h_source_l00084}\mbox{\hyperlink{plan-memoire-pc_8h_a3279e8372b7a45e78eb6be3b9ff2950b}{00084}}\ \textcolor{preprocessor}{\#\ \ \ define\ MANUX\_TAILLE\_PILE\ 16384}}
+\DoxyCodeLine{\Hypertarget{plan-memoire-pc_8h_source_l00085}00085\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{plan-memoire-pc_8h_source_l00086}00086\ }
+\DoxyCodeLine{\Hypertarget{plan-memoire-pc_8h_source_l00087}00087\ \textcolor{preprocessor}{\#ifndef\ MANUX\_ELF\_HEADER\_SIZE}}
+\DoxyCodeLine{\Hypertarget{plan-memoire-pc_8h_source_l00088}\mbox{\hyperlink{plan-memoire-pc_8h_a9755ed17f5e377b123289d1aec5a7f34}{00088}}\ \textcolor{preprocessor}{\#\ \ \ define\ MANUX\_ELF\_HEADER\_SIZE\ 0x80}}
+\DoxyCodeLine{\Hypertarget{plan-memoire-pc_8h_source_l00089}00089\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{plan-memoire-pc_8h_source_l00090}00090\ }
+\DoxyCodeLine{\Hypertarget{plan-memoire-pc_8h_source_l00091}00091\ \textcolor{preprocessor}{\#ifndef\ MANUX\_NB\_SECT\_INIT}}
+\DoxyCodeLine{\Hypertarget{plan-memoire-pc_8h_source_l00092}\mbox{\hyperlink{plan-memoire-pc_8h_af452db28d2cd0cf5d21e50add240d583}{00092}}\ \textcolor{preprocessor}{\#\ \ \ define\ MANUX\_NB\_SECT\_INIT\ 0x02}}
+\DoxyCodeLine{\Hypertarget{plan-memoire-pc_8h_source_l00093}00093\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{plan-memoire-pc_8h_source_l00094}00094\ }
+
+\end{DoxyCode}

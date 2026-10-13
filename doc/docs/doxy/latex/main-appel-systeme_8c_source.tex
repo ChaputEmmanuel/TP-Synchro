@@ -1,0 +1,38 @@
+\doxysection{main-\/appel-\/systeme.c}
+\hypertarget{main-appel-systeme_8c_source}{}\label{main-appel-systeme_8c_source}\index{/home/manu/PROGRAMMATION/C/ManuX/noyau/main-\/appel-\/systeme.c@{/home/manu/PROGRAMMATION/C/ManuX/noyau/main-\/appel-\/systeme.c}}
+\mbox{\hyperlink{main-appel-systeme_8c}{Aller Ã  la documentation de ce fichier.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{main-appel-systeme_8c_source_l00001}00001\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{main-appel-systeme_8c_source_l00002}00002\ \textcolor{comment}{/*\ \ \ \ \ \ Un\ exemple\ pitoyable\ de\ début\ de\ noyau.\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{main-appel-systeme_8c_source_l00003}00003\ \textcolor{comment}{/*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{main-appel-systeme_8c_source_l00004}00004\ \textcolor{comment}{/*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (C)\ Manu\ Chaput\ 2000-\/2023\ */}}
+\DoxyCodeLine{\Hypertarget{main-appel-systeme_8c_source_l00005}00005\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{main-appel-systeme_8c_source_l00006}00006\ \textcolor{preprocessor}{\#include\ <manux/config.h>}}
+\DoxyCodeLine{\Hypertarget{main-appel-systeme_8c_source_l00007}00007\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{include_2manux_2console_8h}{manux/console.h}}>}}
+\DoxyCodeLine{\Hypertarget{main-appel-systeme_8c_source_l00008}00008\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{include_2manux_2printk_8h}{manux/printk.h}}>}}
+\DoxyCodeLine{\Hypertarget{main-appel-systeme_8c_source_l00009}00009\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{include_2manux_2interruptions_8h}{manux/interruptions.h}}>}}
+\DoxyCodeLine{\Hypertarget{main-appel-systeme_8c_source_l00010}00010\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{manux_2intel-8259a_8h}{manux/intel-\/8259a.h}}>}}
+\DoxyCodeLine{\Hypertarget{main-appel-systeme_8c_source_l00011}00011\ }
+\DoxyCodeLine{\Hypertarget{main-appel-systeme_8c_source_l00012}00012\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{main-appel-systeme_8c_a2858154e2009b0e6e616f313177762bc}{init}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{main-appel-systeme_8c_source_l00013}00013\ }
+\DoxyCodeLine{\Hypertarget{main-appel-systeme_8c_source_l00014}\mbox{\hyperlink{main-appel-systeme_8c_a21bf9d845e4ae7f33652b85730016a11}{00014}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{main-appel-systeme_8c_a21bf9d845e4ae7f33652b85730016a11}{startManuX}}(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\Hypertarget{main-appel-systeme_8c_source_l00015}00015\ \{}
+\DoxyCodeLine{\Hypertarget{main-appel-systeme_8c_source_l00016}00016\ \ \ \ \textcolor{comment}{//\ Initialisation\ de\ la\ console\ noyau}}
+\DoxyCodeLine{\Hypertarget{main-appel-systeme_8c_source_l00017}00017\ \ \ \ \mbox{\hyperlink{include_2manux_2console_8h_a29466c636bd065544638829883090d54}{consoleInitialisation}}();}
+\DoxyCodeLine{\Hypertarget{main-appel-systeme_8c_source_l00018}00018\ }
+\DoxyCodeLine{\Hypertarget{main-appel-systeme_8c_source_l00019}00019\ \ \ \ \textcolor{comment}{//\ Initialisation\ de\ la\ table\ des\ interruptions}}
+\DoxyCodeLine{\Hypertarget{main-appel-systeme_8c_source_l00020}00020\ \ \ \ \mbox{\hyperlink{interruptions_8c_a8bab70dd2ead4ff36a0c2de9b3d3aff8}{initialiserIDT}}();\ \ \ }
+\DoxyCodeLine{\Hypertarget{main-appel-systeme_8c_source_l00021}00021\ }
+\DoxyCodeLine{\Hypertarget{main-appel-systeme_8c_source_l00022}00022\ \ \ \ \mbox{\hyperlink{intel-8259a_8c_ab3ca008de7fbd6c1917bead0ace48463}{i8259aInit}}(\mbox{\hyperlink{pc-i386_8h_aa16fe4051fc8254307ded29de196bbfc}{MANUX\_INT\_BASE\_IRQ}});}
+\DoxyCodeLine{\Hypertarget{main-appel-systeme_8c_source_l00023}00023\ \ \ \ }
+\DoxyCodeLine{\Hypertarget{main-appel-systeme_8c_source_l00024}00024\ \ \ \ \mbox{\hyperlink{include_2manux_2appelsysteme_8h_ae9c459f3384b085e316b0d43a308d69b}{initialiserAppelsSysteme}}();}
+\DoxyCodeLine{\Hypertarget{main-appel-systeme_8c_source_l00025}00025\ \ \ \ }
+\DoxyCodeLine{\Hypertarget{main-appel-systeme_8c_source_l00026}00026\ \ \ \ \textcolor{comment}{//\ Un\ petit\ message}}
+\DoxyCodeLine{\Hypertarget{main-appel-systeme_8c_source_l00027}00027\ \ \ \ \mbox{\hyperlink{include_2manux_2printk_8h_a25b30e8bbadd54650c56895999dd808f}{printk}}(\textcolor{stringliteral}{"{}Printk\ dit\ bonjour\ !\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{main-appel-systeme_8c_source_l00028}00028\ }
+\DoxyCodeLine{\Hypertarget{main-appel-systeme_8c_source_l00029}00029\ \ \ \ \mbox{\hyperlink{main-appel-systeme_8c_a2858154e2009b0e6e616f313177762bc}{init}}();}
+\DoxyCodeLine{\Hypertarget{main-appel-systeme_8c_source_l00030}00030\ \}\ \ \ \textcolor{comment}{/*\ startManuX\ */}}
+\DoxyCodeLine{\Hypertarget{main-appel-systeme_8c_source_l00031}00031\ }
+\DoxyCodeLine{\Hypertarget{main-appel-systeme_8c_source_l00032}00032\ }
+
+\end{DoxyCode}

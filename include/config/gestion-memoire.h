@@ -24,7 +24,7 @@
  * Adresse utilisée pour le tableau d'affectation des pages
  */
 #ifndef MANUX_AFFECTATION_PAGES
-#   define MANUX_AFFECTATION_PAGES 0x1000
+#   define MANUX_AFFECTATION_PAGES 0x3000
 #endif
 
 /*

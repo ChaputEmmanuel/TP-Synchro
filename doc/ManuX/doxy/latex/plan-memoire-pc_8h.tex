@@ -1,0 +1,176 @@
+\doxysection{Référence du fichier /home/manu/\+PROGRAMMATION/\+C/\+Manu\+X/include/config/plan-\/memoire-\/pc.h}
+\hypertarget{plan-memoire-pc_8h}{}\label{plan-memoire-pc_8h}\index{/home/manu/PROGRAMMATION/C/ManuX/include/config/plan-\/memoire-\/pc.h@{/home/manu/PROGRAMMATION/C/ManuX/include/config/plan-\/memoire-\/pc.h}}
+Ce graphe montre quels fichiers incluent directement ou indirectement ce fichier \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{plan-memoire-pc_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{plan-memoire-pc_8h_a1374963f85bcb1c48a93f0e52cc86633}{MANUX\+\_\+\+BOOT\+\_\+\+START\+\_\+\+ADDRESS}}~0x7c00
+\item 
+\#define \mbox{\hyperlink{plan-memoire-pc_8h_a28b589324e233e3b4a45519dc7036ac7}{MANUX\+\_\+\+INIT\+\_\+\+START\+\_\+\+ADDRESS}}~0x7e00
+\item 
+\#define \mbox{\hyperlink{plan-memoire-pc_8h_a388a07c865445c2f274a778c1f50ca3d}{MANUX\+\_\+\+ADRESSE\+\_\+\+BIOS}}~0x80000
+\item 
+\#define \mbox{\hyperlink{plan-memoire-pc_8h_a31a76702a9c442daf7d70fa850e362c3}{MANUX\+\_\+\+BIOS\+\_\+\+NB\+\_\+\+PAGES}}~0x80
+\item 
+\#define \mbox{\hyperlink{plan-memoire-pc_8h_a9ef01c49cb4a8dcc6b1ddb898d0c8ab9}{MANUX\+\_\+\+ADRESSE\+\_\+\+ECRAN}}~0xb8000
+\item 
+\#define \mbox{\hyperlink{plan-memoire-pc_8h_a3dac2f2810749b6bc48abc5444e83503}{MANUX\+\_\+\+ADRESSE\+\_\+\+IDT}}~0x1000
+\item 
+\#define \mbox{\hyperlink{plan-memoire-pc_8h_ab5e25660831ed8f2f45c1cce5c2261f1}{MANUX\+\_\+\+ADRESSE\+\_\+\+GDT}}~0x2000
+\item 
+\#define \mbox{\hyperlink{plan-memoire-pc_8h_a47a480233a5bb67636294c6f3b243039}{MANUX\+\_\+\+GDT\+\_\+\+NB\+\_\+\+PAGES}}~1
+\item 
+\#define \mbox{\hyperlink{plan-memoire-pc_8h_a90e73b4a95861b66b3a04ed56c246643}{MANUX\+\_\+\+KERNEL\+\_\+\+START\+\_\+\+ADDRESS}}~0x10000
+\item 
+\#define \mbox{\hyperlink{plan-memoire-pc_8h_ac1911f2c247c7256109cbb0a6689cf52}{MANUX\+\_\+\+STACK\+\_\+\+SEG\+\_\+16}}~0x9000
+\item 
+\#define \mbox{\hyperlink{plan-memoire-pc_8h_a3279e8372b7a45e78eb6be3b9ff2950b}{MANUX\+\_\+\+TAILLE\+\_\+\+PILE}}~16384
+\begin{DoxyCompactList}\small\item\em Taille réservée pour la pile lors du boot. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{plan-memoire-pc_8h_a9755ed17f5e377b123289d1aec5a7f34}{MANUX\+\_\+\+ELF\+\_\+\+HEADER\+\_\+\+SIZE}}~0x80
+\item 
+\#define \mbox{\hyperlink{plan-memoire-pc_8h_af452db28d2cd0cf5d21e50add240d583}{MANUX\+\_\+\+NB\+\_\+\+SECT\+\_\+\+INIT}}~0x02
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Documentation des macros}
+\Hypertarget{plan-memoire-pc_8h_a388a07c865445c2f274a778c1f50ca3d}\label{plan-memoire-pc_8h_a388a07c865445c2f274a778c1f50ca3d} 
+\index{plan-\/memoire-\/pc.h@{plan-\/memoire-\/pc.h}!MANUX\_ADRESSE\_BIOS@{MANUX\_ADRESSE\_BIOS}}
+\index{MANUX\_ADRESSE\_BIOS@{MANUX\_ADRESSE\_BIOS}!plan-\/memoire-\/pc.h@{plan-\/memoire-\/pc.h}}
+\doxysubsubsection{\texorpdfstring{MANUX\_ADRESSE\_BIOS}{MANUX\_ADRESSE\_BIOS}}
+{\footnotesize\ttfamily \#define MANUX\+\_\+\+ADRESSE\+\_\+\+BIOS~0x80000}
+
+La position et la taille du BIOS. Par prudence, j\textquotesingle{}y intègre tout l\textquotesingle{}EBDA, même s\textquotesingle{}il est peu probable que ce soit utile ! Voir \href{https://wiki.osdev.org/Memory_Map_(x86)}{\texttt{ https\+://wiki.\+osdev.\+org/\+Memory\+\_\+\+Map\+\_\+(x86)}} \href{https://stackoverflow.com/questions/64817723/relocating-bootloader-into-ebda}{\texttt{ https\+://stackoverflow.\+com/questions/64817723/relocating-\/bootloader-\/into-\/ebda}} 
+
+Définition à la ligne \mbox{\hyperlink{plan-memoire-pc_8h_source_l00033}{33}} du fichier \mbox{\hyperlink{plan-memoire-pc_8h_source}{plan-\/memoire-\/pc.\+h}}.
+
+\Hypertarget{plan-memoire-pc_8h_a9ef01c49cb4a8dcc6b1ddb898d0c8ab9}\label{plan-memoire-pc_8h_a9ef01c49cb4a8dcc6b1ddb898d0c8ab9} 
+\index{plan-\/memoire-\/pc.h@{plan-\/memoire-\/pc.h}!MANUX\_ADRESSE\_ECRAN@{MANUX\_ADRESSE\_ECRAN}}
+\index{MANUX\_ADRESSE\_ECRAN@{MANUX\_ADRESSE\_ECRAN}!plan-\/memoire-\/pc.h@{plan-\/memoire-\/pc.h}}
+\doxysubsubsection{\texorpdfstring{MANUX\_ADRESSE\_ECRAN}{MANUX\_ADRESSE\_ECRAN}}
+{\footnotesize\ttfamily \#define MANUX\+\_\+\+ADRESSE\+\_\+\+ECRAN~0xb8000}
+
+Adresse de l\textquotesingle{}écran 
+
+Définition à la ligne \mbox{\hyperlink{plan-memoire-pc_8h_source_l00044}{44}} du fichier \mbox{\hyperlink{plan-memoire-pc_8h_source}{plan-\/memoire-\/pc.\+h}}.
+
+\Hypertarget{plan-memoire-pc_8h_ab5e25660831ed8f2f45c1cce5c2261f1}\label{plan-memoire-pc_8h_ab5e25660831ed8f2f45c1cce5c2261f1} 
+\index{plan-\/memoire-\/pc.h@{plan-\/memoire-\/pc.h}!MANUX\_ADRESSE\_GDT@{MANUX\_ADRESSE\_GDT}}
+\index{MANUX\_ADRESSE\_GDT@{MANUX\_ADRESSE\_GDT}!plan-\/memoire-\/pc.h@{plan-\/memoire-\/pc.h}}
+\doxysubsubsection{\texorpdfstring{MANUX\_ADRESSE\_GDT}{MANUX\_ADRESSE\_GDT}}
+{\footnotesize\ttfamily \#define MANUX\+\_\+\+ADRESSE\+\_\+\+GDT~0x2000}
+
+Position de la GDT (Global Descriptor Table) du noyau. 
+
+Définition à la ligne \mbox{\hyperlink{plan-memoire-pc_8h_source_l00062}{62}} du fichier \mbox{\hyperlink{plan-memoire-pc_8h_source}{plan-\/memoire-\/pc.\+h}}.
+
+\Hypertarget{plan-memoire-pc_8h_a3dac2f2810749b6bc48abc5444e83503}\label{plan-memoire-pc_8h_a3dac2f2810749b6bc48abc5444e83503} 
+\index{plan-\/memoire-\/pc.h@{plan-\/memoire-\/pc.h}!MANUX\_ADRESSE\_IDT@{MANUX\_ADRESSE\_IDT}}
+\index{MANUX\_ADRESSE\_IDT@{MANUX\_ADRESSE\_IDT}!plan-\/memoire-\/pc.h@{plan-\/memoire-\/pc.h}}
+\doxysubsubsection{\texorpdfstring{MANUX\_ADRESSE\_IDT}{MANUX\_ADRESSE\_IDT}}
+{\footnotesize\ttfamily \#define MANUX\+\_\+\+ADRESSE\+\_\+\+IDT~0x1000}
+
+Position de l\textquotesingle{}IDT (Interrupt Descriptor Table) du noyau. 
+
+Définition à la ligne \mbox{\hyperlink{plan-memoire-pc_8h_source_l00051}{51}} du fichier \mbox{\hyperlink{plan-memoire-pc_8h_source}{plan-\/memoire-\/pc.\+h}}.
+
+\Hypertarget{plan-memoire-pc_8h_a31a76702a9c442daf7d70fa850e362c3}\label{plan-memoire-pc_8h_a31a76702a9c442daf7d70fa850e362c3} 
+\index{plan-\/memoire-\/pc.h@{plan-\/memoire-\/pc.h}!MANUX\_BIOS\_NB\_PAGES@{MANUX\_BIOS\_NB\_PAGES}}
+\index{MANUX\_BIOS\_NB\_PAGES@{MANUX\_BIOS\_NB\_PAGES}!plan-\/memoire-\/pc.h@{plan-\/memoire-\/pc.h}}
+\doxysubsubsection{\texorpdfstring{MANUX\_BIOS\_NB\_PAGES}{MANUX\_BIOS\_NB\_PAGES}}
+{\footnotesize\ttfamily \#define MANUX\+\_\+\+BIOS\+\_\+\+NB\+\_\+\+PAGES~0x80}
+
+
+
+Définition à la ligne \mbox{\hyperlink{plan-memoire-pc_8h_source_l00037}{37}} du fichier \mbox{\hyperlink{plan-memoire-pc_8h_source}{plan-\/memoire-\/pc.\+h}}.
+
+\Hypertarget{plan-memoire-pc_8h_a1374963f85bcb1c48a93f0e52cc86633}\label{plan-memoire-pc_8h_a1374963f85bcb1c48a93f0e52cc86633} 
+\index{plan-\/memoire-\/pc.h@{plan-\/memoire-\/pc.h}!MANUX\_BOOT\_START\_ADDRESS@{MANUX\_BOOT\_START\_ADDRESS}}
+\index{MANUX\_BOOT\_START\_ADDRESS@{MANUX\_BOOT\_START\_ADDRESS}!plan-\/memoire-\/pc.h@{plan-\/memoire-\/pc.h}}
+\doxysubsubsection{\texorpdfstring{MANUX\_BOOT\_START\_ADDRESS}{MANUX\_BOOT\_START\_ADDRESS}}
+{\footnotesize\ttfamily \#define MANUX\+\_\+\+BOOT\+\_\+\+START\+\_\+\+ADDRESS~0x7c00}
+
+
+
+Définition à la ligne \mbox{\hyperlink{plan-memoire-pc_8h_source_l00017}{17}} du fichier \mbox{\hyperlink{plan-memoire-pc_8h_source}{plan-\/memoire-\/pc.\+h}}.
+
+\Hypertarget{plan-memoire-pc_8h_a9755ed17f5e377b123289d1aec5a7f34}\label{plan-memoire-pc_8h_a9755ed17f5e377b123289d1aec5a7f34} 
+\index{plan-\/memoire-\/pc.h@{plan-\/memoire-\/pc.h}!MANUX\_ELF\_HEADER\_SIZE@{MANUX\_ELF\_HEADER\_SIZE}}
+\index{MANUX\_ELF\_HEADER\_SIZE@{MANUX\_ELF\_HEADER\_SIZE}!plan-\/memoire-\/pc.h@{plan-\/memoire-\/pc.h}}
+\doxysubsubsection{\texorpdfstring{MANUX\_ELF\_HEADER\_SIZE}{MANUX\_ELF\_HEADER\_SIZE}}
+{\footnotesize\ttfamily \#define MANUX\+\_\+\+ELF\+\_\+\+HEADER\+\_\+\+SIZE~0x80}
+
+
+
+Définition à la ligne \mbox{\hyperlink{plan-memoire-pc_8h_source_l00088}{88}} du fichier \mbox{\hyperlink{plan-memoire-pc_8h_source}{plan-\/memoire-\/pc.\+h}}.
+
+\Hypertarget{plan-memoire-pc_8h_a47a480233a5bb67636294c6f3b243039}\label{plan-memoire-pc_8h_a47a480233a5bb67636294c6f3b243039} 
+\index{plan-\/memoire-\/pc.h@{plan-\/memoire-\/pc.h}!MANUX\_GDT\_NB\_PAGES@{MANUX\_GDT\_NB\_PAGES}}
+\index{MANUX\_GDT\_NB\_PAGES@{MANUX\_GDT\_NB\_PAGES}!plan-\/memoire-\/pc.h@{plan-\/memoire-\/pc.h}}
+\doxysubsubsection{\texorpdfstring{MANUX\_GDT\_NB\_PAGES}{MANUX\_GDT\_NB\_PAGES}}
+{\footnotesize\ttfamily \#define MANUX\+\_\+\+GDT\+\_\+\+NB\+\_\+\+PAGES~1}
+
+
+
+Définition à la ligne \mbox{\hyperlink{plan-memoire-pc_8h_source_l00066}{66}} du fichier \mbox{\hyperlink{plan-memoire-pc_8h_source}{plan-\/memoire-\/pc.\+h}}.
+
+\Hypertarget{plan-memoire-pc_8h_a28b589324e233e3b4a45519dc7036ac7}\label{plan-memoire-pc_8h_a28b589324e233e3b4a45519dc7036ac7} 
+\index{plan-\/memoire-\/pc.h@{plan-\/memoire-\/pc.h}!MANUX\_INIT\_START\_ADDRESS@{MANUX\_INIT\_START\_ADDRESS}}
+\index{MANUX\_INIT\_START\_ADDRESS@{MANUX\_INIT\_START\_ADDRESS}!plan-\/memoire-\/pc.h@{plan-\/memoire-\/pc.h}}
+\doxysubsubsection{\texorpdfstring{MANUX\_INIT\_START\_ADDRESS}{MANUX\_INIT\_START\_ADDRESS}}
+{\footnotesize\ttfamily \#define MANUX\+\_\+\+INIT\+\_\+\+START\+\_\+\+ADDRESS~0x7e00}
+
+
+
+Définition à la ligne \mbox{\hyperlink{plan-memoire-pc_8h_source_l00020}{20}} du fichier \mbox{\hyperlink{plan-memoire-pc_8h_source}{plan-\/memoire-\/pc.\+h}}.
+
+\Hypertarget{plan-memoire-pc_8h_a90e73b4a95861b66b3a04ed56c246643}\label{plan-memoire-pc_8h_a90e73b4a95861b66b3a04ed56c246643} 
+\index{plan-\/memoire-\/pc.h@{plan-\/memoire-\/pc.h}!MANUX\_KERNEL\_START\_ADDRESS@{MANUX\_KERNEL\_START\_ADDRESS}}
+\index{MANUX\_KERNEL\_START\_ADDRESS@{MANUX\_KERNEL\_START\_ADDRESS}!plan-\/memoire-\/pc.h@{plan-\/memoire-\/pc.h}}
+\doxysubsubsection{\texorpdfstring{MANUX\_KERNEL\_START\_ADDRESS}{MANUX\_KERNEL\_START\_ADDRESS}}
+{\footnotesize\ttfamily \#define MANUX\+\_\+\+KERNEL\+\_\+\+START\+\_\+\+ADDRESS~0x10000}
+
+Adresse de la fonction \+\_\+start\+ManuX de \doxylink{main_8c}{main.\+c} 
+
+Définition à la ligne \mbox{\hyperlink{plan-memoire-pc_8h_source_l00073}{73}} du fichier \mbox{\hyperlink{plan-memoire-pc_8h_source}{plan-\/memoire-\/pc.\+h}}.
+
+\Hypertarget{plan-memoire-pc_8h_af452db28d2cd0cf5d21e50add240d583}\label{plan-memoire-pc_8h_af452db28d2cd0cf5d21e50add240d583} 
+\index{plan-\/memoire-\/pc.h@{plan-\/memoire-\/pc.h}!MANUX\_NB\_SECT\_INIT@{MANUX\_NB\_SECT\_INIT}}
+\index{MANUX\_NB\_SECT\_INIT@{MANUX\_NB\_SECT\_INIT}!plan-\/memoire-\/pc.h@{plan-\/memoire-\/pc.h}}
+\doxysubsubsection{\texorpdfstring{MANUX\_NB\_SECT\_INIT}{MANUX\_NB\_SECT\_INIT}}
+{\footnotesize\ttfamily \#define MANUX\+\_\+\+NB\+\_\+\+SECT\+\_\+\+INIT~0x02}
+
+
+
+Définition à la ligne \mbox{\hyperlink{plan-memoire-pc_8h_source_l00092}{92}} du fichier \mbox{\hyperlink{plan-memoire-pc_8h_source}{plan-\/memoire-\/pc.\+h}}.
+
+\Hypertarget{plan-memoire-pc_8h_ac1911f2c247c7256109cbb0a6689cf52}\label{plan-memoire-pc_8h_ac1911f2c247c7256109cbb0a6689cf52} 
+\index{plan-\/memoire-\/pc.h@{plan-\/memoire-\/pc.h}!MANUX\_STACK\_SEG\_16@{MANUX\_STACK\_SEG\_16}}
+\index{MANUX\_STACK\_SEG\_16@{MANUX\_STACK\_SEG\_16}!plan-\/memoire-\/pc.h@{plan-\/memoire-\/pc.h}}
+\doxysubsubsection{\texorpdfstring{MANUX\_STACK\_SEG\_16}{MANUX\_STACK\_SEG\_16}}
+{\footnotesize\ttfamily \#define MANUX\+\_\+\+STACK\+\_\+\+SEG\+\_\+16~0x9000}
+
+
+
+Définition à la ligne \mbox{\hyperlink{plan-memoire-pc_8h_source_l00077}{77}} du fichier \mbox{\hyperlink{plan-memoire-pc_8h_source}{plan-\/memoire-\/pc.\+h}}.
+
+\Hypertarget{plan-memoire-pc_8h_a3279e8372b7a45e78eb6be3b9ff2950b}\label{plan-memoire-pc_8h_a3279e8372b7a45e78eb6be3b9ff2950b} 
+\index{plan-\/memoire-\/pc.h@{plan-\/memoire-\/pc.h}!MANUX\_TAILLE\_PILE@{MANUX\_TAILLE\_PILE}}
+\index{MANUX\_TAILLE\_PILE@{MANUX\_TAILLE\_PILE}!plan-\/memoire-\/pc.h@{plan-\/memoire-\/pc.h}}
+\doxysubsubsection{\texorpdfstring{MANUX\_TAILLE\_PILE}{MANUX\_TAILLE\_PILE}}
+{\footnotesize\ttfamily \#define MANUX\+\_\+\+TAILLE\+\_\+\+PILE~16384}
+
+
+
+Taille réservée pour la pile lors du boot. 
+
+
+
+Définition à la ligne \mbox{\hyperlink{plan-memoire-pc_8h_source_l00084}{84}} du fichier \mbox{\hyperlink{plan-memoire-pc_8h_source}{plan-\/memoire-\/pc.\+h}}.
+

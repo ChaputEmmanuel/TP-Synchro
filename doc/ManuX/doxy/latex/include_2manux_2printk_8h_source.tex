@@ -1,0 +1,53 @@
+\doxysection{printk.\+h}
+\hypertarget{include_2manux_2printk_8h_source}{}\label{include_2manux_2printk_8h_source}\index{/home/manu/PROGRAMMATION/C/ManuX/include/manux/printk.h@{/home/manu/PROGRAMMATION/C/ManuX/include/manux/printk.h}}
+\mbox{\hyperlink{include_2manux_2printk_8h}{Aller à la documentation de ce fichier.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{include_2manux_2printk_8h_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{include_2manux_2printk_8h_source_l00007}00007\ \textcolor{preprocessor}{\#ifndef\ STD\_IO\_DEF}}
+\DoxyCodeLine{\Hypertarget{include_2manux_2printk_8h_source_l00008}00008\ \textcolor{preprocessor}{\#define\ STD\_IO\_DEF}}
+\DoxyCodeLine{\Hypertarget{include_2manux_2printk_8h_source_l00009}00009\ }
+\DoxyCodeLine{\Hypertarget{include_2manux_2printk_8h_source_l00010}00010\ \textcolor{preprocessor}{\#include\ <manux/config.h>}}
+\DoxyCodeLine{\Hypertarget{include_2manux_2printk_8h_source_l00011}00011\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{include_2manux_2stdarg_8h}{manux/stdarg.h}}>}}
+\DoxyCodeLine{\Hypertarget{include_2manux_2printk_8h_source_l00012}00012\ \textcolor{preprocessor}{\#include\ <manux/stddef.h>}\ \ \ \textcolor{comment}{//\ size\_t}}
+\DoxyCodeLine{\Hypertarget{include_2manux_2printk_8h_source_l00013}00013\ \textcolor{preprocessor}{\#ifdef\ MANUX\_FICHIER}}
+\DoxyCodeLine{\Hypertarget{include_2manux_2printk_8h_source_l00014}00014\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fichier_8h}{manux/fichier.h}}>}}
+\DoxyCodeLine{\Hypertarget{include_2manux_2printk_8h_source_l00015}00015\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{include_2manux_2printk_8h_source_l00016}00016\ }
+\DoxyCodeLine{\Hypertarget{include_2manux_2printk_8h_source_l00021}\mbox{\hyperlink{include_2manux_2printk_8h_a2e912bb35c8b6d14f83c896d207fe49c}{00021}}\ \textcolor{preprocessor}{\#define\ MAX\_PRINTK\_LENGTH\ 2048\ }\textcolor{comment}{//512}}
+\DoxyCodeLine{\Hypertarget{include_2manux_2printk_8h_source_l00022}00022\ }
+\DoxyCodeLine{\Hypertarget{include_2manux_2printk_8h_source_l00026}\mbox{\hyperlink{include_2manux_2printk_8h_a73c782e80962a1e5eae4811bc8569b16}{00026}}\ \textcolor{preprocessor}{\#define\ PRINTK\_PANIQUE\ \ \ \ \ \ "{}\{0\}"{}}}
+\DoxyCodeLine{\Hypertarget{include_2manux_2printk_8h_source_l00027}\mbox{\hyperlink{include_2manux_2printk_8h_a3b2cab22ef5658820e862f6171f27f63}{00027}}\ \textcolor{preprocessor}{\#define\ PRINTK\_URGENCE\ \ \ \ \ \ "{}\{1\}"{}}}
+\DoxyCodeLine{\Hypertarget{include_2manux_2printk_8h_source_l00028}\mbox{\hyperlink{include_2manux_2printk_8h_a08a69e546e1f4ef9f2e1f3dcd1441ebc}{00028}}\ \textcolor{preprocessor}{\#define\ PRINTK\_CRITIQUE\ \ \ \ \ "{}\{2\}"{}}}
+\DoxyCodeLine{\Hypertarget{include_2manux_2printk_8h_source_l00029}\mbox{\hyperlink{include_2manux_2printk_8h_ae6ff7e2c3fa70e08a97b35be55caa024}{00029}}\ \textcolor{preprocessor}{\#define\ PRINTK\_ERREUR\ \ \ \ \ \ \ "{}\{3\}"{}}}
+\DoxyCodeLine{\Hypertarget{include_2manux_2printk_8h_source_l00030}\mbox{\hyperlink{include_2manux_2printk_8h_a67ebfa242264b0817d4c86852c94c86a}{00030}}\ \textcolor{preprocessor}{\#define\ PRINTK\_ATTENTION\ \ \ \ "{}\{4\}"{}}}
+\DoxyCodeLine{\Hypertarget{include_2manux_2printk_8h_source_l00031}\mbox{\hyperlink{include_2manux_2printk_8h_a2149cea5488c3d9a0ddfe8a58f4cddce}{00031}}\ \textcolor{preprocessor}{\#define\ PRINTK\_NOTIFICATION\ "{}\{5\}"{}}}
+\DoxyCodeLine{\Hypertarget{include_2manux_2printk_8h_source_l00032}\mbox{\hyperlink{include_2manux_2printk_8h_a98ecd1b850cab8f481a642c72e48d123}{00032}}\ \textcolor{preprocessor}{\#define\ PRINTK\_INFORMATION\ \ "{}\{6\}"{}}}
+\DoxyCodeLine{\Hypertarget{include_2manux_2printk_8h_source_l00033}\mbox{\hyperlink{include_2manux_2printk_8h_a2a73abbb0814a289e22ba4f7347f4657}{00033}}\ \textcolor{preprocessor}{\#define\ PRINTK\_DEBUGAGE\ \ \ \ \ "{}\{7\}"{}}}
+\DoxyCodeLine{\Hypertarget{include_2manux_2printk_8h_source_l00034}00034\ }
+\DoxyCodeLine{\Hypertarget{include_2manux_2printk_8h_source_l00047}00047\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{include_2manux_2printk_8h_a25b30e8bbadd54650c56895999dd808f}{printk}}(\textcolor{keywordtype}{char}\ *\ format,\ ...);}
+\DoxyCodeLine{\Hypertarget{include_2manux_2printk_8h_source_l00048}00048\ }
+\DoxyCodeLine{\Hypertarget{include_2manux_2printk_8h_source_l00055}00055\ \textcolor{preprocessor}{\#ifdef\ MANUX\_CONSOLES\_VIRTUELLES}}
+\DoxyCodeLine{\Hypertarget{include_2manux_2printk_8h_source_l00056}00056\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{include_2manux_2printk_8h_a7d5a6dcede19ea52bd0064cb40d66a25}{printkc}}(\textcolor{keywordtype}{char}\ *\ format,\ ...);}
+\DoxyCodeLine{\Hypertarget{include_2manux_2printk_8h_source_l00057}00057\ }
+\DoxyCodeLine{\Hypertarget{include_2manux_2printk_8h_source_l00058}00058\ \textcolor{comment}{//\ Si\ on\ n'a\ pas\ de\ console\ virtuelle,\ printkc\ ne\ peut\ pas\ faire\ mieux}}
+\DoxyCodeLine{\Hypertarget{include_2manux_2printk_8h_source_l00059}00059\ \textcolor{comment}{//\ que\ printk}}
+\DoxyCodeLine{\Hypertarget{include_2manux_2printk_8h_source_l00060}00060\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{\Hypertarget{include_2manux_2printk_8h_source_l00061}\mbox{\hyperlink{include_2manux_2printk_8h_a7d5a6dcede19ea52bd0064cb40d66a25}{00061}}\ \textcolor{preprocessor}{\#\ \ \ define\ printkc\ printk}}
+\DoxyCodeLine{\Hypertarget{include_2manux_2printk_8h_source_l00062}00062\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{include_2manux_2printk_8h_source_l00063}00063\ }
+\DoxyCodeLine{\Hypertarget{include_2manux_2printk_8h_source_l00067}\mbox{\hyperlink{include_2manux_2printk_8h_ac21da4c54dd944bb35eb829d40301d29}{00067}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{include_2manux_2printk_8h_ac21da4c54dd944bb35eb829d40301d29}{sprintk}}(\textcolor{keywordtype}{char}\ *\ \mbox{\hyperlink{include_2manux_2i386_8h_a78b6d0d522b49e5b375731d08f4c39fd}{str}},\ \textcolor{keywordtype}{char}\ *\ format,\ ...);}
+\DoxyCodeLine{\Hypertarget{include_2manux_2printk_8h_source_l00068}00068\ }
+\DoxyCodeLine{\Hypertarget{include_2manux_2printk_8h_source_l00072}\mbox{\hyperlink{include_2manux_2printk_8h_aabca9ebaaab18b531b2fe7bdd757ac8f}{00072}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{include_2manux_2printk_8h_aabca9ebaaab18b531b2fe7bdd757ac8f}{vsprintk}}(\textcolor{keywordtype}{char}\ *\ \mbox{\hyperlink{include_2manux_2i386_8h_a78b6d0d522b49e5b375731d08f4c39fd}{str}},\ \textcolor{keywordtype}{char}\ *\ format,\ \mbox{\hyperlink{include_2manux_2stdarg_8h_af53f622e3b6c080daeb167c1955d7ec1}{va\_list}}\ argList);}
+\DoxyCodeLine{\Hypertarget{include_2manux_2printk_8h_source_l00073}00073\ }
+\DoxyCodeLine{\Hypertarget{include_2manux_2printk_8h_source_l00080}00080\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{include_2manux_2printk_8h_aa5a2042f078fa0c6e569acc563f2dac5}{snprintk}}(\textcolor{keywordtype}{char}\ *\ \mbox{\hyperlink{include_2manux_2i386_8h_a78b6d0d522b49e5b375731d08f4c39fd}{str}},\ \textcolor{keywordtype}{size\_t}\ l,\ \textcolor{keywordtype}{char}\ *\ format,\ ...);}
+\DoxyCodeLine{\Hypertarget{include_2manux_2printk_8h_source_l00081}00081\ }
+\DoxyCodeLine{\Hypertarget{include_2manux_2printk_8h_source_l00082}00082\ \textcolor{preprocessor}{\#ifdef\ MANUX\_FICHIER}}
+\DoxyCodeLine{\Hypertarget{include_2manux_2printk_8h_source_l00083}00083\ \textcolor{preprocessor}{\#define\ fprintk(f,\ format,\ ...)\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{include_2manux_2printk_8h_source_l00084}00084\ \textcolor{preprocessor}{\ \ \{\ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{include_2manux_2printk_8h_source_l00085}00085\ \textcolor{preprocessor}{\ \ \ char\ chaine[MAX\_PRINTK\_LENGTH];\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{include_2manux_2printk_8h_source_l00086}00086\ \textcolor{preprocessor}{\ \ \ fichierEcrire(f,\ chaine,\ snprintk(chaine,\ MAX\_PRINTK\_LENGTH,\ format,\ \_\_VA\_ARGS\_\_));\ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{include_2manux_2printk_8h_source_l00087}00087\ \textcolor{preprocessor}{\}}}
+\DoxyCodeLine{\Hypertarget{include_2manux_2printk_8h_source_l00088}00088\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ MANUX\_FICHIER}}
+\DoxyCodeLine{\Hypertarget{include_2manux_2printk_8h_source_l00089}00089\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

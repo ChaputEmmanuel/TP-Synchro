@@ -1,0 +1,19 @@
+<map id="/home/manu/PROGRAMMATION/C/ManuX/include/config/usr.h" name="/home/manu/PROGRAMMATION/C/ManuX/include/config/usr.h">
+<area shape="rect" id="Node000001" title=" " alt="" coords="885,5,1112,45"/>
+<area shape="rect" id="Node000002" href="$include_2manux_2config_8h.html" title=" " alt="" coords="5,93,232,148"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="872,36,584,57,414,74,244,96,233,98,232,93,244,91,413,69,584,52,872,31"/>
+<area shape="rect" id="Node000003" href="$acces-concurrent_8h.html" title="Exemple de configuration pour un test d&#39;accès concurrents." alt="" coords="256,93,483,148"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="872,44,693,66,495,96,483,98,482,93,494,91,692,61,871,38"/>
+<area shape="rect" id="Node000004" href="$appel-systeme_8h.html" title=" " alt="" coords="507,93,733,148"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="909,51,727,96,726,91,908,46"/>
+<area shape="rect" id="Node000005" href="$outils-synchro_8h.html" title=" " alt="" coords="757,93,984,148"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="963,55,908,95,905,91,960,51"/>
+<area shape="rect" id="Node000006" href="$reentrance_8h.html" title="Comparaison noyau réentrant vs non réentrant." alt="" coords="1009,101,1245,141"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="1037,51,1102,98,1099,103,1034,56"/>
+<area shape="rect" id="Node000007" href="$test-synchro_8h.html" title="Exemple de besoin de synchronisation dans le noyau." alt="" coords="1269,93,1496,148"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="1090,46,1276,91,1274,96,1089,51"/>
+<area shape="rect" id="Node000008" href="$userland_8h.html" title="Exemple de configuration utilisant le mode utilisateur." alt="" coords="1520,101,1747,141"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="1126,38,1307,61,1508,91,1548,98,1547,103,1508,96,1307,66,1126,43"/>
+<area shape="rect" id="Node000009" href="$verrou-noyau_8h.html" title=" " alt="" coords="1771,93,1997,148"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="1126,31,1416,52,1588,69,1759,91,1771,93,1770,98,1758,96,1587,74,1416,57,1126,36"/>
+</map>

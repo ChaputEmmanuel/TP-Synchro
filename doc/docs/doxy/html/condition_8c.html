@@ -1,0 +1,280 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>My Project: Référence du fichier /home/manu/PROGRAMMATION/C/ManuX/noyau/condition.c</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">My Project
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_b49ee5e1e1e78348df5ce57bc52e7bb8.html">noyau</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#func-members">Fonctions</a>  </div>
+  <div class="headertitle"><div class="title">Référence du fichier condition.c</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Implantation des opérations atomiques de ManuX.  
+<a href="#details">Plus de détails...</a></p>
+<div class="textblock"><code>#include &lt;<a class="el" href="condition_8h_source.html">manux/condition.h</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="include_2manux_2memoire_8h_source.html">manux/memoire.h</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="manux_2debug_8h_source.html">manux/debug.h</a>&gt;</code><br />
+</div><div class="textblock"><div class="dynheader">
+Graphe des dépendances par inclusion de condition.c:</div>
+<div class="dyncontent">
+<div class="center"><img src="condition_8c__incl.png" border="0" usemap="#a_2home_2manu_2PROGRAMMATION_2C_2ManuX_2noyau_2condition_8c" alt=""/></div>
+<map name="a_2home_2manu_2PROGRAMMATION_2C_2ManuX_2noyau_2condition_8c" id="a_2home_2manu_2PROGRAMMATION_2C_2ManuX_2noyau_2condition_8c">
+<area shape="rect" title="Implantation des opérations atomiques de ManuX." alt="" coords="875,5,1101,45"/>
+<area shape="rect" href="condition_8h.html" title=" " alt="" coords="505,93,647,119"/>
+<area shape="poly" title=" " alt="" coords="890,48,650,93,649,88,889,43"/>
+<area shape="rect" href="include_2manux_2memoire_8h.html" title=" " alt="" coords="1173,313,1315,339"/>
+<area shape="poly" title=" " alt="" coords="1006,44,1227,301,1223,305,1002,47"/>
+<area shape="rect" href="manux_2debug_8h.html" title=" " alt="" coords="927,240,1049,265"/>
+<area shape="poly" title=" " alt="" coords="991,45,991,226,985,226,985,45"/>
+<area shape="rect" title=" " alt="" coords="694,607,813,632"/>
+<area shape="poly" title=" " alt="" coords="648,107,725,118,765,128,803,142,838,160,865,184,884,214,891,251,891,327,896,354,909,372,928,388,950,410,976,432,987,442,997,459,1003,480,1007,508,1005,536,994,560,967,579,925,593,827,612,826,607,924,588,965,574,990,557,999,535,1001,508,998,481,992,461,983,446,973,436,946,414,924,392,905,375,891,356,885,328,885,252,879,216,861,188,835,165,801,146,763,133,724,123,647,113"/>
+<area shape="rect" href="listetaches_8h.html" title=" " alt="" coords="109,387,264,412"/>
+<area shape="poly" title=" " alt="" coords="540,121,490,139,428,166,363,200,303,242,270,275,242,311,201,376,197,373,237,308,266,271,300,238,360,195,426,161,488,134,538,116"/>
+<area shape="rect" href="exclusion-mutuelle_8h.html" title="Définition des exlusions mutuelles." alt="" coords="5,167,213,192"/>
+<area shape="poly" title=" " alt="" coords="505,121,198,167,197,162,504,116"/>
+<area shape="poly" title=" " alt="" coords="107,193,87,249,78,286,75,325,75,474,79,495,93,514,114,531,143,546,219,570,310,589,410,601,511,609,680,615,680,621,510,614,410,606,309,594,217,576,141,551,112,535,89,517,74,497,69,474,69,325,73,286,82,248,102,191"/>
+<area shape="poly" title=" " alt="" coords="116,191,181,373,175,375,111,193"/>
+<area shape="rect" href="atomique_8h.html" title="Définition des opérations de synchronisation de ManuX." alt="" coords="314,240,459,265"/>
+<area shape="poly" title=" " alt="" coords="155,189,329,234,328,239,153,195"/>
+<area shape="poly" title=" " alt="" coords="373,268,350,288,329,315,309,354,304,398,304,474,307,502,318,523,335,540,360,556,384,568,418,578,502,594,596,605,681,611,680,617,596,610,502,599,416,583,382,573,357,561,332,544,313,526,302,504,299,474,299,398,304,353,324,312,346,284,369,264"/>
+<area shape="rect" href="scheduler_8h.html" title=" " alt="" coords="339,313,485,339"/>
+<area shape="poly" title=" " alt="" coords="387,265,398,300,392,302,381,266"/>
+<area shape="poly" title=" " alt="" coords="407,340,386,381,365,439,359,470,359,502,365,531,381,557,400,572,429,584,507,601,597,610,680,615,680,620,597,616,506,606,427,589,397,576,377,560,360,533,353,502,354,470,360,438,381,379,402,338"/>
+<area shape="poly" title=" " alt="" coords="377,341,237,385,235,380,375,336"/>
+<area shape="poly" title=" " alt="" coords="412,314,401,279,406,277,417,312"/>
+<area shape="rect" href="tache_8h.html" title=" " alt="" coords="723,387,842,412"/>
+<area shape="poly" title=" " alt="" coords="472,336,710,381,709,387,471,341"/>
+<area shape="rect" title=" " alt="" coords="390,533,565,559"/>
+<area shape="poly" title=" " alt="" coords="418,338,472,519,467,520,413,340"/>
+<area shape="poly" title=" " alt="" coords="784,413,759,593,754,593,778,412"/>
+<area shape="rect" title=" " alt="" coords="1057,460,1180,485"/>
+<area shape="poly" title=" " alt="" coords="837,409,1051,454,1050,460,836,415"/>
+<area shape="rect" href="include_2manux_2interruptions_8h.html" title=" " alt="" coords="791,533,958,559"/>
+<area shape="poly" title=" " alt="" coords="791,411,833,484,859,521,855,524,828,487,786,414"/>
+<area shape="rect" href="segment_8h.html" title=" " alt="" coords="842,460,982,485"/>
+<area shape="poly" title=" " alt="" coords="805,410,880,451,877,455,802,414"/>
+<area shape="rect" href="fichier_8h.html" title=" " alt="" coords="591,460,713,485"/>
+<area shape="poly" title=" " alt="" coords="763,414,686,456,684,451,760,410"/>
+<area shape="poly" title=" " alt="" coords="857,561,786,602,783,597,854,556"/>
+<area shape="poly" title=" " alt="" coords="932,483,951,498,969,517,978,538,978,550,973,560,950,577,914,591,827,610,826,605,912,586,947,572,969,557,973,548,973,539,964,520,947,502,928,488"/>
+<area shape="rect" href="inoeud_8h.html" title=": description des noeuds d&#39;information (C) Manu Chaput 2002&#45;2023" alt="" coords="589,533,715,559"/>
+<area shape="poly" title=" " alt="" coords="655,486,655,520,649,520,649,486"/>
+<area shape="poly" title=" " alt="" coords="625,488,520,530,518,526,623,483"/>
+<area shape="poly" title=" " alt="" coords="670,556,727,596,724,601,667,561"/>
+<area shape="poly" title=" " alt="" coords="1266,337,1286,351,1305,369,1316,390,1317,402,1313,413,1289,450,1265,477,1239,498,1211,513,1146,535,1066,561,1004,581,941,596,827,614,826,609,940,590,1003,576,1065,556,1144,530,1208,508,1236,493,1261,474,1285,447,1308,411,1312,401,1311,391,1301,372,1283,355,1263,341"/>
+<area shape="rect" title=" " alt="" coords="1176,387,1299,412"/>
+<area shape="poly" title=" " alt="" coords="1246,339,1242,373,1237,373,1240,339"/>
+<area shape="poly" title=" " alt="" coords="927,264,499,317,498,311,926,259"/>
+<area shape="poly" title=" " alt="" coords="984,267,971,295,958,332,955,373,959,393,968,411,983,428,1002,441,1045,458,1043,463,999,446,979,432,963,413,954,394,950,374,953,331,966,293,979,264"/>
+<area shape="rect" href="include_2manux_2printk_8h.html" title="Définition des fonctions de base d&#39;entrée&#45;sortie du noyau." alt="" coords="1027,313,1149,339"/>
+<area shape="poly" title=" " alt="" coords="1006,263,1062,303,1059,307,1003,268"/>
+<area shape="rect" href="include_2manux_2stdarg_8h.html" title=" " alt="" coords="977,387,1101,412"/>
+<area shape="poly" title=" " alt="" coords="994,265,1019,338,1032,373,1027,375,1013,340,989,266"/>
+<area shape="poly" title=" " alt="" coords="1097,338,1116,386,1122,446,1117,446,1111,387,1092,340"/>
+<area shape="poly" title=" " alt="" coords="1113,336,1202,378,1199,383,1111,341"/>
+<area shape="poly" title=" " alt="" coords="1082,341,1057,377,1052,374,1078,337"/>
+</map>
+</div>
+</div>
+<p><a href="condition_8c_source.html">Aller au code source de ce fichier.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Fonctions</h2></td></tr>
+<tr class="memitem:a3460e36fff72bf9770ab388c1c0fe52a" id="r_a3460e36fff72bf9770ab388c1c0fe52a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="include_2manux_2interruptions_8h.html#a4fda31edc92f8ccd48b6f4bb50f2e7e1">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="condition_8c.html#a3460e36fff72bf9770ab388c1c0fe52a">conditionInitialiser</a> (<a class="el" href="condition_8h.html#ab91c26375b7fadf2f031d6971fb63883">Condition</a> *cond)</td></tr>
+<tr class="memdesc:a3460e36fff72bf9770ab388c1c0fe52a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialisation d'une condition.  <br /></td></tr>
+<tr class="separator:a3460e36fff72bf9770ab388c1c0fe52a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a283dd6896b1ae21d561d22dc15bfabcd" id="r_a283dd6896b1ae21d561d22dc15bfabcd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="include_2manux_2interruptions_8h.html#a4fda31edc92f8ccd48b6f4bb50f2e7e1">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="condition_8c.html#a283dd6896b1ae21d561d22dc15bfabcd">conditionAttendre</a> (<a class="el" href="condition_8h.html#ab91c26375b7fadf2f031d6971fb63883">Condition</a> *cond, <a class="el" href="exclusion-mutuelle_8h.html#a6db19bcf66a0fdb35100271a766103db">ExclusionMutuelle</a> *em)</td></tr>
+<tr class="memdesc:a283dd6896b1ae21d561d22dc15bfabcd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Attente de la prochaine occurence d'une condition.  <br /></td></tr>
+<tr class="separator:a283dd6896b1ae21d561d22dc15bfabcd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad7b5eb5ca0c1862a588861fe17c8bbf3" id="r_ad7b5eb5ca0c1862a588861fe17c8bbf3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="include_2manux_2interruptions_8h.html#a4fda31edc92f8ccd48b6f4bb50f2e7e1">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="condition_8c.html#ad7b5eb5ca0c1862a588861fe17c8bbf3">conditionSignaler</a> (<a class="el" href="condition_8h.html#ab91c26375b7fadf2f031d6971fb63883">Condition</a> *cond)</td></tr>
+<tr class="memdesc:ad7b5eb5ca0c1862a588861fe17c8bbf3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Signaler une occurence d'une condition.  <br /></td></tr>
+<tr class="separator:ad7b5eb5ca0c1862a588861fe17c8bbf3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aff6ab3bc6f674c26f84cc74475081613" id="r_aff6ab3bc6f674c26f84cc74475081613"><td class="memItemLeft" align="right" valign="top"><a class="el" href="include_2manux_2interruptions_8h.html#a4fda31edc92f8ccd48b6f4bb50f2e7e1">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="condition_8c.html#aff6ab3bc6f674c26f84cc74475081613">conditionDiffuser</a> (<a class="el" href="condition_8h.html#ab91c26375b7fadf2f031d6971fb63883">Condition</a> *cond)</td></tr>
+<tr class="memdesc:aff6ab3bc6f674c26f84cc74475081613"><td class="mdescLeft">&#160;</td><td class="mdescRight">Signaler une occurence d'une condition à toutes les tâches en attente.  <br /></td></tr>
+<tr class="separator:aff6ab3bc6f674c26f84cc74475081613"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
+<div class="textblock"><p>Implantation des opérations atomiques de ManuX. </p>
+<pre class="fragment">                                                (C) Manu Chaput 2000-2024
+</pre> 
+<p class="definition">Définition dans le fichier <a class="el" href="condition_8c_source.html">condition.c</a>.</p>
+</div><h2 class="groupheader">Documentation des fonctions</h2>
+<a id="a283dd6896b1ae21d561d22dc15bfabcd" name="a283dd6896b1ae21d561d22dc15bfabcd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a283dd6896b1ae21d561d22dc15bfabcd">&#9670;&#160;</a></span>conditionAttendre()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="include_2manux_2interruptions_8h.html#a4fda31edc92f8ccd48b6f4bb50f2e7e1">void</a> conditionAttendre </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="condition_8h.html#ab91c26375b7fadf2f031d6971fb63883">Condition</a> *&#160;</td>
+          <td class="paramname"><em>cond</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="exclusion-mutuelle_8h.html#a6db19bcf66a0fdb35100271a766103db">ExclusionMutuelle</a> *&#160;</td>
+          <td class="paramname"><em>em</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Attente de la prochaine occurence d'une condition. </p>
+<p>La tâche appelante doit être dans l'exclusion mutuelle (qui sera automatiquement libérée le temps de l'attente puis reprise avant que cette fonction ne rende la main) </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="condition_8c_source.html#l00134">134</a> du fichier <a class="el" href="condition_8c_source.html">condition.c</a>.</p>
+
+</div>
+</div>
+<a id="aff6ab3bc6f674c26f84cc74475081613" name="aff6ab3bc6f674c26f84cc74475081613"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aff6ab3bc6f674c26f84cc74475081613">&#9670;&#160;</a></span>conditionDiffuser()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="include_2manux_2interruptions_8h.html#a4fda31edc92f8ccd48b6f4bb50f2e7e1">void</a> conditionDiffuser </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="condition_8h.html#ab91c26375b7fadf2f031d6971fb63883">Condition</a> *&#160;</td>
+          <td class="paramname"><em>cond</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Signaler une occurence d'une condition à toutes les tâches en attente. </p>
+<p>Attention, doit être utilisée sous la protection de l'exclusion mutuelle détenue par les tâches en attente. Ell est donc inutilisable dans un handler d'interruption. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="condition_8c_source.html#l00193">193</a> du fichier <a class="el" href="condition_8c_source.html">condition.c</a>.</p>
+
+</div>
+</div>
+<a id="a3460e36fff72bf9770ab388c1c0fe52a" name="a3460e36fff72bf9770ab388c1c0fe52a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3460e36fff72bf9770ab388c1c0fe52a">&#9670;&#160;</a></span>conditionInitialiser()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="include_2manux_2interruptions_8h.html#a4fda31edc92f8ccd48b6f4bb50f2e7e1">void</a> conditionInitialiser </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="condition_8h.html#ab91c26375b7fadf2f031d6971fb63883">Condition</a> *&#160;</td>
+          <td class="paramname"><em>cond</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Initialisation d'une condition. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="condition_8c_source.html#l00110">110</a> du fichier <a class="el" href="condition_8c_source.html">condition.c</a>.</p>
+
+</div>
+</div>
+<a id="ad7b5eb5ca0c1862a588861fe17c8bbf3" name="ad7b5eb5ca0c1862a588861fe17c8bbf3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad7b5eb5ca0c1862a588861fe17c8bbf3">&#9670;&#160;</a></span>conditionSignaler()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="include_2manux_2interruptions_8h.html#a4fda31edc92f8ccd48b6f4bb50f2e7e1">void</a> conditionSignaler </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="condition_8h.html#ab91c26375b7fadf2f031d6971fb63883">Condition</a> *&#160;</td>
+          <td class="paramname"><em>cond</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Signaler une occurence d'une condition. </p>
+<p>Signaler une occurence d'une condition à une tâche en attente.</p>
+<p>Attention, doit être utilisée sous la protection de l'exclusion mutuelle détenue par les tâches en attente. Elle est donc inutilisable dans un handler d'interruption. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="condition_8c_source.html#l00168">168</a> du fichier <a class="el" href="condition_8c_source.html">condition.c</a>.</p>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

@@ -21,8 +21,7 @@ void startManuX()
    INoeud iNoeudVirtioConsole; 
    Fichier fichierVirtioConsole;
    
-   // Récupération des informations depuis le bootloader
-   bootloaderLireInfo();
+   bootloaderInitialiser();
 
    // Initialisation de la console noyau
    consoleInitialisationINoeud(&iNoeudConsole);
@@ -40,7 +39,7 @@ void startManuX()
 
    // Initialisation de la console virtio
    if (virtioConsoleInitialisation(&iNoeudVirtioConsole) == 0/*ESUCCES*/) {
-     ouvrirFichier(&iNoeudVirtioConsole, &fichierVirtioConsole, O_WRONLY, 0);
+      fichierOuvrir(&iNoeudVirtioConsole, &fichierVirtioConsole, O_WRONLY, 0);
       journalAffecterFichier(&fichierVirtioConsole);
    }
    

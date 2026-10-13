@@ -1,8 +1,10 @@
-/*----------------------------------------------------------------------------*/
-/*      Implémentation des sous-programmes de gestion de l'horloge matérielle.*/
-/*                                                                            */
-/*                                                  (C) Manu Chaput 2000-2021 */
-/*----------------------------------------------------------------------------*/
+/**
+ * @file : i386/horloge.c
+ * @brief Implantation des sous-programmes de gestion de l'horloge matérielle.
+ *                                                                            
+ *                                                     (C) Manu Chaput 2000-2025
+ */
+
 #include <manux/config.h>
 #include <manux/debug.h>
 #include <manux/intel-8259a.h>
@@ -27,8 +29,11 @@ uint32_t attenteCalibre;
 /*
  * Le handler du timer
  */
+static
 void handlerHorloge(void * inutile)
 {
+   (void) inutile;
+   
    nbTopHorloge++;
 
 #if defined(MANUX_TACHES) && defined(MANUX_PREEMPTIF) 
@@ -41,6 +46,7 @@ void handlerHorloge(void * inutile)
 /*
  * Configuration de la fréquence du circuit
  */ 
+static
 void setFrequenceHorloge(uint16_t freqHz)
 {
    uint16_t decompte;
@@ -56,7 +62,9 @@ void setFrequenceHorloge(uint16_t freqHz)
 /**
  * @brief Calibrage de la fonction mdelay()
  */
-void __attribute__((optimize("O0"))) attenteCalibrer()
+NO_OPTIMIZE
+static
+void attenteCalibrer(void)
 {
    Temps    t;
    uint32_t n = 0;
@@ -84,7 +92,7 @@ void __attribute__((optimize("O0"))) attenteCalibrer()
 /** 
  * @brief Initialisation du système d'horloge
  */
-void initialiserHorloge()
+void initialiserHorloge(void)
 {
 
    // Initialisation de la fréquence de l'horloge matérielle
@@ -103,7 +111,8 @@ void initialiserHorloge()
 /**
  * @brief Attente active de n millisecondes
  */
-void __attribute__((optimize("O0"))) attenteMilliSecondes(int n)
+NO_OPTIMIZE
+void attenteMilliSecondes(int n)
 {
    uint32_t m = n * attenteCalibre;
    uint32_t c = 0;

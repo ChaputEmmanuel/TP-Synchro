@@ -1,0 +1,25 @@
+<map id="_tube" name="_tube">
+<area shape="rect" id="Node000001" title=": Définition d&#39;un tube" alt="" coords="122,636,181,661"/>
+<area shape="rect" id="Node000002" href="$struct__ExclusionMutuelle.html" title="Définition des exclusions mutuelles." alt="" coords="5,548,153,573"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="74,587,74,599,78,611,97,629,123,639,121,644,95,633,73,613,69,600,69,587"/>
+<area shape="rect" id="Node000003" href="$struct__ListeTache.html" title=" " alt="" coords="101,460,199,485"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="102,494,84,511,79,529,80,548,74,548,73,528,80,508,98,490"/>
+<area shape="rect" id="Node000011" href="$struct__condition.html" title="Définition des conditions." alt="" coords="180,548,269,573"/>
+<area shape="poly" id="edge12_Node000011_Node000003" title=" " alt="" coords="180,492,196,508,221,546,217,549,192,511,176,496"/>
+<area shape="rect" id="Node000004" href="$struct__CelluleTache.html" title=" " alt="" coords="95,357,205,383"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="153,397,153,460,147,460,147,397"/>
+<area shape="poly" id="edge10_Node000004_Node000004" title=" " alt="" coords="220,361,232,370,224,378,206,381,205,375,222,373,227,370,218,366"/>
+<area shape="rect" id="Node000005" href="$struct__Tache.html" title=": Définition du type décrivant une tache." alt="" coords="117,269,183,295"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="153,309,153,357,147,357,147,309"/>
+<area shape="rect" id="Node000006" href="$struct__IntelTSS.html" title=" " alt="" coords="82,181,165,207"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="133,219,149,268,144,270,128,220"/>
+<area shape="rect" id="Node000007" href="$struct__DescriptorTable.html" title=" " alt="" coords="189,181,319,207"/>
+<area shape="poly" id="edge6_Node000005_Node000007" title=" " alt="" coords="231,217,166,271,162,267,228,213"/>
+<area shape="rect" id="Node000008" href="$union__Descripteur.html" title=" " alt="" coords="202,93,306,119"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="257,133,257,181,251,181,251,133"/>
+<area shape="rect" id="Node000009" href="$struct__DescSegment.html" title=" " alt="" coords="132,5,251,31"/>
+<area shape="poly" id="edge8_Node000008_Node000009" title=" " alt="" coords="210,40,247,91,243,94,206,43"/>
+<area shape="rect" id="Node000010" href="$struct__DescTSS.html" title=" " alt="" coords="275,5,361,31"/>
+<area shape="poly" id="edge9_Node000008_Node000010" title=" " alt="" coords="303,43,265,94,261,91,299,40"/>
+<area shape="poly" id="edge11_Node000001_Node000011" title=" " alt="" coords="217,588,201,614,173,638,170,634,197,610,213,585"/>
+</map>

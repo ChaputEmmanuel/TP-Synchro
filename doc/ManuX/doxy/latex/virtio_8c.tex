@@ -1,0 +1,198 @@
+\doxysection{Référence du fichier /home/manu/\+PROGRAMMATION/\+C/\+Manu\+X/noyau/virtio.c}
+\hypertarget{virtio_8c}{}\label{virtio_8c}\index{/home/manu/PROGRAMMATION/C/ManuX/noyau/virtio.c@{/home/manu/PROGRAMMATION/C/ManuX/noyau/virtio.c}}
+{\ttfamily \#include $<$manux/virtio.\+h$>$}\newline
+{\ttfamily \#include $<$manux/debug.\+h$>$}\newline
+{\ttfamily \#include $<$manux/memoire.\+h$>$}\newline
+{\ttfamily \#include $<$manux/string.\+h$>$}\newline
+{\ttfamily \#include $<$manux/i386.\+h$>$}\newline
+{\ttfamily \#include $<$manux/errno.\+h$>$}\newline
+{\ttfamily \#include $<$manux/io.\+h$>$}\newline
+Graphe des dépendances par inclusion de virtio.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{virtio_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{virtio_8c_ac6afabdc09a49a433ee19d8a9486056d}{min}}(\mbox{\hyperlink{main-bootreg_8c_acc5bda773ae19389879f3886f8ecf123}{a}},  \mbox{\hyperlink{main-bootreg_8c_a7976cd62f9b61a65e8104a3cf7c15099}{b}})~(((\mbox{\hyperlink{main-bootreg_8c_acc5bda773ae19389879f3886f8ecf123}{a}})$<$(\mbox{\hyperlink{main-bootreg_8c_a7976cd62f9b61a65e8104a3cf7c15099}{b}}))?(\mbox{\hyperlink{main-bootreg_8c_acc5bda773ae19389879f3886f8ecf123}{a}})\+:(\mbox{\hyperlink{main-bootreg_8c_a7976cd62f9b61a65e8104a3cf7c15099}{b}}))
+\item 
+\#define \mbox{\hyperlink{virtio_8c_affe776513b24d84b39af8ab0930fef7f}{max}}(\mbox{\hyperlink{main-bootreg_8c_acc5bda773ae19389879f3886f8ecf123}{a}},  \mbox{\hyperlink{main-bootreg_8c_a7976cd62f9b61a65e8104a3cf7c15099}{b}})~(((\mbox{\hyperlink{main-bootreg_8c_acc5bda773ae19389879f3886f8ecf123}{a}})$>$(\mbox{\hyperlink{main-bootreg_8c_a7976cd62f9b61a65e8104a3cf7c15099}{b}}))?(\mbox{\hyperlink{main-bootreg_8c_acc5bda773ae19389879f3886f8ecf123}{a}})\+:(\mbox{\hyperlink{main-bootreg_8c_a7976cd62f9b61a65e8104a3cf7c15099}{b}}))
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{virtio_8c_a4c591d0f2cd08e9d586138bbf25ef2d3}{virtio\+Init\+Peripherique\+PCI}} (\mbox{\hyperlink{manux_2virtio_8h_ae5ce3884f555c701f9f8099645f09fe5}{Virtio\+Peripherique}} \texorpdfstring{$\ast$}{*}vp, int PCINum, \mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\+\_\+t}} masque)
+\item 
+int \mbox{\hyperlink{virtio_8c_a23087510e5490671c78fb8e7a99bb208}{virtio\+Fournir\+Buffer}} (\mbox{\hyperlink{manux_2virtio_8h_ae5ce3884f555c701f9f8099645f09fe5}{Virtio\+Peripherique}} \texorpdfstring{$\ast$}{*}vp, \mbox{\hyperlink{include_2manux_2types_8h_a273cf69d639a59973b6019625df33e30}{uint16\+\_\+t}} id, \mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} \texorpdfstring{$\ast$}{*}bu, int lg, \mbox{\hyperlink{include_2manux_2types_8h_a273cf69d639a59973b6019625df33e30}{uint16\+\_\+t}} fl)
+\begin{DoxyCompactList}\small\item\em Fourniture d\textquotesingle{}un buffer au périphérique. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{virtio_8c_aa3eee079eb5936797e7aea41dddf9f8f}{virtio\+Fournir\+Buffers}} (\mbox{\hyperlink{manux_2virtio_8h_ae5ce3884f555c701f9f8099645f09fe5}{Virtio\+Peripherique}} \texorpdfstring{$\ast$}{*}vp, \mbox{\hyperlink{include_2manux_2types_8h_a273cf69d639a59973b6019625df33e30}{uint16\+\_\+t}} id, \mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} \texorpdfstring{$\ast$}{*}bu\mbox{[}$\,$\mbox{]}, int lg\mbox{[}$\,$\mbox{]}, int nb, \mbox{\hyperlink{include_2manux_2types_8h_a273cf69d639a59973b6019625df33e30}{uint16\+\_\+t}} fl)
+\begin{DoxyCompactList}\small\item\em Fournir plusieurs buffers au périphérique. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{virtio_8c_aad0abebf096dcffb576a391ef8d1ec09}{virtio\+File\+Recuperer\+Buffers}} (\mbox{\hyperlink{manux_2virtio_8h_a3f078bcc0894ca39b56f2af3bce4be7f}{Virtio\+File\+Virtuelle}} \texorpdfstring{$\ast$}{*}fv, \mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} \texorpdfstring{$\ast$}{*}bu\mbox{[}$\,$\mbox{]}, int lg\mbox{[}$\,$\mbox{]}, int nb)
+\begin{DoxyCompactList}\small\item\em on va récupérer des buffers \end{DoxyCompactList}\item 
+\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} \mbox{\hyperlink{virtio_8c_a519d7149faa9d7fce1d52e67b6e7f342}{virtio\+File\+Interdire\+Interruption}} (\mbox{\hyperlink{manux_2virtio_8h_a3f078bcc0894ca39b56f2af3bce4be7f}{Virtio\+File\+Virtuelle}} \texorpdfstring{$\ast$}{*}fv)
+\item 
+\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} \mbox{\hyperlink{virtio_8c_a463360d60781bf28d8d47ea1a8e7e496}{virtio\+File\+Autoriser\+Interruption}} (\mbox{\hyperlink{manux_2virtio_8h_a3f078bcc0894ca39b56f2af3bce4be7f}{Virtio\+File\+Virtuelle}} \texorpdfstring{$\ast$}{*}fv)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+WARNING \+: on utilise ici en fait les spécifications v0.\+9.\+5, qualifiées de "{}legacy"{} dans la v1.\+0. J\textquotesingle{}utiliserai autant que possible des macros/variables du genre VIRTIO\+\_\+\+HIST... pour faire la différence chaque fois que possible. Attention !! Il y a des petites différences entre la v0.\+9.\+5 et la version dite legacy dans la v1 !! Apparemment une typo dans la v1 sur l\textquotesingle{}ordre des champs de contrôle ...
+
+Sources intéressantes \mbox{[}1\mbox{]} \href{http://docs.oasis-open.org/virtio/virtio/v1.0/csprd01/virtio-v1.0-csprd01.html}{\texttt{ http\+://docs.\+oasis-\/open.\+org/virtio/virtio/v1.\+0/csprd01/virtio-\/v1.\+0-\/csprd01.\+html}} \mbox{[}2\mbox{]} \href{https://www.redhat.com/en/blog/virtqueues-and-virtio-ring-how-data-travels}{\texttt{ https\+://www.\+redhat.\+com/en/blog/virtqueues-\/and-\/virtio-\/ring-\/how-\/data-\/travels}} ~\newline
+ \mbox{[}3\mbox{]} \href{http://ozlabs.org/~rusty/virtio-spec/virtio-0.9.5.pdf}{\texttt{ http\+://ozlabs.\+org/\texorpdfstring{$\sim$}{\string~}rusty/virtio-\/spec/virtio-\/0.\+9.\+5.\+pdf}} 
+
+Définition dans le fichier \mbox{\hyperlink{virtio_8c_source}{virtio.\+c}}.
+
+
+
+\doxysubsection{Documentation des macros}
+\Hypertarget{virtio_8c_affe776513b24d84b39af8ab0930fef7f}\label{virtio_8c_affe776513b24d84b39af8ab0930fef7f} 
+\index{virtio.c@{virtio.c}!max@{max}}
+\index{max@{max}!virtio.c@{virtio.c}}
+\doxysubsubsection{\texorpdfstring{max}{max}}
+{\footnotesize\ttfamily \#define max(\begin{DoxyParamCaption}\item[{}]{\mbox{\hyperlink{main-bootreg_8c_acc5bda773ae19389879f3886f8ecf123}{a}},  }\item[{}]{\mbox{\hyperlink{main-bootreg_8c_a7976cd62f9b61a65e8104a3cf7c15099}{b}} }\end{DoxyParamCaption})~(((\mbox{\hyperlink{main-bootreg_8c_acc5bda773ae19389879f3886f8ecf123}{a}})$>$(\mbox{\hyperlink{main-bootreg_8c_a7976cd62f9b61a65e8104a3cf7c15099}{b}}))?(\mbox{\hyperlink{main-bootreg_8c_acc5bda773ae19389879f3886f8ecf123}{a}})\+:(\mbox{\hyperlink{main-bootreg_8c_a7976cd62f9b61a65e8104a3cf7c15099}{b}}))}
+
+
+
+Définition à la ligne \mbox{\hyperlink{virtio_8c_source_l00031}{31}} du fichier \mbox{\hyperlink{virtio_8c_source}{virtio.\+c}}.
+
+\Hypertarget{virtio_8c_ac6afabdc09a49a433ee19d8a9486056d}\label{virtio_8c_ac6afabdc09a49a433ee19d8a9486056d} 
+\index{virtio.c@{virtio.c}!min@{min}}
+\index{min@{min}!virtio.c@{virtio.c}}
+\doxysubsubsection{\texorpdfstring{min}{min}}
+{\footnotesize\ttfamily \#define min(\begin{DoxyParamCaption}\item[{}]{\mbox{\hyperlink{main-bootreg_8c_acc5bda773ae19389879f3886f8ecf123}{a}},  }\item[{}]{\mbox{\hyperlink{main-bootreg_8c_a7976cd62f9b61a65e8104a3cf7c15099}{b}} }\end{DoxyParamCaption})~(((\mbox{\hyperlink{main-bootreg_8c_acc5bda773ae19389879f3886f8ecf123}{a}})$<$(\mbox{\hyperlink{main-bootreg_8c_a7976cd62f9b61a65e8104a3cf7c15099}{b}}))?(\mbox{\hyperlink{main-bootreg_8c_acc5bda773ae19389879f3886f8ecf123}{a}})\+:(\mbox{\hyperlink{main-bootreg_8c_a7976cd62f9b61a65e8104a3cf7c15099}{b}}))}
+
+
+
+Définition à la ligne \mbox{\hyperlink{virtio_8c_source_l00030}{30}} du fichier \mbox{\hyperlink{virtio_8c_source}{virtio.\+c}}.
+
+
+
+\doxysubsection{Documentation des fonctions}
+\Hypertarget{virtio_8c_a463360d60781bf28d8d47ea1a8e7e496}\label{virtio_8c_a463360d60781bf28d8d47ea1a8e7e496} 
+\index{virtio.c@{virtio.c}!virtioFileAutoriserInterruption@{virtioFileAutoriserInterruption}}
+\index{virtioFileAutoriserInterruption@{virtioFileAutoriserInterruption}!virtio.c@{virtio.c}}
+\doxysubsubsection{\texorpdfstring{virtioFileAutoriserInterruption()}{virtioFileAutoriserInterruption()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} virtio\+File\+Autoriser\+Interruption (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{manux_2virtio_8h_a3f078bcc0894ca39b56f2af3bce4be7f}{Virtio\+File\+Virtuelle}} \texorpdfstring{$\ast$}{*}}]{fv }\end{DoxyParamCaption})}
+
+
+
+Définition à la ligne \mbox{\hyperlink{virtio_8c_source_l00450}{450}} du fichier \mbox{\hyperlink{virtio_8c_source}{virtio.\+c}}.
+
+\Hypertarget{virtio_8c_a519d7149faa9d7fce1d52e67b6e7f342}\label{virtio_8c_a519d7149faa9d7fce1d52e67b6e7f342} 
+\index{virtio.c@{virtio.c}!virtioFileInterdireInterruption@{virtioFileInterdireInterruption}}
+\index{virtioFileInterdireInterruption@{virtioFileInterdireInterruption}!virtio.c@{virtio.c}}
+\doxysubsubsection{\texorpdfstring{virtioFileInterdireInterruption()}{virtioFileInterdireInterruption()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} virtio\+File\+Interdire\+Interruption (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{manux_2virtio_8h_a3f078bcc0894ca39b56f2af3bce4be7f}{Virtio\+File\+Virtuelle}} \texorpdfstring{$\ast$}{*}}]{fv }\end{DoxyParamCaption})}
+
+
+
+Définition à la ligne \mbox{\hyperlink{virtio_8c_source_l00444}{444}} du fichier \mbox{\hyperlink{virtio_8c_source}{virtio.\+c}}.
+
+\Hypertarget{virtio_8c_aad0abebf096dcffb576a391ef8d1ec09}\label{virtio_8c_aad0abebf096dcffb576a391ef8d1ec09} 
+\index{virtio.c@{virtio.c}!virtioFileRecupererBuffers@{virtioFileRecupererBuffers}}
+\index{virtioFileRecupererBuffers@{virtioFileRecupererBuffers}!virtio.c@{virtio.c}}
+\doxysubsubsection{\texorpdfstring{virtioFileRecupererBuffers()}{virtioFileRecupererBuffers()}}
+{\footnotesize\ttfamily int virtio\+File\+Recuperer\+Buffers (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{manux_2virtio_8h_a3f078bcc0894ca39b56f2af3bce4be7f}{Virtio\+File\+Virtuelle}} \texorpdfstring{$\ast$}{*}}]{fv,  }\item[{\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} \texorpdfstring{$\ast$}{*}}]{bu\mbox{[}$\,$\mbox{]},  }\item[{int}]{lg\mbox{[}$\,$\mbox{]},  }\item[{int}]{nb }\end{DoxyParamCaption})}
+
+
+
+on va récupérer des buffers 
+
+\begin{DoxyReturn}{Renvoie}
+Le nombre de pointeurs initialisés
+\end{DoxyReturn}
+Voir \mbox{[}3\mbox{]} section 2.\+4.\+2 "{}\+Receiving Used Buffers From The Device"{}
+
+On fait au plus simple \+: on renvoie un ensembles de buffers. Attention, on revnoie des pointeurs vers les buffers virtio, pas de nouveaux pointeurs alloués. L\textquotesingle{}appelant doit donc immédiatement en recopier le contenu. 
+
+Définition à la ligne \mbox{\hyperlink{virtio_8c_source_l00387}{387}} du fichier \mbox{\hyperlink{virtio_8c_source}{virtio.\+c}}.
+
+\Hypertarget{virtio_8c_a23087510e5490671c78fb8e7a99bb208}\label{virtio_8c_a23087510e5490671c78fb8e7a99bb208} 
+\index{virtio.c@{virtio.c}!virtioFournirBuffer@{virtioFournirBuffer}}
+\index{virtioFournirBuffer@{virtioFournirBuffer}!virtio.c@{virtio.c}}
+\doxysubsubsection{\texorpdfstring{virtioFournirBuffer()}{virtioFournirBuffer()}}
+{\footnotesize\ttfamily int virtio\+Fournir\+Buffer (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{manux_2virtio_8h_ae5ce3884f555c701f9f8099645f09fe5}{Virtio\+Peripherique}} \texorpdfstring{$\ast$}{*}}]{vp,  }\item[{\mbox{\hyperlink{include_2manux_2types_8h_a273cf69d639a59973b6019625df33e30}{uint16\+\_\+t}}}]{id,  }\item[{\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} \texorpdfstring{$\ast$}{*}}]{bu,  }\item[{int}]{lg,  }\item[{\mbox{\hyperlink{include_2manux_2types_8h_a273cf69d639a59973b6019625df33e30}{uint16\+\_\+t}}}]{fl }\end{DoxyParamCaption})}
+
+
+
+Fourniture d\textquotesingle{}un buffer au périphérique. 
+
+\+: Fournir un buffer au périphérique.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em vp} & le périphérique concerné \\
+\hline
+{\em id} & numéro de la file sur le périphérique \\
+\hline
+{\em bu} & le buffer (pointeur sur les données/la place) \\
+\hline
+{\em lg} & la taille du buffer \\
+\hline
+{\em fl} & lecture/écriture (VRING\+\_\+\+DESC\+\_\+\+F\+\_\+\+WRITE ou 0) \\
+\hline
+\end{DoxyParams}
+
+
+Définition à la ligne \mbox{\hyperlink{virtio_8c_source_l00283}{283}} du fichier \mbox{\hyperlink{virtio_8c_source}{virtio.\+c}}.
+
+\Hypertarget{virtio_8c_aa3eee079eb5936797e7aea41dddf9f8f}\label{virtio_8c_aa3eee079eb5936797e7aea41dddf9f8f} 
+\index{virtio.c@{virtio.c}!virtioFournirBuffers@{virtioFournirBuffers}}
+\index{virtioFournirBuffers@{virtioFournirBuffers}!virtio.c@{virtio.c}}
+\doxysubsubsection{\texorpdfstring{virtioFournirBuffers()}{virtioFournirBuffers()}}
+{\footnotesize\ttfamily int virtio\+Fournir\+Buffers (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{manux_2virtio_8h_ae5ce3884f555c701f9f8099645f09fe5}{Virtio\+Peripherique}} \texorpdfstring{$\ast$}{*}}]{vp,  }\item[{\mbox{\hyperlink{include_2manux_2types_8h_a273cf69d639a59973b6019625df33e30}{uint16\+\_\+t}}}]{id,  }\item[{\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} \texorpdfstring{$\ast$}{*}}]{bu\mbox{[}$\,$\mbox{]},  }\item[{int}]{lg\mbox{[}$\,$\mbox{]},  }\item[{int}]{nb,  }\item[{\mbox{\hyperlink{include_2manux_2types_8h_a273cf69d639a59973b6019625df33e30}{uint16\+\_\+t}}}]{fl }\end{DoxyParamCaption})}
+
+
+
+Fournir plusieurs buffers au périphérique. 
+
+\+: Fournir un(e chaine de) buffer(s) au périphérique.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em vp} & le périphérique virtio concerné \\
+\hline
+{\em id} & index de la file \\
+\hline
+{\em bu} & les buffers (tableau de pointeurs sur les données/la place) \\
+\hline
+{\em lg} & la taille des buffers \\
+\hline
+{\em nb} & le nombre de buffers \\
+\hline
+{\em fl} & lecture/écriture (VRING\+\_\+\+DESC\+\_\+\+F\+\_\+\+WRITE ou 0) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+le nombre de buffers réellement fournis
+\end{DoxyReturn}
+L\textquotesingle{}idée est de fournir une chaîne de buffers . WARNING pas d\textquotesingle{}erreur gérée ! 
+
+Définition à la ligne \mbox{\hyperlink{virtio_8c_source_l00304}{304}} du fichier \mbox{\hyperlink{virtio_8c_source}{virtio.\+c}}.
+
+\Hypertarget{virtio_8c_a4c591d0f2cd08e9d586138bbf25ef2d3}\label{virtio_8c_a4c591d0f2cd08e9d586138bbf25ef2d3} 
+\index{virtio.c@{virtio.c}!virtioInitPeripheriquePCI@{virtioInitPeripheriquePCI}}
+\index{virtioInitPeripheriquePCI@{virtioInitPeripheriquePCI}!virtio.c@{virtio.c}}
+\doxysubsubsection{\texorpdfstring{virtioInitPeripheriquePCI()}{virtioInitPeripheriquePCI()}}
+{\footnotesize\ttfamily int virtio\+Init\+Peripherique\+PCI (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{manux_2virtio_8h_ae5ce3884f555c701f9f8099645f09fe5}{Virtio\+Peripherique}} \texorpdfstring{$\ast$}{*}}]{vp,  }\item[{int}]{PCINum,  }\item[{\mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\+\_\+t}}}]{masque }\end{DoxyParamCaption})}
+
+Initialisation d\textquotesingle{}un périphérique de type virtio accédé en PCI. L\textquotesingle{}essentiel de ce qui suit est conforme à la v0.\+9.\+5 a priori, (voir \mbox{[}3\mbox{]} section 2.\+2.\+1), mais pas à la v1.\+0
+
+
+\begin{DoxyParams}{Paramètres}
+{\em vp} & pointeur sur une structure déjà allouée (ou statique) \\
+\hline
+{\em PCINum} & l\textquotesingle{}identifiant PCI \\
+\hline
+{\em masque} & les caractéristiques à {\itshape ne pas} utiliser \\
+\hline
+\end{DoxyParams}
+
+
+Définition à la ligne \mbox{\hyperlink{virtio_8c_source_l00173}{173}} du fichier \mbox{\hyperlink{virtio_8c_source}{virtio.\+c}}.
+

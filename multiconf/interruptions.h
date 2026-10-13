@@ -15,8 +15,9 @@
 #define MANUX_FICHIER_MAIN main-interruptions
 
 #include <config/base.h>
+#include <config/pc-i386.h>
 #include <config/gestion-memoire.h>
-#include <config/plan-memoire.h>
+#include <config/plan-memoire-pc.h>
 #include <config/console.h>
 #include <config/printk.h>
 

@@ -1,0 +1,36 @@
+\doxysection{gestion-\/memoire.h}
+\hypertarget{gestion-memoire_8h_source}{}\label{gestion-memoire_8h_source}\index{/home/manu/PROGRAMMATION/C/ManuX/include/config/gestion-\/memoire.h@{/home/manu/PROGRAMMATION/C/ManuX/include/config/gestion-\/memoire.h}}
+\mbox{\hyperlink{gestion-memoire_8h}{Aller à la documentation de ce fichier.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{gestion-memoire_8h_source_l00001}00001\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{gestion-memoire_8h_source_l00002}00002\ \textcolor{comment}{/*\ \ \ Gestion\ de\ la\ mémoire.\ ATTENTION\ :\ à\ voir\ :\ peut-\/on\ décoréler\ ça\ de\ la\ \ \ */}}
+\DoxyCodeLine{\Hypertarget{gestion-memoire_8h_source_l00003}00003\ \textcolor{comment}{/*\ pagination\ ?\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{gestion-memoire_8h_source_l00004}00004\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{gestion-memoire_8h_source_l00009}\mbox{\hyperlink{gestion-memoire_8h_a80779992ac873a19ece2fbcfa6d06753}{00009}}\ \textcolor{preprocessor}{\#define\ MANUX\_GESTION\_MEMOIRE}}
+\DoxyCodeLine{\Hypertarget{gestion-memoire_8h_source_l00010}00010\ }
+\DoxyCodeLine{\Hypertarget{gestion-memoire_8h_source_l00011}00011\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{gestion-memoire_8h_source_l00012}00012\ \textcolor{comment}{\ *\ Taille\ d'une\ page\ mémoire\ (4\ Ko)}}
+\DoxyCodeLine{\Hypertarget{gestion-memoire_8h_source_l00013}00013\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{gestion-memoire_8h_source_l00014}\mbox{\hyperlink{gestion-memoire_8h_ae8ff0cb54526f5b759984090d013d49f}{00014}}\ \textcolor{preprocessor}{\#define\ MANUX\_TAILLE\_PAGE\ \ \ \ \ \ \ \ \ \ \ 0x1000}}
+\DoxyCodeLine{\Hypertarget{gestion-memoire_8h_source_l00015}00015\ }
+\DoxyCodeLine{\Hypertarget{gestion-memoire_8h_source_l00016}00016\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{gestion-memoire_8h_source_l00017}00017\ \textcolor{comment}{\ *\ Nombres\ de\ pages\ "{}système"{}\ c'est-\/à-\/dire\ communes\ à\ toutes\ les\ tâches.}}
+\DoxyCodeLine{\Hypertarget{gestion-memoire_8h_source_l00018}00018\ \textcolor{comment}{\ *\ WARNING,\ il\ serait\ bon\ de\ le\ calculer\ en\ fonction\ de\ la\ taille\ de\ la}}
+\DoxyCodeLine{\Hypertarget{gestion-memoire_8h_source_l00019}00019\ \textcolor{comment}{\ *\ mémoire\ physique.\ }}
+\DoxyCodeLine{\Hypertarget{gestion-memoire_8h_source_l00020}00020\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{gestion-memoire_8h_source_l00021}\mbox{\hyperlink{gestion-memoire_8h_a51d5bb3cbd6cdd278b2886f57507f3b9}{00021}}\ \textcolor{preprocessor}{\#define\ MANUX\_NOMBRE\_PAGES\_SYSTEME\ 0x800\ \ \ }\textcolor{comment}{/*\ 8\ Mo\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{gestion-memoire_8h_source_l00022}00022\ }
+\DoxyCodeLine{\Hypertarget{gestion-memoire_8h_source_l00023}00023\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{gestion-memoire_8h_source_l00024}00024\ \textcolor{comment}{\ *\ Adresse\ utilisée\ pour\ le\ tableau\ d'affectation\ des\ pages}}
+\DoxyCodeLine{\Hypertarget{gestion-memoire_8h_source_l00025}00025\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{gestion-memoire_8h_source_l00026}00026\ \textcolor{preprocessor}{\#ifndef\ MANUX\_AFFECTATION\_PAGES}}
+\DoxyCodeLine{\Hypertarget{gestion-memoire_8h_source_l00027}\mbox{\hyperlink{gestion-memoire_8h_a2d0833c5ad400fa899bbfc035098e3e9}{00027}}\ \textcolor{preprocessor}{\#\ \ \ define\ MANUX\_AFFECTATION\_PAGES\ 0x3000}}
+\DoxyCodeLine{\Hypertarget{gestion-memoire_8h_source_l00028}00028\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{gestion-memoire_8h_source_l00029}00029\ }
+\DoxyCodeLine{\Hypertarget{gestion-memoire_8h_source_l00030}00030\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{gestion-memoire_8h_source_l00031}00031\ \textcolor{comment}{\ *\ Active-\/t-\/on\ la\ pagination\ ?}}
+\DoxyCodeLine{\Hypertarget{gestion-memoire_8h_source_l00032}00032\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{gestion-memoire_8h_source_l00033}\mbox{\hyperlink{gestion-memoire_8h_ad3b51f9a61887ef65dab0e86ac711d90}{00033}}\ \textcolor{preprocessor}{\#define\ MANUX\_PAGINATION}}
+\DoxyCodeLine{\Hypertarget{gestion-memoire_8h_source_l00034}00034\ }
+
+\end{DoxyCode}

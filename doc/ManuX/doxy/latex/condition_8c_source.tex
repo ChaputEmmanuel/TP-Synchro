@@ -1,0 +1,169 @@
+\doxysection{condition.\+c}
+\hypertarget{condition_8c_source}{}\label{condition_8c_source}\index{/home/manu/PROGRAMMATION/C/ManuX/noyau/condition.c@{/home/manu/PROGRAMMATION/C/ManuX/noyau/condition.c}}
+\mbox{\hyperlink{condition_8c}{Aller à la documentation de ce fichier.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{condition_8c_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{condition_8c_source_l00007}00007\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{condition_8h}{manux/condition.h}}>}}
+\DoxyCodeLine{\Hypertarget{condition_8c_source_l00008}00008\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{include_2manux_2memoire_8h}{manux/memoire.h}}>}\ \ \ \textcolor{comment}{//\ NULL}}
+\DoxyCodeLine{\Hypertarget{condition_8c_source_l00009}00009\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{manux_2debug_8h}{manux/debug.h}}>}\ \ \ \ \ \textcolor{comment}{//\ assert}}
+\DoxyCodeLine{\Hypertarget{condition_8c_source_l00010}00010\ \textcolor{preprocessor}{\#if\ defined(MANUX\_CONDITION\_AUDIT)\ \&\&\ defined(MANUX\_KMALLOC)}}
+\DoxyCodeLine{\Hypertarget{condition_8c_source_l00011}00011\ \textcolor{preprocessor}{\#\ \ \ include\ <\mbox{\hyperlink{include_2manux_2kmalloc_8h}{manux/kmalloc.h}}>}}
+\DoxyCodeLine{\Hypertarget{condition_8c_source_l00012}00012\ \textcolor{preprocessor}{\#\ \ \ include\ <\mbox{\hyperlink{listetaches_8h}{manux/listetaches.h}}>}}
+\DoxyCodeLine{\Hypertarget{condition_8c_source_l00013}00013\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{condition_8c_source_l00014}00014\ }
+\DoxyCodeLine{\Hypertarget{condition_8c_source_l00015}00015\ \textcolor{preprocessor}{\#if\ defined(MANUX\_CONDITION\_AUDIT)\ \&\&\ defined(MANUX\_KMALLOC)}}
+\DoxyCodeLine{\Hypertarget{condition_8c_source_l00016}00016\ }
+\DoxyCodeLine{\Hypertarget{condition_8c_source_l00020}00020\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\_CelluleCondition\ \{}
+\DoxyCodeLine{\Hypertarget{condition_8c_source_l00021}00021\ \ \ \ \mbox{\hyperlink{struct__condition}{Condition}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *\ condition;}
+\DoxyCodeLine{\Hypertarget{condition_8c_source_l00022}00022\ \ \ \ \textcolor{keyword}{struct\ }\_CelluleCondition\ *\ suivant;}
+\DoxyCodeLine{\Hypertarget{condition_8c_source_l00023}00023\ \}\ CelluleCondition;}
+\DoxyCodeLine{\Hypertarget{condition_8c_source_l00024}00024\ \ \ }
+\DoxyCodeLine{\Hypertarget{condition_8c_source_l00025}00025\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\_ListeConditions\ \{}
+\DoxyCodeLine{\Hypertarget{condition_8c_source_l00026}00026\ \ \ \ CelluleCondition\ *\ tete;}
+\DoxyCodeLine{\Hypertarget{condition_8c_source_l00027}00027\ \ \ \ CelluleCondition\ *\ queue;}
+\DoxyCodeLine{\Hypertarget{condition_8c_source_l00028}00028\ \}\ ListeConditions;}
+\DoxyCodeLine{\Hypertarget{condition_8c_source_l00029}00029\ }
+\DoxyCodeLine{\Hypertarget{condition_8c_source_l00033}00033\ \textcolor{keyword}{static}}
+\DoxyCodeLine{\Hypertarget{condition_8c_source_l00034}00034\ ListeConditions\ *\ listeConditionsCreer(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\Hypertarget{condition_8c_source_l00035}00035\ \{}
+\DoxyCodeLine{\Hypertarget{condition_8c_source_l00036}00036\ \ \ \ ListeConditions\ *\ result;}
+\DoxyCodeLine{\Hypertarget{condition_8c_source_l00037}00037\ }
+\DoxyCodeLine{\Hypertarget{condition_8c_source_l00038}00038\ \ \ \ result\ =\ (ListeConditions\ *)\ \mbox{\hyperlink{kmalloc-zs_8h_af549fce4aa887cd31918e6c5dd0950f5}{kmalloc}}(\textcolor{keyword}{sizeof}(ListeConditions));}
+\DoxyCodeLine{\Hypertarget{condition_8c_source_l00039}00039\ }
+\DoxyCodeLine{\Hypertarget{condition_8c_source_l00040}00040\ \ \ \ result-\/>tete\ =\ \mbox{\hyperlink{include_2manux_2stddef_8h_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}};}
+\DoxyCodeLine{\Hypertarget{condition_8c_source_l00041}00041\ \ \ \ result-\/>queue\ =\ \mbox{\hyperlink{include_2manux_2stddef_8h_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}};}
+\DoxyCodeLine{\Hypertarget{condition_8c_source_l00042}00042\ }
+\DoxyCodeLine{\Hypertarget{condition_8c_source_l00043}00043\ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{\Hypertarget{condition_8c_source_l00044}00044\ \}}
+\DoxyCodeLine{\Hypertarget{condition_8c_source_l00045}00045\ }
+\DoxyCodeLine{\Hypertarget{condition_8c_source_l00050}00050\ \textcolor{keyword}{static}}
+\DoxyCodeLine{\Hypertarget{condition_8c_source_l00051}00051\ \textcolor{keywordtype}{void}\ listeConditionsInserer(ListeConditions\ *\ l,\ \mbox{\hyperlink{struct__condition}{Condition}}\ *\ \mbox{\hyperlink{main-bootreg_8c_add06ad5d8520e7cff4ff84b2811c0982}{c}})}
+\DoxyCodeLine{\Hypertarget{condition_8c_source_l00052}00052\ \{}
+\DoxyCodeLine{\Hypertarget{condition_8c_source_l00053}00053\ \ \ \ CelluleCondition\ *\ cell\ =\ (CelluleCondition\ *)\ \mbox{\hyperlink{kmalloc-zs_8h_af549fce4aa887cd31918e6c5dd0950f5}{kmalloc}}(\textcolor{keyword}{sizeof}(CelluleCondition));}
+\DoxyCodeLine{\Hypertarget{condition_8c_source_l00054}00054\ \ \ \ }
+\DoxyCodeLine{\Hypertarget{condition_8c_source_l00055}00055\ \ \ \ \mbox{\hyperlink{manux_2debug_8h_a3153a272f18d0f805028fce7e4337b53}{assert}}(l\ !=\ \mbox{\hyperlink{include_2manux_2stddef_8h_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}});}
+\DoxyCodeLine{\Hypertarget{condition_8c_source_l00056}00056\ \ \ \ \mbox{\hyperlink{manux_2debug_8h_a3153a272f18d0f805028fce7e4337b53}{assert}}(\mbox{\hyperlink{main-bootreg_8c_add06ad5d8520e7cff4ff84b2811c0982}{c}}\ !=\ \mbox{\hyperlink{include_2manux_2stddef_8h_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}});}
+\DoxyCodeLine{\Hypertarget{condition_8c_source_l00057}00057\ }
+\DoxyCodeLine{\Hypertarget{condition_8c_source_l00058}00058\ \ \ \ \textcolor{keywordflow}{if}\ (cell\ !=\ \mbox{\hyperlink{include_2manux_2stddef_8h_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}})\ \{}
+\DoxyCodeLine{\Hypertarget{condition_8c_source_l00059}00059\ \ \ \ \ \ \ cell-\/>condition\ =\ \mbox{\hyperlink{main-bootreg_8c_add06ad5d8520e7cff4ff84b2811c0982}{c}};}
+\DoxyCodeLine{\Hypertarget{condition_8c_source_l00060}00060\ \ \ \ \ \ \ cell-\/>suivant\ =\ \mbox{\hyperlink{include_2manux_2stddef_8h_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}};}
+\DoxyCodeLine{\Hypertarget{condition_8c_source_l00061}00061\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (l-\/>queue\ !=\ \mbox{\hyperlink{include_2manux_2stddef_8h_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}})\ \{}
+\DoxyCodeLine{\Hypertarget{condition_8c_source_l00062}00062\ \ \ \ \ \ \ \ \ \ l-\/>queue-\/>suivant\ =\ cell;}
+\DoxyCodeLine{\Hypertarget{condition_8c_source_l00063}00063\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{condition_8c_source_l00064}00064\ \ \ \ \ \ \ l-\/>queue\ =\ cell;}
+\DoxyCodeLine{\Hypertarget{condition_8c_source_l00065}00065\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (l-\/>tete\ \ ==\ \mbox{\hyperlink{include_2manux_2stddef_8h_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}})\ \{}
+\DoxyCodeLine{\Hypertarget{condition_8c_source_l00066}00066\ \ \ \ \ l-\/>tete\ =\ cell;}
+\DoxyCodeLine{\Hypertarget{condition_8c_source_l00067}00067\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{condition_8c_source_l00068}00068\ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{condition_8c_source_l00069}00069\ \}}
+\DoxyCodeLine{\Hypertarget{condition_8c_source_l00070}00070\ }
+\DoxyCodeLine{\Hypertarget{condition_8c_source_l00074}00074\ \textcolor{keyword}{static}\ ListeConditions\ *\ listeConditions\ =\ \mbox{\hyperlink{include_2manux_2stddef_8h_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}};}
+\DoxyCodeLine{\Hypertarget{condition_8c_source_l00075}00075\ }
+\DoxyCodeLine{\Hypertarget{condition_8c_source_l00079}00079\ \textcolor{keywordtype}{void}\ conditionsAfficherEtat(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\Hypertarget{condition_8c_source_l00080}00080\ \{}
+\DoxyCodeLine{\Hypertarget{condition_8c_source_l00081}00081\ \ \ \ CelluleCondition\ *\ cell;}
+\DoxyCodeLine{\Hypertarget{condition_8c_source_l00082}00082\ \ \ \ \mbox{\hyperlink{struct__CelluleTache}{CelluleTache}}\ *\ cellT;}
+\DoxyCodeLine{\Hypertarget{condition_8c_source_l00083}00083\ }
+\DoxyCodeLine{\Hypertarget{condition_8c_source_l00084}00084\ \ \ \ \mbox{\hyperlink{include_2manux_2printk_8h_a25b30e8bbadd54650c56895999dd808f}{printk}}(\textcolor{stringliteral}{"{}\(\backslash\)nEtat\ des\ variables\ de\ condition\ sur\ le\ systeme\ :\(\backslash\)n\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{condition_8c_source_l00085}00085\ \ \ \ \mbox{\hyperlink{include_2manux_2printk_8h_a25b30e8bbadd54650c56895999dd808f}{printk}}(\textcolor{stringliteral}{"{}Cond\ \ \ \ |\ \ \ \ s\ |\ \ \ \ d\ |\ Attente\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{condition_8c_source_l00086}00086\ \ \ \ \mbox{\hyperlink{include_2manux_2printk_8h_a25b30e8bbadd54650c56895999dd808f}{printk}}(\textcolor{stringliteral}{"{}-\/-\/-\/-\/-\/-\/-\/-\/+-\/-\/-\/-\/-\/-\/+-\/-\/-\/-\/-\/-\/+-\/-\/-\/-\/-\/-\/-\/-\/\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{condition_8c_source_l00087}00087\ }
+\DoxyCodeLine{\Hypertarget{condition_8c_source_l00088}00088\ \ \ \ \textcolor{keywordflow}{if}\ (listeConditions\ !=\ \mbox{\hyperlink{include_2manux_2stddef_8h_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}})\ \{}
+\DoxyCodeLine{\Hypertarget{condition_8c_source_l00089}00089\ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (cell\ =\ listeConditions-\/>tete;\ cell\ !=\ \mbox{\hyperlink{include_2manux_2stddef_8h_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}};\ cell\ =\ cell-\/>suivant)\{}
+\DoxyCodeLine{\Hypertarget{condition_8c_source_l00090}00090\ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{include_2manux_2printk_8h_a25b30e8bbadd54650c56895999dd808f}{printk}}(\textcolor{stringliteral}{"{}0x\%x\ |\ \%4d\ |\ \%4d\ |\ "{}},}
+\DoxyCodeLine{\Hypertarget{condition_8c_source_l00091}00091\ \ \ \ \ \ \ \ \ cell-\/>condition,}
+\DoxyCodeLine{\Hypertarget{condition_8c_source_l00092}00092\ \ \ \ \ \ \ \ \ cell-\/>condition-\/>nbSignaler,}
+\DoxyCodeLine{\Hypertarget{condition_8c_source_l00093}00093\ \ \ \ \ \ \ \ \ cell-\/>condition-\/>nbDiffuser);}
+\DoxyCodeLine{\Hypertarget{condition_8c_source_l00094}00094\ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (cellT\ =\ cell-\/>condition-\/>tachesEnAttente.tete\ ;}
+\DoxyCodeLine{\Hypertarget{condition_8c_source_l00095}00095\ \ \ \ \ \ \ \ \ \ \ cellT\ !=\ \mbox{\hyperlink{include_2manux_2stddef_8h_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}};\ cellT\ =\ cellT-\/>\mbox{\hyperlink{struct__CelluleTache_a9d6a6ee2889b11eeb2d18376426e0c3a}{suivant}})\{}
+\DoxyCodeLine{\Hypertarget{condition_8c_source_l00096}00096\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{include_2manux_2printk_8h_a25b30e8bbadd54650c56895999dd808f}{printk}}(\textcolor{stringliteral}{"{}\%d\ "{}},\ cellT-\/>\mbox{\hyperlink{struct__CelluleTache_a2a1ac3d6c4f2620e3c19089e2a706203}{tache}}-\/>\mbox{\hyperlink{struct__Tache_adcc9e272e58793e4bae000102d6537a3}{numero}});}
+\DoxyCodeLine{\Hypertarget{condition_8c_source_l00097}00097\ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{condition_8c_source_l00098}00098\ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{include_2manux_2printk_8h_a25b30e8bbadd54650c56895999dd808f}{printk}}(\textcolor{stringliteral}{"{}\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{condition_8c_source_l00099}00099\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{condition_8c_source_l00100}00100\ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{condition_8c_source_l00101}00101\ \ \ \ \mbox{\hyperlink{include_2manux_2printk_8h_a25b30e8bbadd54650c56895999dd808f}{printk}}(\textcolor{stringliteral}{"{}-\/-\/-\/-\/-\/-\/-\/-\/+-\/-\/-\/-\/-\/-\/+-\/-\/-\/-\/-\/-\/+-\/-\/-\/-\/-\/-\/-\/-\/\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{condition_8c_source_l00102}00102\ \}}
+\DoxyCodeLine{\Hypertarget{condition_8c_source_l00103}00103\ }
+\DoxyCodeLine{\Hypertarget{condition_8c_source_l00104}00104\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ \ defined(MANUX\_CONDITION\_AUDIT)\ \&\&\ defined(MANUX\_KMALLOC)}}
+\DoxyCodeLine{\Hypertarget{condition_8c_source_l00105}00105\ }
+\DoxyCodeLine{\Hypertarget{condition_8c_source_l00106}00106\ }
+\DoxyCodeLine{\Hypertarget{condition_8c_source_l00110}\mbox{\hyperlink{condition_8h_a3460e36fff72bf9770ab388c1c0fe52a}{00110}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{condition_8c_a3460e36fff72bf9770ab388c1c0fe52a}{conditionInitialiser}}(\mbox{\hyperlink{struct__condition}{Condition}}\ *\ cond)}
+\DoxyCodeLine{\Hypertarget{condition_8c_source_l00111}00111\ \{}
+\DoxyCodeLine{\Hypertarget{condition_8c_source_l00112}00112\ \ \ \ \mbox{\hyperlink{listetaches_8h_af5baf3857612a0fabb59ad436aec5b9a}{initialiserListeTache}}((\&cond-\/>\mbox{\hyperlink{struct__condition_ab352144f2da6522fc251fdf4e89d60b3}{tachesEnAttente}}));}
+\DoxyCodeLine{\Hypertarget{condition_8c_source_l00113}00113\ }
+\DoxyCodeLine{\Hypertarget{condition_8c_source_l00114}00114\ \textcolor{preprocessor}{\#if\ defined(MANUX\_CONDITION\_AUDIT)}}
+\DoxyCodeLine{\Hypertarget{condition_8c_source_l00115}00115\ \ \ \ cond-\/>nbSignaler\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{condition_8c_source_l00116}00116\ \ \ \ cond-\/>nbDiffuser\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{condition_8c_source_l00117}00117\ }
+\DoxyCodeLine{\Hypertarget{condition_8c_source_l00118}00118\ \ \ \ \textcolor{keywordflow}{if}\ (listeConditions\ ==\ \mbox{\hyperlink{include_2manux_2stddef_8h_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}})\ \{}
+\DoxyCodeLine{\Hypertarget{condition_8c_source_l00119}00119\ \ \ \ \ \ \ listeConditions\ =\ listeConditionsCreer();}
+\DoxyCodeLine{\Hypertarget{condition_8c_source_l00120}00120\ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{condition_8c_source_l00121}00121\ \ \ \ \textcolor{keywordflow}{if}\ (listeConditions\ !=\ \mbox{\hyperlink{include_2manux_2stddef_8h_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}})\ \{}
+\DoxyCodeLine{\Hypertarget{condition_8c_source_l00122}00122\ \ \ \ \ \ \ listeConditionsInserer(listeConditions,\ cond);}
+\DoxyCodeLine{\Hypertarget{condition_8c_source_l00123}00123\ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{condition_8c_source_l00124}00124\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{condition_8c_source_l00125}00125\ \}}
+\DoxyCodeLine{\Hypertarget{condition_8c_source_l00126}00126\ }
+\DoxyCodeLine{\Hypertarget{condition_8c_source_l00134}\mbox{\hyperlink{condition_8h_a283dd6896b1ae21d561d22dc15bfabcd}{00134}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{condition_8c_a283dd6896b1ae21d561d22dc15bfabcd}{conditionAttendre}}(\mbox{\hyperlink{struct__condition}{Condition}}\ *\ cond,\ \mbox{\hyperlink{struct__ExclusionMutuelle}{ExclusionMutuelle}}\ *\ em)}
+\DoxyCodeLine{\Hypertarget{condition_8c_source_l00135}00135\ \{}
+\DoxyCodeLine{\Hypertarget{condition_8c_source_l00136}00136\ \ \ \ \textcolor{comment}{//\ On\ se\ place\ dans\ la\ liste\ des\ tâches\ en\ attente\ de\ la\ condition}}
+\DoxyCodeLine{\Hypertarget{condition_8c_source_l00137}00137\ \ \ \ \textcolor{comment}{//\ que\ l'on\ peut\ manipuler\ sans\ risque\ car\ on\ est\ protégé\ par}}
+\DoxyCodeLine{\Hypertarget{condition_8c_source_l00138}00138\ \ \ \ \textcolor{comment}{//\ l'exclusion\ mutuelle\ }}
+\DoxyCodeLine{\Hypertarget{condition_8c_source_l00139}00139\ \ \ \ \mbox{\hyperlink{listetaches_8h_a47d0e6faac2157f137a3e09608835c79}{insererCelluleTache}}(\&(cond-\/>\mbox{\hyperlink{struct__condition_ab352144f2da6522fc251fdf4e89d60b3}{tachesEnAttente}}),}
+\DoxyCodeLine{\Hypertarget{condition_8c_source_l00140}00140\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{scheduler_8h_aafdf44b33a86f1bef6141d33a4abb94b}{tacheEnCours}},}
+\DoxyCodeLine{\Hypertarget{condition_8c_source_l00141}00141\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (\mbox{\hyperlink{struct__CelluleTache}{CelluleTache}}*)\mbox{\hyperlink{scheduler_8h_aafdf44b33a86f1bef6141d33a4abb94b}{tacheEnCours}}+\textcolor{keyword}{sizeof}(\mbox{\hyperlink{struct__Tache}{Tache}}));}
+\DoxyCodeLine{\Hypertarget{condition_8c_source_l00142}00142\ \ \ \ }
+\DoxyCodeLine{\Hypertarget{condition_8c_source_l00143}00143\ \ \ \ \textcolor{comment}{//\ On\ doit\ libérer\ l'exclusion\ mutuelle\ et\ se\ placer\ dans\ l'état}}
+\DoxyCodeLine{\Hypertarget{condition_8c_source_l00144}00144\ \ \ \ \textcolor{comment}{//\ bloqué,\ on\ va\ se\ rendre\ non\ préemptible\ pour\ faire\ ça\ afin\ de\ ne}}
+\DoxyCodeLine{\Hypertarget{condition_8c_source_l00145}00145\ \ \ \ \textcolor{comment}{//\ pas\ se\ retrouvée\ bloquée\ après\ avoir\ été\ préemptée\ par\ une\ tâche}}
+\DoxyCodeLine{\Hypertarget{condition_8c_source_l00146}00146\ \ \ \ \textcolor{comment}{//\ qui\ signale\ la\ condition\ !}}
+\DoxyCodeLine{\Hypertarget{condition_8c_source_l00147}00147\ \ \ \ \mbox{\hyperlink{atomique_8h_adecd92baad52906329fa83905abcda34}{tacheEnCoursInterdirePreemption}}();}
+\DoxyCodeLine{\Hypertarget{condition_8c_source_l00148}00148\ \ \ \ }
+\DoxyCodeLine{\Hypertarget{condition_8c_source_l00149}00149\ \ \ \ \mbox{\hyperlink{exclusion-mutuelle_8h_ace5c194a9dd43e021d611e79612d6f13}{exclusionMutuelleSortir}}(em);}
+\DoxyCodeLine{\Hypertarget{condition_8c_source_l00150}00150\ \ \ \ \mbox{\hyperlink{scheduler_8h_aafdf44b33a86f1bef6141d33a4abb94b}{tacheEnCours}}-\/>\mbox{\hyperlink{struct__Tache_a52778b74cd5dd7afca337370e89d1668}{etat}}\ =\ \mbox{\hyperlink{tache_8h_a079625c76ac29238ace165d5958d82e5a110b28c8c38510bc8d8deec91a117f99}{Tache\_Bloquee}};}
+\DoxyCodeLine{\Hypertarget{condition_8c_source_l00151}00151\ \ \ \ }
+\DoxyCodeLine{\Hypertarget{condition_8c_source_l00152}00152\ \ \ \ \mbox{\hyperlink{atomique_8h_a596cc7fc760ebb62e6511c6b65f4184d}{tacheEnCoursAutoriserPreemption}}();}
+\DoxyCodeLine{\Hypertarget{condition_8c_source_l00153}00153\ }
+\DoxyCodeLine{\Hypertarget{condition_8c_source_l00154}00154\ \ \ \ \textcolor{comment}{//\ On\ est\ bloquée\ et\ préemptible,\ on\ peut\ rendre\ la\ main}}
+\DoxyCodeLine{\Hypertarget{condition_8c_source_l00155}00155\ \ \ \ \mbox{\hyperlink{scheduler_8h_ae00507099d51c08195d42c08daad4f41}{ordonnanceur}}();}
+\DoxyCodeLine{\Hypertarget{condition_8c_source_l00156}00156\ }
+\DoxyCodeLine{\Hypertarget{condition_8c_source_l00157}00157\ \ \ \ \textcolor{comment}{//\ Il\ nous\ faut\ ré-\/acquérir\ l'exclusion\ mutuelle}}
+\DoxyCodeLine{\Hypertarget{condition_8c_source_l00158}00158\ \ \ \ \mbox{\hyperlink{exclusion-mutuelle_8h_a9b966fcfd5b19565e2734f33eb5bbf1c}{exclusionMutuelleEntrer}}(em);}
+\DoxyCodeLine{\Hypertarget{condition_8c_source_l00159}00159\ \}}
+\DoxyCodeLine{\Hypertarget{condition_8c_source_l00160}00160\ }
+\DoxyCodeLine{\Hypertarget{condition_8c_source_l00168}\mbox{\hyperlink{condition_8h_ad7b5eb5ca0c1862a588861fe17c8bbf3}{00168}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{condition_8c_ad7b5eb5ca0c1862a588861fe17c8bbf3}{conditionSignaler}}(\mbox{\hyperlink{struct__condition}{Condition}}\ *\ cond)}
+\DoxyCodeLine{\Hypertarget{condition_8c_source_l00169}00169\ \{}
+\DoxyCodeLine{\Hypertarget{condition_8c_source_l00170}00170\ \ \ \ \mbox{\hyperlink{struct__Tache}{Tache}}\ *\ ta;}
+\DoxyCodeLine{\Hypertarget{condition_8c_source_l00171}00171\ }
+\DoxyCodeLine{\Hypertarget{condition_8c_source_l00172}00172\ \ \ \ \textcolor{comment}{//\ Si\ on\ trouve\ une\ tâche\ en\ attente\ de\ cette\ condition}}
+\DoxyCodeLine{\Hypertarget{condition_8c_source_l00173}00173\ \ \ \ \textcolor{comment}{//\ on\ la\ réveille.}}
+\DoxyCodeLine{\Hypertarget{condition_8c_source_l00174}00174\ \ \ \ \textcolor{keywordflow}{if}\ ((ta\ =\ \mbox{\hyperlink{listetaches_8h_ac5545c3621d37831f73cd58e653f7377}{extraireTache}}(\&(cond-\/>\mbox{\hyperlink{struct__condition_ab352144f2da6522fc251fdf4e89d60b3}{tachesEnAttente}})))\ !=\ \mbox{\hyperlink{include_2manux_2stddef_8h_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}})\ \{}
+\DoxyCodeLine{\Hypertarget{condition_8c_source_l00175}00175\ \ \ \ \ \ \ ta-\/>\mbox{\hyperlink{struct__Tache_a52778b74cd5dd7afca337370e89d1668}{etat}}\ =\ \mbox{\hyperlink{tache_8h_a079625c76ac29238ace165d5958d82e5abd18ea3758daaa8a8012e928416be362}{Tache\_Prete}};}
+\DoxyCodeLine{\Hypertarget{condition_8c_source_l00176}00176\ \ \ \ \ \ \ \mbox{\hyperlink{listetaches_8h_a47d0e6faac2157f137a3e09608835c79}{insererCelluleTache}}(\&\mbox{\hyperlink{scheduler_8h_a80a9c97323077673833937f0f3cb3059}{listeTachesPretes}},}
+\DoxyCodeLine{\Hypertarget{condition_8c_source_l00177}00177\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ta,}
+\DoxyCodeLine{\Hypertarget{condition_8c_source_l00178}00178\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (\mbox{\hyperlink{struct__CelluleTache}{CelluleTache}}*)ta+\textcolor{keyword}{sizeof}(\mbox{\hyperlink{struct__Tache}{Tache}}));}
+\DoxyCodeLine{\Hypertarget{condition_8c_source_l00179}00179\ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{condition_8c_source_l00180}00180\ \textcolor{preprocessor}{\#if\ defined(MANUX\_CONDITION\_AUDIT)}}
+\DoxyCodeLine{\Hypertarget{condition_8c_source_l00181}00181\ \ \ \ cond-\/>nbSignaler++;}
+\DoxyCodeLine{\Hypertarget{condition_8c_source_l00182}00182\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{condition_8c_source_l00183}00183\ \}}
+\DoxyCodeLine{\Hypertarget{condition_8c_source_l00184}00184\ }
+\DoxyCodeLine{\Hypertarget{condition_8c_source_l00193}\mbox{\hyperlink{condition_8h_aff6ab3bc6f674c26f84cc74475081613}{00193}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{condition_8c_aff6ab3bc6f674c26f84cc74475081613}{conditionDiffuser}}(\mbox{\hyperlink{struct__condition}{Condition}}\ *\ cond)}
+\DoxyCodeLine{\Hypertarget{condition_8c_source_l00194}00194\ \{}
+\DoxyCodeLine{\Hypertarget{condition_8c_source_l00195}00195\ \ \ \ \mbox{\hyperlink{struct__Tache}{Tache}}\ *\ ta;}
+\DoxyCodeLine{\Hypertarget{condition_8c_source_l00196}00196\ }
+\DoxyCodeLine{\Hypertarget{condition_8c_source_l00197}00197\ \ \ \ \textcolor{comment}{//\ Si\ on\ trouve\ une\ tâche\ en\ attente\ de\ cette\ condition}}
+\DoxyCodeLine{\Hypertarget{condition_8c_source_l00198}00198\ \ \ \ \textcolor{comment}{//\ on\ la\ réveille.}}
+\DoxyCodeLine{\Hypertarget{condition_8c_source_l00199}00199\ \ \ \ \textcolor{keywordflow}{while}\ ((ta\ =\ \mbox{\hyperlink{listetaches_8h_ac5545c3621d37831f73cd58e653f7377}{extraireTache}}(\&(cond-\/>\mbox{\hyperlink{struct__condition_ab352144f2da6522fc251fdf4e89d60b3}{tachesEnAttente}})))\ !=\ \mbox{\hyperlink{include_2manux_2stddef_8h_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}})\ \{}
+\DoxyCodeLine{\Hypertarget{condition_8c_source_l00200}00200\ \ \ \ \ \ \ ta-\/>\mbox{\hyperlink{struct__Tache_a52778b74cd5dd7afca337370e89d1668}{etat}}\ =\ \mbox{\hyperlink{tache_8h_a079625c76ac29238ace165d5958d82e5abd18ea3758daaa8a8012e928416be362}{Tache\_Prete}};}
+\DoxyCodeLine{\Hypertarget{condition_8c_source_l00201}00201\ \ \ \ \ \ \ \mbox{\hyperlink{listetaches_8h_a47d0e6faac2157f137a3e09608835c79}{insererCelluleTache}}(\&\mbox{\hyperlink{scheduler_8h_a80a9c97323077673833937f0f3cb3059}{listeTachesPretes}},}
+\DoxyCodeLine{\Hypertarget{condition_8c_source_l00202}00202\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ta,}
+\DoxyCodeLine{\Hypertarget{condition_8c_source_l00203}00203\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (\mbox{\hyperlink{struct__CelluleTache}{CelluleTache}}*)ta+\textcolor{keyword}{sizeof}(\mbox{\hyperlink{struct__Tache}{Tache}}));}
+\DoxyCodeLine{\Hypertarget{condition_8c_source_l00204}00204\ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{condition_8c_source_l00205}00205\ \textcolor{preprocessor}{\#if\ defined(MANUX\_CONDITION\_AUDIT)}}
+\DoxyCodeLine{\Hypertarget{condition_8c_source_l00206}00206\ \ \ \ cond-\/>nbDiffuser++;}
+\DoxyCodeLine{\Hypertarget{condition_8c_source_l00207}00207\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{condition_8c_source_l00208}00208\ \}}
+\DoxyCodeLine{\Hypertarget{condition_8c_source_l00209}00209\ }
+
+\end{DoxyCode}

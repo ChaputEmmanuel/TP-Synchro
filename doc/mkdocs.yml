@@ -1,13 +1,21 @@
 site_name: "ManuX"
+site_url: https://manux.manu-chaput.net
+
+use_directory_urls: false
+theme:
+  name: readthedocs
+
 extra_css:
     - css/pandoc.css
 nav:
     - Home: index.md
     - Sections :
+       - "La version courte" : vue-globale-part.md
        - "Présentation générale" : presentation-part.md
        - "Les outils" : outils-part.md
        - "Chargement en mémoire et boot" : boot-part.md
        - "Affichage" : affichage-part.md
+       - "Registres" : registres-part.md
        - "Interruptions" : inter-part.md
        - "La mémoire" : memoire-part.md
        - "Les appels système" : appel-systeme-part.md

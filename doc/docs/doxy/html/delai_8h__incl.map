@@ -1,0 +1,20 @@
+<map id="/home/manu/PROGRAMMATION/C/ManuX/multiconf/delai.h" name="/home/manu/PROGRAMMATION/C/ManuX/multiconf/delai.h">
+<area shape="rect" id="Node000001" title="Exemple de configuration permettant de tester les délais." alt="" coords="353,5,579,45"/>
+<area shape="rect" id="Node000002" href="$base_8h.html" title="Eléments de base de la configuration." alt="" coords="5,93,113,119"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="369,48,127,94,126,89,368,43"/>
+<area shape="rect" id="Node000003" href="$gestion-memoire_8h.html" title=" " alt="" coords="138,93,327,119"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="411,48,281,91,279,86,409,43"/>
+<area shape="rect" id="Node000004" href="$plan-memoire-pc_8h.html" title=" " alt="" coords="369,167,558,192"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="435,48,411,68,392,94,390,112,398,129,413,144,430,157,427,162,409,148,394,132,385,113,388,92,407,64,432,43"/>
+<area shape="rect" id="Node000005" href="$include_2config_2console_8h.html" title=" " alt="" coords="403,93,529,119"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="469,46,469,79,463,79,463,46"/>
+<area shape="rect" id="Node000006" href="$include_2config_2printk_8h.html" title=" " alt="" coords="554,93,669,119"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="502,43,579,84,577,89,500,48"/>
+<area shape="rect" id="Node000007" href="$pc-i386_8h.html" title=" " alt="" coords="693,93,818,119"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="536,43,700,87,699,92,535,48"/>
+<area shape="rect" id="Node000009" href="$verifications_8h.html" title=" " alt="" coords="842,93,999,119"/>
+<area shape="poly" id="edge9_Node000001_Node000009" title=" " alt="" coords="575,43,841,88,840,94,574,48"/>
+<area shape="poly" id="edge7_Node000007_Node000004" title=" " alt="" coords="709,121,524,166,523,161,708,116"/>
+<area shape="rect" id="Node000008" href="$config_2intel-8259a_8h.html" title=" " alt="" coords="680,167,831,192"/>
+<area shape="poly" id="edge8_Node000007_Node000008" title=" " alt="" coords="758,119,758,153,753,153,753,119"/>
+</map>

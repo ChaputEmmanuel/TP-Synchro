@@ -1,0 +1,12 @@
+<map id="/home/manu/PROGRAMMATION/C/ManuX/include/manux/kmalloc.h" name="/home/manu/PROGRAMMATION/C/ManuX/include/manux/kmalloc.h">
+<area shape="rect" id="Node000001" title="Définition de kmalloc." alt="" coords="6,5,233,60"/>
+<area shape="rect" id="Node000002" href="$kmalloc-zs_8h.html" title="Une implatation simple de kmalloc fondé sur les zones siamoises (buddy areas) (C) Emmanuel Chaput 202..." alt="" coords="42,108,197,133"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="122,60,122,94,117,94,117,60"/>
+<area shape="rect" id="Node000003" href="$include_2manux_2memoire_8h.html" title=" " alt="" coords="103,181,245,207"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="130,132,159,169,155,172,126,135"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="5,255,124,280"/>
+<area shape="poly" id="edge5_Node000002_Node000004" title=" " alt="" coords="116,135,94,182,74,242,69,240,89,180,111,132"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="158,209,96,249,93,245,155,204"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="149,255,271,280"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="182,206,200,241,196,244,178,208"/>
+</map>

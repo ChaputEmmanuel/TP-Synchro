@@ -1,0 +1,15 @@
+<map id="/home/manu/PROGRAMMATION/C/ManuX/include/manux/journal.h" name="/home/manu/PROGRAMMATION/C/ManuX/include/manux/journal.h">
+<area shape="rect" id="Node000001" title="Définition des outils de journalisation des messages du noyau." alt="" coords="632,5,859,60"/>
+<area shape="rect" id="Node000002" href="$journal_8c.html" title="Implantation des outils de journalisation des messages du noyau." alt="" coords="5,115,232,155"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="619,53,441,79,244,111,206,118,205,113,244,105,440,73,618,48"/>
+<area shape="rect" id="Node000003" href="$main-acces-concurrent_8c.html" title="Un exemple pitoyable de début de noyau." alt="" coords="256,108,483,163"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="635,66,468,111,467,105,634,61"/>
+<area shape="rect" id="Node000004" href="$main-journal_09fichier_8c.html" title=" " alt="" coords="507,108,733,163"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="703,71,654,110,651,106,700,67"/>
+<area shape="rect" id="Node000005" href="$main-journal_8c.html" title=" " alt="" coords="757,115,984,155"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="790,67,849,113,845,117,787,71"/>
+<area shape="rect" id="Node000006" href="$main-virtio-journal_8c.html" title=" " alt="" coords="1008,108,1235,163"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="857,61,1024,105,1023,111,855,66"/>
+<area shape="rect" id="Node000007" href="$main_8c.html" title=": Un exemple de début de noyau." alt="" coords="1259,115,1485,155"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="873,48,1051,73,1247,105,1286,113,1285,118,1246,111,1050,79,872,53"/>
+</map>

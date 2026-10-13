@@ -1,0 +1,247 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>My Project: Les principaux outils</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">My Project
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+</div><!-- top -->
+<div><div class="header">
+  <div class="headertitle"><div class="title">Les principaux outils</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><p><a class="anchor" id="autotoc_md87"></a> Le but de cette section est de décrire brièvement les outils utilisés pour compiler et exécuter <em>ManuX</em> .</p>
+<p>L’essentiel du code de <em>ManuX</em> est écrit en C, et un peu d’assembleur est nécessaire ici ou là, …Le processus de compilation est évidemment automatisé avec l’outil <em>make</em>. Je vais décire sommairement cette étape dans la sous-section <a href="#subsection:compilation" data-reference-type="ref" data-reference="subsection:compilation">[subsection:compilation]</a>.</p>
+<p><em>ManuX</em> peut ensuite être exécuté sur une machine réelle, mais il est évidemment possible d’utiliser un émulateur. Nous évoquerons les possibilités dans la sous-section <a href="#subsection:execution" data-reference-type="ref" data-reference="subsection:execution">[subsection:execution]</a>.</p>
+<p>Le débugage est un élément important dans la phase de développement d’un logiciel, et il se révèle parfois un peu délicat lorsqu’il s’agit de développer un noyau. Nous évoquerons des outils dans les sous-sections <a href="#subsection:debugage_interne" data-reference-type="ref" data-reference="subsection:debugage_interne">1.3.1</a> et <a href="#subsection:debugage_externe" data-reference-type="ref" data-reference="subsection:debugage_externe">1.4</a>.</p>
+<h1><a class="anchor" id="autotoc_md88"></a>
+La chaîne de compilation/documentation</h1>
+<h2><a class="anchor" id="autotoc_md89"></a>
+Le compilateur C</h2>
+<p>Le compilateur GCC est utilisé, la version 11.3.0 avec une cible <code>x86_64-linux-gnu</code> fonctionne parfaitement (j’en suis actuellement à la 13.3.0). Je n’ai jamais eu de problème avec aucune version de GCC jusqu’à présent.</p>
+<h2><a class="anchor" id="autotoc_md90"></a>
+L’assembleur</h2>
+<p>J’utilise NASM NASM[1] pour les quelques fichiers écrits en assembleur, dans sa version 2.14.</p>
+<h2><a class="anchor" id="autotoc_md91"></a>
+La compilation</h2>
+<p>La commpilation générale du noyau est fondée sur l’outil <code>make</code>, et j’utilise la version 4.2.1 de gnu<code>make</code>.</p>
+<p>Quelques outils de scripts tels que <code>awk</code> sont utilisés, rien de très original, et tout système Linux correctement installé devrait fournir ce qui est nécessaire.</p>
+<h2><a class="anchor" id="autotoc_md92"></a>
+La gestion des fichiers iso</h2>
+<p>Les fichiers iso son générés par la commande <code>grub-mkrescue</code> qui utilise <code>xorriso</code>.</p>
+<h2><a class="anchor" id="autotoc_md93"></a>
+L’exécution dans un émulateur</h2>
+<p>Bien sûr, l’idée n’est pas de faire fonctionner <em>ManuX</em> sur du matériel réel, même si c’est tout à fait possible, mais plutôt dans un émulateur.</p>
+<p>J’utilise pour cela *Qemu*dans sa version 3.1.0. On peut également utiliser <code>bochs</code> ainsi que VirtualBox.</p>
+<h2><a class="anchor" id="autotoc_md94"></a>
+La documentation</h2>
+<p>La maigre documentation (que vous êtes en train de lide) est écrite essentiellement en LaTeX. N’importe quelle version convient parfaitement.</p>
+<p>J’utilise également pandoc, DoxyGen et mkdocs pour générer ensuite une version navigable en ligne.</p>
+<p>Le <code>Makefile</code> principal défini un certain nombre de cibles utilisables pour compiler et exécuter ManuX.</p>
+<h2><a class="anchor" id="autotoc_md95"></a>
+La création du noyau</h2>
+<p>Sans grande surprise, on compile avec la commande </p><pre class="fragment">  make
+</pre><p> Différentes cibles peuvent être créées</p>
+<ul>
+<li><code>manux</code> permet de compiler une image du noyau ;</li>
+<li><code>run</code> permet de lancer un émulateur (par défaut pour le moment c’est <em>Qemu</em>) ;</li>
+<li><code>clean</code> permet d’effacer tous les fichiers issus de compilation ;</li>
+<li><code>iso</code> permet de créer une image iso.</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md96"></a>
+Gestion de configurations multiples</h2>
+<p>L’essentiel de la configuration de ManuX se fait dans le fichier <a href="/doxy/html/config_8h_source.html"><code>include/manux/config.h</code></a>(<a href="/doxy/html/config_8h.html">dox</a>). Il est cependant possible de demander à <code>make</code>d’utiliser un fichier différent.</p>
+<p>Le répertoire <code>multiconf</code> contient différents fichiers de configuration. Chacun de ces fichiers permet alors de générer une version différente de ManuX.</p>
+<p>Ainsi, le fichier <a href="/doxy/html/printk_8h_source.html"><code>multiconf/printk.h</code></a>(<a href="/doxy/html/printk_8h.html">dox</a>) définit la configuration permettant de compiler un noyau ManuX montrant l’utilsation de <code>printk</code>. On le compile de la façon suivante </p><pre class="fragment">  make CFG=printk
+</pre><p> Il peut alors être exécuté par exemple avec </p><pre class="fragment">  make run
+</pre> <h2><a class="anchor" id="autotoc_md97"></a>
+Réalisation d’une image iso</h2>
+<p>La cible <code>iso</code> du <code>Makefile</code> principal permet de générer un fichier iso qui peut être utilisé pour démarrer ManuX sur une machine physique ou virtuelle.</p>
+<p>La cible <code>multiso</code> du <code>Makefile</code> principal permet de générer une image iso intégrant un noyau pour chaque fichier de configuration présent dans le répertoire <code>multiconf</code>.</p>
+<h2><a class="anchor" id="autotoc_md98"></a>
+Création d’un fichier iso</h2>
+<p>Il est également possible de créer un fichier isocontenant une ou plusieurs configuration de ManuX.</p>
+<p>Pour créer un fichier isocontenant la version actuellement définie dans le fichier <a href="/doxy/html/config_8h_source.html"><code>include/manux/config.h</code></a>(<a href="/doxy/html/config_8h.html">dox</a>) on utilisera simplement </p><pre class="fragment">  make iso
+</pre><p> L’exécution pourra alors se faire via la commande </p><pre class="fragment">  make runiso
+</pre><p> Il est également possible de générer un fichier isocontenant toutes les versions de ManuX décrites par les fichiers du répertoire <code>multiconf</code> de la façon suivante </p><pre class="fragment">  make multiso
+</pre><p> On l’exécutera de la même façon : </p><pre class="fragment">  make runiso
+</pre> <h2><a class="anchor" id="autotoc_md99"></a>
+L’édition de liens</h2>
+<p>Afin d’assembler tous les éléments en un seul fichier <code>noyau.elf</code> qui pourra ensuite être utilisé par <em>Multiboot</em>, nous allons utiliser l’éditeur de liens <code>ld</code>. Le comportement de <code>ld</code> est conditionné par un fichier qui s’appelle un <em>linker script</em>. Un tel script décrit en particulier comment les différentes sections des fichiers d’entrée sont disposées dans le fichier de sortie et comment la mémoire est organisée.</p>
+<p>Le code suivant montre un exemple simple de script : </p><pre class="fragment">ENTRY(start)
+SECTIONS {
+    . = 1M 
+    .boot :
+    {
+        *(.multiboot)
+    }
+    adresseDebutManuX = .;
+    .text : {
+       *(.text)
+    }        
+    .rodata : {
+       *(.rodata)
+    }
+    .data : {
+       *(.data)
+    }
+    .bss : {
+       *(.bss)
+    }
+}
+</pre><p> Dans ce script, nous avous défini le nom du point d’entrée (ici <code>start</code>), et nous avons décrit un certain nombre de sections avec leur ordre d’apparition dans le fichier de sortie et leur contenu. Vous remarquerez également que l’on utilise la notation “<code>.</code>” pour spécifier l’adresse courante et que cette adresse peut être consultée mais également modifiée. Ainsi la ligne <code>. = 1M</code> stipule que l’on se place ) l’adresse 1M. D’un autre côté la ligne <code>adresseDebutManuX = .</code> stipule que l’on enregistre dans la variable <code>adresseDebutManuX</code> la valeur de l’adresse courante (celle du début de la section <code>. text</code> donc).</p>
+<h1><a class="anchor" id="autotoc_md100"></a>
+Exécution de ManuX</h1>
+<p>Le but n’est évidemment pas de faire tourner cette merveille sur du vrai matériel, mais plutôt dans un émulateur.</p>
+<h2><a class="anchor" id="autotoc_md101"></a>
+L’émulateur Qemu</h2>
+<p>C’est maintenant <em>Qemu</em>[2] que j’utilise, par exemple de la façon suivante </p><pre class="fragment">   qemu-system-i386 -drive format=raw,file=manux,index=0,if=floppy -m 64M
+</pre><p> C’est d’ailleurs la commande que lance </p><pre class="fragment">   make runfloppy
+</pre><p> Une autre façon de démarrer <em>ManuX</em> est la suivante </p><pre class="fragment">   qemu-system-i386 -kernel noyau.elf -m 64M
+</pre><p> C’est ce que fait la commande </p><pre class="fragment">   make run
+</pre><p> Mais on préférera probablement passer par une image ISO : </p><pre class="fragment">   qemu-system-i386 -m 64M -cdrom manux.iso
+</pre><p> C’est ce que fait la commande </p><pre class="fragment">   make runiso
+</pre><p> De nombreuses options sont disponibles, mais ce n’est pas le moment d’en parler !</p>
+<h2><a class="anchor" id="autotoc_md102"></a>
+L’émulateur Bochs</h2>
+<p>J’utilisais initialement cet outil, mais les fichiers de configuration ne semblent plus convenir aux dernières versions de Bochs[3] il faudrait les mettre à jour !</p>
+<h1><a class="anchor" id="autotoc_md103"></a>
+Le débugage de ManuX</h1>
+<h2><a class="anchor" id="autotoc_md104"></a>
+Le débugage “interne”</h2>
+<p>Ce que j’appelle ici le débugage interne, c’est tous les outils que l’on peut utiliser dans le code lui-même pour essayer de comprendre ce qu’il s’y passe.</p>
+<p>Nous avons pour le moment quelques outils de base, copieusement bugués eux-mêmes (!).</p>
+<h2><a class="anchor" id="autotoc_md105"></a>
+La fonction &lt;tt&gt;printk_debug&lt;/tt&gt;</h2>
+<p>Elle permet de produire des messages d’erreur qui seront envoyés de façon sélective en fonction de la valeur de <code>masqueDebugageConsole</code> et de <code>masqueDebugageFichier</code></p>
+<p>Elle utilise pour cela les fonctionalités de la fonction <code><a class="el" href="include_2manux_2printk_8h.html#a25b30e8bbadd54650c56895999dd808f" title="Fonction principale d&#39;affichage dans le noyau.">printk()</a></code> et du journal, ce qui permet d’envoyer les messages de debug sur la console et/ou dans un fichier.</p>
+<h3><a class="anchor" id="autotoc_md106"></a>
+Les masques de débogages</h3>
+<p>Deux masques de débogage sont définis : <code>masqueDebugageConsole</code> et <code>masqueDebugageFichier</code>. Ils sont définies dans <a href="/doxy/html/debug_8h_source.html"><code>include/manux/debug.h</code></a>(<a href="/doxy/html/debug_8h.html">dox</a>).</p>
+<p>Si le paramètre de compilation <code>MANUX_DEBUG_VAR</code> n’est pas défini, ces deux masques sont définis comme des macros. On ne peut donc pas trop jouer avec en cours d’exécution du noyau, …</p>
+<p>En revanche, si <code>MANUX_DEBUG_VAR</code> est définie, c’est un nouveau monde qui s’ouvre à nous ! Ces variables sont en effet déclarées et initialisées dans <a href="/doxy/html/debug_8c_source.html"><code>noyau/debug.c</code></a>(<a href="/doxy/html/debug_8c.html">dox</a>), et elles peuvent alors être modifiées durant l’exécution du noyau.</p>
+<p>Une utilisation particulièrement intéressante pourra en être faite au travers du registre (voir la doc) et des paramètres de boot, car il est alors possible de définir la valeur de ces masque via une option du bootloader.</p>
+<h2><a class="anchor" id="autotoc_md107"></a>
+La macro &lt;tt&gt;assert&lt;/tt&gt;</h2>
+<p>Elle est définie dans le fichier <a href="/doxy/html/debug_8h_source.html"><code>include/manux/debug.h</code></a>(<a href="/doxy/html/debug_8h.html">dox</a>) et elle permet de vérifier <em>lors de l’exécution</em> qu’une propostion est vérifiée ou non. Si elle ne l’est pas, un message est affiché.</p>
+<h2><a class="anchor" id="autotoc_md108"></a>
+Le handler &lt;tt&gt;handlerPanique&lt;/tt&gt;</h2>
+<p>La fonction <code>handlerPanique</code> est définie dans le fichier <a href="/doxy/html/debug_8h_source.html"><code>include/manux/debug.h</code></a>(<a href="/doxy/html/debug_8h.html">dox</a>) et permet d’afficher un état du système qui peut être utile à des fin de débugage.</p>
+<h2><a class="anchor" id="autotoc_md109"></a>
+Le fichier &lt;tt&gt;noyau/symbols&lt;/tt&gt;</h2>
+<p>Il va surtout nous servir pour aider au débugage externe, mais il est généré à la compilation du noyau.</p>
+<h1><a class="anchor" id="autotoc_md110"></a>
+Le débugage “externe”</h1>
+<p>Une technique pour débuguer est d’utiliser <code>qemu</code> couplé avec <code>gdb</code>. Pour cela, je lance par exemple <code>qemu</code> de la façon suivante </p><pre class="fragment">   qemu-system-i386 -drive format=raw,file=manux,index=0,if=floppy  -rtc base\=localtime -m 64M -gdb tcp::1234  -S 
+</pre><p> Je lance ensuite <code>gdb</code> dans un autre terminal avec un <code>.gdbinit</code> qui contient : </p><pre class="fragment">  target remote :1234
+  dir noyau
+  dir lib
+  file noyau/noyau.elf
+</pre><p> La commande <code>dir</code> permet de dire à <code>gdb</code> où trouver les fichiers sources et la command <code>file</code> lui permet de consulter le binaire du noyau pour y trouver l’adresse des fonctions et variables (ici en fait, c’est une autre compilation du noyau au format elf !).</p>
+<h2><a class="anchor" id="autotoc_md111"></a>
+Exécution</h2>
+<p>Quelques commandes de base pour l’exécution de code dans <code>gdb</code></p>
+<ul>
+<li>**<code>r</code>**<code>un</code> permet de lancer l’exécution d’un programme (inutilisable ici étant donné notre fonctionnement : on débogue à distance) ;</li>
+<li>**<code>c</code>**<code>ontinue</code> permet de poursuivre l’exécution jusqu’au prochain point d’arrêt/bug/fin/…;</li>
+<li>**<code>s</code>**<code>tep</code> avance d’une instruction dans le code ;</li>
+<li>**<code>n</code>**<code>ext</code></li>
+<li>**<code>b</code>**<code>reakpoint fonction</code></li>
+<li>**<code>b</code>**<code>reakpoint fichier:ligne</code></li>
+</ul>
+<h2><a class="anchor" id="autotoc_md112"></a>
+Affichage des registres</h2>
+<p>Il peut être intéressant de consulter le contenu des registres</p>
+<ul>
+<li><code>info registers</code> donne le contenu des principaux registres.</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md113"></a>
+Affichage des variables</h2>
+<p><code>Gdb</code> permet également de consulter le contenu des variables :</p>
+<ul>
+<li><code>p toto</code> affiche le contenu de la variable <code>toto</code>.</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md114"></a>
+Désassemblage du code</h2>
+<p>Une fonctionnalité intéressante est de pouvoir observer le code assembleur, ce qui peut permettre de comprendre certains comportements étranges, tels que les conséquences de choix d’optimisation du compilateur :</p>
+<ul>
+<li><code>disassemble fonc</code> affiche le code assembleur de la fonction <code>fonc</code>.</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md115"></a>
+Références</h1>
+<p>“Qemu home page,” 2022. Available: <a href="https://www.qemu.org/">https://www.qemu.org/</a>.</p>
+<p>The Bochs Project. “Bochs home page,” 2021. Available: <a href="https://bochs.sourceforge.io/">https://bochs.sourceforge.io/</a>.</p>
+<p>The NASM development team. “NASM home page,” 2015. Available: <a href="https://www.nasm.us/">https://www.nasm.us/</a>.</p>
+<p>[1] The NASM development team, “NASM home page,” 2015, Available: <a href="https://www.nasm.us/">https://www.nasm.us/</a>.</p>
+<p>[2] “Qemu home page,” 2022, Available: <a href="https://www.qemu.org/">https://www.qemu.org/</a>.</p>
+<p>[3] The Bochs Project, “Bochs home page,” 2021, Available: <a href="https://bochs.sourceforge.io/">https://bochs.sourceforge.io/</a>. </p>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

@@ -1,0 +1,34 @@
+\doxysection{io.\+h}
+\hypertarget{io_8h_source}{}\label{io_8h_source}\index{/home/manu/PROGRAMMATION/C/ManuX/include/manux/io.h@{/home/manu/PROGRAMMATION/C/ManuX/include/manux/io.h}}
+\mbox{\hyperlink{io_8h}{Aller à la documentation de ce fichier.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{io_8h_source_l00001}00001\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{io_8h_source_l00002}00002\ \textcolor{comment}{/*\ \ \ \ \ \ \ Manipulation\ des\ entrées/sorties.\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{io_8h_source_l00003}00003\ \textcolor{comment}{/*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (C)\ Manu\ Chaput\ 2000-\/2022\ */}}
+\DoxyCodeLine{\Hypertarget{io_8h_source_l00004}00004\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{io_8h_source_l00005}00005\ \textcolor{preprocessor}{\#ifndef\ IO\_DEF}}
+\DoxyCodeLine{\Hypertarget{io_8h_source_l00006}00006\ \textcolor{preprocessor}{\#define\ IO\_DEF}}
+\DoxyCodeLine{\Hypertarget{io_8h_source_l00007}00007\ }
+\DoxyCodeLine{\Hypertarget{io_8h_source_l00008}00008\ \textcolor{comment}{//\ WARNING\ les\ "{}Nd"{}\ étaient\ des\ "{}N"{},\ ...}}
+\DoxyCodeLine{\Hypertarget{io_8h_source_l00009}00009\ }
+\DoxyCodeLine{\Hypertarget{io_8h_source_l00013}\mbox{\hyperlink{io_8h_a01385861b7c9bd988991a73868c29905}{00013}}\ \textcolor{preprocessor}{\#define\ outb(port,\ octet)\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{io_8h_source_l00014}00014\ \textcolor{preprocessor}{\ \ asm\ volatile\ ("{}outb\ \%\%al,\ \%1"{}::\ "{}a"{}(octet),\ "{}Nd"{}((uint16\_t)port))}}
+\DoxyCodeLine{\Hypertarget{io_8h_source_l00015}00015\ }
+\DoxyCodeLine{\Hypertarget{io_8h_source_l00019}\mbox{\hyperlink{io_8h_a4f4a2af12435f72838eae7049d0ca6ee}{00019}}\ \textcolor{preprocessor}{\#define\ inb(port,\ adresseOctet)\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{io_8h_source_l00020}00020\ \textcolor{preprocessor}{\ \ \ asm\ volatile\ ("{}inb\ \%1,\ \%\%al"{}:\ "{}=a"{}(adresseOctet):\ "{}Nd"{}((uint16\_t)port))}}
+\DoxyCodeLine{\Hypertarget{io_8h_source_l00021}00021\ }
+\DoxyCodeLine{\Hypertarget{io_8h_source_l00025}\mbox{\hyperlink{io_8h_a1138b9ac37047ae0832c08a831682cc0}{00025}}\ \textcolor{preprocessor}{\#define\ outw(port,\ mot)\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{io_8h_source_l00026}00026\ \textcolor{preprocessor}{\ \ \ asm\ volatile\ ("{}outw\ \%\%ax,\ \%1"{}::\ "{}a"{}(mot),\ "{}Nd"{}((uint16\_t)port))}}
+\DoxyCodeLine{\Hypertarget{io_8h_source_l00027}00027\ }
+\DoxyCodeLine{\Hypertarget{io_8h_source_l00031}\mbox{\hyperlink{io_8h_a4e2d82d8ed0c3f06ee8672a770436c9f}{00031}}\ \textcolor{preprocessor}{\#define\ inw(port,\ adresseMot)\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{io_8h_source_l00032}00032\ \textcolor{preprocessor}{\ \ \ asm\ volatile\ ("{}inw\ \%1,\ \%\%ax"{}:\ "{}=a"{}(adresseMot):\ "{}Nd"{}((uint16\_t)port))}}
+\DoxyCodeLine{\Hypertarget{io_8h_source_l00033}00033\ }
+\DoxyCodeLine{\Hypertarget{io_8h_source_l00037}\mbox{\hyperlink{io_8h_a92a4b4982e75909904a35aef114cc3de}{00037}}\ \textcolor{preprocessor}{\#define\ outl(port,\ lng)\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{io_8h_source_l00038}00038\ \textcolor{preprocessor}{\ \ \ asm\ volatile\ ("{}outl\ \%\%eax,\ \%1"{}::\ "{}a"{}(lng),\ "{}Nd"{}((uint16\_t)port))}}
+\DoxyCodeLine{\Hypertarget{io_8h_source_l00039}00039\ }
+\DoxyCodeLine{\Hypertarget{io_8h_source_l00043}\mbox{\hyperlink{io_8h_a58dac80d57e8fe473d87545a4d78ad53}{00043}}\ \textcolor{preprocessor}{\#define\ inl(port,\ adresseLong)\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{io_8h_source_l00044}00044\ \textcolor{preprocessor}{\ \ \ asm\ volatile("{}inl\ \%\%dx,\ \%\%eax"{}:\ "{}=a"{}(adresseLong):\ "{}d"{}((uint16\_t)port))}}
+\DoxyCodeLine{\Hypertarget{io_8h_source_l00045}00045\ }
+\DoxyCodeLine{\Hypertarget{io_8h_source_l00046}00046\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

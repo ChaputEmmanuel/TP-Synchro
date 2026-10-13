@@ -1,0 +1,27 @@
+<map id="/home/manu/PROGRAMMATION/C/ManuX/include/config/kmalloc.h" name="/home/manu/PROGRAMMATION/C/ManuX/include/config/kmalloc.h">
+<area shape="rect" id="Node000001" title=" " alt="" coords="1437,5,1664,60"/>
+<area shape="rect" id="Node000002" href="$include_2manux_2config_8h.html" title=" " alt="" coords="5,108,232,163"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="1423,38,1201,42,907,54,577,76,409,91,244,111,233,112,232,107,244,105,408,86,576,71,907,49,1201,37,1423,32"/>
+<area shape="rect" id="Node000003" href="$acces-concurrent_8h.html" title="Exemple de configuration pour un test d&#39;accès concurrents." alt="" coords="256,108,483,163"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="1424,40,1242,47,1010,61,753,81,495,111,483,112,483,107,494,105,752,76,1010,55,1242,42,1424,35"/>
+<area shape="rect" id="Node000004" href="$boot-reg_8h.html" title="Ajout dans le rergistre systèmes de paramètres fournis au boot." alt="" coords="507,115,733,155"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="1423,44,1114,68,930,87,746,111,704,118,703,113,745,105,929,81,1114,62,1423,39"/>
+<area shape="rect" id="Node000005" href="$debmaskdyn-reg_8h.html" title=" " alt="" coords="758,115,1034,155"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="1424,54,1047,111,1003,118,1002,113,1046,105,1423,49"/>
+<area shape="rect" id="Node000006" href="$journal_09fichier_8h.html" title=" " alt="" coords="1059,108,1285,163"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="1440,66,1271,111,1270,105,1438,61"/>
+<area shape="rect" id="Node000007" href="$multiconf_2kmalloc_8h.html" title="Exemple de configuration pour l&#39;utilisation de kmalloc." alt="" coords="1309,115,1536,155"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="1508,71,1449,117,1445,113,1505,66"/>
+<area shape="rect" id="Node000008" href="$reentrance_8h.html" title="Comparaison noyau réentrant vs non réentrant." alt="" coords="1561,115,1797,155"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="1596,66,1656,113,1653,117,1593,71"/>
+<area shape="rect" id="Node000009" href="$multiconf_2registre_8h.html" title="Gestion dynamique des paramètres de ManuX dans un registre." alt="" coords="1821,115,2048,155"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="1664,61,1863,113,1862,118,1663,66"/>
+<area shape="rect" id="Node000010" href="$verrou-noyau_8h.html" title=" " alt="" coords="2072,108,2299,163"/>
+<area shape="poly" id="edge9_Node000001_Node000010" title=" " alt="" coords="1678,48,1859,73,2060,105,2072,108,2072,113,2060,111,1859,78,1678,53"/>
+<area shape="rect" id="Node000011" href="$virtio-cons_8h.html" title="Affichage de messages sur une console virtuelle de type virtio." alt="" coords="2323,115,2557,155"/>
+<area shape="poly" id="edge10_Node000001_Node000011" title=" " alt="" coords="1678,40,1968,64,2140,83,2311,105,2354,113,2353,118,2310,111,2139,88,1968,70,1678,45"/>
+<area shape="rect" id="Node000012" href="$virtio-journal_8h.html" title=" " alt="" coords="2581,108,2808,163"/>
+<area shape="poly" id="edge11_Node000001_Node000012" title=" " alt="" coords="1678,35,1854,43,2077,56,2323,77,2570,105,2581,107,2581,112,2569,111,2322,82,2076,62,1854,48,1678,41"/>
+<area shape="rect" id="Node000013" href="$multiconf_2virtio-net_8h.html" title="Utilisation d&#39;une interface réseau de type virtio." alt="" coords="2832,115,3059,155"/>
+<area shape="poly" id="edge12_Node000001_Node000013" title=" " alt="" coords="1678,33,1894,38,2179,50,2499,71,2661,87,2820,105,2864,113,2863,118,2820,111,2661,92,2498,77,2179,55,1894,43,1677,38"/>
+</map>

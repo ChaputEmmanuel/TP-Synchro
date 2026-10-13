@@ -1,0 +1,16 @@
+<map id="_CelluleTache" name="_CelluleTache">
+<area shape="rect" id="Node000001" title=" " alt="" coords="18,357,129,383"/>
+<area shape="poly" id="edge7_Node000001_Node000001" title=" " alt="" coords="144,361,155,370,147,378,129,381,129,375,145,373,150,370,141,366"/>
+<area shape="rect" id="Node000002" href="$struct__Tache.html" title=": Définition du type décrivant une tache." alt="" coords="40,269,107,295"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="76,309,76,357,71,357,71,309"/>
+<area shape="rect" id="Node000003" href="$struct__IntelTSS.html" title=" " alt="" coords="5,181,88,207"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="57,219,72,268,67,270,52,220"/>
+<area shape="rect" id="Node000004" href="$struct__DescriptorTable.html" title=" " alt="" coords="112,181,243,207"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="155,217,89,271,86,267,151,213"/>
+<area shape="rect" id="Node000005" href="$union__Descripteur.html" title=" " alt="" coords="125,93,229,119"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="180,133,180,181,175,181,175,133"/>
+<area shape="rect" id="Node000006" href="$struct__DescSegment.html" title=" " alt="" coords="55,5,174,31"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="133,40,171,91,166,94,129,43"/>
+<area shape="rect" id="Node000007" href="$struct__DescTSS.html" title=" " alt="" coords="199,5,284,31"/>
+<area shape="poly" id="edge6_Node000005_Node000007" title=" " alt="" coords="227,43,188,94,184,91,222,40"/>
+</map>

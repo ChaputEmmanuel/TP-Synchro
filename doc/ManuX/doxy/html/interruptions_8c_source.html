@@ -1,0 +1,585 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>My Project:  Fichier source de /home/manu/PROGRAMMATION/C/ManuX/i386/interruptions.c</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">My Project
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- GÃ©nÃ©rÃ© par Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function() { init_codefold(0); });
+/* @license-end */
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_84351cb3cd97e0f1d36fec2809bc3161.html">i386</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle"><div class="title">interruptions.c</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="interruptions_8c.html">Aller Ã  la documentation de ce fichier.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &quot;<a class="code" href="include_2manux_2printk_8h.html">manux/printk.h</a>&quot;</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &lt;manux/config.h&gt;</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &lt;<a class="code" href="manux_2debug_8h.html">manux/debug.h</a>&gt;</span>          <span class="comment">// assert</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &lt;<a class="code" href="include_2manux_2interruptions_8h.html">manux/interruptions.h</a>&gt;</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#if (MANUX_PIC == INTEL_8259A)</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#   include &quot;<a class="code" href="manux_2intel-8259a_8h.html">manux/intel-8259a.h</a>&quot;</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &lt;<a class="code" href="include_2manux_2memoire_8h.html">manux/memoire.h</a>&gt;</span>        <span class="comment">// NULL</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#include &lt;<a class="code" href="interBasNiveau_8h.html">manux/interBasNiveau.h</a>&gt;</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">#include &lt;<a class="code" href="io_8h.html">manux/io.h</a>&gt;</span>             <span class="comment">// inb</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#include &lt;manux/i386.h&gt;</span>           <span class="comment">// str</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="preprocessor">#include &lt;<a class="code" href="segment_8h.html">manux/segment.h</a>&gt;</span>        <span class="comment">// gdtSysteme</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="preprocessor">#include &lt;<a class="code" href="scheduler_8h.html">manux/scheduler.h</a>&gt;</span>      <span class="comment">// basculerTache</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="preprocessor">#include &lt;manux/appelsysteme.h&gt;</span>   <span class="comment">// MANUX_AS_INT </span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="preprocessor">#include &lt;<a class="code" href="atomique_8h.html">manux/atomique.h</a>&gt;</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="preprocessor">#include &lt;<a class="code" href="ecran_8h.html">manux/ecran.h</a>&gt;</span>          <span class="comment">// Caractéristiques de l&#39;écran</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="preprocessor">#ifdef MANUX_CONSOLES_VIRTUELLES</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="preprocessor">#   include &lt;<a class="code" href="include_2manux_2console_8h.html">manux/console.h</a>&gt;</span>     <span class="comment">// basculerVersConsoleSuivante</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="preprocessor">#include &lt;<a class="code" href="tache_8h.html">manux/tache.h</a>&gt;</span>          <span class="comment">// IntelTSS </span></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="preprocessor">#include &lt;manux/string.h&gt;</span>         <span class="comment">// memcpy </span></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="interruptions_8c.html#accd1d6580f267c1af47eaa7913458c1e">   28</a></span><span class="preprocessor">#define MANUX_SELECTEUR_SEGMENT_CODE 0x08      </span><span class="comment">/* WARNING a mettre ailleurs */</span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="preprocessor">#ifdef MANUX_APPELS_SYSTEME</span></div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="keyword">extern</span> <span class="keywordtype">void</span> handlerAppelSysteme(<span class="keywordtype">void</span>);  <span class="comment">/* WARNING à définir dans un .h */</span></div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
+<div class="foldopen" id="foldopen00040" data-start="" data-end="">
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno"><a class="line" href="interruptions_8c.html#ab3c9e305eb5c9c6c64c7abf07eff9b72">   40</a></span><span class="preprocessor">#define MANUX_NB_SOFT_INT \</span></div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="preprocessor">  (MANUX_NB_INTERRUPTIONS - (MANUX_NB_EXCEPTIONS + MANUX_NB_IRQ))</span></div>
+</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno"><a class="line" href="interruptions_8c.html#a870c3dcd1f823849da17414d02f4d68d">   48</a></span><span class="keywordtype">void</span> * <a class="code hl_variable" href="interruptions_8c.html#a870c3dcd1f823849da17414d02f4d68d">handlerBasNiveauInterruption</a>[<a class="code hl_define" href="interruptions_8c.html#ab3c9e305eb5c9c6c64c7abf07eff9b72">MANUX_NB_SOFT_INT</a>];</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno"><a class="line" href="interruptions_8c.html#a20b55997b895e2fad936573867a3d7a1">   53</a></span><a class="code hl_typedef" href="include_2manux_2interruptions_8h.html#a4b86502c050e73afc4f906e73dc06cec">FonctionGestionException</a> <a class="code hl_variable" href="interruptions_8c.html#a20b55997b895e2fad936573867a3d7a1">fonctionDeGestionException</a>[<a class="code hl_define" href="pc-i386_8h.html#add17ebfce684a3313a36a88096f7cdcb">MANUX_NB_EXCEPTIONS</a>];</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span><span class="preprocessor">#ifdef MANUX_INT_AUDIT</span></div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span><a class="code hl_typedef" href="include_2manux_2types_8h.html#a06896e8c53f721507066c079052171f8">uint32_t</a> nbItRecues[<a class="code hl_define" href="pc-i386_8h.html#ab5548f00ea513aad00307cef92ac24ac">MANUX_NB_INTERRUPTIONS</a>] = {0};</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span><span class="preprocessor">#endif </span><span class="comment">// MANUX_INT_AUDIT</span></div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span> </div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span><span class="keywordtype">void</span> <a class="code hl_function" href="interruptions_8c.html#a0d3279f4e117a28f75cc2593c5f2aba5">gestionExceptionPanique</a>(TousRegistres registres,</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>                 <a class="code hl_typedef" href="include_2manux_2types_8h.html#a06896e8c53f721507066c079052171f8">uint32_t</a> numEx, <a class="code hl_typedef" href="include_2manux_2types_8h.html#a06896e8c53f721507066c079052171f8">uint32_t</a> errCode,</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>                 <a class="code hl_typedef" href="include_2manux_2types_8h.html#a06896e8c53f721507066c079052171f8">uint32_t</a> eip, <a class="code hl_typedef" href="include_2manux_2types_8h.html#a06896e8c53f721507066c079052171f8">uint32_t</a> cs, <a class="code hl_typedef" href="include_2manux_2types_8h.html#a06896e8c53f721507066c079052171f8">uint32_t</a> eFlags);</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span> </div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span><span class="keyword">static</span></div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span><span class="keywordtype">void</span> gestionExceptionDiv0(TousRegistres registres,</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>              <a class="code hl_typedef" href="include_2manux_2types_8h.html#a06896e8c53f721507066c079052171f8">uint32_t</a> numEx, <a class="code hl_typedef" href="include_2manux_2types_8h.html#a06896e8c53f721507066c079052171f8">uint32_t</a> errCode,</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>              <a class="code hl_typedef" href="include_2manux_2types_8h.html#a06896e8c53f721507066c079052171f8">uint32_t</a> eip, <a class="code hl_typedef" href="include_2manux_2types_8h.html#a06896e8c53f721507066c079052171f8">uint32_t</a> cs, <a class="code hl_typedef" href="include_2manux_2types_8h.html#a06896e8c53f721507066c079052171f8">uint32_t</a> eFlags)</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>{</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>  <a class="code hl_function" href="include_2manux_2printk_8h.html#a25b30e8bbadd54650c56895999dd808f">printk</a>(<span class="stringliteral">&quot;Caca %d, 0x%x\n&quot;</span>, numEx, eip);</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>   <a class="code hl_function" href="interruptions_8c.html#a0d3279f4e117a28f75cc2593c5f2aba5">gestionExceptionPanique</a>(registres, numEx, errCode, eip, cs, eFlags);</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>}</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span> </div>
+<div class="foldopen" id="foldopen00083" data-start="{" data-end="}">
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno"><a class="line" href="interruptions_8c.html#ab8ede39e92b659dc067644ea9a5d43ba">   83</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="interruptions_8c.html#ab8ede39e92b659dc067644ea9a5d43ba">gestionException</a>(TousRegistres registres,</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>              <a class="code hl_typedef" href="include_2manux_2types_8h.html#a06896e8c53f721507066c079052171f8">uint32_t</a> numEx, <a class="code hl_typedef" href="include_2manux_2types_8h.html#a06896e8c53f721507066c079052171f8">uint32_t</a> errCode,</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>                      <a class="code hl_typedef" href="include_2manux_2types_8h.html#a06896e8c53f721507066c079052171f8">uint32_t</a> eip, <a class="code hl_typedef" href="include_2manux_2types_8h.html#a06896e8c53f721507066c079052171f8">uint32_t</a> cs, <a class="code hl_typedef" href="include_2manux_2types_8h.html#a06896e8c53f721507066c079052171f8">uint32_t</a> eFlags)</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>{</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span><span class="preprocessor">#ifdef MANUX_INT_AUDIT</span></div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>   nbItRecues[numEx] ++;</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>   <a class="code hl_variable" href="interruptions_8c.html#a20b55997b895e2fad936573867a3d7a1">fonctionDeGestionException</a>[numEx](registres, numEx, errCode, eip, cs, eFlags);</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>}</div>
+</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span> </div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno"><a class="line" href="interruptions_8c.html#af118ea95ebb0ba8b09e58ac1e7b328c5">   96</a></span><a class="code hl_typedef" href="include_2manux_2interruptions_8h.html#aeba1bb9393b1868b44581e72a4206150">FonctionGestionInterruption</a> <a class="code hl_variable" href="interruptions_8c.html#af118ea95ebb0ba8b09e58ac1e7b328c5">fonctionDeGestionInterruption</a>[<a class="code hl_define" href="interruptions_8c.html#ab3c9e305eb5c9c6c64c7abf07eff9b72">MANUX_NB_SOFT_INT</a>];</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span> </div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span><span class="keyword">static</span></div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span><span class="keywordtype">void</span> neRienFaire(TousRegistres registres,</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>         <a class="code hl_typedef" href="include_2manux_2types_8h.html#a06896e8c53f721507066c079052171f8">uint32_t</a> eip, <a class="code hl_typedef" href="include_2manux_2types_8h.html#a06896e8c53f721507066c079052171f8">uint32_t</a> cs, <a class="code hl_typedef" href="include_2manux_2types_8h.html#a06896e8c53f721507066c079052171f8">uint32_t</a> eFlags,</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>         <a class="code hl_typedef" href="include_2manux_2types_8h.html#a06896e8c53f721507066c079052171f8">uint32_t</a> numIt)</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>{</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>   (<a class="code hl_function" href="include_2manux_2interruptions_8h.html#a4fda31edc92f8ccd48b6f4bb50f2e7e1">void</a>) registres;</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>   (<a class="code hl_function" href="include_2manux_2interruptions_8h.html#a4fda31edc92f8ccd48b6f4bb50f2e7e1">void</a>) eip;</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>   (<a class="code hl_function" href="include_2manux_2interruptions_8h.html#a4fda31edc92f8ccd48b6f4bb50f2e7e1">void</a>) cs;</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>   (<a class="code hl_function" href="include_2manux_2interruptions_8h.html#a4fda31edc92f8ccd48b6f4bb50f2e7e1">void</a>) eFlags;</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>   (<a class="code hl_function" href="include_2manux_2interruptions_8h.html#a4fda31edc92f8ccd48b6f4bb50f2e7e1">void</a>) numIt;</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>   </div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>   <a class="code hl_function" href="include_2manux_2printk_8h.html#a25b30e8bbadd54650c56895999dd808f">printk</a>(<span class="stringliteral">&quot;neRienFaire %d\n&quot;</span>, numIt);</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>}</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span> </div>
+<div class="foldopen" id="foldopen00119" data-start="{" data-end="}">
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno"><a class="line" href="interruptions_8c.html#a1c93a6acba307c0339b7208e55cf9c29">  119</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="interruptions_8c.html#a1c93a6acba307c0339b7208e55cf9c29">gestionInterruption</a>(TousRegistres registres,</div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>             <a class="code hl_typedef" href="include_2manux_2types_8h.html#a06896e8c53f721507066c079052171f8">uint32_t</a> numIt,</div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>             <a class="code hl_typedef" href="include_2manux_2types_8h.html#a06896e8c53f721507066c079052171f8">uint32_t</a> eip, <a class="code hl_typedef" href="include_2manux_2types_8h.html#a06896e8c53f721507066c079052171f8">uint32_t</a> cs, <a class="code hl_typedef" href="include_2manux_2types_8h.html#a06896e8c53f721507066c079052171f8">uint32_t</a> eFlags)</div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>{</div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>   <span class="keywordtype">int</span> idx = numIt-(<a class="code hl_define" href="pc-i386_8h.html#add17ebfce684a3313a36a88096f7cdcb">MANUX_NB_EXCEPTIONS</a> + <a class="code hl_define" href="config_2intel-8259a_8h.html#a08f24105d9d260a9d2dd70c1f1f99031">MANUX_NB_IRQ</a>);</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span> </div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span><span class="preprocessor">#ifdef MANUX_INT_AUDIT</span></div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>   nbItRecues[numIt] ++;</div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span> </div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>   <a class="code hl_variable" href="interruptions_8c.html#af118ea95ebb0ba8b09e58ac1e7b328c5">fonctionDeGestionInterruption</a>[idx](registres, eip, cs, eFlags, numIt);</div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>}</div>
+</div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span> </div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span><span class="keyword">static</span></div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span><span class="keywordtype">void</span> positionnerHandlerInterruption(<a class="code hl_union" href="unionIDTGate.html">IDT</a> idt, <span class="keywordtype">int</span> i, Handler handler)</div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>{</div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>   idt[i].<a class="code hl_variable" href="unionIDTGate.html#a830d4393af0828c3ae284de03aa040b8">itg</a>.<a class="code hl_variable" href="structInterruptGate.html#a8f6998191d4546fa0c7540de8ee34a34">offsetFaible</a> = ((<a class="code hl_typedef" href="include_2manux_2types_8h.html#a06896e8c53f721507066c079052171f8">uint32_t</a>)handler &amp; 0xFFFF);</div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span>   idt[i].<a class="code hl_variable" href="unionIDTGate.html#a830d4393af0828c3ae284de03aa040b8">itg</a>.<a class="code hl_variable" href="structInterruptGate.html#a7c47db2e430453edb02fb7db16860ec9">offsetFort</a> = ((<a class="code hl_typedef" href="include_2manux_2types_8h.html#a06896e8c53f721507066c079052171f8">uint32_t</a>)handler &gt;&gt; 16);</div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span>   idt[i].<a class="code hl_variable" href="unionIDTGate.html#a830d4393af0828c3ae284de03aa040b8">itg</a>.<a class="code hl_variable" href="structInterruptGate.html#acc9c27d134401dcf59daa9a3f8c4914b">parametres</a> = 0x8E00;</div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span>   idt[i].<a class="code hl_variable" href="unionIDTGate.html#a830d4393af0828c3ae284de03aa040b8">itg</a>.<a class="code hl_variable" href="structInterruptGate.html#a105c008658bc429a6f77accc49fd6fad">selSegment</a> = <a class="code hl_define" href="interruptions_8c.html#accd1d6580f267c1af47eaa7913458c1e">MANUX_SELECTEUR_SEGMENT_CODE</a>;</div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span>}</div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span> </div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span><span class="keyword">static</span></div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span><span class="keywordtype">void</span> chargerIDT(<a class="code hl_union" href="unionIDTGate.html">IDT</a> idt)</div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>{</div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>   <span class="keyword">volatile</span> <a class="code hl_typedef" href="include_2manux_2types_8h.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> argument[6];</div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span> </div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span>   argument[0] = 0xFF;</div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>   argument[1] = 0x07;</div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>   argument[2] = ( (<a class="code hl_typedef" href="include_2manux_2types_8h.html#a06896e8c53f721507066c079052171f8">uint32_t</a>)idt      &amp; 0xFF);</div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span>   argument[3] = (((<a class="code hl_typedef" href="include_2manux_2types_8h.html#a06896e8c53f721507066c079052171f8">uint32_t</a>)idt&gt;&gt;8)  &amp; 0xFF);</div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>   argument[4] = (((<a class="code hl_typedef" href="include_2manux_2types_8h.html#a06896e8c53f721507066c079052171f8">uint32_t</a>)idt&gt;&gt;16) &amp; 0xFF); </div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>   argument[5] = (((<a class="code hl_typedef" href="include_2manux_2types_8h.html#a06896e8c53f721507066c079052171f8">uint32_t</a>)idt&gt;&gt;24) &amp; 0xFF);</div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span> </div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span>   __asm__ __volatile__ (<span class="stringliteral">&quot;lidt (%0)&quot;</span></div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span>                         : <span class="comment">/* Pas de sortie */</span></div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span>                         :<span class="stringliteral">&quot;a&quot;</span> ((char *)argument)</div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span>                        );</div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span>   <span class="comment">//return argument[0] +  argument[1]+argument[2]+argument[3]+ argument[4]+argument[5];</span></div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span> </div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span>}</div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span> </div>
+<div class="foldopen" id="foldopen00174" data-start="{" data-end="}">
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno"><a class="line" href="interruptions_8c.html#a30b0f4c7aa0fe2acf51d23228cd34a38">  174</a></span><span class="keywordtype">int</span> <a class="code hl_function" href="interruptions_8c.html#a30b0f4c7aa0fe2acf51d23228cd34a38">definirFonctionGestionInterruption</a>(<span class="keywordtype">int</span> num,</div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>                <a class="code hl_typedef" href="include_2manux_2interruptions_8h.html#aeba1bb9393b1868b44581e72a4206150">FonctionGestionInterruption</a> fg)</div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span>{</div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span>   <a class="code hl_variable" href="interruptions_8c.html#af118ea95ebb0ba8b09e58ac1e7b328c5">fonctionDeGestionInterruption</a>[num] = fg;</div>
+<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span> </div>
+<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span>   <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span>}</div>
+</div>
+<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span> </div>
+<div class="foldopen" id="foldopen00185" data-start="{" data-end="}">
+<div class="line"><a id="l00185" name="l00185"></a><span class="lineno"><a class="line" href="interruptions_8c.html#a8bab70dd2ead4ff36a0c2de9b3d3aff8">  185</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="interruptions_8c.html#a8bab70dd2ead4ff36a0c2de9b3d3aff8">initialiserIDT</a>(<span class="keywordtype">void</span>)</div>
+<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span>{</div>
+<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span>   <span class="keywordtype">int</span> i;</div>
+<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span>   <a class="code hl_union" href="unionIDTGate.html">IDT</a> idt = (<a class="code hl_typedef" href="include_2manux_2interruptions_8h.html#a6cffd840f089c59ab7cbfe7daa931438">IDT</a>) <a class="code hl_define" href="plan-memoire-pc_8h.html#a3dac2f2810749b6bc48abc5444e83503">MANUX_ADRESSE_IDT</a>;</div>
+<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span> </div>
+<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span>   <span class="comment">// On commence par positionner les handlers &quot;stub&quot; des exceptions</span></div>
+<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span>   positionnerHandlerInterruption(idt, 0x00, <a class="code hl_function" href="interBasNiveau_8h.html#ae9a43b32831f8cf032ddf86ff0f9d785">stubHandlerExDiv0</a>);</div>
+<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span>   positionnerHandlerInterruption(idt, 0x01, <a class="code hl_function" href="interBasNiveau_8h.html#a27ac1f92e0d2549cf30191faef7f6ec4">stubHandlerExDebug</a>);</div>
+<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span>   positionnerHandlerInterruption(idt, 0x02, <a class="code hl_function" href="interBasNiveau_8h.html#a04e7d30f0f16ce6dc4a7159bbe367297">stubHandlerExNMI</a>);</div>
+<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span>   positionnerHandlerInterruption(idt, 0x03, <a class="code hl_function" href="interBasNiveau_8h.html#ad2192f3561a64d7ee582a88210a1c498">stubHandlerExBreakpoint</a>);</div>
+<div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span>   positionnerHandlerInterruption(idt, 0x04, <a class="code hl_function" href="interBasNiveau_8h.html#a8510e0ebc5c591d6accb900f5b121113">stubHandlerExOverflow</a>);</div>
+<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span>   positionnerHandlerInterruption(idt, 0x05, <a class="code hl_function" href="interBasNiveau_8h.html#ad974b301dcd029ed13c7f656f5a361f7">stubHandlerExBoundExceeded</a>);</div>
+<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span>   positionnerHandlerInterruption(idt, 0x06, <a class="code hl_function" href="interBasNiveau_8h.html#a3a3465972788a956d8d9db6638e7585d">stubHandlerExDeviceInvalidOpcode</a>);</div>
+<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span>   positionnerHandlerInterruption(idt, 0x07, <a class="code hl_function" href="interBasNiveau_8h.html#aa58f19b30c3c7b9adc1a62491a405204">stubHandlerExDeviceUnavailable</a>);</div>
+<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span>   positionnerHandlerInterruption(idt, 0x08, <a class="code hl_function" href="interBasNiveau_8h.html#a99abb3ee76bb7aa4b8f608990ddbd812">stubHandlerExDoubleFault</a>);</div>
+<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span>   positionnerHandlerInterruption(idt, 0x09, <a class="code hl_function" href="interBasNiveau_8h.html#ac06f56674ff2a663414476cce3f3182d">stubHandlerExCoproOverrun</a>);</div>
+<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span>   positionnerHandlerInterruption(idt, 0x0a, <a class="code hl_function" href="interBasNiveau_8h.html#aa045fe1383422111cc5c1ee41681a5cf">stubHandlerExInvalidTSS</a>);</div>
+<div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span>   positionnerHandlerInterruption(idt, 0x0b, <a class="code hl_function" href="interBasNiveau_8h.html#ae5d73b6a0c47b160e80a694f9d64e0c1">stubHandlerExSegmentNotPresent</a>);</div>
+<div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span>   positionnerHandlerInterruption(idt, 0x0c, <a class="code hl_function" href="interBasNiveau_8h.html#a9700916c831dc027fb175a6be10c805b">stubHandlerExStackSegmentFault</a>);</div>
+<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span>   positionnerHandlerInterruption(idt, 0x0d, <a class="code hl_function" href="interBasNiveau_8h.html#ab0e365b41572e37520c967d0b902d020">stubHandlerExGeneralProtectionFault</a>);</div>
+<div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span>   positionnerHandlerInterruption(idt, 0x0e, <a class="code hl_function" href="interBasNiveau_8h.html#ad25dcc5af284896e4ac66d00b4497dc6">stubHandlerExPageFault</a>);</div>
+<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span>   positionnerHandlerInterruption(idt, 0x0f, <a class="code hl_function" href="interBasNiveau_8h.html#a20d4fbf6dd9cd705e15abc46b19ec7ca">stubHandlerExReserved</a>);</div>
+<div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span>   positionnerHandlerInterruption(idt, 0x10, <a class="code hl_function" href="interBasNiveau_8h.html#ad3e86564d7ecf32aced790b68b99cf18">stubHandlerExFloatingPoint</a>);</div>
+<div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span>   positionnerHandlerInterruption(idt, 0x11, <a class="code hl_function" href="interBasNiveau_8h.html#a9b475a19483577e79b6b265c93688075">stubHandlerExAlignmentCheck</a>);</div>
+<div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span>   positionnerHandlerInterruption(idt, 0x12, <a class="code hl_function" href="interBasNiveau_8h.html#af013e6697a29ff17e005c06ca6040bf6">stubHandlerExFloatingMachineCheck</a>);</div>
+<div class="line"><a id="l00210" name="l00210"></a><span class="lineno">  210</span>   positionnerHandlerInterruption(idt, 0x13, <a class="code hl_function" href="interBasNiveau_8h.html#a265bf1e556cdf41fea502a748590d646">stubHandlerExFloatingSIMDFPE</a>);</div>
+<div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span>   positionnerHandlerInterruption(idt, 0x14, <a class="code hl_function" href="interBasNiveau_8h.html#a0117f311fdad002499381f5c5d714f49">stubHandlerExFloatingVirtualization</a>);</div>
+<div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span>   positionnerHandlerInterruption(idt, 0x15, <a class="code hl_function" href="interBasNiveau_8h.html#ade93d3d2ec4958e8361099ca91a32c18">stubHandlerExControlProtection</a>);</div>
+<div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span>   positionnerHandlerInterruption(idt, 0x16, <a class="code hl_function" href="interBasNiveau_8h.html#aa77313f083e02c3baeadbf8169340f64">stubHandlerExReserved2</a>);</div>
+<div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span>   positionnerHandlerInterruption(idt, 0x17, <a class="code hl_function" href="interBasNiveau_8h.html#ad8e09db3803eaf9d226c3468dc24147a">stubHandlerExReserved3</a>);</div>
+<div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span>   positionnerHandlerInterruption(idt, 0x18, <a class="code hl_function" href="interBasNiveau_8h.html#a346546ae5b849858b5a5cbed308054df">stubHandlerExReserved4</a>);</div>
+<div class="line"><a id="l00216" name="l00216"></a><span class="lineno">  216</span>   positionnerHandlerInterruption(idt, 0x19, <a class="code hl_function" href="interBasNiveau_8h.html#ac0f4a0148031aa2f786bcff94e762a9c">stubHandlerExReserved5</a>);</div>
+<div class="line"><a id="l00217" name="l00217"></a><span class="lineno">  217</span>   positionnerHandlerInterruption(idt, 0x1a, <a class="code hl_function" href="interBasNiveau_8h.html#a028f6297c8f7e318fd5adf4631e5f418">stubHandlerExReserved6</a>);</div>
+<div class="line"><a id="l00218" name="l00218"></a><span class="lineno">  218</span>   positionnerHandlerInterruption(idt, 0x1b, <a class="code hl_function" href="interBasNiveau_8h.html#ae282903a40ffd696d05f6f266f9da6c1">stubHandlerExReserved7</a>);</div>
+<div class="line"><a id="l00219" name="l00219"></a><span class="lineno">  219</span>   positionnerHandlerInterruption(idt, 0x1c, <a class="code hl_function" href="interBasNiveau_8h.html#acd8ef72b577ea14e54a9a2c963a2e650">stubHandlerExHypervisionInjection</a>);</div>
+<div class="line"><a id="l00220" name="l00220"></a><span class="lineno">  220</span>   positionnerHandlerInterruption(idt, 0x1d, <a class="code hl_function" href="interBasNiveau_8h.html#a9f52dfd2e02df4dffe10df694456de92">stubHandlerExVMMCommunication</a>);</div>
+<div class="line"><a id="l00221" name="l00221"></a><span class="lineno">  221</span>   positionnerHandlerInterruption(idt, 0x1e, <a class="code hl_function" href="interBasNiveau_8h.html#af3e5b5751c7ecb28580cd14400aef4ca">stubHandlerExSecurity</a>);</div>
+<div class="line"><a id="l00222" name="l00222"></a><span class="lineno">  222</span>   positionnerHandlerInterruption(idt, 0x1f, <a class="code hl_function" href="interBasNiveau_8h.html#ad1943929cb3660db3db8e8106bb229dd">stubHandlerExReserved8</a>);</div>
+<div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span> </div>
+<div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span>   <span class="comment">// On configure l&#39;aiguillage des exceptions. Par défaut, on panique !</span></div>
+<div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span>   <span class="keywordflow">for</span> (i = 0; i &lt; <a class="code hl_define" href="pc-i386_8h.html#add17ebfce684a3313a36a88096f7cdcb">MANUX_NB_EXCEPTIONS</a>; i++) {</div>
+<div class="line"><a id="l00226" name="l00226"></a><span class="lineno">  226</span>      <a class="code hl_variable" href="interruptions_8c.html#a20b55997b895e2fad936573867a3d7a1">fonctionDeGestionException</a>[i] = <a class="code hl_function" href="interruptions_8c.html#a0d3279f4e117a28f75cc2593c5f2aba5">gestionExceptionPanique</a>;</div>
+<div class="line"><a id="l00227" name="l00227"></a><span class="lineno">  227</span>   }</div>
+<div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span> </div>
+<div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span>   <span class="comment">// Maintenant, les exceptions que l&#39;on veut gérer</span></div>
+<div class="line"><a id="l00230" name="l00230"></a><span class="lineno">  230</span>   <a class="code hl_variable" href="interruptions_8c.html#a20b55997b895e2fad936573867a3d7a1">fonctionDeGestionException</a>[0] = gestionExceptionDiv0;</div>
+<div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span>   </div>
+<div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span>   <span class="comment">// Les IRQs sont gérées au travers du PIC. On positionne les</span></div>
+<div class="line"><a id="l00233" name="l00233"></a><span class="lineno">  233</span>   <span class="comment">// handlers bas niveau</span></div>
+<div class="line"><a id="l00234" name="l00234"></a><span class="lineno">  234</span>   positionnerHandlerInterruption(idt, <a class="code hl_define" href="pc-i386_8h.html#aa16fe4051fc8254307ded29de196bbfc">MANUX_INT_BASE_IRQ</a> +  0, <a class="code hl_function" href="interBasNiveau_8h.html#a55b0a363fd83bfe79ff8211eabb439d3">stubHandlerIRQ0</a>);</div>
+<div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span>   positionnerHandlerInterruption(idt, <a class="code hl_define" href="pc-i386_8h.html#aa16fe4051fc8254307ded29de196bbfc">MANUX_INT_BASE_IRQ</a> +  1, <a class="code hl_function" href="interBasNiveau_8h.html#a2d7bb2bd066ecaedc298d8763e4cd0ce">stubHandlerIRQ1</a>);</div>
+<div class="line"><a id="l00236" name="l00236"></a><span class="lineno">  236</span>   positionnerHandlerInterruption(idt, <a class="code hl_define" href="pc-i386_8h.html#aa16fe4051fc8254307ded29de196bbfc">MANUX_INT_BASE_IRQ</a> +  2, <a class="code hl_function" href="interBasNiveau_8h.html#abae5f73bb19161edced8117d9303baa5">stubHandlerIRQ2</a>);</div>
+<div class="line"><a id="l00237" name="l00237"></a><span class="lineno">  237</span>   positionnerHandlerInterruption(idt, <a class="code hl_define" href="pc-i386_8h.html#aa16fe4051fc8254307ded29de196bbfc">MANUX_INT_BASE_IRQ</a> +  3, <a class="code hl_function" href="interBasNiveau_8h.html#a8ab0216e14cfa66342615327aeb91784">stubHandlerIRQ3</a>);</div>
+<div class="line"><a id="l00238" name="l00238"></a><span class="lineno">  238</span>   positionnerHandlerInterruption(idt, <a class="code hl_define" href="pc-i386_8h.html#aa16fe4051fc8254307ded29de196bbfc">MANUX_INT_BASE_IRQ</a> +  4, <a class="code hl_function" href="interBasNiveau_8h.html#a2088efebfb49df3de42ebdd0ae827bb7">stubHandlerIRQ4</a>);</div>
+<div class="line"><a id="l00239" name="l00239"></a><span class="lineno">  239</span>   positionnerHandlerInterruption(idt, <a class="code hl_define" href="pc-i386_8h.html#aa16fe4051fc8254307ded29de196bbfc">MANUX_INT_BASE_IRQ</a> +  5, <a class="code hl_function" href="interBasNiveau_8h.html#a21acfb830484cd026c7e70b1c28333dc">stubHandlerIRQ5</a>);</div>
+<div class="line"><a id="l00240" name="l00240"></a><span class="lineno">  240</span>   positionnerHandlerInterruption(idt, <a class="code hl_define" href="pc-i386_8h.html#aa16fe4051fc8254307ded29de196bbfc">MANUX_INT_BASE_IRQ</a> +  6, <a class="code hl_function" href="interBasNiveau_8h.html#a181b2a4955dc66bea034f7a56c2e72fc">stubHandlerIRQ6</a>);</div>
+<div class="line"><a id="l00241" name="l00241"></a><span class="lineno">  241</span>   positionnerHandlerInterruption(idt, <a class="code hl_define" href="pc-i386_8h.html#aa16fe4051fc8254307ded29de196bbfc">MANUX_INT_BASE_IRQ</a> +  7, <a class="code hl_function" href="interBasNiveau_8h.html#a433f74c07f731c2e888a63758d796ed9">stubHandlerIRQ7</a>);</div>
+<div class="line"><a id="l00242" name="l00242"></a><span class="lineno">  242</span>   positionnerHandlerInterruption(idt, <a class="code hl_define" href="pc-i386_8h.html#aa16fe4051fc8254307ded29de196bbfc">MANUX_INT_BASE_IRQ</a> +  8, <a class="code hl_function" href="interBasNiveau_8h.html#ab93ab2201811257de771734f16873fc2">stubHandlerIRQ8</a>);</div>
+<div class="line"><a id="l00243" name="l00243"></a><span class="lineno">  243</span>   positionnerHandlerInterruption(idt, <a class="code hl_define" href="pc-i386_8h.html#aa16fe4051fc8254307ded29de196bbfc">MANUX_INT_BASE_IRQ</a> +  9, <a class="code hl_function" href="interBasNiveau_8h.html#a14817650be1a106da0a82e456c170616">stubHandlerIRQ9</a>);</div>
+<div class="line"><a id="l00244" name="l00244"></a><span class="lineno">  244</span>   positionnerHandlerInterruption(idt, <a class="code hl_define" href="pc-i386_8h.html#aa16fe4051fc8254307ded29de196bbfc">MANUX_INT_BASE_IRQ</a> + 10, <a class="code hl_function" href="interBasNiveau_8h.html#ad2278d9aaf018136d5a478c03f758dc3">stubHandlerIRQ10</a>);</div>
+<div class="line"><a id="l00245" name="l00245"></a><span class="lineno">  245</span>   positionnerHandlerInterruption(idt, <a class="code hl_define" href="pc-i386_8h.html#aa16fe4051fc8254307ded29de196bbfc">MANUX_INT_BASE_IRQ</a> + 11, <a class="code hl_function" href="interBasNiveau_8h.html#ab31d7fee5d206c63761d5dc760a5b121">stubHandlerIRQ11</a>);</div>
+<div class="line"><a id="l00246" name="l00246"></a><span class="lineno">  246</span>   positionnerHandlerInterruption(idt, <a class="code hl_define" href="pc-i386_8h.html#aa16fe4051fc8254307ded29de196bbfc">MANUX_INT_BASE_IRQ</a> + 12, <a class="code hl_function" href="interBasNiveau_8h.html#a83c08b1cf2f1838657e8cad9d1ae8db4">stubHandlerIRQ12</a>);</div>
+<div class="line"><a id="l00247" name="l00247"></a><span class="lineno">  247</span>   positionnerHandlerInterruption(idt, <a class="code hl_define" href="pc-i386_8h.html#aa16fe4051fc8254307ded29de196bbfc">MANUX_INT_BASE_IRQ</a> + 13, <a class="code hl_function" href="interBasNiveau_8h.html#a65a33d0a792bf722ce339f1d6fcf6d5d">stubHandlerIRQ13</a>);</div>
+<div class="line"><a id="l00248" name="l00248"></a><span class="lineno">  248</span>   positionnerHandlerInterruption(idt, <a class="code hl_define" href="pc-i386_8h.html#aa16fe4051fc8254307ded29de196bbfc">MANUX_INT_BASE_IRQ</a> + 14, <a class="code hl_function" href="interBasNiveau_8h.html#abbc6b673ac6bca412c67184e95e2a45e">stubHandlerIRQ14</a>);</div>
+<div class="line"><a id="l00249" name="l00249"></a><span class="lineno">  249</span>   positionnerHandlerInterruption(idt, <a class="code hl_define" href="pc-i386_8h.html#aa16fe4051fc8254307ded29de196bbfc">MANUX_INT_BASE_IRQ</a> + 15, <a class="code hl_function" href="interBasNiveau_8h.html#a011dc7f9e3233a2a50283751c23ac9ff">stubHandlerIRQ15</a>);</div>
+<div class="line"><a id="l00250" name="l00250"></a><span class="lineno">  250</span> </div>
+<div class="line"><a id="l00251" name="l00251"></a><span class="lineno">  251</span>   <span class="comment">// On vérifie qu&#39;on est en cohérence avec le nombre d&#39;IRQ défini</span></div>
+<div class="line"><a id="l00252" name="l00252"></a><span class="lineno">  252</span>   <span class="comment">// par le PIC</span></div>
+<div class="line"><a id="l00253" name="l00253"></a><span class="lineno">  253</span>   <a class="code hl_define" href="manux_2debug_8h.html#a3153a272f18d0f805028fce7e4337b53">assert</a>(<a class="code hl_define" href="config_2intel-8259a_8h.html#a08f24105d9d260a9d2dd70c1f1f99031">MANUX_NB_IRQ</a> == 16);</div>
+<div class="line"><a id="l00254" name="l00254"></a><span class="lineno">  254</span> </div>
+<div class="line"><a id="l00255" name="l00255"></a><span class="lineno">  255</span>   <span class="comment">// L&#39;aiguillage des IRQ est réalisé par le pilote du PIC que l&#39;on</span></div>
+<div class="line"><a id="l00256" name="l00256"></a><span class="lineno">  256</span>   <span class="comment">// initialise maintenant</span></div>
+<div class="line"><a id="l00257" name="l00257"></a><span class="lineno">  257</span>   <a class="code hl_define" href="config_2intel-8259a_8h.html#accc391532dcd4746c5ac1765feb2b2be">MANUX_PIC_INIT</a>(<a class="code hl_define" href="pc-i386_8h.html#aa16fe4051fc8254307ded29de196bbfc">MANUX_INT_BASE_IRQ</a>);</div>
+<div class="line"><a id="l00258" name="l00258"></a><span class="lineno">  258</span> </div>
+<div class="line"><a id="l00259" name="l00259"></a><span class="lineno">  259</span>   <span class="comment">// On va chercher les adresses des fonctions d&#39;interruption</span></div>
+<div class="line"><a id="l00260" name="l00260"></a><span class="lineno">  260</span>   <a class="code hl_function" href="interBasNiveau_8h.html#ac99465ca0b3ae5ceca688cd0bd3b3a2a">initialiserHandlersInterruption</a>(<a class="code hl_variable" href="interruptions_8c.html#a870c3dcd1f823849da17414d02f4d68d">handlerBasNiveauInterruption</a>, <a class="code hl_define" href="interruptions_8c.html#ab3c9e305eb5c9c6c64c7abf07eff9b72">MANUX_NB_SOFT_INT</a>);</div>
+<div class="line"><a id="l00261" name="l00261"></a><span class="lineno">  261</span> </div>
+<div class="line"><a id="l00262" name="l00262"></a><span class="lineno">  262</span>   <span class="comment">// On peuple l&#39;IDT avec ces pointeurs</span></div>
+<div class="line"><a id="l00263" name="l00263"></a><span class="lineno">  263</span>   <span class="keywordflow">for</span> (i = 0; i &lt; <a class="code hl_define" href="interruptions_8c.html#ab3c9e305eb5c9c6c64c7abf07eff9b72">MANUX_NB_SOFT_INT</a>; i++) {</div>
+<div class="line"><a id="l00264" name="l00264"></a><span class="lineno">  264</span>      positionnerHandlerInterruption(idt,</div>
+<div class="line"><a id="l00265" name="l00265"></a><span class="lineno">  265</span>                     <a class="code hl_define" href="pc-i386_8h.html#aa16fe4051fc8254307ded29de196bbfc">MANUX_INT_BASE_IRQ</a> + <a class="code hl_define" href="config_2intel-8259a_8h.html#a08f24105d9d260a9d2dd70c1f1f99031">MANUX_NB_IRQ</a> + i,</div>
+<div class="line"><a id="l00266" name="l00266"></a><span class="lineno">  266</span>                     <a class="code hl_variable" href="interruptions_8c.html#a870c3dcd1f823849da17414d02f4d68d">handlerBasNiveauInterruption</a>[i]);</div>
+<div class="line"><a id="l00267" name="l00267"></a><span class="lineno">  267</span>   }</div>
+<div class="line"><a id="l00268" name="l00268"></a><span class="lineno">  268</span>   </div>
+<div class="line"><a id="l00269" name="l00269"></a><span class="lineno">  269</span>   <span class="comment">// On configure l&#39;aiguillage des interruptions logicielles. Par</span></div>
+<div class="line"><a id="l00270" name="l00270"></a><span class="lineno">  270</span>   <span class="comment">// défaut, on ne fait rien</span></div>
+<div class="line"><a id="l00271" name="l00271"></a><span class="lineno">  271</span>   <span class="keywordflow">for</span> (i = 0; i &lt; <a class="code hl_define" href="interruptions_8c.html#ab3c9e305eb5c9c6c64c7abf07eff9b72">MANUX_NB_SOFT_INT</a>; i++) {</div>
+<div class="line"><a id="l00272" name="l00272"></a><span class="lineno">  272</span>      <a class="code hl_variable" href="interruptions_8c.html#af118ea95ebb0ba8b09e58ac1e7b328c5">fonctionDeGestionInterruption</a>[i] = neRienFaire;</div>
+<div class="line"><a id="l00273" name="l00273"></a><span class="lineno">  273</span>   }</div>
+<div class="line"><a id="l00274" name="l00274"></a><span class="lineno">  274</span> </div>
+<div class="line"><a id="l00275" name="l00275"></a><span class="lineno">  275</span><span class="preprocessor">#ifdef MANUX_APPELS_SYSTEME</span></div>
+<div class="line"><a id="l00276" name="l00276"></a><span class="lineno">  276</span>   <span class="comment">/* Le handler de l&#39;interruption utilisée pour les appels système */</span></div>
+<div class="line"><a id="l00277" name="l00277"></a><span class="lineno">  277</span>   positionnerHandlerInterruption(idt, <a class="code hl_define" href="include_2manux_2appelsystemenum_8h.html#a3fc58d7ff32f5ecc2964876a070d87bd">MANUX_AS_INT</a>, handlerAppelSysteme);</div>
+<div class="line"><a id="l00278" name="l00278"></a><span class="lineno">  278</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00279" name="l00279"></a><span class="lineno">  279</span>   </div>
+<div class="line"><a id="l00280" name="l00280"></a><span class="lineno">  280</span>   <span class="comment">// On charge finalement l&#39;IDT !</span></div>
+<div class="line"><a id="l00281" name="l00281"></a><span class="lineno">  281</span>   chargerIDT(idt);</div>
+<div class="line"><a id="l00282" name="l00282"></a><span class="lineno">  282</span> </div>
+<div class="line"><a id="l00283" name="l00283"></a><span class="lineno">  283</span>   <span class="keyword">asm</span>( <span class="stringliteral">&quot;sti&quot;</span> );</div>
+<div class="line"><a id="l00284" name="l00284"></a><span class="lineno">  284</span>}</div>
+</div>
+<div class="line"><a id="l00285" name="l00285"></a><span class="lineno">  285</span> </div>
+<div class="line"><a id="l00286" name="l00286"></a><span class="lineno">  286</span> </div>
+<div class="line"><a id="l00287" name="l00287"></a><span class="lineno">  287</span><span class="comment">/*</span></div>
+<div class="line"><a id="l00288" name="l00288"></a><span class="lineno">  288</span><span class="comment"> * Affichage de la valeur v en hexa sur n chiffres à la position l, c</span></div>
+<div class="line"><a id="l00289" name="l00289"></a><span class="lineno">  289</span><span class="comment"> */</span></div>
+<div class="foldopen" id="foldopen00290" data-start="" data-end="">
+<div class="line"><a id="l00290" name="l00290"></a><span class="lineno"><a class="line" href="interruptions_8c.html#a2b3e128e6ad8b47ada69d801721cfa47">  290</a></span><span class="preprocessor">#define afficherHexa(v, n, l, c)                                \</span></div>
+<div class="line"><a id="l00291" name="l00291"></a><span class="lineno">  291</span><span class="preprocessor">{                                                                       \</span></div>
+<div class="line"><a id="l00292" name="l00292"></a><span class="lineno">  292</span><span class="preprocessor">   uint32_t __val = (uint32_t) v;                       \</span></div>
+<div class="line"><a id="l00293" name="l00293"></a><span class="lineno">  293</span><span class="preprocessor">   for (int __i = MANUX_CON_COLONNES*l+c+n-1; __i&gt;=MANUX_CON_COLONNES*l+c; __i--) { \</span></div>
+<div class="line"><a id="l00294" name="l00294"></a><span class="lineno">  294</span><span class="preprocessor">      ecran[2*__i] = chiffre[__val&amp;15] ;                                \</span></div>
+<div class="line"><a id="l00295" name="l00295"></a><span class="lineno">  295</span><span class="preprocessor">      __val /=16 ;                                          \</span></div>
+<div class="line"><a id="l00296" name="l00296"></a><span class="lineno">  296</span><span class="preprocessor">   }                                                                    \</span></div>
+<div class="line"><a id="l00297" name="l00297"></a><span class="lineno">  297</span><span class="preprocessor">}</span></div>
+</div>
+<div class="foldopen" id="foldopen00298" data-start="" data-end="">
+<div class="line"><a id="l00298" name="l00298"></a><span class="lineno"><a class="line" href="interruptions_8c.html#a73d574ce1f622bf15d3fcf2eaed8e93f">  298</a></span><span class="preprocessor">#define afficherBin(v, n, l, c)                                     \</span></div>
+<div class="line"><a id="l00299" name="l00299"></a><span class="lineno">  299</span><span class="preprocessor">{                                                                       \</span></div>
+<div class="line"><a id="l00300" name="l00300"></a><span class="lineno">  300</span><span class="preprocessor">   uint32_t __val = (uint32_t) v;                       \</span></div>
+<div class="line"><a id="l00301" name="l00301"></a><span class="lineno">  301</span><span class="preprocessor">   for (int __i = MANUX_CON_COLONNES*l+c+n-1; __i&gt;=MANUX_CON_COLONNES*l+c; __i--) { \</span></div>
+<div class="line"><a id="l00302" name="l00302"></a><span class="lineno">  302</span><span class="preprocessor">      ecran[2*__i] = chiffre[__val&amp;1] ;                                 \</span></div>
+<div class="line"><a id="l00303" name="l00303"></a><span class="lineno">  303</span><span class="preprocessor">      __val /=2 ;                                           \</span></div>
+<div class="line"><a id="l00304" name="l00304"></a><span class="lineno">  304</span><span class="preprocessor">   }                                                                    \</span></div>
+<div class="line"><a id="l00305" name="l00305"></a><span class="lineno">  305</span><span class="preprocessor">}</span></div>
+</div>
+<div class="line"><a id="l00306" name="l00306"></a><span class="lineno">  306</span> </div>
+<div class="line"><a id="l00307" name="l00307"></a><span class="lineno">  307</span><span class="comment">/*</span></div>
+<div class="line"><a id="l00308" name="l00308"></a><span class="lineno">  308</span><span class="comment"> * Pour sauver l&#39;ecran caché par l&#39;écran bleu de la mort</span></div>
+<div class="line"><a id="l00309" name="l00309"></a><span class="lineno">  309</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00310" name="l00310"></a><span class="lineno">  310</span><span class="keyword">static</span> <span class="keywordtype">char</span> bufferEcran[4000];</div>
+<div class="line"><a id="l00311" name="l00311"></a><span class="lineno">  311</span> </div>
+<div class="line"><a id="l00312" name="l00312"></a><span class="lineno">  312</span><span class="keyword">static</span></div>
+<div class="line"><a id="l00313" name="l00313"></a><span class="lineno">  313</span><span class="keywordtype">void</span> ecranDeLaMort(<a class="code hl_typedef" href="include_2manux_2types_8h.html#a06896e8c53f721507066c079052171f8">uint32_t</a> errCode, <a class="code hl_typedef" href="include_2manux_2types_8h.html#a06896e8c53f721507066c079052171f8">uint32_t</a> itNum, TousRegistres registres,</div>
+<div class="line"><a id="l00314" name="l00314"></a><span class="lineno">  314</span>            <a class="code hl_typedef" href="include_2manux_2types_8h.html#a06896e8c53f721507066c079052171f8">uint32_t</a> eip, <a class="code hl_typedef" href="include_2manux_2types_8h.html#a06896e8c53f721507066c079052171f8">uint32_t</a> cs, <a class="code hl_typedef" href="include_2manux_2types_8h.html#a06896e8c53f721507066c079052171f8">uint32_t</a> eFlags)</div>
+<div class="line"><a id="l00315" name="l00315"></a><span class="lineno">  315</span>{</div>
+<div class="line"><a id="l00316" name="l00316"></a><span class="lineno">  316</span>   (<a class="code hl_function" href="include_2manux_2interruptions_8h.html#a4fda31edc92f8ccd48b6f4bb50f2e7e1">void</a>) registres;</div>
+<div class="line"><a id="l00317" name="l00317"></a><span class="lineno">  317</span>  </div>
+<div class="line"><a id="l00318" name="l00318"></a><span class="lineno">  318</span>   <span class="comment">/* A définir ailleurs lorsque ce sera au point */</span></div>
+<div class="line"><a id="l00319" name="l00319"></a><span class="lineno">  319</span>   <span class="keywordtype">char</span> *ecranPanique =<span class="stringliteral">&quot;\</span></div>
+<div class="line"><a id="l00320" name="l00320"></a><span class="lineno">  320</span><span class="stringliteral">+-------------+-------------------+--------32--28--24--20--16--12---8---4---0--+\</span></div>
+<div class="line"><a id="l00321" name="l00321"></a><span class="lineno">  321</span><span class="stringliteral">| it : 0x--   | tss  = 0x-------- | eflags=  --------------------------------  |\</span></div>
+<div class="line"><a id="l00322" name="l00322"></a><span class="lineno">  322</span><span class="stringliteral">+-------------+-------------------+-------------+---+---+---+---+---+---+---+--+\</span></div>
+<div class="line"><a id="l00323" name="l00323"></a><span class="lineno">  323</span><span class="stringliteral">| cs : 0x---- | eip  = 0x-------- | cr3  = 0x                                  |\</span></div>
+<div class="line"><a id="l00324" name="l00324"></a><span class="lineno">  324</span><span class="stringliteral">+-------------+-------------------+--------------------------------------------+\</span></div>
+<div class="line"><a id="l00325" name="l00325"></a><span class="lineno">  325</span><span class="stringliteral">| ss : 0x---- | esp  = 0x-------- |                                            |\</span></div>
+<div class="line"><a id="l00326" name="l00326"></a><span class="lineno">  326</span><span class="stringliteral">+-------------+-------------------+--------------------------------------------+\</span></div>
+<div class="line"><a id="l00327" name="l00327"></a><span class="lineno">  327</span><span class="stringliteral">| ds : 0x---- | esi  = 0x-------- |                                            |\</span></div>
+<div class="line"><a id="l00328" name="l00328"></a><span class="lineno">  328</span><span class="stringliteral">+-------------+-------------------+--------------------------------------------+\</span></div>
+<div class="line"><a id="l00329" name="l00329"></a><span class="lineno">  329</span><span class="stringliteral">|             | edi  = 0x-------- | err = 0x                                   |\</span></div>
+<div class="line"><a id="l00330" name="l00330"></a><span class="lineno">  330</span><span class="stringliteral">+-------------+-----------------(Esp pour cacher)------------------------------+&quot;</span>;</div>
+<div class="line"><a id="l00331" name="l00331"></a><span class="lineno">  331</span>   </div>
+<div class="line"><a id="l00332" name="l00332"></a><span class="lineno">  332</span>   <span class="keywordtype">char</span> <a class="code hl_define" href="printk_8c.html#a751b71485e6bb228423b412943328232">chiffre</a>[16] = <span class="stringliteral">&quot;0123456789ABCDEF&quot;</span>;</div>
+<div class="line"><a id="l00333" name="l00333"></a><span class="lineno">  333</span>   <span class="keywordtype">char</span> * ecran = <a class="code hl_define" href="ecran_8h.html#ab2f128566f2e94b8f4b99ae450177cf6">MANUX_CON_SCREEN</a>;</div>
+<div class="line"><a id="l00334" name="l00334"></a><span class="lineno">  334</span>   <span class="keywordtype">int</span> i;</div>
+<div class="line"><a id="l00335" name="l00335"></a><span class="lineno">  335</span>   <a class="code hl_typedef" href="include_2manux_2types_8h.html#a06896e8c53f721507066c079052171f8">uint32_t</a> indice;</div>
+<div class="line"><a id="l00336" name="l00336"></a><span class="lineno">  336</span> </div>
+<div class="line"><a id="l00337" name="l00337"></a><span class="lineno">  337</span>   <span class="comment">// Sauvegardons l&#39;écran dans un buffer avant de le pourrir</span></div>
+<div class="line"><a id="l00338" name="l00338"></a><span class="lineno">  338</span>   <a class="code hl_function" href="include_2manux_2string_8h.html#aba088e716bccbc96d42da97e96316df1">memcpy</a>(bufferEcran, ecran, 4000);</div>
+<div class="line"><a id="l00339" name="l00339"></a><span class="lineno">  339</span> </div>
+<div class="line"><a id="l00340" name="l00340"></a><span class="lineno">  340</span>   <span class="comment">// On fait un peu de place en haut de l&#39;écran</span></div>
+<div class="line"><a id="l00341" name="l00341"></a><span class="lineno">  341</span>   <span class="keywordflow">for</span> (i=0; i&lt;11*2*<a class="code hl_define" href="ecran_8h.html#a2d2474bd7bcb1773d94f27ce4a99b622">MANUX_CON_COLONNES</a>; i+=2) {</div>
+<div class="line"><a id="l00342" name="l00342"></a><span class="lineno">  342</span>      ecran[i]   = ecranPanique[i/2];</div>
+<div class="line"><a id="l00343" name="l00343"></a><span class="lineno">  343</span>      ecran[i+1] = <a class="code hl_enumvalue" href="ecran_8h.html#aa304d0ca681f782b1d7735da33037dd7a23bfccf6d49f0bbbffe51ff39573d0c1">COUL_FOND_BLEU</a> | <a class="code hl_enumvalue" href="ecran_8h.html#aa304d0ca681f782b1d7735da33037dd7a2dedea63ce13170e0c4057e7abdb4d34">COUL_TXT_JAUNE</a>;</div>
+<div class="line"><a id="l00344" name="l00344"></a><span class="lineno">  344</span>   }</div>
+<div class="line"><a id="l00345" name="l00345"></a><span class="lineno">  345</span> </div>
+<div class="line"><a id="l00346" name="l00346"></a><span class="lineno">  346</span>   __asm__ __volatile__(<span class="stringliteral">&quot;str %%eax&quot;</span> : <span class="stringliteral">&quot;=a&quot;</span> (indice));  <span class="comment">// WARNING WTF !?</span></div>
+<div class="line"><a id="l00347" name="l00347"></a><span class="lineno">  347</span> </div>
+<div class="line"><a id="l00348" name="l00348"></a><span class="lineno">  348</span>   <span class="comment">// Première ligne</span></div>
+<div class="line"><a id="l00349" name="l00349"></a><span class="lineno">  349</span>   <a class="code hl_define" href="interruptions_8c.html#a2b3e128e6ad8b47ada69d801721cfa47">afficherHexa</a>(itNum, 2, 1, 9);</div>
+<div class="line"><a id="l00350" name="l00350"></a><span class="lineno">  350</span>   <a class="code hl_define" href="interruptions_8c.html#a73d574ce1f622bf15d3fcf2eaed8e93f">afficherBin</a>(eFlags, 32, 1, 45);</div>
+<div class="line"><a id="l00351" name="l00351"></a><span class="lineno">  351</span>   <a class="code hl_define" href="interruptions_8c.html#a2b3e128e6ad8b47ada69d801721cfa47">afficherHexa</a>(cs, 4, 3, 9);</div>
+<div class="line"><a id="l00352" name="l00352"></a><span class="lineno">  352</span>   <a class="code hl_define" href="interruptions_8c.html#a2b3e128e6ad8b47ada69d801721cfa47">afficherHexa</a>(eip, 8, 3, 25);</div>
+<div class="line"><a id="l00353" name="l00353"></a><span class="lineno">  353</span>   <a class="code hl_define" href="interruptions_8c.html#a2b3e128e6ad8b47ada69d801721cfa47">afficherHexa</a>(errCode, 8, 9, 45);</div>
+<div class="line"><a id="l00354" name="l00354"></a><span class="lineno">  354</span> </div>
+<div class="line"><a id="l00355" name="l00355"></a><span class="lineno">  355</span><span class="preprocessor">#ifdef MANUX_GESTION_MEMOIRE</span></div>
+<div class="line"><a id="l00356" name="l00356"></a><span class="lineno">  356</span>   <a class="code hl_union" href="union__Descripteur.html">Descripteur</a> desc = <a class="code hl_variable" href="segment_8c.html#aa7b2be909929911d7772352d013a9480">gdtSysteme</a>-&gt;<a class="code hl_variable" href="struct__DescriptorTable.html#a315f73e13af36b7bdd5269d4cd5cb58c">descripteur</a>[indice&gt;&gt;3];</div>
+<div class="line"><a id="l00357" name="l00357"></a><span class="lineno">  357</span>   <a class="code hl_struct" href="struct__IntelTSS.html">IntelTSS</a> * tssDuFautif = (<a class="code hl_struct" href="struct__IntelTSS.html">IntelTSS</a> *)(</div>
+<div class="line"><a id="l00358" name="l00358"></a><span class="lineno">  358</span>         (((<a class="code hl_typedef" href="include_2manux_2types_8h.html#a06896e8c53f721507066c079052171f8">uint32_t</a>)desc.<a class="code hl_variable" href="union__Descripteur.html#aebbba8ba52309981be3829a116d05df2">dt</a>.<a class="code hl_variable" href="struct__DescTSS.html#af68c88388d2109c9eda98ebc2eb0dd1d">baseFort</a>) &lt;&lt; 24)</div>
+<div class="line"><a id="l00359" name="l00359"></a><span class="lineno">  359</span>       + (((<a class="code hl_typedef" href="include_2manux_2types_8h.html#a06896e8c53f721507066c079052171f8">uint32_t</a>)desc.<a class="code hl_variable" href="union__Descripteur.html#aebbba8ba52309981be3829a116d05df2">dt</a>.<a class="code hl_variable" href="struct__DescTSS.html#ab5b1064213c68bb2cb9d07b5204fcecf">baseInter</a>) &lt;&lt; 16)</div>
+<div class="line"><a id="l00360" name="l00360"></a><span class="lineno">  360</span>       + desc.<a class="code hl_variable" href="union__Descripteur.html#aebbba8ba52309981be3829a116d05df2">dt</a>.<a class="code hl_variable" href="struct__DescTSS.html#a79edebb6f912c512b000cb1cce719725">baseFaible</a></div>
+<div class="line"><a id="l00361" name="l00361"></a><span class="lineno">  361</span>     );</div>
+<div class="line"><a id="l00362" name="l00362"></a><span class="lineno">  362</span> </div>
+<div class="line"><a id="l00363" name="l00363"></a><span class="lineno">  363</span>   <a class="code hl_define" href="interruptions_8c.html#a2b3e128e6ad8b47ada69d801721cfa47">afficherHexa</a>(tssDuFautif, 8, 1, 25);</div>
+<div class="line"><a id="l00364" name="l00364"></a><span class="lineno">  364</span>   <span class="comment">//afficherBin(tssDuFautif-&gt;EFLAGS, 32, 1, 45);</span></div>
+<div class="line"><a id="l00365" name="l00365"></a><span class="lineno">  365</span>   <a class="code hl_define" href="interruptions_8c.html#a2b3e128e6ad8b47ada69d801721cfa47">afficherHexa</a>(tssDuFautif-&gt;<a class="code hl_variable" href="struct__IntelTSS.html#a8c4955d0d3666b75a5f64df1932a8d06">CR3</a>, 8, 3, 45);</div>
+<div class="line"><a id="l00366" name="l00366"></a><span class="lineno">  366</span> </div>
+<div class="line"><a id="l00367" name="l00367"></a><span class="lineno">  367</span>   <span class="comment">// Les descripteurs de segment</span></div>
+<div class="line"><a id="l00368" name="l00368"></a><span class="lineno">  368</span>   <a class="code hl_define" href="interruptions_8c.html#a2b3e128e6ad8b47ada69d801721cfa47">afficherHexa</a>(tssDuFautif-&gt;<a class="code hl_variable" href="struct__IntelTSS.html#a901f584553e7e508382537d7d4990379">SS</a>, 4, 5, 9);</div>
+<div class="line"><a id="l00369" name="l00369"></a><span class="lineno">  369</span>   <a class="code hl_define" href="interruptions_8c.html#a2b3e128e6ad8b47ada69d801721cfa47">afficherHexa</a>(tssDuFautif-&gt;<a class="code hl_variable" href="struct__IntelTSS.html#accc00d25d6b1f932f2f0c72b3c7f522a">DS</a>, 4, 7, 9);</div>
+<div class="line"><a id="l00370" name="l00370"></a><span class="lineno">  370</span> </div>
+<div class="line"><a id="l00371" name="l00371"></a><span class="lineno">  371</span>   <span class="comment">// Les pointeurs</span></div>
+<div class="line"><a id="l00372" name="l00372"></a><span class="lineno">  372</span>   <span class="comment">//afficherHexa(tssDuFautif-&gt;EIP, 8, 3, 25);</span></div>
+<div class="line"><a id="l00373" name="l00373"></a><span class="lineno">  373</span>   <a class="code hl_define" href="interruptions_8c.html#a2b3e128e6ad8b47ada69d801721cfa47">afficherHexa</a>(tssDuFautif-&gt;<a class="code hl_variable" href="struct__IntelTSS.html#a8fa9cbd06a966aa7c3ff9766776f0a91">ESP</a>, 8, 5, 25);</div>
+<div class="line"><a id="l00374" name="l00374"></a><span class="lineno">  374</span>   <a class="code hl_define" href="interruptions_8c.html#a2b3e128e6ad8b47ada69d801721cfa47">afficherHexa</a>(tssDuFautif-&gt;<a class="code hl_variable" href="struct__IntelTSS.html#a9a46303559b055542469143ee41b03f5">ESI</a>, 8, 7, 25);</div>
+<div class="line"><a id="l00375" name="l00375"></a><span class="lineno">  375</span>   <a class="code hl_define" href="interruptions_8c.html#a2b3e128e6ad8b47ada69d801721cfa47">afficherHexa</a>(tssDuFautif-&gt;<a class="code hl_variable" href="struct__IntelTSS.html#a415768fed14b2f2892c0ebc97fe3a19c">EDI</a>, 8, 9, 25);</div>
+<div class="line"><a id="l00376" name="l00376"></a><span class="lineno">  376</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00377" name="l00377"></a><span class="lineno">  377</span>}</div>
+<div class="line"><a id="l00378" name="l00378"></a><span class="lineno">  378</span> </div>
+<div class="foldopen" id="foldopen00384" data-start="{" data-end="}">
+<div class="line"><a id="l00384" name="l00384"></a><span class="lineno"><a class="line" href="interruptions_8c.html#a0d3279f4e117a28f75cc2593c5f2aba5">  384</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="interruptions_8c.html#a0d3279f4e117a28f75cc2593c5f2aba5">gestionExceptionPanique</a>(TousRegistres registres,</div>
+<div class="line"><a id="l00385" name="l00385"></a><span class="lineno">  385</span>              <a class="code hl_typedef" href="include_2manux_2types_8h.html#a06896e8c53f721507066c079052171f8">uint32_t</a> numIt,<a class="code hl_typedef" href="include_2manux_2types_8h.html#a06896e8c53f721507066c079052171f8">uint32_t</a> errCode,</div>
+<div class="line"><a id="l00386" name="l00386"></a><span class="lineno">  386</span>                      <a class="code hl_typedef" href="include_2manux_2types_8h.html#a06896e8c53f721507066c079052171f8">uint32_t</a> eip, <a class="code hl_typedef" href="include_2manux_2types_8h.html#a06896e8c53f721507066c079052171f8">uint32_t</a> cs, <a class="code hl_typedef" href="include_2manux_2types_8h.html#a06896e8c53f721507066c079052171f8">uint32_t</a> eFlags)</div>
+<div class="line"><a id="l00387" name="l00387"></a><span class="lineno">  387</span>{</div>
+<div class="line"><a id="l00388" name="l00388"></a><span class="lineno">  388</span>   <span class="keywordtype">char</span> * ecran = <a class="code hl_define" href="ecran_8h.html#ab2f128566f2e94b8f4b99ae450177cf6">MANUX_CON_SCREEN</a>;</div>
+<div class="line"><a id="l00389" name="l00389"></a><span class="lineno">  389</span>   <span class="keywordtype">int</span> <a class="code hl_variable" href="main-registre_8c.html#aaa0e9a03072c04ebe2d49f53bc7bc785">d</a> = 1;</div>
+<div class="line"><a id="l00390" name="l00390"></a><span class="lineno">  390</span>   <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> <a class="code hl_variable" href="main-bootreg_8c.html#add06ad5d8520e7cff4ff84b2811c0982">c</a>;</div>
+<div class="line"><a id="l00391" name="l00391"></a><span class="lineno">  391</span> </div>
+<div class="line"><a id="l00392" name="l00392"></a><span class="lineno">  392</span>   ecranDeLaMort(errCode, numIt, registres, eip, cs, eFlags);</div>
+<div class="line"><a id="l00393" name="l00393"></a><span class="lineno">  393</span> </div>
+<div class="line"><a id="l00394" name="l00394"></a><span class="lineno">  394</span>   <span class="keywordflow">while</span> (1) {</div>
+<div class="line"><a id="l00395" name="l00395"></a><span class="lineno">  395</span>      <a class="code hl_define" href="io_8h.html#a4f4a2af12435f72838eae7049d0ca6ee">inb</a>(0x60, <a class="code hl_variable" href="main-bootreg_8c.html#add06ad5d8520e7cff4ff84b2811c0982">c</a>);</div>
+<div class="line"><a id="l00396" name="l00396"></a><span class="lineno">  396</span>      <span class="keywordflow">switch</span> (<a class="code hl_variable" href="main-bootreg_8c.html#add06ad5d8520e7cff4ff84b2811c0982">c</a>) {</div>
+<div class="line"><a id="l00397" name="l00397"></a><span class="lineno">  397</span>         <span class="keywordflow">case</span> 0x01: <span class="comment">// ESC</span></div>
+<div class="line"><a id="l00398" name="l00398"></a><span class="lineno">  398</span><span class="preprocessor">#ifdef MANUX_CONSOLES_VIRTUELLES       </span></div>
+<div class="line"><a id="l00399" name="l00399"></a><span class="lineno">  399</span>        basculerVersConsoleSuivante();</div>
+<div class="line"><a id="l00400" name="l00400"></a><span class="lineno">  400</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00401" name="l00401"></a><span class="lineno">  401</span>        <span class="keywordflow">while</span> (<a class="code hl_variable" href="main-bootreg_8c.html#add06ad5d8520e7cff4ff84b2811c0982">c</a> == 0x81){</div>
+<div class="line"><a id="l00402" name="l00402"></a><span class="lineno">  402</span>           <a class="code hl_define" href="io_8h.html#a4f4a2af12435f72838eae7049d0ca6ee">inb</a>(0x60, <a class="code hl_variable" href="main-bootreg_8c.html#add06ad5d8520e7cff4ff84b2811c0982">c</a>);</div>
+<div class="line"><a id="l00403" name="l00403"></a><span class="lineno">  403</span>            };</div>
+<div class="line"><a id="l00404" name="l00404"></a><span class="lineno">  404</span>         <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00405" name="l00405"></a><span class="lineno">  405</span>         <span class="keywordflow">case</span> 0x39: <span class="comment">// SPACE On alterne entre l&#39;écran bleu et l&#39;écran au moment du drame </span></div>
+<div class="line"><a id="l00406" name="l00406"></a><span class="lineno">  406</span>            <a class="code hl_variable" href="main-registre_8c.html#aaa0e9a03072c04ebe2d49f53bc7bc785">d</a> = 1-<a class="code hl_variable" href="main-registre_8c.html#aaa0e9a03072c04ebe2d49f53bc7bc785">d</a>;</div>
+<div class="line"><a id="l00407" name="l00407"></a><span class="lineno">  407</span>        <span class="keywordflow">if</span> (<a class="code hl_variable" href="main-registre_8c.html#aaa0e9a03072c04ebe2d49f53bc7bc785">d</a>) {</div>
+<div class="line"><a id="l00408" name="l00408"></a><span class="lineno">  408</span>          ecranDeLaMort(errCode, numIt, registres, eip, cs, eFlags);</div>
+<div class="line"><a id="l00409" name="l00409"></a><span class="lineno">  409</span>        }<span class="keywordflow">else</span>{</div>
+<div class="line"><a id="l00410" name="l00410"></a><span class="lineno">  410</span>          <span class="comment">// On restaure l&#39;écran</span></div>
+<div class="line"><a id="l00411" name="l00411"></a><span class="lineno">  411</span>              <a class="code hl_function" href="include_2manux_2string_8h.html#aba088e716bccbc96d42da97e96316df1">memcpy</a>(ecran, bufferEcran, 4000);</div>
+<div class="line"><a id="l00412" name="l00412"></a><span class="lineno">  412</span>        };</div>
+<div class="line"><a id="l00413" name="l00413"></a><span class="lineno">  413</span>            <span class="keywordflow">while</span> (<a class="code hl_variable" href="main-bootreg_8c.html#add06ad5d8520e7cff4ff84b2811c0982">c</a> == 0x39){</div>
+<div class="line"><a id="l00414" name="l00414"></a><span class="lineno">  414</span>          <a class="code hl_define" href="io_8h.html#a4f4a2af12435f72838eae7049d0ca6ee">inb</a>(0x60, <a class="code hl_variable" href="main-bootreg_8c.html#add06ad5d8520e7cff4ff84b2811c0982">c</a>);</div>
+<div class="line"><a id="l00415" name="l00415"></a><span class="lineno">  415</span>            };</div>
+<div class="line"><a id="l00416" name="l00416"></a><span class="lineno">  416</span>         <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00417" name="l00417"></a><span class="lineno">  417</span>      }</div>
+<div class="line"><a id="l00418" name="l00418"></a><span class="lineno">  418</span>   }</div>
+<div class="line"><a id="l00419" name="l00419"></a><span class="lineno">  419</span>   <a class="code hl_function" href="include_2manux_2i386_8h.html#aee01d3a42fbcda425a19cbc4bd0194cd">halt</a>();</div>
+<div class="line"><a id="l00420" name="l00420"></a><span class="lineno">  420</span>}</div>
+</div>
+<div class="line"><a id="l00421" name="l00421"></a><span class="lineno">  421</span> </div>
+<div class="ttc" id="aatomique_8h_html"><div class="ttname"><a href="atomique_8h.html">atomique.h</a></div><div class="ttdoc">DÃ©finition des opÃ©rations de synchronisation de ManuX.</div></div>
+<div class="ttc" id="aconfig_2intel-8259a_8h_html_a08f24105d9d260a9d2dd70c1f1f99031"><div class="ttname"><a href="config_2intel-8259a_8h.html#a08f24105d9d260a9d2dd70c1f1f99031">MANUX_NB_IRQ</a></div><div class="ttdeci">#define MANUX_NB_IRQ</div><div class="ttdef"><b>Definition</b> <a href="config_2intel-8259a_8h_source.html#l00019">intel-8259a.h:19</a></div></div>
+<div class="ttc" id="aconfig_2intel-8259a_8h_html_accc391532dcd4746c5ac1765feb2b2be"><div class="ttname"><a href="config_2intel-8259a_8h.html#accc391532dcd4746c5ac1765feb2b2be">MANUX_PIC_INIT</a></div><div class="ttdeci">#define MANUX_PIC_INIT</div><div class="ttdef"><b>Definition</b> <a href="config_2intel-8259a_8h_source.html#l00026">intel-8259a.h:26</a></div></div>
+<div class="ttc" id="aecran_8h_html"><div class="ttname"><a href="ecran_8h.html">ecran.h</a></div><div class="ttdoc">DÃ©finition des caractÃ©ristiques de base de l'Ã©cran.</div></div>
+<div class="ttc" id="aecran_8h_html_a2d2474bd7bcb1773d94f27ce4a99b622"><div class="ttname"><a href="ecran_8h.html#a2d2474bd7bcb1773d94f27ce4a99b622">MANUX_CON_COLONNES</a></div><div class="ttdeci">#define MANUX_CON_COLONNES</div><div class="ttdef"><b>Definition</b> <a href="ecran_8h_source.html#l00028">ecran.h:28</a></div></div>
+<div class="ttc" id="aecran_8h_html_aa304d0ca681f782b1d7735da33037dd7a23bfccf6d49f0bbbffe51ff39573d0c1"><div class="ttname"><a href="ecran_8h.html#aa304d0ca681f782b1d7735da33037dd7a23bfccf6d49f0bbbffe51ff39573d0c1">COUL_FOND_BLEU</a></div><div class="ttdeci">@ COUL_FOND_BLEU</div><div class="ttdef"><b>Definition</b> <a href="ecran_8h_source.html#l00054">ecran.h:54</a></div></div>
+<div class="ttc" id="aecran_8h_html_aa304d0ca681f782b1d7735da33037dd7a2dedea63ce13170e0c4057e7abdb4d34"><div class="ttname"><a href="ecran_8h.html#aa304d0ca681f782b1d7735da33037dd7a2dedea63ce13170e0c4057e7abdb4d34">COUL_TXT_JAUNE</a></div><div class="ttdeci">@ COUL_TXT_JAUNE</div><div class="ttdef"><b>Definition</b> <a href="ecran_8h_source.html#l00051">ecran.h:51</a></div></div>
+<div class="ttc" id="aecran_8h_html_ab2f128566f2e94b8f4b99ae450177cf6"><div class="ttname"><a href="ecran_8h.html#ab2f128566f2e94b8f4b99ae450177cf6">MANUX_CON_SCREEN</a></div><div class="ttdeci">#define MANUX_CON_SCREEN</div><div class="ttdef"><b>Definition</b> <a href="ecran_8h_source.html#l00027">ecran.h:27</a></div></div>
+<div class="ttc" id="ainclude_2manux_2appelsystemenum_8h_html_a3fc58d7ff32f5ecc2964876a070d87bd"><div class="ttname"><a href="include_2manux_2appelsystemenum_8h.html#a3fc58d7ff32f5ecc2964876a070d87bd">MANUX_AS_INT</a></div><div class="ttdeci">#define MANUX_AS_INT</div><div class="ttdef"><b>Definition</b> <a href="include_2manux_2appelsystemenum_8h_source.html#l00015">appelsystemenum.h:15</a></div></div>
+<div class="ttc" id="ainclude_2manux_2console_8h_html"><div class="ttname"><a href="include_2manux_2console_8h.html">console.h</a></div><div class="ttdoc">DÃ©finition des fonctions de base d'accÃ©s Ã  la console.</div></div>
+<div class="ttc" id="ainclude_2manux_2i386_8h_html_aee01d3a42fbcda425a19cbc4bd0194cd"><div class="ttname"><a href="include_2manux_2i386_8h.html#aee01d3a42fbcda425a19cbc4bd0194cd">halt</a></div><div class="ttdeci">void halt(void)</div></div>
+<div class="ttc" id="ainclude_2manux_2interruptions_8h_html"><div class="ttname"><a href="include_2manux_2interruptions_8h.html">interruptions.h</a></div></div>
+<div class="ttc" id="ainclude_2manux_2interruptions_8h_html_a4b86502c050e73afc4f906e73dc06cec"><div class="ttname"><a href="include_2manux_2interruptions_8h.html#a4b86502c050e73afc4f906e73dc06cec">FonctionGestionException</a></div><div class="ttdeci">void(* FonctionGestionException)(TousRegistres registres, uint32_t eip, uint32_t cs, uint32_t eFlags, uint32_t numEx, uint32_t errCode)</div><div class="ttdef"><b>Definition</b> <a href="include_2manux_2interruptions_8h_source.html#l00068">interruptions.h:68</a></div></div>
+<div class="ttc" id="ainclude_2manux_2interruptions_8h_html_a4fda31edc92f8ccd48b6f4bb50f2e7e1"><div class="ttname"><a href="include_2manux_2interruptions_8h.html#a4fda31edc92f8ccd48b6f4bb50f2e7e1">void</a></div><div class="ttdeci">typedef void(Handler(void))</div></div>
+<div class="ttc" id="ainclude_2manux_2interruptions_8h_html_a6cffd840f089c59ab7cbfe7daa931438"><div class="ttname"><a href="include_2manux_2interruptions_8h.html#a6cffd840f089c59ab7cbfe7daa931438">IDT</a></div><div class="ttdeci">IDTGate * IDT</div><div class="ttdef"><b>Definition</b> <a href="include_2manux_2interruptions_8h_source.html#l00053">interruptions.h:53</a></div></div>
+<div class="ttc" id="ainclude_2manux_2interruptions_8h_html_aeba1bb9393b1868b44581e72a4206150"><div class="ttname"><a href="include_2manux_2interruptions_8h.html#aeba1bb9393b1868b44581e72a4206150">FonctionGestionInterruption</a></div><div class="ttdeci">void(* FonctionGestionInterruption)(TousRegistres registres, uint32_t eip, uint32_t cs, uint32_t eFlags, uint32_t numIt)</div><div class="ttdef"><b>Definition</b> <a href="include_2manux_2interruptions_8h_source.html#l00075">interruptions.h:75</a></div></div>
+<div class="ttc" id="ainclude_2manux_2memoire_8h_html"><div class="ttname"><a href="include_2manux_2memoire_8h.html">memoire.h</a></div></div>
+<div class="ttc" id="ainclude_2manux_2printk_8h_html"><div class="ttname"><a href="include_2manux_2printk_8h.html">printk.h</a></div><div class="ttdoc">DÃ©finition des fonctions de base d'entrÃ©e-sortie du noyau.</div></div>
+<div class="ttc" id="ainclude_2manux_2printk_8h_html_a25b30e8bbadd54650c56895999dd808f"><div class="ttname"><a href="include_2manux_2printk_8h.html#a25b30e8bbadd54650c56895999dd808f">printk</a></div><div class="ttdeci">void printk(char *format,...)</div><div class="ttdoc">Fonction principale d'affichage dans le noyau.</div><div class="ttdef"><b>Definition</b> <a href="printk_8c_source.html#l00166">printk.c:166</a></div></div>
+<div class="ttc" id="ainclude_2manux_2string_8h_html_aba088e716bccbc96d42da97e96316df1"><div class="ttname"><a href="include_2manux_2string_8h.html#aba088e716bccbc96d42da97e96316df1">memcpy</a></div><div class="ttdeci">void * memcpy(void *dest, const void *src, size_t n)</div><div class="ttdef"><b>Definition</b> <a href="string_8c_source.html#l00012">string.c:12</a></div></div>
+<div class="ttc" id="ainclude_2manux_2types_8h_html_a06896e8c53f721507066c079052171f8"><div class="ttname"><a href="include_2manux_2types_8h.html#a06896e8c53f721507066c079052171f8">uint32_t</a></div><div class="ttdeci">unsigned long uint32_t</div><div class="ttdef"><b>Definition</b> <a href="include_2manux_2types_8h_source.html#l00020">types.h:20</a></div></div>
+<div class="ttc" id="ainclude_2manux_2types_8h_html_aba7bc1797add20fe3efdf37ced1182c5"><div class="ttname"><a href="include_2manux_2types_8h.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a></div><div class="ttdeci">unsigned char uint8_t</div><div class="ttdef"><b>Definition</b> <a href="include_2manux_2types_8h_source.html#l00012">types.h:12</a></div></div>
+<div class="ttc" id="ainterBasNiveau_8h_html"><div class="ttname"><a href="interBasNiveau_8h.html">interBasNiveau.h</a></div></div>
+<div class="ttc" id="ainterBasNiveau_8h_html_a0117f311fdad002499381f5c5d714f49"><div class="ttname"><a href="interBasNiveau_8h.html#a0117f311fdad002499381f5c5d714f49">stubHandlerExFloatingVirtualization</a></div><div class="ttdeci">void stubHandlerExFloatingVirtualization(void)</div></div>
+<div class="ttc" id="ainterBasNiveau_8h_html_a011dc7f9e3233a2a50283751c23ac9ff"><div class="ttname"><a href="interBasNiveau_8h.html#a011dc7f9e3233a2a50283751c23ac9ff">stubHandlerIRQ15</a></div><div class="ttdeci">void stubHandlerIRQ15(void)</div></div>
+<div class="ttc" id="ainterBasNiveau_8h_html_a028f6297c8f7e318fd5adf4631e5f418"><div class="ttname"><a href="interBasNiveau_8h.html#a028f6297c8f7e318fd5adf4631e5f418">stubHandlerExReserved6</a></div><div class="ttdeci">void stubHandlerExReserved6(void)</div></div>
+<div class="ttc" id="ainterBasNiveau_8h_html_a04e7d30f0f16ce6dc4a7159bbe367297"><div class="ttname"><a href="interBasNiveau_8h.html#a04e7d30f0f16ce6dc4a7159bbe367297">stubHandlerExNMI</a></div><div class="ttdeci">void stubHandlerExNMI(void)</div></div>
+<div class="ttc" id="ainterBasNiveau_8h_html_a14817650be1a106da0a82e456c170616"><div class="ttname"><a href="interBasNiveau_8h.html#a14817650be1a106da0a82e456c170616">stubHandlerIRQ9</a></div><div class="ttdeci">void stubHandlerIRQ9(void)</div></div>
+<div class="ttc" id="ainterBasNiveau_8h_html_a181b2a4955dc66bea034f7a56c2e72fc"><div class="ttname"><a href="interBasNiveau_8h.html#a181b2a4955dc66bea034f7a56c2e72fc">stubHandlerIRQ6</a></div><div class="ttdeci">void stubHandlerIRQ6(void)</div></div>
+<div class="ttc" id="ainterBasNiveau_8h_html_a2088efebfb49df3de42ebdd0ae827bb7"><div class="ttname"><a href="interBasNiveau_8h.html#a2088efebfb49df3de42ebdd0ae827bb7">stubHandlerIRQ4</a></div><div class="ttdeci">void stubHandlerIRQ4(void)</div></div>
+<div class="ttc" id="ainterBasNiveau_8h_html_a20d4fbf6dd9cd705e15abc46b19ec7ca"><div class="ttname"><a href="interBasNiveau_8h.html#a20d4fbf6dd9cd705e15abc46b19ec7ca">stubHandlerExReserved</a></div><div class="ttdeci">void stubHandlerExReserved(void)</div></div>
+<div class="ttc" id="ainterBasNiveau_8h_html_a21acfb830484cd026c7e70b1c28333dc"><div class="ttname"><a href="interBasNiveau_8h.html#a21acfb830484cd026c7e70b1c28333dc">stubHandlerIRQ5</a></div><div class="ttdeci">void stubHandlerIRQ5(void)</div></div>
+<div class="ttc" id="ainterBasNiveau_8h_html_a265bf1e556cdf41fea502a748590d646"><div class="ttname"><a href="interBasNiveau_8h.html#a265bf1e556cdf41fea502a748590d646">stubHandlerExFloatingSIMDFPE</a></div><div class="ttdeci">void stubHandlerExFloatingSIMDFPE(void)</div></div>
+<div class="ttc" id="ainterBasNiveau_8h_html_a27ac1f92e0d2549cf30191faef7f6ec4"><div class="ttname"><a href="interBasNiveau_8h.html#a27ac1f92e0d2549cf30191faef7f6ec4">stubHandlerExDebug</a></div><div class="ttdeci">void stubHandlerExDebug(void)</div></div>
+<div class="ttc" id="ainterBasNiveau_8h_html_a2d7bb2bd066ecaedc298d8763e4cd0ce"><div class="ttname"><a href="interBasNiveau_8h.html#a2d7bb2bd066ecaedc298d8763e4cd0ce">stubHandlerIRQ1</a></div><div class="ttdeci">void stubHandlerIRQ1(void)</div></div>
+<div class="ttc" id="ainterBasNiveau_8h_html_a346546ae5b849858b5a5cbed308054df"><div class="ttname"><a href="interBasNiveau_8h.html#a346546ae5b849858b5a5cbed308054df">stubHandlerExReserved4</a></div><div class="ttdeci">void stubHandlerExReserved4(void)</div></div>
+<div class="ttc" id="ainterBasNiveau_8h_html_a3a3465972788a956d8d9db6638e7585d"><div class="ttname"><a href="interBasNiveau_8h.html#a3a3465972788a956d8d9db6638e7585d">stubHandlerExDeviceInvalidOpcode</a></div><div class="ttdeci">void stubHandlerExDeviceInvalidOpcode(void)</div></div>
+<div class="ttc" id="ainterBasNiveau_8h_html_a433f74c07f731c2e888a63758d796ed9"><div class="ttname"><a href="interBasNiveau_8h.html#a433f74c07f731c2e888a63758d796ed9">stubHandlerIRQ7</a></div><div class="ttdeci">void stubHandlerIRQ7(void)</div></div>
+<div class="ttc" id="ainterBasNiveau_8h_html_a55b0a363fd83bfe79ff8211eabb439d3"><div class="ttname"><a href="interBasNiveau_8h.html#a55b0a363fd83bfe79ff8211eabb439d3">stubHandlerIRQ0</a></div><div class="ttdeci">void stubHandlerIRQ0(void)</div></div>
+<div class="ttc" id="ainterBasNiveau_8h_html_a65a33d0a792bf722ce339f1d6fcf6d5d"><div class="ttname"><a href="interBasNiveau_8h.html#a65a33d0a792bf722ce339f1d6fcf6d5d">stubHandlerIRQ13</a></div><div class="ttdeci">void stubHandlerIRQ13(void)</div></div>
+<div class="ttc" id="ainterBasNiveau_8h_html_a83c08b1cf2f1838657e8cad9d1ae8db4"><div class="ttname"><a href="interBasNiveau_8h.html#a83c08b1cf2f1838657e8cad9d1ae8db4">stubHandlerIRQ12</a></div><div class="ttdeci">void stubHandlerIRQ12(void)</div></div>
+<div class="ttc" id="ainterBasNiveau_8h_html_a8510e0ebc5c591d6accb900f5b121113"><div class="ttname"><a href="interBasNiveau_8h.html#a8510e0ebc5c591d6accb900f5b121113">stubHandlerExOverflow</a></div><div class="ttdeci">void stubHandlerExOverflow(void)</div></div>
+<div class="ttc" id="ainterBasNiveau_8h_html_a8ab0216e14cfa66342615327aeb91784"><div class="ttname"><a href="interBasNiveau_8h.html#a8ab0216e14cfa66342615327aeb91784">stubHandlerIRQ3</a></div><div class="ttdeci">void stubHandlerIRQ3(void)</div></div>
+<div class="ttc" id="ainterBasNiveau_8h_html_a9700916c831dc027fb175a6be10c805b"><div class="ttname"><a href="interBasNiveau_8h.html#a9700916c831dc027fb175a6be10c805b">stubHandlerExStackSegmentFault</a></div><div class="ttdeci">void stubHandlerExStackSegmentFault(void)</div></div>
+<div class="ttc" id="ainterBasNiveau_8h_html_a99abb3ee76bb7aa4b8f608990ddbd812"><div class="ttname"><a href="interBasNiveau_8h.html#a99abb3ee76bb7aa4b8f608990ddbd812">stubHandlerExDoubleFault</a></div><div class="ttdeci">void stubHandlerExDoubleFault(void)</div></div>
+<div class="ttc" id="ainterBasNiveau_8h_html_a9b475a19483577e79b6b265c93688075"><div class="ttname"><a href="interBasNiveau_8h.html#a9b475a19483577e79b6b265c93688075">stubHandlerExAlignmentCheck</a></div><div class="ttdeci">void stubHandlerExAlignmentCheck(void)</div></div>
+<div class="ttc" id="ainterBasNiveau_8h_html_a9f52dfd2e02df4dffe10df694456de92"><div class="ttname"><a href="interBasNiveau_8h.html#a9f52dfd2e02df4dffe10df694456de92">stubHandlerExVMMCommunication</a></div><div class="ttdeci">void stubHandlerExVMMCommunication(void)</div></div>
+<div class="ttc" id="ainterBasNiveau_8h_html_aa045fe1383422111cc5c1ee41681a5cf"><div class="ttname"><a href="interBasNiveau_8h.html#aa045fe1383422111cc5c1ee41681a5cf">stubHandlerExInvalidTSS</a></div><div class="ttdeci">void stubHandlerExInvalidTSS(void)</div></div>
+<div class="ttc" id="ainterBasNiveau_8h_html_aa58f19b30c3c7b9adc1a62491a405204"><div class="ttname"><a href="interBasNiveau_8h.html#aa58f19b30c3c7b9adc1a62491a405204">stubHandlerExDeviceUnavailable</a></div><div class="ttdeci">void stubHandlerExDeviceUnavailable(void)</div></div>
+<div class="ttc" id="ainterBasNiveau_8h_html_aa77313f083e02c3baeadbf8169340f64"><div class="ttname"><a href="interBasNiveau_8h.html#aa77313f083e02c3baeadbf8169340f64">stubHandlerExReserved2</a></div><div class="ttdeci">void stubHandlerExReserved2(void)</div></div>
+<div class="ttc" id="ainterBasNiveau_8h_html_ab0e365b41572e37520c967d0b902d020"><div class="ttname"><a href="interBasNiveau_8h.html#ab0e365b41572e37520c967d0b902d020">stubHandlerExGeneralProtectionFault</a></div><div class="ttdeci">void stubHandlerExGeneralProtectionFault(void)</div></div>
+<div class="ttc" id="ainterBasNiveau_8h_html_ab31d7fee5d206c63761d5dc760a5b121"><div class="ttname"><a href="interBasNiveau_8h.html#ab31d7fee5d206c63761d5dc760a5b121">stubHandlerIRQ11</a></div><div class="ttdeci">void stubHandlerIRQ11(void)</div></div>
+<div class="ttc" id="ainterBasNiveau_8h_html_ab93ab2201811257de771734f16873fc2"><div class="ttname"><a href="interBasNiveau_8h.html#ab93ab2201811257de771734f16873fc2">stubHandlerIRQ8</a></div><div class="ttdeci">void stubHandlerIRQ8(void)</div></div>
+<div class="ttc" id="ainterBasNiveau_8h_html_abae5f73bb19161edced8117d9303baa5"><div class="ttname"><a href="interBasNiveau_8h.html#abae5f73bb19161edced8117d9303baa5">stubHandlerIRQ2</a></div><div class="ttdeci">void stubHandlerIRQ2(void)</div></div>
+<div class="ttc" id="ainterBasNiveau_8h_html_abbc6b673ac6bca412c67184e95e2a45e"><div class="ttname"><a href="interBasNiveau_8h.html#abbc6b673ac6bca412c67184e95e2a45e">stubHandlerIRQ14</a></div><div class="ttdeci">void stubHandlerIRQ14(void)</div></div>
+<div class="ttc" id="ainterBasNiveau_8h_html_ac06f56674ff2a663414476cce3f3182d"><div class="ttname"><a href="interBasNiveau_8h.html#ac06f56674ff2a663414476cce3f3182d">stubHandlerExCoproOverrun</a></div><div class="ttdeci">void stubHandlerExCoproOverrun(void)</div></div>
+<div class="ttc" id="ainterBasNiveau_8h_html_ac0f4a0148031aa2f786bcff94e762a9c"><div class="ttname"><a href="interBasNiveau_8h.html#ac0f4a0148031aa2f786bcff94e762a9c">stubHandlerExReserved5</a></div><div class="ttdeci">void stubHandlerExReserved5(void)</div></div>
+<div class="ttc" id="ainterBasNiveau_8h_html_ac99465ca0b3ae5ceca688cd0bd3b3a2a"><div class="ttname"><a href="interBasNiveau_8h.html#ac99465ca0b3ae5ceca688cd0bd3b3a2a">initialiserHandlersInterruption</a></div><div class="ttdeci">void initialiserHandlersInterruption(void *table, uint32_t taille)</div></div>
+<div class="ttc" id="ainterBasNiveau_8h_html_acd8ef72b577ea14e54a9a2c963a2e650"><div class="ttname"><a href="interBasNiveau_8h.html#acd8ef72b577ea14e54a9a2c963a2e650">stubHandlerExHypervisionInjection</a></div><div class="ttdeci">void stubHandlerExHypervisionInjection(void)</div></div>
+<div class="ttc" id="ainterBasNiveau_8h_html_ad1943929cb3660db3db8e8106bb229dd"><div class="ttname"><a href="interBasNiveau_8h.html#ad1943929cb3660db3db8e8106bb229dd">stubHandlerExReserved8</a></div><div class="ttdeci">void stubHandlerExReserved8(void)</div></div>
+<div class="ttc" id="ainterBasNiveau_8h_html_ad2192f3561a64d7ee582a88210a1c498"><div class="ttname"><a href="interBasNiveau_8h.html#ad2192f3561a64d7ee582a88210a1c498">stubHandlerExBreakpoint</a></div><div class="ttdeci">void stubHandlerExBreakpoint(void)</div></div>
+<div class="ttc" id="ainterBasNiveau_8h_html_ad2278d9aaf018136d5a478c03f758dc3"><div class="ttname"><a href="interBasNiveau_8h.html#ad2278d9aaf018136d5a478c03f758dc3">stubHandlerIRQ10</a></div><div class="ttdeci">void stubHandlerIRQ10(void)</div></div>
+<div class="ttc" id="ainterBasNiveau_8h_html_ad25dcc5af284896e4ac66d00b4497dc6"><div class="ttname"><a href="interBasNiveau_8h.html#ad25dcc5af284896e4ac66d00b4497dc6">stubHandlerExPageFault</a></div><div class="ttdeci">void stubHandlerExPageFault(void)</div></div>
+<div class="ttc" id="ainterBasNiveau_8h_html_ad3e86564d7ecf32aced790b68b99cf18"><div class="ttname"><a href="interBasNiveau_8h.html#ad3e86564d7ecf32aced790b68b99cf18">stubHandlerExFloatingPoint</a></div><div class="ttdeci">void stubHandlerExFloatingPoint(void)</div></div>
+<div class="ttc" id="ainterBasNiveau_8h_html_ad8e09db3803eaf9d226c3468dc24147a"><div class="ttname"><a href="interBasNiveau_8h.html#ad8e09db3803eaf9d226c3468dc24147a">stubHandlerExReserved3</a></div><div class="ttdeci">void stubHandlerExReserved3(void)</div></div>
+<div class="ttc" id="ainterBasNiveau_8h_html_ad974b301dcd029ed13c7f656f5a361f7"><div class="ttname"><a href="interBasNiveau_8h.html#ad974b301dcd029ed13c7f656f5a361f7">stubHandlerExBoundExceeded</a></div><div class="ttdeci">void stubHandlerExBoundExceeded(void)</div></div>
+<div class="ttc" id="ainterBasNiveau_8h_html_ade93d3d2ec4958e8361099ca91a32c18"><div class="ttname"><a href="interBasNiveau_8h.html#ade93d3d2ec4958e8361099ca91a32c18">stubHandlerExControlProtection</a></div><div class="ttdeci">void stubHandlerExControlProtection(void)</div></div>
+<div class="ttc" id="ainterBasNiveau_8h_html_ae282903a40ffd696d05f6f266f9da6c1"><div class="ttname"><a href="interBasNiveau_8h.html#ae282903a40ffd696d05f6f266f9da6c1">stubHandlerExReserved7</a></div><div class="ttdeci">void stubHandlerExReserved7(void)</div></div>
+<div class="ttc" id="ainterBasNiveau_8h_html_ae5d73b6a0c47b160e80a694f9d64e0c1"><div class="ttname"><a href="interBasNiveau_8h.html#ae5d73b6a0c47b160e80a694f9d64e0c1">stubHandlerExSegmentNotPresent</a></div><div class="ttdeci">void stubHandlerExSegmentNotPresent(void)</div></div>
+<div class="ttc" id="ainterBasNiveau_8h_html_ae9a43b32831f8cf032ddf86ff0f9d785"><div class="ttname"><a href="interBasNiveau_8h.html#ae9a43b32831f8cf032ddf86ff0f9d785">stubHandlerExDiv0</a></div><div class="ttdeci">void stubHandlerExDiv0(void)</div></div>
+<div class="ttc" id="ainterBasNiveau_8h_html_af013e6697a29ff17e005c06ca6040bf6"><div class="ttname"><a href="interBasNiveau_8h.html#af013e6697a29ff17e005c06ca6040bf6">stubHandlerExFloatingMachineCheck</a></div><div class="ttdeci">void stubHandlerExFloatingMachineCheck(void)</div></div>
+<div class="ttc" id="ainterBasNiveau_8h_html_af3e5b5751c7ecb28580cd14400aef4ca"><div class="ttname"><a href="interBasNiveau_8h.html#af3e5b5751c7ecb28580cd14400aef4ca">stubHandlerExSecurity</a></div><div class="ttdeci">void stubHandlerExSecurity(void)</div></div>
+<div class="ttc" id="ainterruptions_8c_html_a0d3279f4e117a28f75cc2593c5f2aba5"><div class="ttname"><a href="interruptions_8c.html#a0d3279f4e117a28f75cc2593c5f2aba5">gestionExceptionPanique</a></div><div class="ttdeci">void gestionExceptionPanique(TousRegistres registres, uint32_t numEx, uint32_t errCode, uint32_t eip, uint32_t cs, uint32_t eFlags)</div><div class="ttdoc">Décompte des interruptions reçues.</div><div class="ttdef"><b>Definition</b> <a href="interruptions_8c_source.html#l00384">interruptions.c:384</a></div></div>
+<div class="ttc" id="ainterruptions_8c_html_a1c93a6acba307c0339b7208e55cf9c29"><div class="ttname"><a href="interruptions_8c.html#a1c93a6acba307c0339b7208e55cf9c29">gestionInterruption</a></div><div class="ttdeci">void gestionInterruption(TousRegistres registres, uint32_t numIt, uint32_t eip, uint32_t cs, uint32_t eFlags)</div><div class="ttdoc">: Fonction de base de gestion d'une exception</div><div class="ttdef"><b>Definition</b> <a href="interruptions_8c_source.html#l00119">interruptions.c:119</a></div></div>
+<div class="ttc" id="ainterruptions_8c_html_a20b55997b895e2fad936573867a3d7a1"><div class="ttname"><a href="interruptions_8c.html#a20b55997b895e2fad936573867a3d7a1">fonctionDeGestionException</a></div><div class="ttdeci">FonctionGestionException fonctionDeGestionException[MANUX_NB_EXCEPTIONS]</div><div class="ttdoc">: la table de gestion des exceptions</div><div class="ttdef"><b>Definition</b> <a href="interruptions_8c_source.html#l00053">interruptions.c:53</a></div></div>
+<div class="ttc" id="ainterruptions_8c_html_a2b3e128e6ad8b47ada69d801721cfa47"><div class="ttname"><a href="interruptions_8c.html#a2b3e128e6ad8b47ada69d801721cfa47">afficherHexa</a></div><div class="ttdeci">#define afficherHexa(v, n, l, c)</div><div class="ttdef"><b>Definition</b> <a href="interruptions_8c_source.html#l00290">interruptions.c:290</a></div></div>
+<div class="ttc" id="ainterruptions_8c_html_a30b0f4c7aa0fe2acf51d23228cd34a38"><div class="ttname"><a href="interruptions_8c.html#a30b0f4c7aa0fe2acf51d23228cd34a38">definirFonctionGestionInterruption</a></div><div class="ttdeci">int definirFonctionGestionInterruption(int num, FonctionGestionInterruption fg)</div><div class="ttdef"><b>Definition</b> <a href="interruptions_8c_source.html#l00174">interruptions.c:174</a></div></div>
+<div class="ttc" id="ainterruptions_8c_html_a73d574ce1f622bf15d3fcf2eaed8e93f"><div class="ttname"><a href="interruptions_8c.html#a73d574ce1f622bf15d3fcf2eaed8e93f">afficherBin</a></div><div class="ttdeci">#define afficherBin(v, n, l, c)</div><div class="ttdef"><b>Definition</b> <a href="interruptions_8c_source.html#l00298">interruptions.c:298</a></div></div>
+<div class="ttc" id="ainterruptions_8c_html_a870c3dcd1f823849da17414d02f4d68d"><div class="ttname"><a href="interruptions_8c.html#a870c3dcd1f823849da17414d02f4d68d">handlerBasNiveauInterruption</a></div><div class="ttdeci">void * handlerBasNiveauInterruption[MANUX_NB_SOFT_INT]</div><div class="ttdoc">Une table (initialisée par la fonction initialiserHandlersInterruption de interBasNiveau....</div><div class="ttdef"><b>Definition</b> <a href="interruptions_8c_source.html#l00048">interruptions.c:48</a></div></div>
+<div class="ttc" id="ainterruptions_8c_html_a8bab70dd2ead4ff36a0c2de9b3d3aff8"><div class="ttname"><a href="interruptions_8c.html#a8bab70dd2ead4ff36a0c2de9b3d3aff8">initialiserIDT</a></div><div class="ttdeci">void initialiserIDT(void)</div><div class="ttdoc">! Initialiser l'IDT (Interrupt Description Table)</div><div class="ttdef"><b>Definition</b> <a href="interruptions_8c_source.html#l00185">interruptions.c:185</a></div></div>
+<div class="ttc" id="ainterruptions_8c_html_ab3c9e305eb5c9c6c64c7abf07eff9b72"><div class="ttname"><a href="interruptions_8c.html#ab3c9e305eb5c9c6c64c7abf07eff9b72">MANUX_NB_SOFT_INT</a></div><div class="ttdeci">#define MANUX_NB_SOFT_INT</div><div class="ttdoc">Combien y a-t-il d'interruptions logicielles ?</div><div class="ttdef"><b>Definition</b> <a href="interruptions_8c_source.html#l00040">interruptions.c:40</a></div></div>
+<div class="ttc" id="ainterruptions_8c_html_ab8ede39e92b659dc067644ea9a5d43ba"><div class="ttname"><a href="interruptions_8c.html#ab8ede39e92b659dc067644ea9a5d43ba">gestionException</a></div><div class="ttdeci">void gestionException(TousRegistres registres, uint32_t numEx, uint32_t errCode, uint32_t eip, uint32_t cs, uint32_t eFlags)</div><div class="ttdoc">: Fonction de base de gestion d'une exception</div><div class="ttdef"><b>Definition</b> <a href="interruptions_8c_source.html#l00083">interruptions.c:83</a></div></div>
+<div class="ttc" id="ainterruptions_8c_html_accd1d6580f267c1af47eaa7913458c1e"><div class="ttname"><a href="interruptions_8c.html#accd1d6580f267c1af47eaa7913458c1e">MANUX_SELECTEUR_SEGMENT_CODE</a></div><div class="ttdeci">#define MANUX_SELECTEUR_SEGMENT_CODE</div><div class="ttdef"><b>Definition</b> <a href="interruptions_8c_source.html#l00028">interruptions.c:28</a></div></div>
+<div class="ttc" id="ainterruptions_8c_html_af118ea95ebb0ba8b09e58ac1e7b328c5"><div class="ttname"><a href="interruptions_8c.html#af118ea95ebb0ba8b09e58ac1e7b328c5">fonctionDeGestionInterruption</a></div><div class="ttdeci">FonctionGestionInterruption fonctionDeGestionInterruption[MANUX_NB_SOFT_INT]</div><div class="ttdef"><b>Definition</b> <a href="interruptions_8c_source.html#l00096">interruptions.c:96</a></div></div>
+<div class="ttc" id="aio_8h_html"><div class="ttname"><a href="io_8h.html">io.h</a></div></div>
+<div class="ttc" id="aio_8h_html_a4f4a2af12435f72838eae7049d0ca6ee"><div class="ttname"><a href="io_8h.html#a4f4a2af12435f72838eae7049d0ca6ee">inb</a></div><div class="ttdeci">#define inb(port, adresseOctet)</div><div class="ttdoc">Lecture d'un octet depuis un port.</div><div class="ttdef"><b>Definition</b> <a href="io_8h_source.html#l00019">io.h:19</a></div></div>
+<div class="ttc" id="amain-bootreg_8c_html_add06ad5d8520e7cff4ff84b2811c0982"><div class="ttname"><a href="main-bootreg_8c.html#add06ad5d8520e7cff4ff84b2811c0982">c</a></div><div class="ttdeci">uint16_t c</div><div class="ttdef"><b>Definition</b> <a href="main-bootreg_8c_source.html#l00024">main-bootreg.c:24</a></div></div>
+<div class="ttc" id="amain-registre_8c_html_aaa0e9a03072c04ebe2d49f53bc7bc785"><div class="ttname"><a href="main-registre_8c.html#aaa0e9a03072c04ebe2d49f53bc7bc785">d</a></div><div class="ttdeci">uint16_t d</div><div class="ttdef"><b>Definition</b> <a href="main-registre_8c_source.html#l00023">main-registre.c:23</a></div></div>
+<div class="ttc" id="amanux_2debug_8h_html"><div class="ttname"><a href="manux_2debug_8h.html">debug.h</a></div></div>
+<div class="ttc" id="amanux_2debug_8h_html_a3153a272f18d0f805028fce7e4337b53"><div class="ttname"><a href="manux_2debug_8h.html#a3153a272f18d0f805028fce7e4337b53">assert</a></div><div class="ttdeci">#define assert(cond)</div><div class="ttdef"><b>Definition</b> <a href="manux_2debug_8h_source.html#l00126">debug.h:126</a></div></div>
+<div class="ttc" id="amanux_2intel-8259a_8h_html"><div class="ttname"><a href="manux_2intel-8259a_8h.html">intel-8259a.h</a></div></div>
+<div class="ttc" id="apc-i386_8h_html_aa16fe4051fc8254307ded29de196bbfc"><div class="ttname"><a href="pc-i386_8h.html#aa16fe4051fc8254307ded29de196bbfc">MANUX_INT_BASE_IRQ</a></div><div class="ttdeci">#define MANUX_INT_BASE_IRQ</div><div class="ttdef"><b>Definition</b> <a href="pc-i386_8h_source.html#l00033">pc-i386.h:33</a></div></div>
+<div class="ttc" id="apc-i386_8h_html_ab5548f00ea513aad00307cef92ac24ac"><div class="ttname"><a href="pc-i386_8h.html#ab5548f00ea513aad00307cef92ac24ac">MANUX_NB_INTERRUPTIONS</a></div><div class="ttdeci">#define MANUX_NB_INTERRUPTIONS</div><div class="ttdef"><b>Definition</b> <a href="pc-i386_8h_source.html#l00025">pc-i386.h:25</a></div></div>
+<div class="ttc" id="apc-i386_8h_html_add17ebfce684a3313a36a88096f7cdcb"><div class="ttname"><a href="pc-i386_8h.html#add17ebfce684a3313a36a88096f7cdcb">MANUX_NB_EXCEPTIONS</a></div><div class="ttdeci">#define MANUX_NB_EXCEPTIONS</div><div class="ttdef"><b>Definition</b> <a href="pc-i386_8h_source.html#l00018">pc-i386.h:18</a></div></div>
+<div class="ttc" id="aplan-memoire-pc_8h_html_a3dac2f2810749b6bc48abc5444e83503"><div class="ttname"><a href="plan-memoire-pc_8h.html#a3dac2f2810749b6bc48abc5444e83503">MANUX_ADRESSE_IDT</a></div><div class="ttdeci">#define MANUX_ADRESSE_IDT</div><div class="ttdef"><b>Definition</b> <a href="plan-memoire-pc_8h_source.html#l00051">plan-memoire-pc.h:51</a></div></div>
+<div class="ttc" id="aprintk_8c_html_a751b71485e6bb228423b412943328232"><div class="ttname"><a href="printk_8c.html#a751b71485e6bb228423b412943328232">chiffre</a></div><div class="ttdeci">#define chiffre</div><div class="ttdef"><b>Definition</b> <a href="printk_8c_source.html#l00024">printk.c:24</a></div></div>
+<div class="ttc" id="ascheduler_8h_html"><div class="ttname"><a href="scheduler_8h.html">scheduler.h</a></div></div>
+<div class="ttc" id="asegment_8c_html_aa7b2be909929911d7772352d013a9480"><div class="ttname"><a href="segment_8c.html#aa7b2be909929911d7772352d013a9480">gdtSysteme</a></div><div class="ttdeci">DescriptorTable * gdtSysteme</div><div class="ttdef"><b>Definition</b> <a href="segment_8c_source.html#l00012">segment.c:12</a></div></div>
+<div class="ttc" id="asegment_8h_html"><div class="ttname"><a href="segment_8h.html">segment.h</a></div></div>
+<div class="ttc" id="astructInterruptGate_html_a105c008658bc429a6f77accc49fd6fad"><div class="ttname"><a href="structInterruptGate.html#a105c008658bc429a6f77accc49fd6fad">InterruptGate::selSegment</a></div><div class="ttdeci">uint16_t selSegment</div><div class="ttdef"><b>Definition</b> <a href="include_2manux_2interruptions_8h_source.html#l00026">interruptions.h:26</a></div></div>
+<div class="ttc" id="astructInterruptGate_html_a7c47db2e430453edb02fb7db16860ec9"><div class="ttname"><a href="structInterruptGate.html#a7c47db2e430453edb02fb7db16860ec9">InterruptGate::offsetFort</a></div><div class="ttdeci">uint16_t offsetFort</div><div class="ttdef"><b>Definition</b> <a href="include_2manux_2interruptions_8h_source.html#l00028">interruptions.h:28</a></div></div>
+<div class="ttc" id="astructInterruptGate_html_a8f6998191d4546fa0c7540de8ee34a34"><div class="ttname"><a href="structInterruptGate.html#a8f6998191d4546fa0c7540de8ee34a34">InterruptGate::offsetFaible</a></div><div class="ttdeci">uint16_t offsetFaible</div><div class="ttdef"><b>Definition</b> <a href="include_2manux_2interruptions_8h_source.html#l00025">interruptions.h:25</a></div></div>
+<div class="ttc" id="astructInterruptGate_html_acc9c27d134401dcf59daa9a3f8c4914b"><div class="ttname"><a href="structInterruptGate.html#acc9c27d134401dcf59daa9a3f8c4914b">InterruptGate::parametres</a></div><div class="ttdeci">uint16_t parametres</div><div class="ttdef"><b>Definition</b> <a href="include_2manux_2interruptions_8h_source.html#l00027">interruptions.h:27</a></div></div>
+<div class="ttc" id="astruct__DescTSS_html_a79edebb6f912c512b000cb1cce719725"><div class="ttname"><a href="struct__DescTSS.html#a79edebb6f912c512b000cb1cce719725">_DescTSS::baseFaible</a></div><div class="ttdeci">uint16_t baseFaible</div><div class="ttdef"><b>Definition</b> <a href="segment_8h_source.html#l00028">segment.h:28</a></div></div>
+<div class="ttc" id="astruct__DescTSS_html_ab5b1064213c68bb2cb9d07b5204fcecf"><div class="ttname"><a href="struct__DescTSS.html#ab5b1064213c68bb2cb9d07b5204fcecf">_DescTSS::baseInter</a></div><div class="ttdeci">uint8_t baseInter</div><div class="ttdef"><b>Definition</b> <a href="segment_8h_source.html#l00029">segment.h:29</a></div></div>
+<div class="ttc" id="astruct__DescTSS_html_af68c88388d2109c9eda98ebc2eb0dd1d"><div class="ttname"><a href="struct__DescTSS.html#af68c88388d2109c9eda98ebc2eb0dd1d">_DescTSS::baseFort</a></div><div class="ttdeci">uint8_t baseFort</div><div class="ttdef"><b>Definition</b> <a href="segment_8h_source.html#l00032">segment.h:32</a></div></div>
+<div class="ttc" id="astruct__DescriptorTable_html_a315f73e13af36b7bdd5269d4cd5cb58c"><div class="ttname"><a href="struct__DescriptorTable.html#a315f73e13af36b7bdd5269d4cd5cb58c">_DescriptorTable::descripteur</a></div><div class="ttdeci">Descripteur descripteur[0]</div><div class="ttdef"><b>Definition</b> <a href="segment_8h_source.html#l00047">segment.h:47</a></div></div>
+<div class="ttc" id="astruct__IntelTSS_html"><div class="ttname"><a href="struct__IntelTSS.html">_IntelTSS</a></div><div class="ttdef"><b>Definition</b> <a href="tache_8h_source.html#l00044">tache.h:44</a></div></div>
+<div class="ttc" id="astruct__IntelTSS_html_a415768fed14b2f2892c0ebc97fe3a19c"><div class="ttname"><a href="struct__IntelTSS.html#a415768fed14b2f2892c0ebc97fe3a19c">_IntelTSS::EDI</a></div><div class="ttdeci">uint32_t EDI</div><div class="ttdef"><b>Definition</b> <a href="tache_8h_source.html#l00061">tache.h:61</a></div></div>
+<div class="ttc" id="astruct__IntelTSS_html_a8c4955d0d3666b75a5f64df1932a8d06"><div class="ttname"><a href="struct__IntelTSS.html#a8c4955d0d3666b75a5f64df1932a8d06">_IntelTSS::CR3</a></div><div class="ttdeci">uint32_t CR3</div><div class="ttdef"><b>Definition</b> <a href="tache_8h_source.html#l00056">tache.h:56</a></div></div>
+<div class="ttc" id="astruct__IntelTSS_html_a8fa9cbd06a966aa7c3ff9766776f0a91"><div class="ttname"><a href="struct__IntelTSS.html#a8fa9cbd06a966aa7c3ff9766776f0a91">_IntelTSS::ESP</a></div><div class="ttdeci">uint32_t ESP</div><div class="ttdef"><b>Definition</b> <a href="tache_8h_source.html#l00060">tache.h:60</a></div></div>
+<div class="ttc" id="astruct__IntelTSS_html_a901f584553e7e508382537d7d4990379"><div class="ttname"><a href="struct__IntelTSS.html#a901f584553e7e508382537d7d4990379">_IntelTSS::SS</a></div><div class="ttdeci">uint16_t SS</div><div class="ttdef"><b>Definition</b> <a href="tache_8h_source.html#l00066">tache.h:66</a></div></div>
+<div class="ttc" id="astruct__IntelTSS_html_a9a46303559b055542469143ee41b03f5"><div class="ttname"><a href="struct__IntelTSS.html#a9a46303559b055542469143ee41b03f5">_IntelTSS::ESI</a></div><div class="ttdeci">uint32_t ESI</div><div class="ttdef"><b>Definition</b> <a href="tache_8h_source.html#l00061">tache.h:61</a></div></div>
+<div class="ttc" id="astruct__IntelTSS_html_accc00d25d6b1f932f2f0c72b3c7f522a"><div class="ttname"><a href="struct__IntelTSS.html#accc00d25d6b1f932f2f0c72b3c7f522a">_IntelTSS::DS</a></div><div class="ttdeci">uint16_t DS</div><div class="ttdef"><b>Definition</b> <a href="tache_8h_source.html#l00068">tache.h:68</a></div></div>
+<div class="ttc" id="atache_8h_html"><div class="ttname"><a href="tache_8h.html">tache.h</a></div></div>
+<div class="ttc" id="aunionIDTGate_html"><div class="ttname"><a href="unionIDTGate.html">IDTGate</a></div><div class="ttdef"><b>Definition</b> <a href="include_2manux_2interruptions_8h_source.html#l00044">interruptions.h:44</a></div></div>
+<div class="ttc" id="aunionIDTGate_html_a830d4393af0828c3ae284de03aa040b8"><div class="ttname"><a href="unionIDTGate.html#a830d4393af0828c3ae284de03aa040b8">IDTGate::itg</a></div><div class="ttdeci">InterruptGate itg</div><div class="ttdef"><b>Definition</b> <a href="include_2manux_2interruptions_8h_source.html#l00046">interruptions.h:46</a></div></div>
+<div class="ttc" id="aunion__Descripteur_html"><div class="ttname"><a href="union__Descripteur.html">_Descripteur</a></div><div class="ttdef"><b>Definition</b> <a href="segment_8h_source.html#l00035">segment.h:35</a></div></div>
+<div class="ttc" id="aunion__Descripteur_html_aebbba8ba52309981be3829a116d05df2"><div class="ttname"><a href="union__Descripteur.html#aebbba8ba52309981be3829a116d05df2">_Descripteur::dt</a></div><div class="ttdeci">DescTSS dt</div><div class="ttdef"><b>Definition</b> <a href="segment_8h_source.html#l00037">segment.h:37</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+GÃ©nÃ©rÃ© par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

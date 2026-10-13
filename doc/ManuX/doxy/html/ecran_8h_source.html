@@ -1,0 +1,187 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>My Project:  Fichier source de /home/manu/PROGRAMMATION/C/ManuX/include/manux/ecran.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">My Project
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function() { init_codefold(0); });
+/* @license-end */
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_7ae9ae23548caaa7aeb1f148c6e00073.html">manux</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle"><div class="title">ecran.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="ecran_8h.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#ifndef MANUX_ECRAN_DEF</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#define MANUX_ECRAN_DEF</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#include &lt;manux/config.h&gt;</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &lt;manux/types.h&gt;</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#include &lt;<a class="code" href="ascii_8h.html">manux/ascii.h</a>&gt;</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="preprocessor">#ifndef MANUX_ADRESSE_ECRAN</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="ecran_8h.html#a9ef01c49cb4a8dcc6b1ddb898d0c8ab9">   21</a></span><span class="preprocessor">#   define MANUX_ADRESSE_ECRAN 0xb8000</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="ecran_8h.html#ab2f128566f2e94b8f4b99ae450177cf6">   27</a></span><span class="preprocessor">#define MANUX_CON_SCREEN   (char *)MANUX_ADRESSE_ECRAN</span></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="ecran_8h.html#a2d2474bd7bcb1773d94f27ce4a99b622">   28</a></span><span class="preprocessor">#define MANUX_CON_COLONNES 80</span></div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno"><a class="line" href="ecran_8h.html#a37c13c6455313f3e19c0b21ee08dba5f">   29</a></span><span class="preprocessor">#define MANUX_CON_LIGNES   25</span></div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
+<div class="foldopen" id="foldopen00036" data-start="{" data-end="};">
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno"><a class="line" href="ecran_8h.html#aa304d0ca681f782b1d7735da33037dd7">   36</a></span><span class="keyword">typedef</span> <span class="keyword">enum</span> {</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="ecran_8h.html#aa304d0ca681f782b1d7735da33037dd7a373f12dab5d4f6c611b4089ba53f92ab">   37</a></span>   <a class="code hl_enumvalue" href="ecran_8h.html#aa304d0ca681f782b1d7735da33037dd7a373f12dab5d4f6c611b4089ba53f92ab">COUL_TXT_NOIR</a>             = 0x00,</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno"><a class="line" href="ecran_8h.html#aa304d0ca681f782b1d7735da33037dd7a94dea63574355f8d3b35ba4e48490197">   38</a></span>   <a class="code hl_enumvalue" href="ecran_8h.html#aa304d0ca681f782b1d7735da33037dd7a94dea63574355f8d3b35ba4e48490197">COUL_TXT_BLEU</a>             = 0x01,</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno"><a class="line" href="ecran_8h.html#aa304d0ca681f782b1d7735da33037dd7a9586c08f3a67b64d0002b7025bb75b35">   39</a></span>   <a class="code hl_enumvalue" href="ecran_8h.html#aa304d0ca681f782b1d7735da33037dd7a9586c08f3a67b64d0002b7025bb75b35">COUL_TXT_VERT</a>             = 0x02,</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno"><a class="line" href="ecran_8h.html#aa304d0ca681f782b1d7735da33037dd7afddd9d809729970803212c058341f015">   40</a></span>   <a class="code hl_enumvalue" href="ecran_8h.html#aa304d0ca681f782b1d7735da33037dd7afddd9d809729970803212c058341f015">COUL_TXT_CYAN</a>             = 0x03,</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno"><a class="line" href="ecran_8h.html#aa304d0ca681f782b1d7735da33037dd7acbd2b27f81348d3340c852d86f87201d">   41</a></span>   <a class="code hl_enumvalue" href="ecran_8h.html#aa304d0ca681f782b1d7735da33037dd7acbd2b27f81348d3340c852d86f87201d">COUL_TXT_ROUGE</a>            = 0x04,</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno"><a class="line" href="ecran_8h.html#aa304d0ca681f782b1d7735da33037dd7a8e9122b2915c1cddd182a8fd911bb9c8">   42</a></span>   <a class="code hl_enumvalue" href="ecran_8h.html#aa304d0ca681f782b1d7735da33037dd7a8e9122b2915c1cddd182a8fd911bb9c8">COUL_TXT_MAGENTA</a>          = 0x05,</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno"><a class="line" href="ecran_8h.html#aa304d0ca681f782b1d7735da33037dd7acaa6d25261447515401d2355c68435e4">   43</a></span>   <a class="code hl_enumvalue" href="ecran_8h.html#aa304d0ca681f782b1d7735da33037dd7acaa6d25261447515401d2355c68435e4">COUL_TXT_MARRON</a>           = 0x06,</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno"><a class="line" href="ecran_8h.html#aa304d0ca681f782b1d7735da33037dd7accbd14bad1583582f611def849a9e8e4">   44</a></span>   <a class="code hl_enumvalue" href="ecran_8h.html#aa304d0ca681f782b1d7735da33037dd7accbd14bad1583582f611def849a9e8e4">COUL_TXT_GRIS_CLAIR</a>       = 0x07,</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno"><a class="line" href="ecran_8h.html#aa304d0ca681f782b1d7735da33037dd7aac427ac734da7e4ca4eeedf0aa18122d">   45</a></span>   <a class="code hl_enumvalue" href="ecran_8h.html#aa304d0ca681f782b1d7735da33037dd7aac427ac734da7e4ca4eeedf0aa18122d">COUL_TXT_GRIS</a>             = 0x08,</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno"><a class="line" href="ecran_8h.html#aa304d0ca681f782b1d7735da33037dd7a0dfb3a1f815a9f14dd6b644916a0bd5b">   46</a></span>   <a class="code hl_enumvalue" href="ecran_8h.html#aa304d0ca681f782b1d7735da33037dd7a0dfb3a1f815a9f14dd6b644916a0bd5b">COUL_TXT_BLEU_CLAIR</a>       = 0x09,</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno"><a class="line" href="ecran_8h.html#aa304d0ca681f782b1d7735da33037dd7adf2e59b2c13eb2e865002d60111665cf">   47</a></span>   <a class="code hl_enumvalue" href="ecran_8h.html#aa304d0ca681f782b1d7735da33037dd7adf2e59b2c13eb2e865002d60111665cf">COUL_TXT_VERT_CLAIR</a>       = 0x0A,</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno"><a class="line" href="ecran_8h.html#aa304d0ca681f782b1d7735da33037dd7a38b820ca82b9e3bdfcff2856b04767e1">   48</a></span>   <a class="code hl_enumvalue" href="ecran_8h.html#aa304d0ca681f782b1d7735da33037dd7a38b820ca82b9e3bdfcff2856b04767e1">COUL_TXT_CYAN_CLAIR</a>       = 0x0B,</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno"><a class="line" href="ecran_8h.html#aa304d0ca681f782b1d7735da33037dd7aca43b9e7b8e150100cd9853c7bdd9693">   49</a></span>   <a class="code hl_enumvalue" href="ecran_8h.html#aa304d0ca681f782b1d7735da33037dd7aca43b9e7b8e150100cd9853c7bdd9693">COUL_TXT_ROUGE_CLAIR</a>      = 0x0C,</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno"><a class="line" href="ecran_8h.html#aa304d0ca681f782b1d7735da33037dd7a17adee25b265c356259b8d55a47131e3">   50</a></span>   <a class="code hl_enumvalue" href="ecran_8h.html#aa304d0ca681f782b1d7735da33037dd7a17adee25b265c356259b8d55a47131e3">COUL_TXT_MAGENTA_CLAIR</a>    = 0x0D,</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno"><a class="line" href="ecran_8h.html#aa304d0ca681f782b1d7735da33037dd7a2dedea63ce13170e0c4057e7abdb4d34">   51</a></span>   <a class="code hl_enumvalue" href="ecran_8h.html#aa304d0ca681f782b1d7735da33037dd7a2dedea63ce13170e0c4057e7abdb4d34">COUL_TXT_JAUNE</a>            = 0x0E,</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno"><a class="line" href="ecran_8h.html#aa304d0ca681f782b1d7735da33037dd7a695c7671d495aa177f99626642db678e">   52</a></span>   <a class="code hl_enumvalue" href="ecran_8h.html#aa304d0ca681f782b1d7735da33037dd7a695c7671d495aa177f99626642db678e">COUL_TXT_BLANC</a>            = 0x0F,</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno"><a class="line" href="ecran_8h.html#aa304d0ca681f782b1d7735da33037dd7ad1e9fec872384b719ad2aebee2449bc3">   53</a></span>   <a class="code hl_enumvalue" href="ecran_8h.html#aa304d0ca681f782b1d7735da33037dd7ad1e9fec872384b719ad2aebee2449bc3">COUL_FOND_NOIR</a>            = 0x00,</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno"><a class="line" href="ecran_8h.html#aa304d0ca681f782b1d7735da33037dd7a23bfccf6d49f0bbbffe51ff39573d0c1">   54</a></span>   <a class="code hl_enumvalue" href="ecran_8h.html#aa304d0ca681f782b1d7735da33037dd7a23bfccf6d49f0bbbffe51ff39573d0c1">COUL_FOND_BLEU</a>            = 0x10,</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno"><a class="line" href="ecran_8h.html#aa304d0ca681f782b1d7735da33037dd7a4be85a0dcd2fbf5947b7bc4df4b7a931">   55</a></span>   <a class="code hl_enumvalue" href="ecran_8h.html#aa304d0ca681f782b1d7735da33037dd7a4be85a0dcd2fbf5947b7bc4df4b7a931">COUL_FOND_VERT</a>            = 0x20,</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno"><a class="line" href="ecran_8h.html#aa304d0ca681f782b1d7735da33037dd7a40608734c22415dbd0da25bb3eef8ef6">   56</a></span>   <a class="code hl_enumvalue" href="ecran_8h.html#aa304d0ca681f782b1d7735da33037dd7a40608734c22415dbd0da25bb3eef8ef6">COUL_FOND_CYAN</a>            = 0x30,</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno"><a class="line" href="ecran_8h.html#aa304d0ca681f782b1d7735da33037dd7a84a79a2d6e322839d7ac78a472dc09a2">   57</a></span>   <a class="code hl_enumvalue" href="ecran_8h.html#aa304d0ca681f782b1d7735da33037dd7a84a79a2d6e322839d7ac78a472dc09a2">COUL_FOND_ROUGE</a>           = 0x40,</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno"><a class="line" href="ecran_8h.html#aa304d0ca681f782b1d7735da33037dd7a3c9f6fc0dcfb8cd101b2f38b97ce0463">   58</a></span>   <a class="code hl_enumvalue" href="ecran_8h.html#aa304d0ca681f782b1d7735da33037dd7a3c9f6fc0dcfb8cd101b2f38b97ce0463">COUL_FOND_MAGENTA</a>         = 0x50,</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno"><a class="line" href="ecran_8h.html#aa304d0ca681f782b1d7735da33037dd7ae0f079def8b121e94d5e50228418c378">   59</a></span>   <a class="code hl_enumvalue" href="ecran_8h.html#aa304d0ca681f782b1d7735da33037dd7ae0f079def8b121e94d5e50228418c378">COUL_FOND_MARRON</a>          = 0x60,</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno"><a class="line" href="ecran_8h.html#aa304d0ca681f782b1d7735da33037dd7abe31678d60c08bcff1e54ee0f8f5a4a3">   60</a></span>   <a class="code hl_enumvalue" href="ecran_8h.html#aa304d0ca681f782b1d7735da33037dd7abe31678d60c08bcff1e54ee0f8f5a4a3">COUL_FOND_GRIS_CLAIR</a>      = 0x70,</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno"><a class="line" href="ecran_8h.html#aa304d0ca681f782b1d7735da33037dd7a44e2ebd19633406f388ae93d63d4f76c">   61</a></span>   <a class="code hl_enumvalue" href="ecran_8h.html#aa304d0ca681f782b1d7735da33037dd7a44e2ebd19633406f388ae93d63d4f76c">COUL_FOND_GRIS</a>            = 0x80,</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno"><a class="line" href="ecran_8h.html#aa304d0ca681f782b1d7735da33037dd7a0535f370390c3e7531b10340ed2a6c43">   62</a></span>   <a class="code hl_enumvalue" href="ecran_8h.html#aa304d0ca681f782b1d7735da33037dd7a0535f370390c3e7531b10340ed2a6c43">COUL_FOND_BLEU_CLAIR</a>      = 0x90,</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno"><a class="line" href="ecran_8h.html#aa304d0ca681f782b1d7735da33037dd7adeefb75f129966c09bc08e62cb68e464">   63</a></span>   <a class="code hl_enumvalue" href="ecran_8h.html#aa304d0ca681f782b1d7735da33037dd7adeefb75f129966c09bc08e62cb68e464">COUL_FOND_VERT_CLAIR</a>      = 0xA0,</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno"><a class="line" href="ecran_8h.html#aa304d0ca681f782b1d7735da33037dd7a385b93fa0d37db2fb5770c198a4d6ddf">   64</a></span>   <a class="code hl_enumvalue" href="ecran_8h.html#aa304d0ca681f782b1d7735da33037dd7a385b93fa0d37db2fb5770c198a4d6ddf">COUL_FOND_CYAN_CLAIR</a>      = 0xB0,</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno"><a class="line" href="ecran_8h.html#aa304d0ca681f782b1d7735da33037dd7ae8e9d862da18ffbbb69474203db56276">   65</a></span>   <a class="code hl_enumvalue" href="ecran_8h.html#aa304d0ca681f782b1d7735da33037dd7ae8e9d862da18ffbbb69474203db56276">COUL_FOND_ROUGE_CLAIR</a>     = 0xC0,</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno"><a class="line" href="ecran_8h.html#aa304d0ca681f782b1d7735da33037dd7a7745c772f64d621a8c0baf4a604f806f">   66</a></span>   <a class="code hl_enumvalue" href="ecran_8h.html#aa304d0ca681f782b1d7735da33037dd7a7745c772f64d621a8c0baf4a604f806f">COUL_FOND_MAGENTA_CLAIR</a>   = 0xD0,</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno"><a class="line" href="ecran_8h.html#aa304d0ca681f782b1d7735da33037dd7a416d6f5d1cbf3d38f4a271fe4ada6bc2">   67</a></span>   <a class="code hl_enumvalue" href="ecran_8h.html#aa304d0ca681f782b1d7735da33037dd7a416d6f5d1cbf3d38f4a271fe4ada6bc2">COUL_FOND_JAUNE</a>           = 0xE0,</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno"><a class="line" href="ecran_8h.html#aa304d0ca681f782b1d7735da33037dd7a0ea65930728ab16fff70be212005a797">   68</a></span>   <a class="code hl_enumvalue" href="ecran_8h.html#aa304d0ca681f782b1d7735da33037dd7a0ea65930728ab16fff70be212005a797">COUL_FOND_BLANC</a>           = 0xF0,</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>   <a class="code hl_enumvalue" href="ecran_8h.html#aa304d0ca681f782b1d7735da33037dd7a9ecf98fed31c03e8896447e590f5f3b4">COUL_CLIGNOTANT</a>           = 0x80</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno"><a class="line" href="ecran_8h.html#aa304d0ca681f782b1d7735da33037dd7a9ecf98fed31c03e8896447e590f5f3b4">   70</a></span>} <a class="code hl_enumeration" href="ecran_8h.html#aa304d0ca681f782b1d7735da33037dd7">Couleur</a>;</div>
+</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span> </div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span><span class="preprocessor">#ifndef MANUX_COULEUR_TEXTE</span></div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno"><a class="line" href="ecran_8h.html#ab9f401a398c39bc8735890e0e47c3fbb">   78</a></span><span class="preprocessor">#   define MANUX_COULEUR_TEXTE COUL_TXT_VERT</span></div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span><span class="preprocessor">#ifndef MANUX_COULEUR_FOND</span></div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno"><a class="line" href="ecran_8h.html#acfbf1901075a9fab9d597f747749f7ac">   81</a></span><span class="preprocessor">#   define MANUX_COULEUR_FOND COUL_FOND_MARRON</span></div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span> </div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span><span class="preprocessor">#endif</span></div>
+<div class="ttc" id="aascii_8h_html"><div class="ttname"><a href="ascii_8h.html">ascii.h</a></div><div class="ttdoc">Définition des codes ASCII (C) Manu Chaput 2026-2026.</div></div>
+<div class="ttc" id="aecran_8h_html_aa304d0ca681f782b1d7735da33037dd7"><div class="ttname"><a href="ecran_8h.html#aa304d0ca681f782b1d7735da33037dd7">Couleur</a></div><div class="ttdeci">Couleur</div><div class="ttdoc">Définition des couleurs utilisables pour l'affichage.</div><div class="ttdef"><b>Definition</b> <a href="ecran_8h_source.html#l00036">ecran.h:36</a></div></div>
+<div class="ttc" id="aecran_8h_html_aa304d0ca681f782b1d7735da33037dd7a0535f370390c3e7531b10340ed2a6c43"><div class="ttname"><a href="ecran_8h.html#aa304d0ca681f782b1d7735da33037dd7a0535f370390c3e7531b10340ed2a6c43">COUL_FOND_BLEU_CLAIR</a></div><div class="ttdeci">@ COUL_FOND_BLEU_CLAIR</div><div class="ttdef"><b>Definition</b> <a href="ecran_8h_source.html#l00062">ecran.h:62</a></div></div>
+<div class="ttc" id="aecran_8h_html_aa304d0ca681f782b1d7735da33037dd7a0dfb3a1f815a9f14dd6b644916a0bd5b"><div class="ttname"><a href="ecran_8h.html#aa304d0ca681f782b1d7735da33037dd7a0dfb3a1f815a9f14dd6b644916a0bd5b">COUL_TXT_BLEU_CLAIR</a></div><div class="ttdeci">@ COUL_TXT_BLEU_CLAIR</div><div class="ttdef"><b>Definition</b> <a href="ecran_8h_source.html#l00046">ecran.h:46</a></div></div>
+<div class="ttc" id="aecran_8h_html_aa304d0ca681f782b1d7735da33037dd7a0ea65930728ab16fff70be212005a797"><div class="ttname"><a href="ecran_8h.html#aa304d0ca681f782b1d7735da33037dd7a0ea65930728ab16fff70be212005a797">COUL_FOND_BLANC</a></div><div class="ttdeci">@ COUL_FOND_BLANC</div><div class="ttdef"><b>Definition</b> <a href="ecran_8h_source.html#l00068">ecran.h:68</a></div></div>
+<div class="ttc" id="aecran_8h_html_aa304d0ca681f782b1d7735da33037dd7a17adee25b265c356259b8d55a47131e3"><div class="ttname"><a href="ecran_8h.html#aa304d0ca681f782b1d7735da33037dd7a17adee25b265c356259b8d55a47131e3">COUL_TXT_MAGENTA_CLAIR</a></div><div class="ttdeci">@ COUL_TXT_MAGENTA_CLAIR</div><div class="ttdef"><b>Definition</b> <a href="ecran_8h_source.html#l00050">ecran.h:50</a></div></div>
+<div class="ttc" id="aecran_8h_html_aa304d0ca681f782b1d7735da33037dd7a23bfccf6d49f0bbbffe51ff39573d0c1"><div class="ttname"><a href="ecran_8h.html#aa304d0ca681f782b1d7735da33037dd7a23bfccf6d49f0bbbffe51ff39573d0c1">COUL_FOND_BLEU</a></div><div class="ttdeci">@ COUL_FOND_BLEU</div><div class="ttdef"><b>Definition</b> <a href="ecran_8h_source.html#l00054">ecran.h:54</a></div></div>
+<div class="ttc" id="aecran_8h_html_aa304d0ca681f782b1d7735da33037dd7a2dedea63ce13170e0c4057e7abdb4d34"><div class="ttname"><a href="ecran_8h.html#aa304d0ca681f782b1d7735da33037dd7a2dedea63ce13170e0c4057e7abdb4d34">COUL_TXT_JAUNE</a></div><div class="ttdeci">@ COUL_TXT_JAUNE</div><div class="ttdef"><b>Definition</b> <a href="ecran_8h_source.html#l00051">ecran.h:51</a></div></div>
+<div class="ttc" id="aecran_8h_html_aa304d0ca681f782b1d7735da33037dd7a373f12dab5d4f6c611b4089ba53f92ab"><div class="ttname"><a href="ecran_8h.html#aa304d0ca681f782b1d7735da33037dd7a373f12dab5d4f6c611b4089ba53f92ab">COUL_TXT_NOIR</a></div><div class="ttdeci">@ COUL_TXT_NOIR</div><div class="ttdef"><b>Definition</b> <a href="ecran_8h_source.html#l00037">ecran.h:37</a></div></div>
+<div class="ttc" id="aecran_8h_html_aa304d0ca681f782b1d7735da33037dd7a385b93fa0d37db2fb5770c198a4d6ddf"><div class="ttname"><a href="ecran_8h.html#aa304d0ca681f782b1d7735da33037dd7a385b93fa0d37db2fb5770c198a4d6ddf">COUL_FOND_CYAN_CLAIR</a></div><div class="ttdeci">@ COUL_FOND_CYAN_CLAIR</div><div class="ttdef"><b>Definition</b> <a href="ecran_8h_source.html#l00064">ecran.h:64</a></div></div>
+<div class="ttc" id="aecran_8h_html_aa304d0ca681f782b1d7735da33037dd7a38b820ca82b9e3bdfcff2856b04767e1"><div class="ttname"><a href="ecran_8h.html#aa304d0ca681f782b1d7735da33037dd7a38b820ca82b9e3bdfcff2856b04767e1">COUL_TXT_CYAN_CLAIR</a></div><div class="ttdeci">@ COUL_TXT_CYAN_CLAIR</div><div class="ttdef"><b>Definition</b> <a href="ecran_8h_source.html#l00048">ecran.h:48</a></div></div>
+<div class="ttc" id="aecran_8h_html_aa304d0ca681f782b1d7735da33037dd7a3c9f6fc0dcfb8cd101b2f38b97ce0463"><div class="ttname"><a href="ecran_8h.html#aa304d0ca681f782b1d7735da33037dd7a3c9f6fc0dcfb8cd101b2f38b97ce0463">COUL_FOND_MAGENTA</a></div><div class="ttdeci">@ COUL_FOND_MAGENTA</div><div class="ttdef"><b>Definition</b> <a href="ecran_8h_source.html#l00058">ecran.h:58</a></div></div>
+<div class="ttc" id="aecran_8h_html_aa304d0ca681f782b1d7735da33037dd7a40608734c22415dbd0da25bb3eef8ef6"><div class="ttname"><a href="ecran_8h.html#aa304d0ca681f782b1d7735da33037dd7a40608734c22415dbd0da25bb3eef8ef6">COUL_FOND_CYAN</a></div><div class="ttdeci">@ COUL_FOND_CYAN</div><div class="ttdef"><b>Definition</b> <a href="ecran_8h_source.html#l00056">ecran.h:56</a></div></div>
+<div class="ttc" id="aecran_8h_html_aa304d0ca681f782b1d7735da33037dd7a416d6f5d1cbf3d38f4a271fe4ada6bc2"><div class="ttname"><a href="ecran_8h.html#aa304d0ca681f782b1d7735da33037dd7a416d6f5d1cbf3d38f4a271fe4ada6bc2">COUL_FOND_JAUNE</a></div><div class="ttdeci">@ COUL_FOND_JAUNE</div><div class="ttdef"><b>Definition</b> <a href="ecran_8h_source.html#l00067">ecran.h:67</a></div></div>
+<div class="ttc" id="aecran_8h_html_aa304d0ca681f782b1d7735da33037dd7a44e2ebd19633406f388ae93d63d4f76c"><div class="ttname"><a href="ecran_8h.html#aa304d0ca681f782b1d7735da33037dd7a44e2ebd19633406f388ae93d63d4f76c">COUL_FOND_GRIS</a></div><div class="ttdeci">@ COUL_FOND_GRIS</div><div class="ttdef"><b>Definition</b> <a href="ecran_8h_source.html#l00061">ecran.h:61</a></div></div>
+<div class="ttc" id="aecran_8h_html_aa304d0ca681f782b1d7735da33037dd7a4be85a0dcd2fbf5947b7bc4df4b7a931"><div class="ttname"><a href="ecran_8h.html#aa304d0ca681f782b1d7735da33037dd7a4be85a0dcd2fbf5947b7bc4df4b7a931">COUL_FOND_VERT</a></div><div class="ttdeci">@ COUL_FOND_VERT</div><div class="ttdef"><b>Definition</b> <a href="ecran_8h_source.html#l00055">ecran.h:55</a></div></div>
+<div class="ttc" id="aecran_8h_html_aa304d0ca681f782b1d7735da33037dd7a695c7671d495aa177f99626642db678e"><div class="ttname"><a href="ecran_8h.html#aa304d0ca681f782b1d7735da33037dd7a695c7671d495aa177f99626642db678e">COUL_TXT_BLANC</a></div><div class="ttdeci">@ COUL_TXT_BLANC</div><div class="ttdef"><b>Definition</b> <a href="ecran_8h_source.html#l00052">ecran.h:52</a></div></div>
+<div class="ttc" id="aecran_8h_html_aa304d0ca681f782b1d7735da33037dd7a7745c772f64d621a8c0baf4a604f806f"><div class="ttname"><a href="ecran_8h.html#aa304d0ca681f782b1d7735da33037dd7a7745c772f64d621a8c0baf4a604f806f">COUL_FOND_MAGENTA_CLAIR</a></div><div class="ttdeci">@ COUL_FOND_MAGENTA_CLAIR</div><div class="ttdef"><b>Definition</b> <a href="ecran_8h_source.html#l00066">ecran.h:66</a></div></div>
+<div class="ttc" id="aecran_8h_html_aa304d0ca681f782b1d7735da33037dd7a84a79a2d6e322839d7ac78a472dc09a2"><div class="ttname"><a href="ecran_8h.html#aa304d0ca681f782b1d7735da33037dd7a84a79a2d6e322839d7ac78a472dc09a2">COUL_FOND_ROUGE</a></div><div class="ttdeci">@ COUL_FOND_ROUGE</div><div class="ttdef"><b>Definition</b> <a href="ecran_8h_source.html#l00057">ecran.h:57</a></div></div>
+<div class="ttc" id="aecran_8h_html_aa304d0ca681f782b1d7735da33037dd7a8e9122b2915c1cddd182a8fd911bb9c8"><div class="ttname"><a href="ecran_8h.html#aa304d0ca681f782b1d7735da33037dd7a8e9122b2915c1cddd182a8fd911bb9c8">COUL_TXT_MAGENTA</a></div><div class="ttdeci">@ COUL_TXT_MAGENTA</div><div class="ttdef"><b>Definition</b> <a href="ecran_8h_source.html#l00042">ecran.h:42</a></div></div>
+<div class="ttc" id="aecran_8h_html_aa304d0ca681f782b1d7735da33037dd7a94dea63574355f8d3b35ba4e48490197"><div class="ttname"><a href="ecran_8h.html#aa304d0ca681f782b1d7735da33037dd7a94dea63574355f8d3b35ba4e48490197">COUL_TXT_BLEU</a></div><div class="ttdeci">@ COUL_TXT_BLEU</div><div class="ttdef"><b>Definition</b> <a href="ecran_8h_source.html#l00038">ecran.h:38</a></div></div>
+<div class="ttc" id="aecran_8h_html_aa304d0ca681f782b1d7735da33037dd7a9586c08f3a67b64d0002b7025bb75b35"><div class="ttname"><a href="ecran_8h.html#aa304d0ca681f782b1d7735da33037dd7a9586c08f3a67b64d0002b7025bb75b35">COUL_TXT_VERT</a></div><div class="ttdeci">@ COUL_TXT_VERT</div><div class="ttdef"><b>Definition</b> <a href="ecran_8h_source.html#l00039">ecran.h:39</a></div></div>
+<div class="ttc" id="aecran_8h_html_aa304d0ca681f782b1d7735da33037dd7a9ecf98fed31c03e8896447e590f5f3b4"><div class="ttname"><a href="ecran_8h.html#aa304d0ca681f782b1d7735da33037dd7a9ecf98fed31c03e8896447e590f5f3b4">COUL_CLIGNOTANT</a></div><div class="ttdeci">@ COUL_CLIGNOTANT</div><div class="ttdef"><b>Definition</b> <a href="ecran_8h_source.html#l00070">ecran.h:69</a></div></div>
+<div class="ttc" id="aecran_8h_html_aa304d0ca681f782b1d7735da33037dd7aac427ac734da7e4ca4eeedf0aa18122d"><div class="ttname"><a href="ecran_8h.html#aa304d0ca681f782b1d7735da33037dd7aac427ac734da7e4ca4eeedf0aa18122d">COUL_TXT_GRIS</a></div><div class="ttdeci">@ COUL_TXT_GRIS</div><div class="ttdef"><b>Definition</b> <a href="ecran_8h_source.html#l00045">ecran.h:45</a></div></div>
+<div class="ttc" id="aecran_8h_html_aa304d0ca681f782b1d7735da33037dd7abe31678d60c08bcff1e54ee0f8f5a4a3"><div class="ttname"><a href="ecran_8h.html#aa304d0ca681f782b1d7735da33037dd7abe31678d60c08bcff1e54ee0f8f5a4a3">COUL_FOND_GRIS_CLAIR</a></div><div class="ttdeci">@ COUL_FOND_GRIS_CLAIR</div><div class="ttdef"><b>Definition</b> <a href="ecran_8h_source.html#l00060">ecran.h:60</a></div></div>
+<div class="ttc" id="aecran_8h_html_aa304d0ca681f782b1d7735da33037dd7aca43b9e7b8e150100cd9853c7bdd9693"><div class="ttname"><a href="ecran_8h.html#aa304d0ca681f782b1d7735da33037dd7aca43b9e7b8e150100cd9853c7bdd9693">COUL_TXT_ROUGE_CLAIR</a></div><div class="ttdeci">@ COUL_TXT_ROUGE_CLAIR</div><div class="ttdef"><b>Definition</b> <a href="ecran_8h_source.html#l00049">ecran.h:49</a></div></div>
+<div class="ttc" id="aecran_8h_html_aa304d0ca681f782b1d7735da33037dd7acaa6d25261447515401d2355c68435e4"><div class="ttname"><a href="ecran_8h.html#aa304d0ca681f782b1d7735da33037dd7acaa6d25261447515401d2355c68435e4">COUL_TXT_MARRON</a></div><div class="ttdeci">@ COUL_TXT_MARRON</div><div class="ttdef"><b>Definition</b> <a href="ecran_8h_source.html#l00043">ecran.h:43</a></div></div>
+<div class="ttc" id="aecran_8h_html_aa304d0ca681f782b1d7735da33037dd7acbd2b27f81348d3340c852d86f87201d"><div class="ttname"><a href="ecran_8h.html#aa304d0ca681f782b1d7735da33037dd7acbd2b27f81348d3340c852d86f87201d">COUL_TXT_ROUGE</a></div><div class="ttdeci">@ COUL_TXT_ROUGE</div><div class="ttdef"><b>Definition</b> <a href="ecran_8h_source.html#l00041">ecran.h:41</a></div></div>
+<div class="ttc" id="aecran_8h_html_aa304d0ca681f782b1d7735da33037dd7accbd14bad1583582f611def849a9e8e4"><div class="ttname"><a href="ecran_8h.html#aa304d0ca681f782b1d7735da33037dd7accbd14bad1583582f611def849a9e8e4">COUL_TXT_GRIS_CLAIR</a></div><div class="ttdeci">@ COUL_TXT_GRIS_CLAIR</div><div class="ttdef"><b>Definition</b> <a href="ecran_8h_source.html#l00044">ecran.h:44</a></div></div>
+<div class="ttc" id="aecran_8h_html_aa304d0ca681f782b1d7735da33037dd7ad1e9fec872384b719ad2aebee2449bc3"><div class="ttname"><a href="ecran_8h.html#aa304d0ca681f782b1d7735da33037dd7ad1e9fec872384b719ad2aebee2449bc3">COUL_FOND_NOIR</a></div><div class="ttdeci">@ COUL_FOND_NOIR</div><div class="ttdef"><b>Definition</b> <a href="ecran_8h_source.html#l00053">ecran.h:53</a></div></div>
+<div class="ttc" id="aecran_8h_html_aa304d0ca681f782b1d7735da33037dd7adeefb75f129966c09bc08e62cb68e464"><div class="ttname"><a href="ecran_8h.html#aa304d0ca681f782b1d7735da33037dd7adeefb75f129966c09bc08e62cb68e464">COUL_FOND_VERT_CLAIR</a></div><div class="ttdeci">@ COUL_FOND_VERT_CLAIR</div><div class="ttdef"><b>Definition</b> <a href="ecran_8h_source.html#l00063">ecran.h:63</a></div></div>
+<div class="ttc" id="aecran_8h_html_aa304d0ca681f782b1d7735da33037dd7adf2e59b2c13eb2e865002d60111665cf"><div class="ttname"><a href="ecran_8h.html#aa304d0ca681f782b1d7735da33037dd7adf2e59b2c13eb2e865002d60111665cf">COUL_TXT_VERT_CLAIR</a></div><div class="ttdeci">@ COUL_TXT_VERT_CLAIR</div><div class="ttdef"><b>Definition</b> <a href="ecran_8h_source.html#l00047">ecran.h:47</a></div></div>
+<div class="ttc" id="aecran_8h_html_aa304d0ca681f782b1d7735da33037dd7ae0f079def8b121e94d5e50228418c378"><div class="ttname"><a href="ecran_8h.html#aa304d0ca681f782b1d7735da33037dd7ae0f079def8b121e94d5e50228418c378">COUL_FOND_MARRON</a></div><div class="ttdeci">@ COUL_FOND_MARRON</div><div class="ttdef"><b>Definition</b> <a href="ecran_8h_source.html#l00059">ecran.h:59</a></div></div>
+<div class="ttc" id="aecran_8h_html_aa304d0ca681f782b1d7735da33037dd7ae8e9d862da18ffbbb69474203db56276"><div class="ttname"><a href="ecran_8h.html#aa304d0ca681f782b1d7735da33037dd7ae8e9d862da18ffbbb69474203db56276">COUL_FOND_ROUGE_CLAIR</a></div><div class="ttdeci">@ COUL_FOND_ROUGE_CLAIR</div><div class="ttdef"><b>Definition</b> <a href="ecran_8h_source.html#l00065">ecran.h:65</a></div></div>
+<div class="ttc" id="aecran_8h_html_aa304d0ca681f782b1d7735da33037dd7afddd9d809729970803212c058341f015"><div class="ttname"><a href="ecran_8h.html#aa304d0ca681f782b1d7735da33037dd7afddd9d809729970803212c058341f015">COUL_TXT_CYAN</a></div><div class="ttdeci">@ COUL_TXT_CYAN</div><div class="ttdef"><b>Definition</b> <a href="ecran_8h_source.html#l00040">ecran.h:40</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

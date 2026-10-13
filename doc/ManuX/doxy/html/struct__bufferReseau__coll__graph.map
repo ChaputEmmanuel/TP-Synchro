@@ -1,0 +1,7 @@
+<map id="_bufferReseau" name="_bufferReseau">
+<area shape="rect" id="Node000001" title="Défnition d&#39;un buffer réseau." alt="" coords="15,181,130,207"/>
+<area shape="rect" id="Node000002" href="$struct__ReseauInterface.html" title=" " alt="" coords="5,93,140,119"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="75,133,75,181,70,181,70,133"/>
+<area shape="rect" id="Node000003" href="$struct__ReseauPilote.html" title="Description d&#39;un pilote d&#39;interface réseau." alt="" coords="15,5,130,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="75,45,75,93,70,93,70,45"/>
+</map>

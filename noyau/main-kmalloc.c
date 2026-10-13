@@ -1,5 +1,6 @@
 /**
- *     Un exemple pitoyable de début de noyau.                               
+ * @file noyau/main-kmalloc.c
+ * @brief Un exemple de noyau utilisant les fonctions de kmalloc.
  *                                                                            
  *                                                     (C) Manu Chaput 2000-2023
  */
@@ -45,16 +46,14 @@ void testerKmalloc()
 void startManuX()
 {
    // Récupération des informations depuis le bootloader
-   bootloaderLireInfo();
-   
+   bootloaderInitialiser();
+
    // Initialisation de la console noyau
    consoleInitialisation();
 
+   // On peut initialiser la gestion de la mémoire
    initialiserMemoire(infoSysteme.memoireDeBase,
 		      infoSysteme.memoireEtendue);
-
-   /* Initilisation des descripteurs de segments */
-   //   initialiserGDT();
 
    // Initialsation du système kmalloc
    kmallocInitialisation();

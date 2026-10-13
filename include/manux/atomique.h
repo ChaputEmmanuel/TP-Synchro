@@ -1,15 +1,16 @@
-/*----------------------------------------------------------------------------*/
-/*      Définition des opérations atomiques de ManuX.                         */
-/*                                                                            */
-/*      A faire : déplacer des choses dans plusieurs fichiers thématiques.    */
-/*                                                  (C) Manu Chaput 2000-2023 */
-/*----------------------------------------------------------------------------*/
+/**
+ * @file atomique.h
+ *
+ * @brief Définition des opérations de synchronisation de ManuX.
+ *
+ *      A faire : déplacer des choses dans plusieurs fichiers thématiques.
+ *
+ *                                                    (C) Manu Chaput 2000-2024
+ */
 #ifndef ATOMIQUE_DEF
 #define ATOMIQUE_DEF
 
 #include <manux/types.h>
-#include <manux/tache.h>
-#include <manux/listetaches.h>  /* Pour les listes de tâches en attente */
 #include <manux/scheduler.h>    /* tacheEnCours */
 
 /*
@@ -64,34 +65,6 @@ static __inline__ booleen atomiqueTestInit(Atomique * atom, uint32_t val, uint32
 }
 
 /**
- * @brief Définition des exclusions mutuelles
- */
-typedef struct _ExclusionMutuelle {
-   Atomique   verrou;
-   ListeTache tachesEnAttente;
-#if defined(MANUX_ATOMIQUE_AUDIT)
-   int        nbEntrees;
-   int        nbSorties;
-#endif
-} ExclusionMutuelle;
-
-/**
- * @brief Initialisation d'une exclusion mutuelle
- */
-void exclusionMutuelleInitialiser(ExclusionMutuelle * em);
-
-/**
- * @brief Entrée en exclusion mutuelle.
- * 
- * La tâche appelante est éventuellement mise en attente dans une
- * file spécifique. Elle n'en sera extraite que par la sortie d'une
- * tâche qui est dans la zone d'exclusion.
- */
-void exclusionMutuelleEntrer(ExclusionMutuelle * em);
-
-void exclusionMutuelleSortir(ExclusionMutuelle * em);
-
-/**
  * @brief Empêcher la préemption pour la tâche en cours
  *
  * A utiliser de façon très limitée !
@@ -105,63 +78,6 @@ void exclusionMutuelleSortir(ExclusionMutuelle * em);
 #define tacheEnCoursAutoriserPreemption()      \
    tacheEnCours->nonPreemptible--;
 
-/**                                                                                                                        * @brief Définition des conditions
- */
-typedef struct _condition {
-   ListeTache tachesEnAttente;
-#if defined(MANUX_ATOMIQUE_AUDIT)
-   int nbSignaler;
-   int nbDiffuser;
-#endif
-} Condition;
-
-/**
- * @brief Initialisation d'une condition
- */
-void conditionInitialiser(Condition * cond);
-
-/**
- * @brief Attente de la prochaine occurence d'une condition
- *
- * La tâche appelante doit être dans l'exclusion mutuelle
- * (qui sera automatiquement libérée le temps de l'attente puis
- * reprise avant que cette fonction ne rende la main)
- */
-void conditionAttendre(Condition * cond, ExclusionMutuelle * em);
-
-/**
- * @brief Signaler une occurence d'une condition à une tâche en
- * attente 
- *
- * Attention, doit être utilisée sous la protection de l'exclusion
- * mutuelle détenue par les tâches en attente.
- * Ell est donc inutilisable dans un handler d'interruption.
- */
-void conditionSignaler(Condition * cond);
-
-/**
- * @brief Signaler une occurence d'une condition à toutes les tâches
- * en attente
- *
- * Attention, doit être utilisée sous la protection de l'exclusion
- * mutuelle détenue par les tâches en attente.
- * Ell est donc inutilisable dans un handler d'interruption.
- */
-void conditionDiffuser(Condition * cond);
- 
-#if defined(MANUX_ATOMIQUE_AUDIT)
-/**
- * @brief Affichage de l'état des variables d'exclusion mutuelle
- */
-
-void exclusionsMutuellesAfficherEtat();
-
-/**
- * @brief Affichage de l'état des variables condition
- */
-void conditionsAfficherEtat();
-
-#endif
 #endif
 
 

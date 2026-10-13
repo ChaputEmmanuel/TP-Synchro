@@ -17,7 +17,7 @@
 
 
 #include <config/base.h>
-#include <config/plan-memoire.h>
+#include <config/plan-memoire-pc.h>
 #include <config/pc-i386.h>         // Besoin des interuptions pour les AS
 #include <config/appels-systeme.h>
 #include <config/gestion-memoire.h>
@@ -25,7 +25,10 @@
 #include <config/console.h>
 #include <config/printk.h>
 #include <config/usr.h>
-
+#include <config/synchronisation.h>
+#undef MANUX_ATOMIQUE_AUDIT
+#undef MANUX_CONDITION_AUDIT
+#undef MANUX_EXCLUSION_MUTUELLE_AUDIT
 #include <config/verifications.h>
 
 #endif  // MANUX_CONFIG

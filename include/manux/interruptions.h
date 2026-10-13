@@ -55,12 +55,12 @@ typedef IDTGate * IDT;
 /*
  * Type des fonctions servant de handler d'interruption
  */
-typedef void (Handler());
+typedef void (Handler(void));
 
 /**
  * @brief ! Initialiser l'IDT (Interrupt Description Table)
  */
-void initialiserIDT();
+void initialiserIDT(void);
 
 /**
  * Le type d'une fonction de gestion d'exception
@@ -99,6 +99,22 @@ int definirFonctionGestionInterruption(int num,
  * Nombre de tops d'horloge depuis le boot
  */
 
+/**
+ * @brief : Fonction de base de gestion d'une exception
+ *
+ */
+void gestionInterruption(TousRegistres registres,
+			 uint32_t numIt,
+			 uint32_t eip, uint32_t cs, uint32_t eFlags);
+
+/**
+ * @brief : Fonction de base de gestion d'une exception
+ *
+ */
+void gestionException(TousRegistres registres,
+		      uint32_t numEx, uint32_t errCode,
+                      uint32_t eip, uint32_t cs, uint32_t eFlags);
+
 void setFrequenceTimer(uint16_t freqHz);
 /*
  * Positionne la fréquence du timer 0
@@ -111,4 +127,5 @@ void setFrequenceTimer(uint16_t freqHz);
 extern uint32_t nbItRecues[MANUX_NB_INTERRUPTIONS];
 #endif // MANUX_INT_AUDIT
 
-#endif
+#endif //  INTERRUPTION_DEF
+

@@ -1,0 +1,17 @@
+<map id="/home/manu/PROGRAMMATION/C/ManuX/usr/init&#45;appel&#45;systeme.c" name="/home/manu/PROGRAMMATION/C/ManuX/usr/init&#45;appel&#45;systeme.c">
+<area shape="rect" id="Node000001" title=" " alt="" coords="69,5,295,60"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,108,124,133"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="148,62,93,102,90,98,145,58"/>
+<area shape="rect" id="Node000003" href="$stdio_8h.html" title=" " alt="" coords="149,108,215,133"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="185,60,185,94,179,94,179,60"/>
+<area shape="rect" id="Node000005" href="$unistd_8h.html" title=" " alt="" coords="254,108,329,133"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="217,58,267,97,264,102,214,62"/>
+<area shape="rect" id="Node000004" href="$usr_2include_2stdarg_8h.html" title=" " alt="" coords="131,181,206,207"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="182,134,176,168,171,167,177,133"/>
+<area shape="rect" id="Node000006" href="$usr_2include_2manux_2config_8h.html" title=" " alt="" coords="230,181,353,207"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="294,134,294,168,289,168,289,134"/>
+<area shape="rect" id="Node000007" href="$usr_2include_2manux_2types_8h.html" title=" " alt="" coords="377,181,496,207"/>
+<area shape="poly" id="edge6_Node000005_Node000007" title=" " alt="" coords="316,131,402,173,400,178,314,136"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="375,255,498,280"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="439,207,439,241,434,241,434,207"/>
+</map>

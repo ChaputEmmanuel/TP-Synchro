@@ -1,0 +1,31 @@
+\doxysection{main-\/journal+fichier.c}
+\hypertarget{main-journal_09fichier_8c_source}{}\label{main-journal_09fichier_8c_source}\index{/home/manu/PROGRAMMATION/C/ManuX/noyau/main-\/journal+fichier.c@{/home/manu/PROGRAMMATION/C/ManuX/noyau/main-\/journal+fichier.c}}
+\mbox{\hyperlink{main-journal_09fichier_8c}{Aller à la documentation de ce fichier.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{main-journal_09fichier_8c_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{main-journal_09fichier_8c_source_l00006}00006\ \textcolor{preprocessor}{\#include\ <manux/config.h>}}
+\DoxyCodeLine{\Hypertarget{main-journal_09fichier_8c_source_l00007}00007\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{include_2manux_2console_8h}{manux/console.h}}>}}
+\DoxyCodeLine{\Hypertarget{main-journal_09fichier_8c_source_l00008}00008\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{include_2manux_2printk_8h}{manux/printk.h}}>}}
+\DoxyCodeLine{\Hypertarget{main-journal_09fichier_8c_source_l00009}00009\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fichier_8h}{manux/fichier.h}}>}}
+\DoxyCodeLine{\Hypertarget{main-journal_09fichier_8c_source_l00010}00010\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{include_2manux_2journal_8h}{manux/journal.h}}>}}
+\DoxyCodeLine{\Hypertarget{main-journal_09fichier_8c_source_l00011}00011\ }
+\DoxyCodeLine{\Hypertarget{main-journal_09fichier_8c_source_l00012}\mbox{\hyperlink{main-journal_09fichier_8c_a3568df994044ade7d37160ef731c223f}{00012}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{main-journal_09fichier_8c_a3568df994044ade7d37160ef731c223f}{startManuX}}()}
+\DoxyCodeLine{\Hypertarget{main-journal_09fichier_8c_source_l00013}00013\ \{}
+\DoxyCodeLine{\Hypertarget{main-journal_09fichier_8c_source_l00014}00014\ \ \ \ \mbox{\hyperlink{struct__INoeud}{INoeud}}\ \ \mbox{\hyperlink{main-acces-concurrent_8c_a972ff77e8e64fb59c5b315287496a83e}{iNoeudConsole}};\ \ \textcolor{comment}{//\ Le\ INoeud\ qui\ décrit\ la\ console}}
+\DoxyCodeLine{\Hypertarget{main-journal_09fichier_8c_source_l00015}00015\ \ \ }
+\DoxyCodeLine{\Hypertarget{main-journal_09fichier_8c_source_l00016}00016\ \ \ \ \textcolor{comment}{//\ Initialisation\ de\ la\ console\ noyau}}
+\DoxyCodeLine{\Hypertarget{main-journal_09fichier_8c_source_l00017}00017\ \ \ \ consoleInitialisationINoeud(\&\mbox{\hyperlink{main-acces-concurrent_8c_a972ff77e8e64fb59c5b315287496a83e}{iNoeudConsole}});}
+\DoxyCodeLine{\Hypertarget{main-journal_09fichier_8c_source_l00018}00018\ }
+\DoxyCodeLine{\Hypertarget{main-journal_09fichier_8c_source_l00019}00019\ \ \ \ \mbox{\hyperlink{include_2manux_2printk_8h_a25b30e8bbadd54650c56895999dd808f}{printk}}(\textcolor{stringliteral}{"{}Pouet\ pouet\ !!!\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{main-journal_09fichier_8c_source_l00020}00020\ \ \ \ }
+\DoxyCodeLine{\Hypertarget{main-journal_09fichier_8c_source_l00021}00021\ \ \ \ \textcolor{comment}{//\ Initialisation\ du\ journal}}
+\DoxyCodeLine{\Hypertarget{main-journal_09fichier_8c_source_l00022}00022\ \ \ \ \mbox{\hyperlink{include_2manux_2journal_8h_ae0b1891a78b329589a71603f76447eb3}{journalInitialiser}}(\&\mbox{\hyperlink{main-acces-concurrent_8c_a972ff77e8e64fb59c5b315287496a83e}{iNoeudConsole}});}
+\DoxyCodeLine{\Hypertarget{main-journal_09fichier_8c_source_l00023}00023\ \ \ \ }
+\DoxyCodeLine{\Hypertarget{main-journal_09fichier_8c_source_l00024}00024\ \ \ \ \textcolor{comment}{//\ Un\ petit\ message}}
+\DoxyCodeLine{\Hypertarget{main-journal_09fichier_8c_source_l00025}00025\ \ \ \ \mbox{\hyperlink{include_2manux_2printk_8h_a25b30e8bbadd54650c56895999dd808f}{printk}}(\textcolor{stringliteral}{"{}Printk\ dit\ bonjour\ via\ le\ journal\ !\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{main-journal_09fichier_8c_source_l00026}00026\ \ \ }
+\DoxyCodeLine{\Hypertarget{main-journal_09fichier_8c_source_l00027}00027\ \}\ \ \ \textcolor{comment}{/*\ startManuX\ */}}
+\DoxyCodeLine{\Hypertarget{main-journal_09fichier_8c_source_l00028}00028\ }
+\DoxyCodeLine{\Hypertarget{main-journal_09fichier_8c_source_l00029}00029\ }
+
+\end{DoxyCode}

@@ -1,0 +1,128 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>My Project:  Fichier source de /home/manu/PROGRAMMATION/C/ManuX/include/manux/interface-reseau.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">My Project
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function() { init_codefold(0); });
+/* @license-end */
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_7ae9ae23548caaa7aeb1f148c6e00073.html">manux</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle"><div class="title">interface-reseau.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="interface-reseau_8h.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#ifndef MANUX_RESEAU_INTERFACE</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#define MANUX_RESEAU_INTERFACE</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
+<div class="foldopen" id="foldopen00013" data-start="{" data-end="};">
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno"><a class="line" href="struct__ReseauPilote.html">   13</a></span><span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code hl_struct" href="struct__ReseauPilote.html">_ReseauPilote</a> {</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno"><a class="line" href="struct__ReseauPilote.html#aa14897deb53262eb26a2f3888b169104">   14</a></span>   <span class="keywordtype">char</span> * <a class="code hl_variable" href="struct__ReseauPilote.html#aa14897deb53262eb26a2f3888b169104">nom</a>;</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno"><a class="line" href="struct__ReseauPilote.html#ad59134a9f85e99b2e9fd547f8d53f4b4">   15</a></span>   <a class="code hl_function" href="include_2manux_2interruptions_8h.html#a4fda31edc92f8ccd48b6f4bb50f2e7e1">void</a> (* <a class="code hl_variable" href="struct__ReseauPilote.html#ad59134a9f85e99b2e9fd547f8d53f4b4">recevoirTrame</a>)(<span class="keywordtype">void</span> *); <span class="comment">// La fonction permettant d&#39;aller</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>                       <span class="comment">// récupérer des trames de façon</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>                       <span class="comment">// asynchrone </span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="interface-reseau_8h.html#a545d375fa5fc74cc0795ee1021d7f924">   18</a></span>} <a class="code hl_typedef" href="interface-reseau_8h.html#a545d375fa5fc74cc0795ee1021d7f924">ReseauPilote</a>;</div>
+</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
+<div class="foldopen" id="foldopen00020" data-start="{" data-end="};">
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="struct__ReseauInterface.html">   20</a></span><span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code hl_struct" href="struct__ReseauInterface.html">_ReseauInterface</a> {</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="struct__ReseauInterface.html#a80568f491dd70467bf1f802aafda61e5">   21</a></span>   <a class="code hl_struct" href="struct__ReseauPilote.html">ReseauPilote</a> * <a class="code hl_variable" href="struct__ReseauInterface.html#a80568f491dd70467bf1f802aafda61e5">pilote</a>;</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="struct__ReseauInterface.html#aa0af146355fd6a17ff8b2fd704f6eb27">   22</a></span>   <span class="keywordtype">void</span> * <a class="code hl_variable" href="struct__ReseauInterface.html#aa0af146355fd6a17ff8b2fd704f6eb27">prive</a>;</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno"><a class="line" href="interface-reseau_8h.html#a1389bdb33aaf02a2e1f9ca021ea3e97c">   23</a></span>} <a class="code hl_typedef" href="interface-reseau_8h.html#a1389bdb33aaf02a2e1f9ca021ea3e97c">ReseauInterface</a>;</div>
+</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="keywordtype">void</span> <a class="code hl_function" href="interface-reseau_8h.html#a0d183caf398492294fdf9dea14a09527">reseauEnregistrerPilote</a>(<a class="code hl_struct" href="struct__ReseauPilote.html">ReseauPilote</a> * p);</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="keywordtype">void</span> <a class="code hl_function" href="interface-reseau_8h.html#a141b7c3a7e49373fed361414dd478915">reseauAjouterInterface</a>(<a class="code hl_struct" href="struct__ReseauPilote.html">ReseauPilote</a> * p, <span class="keywordtype">void</span> * <a class="code hl_variable" href="main-registre_8c.html#aaa0e9a03072c04ebe2d49f53bc7bc785">d</a>);</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="preprocessor">#endif</span></div>
+<div class="ttc" id="ainclude_2manux_2interruptions_8h_html_a4fda31edc92f8ccd48b6f4bb50f2e7e1"><div class="ttname"><a href="include_2manux_2interruptions_8h.html#a4fda31edc92f8ccd48b6f4bb50f2e7e1">void</a></div><div class="ttdeci">typedef void(Handler(void))</div></div>
+<div class="ttc" id="ainterface-reseau_8h_html_a0d183caf398492294fdf9dea14a09527"><div class="ttname"><a href="interface-reseau_8h.html#a0d183caf398492294fdf9dea14a09527">reseauEnregistrerPilote</a></div><div class="ttdeci">void reseauEnregistrerPilote(ReseauPilote *p)</div><div class="ttdef"><b>Definition</b> <a href="interface-reseau_8c_source.html#l00009">interface-reseau.c:9</a></div></div>
+<div class="ttc" id="ainterface-reseau_8h_html_a1389bdb33aaf02a2e1f9ca021ea3e97c"><div class="ttname"><a href="interface-reseau_8h.html#a1389bdb33aaf02a2e1f9ca021ea3e97c">ReseauInterface</a></div><div class="ttdeci">struct _ReseauInterface ReseauInterface</div></div>
+<div class="ttc" id="ainterface-reseau_8h_html_a141b7c3a7e49373fed361414dd478915"><div class="ttname"><a href="interface-reseau_8h.html#a141b7c3a7e49373fed361414dd478915">reseauAjouterInterface</a></div><div class="ttdeci">void reseauAjouterInterface(ReseauPilote *p, void *d)</div><div class="ttdoc">Ajout d'une nouvelle interface réseau.</div><div class="ttdef"><b>Definition</b> <a href="interface-reseau_8c_source.html#l00016">interface-reseau.c:16</a></div></div>
+<div class="ttc" id="ainterface-reseau_8h_html_a545d375fa5fc74cc0795ee1021d7f924"><div class="ttname"><a href="interface-reseau_8h.html#a545d375fa5fc74cc0795ee1021d7f924">ReseauPilote</a></div><div class="ttdeci">struct _ReseauPilote ReseauPilote</div><div class="ttdoc">Description d'un pilote d'interface réseau.</div></div>
+<div class="ttc" id="amain-registre_8c_html_aaa0e9a03072c04ebe2d49f53bc7bc785"><div class="ttname"><a href="main-registre_8c.html#aaa0e9a03072c04ebe2d49f53bc7bc785">d</a></div><div class="ttdeci">uint16_t d</div><div class="ttdef"><b>Definition</b> <a href="main-registre_8c_source.html#l00023">main-registre.c:23</a></div></div>
+<div class="ttc" id="astruct__ReseauInterface_html"><div class="ttname"><a href="struct__ReseauInterface.html">_ReseauInterface</a></div><div class="ttdef"><b>Definition</b> <a href="interface-reseau_8h_source.html#l00020">interface-reseau.h:20</a></div></div>
+<div class="ttc" id="astruct__ReseauInterface_html_a80568f491dd70467bf1f802aafda61e5"><div class="ttname"><a href="struct__ReseauInterface.html#a80568f491dd70467bf1f802aafda61e5">_ReseauInterface::pilote</a></div><div class="ttdeci">ReseauPilote * pilote</div><div class="ttdef"><b>Definition</b> <a href="interface-reseau_8h_source.html#l00021">interface-reseau.h:21</a></div></div>
+<div class="ttc" id="astruct__ReseauInterface_html_aa0af146355fd6a17ff8b2fd704f6eb27"><div class="ttname"><a href="struct__ReseauInterface.html#aa0af146355fd6a17ff8b2fd704f6eb27">_ReseauInterface::prive</a></div><div class="ttdeci">void * prive</div><div class="ttdef"><b>Definition</b> <a href="interface-reseau_8h_source.html#l00022">interface-reseau.h:22</a></div></div>
+<div class="ttc" id="astruct__ReseauPilote_html"><div class="ttname"><a href="struct__ReseauPilote.html">_ReseauPilote</a></div><div class="ttdoc">Description d'un pilote d'interface réseau.</div><div class="ttdef"><b>Definition</b> <a href="interface-reseau_8h_source.html#l00013">interface-reseau.h:13</a></div></div>
+<div class="ttc" id="astruct__ReseauPilote_html_aa14897deb53262eb26a2f3888b169104"><div class="ttname"><a href="struct__ReseauPilote.html#aa14897deb53262eb26a2f3888b169104">_ReseauPilote::nom</a></div><div class="ttdeci">char * nom</div><div class="ttdef"><b>Definition</b> <a href="interface-reseau_8h_source.html#l00014">interface-reseau.h:14</a></div></div>
+<div class="ttc" id="astruct__ReseauPilote_html_ad59134a9f85e99b2e9fd547f8d53f4b4"><div class="ttname"><a href="struct__ReseauPilote.html#ad59134a9f85e99b2e9fd547f8d53f4b4">_ReseauPilote::recevoirTrame</a></div><div class="ttdeci">void(* recevoirTrame)(void *)</div><div class="ttdef"><b>Definition</b> <a href="interface-reseau_8h_source.html#l00015">interface-reseau.h:15</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

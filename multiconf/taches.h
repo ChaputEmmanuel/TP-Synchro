@@ -16,7 +16,9 @@
 
 #include <config/bootloader.h>
 #include <config/base.h>
-#include <config/plan-memoire.h>
+#include <config/debug.h>
+#undef MANUX_DEBUGMASK_VAR     // Trop lourd pour nous
+#include <config/plan-memoire-pc.h>
 #include <config/clavier.h>
 #include <config/console.h>
 #include <config/consoles-virtuelles.h>

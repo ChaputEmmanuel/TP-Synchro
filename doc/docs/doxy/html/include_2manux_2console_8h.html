@@ -1,0 +1,619 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>My Project: Référence du fichier /home/manu/PROGRAMMATION/C/ManuX/include/manux/console.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">My Project
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_7ae9ae23548caaa7aeb1f148c6e00073.html">manux</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">Classes</a> &#124;
+<a href="#typedef-members">Définitions de type</a> &#124;
+<a href="#func-members">Fonctions</a>  </div>
+  <div class="headertitle"><div class="title">Référence du fichier console.h</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Définition des fonctions de base d'accés à la console. <br  />
+  
+<a href="#details">Plus de détails...</a></p>
+<div class="textblock"><code>#include &lt;manux/config.h&gt;</code><br />
+<code>#include &lt;<a class="el" href="horloge_8h_source.html">manux/horloge.h</a>&gt;</code><br />
+<code>#include &lt;manux/types.h&gt;</code><br />
+<code>#include &lt;<a class="el" href="atomique_8h_source.html">manux/atomique.h</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="ecran_8h_source.html">manux/ecran.h</a>&gt;</code><br />
+</div><div class="textblock"><div class="dynheader">
+Graphe des dépendances par inclusion de console.h:</div>
+<div class="dyncontent">
+<div class="center"><img src="include_2manux_2console_8h__incl.png" border="0" usemap="#a_2home_2manu_2PROGRAMMATION_2C_2ManuX_2include_2manux_2console_8h" alt=""/></div>
+<map name="a_2home_2manu_2PROGRAMMATION_2C_2ManuX_2include_2manux_2console_8h" id="a_2home_2manu_2PROGRAMMATION_2C_2ManuX_2include_2manux_2console_8h">
+<area shape="rect" title="Définition des fonctions de base d&#39;accés à la console." alt="" coords="733,5,960,60"/>
+<area shape="rect" title=" " alt="" coords="687,328,809,353"/>
+<area shape="poly" title=" " alt="" coords="841,61,777,255,758,316,753,314,772,254,836,59"/>
+<area shape="rect" href="horloge_8h.html" title=" " alt="" coords="901,181,1033,207"/>
+<area shape="poly" title=" " alt="" coords="869,59,952,168,947,172,864,62"/>
+<area shape="rect" title=" " alt="" coords="519,475,638,500"/>
+<area shape="poly" title=" " alt="" coords="954,58,1002,78,1045,107,1063,125,1077,145,1086,167,1089,192,1089,342,1086,359,1076,375,1040,402,987,424,923,443,780,469,652,483,652,478,779,464,921,437,985,419,1037,397,1072,371,1081,357,1084,342,1084,193,1081,169,1072,147,1059,128,1042,111,999,83,952,63"/>
+<area shape="rect" href="atomique_8h.html" title="Définition des opérations de synchronisation de ManuX." alt="" coords="247,108,393,133"/>
+<area shape="poly" title=" " alt="" coords="733,55,404,108,403,103,733,50"/>
+<area shape="rect" href="ecran_8h.html" title="Définition des caractéristiques de base de l&#39;écran." alt="" coords="787,255,906,280"/>
+<area shape="poly" title=" " alt="" coords="849,60,849,241,844,241,844,60"/>
+<area shape="poly" title=" " alt="" coords="978,205,996,233,1015,271,1023,314,1021,335,1013,355,991,378,956,398,911,417,860,433,751,460,652,478,651,473,749,454,858,428,909,412,953,393,987,373,1008,352,1016,333,1018,314,1010,273,992,236,974,208"/>
+<area shape="poly" title=" " alt="" coords="247,127,171,137,130,147,92,161,59,179,32,202,14,231,8,266,8,342,11,370,22,391,39,408,64,424,98,439,146,451,265,469,394,478,506,482,505,488,394,484,264,474,145,457,97,444,61,429,36,412,17,394,6,372,3,342,3,266,9,229,28,199,56,175,90,156,129,142,170,132,247,122"/>
+<area shape="rect" href="scheduler_8h.html" title=" " alt="" coords="247,181,393,207"/>
+<area shape="poly" title=" " alt="" coords="316,134,314,168,309,168,310,134"/>
+<area shape="poly" title=" " alt="" coords="292,209,214,245,170,269,128,297,93,328,71,360,67,376,67,392,72,409,83,425,103,435,141,445,255,461,388,473,506,480,505,485,388,478,254,466,140,450,101,440,80,429,67,411,61,393,61,375,67,358,89,324,124,293,167,265,212,240,290,204"/>
+<area shape="poly" title=" " alt="" coords="324,181,326,147,331,147,330,181"/>
+<area shape="rect" href="tache_8h.html" title=" " alt="" coords="398,255,517,280"/>
+<area shape="poly" title=" " alt="" coords="343,204,424,246,422,251,341,209"/>
+<area shape="rect" title=" " alt="" coords="94,401,269,427"/>
+<area shape="poly" title=" " alt="" coords="315,208,198,391,194,388,310,206"/>
+<area shape="rect" href="listetaches_8h.html" title=" " alt="" coords="540,255,695,280"/>
+<area shape="poly" title=" " alt="" coords="368,204,557,249,555,254,367,209"/>
+<area shape="poly" title=" " alt="" coords="505,277,689,322,687,327,503,283"/>
+<area shape="poly" title=" " alt="" coords="459,280,458,308,459,346,468,387,485,425,508,449,536,467,533,471,505,453,480,428,462,389,454,347,452,308,453,280"/>
+<area shape="rect" href="include_2manux_2interruptions_8h.html" title=" " alt="" coords="495,401,662,427"/>
+<area shape="poly" title=" " alt="" coords="469,279,562,389,558,392,465,282"/>
+<area shape="rect" href="segment_8h.html" title=" " alt="" coords="686,401,826,427"/>
+<area shape="poly" title=" " alt="" coords="482,278,721,393,719,398,480,283"/>
+<area shape="rect" href="fichier_8h.html" title=" " alt="" coords="295,328,417,353"/>
+<area shape="poly" title=" " alt="" coords="443,282,385,322,382,318,440,278"/>
+<area shape="poly" title=" " alt="" coords="581,427,581,461,576,461,576,427"/>
+<area shape="poly" title=" " alt="" coords="728,429,621,472,619,467,727,424"/>
+<area shape="rect" href="inoeud_8h.html" title=": description des noeuds d&#39;information (C) Manu Chaput 2002&#45;2023" alt="" coords="293,401,419,427"/>
+<area shape="poly" title=" " alt="" coords="359,354,359,388,353,388,353,354"/>
+<area shape="poly" title=" " alt="" coords="329,356,224,398,222,394,327,351"/>
+<area shape="poly" title=" " alt="" coords="393,424,531,468,529,473,391,429"/>
+<area shape="poly" title=" " alt="" coords="832,282,777,322,774,318,829,278"/>
+<area shape="poly" title=" " alt="" coords="853,280,859,309,863,348,858,390,851,410,839,428,827,439,809,448,762,463,652,482,651,476,760,458,807,443,824,434,835,425,846,408,853,389,858,348,854,310,848,281"/>
+<area shape="rect" href="ascii_8h.html" title="Définition des codes ASCII (C) Manu Chaput 2026&#45;2026." alt="" coords="885,328,998,353"/>
+<area shape="poly" title=" " alt="" coords="863,278,916,317,913,322,860,282"/>
+</map>
+</div>
+</div><div class="textblock"><div class="dynheader">
+Ce graphe montre quels fichiers incluent directement ou indirectement ce fichier :</div>
+<div class="dyncontent">
+<div class="center"><img src="include_2manux_2console_8h__dep__incl.png" border="0" usemap="#a_2home_2manu_2PROGRAMMATION_2C_2ManuX_2include_2manux_2console_8hdep" alt=""/></div>
+<map name="a_2home_2manu_2PROGRAMMATION_2C_2ManuX_2include_2manux_2console_8hdep" id="a_2home_2manu_2PROGRAMMATION_2C_2ManuX_2include_2manux_2console_8hdep">
+<area shape="rect" title="Définition des fonctions de base d&#39;accés à la console." alt="" coords="3527,5,3753,60"/>
+<area shape="rect" href="include_2manux_2journal_8h.html" title="Définition des outils de journalisation des messages du noyau." alt="" coords="607,108,833,163"/>
+<area shape="poly" title=" " alt="" coords="3513,37,2971,42,2202,53,1800,62,1423,75,1098,91,852,111,834,113,833,108,852,105,1098,86,1423,70,1800,57,2202,48,2971,36,3513,32"/>
+<area shape="rect" href="main-acces-concurrent_8c.html" title="Un exemple pitoyable de début de noyau." alt="" coords="5,211,232,265"/>
+<area shape="poly" title=" " alt="" coords="3513,37,2847,42,1899,54,1423,63,999,76,669,91,553,101,475,111,391,131,309,158,174,213,172,208,307,153,390,126,474,105,552,95,669,86,999,70,1422,58,1899,48,2847,37,3513,32"/>
+<area shape="rect" href="main-journal_09fichier_8c.html" title=" " alt="" coords="256,211,483,265"/>
+<area shape="poly" title=" " alt="" coords="3513,36,2869,36,1957,43,1500,52,1094,65,780,85,669,97,595,111,540,131,488,158,404,213,401,208,485,153,538,126,594,105,668,91,779,79,1094,60,1500,47,1957,38,2869,30,3513,31"/>
+<area shape="rect" href="main-journal_8c.html" title=" " alt="" coords="757,218,984,258"/>
+<area shape="poly" title=" " alt="" coords="3513,36,2903,37,2062,45,1652,54,1299,67,1044,86,964,97,924,110,902,133,887,162,879,193,875,218,869,217,874,191,882,161,898,130,921,106,963,92,1043,81,1299,62,1652,49,2062,40,2903,32,3513,31"/>
+<area shape="rect" href="main-virtio-journal_8c.html" title=" " alt="" coords="1008,211,1235,265"/>
+<area shape="poly" title=" " alt="" coords="3513,38,2894,45,2045,59,1635,68,1287,80,1042,94,971,102,942,110,933,122,931,134,934,147,942,161,956,177,971,191,1009,211,1007,216,968,195,952,181,938,164,929,149,926,134,928,120,938,106,970,97,1042,89,1287,75,1635,63,2045,53,2894,39,3513,32"/>
+<area shape="rect" href="main_8c.html" title=": Un exemple de début de noyau." alt="" coords="1259,218,1485,258"/>
+<area shape="poly" title=" " alt="" coords="3513,38,2906,45,2076,59,1675,69,1336,81,1097,95,1028,102,999,110,925,182,920,189,935,189,975,186,1040,185,1130,190,1247,208,1283,215,1282,221,1246,213,1129,195,1039,190,975,191,935,194,915,192,921,178,996,106,1027,97,1097,89,1336,75,1675,64,2076,54,2906,40,3513,33"/>
+<area shape="rect" href="console_8c.html" title="Implantation des fonctions de base d&#39;accés à la console." alt="" coords="1009,115,1236,155"/>
+<area shape="poly" title=" " alt="" coords="3513,38,3041,43,2386,56,1729,78,1456,93,1248,111,1203,118,1202,113,1248,105,1455,87,1729,72,2386,51,3041,38,3513,32"/>
+<area shape="rect" href="printk_8c.html" title=" " alt="" coords="1260,115,1487,155"/>
+<area shape="poly" title=" " alt="" coords="3512,38,3084,45,2503,59,1923,80,1682,94,1499,111,1454,118,1453,113,1498,105,1682,89,1923,75,2503,53,3084,40,3512,33"/>
+<area shape="rect" href="ramdisk_8c.html" title=" " alt="" coords="1511,115,1737,155"/>
+<area shape="poly" title=" " alt="" coords="3513,39,3131,47,2622,62,2118,83,1909,96,1750,111,1705,118,1704,113,1749,105,1908,90,2118,77,2622,56,3131,42,3513,34"/>
+<area shape="rect" href="appelsysteme_8c.html" title="Implantation des sous&#45;programmes de gestion des appels système." alt="" coords="1761,115,1996,155"/>
+<area shape="poly" title=" " alt="" coords="3513,36,3240,38,2866,48,2440,70,2222,88,2008,111,1962,118,1961,113,2008,105,2221,83,2439,65,2866,42,3240,32,3513,30"/>
+<area shape="rect" href="main-appel-systeme_8c.html" title=" " alt="" coords="2020,108,2247,163"/>
+<area shape="poly" title=" " alt="" coords="3513,37,3279,41,2967,53,2615,75,2436,91,2260,111,2247,113,2246,107,2260,105,2435,85,2615,69,2967,47,3279,36,3513,32"/>
+<area shape="rect" href="main-bootparam_8c.html" title=": Un exemple de noyau montrant le passage de paramètres au boot." alt="" coords="2271,115,2523,155"/>
+<area shape="poly" title=" " alt="" coords="3513,40,3079,61,2808,82,2536,111,2489,118,2488,113,2536,105,2808,77,3079,56,3512,35"/>
+<area shape="rect" href="main-bootreg_8c.html" title=": Comment peupler le registre en fonction des paramètres de la ligne de commande obtenus par le bootl..." alt="" coords="2547,115,2778,155"/>
+<area shape="poly" title=" " alt="" coords="3513,43,3185,67,2988,86,2791,111,2748,118,2747,113,2790,105,2987,81,3185,61,3513,38"/>
+<area shape="rect" href="main-console_8c.html" title=": utilisation minimaliste de la console (C) Manu Chaput 2000&#45;2023" alt="" coords="2802,115,3033,155"/>
+<area shape="poly" title=" " alt="" coords="3513,50,3294,75,3046,111,3005,118,3004,113,3045,105,3294,70,3513,44"/>
+<area shape="rect" href="main-debmaskdyn-reg_8c.html" title=": Comment utiliser les options du bootloader pour modifier les masques de débogage via le registre." alt="" coords="3057,115,3348,155"/>
+<area shape="poly" title=" " alt="" coords="3514,66,3285,118,3284,113,3513,60"/>
+<area shape="rect" href="main-debmaskdyn_8c.html" title=": Comment utiliser les options du bootloader pour modifier les masques de débogage." alt="" coords="3373,115,3638,155"/>
+<area shape="poly" title=" " alt="" coords="3596,70,3532,117,3529,113,3593,66"/>
+<area shape="rect" href="main-delai_8c.html" title=" " alt="" coords="3663,115,3889,155"/>
+<area shape="poly" title=" " alt="" coords="3688,66,3752,113,3749,117,3685,70"/>
+<area shape="rect" href="main-interruptions_8c.html" title=" " alt="" coords="3913,115,4177,155"/>
+<area shape="poly" title=" " alt="" coords="3759,61,3970,113,3969,118,3758,66"/>
+<area shape="rect" href="main-kmalloc_8c.html" title="Un exemple de noyau utilisant les fonctions de kmalloc." alt="" coords="4202,115,4435,155"/>
+<area shape="poly" title=" " alt="" coords="3767,46,3966,72,4190,105,4230,113,4229,118,4189,111,3965,77,3766,51"/>
+<area shape="rect" href="main-memoire_8c.html" title="Comment allouer une page mémoire dans le noyau ?" alt="" coords="4460,115,4700,155"/>
+<area shape="poly" title=" " alt="" coords="3767,39,4078,63,4263,82,4448,105,4492,113,4491,118,4448,111,4263,87,4077,68,3767,44"/>
+<area shape="rect" href="main-mutex_8c.html" title=": Démonstration d&#39;utilisation des exclusions mutuelles" alt="" coords="4724,115,4951,155"/>
+<area shape="poly" title=" " alt="" coords="3767,35,3952,42,4188,55,4450,75,4712,105,4755,113,4755,118,4712,111,4449,81,4188,60,3952,47,3767,40"/>
+<area shape="rect" href="main-outil-synchro_8c.html" title=": Un exemple de début de noyau." alt="" coords="4975,108,5201,163"/>
+<area shape="poly" title=" " alt="" coords="3767,32,3992,37,4290,48,4625,70,4796,86,4963,105,4975,107,4974,112,4962,111,4795,91,4625,76,4290,54,3992,42,3767,38"/>
+<area shape="rect" href="main-printk_8c.html" title="Exemple d&#39;utilisation de printk et de certains codes ANSI." alt="" coords="5225,115,5452,155"/>
+<area shape="poly" title=" " alt="" coords="3767,31,4031,33,4391,43,4800,65,5009,83,5214,105,5258,113,5257,118,5213,111,5009,88,4800,70,4390,48,4031,38,3767,36"/>
+<area shape="rect" href="main-reentrance_8c.html" title="Démonstration de la différence entre un noyau réentrant et un noyau non réentrant." alt="" coords="5476,115,5727,155"/>
+<area shape="poly" title=" " alt="" coords="3767,34,4626,59,5110,79,5311,92,5464,105,5513,113,5513,118,5464,111,5311,97,5110,85,4626,64,3767,39"/>
+<area shape="rect" href="main-registre_8c.html" title=":" alt="" coords="5751,115,5982,155"/>
+<area shape="poly" title=" " alt="" coords="3767,33,4187,40,4756,54,5324,76,5560,89,5739,105,5785,113,5785,118,5738,111,5559,95,5323,81,4756,60,4187,46,3767,38"/>
+<area shape="rect" href="main-taches_8c.html" title=": Démonstration d&#39;utilisation des tâches" alt="" coords="6007,115,6233,155"/>
+<area shape="poly" title=" " alt="" coords="3767,32,4233,38,4876,51,5522,73,5791,88,5995,105,6041,113,6040,118,5994,111,5791,93,5522,78,4876,56,4232,44,3767,38"/>
+<area shape="rect" href="main-test-synchro_8c.html" title="Démonstration des besoins de sychronisation (C) Manu Chaput 2025." alt="" coords="6257,108,6484,163"/>
+<area shape="poly" title=" " alt="" coords="3767,32,4277,37,4993,48,5366,58,5716,70,6017,86,6246,105,6257,107,6257,112,6245,111,6017,91,5716,75,5366,63,4993,54,4277,42,3767,37"/>
+<area shape="rect" href="main-userland_8c.html" title=": Démonstration d&#39;utilisation du mode utilisateur" alt="" coords="6508,115,6745,155"/>
+<area shape="poly" title=" " alt="" coords="3767,32,4320,36,5109,47,5522,56,5909,69,6244,85,6496,105,6544,113,6543,118,6496,111,6243,90,5909,74,5522,61,5109,52,4320,41,3767,37"/>
+<area shape="rect" href="main-verrou-noyau_8c.html" title=": Mise en évidence de a (non) ré&#45;entrance du noyau. On compilera une fois avec la macro MANUX_REENTRANT a..." alt="" coords="6769,108,6996,163"/>
+<area shape="poly" title=" " alt="" coords="3767,31,4365,33,5230,43,5684,52,6111,65,6479,83,6758,105,6769,107,6769,112,6757,111,6479,88,6111,70,5684,57,5230,48,4365,39,3767,37"/>
+<area shape="rect" href="main-virtio-cons_8c.html" title=": Un exemple de début de noyau." alt="" coords="7021,115,7270,155"/>
+<area shape="poly" title=" " alt="" coords="3767,31,4408,34,5346,43,5839,52,6304,65,6705,83,7008,105,7059,113,7058,118,7008,111,6705,88,6304,71,5839,58,5345,48,4408,39,3767,37"/>
+<area shape="rect" href="main-virtio-net_8c.html" title=" " alt="" coords="7295,115,7535,155"/>
+<area shape="poly" title=" " alt="" coords="3767,31,4454,31,5472,39,6009,48,6516,62,6953,80,7134,92,7283,105,7332,113,7331,118,7282,111,7133,97,6953,86,6516,67,6009,54,5472,45,4454,37,3767,36"/>
+<area shape="rect" href="memoire_8c.html" title=" " alt="" coords="7559,115,7785,155"/>
+<area shape="poly" title=" " alt="" coords="3767,32,4570,40,5750,55,6884,77,7301,90,7547,105,7594,113,7593,118,7546,111,7300,95,6883,82,5750,60,4570,45,3767,38"/>
+<area shape="rect" href="journal_8c.html" title="Implantation des outils de journalisation des messages du noyau." alt="" coords="507,218,733,258"/>
+<area shape="poly" title=" " alt="" coords="686,174,641,219,637,216,682,171"/>
+<area shape="poly" title=" " alt="" coords="593,157,244,213,233,216,232,210,244,208,593,152"/>
+<area shape="poly" title=" " alt="" coords="617,169,461,213,460,208,615,164"/>
+<area shape="poly" title=" " alt="" coords="772,168,844,216,841,220,769,172"/>
+<area shape="poly" title=" " alt="" coords="838,163,1017,208,1016,213,837,169"/>
+<area shape="poly" title=" " alt="" coords="847,149,1036,175,1247,208,1286,215,1285,221,1246,213,1035,180,846,155"/>
+</map>
+</div>
+</div>
+<p><a href="include_2manux_2console_8h_source.html">Aller au code source de ce fichier.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct__Console.html">_Console</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Structure d'une console.  <a href="struct__Console.html#details">Plus de détails...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
+Définitions de type</h2></td></tr>
+<tr class="memitem:aac124f3c894e9f941f5f72cd6fed63e1" id="r_aac124f3c894e9f941f5f72cd6fed63e1"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="struct__Console.html">_Console</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="include_2manux_2console_8h.html#aac124f3c894e9f941f5f72cd6fed63e1">Console</a></td></tr>
+<tr class="memdesc:aac124f3c894e9f941f5f72cd6fed63e1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Structure d'une console.  <br /></td></tr>
+<tr class="separator:aac124f3c894e9f941f5f72cd6fed63e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Fonctions</h2></td></tr>
+<tr class="memitem:a29466c636bd065544638829883090d54" id="r_a29466c636bd065544638829883090d54"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="include_2manux_2console_8h.html#a29466c636bd065544638829883090d54">consoleInitialisation</a> (<a class="el" href="include_2manux_2interruptions_8h.html#a4fda31edc92f8ccd48b6f4bb50f2e7e1">void</a>)</td></tr>
+<tr class="memdesc:a29466c636bd065544638829883090d54"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialisation du système de console sans notion de fichier.  <br /></td></tr>
+<tr class="separator:a29466c636bd065544638829883090d54"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab2b3d67e4a76348cb620f82f3d153b46" id="r_ab2b3d67e4a76348cb620f82f3d153b46"><td class="memItemLeft" align="right" valign="top"><a class="el" href="include_2manux_2interruptions_8h.html#a4fda31edc92f8ccd48b6f4bb50f2e7e1">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="include_2manux_2console_8h.html#ab2b3d67e4a76348cb620f82f3d153b46">consoleAffecterCouleurFond</a> (<a class="el" href="include_2manux_2console_8h.html#aac124f3c894e9f941f5f72cd6fed63e1">Console</a> *cons, <a class="el" href="ecran_8h.html#aa304d0ca681f782b1d7735da33037dd7">Couleur</a> coul)</td></tr>
+<tr class="memdesc:ab2b3d67e4a76348cb620f82f3d153b46"><td class="mdescLeft">&#160;</td><td class="mdescRight">Choix des couleurs de texte et de fond (voir l'enum ci dessus)  <br /></td></tr>
+<tr class="separator:ab2b3d67e4a76348cb620f82f3d153b46"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2d75ffed821ea7376eaf5e38ee8c98a4" id="r_a2d75ffed821ea7376eaf5e38ee8c98a4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="include_2manux_2interruptions_8h.html#a4fda31edc92f8ccd48b6f4bb50f2e7e1">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="include_2manux_2console_8h.html#a2d75ffed821ea7376eaf5e38ee8c98a4">consoleAffecterCouleurTexte</a> (<a class="el" href="include_2manux_2console_8h.html#aac124f3c894e9f941f5f72cd6fed63e1">Console</a> *cons, <a class="el" href="ecran_8h.html#aa304d0ca681f782b1d7735da33037dd7">Couleur</a> coul)</td></tr>
+<tr class="separator:a2d75ffed821ea7376eaf5e38ee8c98a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a20cb38c45f235948ac26cd858a5a6556" id="r_a20cb38c45f235948ac26cd858a5a6556"><td class="memItemLeft" align="right" valign="top"><a class="el" href="include_2manux_2interruptions_8h.html#a4fda31edc92f8ccd48b6f4bb50f2e7e1">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="include_2manux_2console_8h.html#a20cb38c45f235948ac26cd858a5a6556">consoleAfficher</a> (<a class="el" href="include_2manux_2console_8h.html#aac124f3c894e9f941f5f72cd6fed63e1">Console</a> *cons, char *msg)</td></tr>
+<tr class="memdesc:a20cb38c45f235948ac26cd858a5a6556"><td class="mdescLeft">&#160;</td><td class="mdescRight">Affichage d'un message sur une console.  <br /></td></tr>
+<tr class="separator:a20cb38c45f235948ac26cd858a5a6556"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae9ea42a9faaae8479fd2c762ddc7d8ae" id="r_ae9ea42a9faaae8479fd2c762ddc7d8ae"><td class="memItemLeft" align="right" valign="top"><a class="el" href="include_2manux_2interruptions_8h.html#a4fda31edc92f8ccd48b6f4bb50f2e7e1">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="include_2manux_2console_8h.html#ae9ea42a9faaae8479fd2c762ddc7d8ae">consoleNoyauAfficher</a> (char *msg)</td></tr>
+<tr class="memdesc:ae9ea42a9faaae8479fd2c762ddc7d8ae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Affichage d'un message sur la console noyau.  <br /></td></tr>
+<tr class="separator:ae9ea42a9faaae8479fd2c762ddc7d8ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae652ad0556ba11086076c802d5a90991" id="r_ae652ad0556ba11086076c802d5a90991"><td class="memItemLeft" align="right" valign="top"><a class="el" href="include_2manux_2interruptions_8h.html#a4fda31edc92f8ccd48b6f4bb50f2e7e1">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="include_2manux_2console_8h.html#ae652ad0556ba11086076c802d5a90991">consoleAfficherN</a> (<a class="el" href="include_2manux_2console_8h.html#aac124f3c894e9f941f5f72cd6fed63e1">Console</a> *cons, char *msg, int nbOctets)</td></tr>
+<tr class="separator:ae652ad0556ba11086076c802d5a90991"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3d6665f65d72e2b02cf10e3baff370b5" id="r_a3d6665f65d72e2b02cf10e3baff370b5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="include_2manux_2interruptions_8h.html#a4fda31edc92f8ccd48b6f4bb50f2e7e1">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="include_2manux_2console_8h.html#a3d6665f65d72e2b02cf10e3baff370b5">consoleEffacer</a> (<a class="el" href="include_2manux_2console_8h.html#aac124f3c894e9f941f5f72cd6fed63e1">Console</a> *cons)</td></tr>
+<tr class="separator:a3d6665f65d72e2b02cf10e3baff370b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5826d3d4019f3db5bce243517cbdd12f" id="r_a5826d3d4019f3db5bce243517cbdd12f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="include_2manux_2interruptions_8h.html#a4fda31edc92f8ccd48b6f4bb50f2e7e1">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="include_2manux_2console_8h.html#a5826d3d4019f3db5bce243517cbdd12f">consoleAfficherEntier</a> (<a class="el" href="include_2manux_2console_8h.html#aac124f3c894e9f941f5f72cd6fed63e1">Console</a> *cons, int n)</td></tr>
+<tr class="separator:a5826d3d4019f3db5bce243517cbdd12f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2bdec29eb3d973446be873defbdff3a5" id="r_a2bdec29eb3d973446be873defbdff3a5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="include_2manux_2interruptions_8h.html#a4fda31edc92f8ccd48b6f4bb50f2e7e1">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="include_2manux_2console_8h.html#a2bdec29eb3d973446be873defbdff3a5">consoleAfficherRegistre</a> (<a class="el" href="include_2manux_2console_8h.html#aac124f3c894e9f941f5f72cd6fed63e1">Console</a> *cons, int nbOctets, int reg)</td></tr>
+<tr class="separator:a2bdec29eb3d973446be873defbdff3a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abf2f6aca15463bf0f0114531cea39f15" id="r_abf2f6aca15463bf0f0114531cea39f15"><td class="memItemLeft" align="right" valign="top"><a class="el" href="include_2manux_2console_8h.html#aac124f3c894e9f941f5f72cd6fed63e1">Console</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="include_2manux_2console_8h.html#abf2f6aca15463bf0f0114531cea39f15">consoleNoyau</a> (<a class="el" href="include_2manux_2interruptions_8h.html#a4fda31edc92f8ccd48b6f4bb50f2e7e1">void</a>)</td></tr>
+<tr class="memdesc:abf2f6aca15463bf0f0114531cea39f15"><td class="mdescLeft">&#160;</td><td class="mdescRight">Obtention d'un pointeur sur la console par défaut.  <br /></td></tr>
+<tr class="separator:abf2f6aca15463bf0f0114531cea39f15"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab013551f90e5a40b4626b103995364da" id="r_ab013551f90e5a40b4626b103995364da"><td class="memItemLeft" align="right" valign="top"><a class="el" href="include_2manux_2stddef_8h.html#acf18a0d6c4b39d531e021702e9a77984">size_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="include_2manux_2console_8h.html#ab013551f90e5a40b4626b103995364da">consoleEcrire</a> (<a class="el" href="fichier_8h.html#af21b1af90951b2649333714c85dfe197">Fichier</a> *f, <a class="el" href="include_2manux_2interruptions_8h.html#a4fda31edc92f8ccd48b6f4bb50f2e7e1">void</a> *buffer, <a class="el" href="include_2manux_2stddef_8h.html#acf18a0d6c4b39d531e021702e9a77984">size_t</a> nbOctets)</td></tr>
+<tr class="separator:ab013551f90e5a40b4626b103995364da"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
+<div class="textblock"><p>Définition des fonctions de base d'accés à la console. <br  />
+ </p>
+<pre class="fragment"> Une console est protégée par un verrou de type ExclusionMutuelle.    
+</pre><p> C'est à l'utilisateur de veiller à respecter les appels aux fonctions <br  />
+ d'entrée et de sortie de la section critique avant et aprés chaque <br  />
+ utilisation de la console. Bien sur le printf s'en occupe. <br  />
+ La seule fonction dans laquelle ces appels sont effectués est celle <br  />
+ permettant le basculement de console active. <br  />
+ </p><pre class="fragment">                                         (C) Manu Chaput 2000 - 2023
+</pre> 
+<p class="definition">Définition dans le fichier <a class="el" href="include_2manux_2console_8h_source.html">console.h</a>.</p>
+</div><h2 class="groupheader">Documentation des définitions de type</h2>
+<a id="aac124f3c894e9f941f5f72cd6fed63e1" name="aac124f3c894e9f941f5f72cd6fed63e1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aac124f3c894e9f941f5f72cd6fed63e1">&#9670;&#160;</a></span>Console</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef struct <a class="el" href="struct__Console.html">_Console</a> <a class="el" href="include_2manux_2console_8h.html#aac124f3c894e9f941f5f72cd6fed63e1">Console</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Structure d'une console. </p>
+<p>Attention, en cas de consoles virtuelles, on stoque ça au début d'une page qui contient également une copie de l'écran. Il faut donc que la somme des deux tailles soit inférieure à la taille d'une page. Ca nous laisse 96 octets pour cette structure. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Documentation des fonctions</h2>
+<a id="ab2b3d67e4a76348cb620f82f3d153b46" name="ab2b3d67e4a76348cb620f82f3d153b46"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab2b3d67e4a76348cb620f82f3d153b46">&#9670;&#160;</a></span>consoleAffecterCouleurFond()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="include_2manux_2interruptions_8h.html#a4fda31edc92f8ccd48b6f4bb50f2e7e1">void</a> consoleAffecterCouleurFond </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="include_2manux_2console_8h.html#aac124f3c894e9f941f5f72cd6fed63e1">Console</a> *&#160;</td>
+          <td class="paramname"><em>cons</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="ecran_8h.html#aa304d0ca681f782b1d7735da33037dd7">Couleur</a>&#160;</td>
+          <td class="paramname"><em>coul</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Choix des couleurs de texte et de fond (voir l'enum ci dessus) </p>
+<p>Choix des couleurs de texte et de fond (voir l'enum ci dessus) </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="console_8c_source.html#l00073">73</a> du fichier <a class="el" href="console_8c_source.html">console.c</a>.</p>
+
+</div>
+</div>
+<a id="a2d75ffed821ea7376eaf5e38ee8c98a4" name="a2d75ffed821ea7376eaf5e38ee8c98a4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2d75ffed821ea7376eaf5e38ee8c98a4">&#9670;&#160;</a></span>consoleAffecterCouleurTexte()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="include_2manux_2interruptions_8h.html#a4fda31edc92f8ccd48b6f4bb50f2e7e1">void</a> consoleAffecterCouleurTexte </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="include_2manux_2console_8h.html#aac124f3c894e9f941f5f72cd6fed63e1">Console</a> *&#160;</td>
+          <td class="paramname"><em>cons</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="ecran_8h.html#aa304d0ca681f782b1d7735da33037dd7">Couleur</a>&#160;</td>
+          <td class="paramname"><em>coul</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="console_8c_source.html#l00078">78</a> du fichier <a class="el" href="console_8c_source.html">console.c</a>.</p>
+
+</div>
+</div>
+<a id="a20cb38c45f235948ac26cd858a5a6556" name="a20cb38c45f235948ac26cd858a5a6556"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a20cb38c45f235948ac26cd858a5a6556">&#9670;&#160;</a></span>consoleAfficher()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="include_2manux_2interruptions_8h.html#a4fda31edc92f8ccd48b6f4bb50f2e7e1">void</a> consoleAfficher </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="include_2manux_2console_8h.html#aac124f3c894e9f941f5f72cd6fed63e1">Console</a> *&#160;</td>
+          <td class="paramname"><em>cons</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>msg</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Affichage d'un message sur une console. </p>
+<p>Attention, aucun formatage n'est fait. En revanche, la chaine de caractères doit être terminée par un zéro. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="console_8c_source.html#l00427">427</a> du fichier <a class="el" href="console_8c_source.html">console.c</a>.</p>
+
+</div>
+</div>
+<a id="a5826d3d4019f3db5bce243517cbdd12f" name="a5826d3d4019f3db5bce243517cbdd12f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5826d3d4019f3db5bce243517cbdd12f">&#9670;&#160;</a></span>consoleAfficherEntier()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="include_2manux_2interruptions_8h.html#a4fda31edc92f8ccd48b6f4bb50f2e7e1">void</a> consoleAfficherEntier </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="include_2manux_2console_8h.html#aac124f3c894e9f941f5f72cd6fed63e1">Console</a> *&#160;</td>
+          <td class="paramname"><em>cons</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>n</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="console_8c_source.html#l00442">442</a> du fichier <a class="el" href="console_8c_source.html">console.c</a>.</p>
+
+</div>
+</div>
+<a id="ae652ad0556ba11086076c802d5a90991" name="ae652ad0556ba11086076c802d5a90991"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae652ad0556ba11086076c802d5a90991">&#9670;&#160;</a></span>consoleAfficherN()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="include_2manux_2interruptions_8h.html#a4fda31edc92f8ccd48b6f4bb50f2e7e1">void</a> consoleAfficherN </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="include_2manux_2console_8h.html#aac124f3c894e9f941f5f72cd6fed63e1">Console</a> *&#160;</td>
+          <td class="paramname"><em>cons</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>msg</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>nbOctets</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="console_8c_source.html#l00391">391</a> du fichier <a class="el" href="console_8c_source.html">console.c</a>.</p>
+
+</div>
+</div>
+<a id="a2bdec29eb3d973446be873defbdff3a5" name="a2bdec29eb3d973446be873defbdff3a5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2bdec29eb3d973446be873defbdff3a5">&#9670;&#160;</a></span>consoleAfficherRegistre()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="include_2manux_2interruptions_8h.html#a4fda31edc92f8ccd48b6f4bb50f2e7e1">void</a> consoleAfficherRegistre </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="include_2manux_2console_8h.html#aac124f3c894e9f941f5f72cd6fed63e1">Console</a> *&#160;</td>
+          <td class="paramname"><em>cons</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>nbOctets</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>reg</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab013551f90e5a40b4626b103995364da" name="ab013551f90e5a40b4626b103995364da"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab013551f90e5a40b4626b103995364da">&#9670;&#160;</a></span>consoleEcrire()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="include_2manux_2stddef_8h.html#acf18a0d6c4b39d531e021702e9a77984">size_t</a> consoleEcrire </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="fichier_8h.html#af21b1af90951b2649333714c85dfe197">Fichier</a> *&#160;</td>
+          <td class="paramname"><em>f</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="include_2manux_2interruptions_8h.html#a4fda31edc92f8ccd48b6f4bb50f2e7e1">void</a> *&#160;</td>
+          <td class="paramname"><em>buffer</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="include_2manux_2stddef_8h.html#acf18a0d6c4b39d531e021702e9a77984">size_t</a>&#160;</td>
+          <td class="paramname"><em>nbOctets</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a3d6665f65d72e2b02cf10e3baff370b5" name="a3d6665f65d72e2b02cf10e3baff370b5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3d6665f65d72e2b02cf10e3baff370b5">&#9670;&#160;</a></span>consoleEffacer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="include_2manux_2interruptions_8h.html#a4fda31edc92f8ccd48b6f4bb50f2e7e1">void</a> consoleEffacer </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="include_2manux_2console_8h.html#aac124f3c894e9f941f5f72cd6fed63e1">Console</a> *&#160;</td>
+          <td class="paramname"><em>cons</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="console_8c_source.html#l00083">83</a> du fichier <a class="el" href="console_8c_source.html">console.c</a>.</p>
+
+</div>
+</div>
+<a id="a29466c636bd065544638829883090d54" name="a29466c636bd065544638829883090d54"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a29466c636bd065544638829883090d54">&#9670;&#160;</a></span>consoleInitialisation()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int consoleInitialisation </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="include_2manux_2interruptions_8h.html#a4fda31edc92f8ccd48b6f4bb50f2e7e1">void</a>&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Initialisation du système de console sans notion de fichier. </p>
+<dl class="section return"><dt>Renvoie</dt><dd>ESUCCES en cas de succès, autre chose sinon</dd></dl>
+<p>Initialisation du système de console sans notion de fichier. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="console_8c_source.html#l00869">869</a> du fichier <a class="el" href="console_8c_source.html">console.c</a>.</p>
+
+</div>
+</div>
+<a id="abf2f6aca15463bf0f0114531cea39f15" name="abf2f6aca15463bf0f0114531cea39f15"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abf2f6aca15463bf0f0114531cea39f15">&#9670;&#160;</a></span>consoleNoyau()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="include_2manux_2console_8h.html#aac124f3c894e9f941f5f72cd6fed63e1">Console</a> * consoleNoyau </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="include_2manux_2interruptions_8h.html#a4fda31edc92f8ccd48b6f4bb50f2e7e1">void</a>&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Obtention d'un pointeur sur la console par défaut. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="console_8c_source.html#l00808">808</a> du fichier <a class="el" href="console_8c_source.html">console.c</a>.</p>
+
+</div>
+</div>
+<a id="ae9ea42a9faaae8479fd2c762ddc7d8ae" name="ae9ea42a9faaae8479fd2c762ddc7d8ae"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae9ea42a9faaae8479fd2c762ddc7d8ae">&#9670;&#160;</a></span>consoleNoyauAfficher()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="include_2manux_2interruptions_8h.html#a4fda31edc92f8ccd48b6f4bb50f2e7e1">void</a> consoleNoyauAfficher </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>msg</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Affichage d'un message sur la console noyau. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="console_8c_source.html#l00437">437</a> du fichier <a class="el" href="console_8c_source.html">console.c</a>.</p>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

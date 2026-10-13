@@ -27,6 +27,6 @@ void startManuX()
    // On déclanche une exception "division par zéro"
    a = 1/b;
    
-   printk("Ciao ...\n");
+   printk("Ciao a=%d...\n", a);
    
 }   /* startManuX */

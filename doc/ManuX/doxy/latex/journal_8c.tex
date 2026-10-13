@@ -1,0 +1,100 @@
+\doxysection{Référence du fichier /home/manu/\+PROGRAMMATION/\+C/\+Manu\+X/lib/journal.c}
+\hypertarget{journal_8c}{}\label{journal_8c}\index{/home/manu/PROGRAMMATION/C/ManuX/lib/journal.c@{/home/manu/PROGRAMMATION/C/ManuX/lib/journal.c}}
+
+
+Implantation des outils de journalisation des messages du noyau. ~\newline
+  
+
+
+{\ttfamily \#include $<$manux/config.\+h$>$}\newline
+{\ttfamily \#include $<$manux/memoire.\+h$>$}\newline
+{\ttfamily \#include $<$manux/journal.\+h$>$}\newline
+{\ttfamily \#include $<$manux/string.\+h$>$}\newline
+Graphe des dépendances par inclusion de journal.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{journal_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} \mbox{\hyperlink{journal_8c_ae0b1891a78b329589a71603f76447eb3}{journal\+Initialiser}} (\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}})
+\begin{DoxyCompactList}\small\item\em Initialisation du journal sans interface fichier. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} \mbox{\hyperlink{journal_8c_afa39ebdefcb62878a46fc77263026d93}{journaliser}} (char \texorpdfstring{$\ast$}{*}message)
+\begin{DoxyCompactList}\small\item\em Journalisation d\textquotesingle{}un message. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{include_2manux_2types_8h_a5b7544e51b136e716e4eccc0602bafd7}{booleen}} \mbox{\hyperlink{journal_8c_a2689435a6da8a95441492a70e0c7691e}{journal\+Operationnel}} (\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}})
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{include_2manux_2console_8h_aac124f3c894e9f941f5f72cd6fed63e1}{Console}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{journal_8c_a27c4132c2559bc387c43175b568470a1}{console\+Journal}} = \mbox{\hyperlink{include_2manux_2stddef_8h_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Implantation des outils de journalisation des messages du noyau. ~\newline
+ 
+
+Il y a des trucs pas très jolis, par exemple l\textquotesingle{}accès direct à la console. A priori elle devrait être utilisée uniquement via des read/write mais c\textquotesingle{}est pas plus mal de pouvoir les contourner pour certains debugages. Le truc, c\textquotesingle{}est que le journal ne la connaît que comme un i\+Noeud (même s\textquotesingle{}il sait aller y trouver l\textquotesingle{}accès direct). Du coup, printk doit passer par le journal, ce qui est bien, mais pour contourner tout ça, j\textquotesingle{}ai encore un accès direct pas joli dans printk. A supprimer un jour j\textquotesingle{}espère. Si en particulier la macro MANUX\+\_\+\+JOURNAL\+\_\+\+DIRECT\+\_\+\+CONSOLE ne sert pas trop. \begin{DoxyVerb}                                             (C) Manu Chaput 2002-2023 
+\end{DoxyVerb}
+ 
+
+Définition dans le fichier \mbox{\hyperlink{journal_8c_source}{journal.\+c}}.
+
+
+
+\doxysubsection{Documentation des fonctions}
+\Hypertarget{journal_8c_ae0b1891a78b329589a71603f76447eb3}\label{journal_8c_ae0b1891a78b329589a71603f76447eb3} 
+\index{journal.c@{journal.c}!journalInitialiser@{journalInitialiser}}
+\index{journalInitialiser@{journalInitialiser}!journal.c@{journal.c}}
+\doxysubsubsection{\texorpdfstring{journalInitialiser()}{journalInitialiser()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} journal\+Initialiser (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}}}]{ }\end{DoxyParamCaption})}
+
+
+
+Initialisation du journal sans interface fichier. 
+
+Initialisation du système de journalisation. 
+
+Définition à la ligne \mbox{\hyperlink{journal_8c_source_l00084}{84}} du fichier \mbox{\hyperlink{journal_8c_source}{journal.\+c}}.
+
+\Hypertarget{journal_8c_afa39ebdefcb62878a46fc77263026d93}\label{journal_8c_afa39ebdefcb62878a46fc77263026d93} 
+\index{journal.c@{journal.c}!journaliser@{journaliser}}
+\index{journaliser@{journaliser}!journal.c@{journal.c}}
+\doxysubsubsection{\texorpdfstring{journaliser()}{journaliser()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} journaliser (\begin{DoxyParamCaption}\item[{char \texorpdfstring{$\ast$}{*}}]{message }\end{DoxyParamCaption})}
+
+
+
+Journalisation d\textquotesingle{}un message. 
+
+
+
+Définition à la ligne \mbox{\hyperlink{journal_8c_source_l00179}{179}} du fichier \mbox{\hyperlink{journal_8c_source}{journal.\+c}}.
+
+\Hypertarget{journal_8c_a2689435a6da8a95441492a70e0c7691e}\label{journal_8c_a2689435a6da8a95441492a70e0c7691e} 
+\index{journal.c@{journal.c}!journalOperationnel@{journalOperationnel}}
+\index{journalOperationnel@{journalOperationnel}!journal.c@{journal.c}}
+\doxysubsubsection{\texorpdfstring{journalOperationnel()}{journalOperationnel()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{include_2manux_2types_8h_a5b7544e51b136e716e4eccc0602bafd7}{booleen}} journal\+Operationnel (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}}}]{ }\end{DoxyParamCaption})}
+
+Pour que printk puisse savoir WARINING apparemment inutile 
+
+Définition à la ligne \mbox{\hyperlink{journal_8c_source_l00197}{197}} du fichier \mbox{\hyperlink{journal_8c_source}{journal.\+c}}.
+
+
+
+\doxysubsection{Documentation des variables}
+\Hypertarget{journal_8c_a27c4132c2559bc387c43175b568470a1}\label{journal_8c_a27c4132c2559bc387c43175b568470a1} 
+\index{journal.c@{journal.c}!consoleJournal@{consoleJournal}}
+\index{consoleJournal@{consoleJournal}!journal.c@{journal.c}}
+\doxysubsubsection{\texorpdfstring{consoleJournal}{consoleJournal}}
+{\footnotesize\ttfamily \mbox{\hyperlink{include_2manux_2console_8h_aac124f3c894e9f941f5f72cd6fed63e1}{Console}}\texorpdfstring{$\ast$}{*} console\+Journal = \mbox{\hyperlink{include_2manux_2stddef_8h_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}}}
+
+Le journal utilise la console en passant par l\textquotesingle{}interface fichier qu\textquotesingle{}elle propose si cette interface est configurée. Si ce n\textquotesingle{}est pas le cas, la console est accédée directement. 
+
+Définition à la ligne \mbox{\hyperlink{journal_8c_source_l00031}{31}} du fichier \mbox{\hyperlink{journal_8c_source}{journal.\+c}}.
+

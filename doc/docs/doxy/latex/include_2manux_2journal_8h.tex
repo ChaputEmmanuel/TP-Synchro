@@ -1,0 +1,205 @@
+\doxysection{Référence du fichier /home/manu/\+PROGRAMMATION/\+C/\+Manu\+X/include/manux/journal.h}
+\hypertarget{include_2manux_2journal_8h}{}\label{include_2manux_2journal_8h}\index{/home/manu/PROGRAMMATION/C/ManuX/include/manux/journal.h@{/home/manu/PROGRAMMATION/C/ManuX/include/manux/journal.h}}
+
+
+Définition des outils de journalisation des messages du noyau. ~\newline
+  
+
+
+{\ttfamily \#include $<$manux/types.\+h$>$}\newline
+{\ttfamily \#include $<$manux/fichier.\+h$>$}\newline
+{\ttfamily \#include $<$manux/console.\+h$>$}\newline
+Graphe des dépendances par inclusion de journal.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{include_2manux_2journal_8h__incl}
+\end{center}
+\end{figure}
+Ce graphe montre quels fichiers incluent directement ou indirectement ce fichier \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{include_2manux_2journal_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{include_2manux_2journal_8h_afe549791082aaa172f869cae54aa0a1a}{MANUX\+\_\+\+JOURNAL\+\_\+\+NIVEAU\+\_\+\+PANIQUE}}~0
+\begin{DoxyCompactList}\small\item\em Les différents niveaux d\textquotesingle{}affichage. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{include_2manux_2journal_8h_ae09256fc537759eaa110d62fae7f5197}{MANUX\+\_\+\+JOURNAL\+\_\+\+NIVEAU\+\_\+\+URGENCE}}~1
+\item 
+\#define \mbox{\hyperlink{include_2manux_2journal_8h_aba54ae76031b5b429de2cbc8e5d7ffb0}{MANUX\+\_\+\+JOURNAL\+\_\+\+NIVEAU\+\_\+\+CRITIQUE}}~2
+\item 
+\#define \mbox{\hyperlink{include_2manux_2journal_8h_a55e794e9f785aa6ea21d623656aba088}{MANUX\+\_\+\+JOURNAL\+\_\+\+NIVEAU\+\_\+\+ERREUR}}~3
+\item 
+\#define \mbox{\hyperlink{include_2manux_2journal_8h_a64fc2ce2371ea4122ddde50a77e0475a}{MANUX\+\_\+\+JOURNAL\+\_\+\+NIVEAU\+\_\+\+ATTENTION}}~4
+\item 
+\#define \mbox{\hyperlink{include_2manux_2journal_8h_a02c7890f509e7ad484db130945658437}{MANUX\+\_\+\+JOURNAL\+\_\+\+NIVEAU\+\_\+\+NOTIFICATION}}~5
+\item 
+\#define \mbox{\hyperlink{include_2manux_2journal_8h_a200ede37f963705364654c0546fbfd20}{MANUX\+\_\+\+JOURNAL\+\_\+\+NIVEAU\+\_\+\+INFORMATION}}~6
+\item 
+\#define \mbox{\hyperlink{include_2manux_2journal_8h_a03c1f304bdcb1cf0cde9bd669b0fa7b4}{MANUX\+\_\+\+JOURNAL\+\_\+\+NIVEAU\+\_\+\+DEBUGAGE}}~7
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} \mbox{\hyperlink{include_2manux_2journal_8h_ae0b1891a78b329589a71603f76447eb3}{journal\+Initialiser}} (\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}})
+\begin{DoxyCompactList}\small\item\em Initialisation du système de journalisation. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} \mbox{\hyperlink{include_2manux_2journal_8h_aed4c0b68122d57fe6486e4963f38054b}{journal\+Affecter\+Fichier}} (\mbox{\hyperlink{fichier_8h_af21b1af90951b2649333714c85dfe197}{Fichier}} \texorpdfstring{$\ast$}{*}pc)
+\begin{DoxyCompactList}\small\item\em Affectation d\textquotesingle{}un fichier sur lequel seront envoyés les messages journalisés. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} \mbox{\hyperlink{include_2manux_2journal_8h_afa39ebdefcb62878a46fc77263026d93}{journaliser}} (char \texorpdfstring{$\ast$}{*}message)
+\begin{DoxyCompactList}\small\item\em Journalisation d\textquotesingle{}un message. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{include_2manux_2types_8h_a5b7544e51b136e716e4eccc0602bafd7}{booleen}} \mbox{\hyperlink{include_2manux_2journal_8h_a2689435a6da8a95441492a70e0c7691e}{journal\+Operationnel}} (\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}})
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Définition des outils de journalisation des messages du noyau. ~\newline
+ 
+
+Pour le moment, ces messages seront envoyés sur une console virtuelle. \begin{DoxyVerb}                                            (C) Manu Chaput 2002-2023
+\end{DoxyVerb}
+ 
+
+Définition dans le fichier \mbox{\hyperlink{include_2manux_2journal_8h_source}{journal.\+h}}.
+
+
+
+\doxysubsection{Documentation des macros}
+\Hypertarget{include_2manux_2journal_8h_a64fc2ce2371ea4122ddde50a77e0475a}\label{include_2manux_2journal_8h_a64fc2ce2371ea4122ddde50a77e0475a} 
+\index{journal.h@{journal.h}!MANUX\_JOURNAL\_NIVEAU\_ATTENTION@{MANUX\_JOURNAL\_NIVEAU\_ATTENTION}}
+\index{MANUX\_JOURNAL\_NIVEAU\_ATTENTION@{MANUX\_JOURNAL\_NIVEAU\_ATTENTION}!journal.h@{journal.h}}
+\doxysubsubsection{\texorpdfstring{MANUX\_JOURNAL\_NIVEAU\_ATTENTION}{MANUX\_JOURNAL\_NIVEAU\_ATTENTION}}
+{\footnotesize\ttfamily \#define MANUX\+\_\+\+JOURNAL\+\_\+\+NIVEAU\+\_\+\+ATTENTION~4}
+
+
+
+Définition à la ligne \mbox{\hyperlink{include_2manux_2journal_8h_source_l00023}{23}} du fichier \mbox{\hyperlink{include_2manux_2journal_8h_source}{journal.\+h}}.
+
+\Hypertarget{include_2manux_2journal_8h_aba54ae76031b5b429de2cbc8e5d7ffb0}\label{include_2manux_2journal_8h_aba54ae76031b5b429de2cbc8e5d7ffb0} 
+\index{journal.h@{journal.h}!MANUX\_JOURNAL\_NIVEAU\_CRITIQUE@{MANUX\_JOURNAL\_NIVEAU\_CRITIQUE}}
+\index{MANUX\_JOURNAL\_NIVEAU\_CRITIQUE@{MANUX\_JOURNAL\_NIVEAU\_CRITIQUE}!journal.h@{journal.h}}
+\doxysubsubsection{\texorpdfstring{MANUX\_JOURNAL\_NIVEAU\_CRITIQUE}{MANUX\_JOURNAL\_NIVEAU\_CRITIQUE}}
+{\footnotesize\ttfamily \#define MANUX\+\_\+\+JOURNAL\+\_\+\+NIVEAU\+\_\+\+CRITIQUE~2}
+
+
+
+Définition à la ligne \mbox{\hyperlink{include_2manux_2journal_8h_source_l00021}{21}} du fichier \mbox{\hyperlink{include_2manux_2journal_8h_source}{journal.\+h}}.
+
+\Hypertarget{include_2manux_2journal_8h_a03c1f304bdcb1cf0cde9bd669b0fa7b4}\label{include_2manux_2journal_8h_a03c1f304bdcb1cf0cde9bd669b0fa7b4} 
+\index{journal.h@{journal.h}!MANUX\_JOURNAL\_NIVEAU\_DEBUGAGE@{MANUX\_JOURNAL\_NIVEAU\_DEBUGAGE}}
+\index{MANUX\_JOURNAL\_NIVEAU\_DEBUGAGE@{MANUX\_JOURNAL\_NIVEAU\_DEBUGAGE}!journal.h@{journal.h}}
+\doxysubsubsection{\texorpdfstring{MANUX\_JOURNAL\_NIVEAU\_DEBUGAGE}{MANUX\_JOURNAL\_NIVEAU\_DEBUGAGE}}
+{\footnotesize\ttfamily \#define MANUX\+\_\+\+JOURNAL\+\_\+\+NIVEAU\+\_\+\+DEBUGAGE~7}
+
+
+
+Définition à la ligne \mbox{\hyperlink{include_2manux_2journal_8h_source_l00026}{26}} du fichier \mbox{\hyperlink{include_2manux_2journal_8h_source}{journal.\+h}}.
+
+\Hypertarget{include_2manux_2journal_8h_a55e794e9f785aa6ea21d623656aba088}\label{include_2manux_2journal_8h_a55e794e9f785aa6ea21d623656aba088} 
+\index{journal.h@{journal.h}!MANUX\_JOURNAL\_NIVEAU\_ERREUR@{MANUX\_JOURNAL\_NIVEAU\_ERREUR}}
+\index{MANUX\_JOURNAL\_NIVEAU\_ERREUR@{MANUX\_JOURNAL\_NIVEAU\_ERREUR}!journal.h@{journal.h}}
+\doxysubsubsection{\texorpdfstring{MANUX\_JOURNAL\_NIVEAU\_ERREUR}{MANUX\_JOURNAL\_NIVEAU\_ERREUR}}
+{\footnotesize\ttfamily \#define MANUX\+\_\+\+JOURNAL\+\_\+\+NIVEAU\+\_\+\+ERREUR~3}
+
+
+
+Définition à la ligne \mbox{\hyperlink{include_2manux_2journal_8h_source_l00022}{22}} du fichier \mbox{\hyperlink{include_2manux_2journal_8h_source}{journal.\+h}}.
+
+\Hypertarget{include_2manux_2journal_8h_a200ede37f963705364654c0546fbfd20}\label{include_2manux_2journal_8h_a200ede37f963705364654c0546fbfd20} 
+\index{journal.h@{journal.h}!MANUX\_JOURNAL\_NIVEAU\_INFORMATION@{MANUX\_JOURNAL\_NIVEAU\_INFORMATION}}
+\index{MANUX\_JOURNAL\_NIVEAU\_INFORMATION@{MANUX\_JOURNAL\_NIVEAU\_INFORMATION}!journal.h@{journal.h}}
+\doxysubsubsection{\texorpdfstring{MANUX\_JOURNAL\_NIVEAU\_INFORMATION}{MANUX\_JOURNAL\_NIVEAU\_INFORMATION}}
+{\footnotesize\ttfamily \#define MANUX\+\_\+\+JOURNAL\+\_\+\+NIVEAU\+\_\+\+INFORMATION~6}
+
+
+
+Définition à la ligne \mbox{\hyperlink{include_2manux_2journal_8h_source_l00025}{25}} du fichier \mbox{\hyperlink{include_2manux_2journal_8h_source}{journal.\+h}}.
+
+\Hypertarget{include_2manux_2journal_8h_a02c7890f509e7ad484db130945658437}\label{include_2manux_2journal_8h_a02c7890f509e7ad484db130945658437} 
+\index{journal.h@{journal.h}!MANUX\_JOURNAL\_NIVEAU\_NOTIFICATION@{MANUX\_JOURNAL\_NIVEAU\_NOTIFICATION}}
+\index{MANUX\_JOURNAL\_NIVEAU\_NOTIFICATION@{MANUX\_JOURNAL\_NIVEAU\_NOTIFICATION}!journal.h@{journal.h}}
+\doxysubsubsection{\texorpdfstring{MANUX\_JOURNAL\_NIVEAU\_NOTIFICATION}{MANUX\_JOURNAL\_NIVEAU\_NOTIFICATION}}
+{\footnotesize\ttfamily \#define MANUX\+\_\+\+JOURNAL\+\_\+\+NIVEAU\+\_\+\+NOTIFICATION~5}
+
+
+
+Définition à la ligne \mbox{\hyperlink{include_2manux_2journal_8h_source_l00024}{24}} du fichier \mbox{\hyperlink{include_2manux_2journal_8h_source}{journal.\+h}}.
+
+\Hypertarget{include_2manux_2journal_8h_afe549791082aaa172f869cae54aa0a1a}\label{include_2manux_2journal_8h_afe549791082aaa172f869cae54aa0a1a} 
+\index{journal.h@{journal.h}!MANUX\_JOURNAL\_NIVEAU\_PANIQUE@{MANUX\_JOURNAL\_NIVEAU\_PANIQUE}}
+\index{MANUX\_JOURNAL\_NIVEAU\_PANIQUE@{MANUX\_JOURNAL\_NIVEAU\_PANIQUE}!journal.h@{journal.h}}
+\doxysubsubsection{\texorpdfstring{MANUX\_JOURNAL\_NIVEAU\_PANIQUE}{MANUX\_JOURNAL\_NIVEAU\_PANIQUE}}
+{\footnotesize\ttfamily \#define MANUX\+\_\+\+JOURNAL\+\_\+\+NIVEAU\+\_\+\+PANIQUE~0}
+
+
+
+Les différents niveaux d\textquotesingle{}affichage. 
+
+
+
+Définition à la ligne \mbox{\hyperlink{include_2manux_2journal_8h_source_l00019}{19}} du fichier \mbox{\hyperlink{include_2manux_2journal_8h_source}{journal.\+h}}.
+
+\Hypertarget{include_2manux_2journal_8h_ae09256fc537759eaa110d62fae7f5197}\label{include_2manux_2journal_8h_ae09256fc537759eaa110d62fae7f5197} 
+\index{journal.h@{journal.h}!MANUX\_JOURNAL\_NIVEAU\_URGENCE@{MANUX\_JOURNAL\_NIVEAU\_URGENCE}}
+\index{MANUX\_JOURNAL\_NIVEAU\_URGENCE@{MANUX\_JOURNAL\_NIVEAU\_URGENCE}!journal.h@{journal.h}}
+\doxysubsubsection{\texorpdfstring{MANUX\_JOURNAL\_NIVEAU\_URGENCE}{MANUX\_JOURNAL\_NIVEAU\_URGENCE}}
+{\footnotesize\ttfamily \#define MANUX\+\_\+\+JOURNAL\+\_\+\+NIVEAU\+\_\+\+URGENCE~1}
+
+
+
+Définition à la ligne \mbox{\hyperlink{include_2manux_2journal_8h_source_l00020}{20}} du fichier \mbox{\hyperlink{include_2manux_2journal_8h_source}{journal.\+h}}.
+
+
+
+\doxysubsection{Documentation des fonctions}
+\Hypertarget{include_2manux_2journal_8h_aed4c0b68122d57fe6486e4963f38054b}\label{include_2manux_2journal_8h_aed4c0b68122d57fe6486e4963f38054b} 
+\index{journal.h@{journal.h}!journalAffecterFichier@{journalAffecterFichier}}
+\index{journalAffecterFichier@{journalAffecterFichier}!journal.h@{journal.h}}
+\doxysubsubsection{\texorpdfstring{journalAffecterFichier()}{journalAffecterFichier()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} journal\+Affecter\+Fichier (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{fichier_8h_af21b1af90951b2649333714c85dfe197}{Fichier}} \texorpdfstring{$\ast$}{*}}]{pc }\end{DoxyParamCaption})}
+
+
+
+Affectation d\textquotesingle{}un fichier sur lequel seront envoyés les messages journalisés. 
+
+\Hypertarget{include_2manux_2journal_8h_ae0b1891a78b329589a71603f76447eb3}\label{include_2manux_2journal_8h_ae0b1891a78b329589a71603f76447eb3} 
+\index{journal.h@{journal.h}!journalInitialiser@{journalInitialiser}}
+\index{journalInitialiser@{journalInitialiser}!journal.h@{journal.h}}
+\doxysubsubsection{\texorpdfstring{journalInitialiser()}{journalInitialiser()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} journal\+Initialiser (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}}}]{ }\end{DoxyParamCaption})}
+
+
+
+Initialisation du système de journalisation. 
+
+Initialisation du système de journalisation. 
+
+Définition à la ligne \mbox{\hyperlink{journal_8c_source_l00084}{84}} du fichier \mbox{\hyperlink{journal_8c_source}{journal.\+c}}.
+
+\Hypertarget{include_2manux_2journal_8h_afa39ebdefcb62878a46fc77263026d93}\label{include_2manux_2journal_8h_afa39ebdefcb62878a46fc77263026d93} 
+\index{journal.h@{journal.h}!journaliser@{journaliser}}
+\index{journaliser@{journaliser}!journal.h@{journal.h}}
+\doxysubsubsection{\texorpdfstring{journaliser()}{journaliser()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} journaliser (\begin{DoxyParamCaption}\item[{char \texorpdfstring{$\ast$}{*}}]{message }\end{DoxyParamCaption})}
+
+
+
+Journalisation d\textquotesingle{}un message. 
+
+
+
+Définition à la ligne \mbox{\hyperlink{journal_8c_source_l00179}{179}} du fichier \mbox{\hyperlink{journal_8c_source}{journal.\+c}}.
+
+\Hypertarget{include_2manux_2journal_8h_a2689435a6da8a95441492a70e0c7691e}\label{include_2manux_2journal_8h_a2689435a6da8a95441492a70e0c7691e} 
+\index{journal.h@{journal.h}!journalOperationnel@{journalOperationnel}}
+\index{journalOperationnel@{journalOperationnel}!journal.h@{journal.h}}
+\doxysubsubsection{\texorpdfstring{journalOperationnel()}{journalOperationnel()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{include_2manux_2types_8h_a5b7544e51b136e716e4eccc0602bafd7}{booleen}} journal\+Operationnel (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}}}]{ }\end{DoxyParamCaption})}
+
+Pour que printk puisse savoir WARINING apparemment inutile 
+
+Définition à la ligne \mbox{\hyperlink{journal_8c_source_l00197}{197}} du fichier \mbox{\hyperlink{journal_8c_source}{journal.\+c}}.
+

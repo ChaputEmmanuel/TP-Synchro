@@ -1,0 +1,142 @@
+\doxysection{Référence du fichier /home/manu/\+PROGRAMMATION/\+C/\+Manu\+X/include/config/synchronisation.h}
+\hypertarget{synchronisation_8h}{}\label{synchronisation_8h}\index{/home/manu/PROGRAMMATION/C/ManuX/include/config/synchronisation.h@{/home/manu/PROGRAMMATION/C/ManuX/include/config/synchronisation.h}}
+
+
+Configuration des outils de synchronisation de ManuX.  
+
+
+Ce graphe montre quels fichiers incluent directement ou indirectement ce fichier \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{synchronisation_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{synchronisation_8h_acecfb2fef8188af760212c77dce2a734}{MANUX\+\_\+\+SYNCHRONISATION}}
+\item 
+\#define \mbox{\hyperlink{synchronisation_8h_a6ad760418da1295d55dabc7583a60257}{MANUX\+\_\+\+ATOMIQUE}}
+\item 
+\#define \mbox{\hyperlink{synchronisation_8h_af7770b67c1e9c4dec01e3cf1de619626}{MANUX\+\_\+\+EXCLUSION\+\_\+\+MUTUELLE}}
+\begin{DoxyCompactList}\small\item\em Intégration des exclusions mutuelles. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{synchronisation_8h_a6cba2437ca53e5133be2909b31b3c512}{MANUX\+\_\+\+CONDITION}}
+\begin{DoxyCompactList}\small\item\em Intégration des conditions. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{synchronisation_8h_ad7d51b917c02c10757682b202f65ffeb}{MANUX\+\_\+\+ATOMIQUE\+\_\+\+AUDIT}}
+\begin{DoxyCompactList}\small\item\em Ajout de structures et fonctions permettant d\textquotesingle{}observer l\textquotesingle{}état des outils de synchronisation. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{synchronisation_8h_a52db86393c6ce1e084ea407bf18581ec}{MANUX\+\_\+\+EXCLUSION\+\_\+\+MUTUELLE\+\_\+\+AUDIT}}
+\item 
+\#define \mbox{\hyperlink{synchronisation_8h_af72e0f0da16ad9da23218a9b3e6d955f}{MANUX\+\_\+\+CONDITION\+\_\+\+AUDIT}}
+\item 
+\#define \mbox{\hyperlink{synchronisation_8h_a3ca20a39f43d8013c4c49c4951a82992}{MANUX\+\_\+\+REENTRANT}}
+\begin{DoxyCompactList}\small\item\em Le noyau est-\/il réentrant ? \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Configuration des outils de synchronisation de ManuX. 
+
+
+
+Définition dans le fichier \mbox{\hyperlink{synchronisation_8h_source}{synchronisation.\+h}}.
+
+
+
+\doxysubsection{Documentation des macros}
+\Hypertarget{synchronisation_8h_a6ad760418da1295d55dabc7583a60257}\label{synchronisation_8h_a6ad760418da1295d55dabc7583a60257} 
+\index{synchronisation.h@{synchronisation.h}!MANUX\_ATOMIQUE@{MANUX\_ATOMIQUE}}
+\index{MANUX\_ATOMIQUE@{MANUX\_ATOMIQUE}!synchronisation.h@{synchronisation.h}}
+\doxysubsubsection{\texorpdfstring{MANUX\_ATOMIQUE}{MANUX\_ATOMIQUE}}
+{\footnotesize\ttfamily \#define MANUX\+\_\+\+ATOMIQUE}
+
+Utilisation des outils de synchro de base 
+
+Définition à la ligne \mbox{\hyperlink{synchronisation_8h_source_l00012}{12}} du fichier \mbox{\hyperlink{synchronisation_8h_source}{synchronisation.\+h}}.
+
+\Hypertarget{synchronisation_8h_ad7d51b917c02c10757682b202f65ffeb}\label{synchronisation_8h_ad7d51b917c02c10757682b202f65ffeb} 
+\index{synchronisation.h@{synchronisation.h}!MANUX\_ATOMIQUE\_AUDIT@{MANUX\_ATOMIQUE\_AUDIT}}
+\index{MANUX\_ATOMIQUE\_AUDIT@{MANUX\_ATOMIQUE\_AUDIT}!synchronisation.h@{synchronisation.h}}
+\doxysubsubsection{\texorpdfstring{MANUX\_ATOMIQUE\_AUDIT}{MANUX\_ATOMIQUE\_AUDIT}}
+{\footnotesize\ttfamily \#define MANUX\+\_\+\+ATOMIQUE\+\_\+\+AUDIT}
+
+
+
+Ajout de structures et fonctions permettant d\textquotesingle{}observer l\textquotesingle{}état des outils de synchronisation. 
+
+
+
+Définition à la ligne \mbox{\hyperlink{synchronisation_8h_source_l00028}{28}} du fichier \mbox{\hyperlink{synchronisation_8h_source}{synchronisation.\+h}}.
+
+\Hypertarget{synchronisation_8h_a6cba2437ca53e5133be2909b31b3c512}\label{synchronisation_8h_a6cba2437ca53e5133be2909b31b3c512} 
+\index{synchronisation.h@{synchronisation.h}!MANUX\_CONDITION@{MANUX\_CONDITION}}
+\index{MANUX\_CONDITION@{MANUX\_CONDITION}!synchronisation.h@{synchronisation.h}}
+\doxysubsubsection{\texorpdfstring{MANUX\_CONDITION}{MANUX\_CONDITION}}
+{\footnotesize\ttfamily \#define MANUX\+\_\+\+CONDITION}
+
+
+
+Intégration des conditions. 
+
+
+
+Définition à la ligne \mbox{\hyperlink{synchronisation_8h_source_l00022}{22}} du fichier \mbox{\hyperlink{synchronisation_8h_source}{synchronisation.\+h}}.
+
+\Hypertarget{synchronisation_8h_af72e0f0da16ad9da23218a9b3e6d955f}\label{synchronisation_8h_af72e0f0da16ad9da23218a9b3e6d955f} 
+\index{synchronisation.h@{synchronisation.h}!MANUX\_CONDITION\_AUDIT@{MANUX\_CONDITION\_AUDIT}}
+\index{MANUX\_CONDITION\_AUDIT@{MANUX\_CONDITION\_AUDIT}!synchronisation.h@{synchronisation.h}}
+\doxysubsubsection{\texorpdfstring{MANUX\_CONDITION\_AUDIT}{MANUX\_CONDITION\_AUDIT}}
+{\footnotesize\ttfamily \#define MANUX\+\_\+\+CONDITION\+\_\+\+AUDIT}
+
+
+
+Définition à la ligne \mbox{\hyperlink{synchronisation_8h_source_l00032}{32}} du fichier \mbox{\hyperlink{synchronisation_8h_source}{synchronisation.\+h}}.
+
+\Hypertarget{synchronisation_8h_af7770b67c1e9c4dec01e3cf1de619626}\label{synchronisation_8h_af7770b67c1e9c4dec01e3cf1de619626} 
+\index{synchronisation.h@{synchronisation.h}!MANUX\_EXCLUSION\_MUTUELLE@{MANUX\_EXCLUSION\_MUTUELLE}}
+\index{MANUX\_EXCLUSION\_MUTUELLE@{MANUX\_EXCLUSION\_MUTUELLE}!synchronisation.h@{synchronisation.h}}
+\doxysubsubsection{\texorpdfstring{MANUX\_EXCLUSION\_MUTUELLE}{MANUX\_EXCLUSION\_MUTUELLE}}
+{\footnotesize\ttfamily \#define MANUX\+\_\+\+EXCLUSION\+\_\+\+MUTUELLE}
+
+
+
+Intégration des exclusions mutuelles. 
+
+
+
+Définition à la ligne \mbox{\hyperlink{synchronisation_8h_source_l00017}{17}} du fichier \mbox{\hyperlink{synchronisation_8h_source}{synchronisation.\+h}}.
+
+\Hypertarget{synchronisation_8h_a52db86393c6ce1e084ea407bf18581ec}\label{synchronisation_8h_a52db86393c6ce1e084ea407bf18581ec} 
+\index{synchronisation.h@{synchronisation.h}!MANUX\_EXCLUSION\_MUTUELLE\_AUDIT@{MANUX\_EXCLUSION\_MUTUELLE\_AUDIT}}
+\index{MANUX\_EXCLUSION\_MUTUELLE\_AUDIT@{MANUX\_EXCLUSION\_MUTUELLE\_AUDIT}!synchronisation.h@{synchronisation.h}}
+\doxysubsubsection{\texorpdfstring{MANUX\_EXCLUSION\_MUTUELLE\_AUDIT}{MANUX\_EXCLUSION\_MUTUELLE\_AUDIT}}
+{\footnotesize\ttfamily \#define MANUX\+\_\+\+EXCLUSION\+\_\+\+MUTUELLE\+\_\+\+AUDIT}
+
+
+
+Définition à la ligne \mbox{\hyperlink{synchronisation_8h_source_l00030}{30}} du fichier \mbox{\hyperlink{synchronisation_8h_source}{synchronisation.\+h}}.
+
+\Hypertarget{synchronisation_8h_a3ca20a39f43d8013c4c49c4951a82992}\label{synchronisation_8h_a3ca20a39f43d8013c4c49c4951a82992} 
+\index{synchronisation.h@{synchronisation.h}!MANUX\_REENTRANT@{MANUX\_REENTRANT}}
+\index{MANUX\_REENTRANT@{MANUX\_REENTRANT}!synchronisation.h@{synchronisation.h}}
+\doxysubsubsection{\texorpdfstring{MANUX\_REENTRANT}{MANUX\_REENTRANT}}
+{\footnotesize\ttfamily \#define MANUX\+\_\+\+REENTRANT}
+
+
+
+Le noyau est-\/il réentrant ? 
+
+Si un élément ne l\textquotesingle{}est pas, cette macro ne doit pas être définie 
+
+Définition à la ligne \mbox{\hyperlink{synchronisation_8h_source_l00039}{39}} du fichier \mbox{\hyperlink{synchronisation_8h_source}{synchronisation.\+h}}.
+
+\Hypertarget{synchronisation_8h_acecfb2fef8188af760212c77dce2a734}\label{synchronisation_8h_acecfb2fef8188af760212c77dce2a734} 
+\index{synchronisation.h@{synchronisation.h}!MANUX\_SYNCHRONISATION@{MANUX\_SYNCHRONISATION}}
+\index{MANUX\_SYNCHRONISATION@{MANUX\_SYNCHRONISATION}!synchronisation.h@{synchronisation.h}}
+\doxysubsubsection{\texorpdfstring{MANUX\_SYNCHRONISATION}{MANUX\_SYNCHRONISATION}}
+{\footnotesize\ttfamily \#define MANUX\+\_\+\+SYNCHRONISATION}
+
+
+
+Définition à la ligne \mbox{\hyperlink{synchronisation_8h_source_l00006}{6}} du fichier \mbox{\hyperlink{synchronisation_8h_source}{synchronisation.\+h}}.
+

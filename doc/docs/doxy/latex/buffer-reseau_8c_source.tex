@@ -1,0 +1,122 @@
+\doxysection{buffer-\/reseau.c}
+\hypertarget{buffer-reseau_8c_source}{}\label{buffer-reseau_8c_source}\index{/home/manu/PROGRAMMATION/C/ManuX/reseau/buffer-\/reseau.c@{/home/manu/PROGRAMMATION/C/ManuX/reseau/buffer-\/reseau.c}}
+\mbox{\hyperlink{buffer-reseau_8c}{Aller à la documentation de ce fichier.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{buffer-reseau_8c_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{buffer-reseau_8c_source_l00006}00006\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{buffer-reseau_8h}{manux/buffer-\/reseau.h}}>}}
+\DoxyCodeLine{\Hypertarget{buffer-reseau_8c_source_l00007}00007\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{manux_2debug_8h}{manux/debug.h}}>}}
+\DoxyCodeLine{\Hypertarget{buffer-reseau_8c_source_l00008}00008\ \textcolor{preprocessor}{\#include\ <manux/string.h>}\ \ \ \ \textcolor{comment}{//\ memcopy}}
+\DoxyCodeLine{\Hypertarget{buffer-reseau_8c_source_l00009}00009\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{include_2manux_2kmalloc_8h}{manux/kmalloc.h}}>}}
+\DoxyCodeLine{\Hypertarget{buffer-reseau_8c_source_l00010}00010\ }
+\DoxyCodeLine{\Hypertarget{buffer-reseau_8c_source_l00011}\mbox{\hyperlink{struct__CelluleBufferReseau}{00011}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__CelluleBufferReseau}{\_CelluleBufferReseau}}\ \{}
+\DoxyCodeLine{\Hypertarget{buffer-reseau_8c_source_l00012}\mbox{\hyperlink{struct__CelluleBufferReseau_a79326378d9391c7f219ca99208a39e81}{00012}}\ \ \ \ \mbox{\hyperlink{struct__bufferReseau}{BufferReseau}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *\ \mbox{\hyperlink{struct__CelluleBufferReseau_a79326378d9391c7f219ca99208a39e81}{br}};}
+\DoxyCodeLine{\Hypertarget{buffer-reseau_8c_source_l00013}\mbox{\hyperlink{struct__CelluleBufferReseau_a3530d4a37a5c497a7d2218cd3fdd2965}{00013}}\ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__CelluleBufferReseau}{\_CelluleBufferReseau}}\ *\ \mbox{\hyperlink{struct__CelluleBufferReseau_a3530d4a37a5c497a7d2218cd3fdd2965}{suivant}};}
+\DoxyCodeLine{\Hypertarget{buffer-reseau_8c_source_l00014}\mbox{\hyperlink{buffer-reseau_8c_a204718754ae5403619f2af21a2d10f23}{00014}}\ \}\ \mbox{\hyperlink{buffer-reseau_8c_a204718754ae5403619f2af21a2d10f23}{CelluleBufferReseau}};}
+\DoxyCodeLine{\Hypertarget{buffer-reseau_8c_source_l00015}00015\ \ \ }
+\DoxyCodeLine{\Hypertarget{buffer-reseau_8c_source_l00016}\mbox{\hyperlink{struct__ListeBufferReseau}{00016}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__ListeBufferReseau}{\_ListeBufferReseau}}\ \{}
+\DoxyCodeLine{\Hypertarget{buffer-reseau_8c_source_l00017}\mbox{\hyperlink{struct__ListeBufferReseau_a4d5b4db0389c33360c1d0806b08d3335}{00017}}\ \ \ \ \mbox{\hyperlink{struct__CelluleBufferReseau}{CelluleBufferReseau}}\ *\ \mbox{\hyperlink{struct__ListeBufferReseau_a4d5b4db0389c33360c1d0806b08d3335}{premier}};}
+\DoxyCodeLine{\Hypertarget{buffer-reseau_8c_source_l00018}\mbox{\hyperlink{struct__ListeBufferReseau_a67b720e3295f6347d2c24e41837b3e04}{00018}}\ \ \ \ \mbox{\hyperlink{struct__CelluleBufferReseau}{CelluleBufferReseau}}\ *\ \mbox{\hyperlink{struct__ListeBufferReseau_a67b720e3295f6347d2c24e41837b3e04}{dernier}};}
+\DoxyCodeLine{\Hypertarget{buffer-reseau_8c_source_l00019}\mbox{\hyperlink{buffer-reseau_8c_ab99f07b5236134ff40767dd01cea2973}{00019}}\ \}\ \mbox{\hyperlink{buffer-reseau_8c_ab99f07b5236134ff40767dd01cea2973}{ListeBufferReseau}};}
+\DoxyCodeLine{\Hypertarget{buffer-reseau_8c_source_l00020}00020\ }
+\DoxyCodeLine{\Hypertarget{buffer-reseau_8c_source_l00030}\mbox{\hyperlink{buffer-reseau_8h_a4c7d77e3d7e5402407a6db0612dccc88}{00030}}\ \mbox{\hyperlink{struct__bufferReseau}{BufferReseau}}\ *\ \mbox{\hyperlink{buffer-reseau_8c_a4c7d77e3d7e5402407a6db0612dccc88}{bufferReseauCreer}}(\textcolor{keywordtype}{void}\ *\ donnees,\ \textcolor{keywordtype}{int}\ taille)}
+\DoxyCodeLine{\Hypertarget{buffer-reseau_8c_source_l00031}00031\ \{}
+\DoxyCodeLine{\Hypertarget{buffer-reseau_8c_source_l00032}00032\ \ \ \ \mbox{\hyperlink{struct__bufferReseau}{BufferReseau}}\ *\ result\ =\ (\mbox{\hyperlink{struct__bufferReseau}{BufferReseau}}\ *)\mbox{\hyperlink{kmalloc-zs_8h_af549fce4aa887cd31918e6c5dd0950f5}{kmalloc}}(\textcolor{keyword}{sizeof}(\mbox{\hyperlink{struct__bufferReseau}{BufferReseau}}));}
+\DoxyCodeLine{\Hypertarget{buffer-reseau_8c_source_l00033}00033\ }
+\DoxyCodeLine{\Hypertarget{buffer-reseau_8c_source_l00034}00034\ \ \ \ \textcolor{keywordflow}{if}\ (result)\ \{}
+\DoxyCodeLine{\Hypertarget{buffer-reseau_8c_source_l00035}00035\ \ \ \ \ \ \ \mbox{\hyperlink{manux_2debug_8h_ad4cabea5084373436d91b5dc4e8d0a49}{printk\_debug}}(\mbox{\hyperlink{manux_2debug_8h_a4f02878f8fb72005eddf2027f869557d}{DBG\_KERNEL\_NET}},\ \textcolor{stringliteral}{"{}Creation\ d'un\ buffer\ reseau\ de\ taille\ \%d\(\backslash\)n"{}},\ taille);}
+\DoxyCodeLine{\Hypertarget{buffer-reseau_8c_source_l00036}00036\ \ \ \ \ \ \ result-\/>\mbox{\hyperlink{struct__bufferReseau_a2e43074efd64dec589326f99e1cf6df6}{donnees}}\ =\ \mbox{\hyperlink{kmalloc-zs_8h_af549fce4aa887cd31918e6c5dd0950f5}{kmalloc}}(taille);}
+\DoxyCodeLine{\Hypertarget{buffer-reseau_8c_source_l00037}00037\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (result-\/>\mbox{\hyperlink{struct__bufferReseau_a2e43074efd64dec589326f99e1cf6df6}{donnees}})\ \{}
+\DoxyCodeLine{\Hypertarget{buffer-reseau_8c_source_l00038}00038\ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{include_2manux_2string_8h_aba088e716bccbc96d42da97e96316df1}{memcpy}}(result-\/>\mbox{\hyperlink{struct__bufferReseau_a2e43074efd64dec589326f99e1cf6df6}{donnees}},\ donnees,\ taille);}
+\DoxyCodeLine{\Hypertarget{buffer-reseau_8c_source_l00039}00039\ \ \ \ \ \ \ \ \ \ result-\/>\mbox{\hyperlink{struct__bufferReseau_a8a886224959101163dfe8025cf537860}{taille}}\ =\ taille;}
+\DoxyCodeLine{\Hypertarget{buffer-reseau_8c_source_l00040}00040\ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{buffer-reseau_8c_source_l00041}00041\ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{kmalloc-zs_8h_af7105034bf054e37218d6ade20db4684}{kfree}}(result);}
+\DoxyCodeLine{\Hypertarget{buffer-reseau_8c_source_l00042}00042\ \ \ \ \ \ \ \ \ \ result\ =\ \mbox{\hyperlink{include_2manux_2stddef_8h_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}};}
+\DoxyCodeLine{\Hypertarget{buffer-reseau_8c_source_l00043}00043\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{buffer-reseau_8c_source_l00044}00044\ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{buffer-reseau_8c_source_l00045}00045\ \ \ \ }
+\DoxyCodeLine{\Hypertarget{buffer-reseau_8c_source_l00046}00046\ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{\Hypertarget{buffer-reseau_8c_source_l00047}00047\ \}}
+\DoxyCodeLine{\Hypertarget{buffer-reseau_8c_source_l00048}00048\ }
+\DoxyCodeLine{\Hypertarget{buffer-reseau_8c_source_l00052}\mbox{\hyperlink{buffer-reseau_8h_af09e9a3dac0065f1944e8bc6063f007e}{00052}}\ \mbox{\hyperlink{struct__ListeBufferReseau}{ListeBufferReseau}}\ *\ \mbox{\hyperlink{buffer-reseau_8c_af09e9a3dac0065f1944e8bc6063f007e}{listeBufferReseauCreer}}(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\Hypertarget{buffer-reseau_8c_source_l00053}00053\ \{}
+\DoxyCodeLine{\Hypertarget{buffer-reseau_8c_source_l00054}00054\ \ \ \ \mbox{\hyperlink{struct__ListeBufferReseau}{ListeBufferReseau}}\ *\ result\ =\ (\mbox{\hyperlink{struct__ListeBufferReseau}{ListeBufferReseau}}\ *)\mbox{\hyperlink{kmalloc-zs_8h_af549fce4aa887cd31918e6c5dd0950f5}{kmalloc}}(\textcolor{keyword}{sizeof}(\mbox{\hyperlink{struct__ListeBufferReseau}{ListeBufferReseau}}));}
+\DoxyCodeLine{\Hypertarget{buffer-reseau_8c_source_l00055}00055\ }
+\DoxyCodeLine{\Hypertarget{buffer-reseau_8c_source_l00056}00056\ \ \ \ \textcolor{keywordflow}{if}\ (result)\ \{}
+\DoxyCodeLine{\Hypertarget{buffer-reseau_8c_source_l00057}00057\ \ \ \ \ \ \ \mbox{\hyperlink{manux_2debug_8h_ad4cabea5084373436d91b5dc4e8d0a49}{printk\_debug}}(\mbox{\hyperlink{manux_2debug_8h_a4f02878f8fb72005eddf2027f869557d}{DBG\_KERNEL\_NET}},\ \textcolor{stringliteral}{"{}Creation\ d'une\ liste\ de\ buffers\ reseau\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{buffer-reseau_8c_source_l00058}00058\ \ \ \ \ \ \ result-\/>\mbox{\hyperlink{struct__ListeBufferReseau_a4d5b4db0389c33360c1d0806b08d3335}{premier}}\ =\ \mbox{\hyperlink{include_2manux_2stddef_8h_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}};}
+\DoxyCodeLine{\Hypertarget{buffer-reseau_8c_source_l00059}00059\ \ \ \ \ \ \ result-\/>\mbox{\hyperlink{struct__ListeBufferReseau_a67b720e3295f6347d2c24e41837b3e04}{dernier}}\ =\ \mbox{\hyperlink{include_2manux_2stddef_8h_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}};}
+\DoxyCodeLine{\Hypertarget{buffer-reseau_8c_source_l00060}00060\ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{buffer-reseau_8c_source_l00061}00061\ \ \ \ }
+\DoxyCodeLine{\Hypertarget{buffer-reseau_8c_source_l00062}00062\ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{\Hypertarget{buffer-reseau_8c_source_l00063}00063\ \}}
+\DoxyCodeLine{\Hypertarget{buffer-reseau_8c_source_l00064}00064\ }
+\DoxyCodeLine{\Hypertarget{buffer-reseau_8c_source_l00068}\mbox{\hyperlink{buffer-reseau_8h_abe1fa2d4a3d29d7c2a55ee335c23b0c7}{00068}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{buffer-reseau_8c_abe1fa2d4a3d29d7c2a55ee335c23b0c7}{listeBufferReseauVide}}(\mbox{\hyperlink{struct__ListeBufferReseau}{ListeBufferReseau}}\ *\ l)}
+\DoxyCodeLine{\Hypertarget{buffer-reseau_8c_source_l00069}00069\ \{}
+\DoxyCodeLine{\Hypertarget{buffer-reseau_8c_source_l00070}00070\ \ \ \ \textcolor{keywordflow}{return}\ ((l\ ==\ \mbox{\hyperlink{include_2manux_2stddef_8h_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}})\ ||\ (l-\/>\mbox{\hyperlink{struct__ListeBufferReseau_a4d5b4db0389c33360c1d0806b08d3335}{premier}}\ ==\ \mbox{\hyperlink{include_2manux_2stddef_8h_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}}));}
+\DoxyCodeLine{\Hypertarget{buffer-reseau_8c_source_l00071}00071\ \}}
+\DoxyCodeLine{\Hypertarget{buffer-reseau_8c_source_l00072}00072\ }
+\DoxyCodeLine{\Hypertarget{buffer-reseau_8c_source_l00076}\mbox{\hyperlink{buffer-reseau_8h_a251a4a4fbc1c578bf93cbb0944b96f79}{00076}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{buffer-reseau_8c_a251a4a4fbc1c578bf93cbb0944b96f79}{listeBufferReseauInserer}}(\mbox{\hyperlink{struct__ListeBufferReseau}{ListeBufferReseau}}\ *\ l,\ \mbox{\hyperlink{struct__bufferReseau}{BufferReseau}}\ *\ \mbox{\hyperlink{main-bootreg_8c_a7976cd62f9b61a65e8104a3cf7c15099}{b}})}
+\DoxyCodeLine{\Hypertarget{buffer-reseau_8c_source_l00077}00077\ \{\ }
+\DoxyCodeLine{\Hypertarget{buffer-reseau_8c_source_l00078}00078\ \ \ \ \mbox{\hyperlink{manux_2debug_8h_ad4cabea5084373436d91b5dc4e8d0a49}{printk\_debug}}(\mbox{\hyperlink{manux_2debug_8h_a4f02878f8fb72005eddf2027f869557d}{DBG\_KERNEL\_NET}},\ \textcolor{stringliteral}{"{}Insertion\ d'un\ nouveau\ buffer\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{buffer-reseau_8c_source_l00079}00079\ }
+\DoxyCodeLine{\Hypertarget{buffer-reseau_8c_source_l00080}00080\ \ \ \ \mbox{\hyperlink{manux_2debug_8h_a3153a272f18d0f805028fce7e4337b53}{assert}}\ (l\ !=\ \mbox{\hyperlink{include_2manux_2stddef_8h_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}});}
+\DoxyCodeLine{\Hypertarget{buffer-reseau_8c_source_l00081}00081\ \ \ \ }
+\DoxyCodeLine{\Hypertarget{buffer-reseau_8c_source_l00082}00082\ \ \ \ \mbox{\hyperlink{struct__CelluleBufferReseau}{CelluleBufferReseau}}\ *\ \mbox{\hyperlink{main-bootreg_8c_add06ad5d8520e7cff4ff84b2811c0982}{c}}\ =\ (\mbox{\hyperlink{struct__CelluleBufferReseau}{CelluleBufferReseau}}\ *)\mbox{\hyperlink{kmalloc-zs_8h_af549fce4aa887cd31918e6c5dd0950f5}{kmalloc}}(\textcolor{keyword}{sizeof}(\mbox{\hyperlink{struct__CelluleBufferReseau}{CelluleBufferReseau}}));}
+\DoxyCodeLine{\Hypertarget{buffer-reseau_8c_source_l00083}00083\ }
+\DoxyCodeLine{\Hypertarget{buffer-reseau_8c_source_l00084}00084\ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{main-bootreg_8c_add06ad5d8520e7cff4ff84b2811c0982}{c}})\ \{}
+\DoxyCodeLine{\Hypertarget{buffer-reseau_8c_source_l00085}00085\ \ \ \ \ \ \ \mbox{\hyperlink{main-bootreg_8c_add06ad5d8520e7cff4ff84b2811c0982}{c}}-\/>\mbox{\hyperlink{struct__CelluleBufferReseau_a79326378d9391c7f219ca99208a39e81}{br}}\ =\ \mbox{\hyperlink{main-bootreg_8c_a7976cd62f9b61a65e8104a3cf7c15099}{b}};}
+\DoxyCodeLine{\Hypertarget{buffer-reseau_8c_source_l00086}00086\ \ \ \ \ \ \ \mbox{\hyperlink{main-bootreg_8c_add06ad5d8520e7cff4ff84b2811c0982}{c}}-\/>suivant\ =\ l-\/>\mbox{\hyperlink{struct__ListeBufferReseau_a4d5b4db0389c33360c1d0806b08d3335}{premier}};}
+\DoxyCodeLine{\Hypertarget{buffer-reseau_8c_source_l00087}00087\ \ \ \ \ \ \ l-\/>\mbox{\hyperlink{struct__ListeBufferReseau_a4d5b4db0389c33360c1d0806b08d3335}{premier}}\ =\ \mbox{\hyperlink{main-bootreg_8c_add06ad5d8520e7cff4ff84b2811c0982}{c}};}
+\DoxyCodeLine{\Hypertarget{buffer-reseau_8c_source_l00088}00088\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (l-\/>\mbox{\hyperlink{struct__ListeBufferReseau_a67b720e3295f6347d2c24e41837b3e04}{dernier}}\ ==\ \mbox{\hyperlink{include_2manux_2stddef_8h_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}})\ \{}
+\DoxyCodeLine{\Hypertarget{buffer-reseau_8c_source_l00089}00089\ \ \ \ \ \ \ \ \ \ l-\/>\mbox{\hyperlink{struct__ListeBufferReseau_a67b720e3295f6347d2c24e41837b3e04}{dernier}}\ =\ \mbox{\hyperlink{main-bootreg_8c_add06ad5d8520e7cff4ff84b2811c0982}{c}};}
+\DoxyCodeLine{\Hypertarget{buffer-reseau_8c_source_l00090}00090\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{buffer-reseau_8c_source_l00091}00091\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{\Hypertarget{buffer-reseau_8c_source_l00092}00092\ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{buffer-reseau_8c_source_l00093}00093\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\Hypertarget{buffer-reseau_8c_source_l00094}00094\ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{buffer-reseau_8c_source_l00095}00095\ \}}
+\DoxyCodeLine{\Hypertarget{buffer-reseau_8c_source_l00096}00096\ }
+\DoxyCodeLine{\Hypertarget{buffer-reseau_8c_source_l00102}\mbox{\hyperlink{buffer-reseau_8h_a76525950585070e30a2af05f1d49d2ae}{00102}}\ \mbox{\hyperlink{struct__bufferReseau}{BufferReseau}}\ *\ \mbox{\hyperlink{buffer-reseau_8c_a76525950585070e30a2af05f1d49d2ae}{listeBufferReseauExtraire}}(\mbox{\hyperlink{struct__ListeBufferReseau}{ListeBufferReseau}}\ *\ l)}
+\DoxyCodeLine{\Hypertarget{buffer-reseau_8c_source_l00103}00103\ \{}
+\DoxyCodeLine{\Hypertarget{buffer-reseau_8c_source_l00104}00104\ \ \ \ \mbox{\hyperlink{struct__CelluleBufferReseau}{CelluleBufferReseau}}\ *\ cellResult\ =\ \mbox{\hyperlink{include_2manux_2stddef_8h_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}};}
+\DoxyCodeLine{\Hypertarget{buffer-reseau_8c_source_l00105}00105\ }
+\DoxyCodeLine{\Hypertarget{buffer-reseau_8c_source_l00106}00106\ \ \ \ \mbox{\hyperlink{manux_2debug_8h_ad4cabea5084373436d91b5dc4e8d0a49}{printk\_debug}}(\mbox{\hyperlink{manux_2debug_8h_a4f02878f8fb72005eddf2027f869557d}{DBG\_KERNEL\_NET}},\ \textcolor{stringliteral}{"{}Extraction\ d'un\ buffer\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{buffer-reseau_8c_source_l00107}00107\ \ \ \ }
+\DoxyCodeLine{\Hypertarget{buffer-reseau_8c_source_l00108}00108\ \ \ \ \textcolor{keywordflow}{if}\ ((l\ !=\ \mbox{\hyperlink{include_2manux_2stddef_8h_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}})\ \&\&\ (l-\/>\mbox{\hyperlink{struct__ListeBufferReseau_a4d5b4db0389c33360c1d0806b08d3335}{premier}}\ !=\ \mbox{\hyperlink{include_2manux_2stddef_8h_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}}))\ \{}
+\DoxyCodeLine{\Hypertarget{buffer-reseau_8c_source_l00109}00109\ \ \ \ \ \ \ cellResult\ =\ l-\/>\mbox{\hyperlink{struct__ListeBufferReseau_a4d5b4db0389c33360c1d0806b08d3335}{premier}};}
+\DoxyCodeLine{\Hypertarget{buffer-reseau_8c_source_l00110}00110\ \ \ \ \ \ \ l-\/>\mbox{\hyperlink{struct__ListeBufferReseau_a4d5b4db0389c33360c1d0806b08d3335}{premier}}\ =\ cellResult-\/>\mbox{\hyperlink{struct__CelluleBufferReseau_a3530d4a37a5c497a7d2218cd3fdd2965}{suivant}};}
+\DoxyCodeLine{\Hypertarget{buffer-reseau_8c_source_l00111}00111\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (l-\/>\mbox{\hyperlink{struct__ListeBufferReseau_a67b720e3295f6347d2c24e41837b3e04}{dernier}}\ ==\ cellResult)\ \{}
+\DoxyCodeLine{\Hypertarget{buffer-reseau_8c_source_l00112}00112\ \ \ \ \ \ \ \ \ \ l-\/>\mbox{\hyperlink{struct__ListeBufferReseau_a67b720e3295f6347d2c24e41837b3e04}{dernier}}\ =\ \mbox{\hyperlink{include_2manux_2stddef_8h_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}};}
+\DoxyCodeLine{\Hypertarget{buffer-reseau_8c_source_l00113}00113\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{buffer-reseau_8c_source_l00114}00114\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ cellResult-\/>\mbox{\hyperlink{struct__CelluleBufferReseau_a79326378d9391c7f219ca99208a39e81}{br}};}
+\DoxyCodeLine{\Hypertarget{buffer-reseau_8c_source_l00115}00115\ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{buffer-reseau_8c_source_l00116}00116\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{include_2manux_2stddef_8h_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}};}
+\DoxyCodeLine{\Hypertarget{buffer-reseau_8c_source_l00117}00117\ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{buffer-reseau_8c_source_l00118}00118\ \}}
+\DoxyCodeLine{\Hypertarget{buffer-reseau_8c_source_l00119}00119\ }
+\DoxyCodeLine{\Hypertarget{buffer-reseau_8c_source_l00123}\mbox{\hyperlink{buffer-reseau_8h_a46dddf58d22c1c39c62a4b948766b91e}{00123}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{buffer-reseau_8c_a46dddf58d22c1c39c62a4b948766b91e}{listeBufferReseauAfficher}}(\mbox{\hyperlink{struct__ListeBufferReseau}{ListeBufferReseau}}\ *\ l)}
+\DoxyCodeLine{\Hypertarget{buffer-reseau_8c_source_l00124}00124\ \{}
+\DoxyCodeLine{\Hypertarget{buffer-reseau_8c_source_l00125}00125\ \ \ \ \textcolor{keywordtype}{int}\ n\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{buffer-reseau_8c_source_l00126}00126\ \ \ \ \mbox{\hyperlink{struct__CelluleBufferReseau}{CelluleBufferReseau}}\ *\ cell;}
+\DoxyCodeLine{\Hypertarget{buffer-reseau_8c_source_l00127}00127\ \ \ \ \mbox{\hyperlink{include_2manux_2types_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\_t}}\ *\ data;}
+\DoxyCodeLine{\Hypertarget{buffer-reseau_8c_source_l00128}00128\ \ \ \ }
+\DoxyCodeLine{\Hypertarget{buffer-reseau_8c_source_l00129}00129\ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{buffer-reseau_8c_abe1fa2d4a3d29d7c2a55ee335c23b0c7}{listeBufferReseauVide}}(l))\ \{}
+\DoxyCodeLine{\Hypertarget{buffer-reseau_8c_source_l00130}00130\ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (cell\ =\ l-\/>\mbox{\hyperlink{struct__ListeBufferReseau_a4d5b4db0389c33360c1d0806b08d3335}{premier}};\ cell\ !=\ \mbox{\hyperlink{include_2manux_2stddef_8h_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}};\ cell\ =\ cell-\/>\mbox{\hyperlink{struct__CelluleBufferReseau_a3530d4a37a5c497a7d2218cd3fdd2965}{suivant}})\ \{}
+\DoxyCodeLine{\Hypertarget{buffer-reseau_8c_source_l00131}00131\ \ \ \ \ \ \ \ \ \ n++;}
+\DoxyCodeLine{\Hypertarget{buffer-reseau_8c_source_l00132}00132\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{buffer-reseau_8c_source_l00133}00133\ \ \ \ \ \ \ \mbox{\hyperlink{include_2manux_2printk_8h_a7d5a6dcede19ea52bd0064cb40d66a25}{printkc}}(\textcolor{stringliteral}{"{}Il\ y\ a\ \%d\ paquet(s)\ dans\ la\ file\ :\(\backslash\)n"{}},\ n);}
+\DoxyCodeLine{\Hypertarget{buffer-reseau_8c_source_l00134}00134\ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (cell\ =\ l-\/>\mbox{\hyperlink{struct__ListeBufferReseau_a4d5b4db0389c33360c1d0806b08d3335}{premier}};\ cell\ !=\ \mbox{\hyperlink{include_2manux_2stddef_8h_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}};\ cell\ =\ cell-\/>\mbox{\hyperlink{struct__CelluleBufferReseau_a3530d4a37a5c497a7d2218cd3fdd2965}{suivant}})\ \{}
+\DoxyCodeLine{\Hypertarget{buffer-reseau_8c_source_l00135}00135\ \ \ \ \ data\ =\ (\mbox{\hyperlink{include_2manux_2types_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\_t}}*)cell-\/>\mbox{\hyperlink{struct__CelluleBufferReseau_a79326378d9391c7f219ca99208a39e81}{br}}-\/>\mbox{\hyperlink{struct__bufferReseau_a2e43074efd64dec589326f99e1cf6df6}{donnees}};}
+\DoxyCodeLine{\Hypertarget{buffer-reseau_8c_source_l00136}00136\ \ \ \ \ \mbox{\hyperlink{include_2manux_2printk_8h_a7d5a6dcede19ea52bd0064cb40d66a25}{printkc}}(\textcolor{stringliteral}{"{}l=\%d\ :\ 0x\%x\ 0x\%x\ 0x\%x\ 0x\%x\(\backslash\)n"{}},\ cell-\/>\mbox{\hyperlink{struct__CelluleBufferReseau_a79326378d9391c7f219ca99208a39e81}{br}}-\/>\mbox{\hyperlink{struct__bufferReseau_a8a886224959101163dfe8025cf537860}{taille}},}
+\DoxyCodeLine{\Hypertarget{buffer-reseau_8c_source_l00137}00137\ \ \ \ \ \ \ \ \ data[0],}
+\DoxyCodeLine{\Hypertarget{buffer-reseau_8c_source_l00138}00138\ \ \ \ \ \ \ \ \ data[1],}
+\DoxyCodeLine{\Hypertarget{buffer-reseau_8c_source_l00139}00139\ \ \ \ \ \ \ \ \ data[2],}
+\DoxyCodeLine{\Hypertarget{buffer-reseau_8c_source_l00140}00140\ \ \ \ \ \ \ \ \ data[3]);}
+\DoxyCodeLine{\Hypertarget{buffer-reseau_8c_source_l00141}00141\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{buffer-reseau_8c_source_l00142}00142\ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{buffer-reseau_8c_source_l00143}00143\ \ \ \ \ \ \ \mbox{\hyperlink{include_2manux_2printk_8h_a7d5a6dcede19ea52bd0064cb40d66a25}{printkc}}(\textcolor{stringliteral}{"{}File\ reseau\ pas\ encore\ initialisee\ ...\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{buffer-reseau_8c_source_l00144}00144\ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{buffer-reseau_8c_source_l00145}00145\ \}}
+\DoxyCodeLine{\Hypertarget{buffer-reseau_8c_source_l00146}00146\ }
+
+\end{DoxyCode}

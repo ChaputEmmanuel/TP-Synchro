@@ -1,0 +1,92 @@
+\doxysection{RÃ©fÃ©rence du fichier /home/manu/\+PROGRAMMATION/\+C/\+Manu\+X/noyau/main-\/verrou-\/noyau.c}
+\hypertarget{main-verrou-noyau_8c}{}\label{main-verrou-noyau_8c}\index{/home/manu/PROGRAMMATION/C/ManuX/noyau/main-\/verrou-\/noyau.c@{/home/manu/PROGRAMMATION/C/ManuX/noyau/main-\/verrou-\/noyau.c}}
+
+
+\+: Mise en évidence de a (non) ré-\/entrance du noyau. On compilera une fois avec la macro MANUX\+\_\+\+REENTRANT activée une fois avec cette macro désactivée.  
+
+
+{\ttfamily \#include $<$manux/config.\+h$>$}\newline
+{\ttfamily \#include $<$manux/bootloader.\+h$>$}\newline
+{\ttfamily \#include $<$manux/errno.\+h$>$}\newline
+{\ttfamily \#include $<$manux/console.\+h$>$}\newline
+{\ttfamily \#include $<$manux/clavier.\+h$>$}\newline
+{\ttfamily \#include $<$manux/tache.\+h$>$}\newline
+{\ttfamily \#include $<$manux/horloge.\+h$>$}\newline
+{\ttfamily \#include $<$manux/scheduler.\+h$>$}\newline
+{\ttfamily \#include $<$manux/interruptions.\+h$>$}\newline
+{\ttfamily \#include $<$manux/io.\+h$>$}\newline
+{\ttfamily \#include $<$manux/segment.\+h$>$}\newline
+{\ttfamily \#include $<$manux/memoire.\+h$>$}\newline
+{\ttfamily \#include $<$manux/atomique.\+h$>$}\newline
+{\ttfamily \#include $<$manux/appelsysteme.\+h$>$}\newline
+{\ttfamily \#include $<$manux/printk.\+h$>$}\newline
+{\ttfamily \#include $<$manux/debug.\+h$>$}\newline
+{\ttfamily \#include $<$manux/pagination.\+h$>$}\newline
+{\ttfamily \#include $<$manux/exclusion-\/mutuelle.\+h$>$}\newline
+Graphe des dÃ©pendances par inclusion de main-\/verrou-\/noyau.c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{main-verrou-noyau_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} \mbox{\hyperlink{main-verrou-noyau_8c_a02fd73d861ef2e4aabb38c0c9ff82947}{init}} ()
+\item 
+\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} \mbox{\hyperlink{main-verrou-noyau_8c_a3568df994044ade7d37160ef731c223f}{start\+ManuX}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{inoeud_8h_a27ca90a5da64ab349726ed0513ec6e73}{INoeud}} \mbox{\hyperlink{main-verrou-noyau_8c_a972ff77e8e64fb59c5b315287496a83e}{i\+Noeud\+Console}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description dÃ©taillÃ©e}
+\+: Mise en évidence de a (non) ré-\/entrance du noyau. On compilera une fois avec la macro MANUX\+\_\+\+REENTRANT activée une fois avec cette macro désactivée. 
+
+\begin{DoxyVerb}                                                (C) Manu Chaput 2000-2023
+\end{DoxyVerb}
+ 
+
+DÃ©finition dans le fichier \mbox{\hyperlink{main-verrou-noyau_8c_source}{main-\/verrou-\/noyau.\+c}}.
+
+
+
+\doxysubsection{Documentation des fonctions}
+\Hypertarget{main-verrou-noyau_8c_a02fd73d861ef2e4aabb38c0c9ff82947}\label{main-verrou-noyau_8c_a02fd73d861ef2e4aabb38c0c9ff82947} 
+\index{main-\/verrou-\/noyau.c@{main-\/verrou-\/noyau.c}!init@{init}}
+\index{init@{init}!main-\/verrou-\/noyau.c@{main-\/verrou-\/noyau.c}}
+\doxysubsubsection{\texorpdfstring{init()}{init()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} init (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+DÃ©finition Ã  la ligne \mbox{\hyperlink{init-acces-concurrent_8c_source_l00074}{74}} du fichier \mbox{\hyperlink{init-acces-concurrent_8c_source}{init-\/acces-\/concurrent.\+c}}.
+
+\Hypertarget{main-verrou-noyau_8c_a3568df994044ade7d37160ef731c223f}\label{main-verrou-noyau_8c_a3568df994044ade7d37160ef731c223f} 
+\index{main-\/verrou-\/noyau.c@{main-\/verrou-\/noyau.c}!startManuX@{startManuX}}
+\index{startManuX@{startManuX}!main-\/verrou-\/noyau.c@{main-\/verrou-\/noyau.c}}
+\doxysubsubsection{\texorpdfstring{startManuX()}{startManuX()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} start\+ManuX (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}}}]{ }\end{DoxyParamCaption})}
+
+
+
+DÃ©finition Ã  la ligne \mbox{\hyperlink{main-verrou-noyau_8c_source_l00038}{38}} du fichier \mbox{\hyperlink{main-verrou-noyau_8c_source}{main-\/verrou-\/noyau.\+c}}.
+
+
+
+\doxysubsection{Documentation des variables}
+\Hypertarget{main-verrou-noyau_8c_a972ff77e8e64fb59c5b315287496a83e}\label{main-verrou-noyau_8c_a972ff77e8e64fb59c5b315287496a83e} 
+\index{main-\/verrou-\/noyau.c@{main-\/verrou-\/noyau.c}!iNoeudConsole@{iNoeudConsole}}
+\index{iNoeudConsole@{iNoeudConsole}!main-\/verrou-\/noyau.c@{main-\/verrou-\/noyau.c}}
+\doxysubsubsection{\texorpdfstring{iNoeudConsole}{iNoeudConsole}}
+{\footnotesize\ttfamily \mbox{\hyperlink{inoeud_8h_a27ca90a5da64ab349726ed0513ec6e73}{INoeud}} i\+Noeud\+Console}
+
+Configuration de la console 
+
+DÃ©finition Ã  la ligne \mbox{\hyperlink{main-verrou-noyau_8c_source_l00036}{36}} du fichier \mbox{\hyperlink{main-verrou-noyau_8c_source}{main-\/verrou-\/noyau.\+c}}.
+

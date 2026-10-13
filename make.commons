@@ -27,6 +27,7 @@ CONFIG_FILES=$(ROOTDIR)/include/config/*.h
 # Position des librairies
 LIBI386   = $(if $(MANUX_LIBI386), $(ROOTDIR)/i386/libi386.a)
 LIBMANUX  = $(ROOTDIR)/lib/libmanux.a
+LIBRESEAU = $(ROOTDIR)/reseau/libreseau.a
 LIBSF     = $(ROOTDIR)/sf/libsf.a
 LIBUSR    = $(if $(MANUX_USR), $(ROOTDIR)/usr/libusr.a)
 
@@ -48,6 +49,8 @@ ASM         = nasm
 ASM_BIN_OPT = -f bin
 ASM_ELF_OPT = -f elf32 -g3 -F dwarf
 
+# Attention, tous les define ne sont pas passés à nasm par défaut
+
 ASM_DEF     = -D MANUX_BOOT_START_ADDRESS=$(MANUX_BOOT_START_ADDRESS) \
               -D MANUX_INIT_START_ADDRESS=$(MANUX_INIT_START_ADDRESS) \
 	      -D MANUX_INIT_MAGIC=$(MANUX_INIT_MAGIC) \
@@ -65,7 +68,15 @@ ASM_DEF     = -D MANUX_BOOT_START_ADDRESS=$(MANUX_BOOT_START_ADDRESS) \
 	      -D MANUX_INT_BASE_IRQ=$(MANUX_INT_BASE_IRQ) \
 	      -D MANUX_NB_INTERRUPTIONS=$(MANUX_NB_INTERRUPTIONS) \
 	      -D MANUX_NB_EXCEPTIONS=$(MANUX_NB_EXCEPTIONS) \
-              -D MANUX_PREMIER_SECT_RAMDISK=$(MANUX_PREMIER_SECT_RAMDISK)
+              -D MANUX_PREMIER_SECT_RAMDISK=$(MANUX_PREMIER_SECT_RAMDISK) \
+	      -D MANUX_KERNEL_TASK_TSS_IND=$(MANUX_KERNEL_TASK_TSS_IND) \
+	      -D MANUX_HANDLER_IRQ=$(MANUX_HANDLER_IRQ) \
+
+ASM_DEF     += $(if $(MANUX_APPELS_SYSTEME), -D MANUX_APPELS_SYSTEME)
+ASM_DEF     += $(if $(MANUX_CLAVIER), -D MANUX_CLAVIER)
+
+
+ASM_DEF += $(if $(MANUX_BOOTLOADER), -D MANUX_BOOTLOADER)
 
 #--------------------------------------------------------------------------
 #   Création des images
@@ -105,84 +116,93 @@ COMPRESS = gzip
 RUN_MANUX_RAMSIZE = 64M
 QEMU_RAMSIZE      = -m $(RUN_MANUX_RAMSIZE)
 QEMU_DEBUG        = -gdb tcp::1234 -S
+QEMU_VERSION	  = qemu-system-x86_64 # qemu-system-i386
+QEMU_MONITOR      = -monitor vc
 
-QEMU_VIRTIO_CONSOLE = -chardev stdio,id=cons1 \
-                   -device virtio-serial-pci \
-                   -device virtconsole,chardev=cons1
-		   
-QEMU_VIRTIO_NET     = -device virtio-net-pci,mac=c0:ff:ee:de:ad:be,netdev=v1 \
+QEMU_VIRTIO_CONSOLE = -chardev stdio,id=charconsole0             \
+		      -device virtio-serial-pci                  \
+		      -device virtconsole,chardev=charconsole0 
+
+#-device virtio-serial-pci,id=cons1 \
+#                   -device virtconsole,chardev=cons1 \
+#                   -chardev stdio,id=cons1
+
+#--------------------------------------------------------------------------
+#    Variantes de configuration du réseau
+#--------------------------------------------------------------------------
+# Utilisation d'une interface TAP ? Attention il faut être root
+QEMU_VIRTIO_TAP  = -device virtio-net-pci,mac=c0:ff:ee:de:ad:be,netdev=v1 \
+                   -netdev tap,id=v1 \
+                   -object filter-dump,id=f1,netdev=v1,file=dump.dat
+# Utilisation d'un mode forward ?
+QEMU_VIRTIO_FWD  = -device virtio-net-pci,mac=c0:ff:ee:de:ad:be,netdev=v1 \
                    -netdev user,id=v1,hostfwd=tcp::4832-:4832 \
                    -object filter-dump,id=f1,netdev=v1,file=dump.dat
+# Choix, au final, du mode de fonctionnement réseau
 
-RUN_MANUX_FLOPPY = qemu-system-i386 \
+#--------------------------------------------------------------------------
+#    On ajoute le réseau si NET est configuré
+#--------------------------------------------------------------------------
+ifdef NET
+ifeq "$(NET)" ""
+   NET=FWD
+endif
+
+ifeq "$(NET)" "TAP"
+   QEMU_VIRTIO_NET  = $(QEMU_VIRTIO_TAP)
+else
+   QEMU_VIRTIO_NET  = $(QEMU_VIRTIO_FWD)
+endif
+else
+   QEMU_VIRTIO_NET  = 
+endif
+
+#--------------------------------------------------------------------------
+#   Construction des commandes de lancement
+#--------------------------------------------------------------------------
+RUN_MANUX_FLOPPY = $(QEMU_VERSION) \
 		   $(QEMU_VIRTIO_CONSOLE) \
 		   $(QEMU_VIRTIO_NET) \
 		   $(QEMU_RAMSIZE) \
                    -drive format=raw,file=$(FLOPPY_IMG),index=0,if=floppy
 		   
-RUN_MANUXMB_ELF  = qemu-system-i386 \
+RUN_MANUXMB_ELF  = $(QEMU_VERSION) \
 		   $(QEMU_VIRTIO_CONSOLE) \
 		   $(QEMU_VIRTIO_NET) \
 		   $(QEMU_RAMSIZE) \
                    -kernel $(NOYAUMB_ELF)
 		   
-RUN_MANUXMB_ELF_DBG = qemu-system-i386 \
+RUN_MANUXMB_ELF_DBG = $(QEMU_VERSION) \
 		   $(QEMU_VIRTIO_CONSOLE) \
 		   $(QEMU_VIRTIO_NET) \
 		   $(QEMU_RAMSIZE) \
 		   $(QEMU_DEBUG) \
                    -kernel $(NOYAUMB_ELF)
 		   
-RUN_MANUX_ISO    = qemu-system-i386 \
+RUN_MANUX_ISO    = $(QEMU_VERSION) \
 		   $(QEMU_VIRTIO_CONSOLE) \
 		   $(QEMU_VIRTIO_NET) \
 		   $(QEMU_RAMSIZE) \
+		   $(QELU_VIRTIO_NET) \
 		   -cdrom
 
-RUN_MANUX_ISO_DBG= qemu-system-i386 \
+RUN_MANUX_ISO_DBG= $(QEMU_VERSION) \
 		   $(QEMU_VIRTIO_CONSOLE) \
 		   $(QEMU_VIRTIO_NET) \
 		   $(QEMU_RAMSIZE) \
 		   $(QEMU_DEBUG) \
+		   $(QELU_VIRTIO_NET) \
 		   -cdrom
 
 RUN_MANUX_VBOX   = vboxmanage startvm ManuX
 
 #--------------------------------------------------------------------------
-# Les paramètres du gcc
-#
-#   "-fno-stack-protector" permet d'éviter les "undefined references to
-# `__stack_chk_fail'" sur les GCC récents
-#
-#   "-nostdinc -fno-builtin -nodefaultlibs -nostartfiles" permettent
-# de n'utiliser aucune fonctions prédéfinies ou de librairies standard
-#
-#   Optimisation
-#     -O2 par défaut
-#     -O0 pour debuguer
-#
+#    Lecture des options en fonction du compilateur
 #--------------------------------------------------------------------------
-CFLAGS   = -fno-pie -m32 -march=i686 -Wall  \
-           -g -ggdb -gdwarf  \
-	   -I$(ROOTDIR)/include  \
-           -nostdinc -fno-builtin -nodefaultlibs -nostartfiles \
-           -fno-toplevel-reorder \
-           -fno-stack-protector \
-           -O4 \
-	 # -mpreferred-stack-boundary=2 (par défaut c'est 4, d'où des "sub $0x10,%esp")
-         # -fomit-frame-pointer
-
-CFLAGS   +=   $(if $(MANUX_FICHIER_CONFIG), --include $(MANUX_FICHIER_CONFIG))
-
-#..........................................................................
-#   Les flags pour le monde utilisateur
-#..........................................................................
-UCFLAGS   = -fno-pie -m32 -march=i686 -Wall \
-           -I../usr/include \
-           -nostdinc -fno-builtin \
-           -fomit-frame-pointer \
-           -fno-toplevel-reorder \
-           -fno-stack-protector \
-           -O2
-
-#UCFLAGS   +=   $(if $(MANUX_FICHIER_CONFIG), --include $(MANUX_FICHIER_CONFIG))
+ifndef CC
+CC=gcc
+endif
+ifeq "$(CC)" "cc"
+CC=gcc
+endif
+include $(ROOTDIR)/make.$(CC)

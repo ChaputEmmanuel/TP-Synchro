@@ -1,0 +1,9 @@
+<map id="/home/manu/PROGRAMMATION/C/ManuX/include/manux/temps.h" name="/home/manu/PROGRAMMATION/C/ManuX/include/manux/temps.h">
+<area shape="rect" id="Node000001" title=" " alt="" coords="256,5,483,60"/>
+<area shape="rect" id="Node000002" href="$console_8c.html" title="Implantation des fonctions de base d&#39;accés à la console." alt="" coords="5,108,232,148"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="287,67,170,110,168,105,285,62"/>
+<area shape="rect" id="Node000003" href="$temps_8c.html" title=" " alt="" coords="256,108,483,148"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="372,74,372,108,367,108,367,74"/>
+<area shape="rect" id="Node000004" href="$tache_8c.html" title="Implantation des sous&#45;programmes de gestion des tâches." alt="" coords="507,108,733,148"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="454,62,570,105,569,110,452,67"/>
+</map>

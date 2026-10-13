@@ -14,7 +14,7 @@
 
 /*
  * Affectation d'une console à chaque tâche. Si ce n'est pas le cas
- * (et si le reste de la configurtion le permet), ce sont les fichiers
+ * (et si le reste de la configuration le permet), ce sont les fichiers
  * associés à la tâche qui sont utilisés pour les entrées-sorties.
  */
 #define MANUX_TACHE_CONSOLE

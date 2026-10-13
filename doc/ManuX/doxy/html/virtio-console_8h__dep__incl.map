@@ -1,0 +1,9 @@
+<map id="/home/manu/PROGRAMMATION/C/ManuX/include/manux/virtio&#45;console.h" name="/home/manu/PROGRAMMATION/C/ManuX/include/manux/virtio&#45;console.h">
+<area shape="rect" id="Node000001" title="Définition des éléments de base des consoles virtio." alt="" coords="279,5,506,60"/>
+<area shape="rect" id="Node000002" href="$main-virtio-cons_8c.html" title=": Un exemple de début de noyau." alt="" coords="5,115,255,155"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="313,67,180,118,178,113,311,62"/>
+<area shape="rect" id="Node000003" href="$main-virtio-journal_8c.html" title=" " alt="" coords="279,108,506,163"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="395,74,395,108,390,108,390,74"/>
+<area shape="rect" id="Node000004" href="$virtio-console_8c.html" title="Implantation de la console de type virtio." alt="" coords="530,115,762,155"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="472,63,599,113,597,118,470,67"/>
+</map>

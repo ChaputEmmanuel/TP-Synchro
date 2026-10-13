@@ -6,14 +6,38 @@
 %-------------------------------------------------------------------------------
 %
 %-------------------------------------------------------------------------------
+\subsection{Introduction}
+
+\subsubsection{Remarque préliminaire}
+
+   Avant toute chose, je précise que cette section n'est pas un cours,
+elle ne se veut pas complète, elle est juste là pour vous rafraîchir
+les idées. Pour le dire plus simplement : allez donc voir votre cours de
+   systèmes d'exploitation !
+
+\subsubsection{Remarque liminaire}
+
+   Je vais supposer pour le moment que nous utilisons un système
+informatique doté d'un processseur unique, de mémoire, de dispositifs
+d'entrée-sortie. A tout instant le microprocesseur peut exécuter une
+unique instruction et recevoir une interruption.
+
+   Il me semble en effet important de bien connaître et comprendre
+cette configuration simple avant de passer à des choses plus lourdes !
+
+
+   Je vais donc commencer par amener le problème simplement, en me
+fondant sur une technique élémentaire permettant d'introduire du
+``pseudo parallélisme'' grâce à du temps partagé fondé sur quelques
+outils basiques.
+
+%-------------------------------------------------------------------------------
+%
+%-------------------------------------------------------------------------------
 \subsection{Quel est le problème ?}
 
-Registres, mémoire, ...
-
-Monoprocesseur !
-
-   Allez donc voir votre cours de systèmes d'exploitation !
-
+\subsubsection{Le traitement d'une interruption}
+     
    Imaginons un programme en cours d'exécution. Nous pouvons le voir
 comme une séquence d'instructions en assembleur exécutées par le
 processeur. Ce dernier utilise pour cela des variables qui sont dans
@@ -23,7 +47,8 @@ tâche, et nous appellerons celle-ci T1.
    La figure suivante illustre cette exécution, représentée par la
 flèche bleue.
 
-premiere image
+\includegraphics{images/une-tache-seule.png}
+
 
    Comme vous le savez, la tâche T1 peut être
 interrompue, ce qui va conduire à l'exécution d'une autre séquence
@@ -36,7 +61,7 @@ que la dernière instruction de la fonction de traitement est
 
    La figure suivante illustre ce principe.
 
-includegraphics(deuxieme image)
+\includegraphics{images/une-tache-int.png}
 
    Mais comment est-ce possible ? Pour exécuter correctement le
 programme, le microprocesseur utilise des registres et de la mémoire,
@@ -48,6 +73,8 @@ et dans la mémoire ?
 
    Avant de discuter des éléments de réponse, nous allons élargir
 davantage le problème.
+
+\subsubsection{Introduction du temps partagé}
 
    En effet, puisqu'il est possible d'interrompre la tâche T1
 pendant quelques temps et d'y revenir ensuite, pourquoi ne
@@ -64,7 +91,7 @@ lesquelles un tel fonctionnement peut êtr intéressant seront décrites
 ailleurs. Les outils et techniques permettant de le réaliser sont
 présentées dans le chapitre lié à l'ordonnancement.
 
-ici troisieme image
+\includegraphics{images/deux-taches.png}
 
    On comprend alors que la gestion de l'état des registres et de la
 mémoire prend une autre dimension.
@@ -81,7 +108,7 @@ fonction (grâce à des instructions \lstinline!pop!). Cela permet donc
 de rêgler la question des registres sans altérer la pile qui est alors
 elle aussi rendue dans le même état qu'avant l'interruption, \ldots
 
-   Qu'en est-il des variables situées en mémoire ? La pile à une
+   Qu'en est-il des variables situées en mémoire ? La pile a une
 gestion un peu spécifique, qui permet d'empiler des données durant le
 traitement de l'interruption comme nous venons de l'évoquer. Les
 données placées dans la pile peuve être manipulées sans conséquence
@@ -151,7 +178,7 @@ rêgles.
 solution. C'est alors le noyau qui va devoir attribuer la mémoire aux
 différentes tâches et les empêcher, avec l'aide du matériel, d'aller
 lire ou écrire ailleurs. Je vous parle de cela dans le chapitre dédié
-à la gestion de la mémoire, ...
+à la gestion de la mémoire, \ldots
 
 %...............................................................................
 %
@@ -160,13 +187,13 @@ lire ou écrire ailleurs. Je vous parle de cela dans le chapitre dédié
 
    L'autre solution permettant d'assurer la cohérence du contenu de la
 mémoire est à nouveau, comme pour les registres, de définir ``quelques
-rêgles simples'' et de s'y tenir. L'nesemble des outils de
+rêgles simples'' et de s'y tenir. L'ensemble des outils de
 synchronisation dont vous avez entendu parlé dans vos cours, et
 notemment ceux dont je vais parler ici, permettent de mettre en place
 ces rêgles simples.
 
    Il est en revanche cette fois ci plus délicat pour le système de
-mettre en place des outils cohercitifs obligeant les tâches à
+mettre en place des outils coercitifs obligeant les tâches à
 respecter ces rêgles. Cependant, comme nous allons le voir, ce n'est
 généralement pas nécessaire, car on va se placer dans des situations
 dans les lesquelles on sait pouvoir faire confiance aux différentes
@@ -181,20 +208,21 @@ tâches.
 je viens d'évoquer correspondent à deux modèles de gestion de la
 mémoire
 
-begin itemize
-   item la mémoire peut être partagée entre les différentes tâches
+\begin{itemize}
+   \item la mémoire peut être partagée entre les différentes tâches
    qui s'exécutent sur le système ;
-   item la mémoire peut être réservée à chaque tâche.
-end itemize
+   \item la mémoire peut être réservée à chaque tâche.
+\end{itemize}
 
    La mémoire réservée est une façon un peu extrème de répondre aux
 problèmes de cohérence puisqu'ils disparaissent complètement, mais
 elle ne permet pas aux différentes tâches de communiquer (il faudra
 donc trouver d'autres solutions pour cela).
-   C'est une technique assez largement utilisée dans les systèmes
-   généraux multitâches. Elle est illustrée par la figure suivante.
 
-   ici figure
+   C'est une technique assez largement utilisée dans les systèmes
+généraux multitâches. Elle est illustrée par la figure suivante.
+
+\includegraphics{images/memoire-disjointe}
 
    La technique de la mémoire partagée est plus simple à mettre en
 oeuvre, et permet aux tâches de communiquer entre elles, mais elle va
@@ -203,13 +231,13 @@ la cohérence, et elle ne permet pas de protéger une tâches contre les
 actions malveillantes ou accidentelles des autres tâches. Elle est
 illustrée par la figure suivante.
 
-   Ici figure
+\includegraphics{images/memoire-partagee}
 
    Pour marier les avantages des deux techniques, un système de type
 Unix les implante toutes les deux comme illustré par la figure
 suivante.
 
-ici figure
+\includegraphics{images/memoire-disj-et-part}
 
    L'idée est qu'une tâche (oui, je sais, le terme utilisé ici est
 processus) va disposer d'une partie de la mémoire pour faire ce
@@ -229,7 +257,7 @@ implanter des ``processus légers'' ou threads (par exemple
 conformément à la norme POSIX dont j'ai oublié le numéro). On se
 retrouve alors avec une situation comme celle de la figure suivante.
 
-ici fugure
+\includegraphics{images/processus-et-threads}
 
    Dans ce cas, le code d'une application qui utilise cette
 fonctionnalité doit lui aussi être instrumenté par des outils de
@@ -267,24 +295,107 @@ situations à prendre en compte ? Il y en a essentiellement deux :
 %===============================================================================
 \section{L'implantation dans ManuX}
 
-   ManuX implante utilise un modèle de mémoire allouée en mode
+   ManuX implante et utilise un modèle de mémoire allouée en mode
 utlisateur et partagée dans le noyau. En l'absence de gestion de la
-mémoire fondée sue la MMU, l'usage exclusif de la mémoire allouée en
+mémoire fondée sur la MMU, l'usage exclusif de la mémoire allouée en
 mode utilisateur est fondé sur le civisme du code applicatif.
 
    Dans le noyau, c'est une autre histoire ; les données peuvent être
 manipulées par plusieurs tâches, et des outils de synchronisation
 doivent donc être mis en place.
-
-
    
    Les moyens de synchronisation entre tâches actuellement disponibles
 sont 
 
 \begin{itemize}
    \item les opérations atomiques ;
-   \item les exclusions mutuelles.
+   \item les exclusions mutuelles ;
+   \item les conditions.
 \end{itemize}
+
+   Avant de rentrer dans le détail de ces outils, revenons brièvement
+sur les spécificités des différentes situations.
+   
+%-------------------------------------------------------------------------------
+%      Les situations à gérer
+%-------------------------------------------------------------------------------
+\subsection{Les situations à gérer}
+
+   Rappelons-nous que pour le moment ManuX fonctionne sur un système
+mono-processeur. Cela signifie que les seules situations
+problématiques (c'est-à-dire nécessitant la mise en place de
+mécanismes de synchronisation) sont les suivantes
+
+\begin{itemize}
+   \item le code de la tâche en cours et le code de traitement de
+     l'interruption manipulent des ressources communes ;
+   \item la tâche en cours au moment de l'interruption et la
+     nouvelle tâche vers laquelle l'ordonnanceur décide de basculer
+     manipulent des ressources communes.
+\end{itemize}
+
+   Ces situations justifient l'utlisation de différents outils.
+
+%...............................................................................
+%
+%...............................................................................
+\subsubsection{Synchronisation entre une tâche et une interruption}
+
+   Un premier élément important vient des différences fondamentales entre
+une tâche et le traitement d'une interruption.
+
+   L'exécution d'une tâche peut durer longtemps, elle peut être mise
+en pause puis réveillée plus tard, elle est pour cela caractérisée par
+un contexte d'exécution (état des registres, de la pile, \ldots) qui
+doit être sauvegardé lorsqu'elle est mise en pause et restauré
+lorsqu'elle est réveillée. L'exécution d'une tâche ne bloque rien :
+elle n'empèche pas le traitement d'une interruption, ni le basculement
+vers une autre tâche.
+
+   D'un autre côté, le code de traitement d'une interruption est là
+pour gérer une situation particulière, signalée par l'interruption
+(par exemple l'arrivée d'une trame sur une interface réseau). Il n'est
+lié à aucun contexte particulier qui pourrait être sauvegardé et
+repris. Ce code doit s'exécuter rapidement, il doit souvent dialoguer
+avec le matériel pour lui préciser que l'événement est pris en
+charge. L'exécution de ce code est généralement bloquant pour le
+système : il est impossible de basculer vers une tâche, et souvent
+impossible même de traiter une autre interruption. Il est évidemment
+impossible de mettre en pause l'exécution de ce code.
+
+   Les outils de synchronisation utilisables dans une situation
+impliquant une interruption doivent donc être conçus en ce sens.
+
+%
+%
+%
+\paragraph{Masquage des interruptions}
+
+   Une première solution est la possibilité d'interdire les
+interruptions (toutes ou certaines) lorsqu'une tâche manipule une
+ressource que le traitement d'une interruption pourrait manipuler de
+façon incohérente.
+
+%
+%
+%
+\paragraph{Les verrous tournants}
+
+   Les ``verrous tournants'' ({\em spinlocks} en anglais) sont un
+outil simple permettant d'assurer une exclusion mutuelle par le biais
+d'une éventuelle attente active.
+   
+%...............................................................................
+%
+%...............................................................................
+\subsubsection{Synchronisation entre deux tâches}
+
+%...............................................................................
+%
+%...............................................................................
+\subsubsection{Réentrance du noyau}
+
+   
 
 %-------------------------------------------------------------------------------
 %      Opérations atomiques
@@ -336,3 +447,28 @@ sous-programmes permettent respectivement d'initialiser une variable
 d'exclusion mutuelle, de prendre une exclusion mutuelle et de libérer
 une exclusion mutuelle.
 
+%-------------------------------------------------------------------------------
+%      Les conditions
+%-------------------------------------------------------------------------------
+\subsection{Les conditions}
+
+   Une condition est un outil permettant d'attendre et de signaler
+l'occurence d'un événement. Dans ManuX, elles sont définies et
+implantées dans les fichiers \fichier{include/manux}{atomique}{h} et
+\fichier{noyau}{atomique}{c}.
+
+   Les fonctions permettant de les manipuler sont les suivantes
+
+\begin{lstlisting}
+void conditionInitialiser(Condition * cond);
+void conditionAttendre(Condition * cond, ExclusionMutuelle * em);
+void conditionSignaler(Condition * cond);
+void conditionDiffuser(Condition * cond);
+\end{lstlisting}
+
+%
+%
+%
+\subsubsection{Affichage des conditions}
+
+   Si la \macromanux{MANUX_ATOMIQUE_AUDIT} est définie

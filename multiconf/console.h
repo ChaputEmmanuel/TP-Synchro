@@ -15,7 +15,7 @@
 #define MANUX_FICHIER_MAIN main-console
 
 #include <config/base.h>
-#include <config/plan-memoire.h>
+#include <config/plan-memoire-pc.h>
 #include <config/console.h>
 
 #include <config/verifications.h>

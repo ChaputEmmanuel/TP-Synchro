@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://manux.manu-chaput.net/registres-part.html" />
+      <link rel="shortcut icon" href="img/favicon.ico" />
+    <title>Registres - ManuX</title>
+    <link rel="stylesheet" href="css/theme.css" />
+    <link rel="stylesheet" href="css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="css/pandoc.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Registres";
+        var mkdocs_page_input_path = "registres-part.md";
+        var mkdocs_page_url = "/registres-part.html";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="index.html" class="icon icon-home"> ManuX
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="./search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="index.html">Home</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Sections</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="vue-globale-part.html">La version courte</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="presentation-part.html">Présentation générale</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="outils-part.html">Les outils</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="boot-part.html">Chargement en mémoire et boot</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="affichage-part.html">Affichage</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="registres-part.html">Registres</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#definition-dun-registre">Définition d’un registre</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#implantation-dun-registre">Implantation d’un registre</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#le-registre-systeme">Le registre système</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#exemple-dutilisation">Exemple d’utilisation</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="inter-part.html">Interruptions</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="memoire-part.html">La mémoire</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="appel-systeme-part.html">Les appels système</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="systeme-fichiers-part.html">La gestion des fichiers</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="synchronisation-part.html">Les outils de synchronisation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="userland-part.html">Le mode utilisateur</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Le code</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="doxy/html/index.html">Doxygen</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="https://github.com/ChaputEmmanuel/ManuX">Sur github</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">ManuX</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html" class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Sections</li>
+      <li class="breadcrumb-item active">Registres</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="les-registres">Les registres</h1>
+<p>La notion de <em>registre</em> permet de définir dans ManuX des structures de
+données pouvant être utilisées pour paramétrer les différents
+sous-systèmes.</p>
+<p>L’objectif est de permettre en particulier de faire passer lors du
+<em>boot</em> au noyau des paramètres qui pourront écraser les valeurs par
+défaut de certaines variables.</p>
+<p>On pensera par exemple à un masque de débogage ou à une adresse ip
+définie en dur dans le code mais que l’on pourra changer <em>via</em> la
+commande de <em>boot</em>.</p>
+<p>À titre d’exemple, le noyau ManuX utilise une variable qui contient un
+masque permettant de définir quels messages sont affichés durant
+l’exécution du système.</p>
+<p>Voici l’exécution du système alors que cette variable est initialisée à
+sa valeur par défaut (<code>0x3</code>) qui n’active que l’affichage des messages
+de démarrage et les éventuels messages d’erreur :</p>
+<p><img alt="image" src="images/reg-param-1-res.png" /></p>
+<p>Voici maintenant le même noyau démarré puis exécuté avec une valeur
+différente de sorte à afficher les messages de type “à faire”. La
+première image montre l’utilisation du <em>bootloader</em> pour modifier la
+valeur de la variable :</p>
+<p><img alt="image" src="images/reg-param-802.png" /></p>
+<p>Nous avons ici choisi la valeur <code>0x802</code> qui active l’affichage des
+message “à faire” (<code>0x800</code>)et les messages de démarrage (<code>0x2</code>). L’image
+suivante montre alors l’exécution du noyau :</p>
+<p><img alt="image" src="images/reg-param-802-res.png" /></p>
+<p>C’est au travers de l’utilisation d’un registre que cette variable est
+manipulée ici.</p>
+<h2 id="definition-dun-registre">Définition d’un registre</h2>
+<p>Un registre est une abstraction permettant de stocker des informations
+dans une structure arborescente. L’objectif est le paramétrage d’un
+(sous-)système donc les informations stockées sont simplement de courtes
+chaînes de caractères.</p>
+<p>Le principe est que chaque entrée dans le registre (que nous appellerons
+un <em>paramètre</em>) est liée à une variable au travers d’une fonction de
+mise-à-jour de la variable.</p>
+<p>La variable ne doit alors <em>jamais être modifiée directement</em>, mais
+uniquement au travers d’une modification du paramètre correspondant dans
+le registre. La variable sera alors mise-à-jour automatiquement au
+travers de la fonction associée.</p>
+<h2 id="implantation-dun-registre">Implantation d’un registre</h2>
+<p>Les registres sont définis dans
+<a href="/doxy/html/registre_8h_source.html"><code>manux/registre.h</code></a>
+(<a href="/doxy/html/registre_8h.html">dox</a>) et implantés dans
+<a href="/doxy/html/registre_8c_source.html"><code>lib/registre.c</code></a>
+(<a href="/doxy/html/registre_8c.html">dox</a>) .</p>
+<p>La fonction principale pour peupler le registre est la suivante</p>
+<pre><code>void registreAffecterParametre(registre * reg,
+                               char * valeur,
+                               void * prive,
+                               registreMiseAJour miseAJour,
+                               ...);
+</code></pre>
+<h2 id="le-registre-systeme">Le registre système</h2>
+<p>Le registre <code>ManuX-Param</code> est destiné à contenir les paramètres du noyau
+ManuX.</p>
+<h2 id="exemple-dutilisation">Exemple d’utilisation</h2>
+<p>Un exemple d’utilisation simple du registre est donné dans</p>
+<p><a href="/doxy/html/registre_8h_source.html"><code>multiconf/registre.h</code></a>
+(<a href="/doxy/html/registre_8h.html">dox</a>) . Le code est dans le fichier</p>
+<p><a href="/doxy/html/main-registre_8c_source.html"><code>noyau/main-registre.c</code></a>
+(<a href="/doxy/html/main-registre_8c.html">dox</a>) .</p>
+<p>Dans ce fichier, 4 paramètres sont initialisés de différentes façons :</p>
+<ul>
+<li>
+<p><code>a</code> reçoit une valeur au démarage, puis sa fonction de mise-à-jour
+    lui est affectée avec une valeur par défaut, qui n’est donc pas
+    utilisée.</p>
+</li>
+<li>
+<p><code>b</code> reçoit une valeur au démarage, puis sa fonction de mise-à-jour
+    lui est affectée sans valeur par défaut.</p>
+</li>
+<li>
+<p><code>c</code> ne reçoit pas de valeur au démarage, puis sa fonction de
+    mise-à-jour lui est affectée avec une valeur par défaut, qui est
+    donc utilisée.</p>
+</li>
+<li>
+<p><code>d</code> reçoit une valeur au démarage, puis sa fonction de mise-à-jour
+    lui est affectée avec une valeur par défaut, qui n’est donc pas
+    utilisée, mais une nouvelle valeur lui est ensuite affectée, qui est
+    celle finalement utilisée.</p>
+</li>
+</ul>
+<p>Par soucis de simplicité, on n’utilise pas ici les outils de <em>boot</em> pour
+passer des paramètres, mais cela ne change rien.</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="affichage-part.html" class="btn btn-neutral float-left" title="Affichage"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="inter-part.html" class="btn btn-neutral float-right" title="Interruptions">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="affichage-part.html" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="inter-part.html" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = ".";</script>
+    <script src="js/theme_extra.js"></script>
+    <script src="js/theme.js"></script>
+      <script src="search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

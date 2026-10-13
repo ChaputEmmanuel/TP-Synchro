@@ -1,0 +1,288 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>My Project: Introduction</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">My Project
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+</div><!-- top -->
+<div><div class="header">
+  <div class="headertitle"><div class="title">Introduction</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><p><a class="anchor" id="autotoc_md43"></a> Les interruptions sont un outil fondamental dans la communication d’un système avec son environnement. Leur gestion, nécessaire, soulève quelques questions liées notemment au fil d’exécution.</p>
+<h1><a class="anchor" id="autotoc_md44"></a>
+Interruption, exception, code de traitement</h1>
+<p>Une interruption peut être vue commme la manifestation d’un événement qui va perturber le fil d’exécution en cours sur un processeur. Nous pouvons les classifier en deux catégories</p>
+<ul>
+<li><b>Les interruptions asynchrones</b> (que nous appellerons simplement <em>interruptions</em>) sont le fait d’un élément extérieur au fil d’exécution en cours (une touche du clavier a été manipulée, une carte réseau a reçue une trame, …). Nous parlerons également d’irq (ou <em>Interrupt ReQuest</em> pour demande d’interruption).</li>
+<li><b>Les interruptions synchrones</b> (que nous appellerons <em>exceptions</em>) sont déclanchées par le processeur lui-même comme conséquence de l’exécution (ou de la tentative d’exécution) d’une instruction.</li>
+</ul>
+<p>Une interruption, qu’elle soit synchrone ou non, aura pour conséquence l’exécution par le processeur d’un code, appelé <em>handler</em> d’interruption ou isr (pour <em>Interrupt Service Routine</em>). Ce code est en charge de traiter l’interruption.</p>
+<p>Notons qu’il est également possible de générer volontairement une interruption dans le code en cours d’exécution grâce à l’instruction assembleur <code>int n</code> (qui déclancher l’interruption de vecteur <code>n</code>). Nous utiliserons cette option (ajouté au fait que le déclanchement d’une interruption à de sconséquences plus complexes que le “simple” déroutement de l’exécution) pour mettre en place le mécanisme des appels système.</p>
+<h2><a class="anchor" id="autotoc_md45"></a>
+Vecteurs d’interruption, table d’interruption</h2>
+<p>Chaque interruption est associée à un <em>vecteur</em> qui va faire office d’identifiant. C’est <em>via</em> ce vecteur que le microprocesseur pourra déterminer où est le code du handler qu’il doit exécuter lorsqu’une interruption est déclanchée.</p>
+<p>Concrètement, ce vecteur n’est pas directement l’adresse du handler, mais l’indice dans une table, d’un descripteur du code du handler. Il est ainsi possible d’avoir des descripteurs plus riches, qui ne sont pas réduits simplement à l’adresse du code.</p>
+<h3><a class="anchor" id="autotoc_md46"></a>
+La table d’interruptions x86</h3>
+<p>Sur l’architecture x86, cette table est appelée idt (pour <em>Interrupt Descriptor Table</em>) ; elle contient au maximum 256 descripteurs. Chacun de ces descripteurs est constitué de 8 octets qui décrivent l’adresse du handler, le niveau de privilège requis, le type d’interruption, etc …</p>
+<p>Cette table peut se situer n’importe où en mémoire, c’est au système d’exploitation de l’initialiser et d’informer le microprocesseur de l’adresse à laquelle elle se trouve et de sa taille. Le noyau utilise pour cela l’instruction <code>lidt</code>.</p>
+<h2><a class="anchor" id="autotoc_md47"></a>
+Les interruptions</h2>
+<h2><a class="anchor" id="autotoc_md48"></a>
+Les exceptions</h2>
+<p>Les exceptions permettent donc de traiter un comportement erroné du code en cours d’exécution (une tentative de division par zéro, un accès à une zone mémoire protégée, …).</p>
+<p>Elles sont traitées par le système de la même façon que les interruptions déclanchées par du matériel. L’essentiel de ce qui est dit ici pour les interruptions l’est donc en particulier pour les exceptions.</p>
+<h3><a class="anchor" id="autotoc_md49"></a>
+Les exceptions x86</h3>
+<p>Sur les processeurs Intel, les 32 premiers vecteurs sont attribués aux exceptions.</p>
+<h2><a class="anchor" id="autotoc_md50"></a>
+Les handlers d’interruption</h2>
+<p>Quelle que soit la nature de l’interruption, lorsqu’elle se produit, un code spécifique (le “handler”) est exécuté par le processeur. Ce code doit donc effectuer certaines tâches</p>
+<ul>
+<li>Sauvegarder l’état du microprocesseur de sorte à pouvoir ensuite reprendre l’activité qu’il menait.</li>
+<li>Intéragir éventuellement avec le matériel responsable de cette interruption pour le prévenir que le traitement est en cours.</li>
+<li>Réaliser (ou reporter à un avenir proche) les opérations nécessaires suite à l’interruption : recevoir une trame sur une interface réseau par exemple.</li>
+<li>Restaurer l’état du microprocesseur qui reprendra où il en était avant l’interruption.</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md51"></a>
+Le traitement différé</h2>
+<h2><a class="anchor" id="autotoc_md52"></a>
+Masquage</h2>
+<p>Une interruption peut éventuellement être <em>masquée</em>, ce qui signifie qu’elle ne sera pas délivrée au processeur, qui ne s’appercevra donc pas qu’un événement s’est produit. Mais le masquage d’une interruption n’empêche évidemment pas cet événement d’arriver !</p>
+<h2><a class="anchor" id="autotoc_md53"></a>
+Traitement d’une interruption : partie haute et partie basse</h2>
+<p>Le traitement d’une interruption est donc en partie réalisé dans un <em>handler</em>. Pour des raisons de simplicité, nous allons écrire ces handlers en assembleur mais nous y utiliserons dès que possible des fonctions C.</p>
+<p>Il est fondamental de comprendre que lorsqu’une interruption est prise en compte par le processeur, le code qu’il était en train d’exécuté est <em>interrompu</em> (surprise ?) pour exécuter le <em>handler</em>. Lorsque l’exécution de ce dernier s’achève, l’exécution du code interrompu reprend son cours. Il est donc crucial que le <em>handler</em> ne réalise pas de modification du système qui rendrait cette exécution incohérente (par exemple en supprimant une ressource que ce code s’appétait à utiliser après s’être assuré de sa disponibilité).</p>
+<p>Un autre élément fondamental est le fait que lorsqu’un handler s’exécute, les interruptions ont inhibées et ne peuvent donc plus être prises en compte[1].</p>
+<h1><a class="anchor" id="autotoc_md54"></a>
+Le &lt;em&gt;Programmable Interrupt Controller&lt;/em&gt;</h1>
+<p>Les interruptions peuvent arriver depuis plusieurs sources. Celles provenant de périphériques (clavier, cartes réseau, …) sont éventuellement acheminées au travers de circuits spécialisés appelés pic.</p>
+<p>Le pic est donc un circuit électronique permettant de gérer les irq provenant de l’environnement afin de les délivrer au processeur (c’est en fait une fonction du <em>southbridge</em>).</p>
+<p>Je ne m’étalerai pas ici sur les différents types de pic ni sur leur fonctionnement. Ce qu’il est nécessaire de comprendre, c’est qu’il existe donc un circuit avec lequel le processeur va devoir dialoguer pour une partie de la gestion des interruptions.</p>
+<p>Nous verrons plus loin que ManuX gère le 8259A qui est un pic conçu par Intel.</p>
+<h2><a class="anchor" id="autotoc_md55"></a>
+Le pic Intel 8259A</h2>
+<p>Sur un (vieux) pc, le pic est un circuit Intel 8259A. Ce circuit permet de gérer 8 types d’interruptions et on en utilise plusieurs en cascade pour les additionner. Nous supposerons ici qu’il y en a deux, le pic 2 étant derrière le pic 1 (en “cascade”) pour un total de 15 interruptions.</p>
+<p>Ce circuit, donc on peut trouver la spécification[2] se programme au travers de deux registres</p>
+<p>Le registre de commande <br  />
+ accessible par le port 0x20 pour le circuit maître et 0xa0 pour le circuit esclave ;</p>
+<p>Le registre de données <br  />
+ accessible par le port 0x21 pour le circuit maître et 0xa1 pour le circuit esclave.</p>
+<p>Une phase d’initialisation est nécessaire afin de configurer correctement ces circuits.</p>
+<h1><a class="anchor" id="autotoc_md56"></a>
+Définition des handlers</h1>
+<p>Sur le 386, une table (l’idt pour <em>Interrupt Descriptor Table</em>) définit le comportement à adopter pour chacune des 256 interruptions et exceptionns. Cette table est enregistrée grâce à l’instruction <code>lidt</code>.</p>
+<p>Cette table contient des entrées de trois types différents</p>
+<p>Interrupt Gate <br  />
+</p>
+<p>Trap Gate Descriptor <br  />
+</p>
+<p>Task Gate Descriptor <br  />
+</p>
+<h1><a class="anchor" id="autotoc_md57"></a>
+Gestion dans ManuX</h1>
+<p>Observons ici comment tout cela est mis en place dans ManuX.</p>
+<p>Nous ne pouvons pas faire l’impasse sur un peu d’assembleur, si bien que les fonctions “bas niveau” seront implantées dans les fichiers <code>manux/i386/interBasNiveau.h</code> et <code>i386/interBasNiveau.nasm</code>. Tout le reste sera en C dans <code><a class="el" href="include_2manux_2interruptions_8h.html">manux/interruptions.h</a></code> et <code><a class="el" href="interruptions_8c.html" title=": Impl�mentation des sous-programmes de gestion des d�routements">i386/interruptions.c</a></code>.</p>
+<p>Nous allons traiter séparément les trois types d’interruptions suivants :</p>
+<ul>
+<li>les exceptions seront gérées ensemble via une fonction commune : <code><a class="el" href="interruptions_8c.html#ab8ede39e92b659dc067644ea9a5d43ba" title=": Fonction de base de gestion d&#39;une exception">gestionException()</a></code> ;</li>
+<li>les IRQ seront traitées par une fonction commune, liée au PIC utilisé ;</li>
+<li>les exceptions logicielles seront elles aussi regroupées dans une seule fonction de traitement : <code><a class="el" href="interruptions_8c.html#a1c93a6acba307c0339b7208e55cf9c29" title=": Fonction de base de gestion d&#39;une exception">gestionInterruption()</a></code>.</li>
+</ul>
+<p>Dans les trois cas, la stratégie sera la même :</p>
+<ul>
+<li>Nous allons définir en assembleur une fonction de traitement spécifique à chaque interruption. J’appellerai par la suite ces fonctions des <em>handlers d’interrruption</em>. Un handler d’interruption sera chargé d’invoquer une fonction d’aiguillage, écrite en C.</li>
+<li>Nous allons ensuite définir en C une fonction commune d’aguillage pour chaque type (<code><a class="el" href="interruptions_8c.html#ab8ede39e92b659dc067644ea9a5d43ba" title=": Fonction de base de gestion d&#39;une exception">gestionException()</a></code> pour les exceptions par exemple). Le rôle de cette fonction sera d’invoquer la fonction C chargée du traitement de l’interruption qui aura été déclenchée.</li>
+<li>Nous construirons enfin un tableau indexé par le numéro d’interruption et contenant un pointeur sur la fonction C de chaque interruption que l’on souhaite traiter spécifiquement.</li>
+</ul>
+<p>La figure suivante illustre cette logique.</p>
+<p><img src="images/interruptions.png" alt="image" class="inline"/></p>
+<p>Observons maintenant ces différents éléments. Nous allons commencer par écrire les handlers bas niveau en assembleur dans la prochaine section.</p>
+<p>Nous observerons ensuite l’écriture en C des fonctions de gestion des interruptions.</p>
+<h2><a class="anchor" id="autotoc_md58"></a>
+Définition “bas niveau” d’un handler</h2>
+<h3><a class="anchor" id="autotoc_md59"></a>
+Les exceptions</h3>
+<p>Nous allons observer à titre d’exemple les fonctions de gestion des exceptions. Certaines exceptions empilent un code d’erreur de 32 bits et d’autres ne le font pas. Comme nous faisons le choix de passer par une fonction unique d’aiguillage, nous allons empiler une valeur nulle sur 32 bits pour les exceptions qui n’utilisent pas de code d’erreur.</p>
+<p>Voici par exemple comment est écrit le gestionnaire bas niveau de l’exception 0 (“division par zéro”) qui n’empile pas de code d’erreur : </p><pre class="fragment">{language=nasm}
+golbal stubHandlerExceptionDivO
+stubHandlerExceptionDivO :      ; Exception "division par zero"
+       push dword 0x0           ; On empile un "code"
+       push dword 0x0           ; On empile le numero de l'exception
+       pushad                   ; sauvegarde des registres
+       call gestionException    ; appel de la fonction d'aiguillage
+       popad                    ; restauration des registres
+       add esp, 0x08            ; on "depile" le code et le numero
+       iret
+</pre><p> Et voici maintenant le code du gestionnaire bas niveau de l’exception 0x0a (“TSS invalde”) qui empile l’indice du TSS en erreur : </p><pre class="fragment">{language=nasm}
+global stubHandlerExceptionInvalidTSS
+stubHandlerExceptionInvalidTSS :
+       push dword 0x0a          ; On empile le numero de l'exception
+       pushad                   ; sauvegarde des registres
+       call gestionException    ; appel de la fonction d'aiguillage
+       popad                    ; restauration des registres
+       add esp, 0x08            ; on "depile" le code et le numero
+       iret
+</pre><p> Notons que lors d’une interruption, le microprocesseur empile les valeurs de <code>EFLAGS</code>, <code>CS</code> et <code>EIP</code> (voir par exemple[3] page 159).</p>
+<p>Si vous observez le fichier <code>interBasNiveau.nasm</code>, vous verrez que les 32 gestionnaires d’exception sont générées de la sorte grâce à deux macros.</p>
+<h3><a class="anchor" id="autotoc_md60"></a>
+Les IRQ</h3>
+<p>En ce qui concerne les IRQ , les choses sont encore plus simples car toutes les interruptions ont le même comportement et les fonctions sont générées (encore via une macro) avec des noms génériques.</p>
+<p>Voici par exemple à quoi ressemble le handler généré pour l’IRQ 0 : </p><pre class="fragment">stubHandlerIRQ0 :
+   push dword 0            ; On empile le numero de l'IRQ
+   jmp  handlerIRQ
+
+handlerIRQ :
+   pusha                   ; On empile les registres
+   call MANUX_HANDLER_IRQ  ; On appelle la fonction d'aiguillage
+   popa                    ; On depile les registres
+   add esp, 4              ; Depile le numero d'IRQ
+   iret
+</pre> <h3><a class="anchor" id="autotoc_md61"></a>
+Les interruptions logicielles</h3>
+<p>Une fois de plus, les handlers bas niveau sont générés par une macro. Si nous observons le handler de l’interruption numéro 42, elle ressemble au code suivant </p><pre class="fragment">stubHandlerInt42 :
+        push dword 42            ; On empile le numero de l'interruption
+    jmp  handlerInt
+
+handlerInt :
+    pushad                   ; Sauvegarde des registres
+        call gestionInterruption ; Invocation de la fonction d'aiguillage
+    popad                    ; Restauration des registres
+        add esp, 4               ; On depile le numero d'interruption
+        iret
+</pre><p> Regardons maintenant à quoi ressemblent les fonctions d’aiguillage.</p>
+<h2><a class="anchor" id="autotoc_md62"></a>
+Les fonctions d’aiguillage</h2>
+<p>Les fonctions d’aiguillage sont extrèmement simples : on utilise un tableau dans lequel sont stoquées les pointeurs de fonction de chaque interruption. La fonction d’aiguillage se contente donc d’invoquer la fonction stoquée à l’indice correspondant.</p>
+<p>Pour les IRQ , ce travail est réalisé par une fonction spécifique au pilote du PIC .</p>
+<h2><a class="anchor" id="autotoc_md63"></a>
+Définition d’un handler en C</h2>
+<p>Nous pouvons par exemple écrire la fonction <code>handlerPanique</code> dont le rôle est d’afficher un message permettant de déterminer la cause de l’interruption : </p><pre class="fragment">void handlerPanique(uint32_t itNum, TousRegistres registres,
+            uint32_t eip, uint32_t cs, uint32_t eFlags)
+{
+   ...
+}
+</pre><p> Nous la définissons avec les paramètres qui sont, dans l’ordre inverse, les valeurs empilées par le processeur lors de l’interruption puis par le handler “bas niveau” décrit ci-desssus.</p>
+<p>La structure <code>TousRegistres</code>, décrite dans <code>manux/types.h</code>, permet de manipuler simplement l’ensemble des registres.</p>
+<h2><a class="anchor" id="autotoc_md64"></a>
+Insertion d’un handler dans l’idt</h2>
+<p>La procédure suivante initialise une entrée dans l’idt : </p><pre class="fragment">{}
+void positionnerHandlerInterruption(IDT idt, int i, Handler handler)
+/*
+ * Affectation du handler de l'interruption i
+ */
+{
+   idt[i].itg.offsetFaible = ((uint32_t)handler &amp; 0xFFFF);
+   idt[i].itg.offsetFort = ((uint32_t)handler &gt;&gt; 16);
+   idt[i].itg.parametres = 0x8E00;
+   idt[i].itg.selSegment = SELECTEUR_SEGMENT_CODE;
+}
+</pre><p> Elle sera donc appelée par la procédure d’initialisation de l’idt pour chacune des interruptions.</p>
+<h2><a class="anchor" id="autotoc_md65"></a>
+Initialisation de la table IDT</h2>
+<p>C’est la fonction C <code><a class="el" href="interruptions_8c.html#a8bab70dd2ead4ff36a0c2de9b3d3aff8" title="! Initialiser l&#39;IDT (Interrupt Description Table)">initialiserIDT()</a></code> qui est invoquée par <code><a class="el" href="makeconfig_8c.html#a0ddf1224851353fc92bfbff6f499fa97">main()</a></code> pour initialiser la table.</p>
+<p>Nous avons maintenant tous les éléments pour construire notre idt. C’est le rôle de la fonction C <code><a class="el" href="interruptions_8c.html#a8bab70dd2ead4ff36a0c2de9b3d3aff8" title="! Initialiser l&#39;IDT (Interrupt Description Table)">initialiserIDT()</a></code>.</p>
+<p>Nous y positionnons donc tous les handlers sur le handler minimaliste qui ne fait rien : </p><pre class="fragment">{}
+   /* Comportement par defaut : on ne fait rien ! */
+   for (i = 0; i &lt; 256; i++) {
+      positionnerHandlerInterruption(idt, i, stubHandlerNop);
+   }
+</pre><p> Nous allons ensuite définir un handler un peu plus utile pour les interruptions que peut nous générer le matériel </p><pre class="fragment">{}
+   positionnerHandlerInterruption(idt, 0, stubHandlerPanique_0);
+   positionnerHandlerInterruption(idt, 1, stubHandlerPanique_1);
+   ...
+</pre><p> Nous pouvons enfin définir les handlers plus spécifiques </p><pre class="fragment">{}
+   /* Le handler du timer */
+   positionnerHandlerInterruption(idt, intTimer, stubHandlerTimer);
+
+   /* Le handler du clavier */
+   positionnerHandlerInterruption(idt, intClavier, stubHandlerClavier);
+</pre> <h2><a class="anchor" id="autotoc_md66"></a>
+Gestion du pic Intel 8259a dans ManuX</h2>
+<p>Ce circuit est géré au travers de fonctions définies dans <code><a class="el" href="manux_2intel-8259a_8h.html">include/manux/intel-8259a.h</a></code> et implantées dans <code><a class="el" href="intel-8259a_8c.html">i386/intel-8259a.c</a></code>.</p>
+<p>L’objectif est assez simple : fournir (aux drivers des matériels utilisant un mécanisme d’interruption) une interface générique, c’est-à-dire indépendante du pic utilisé. Nous allons donc définir quelques fonctions de base permettant à ces drivers de s’interfacer avec le système d’interruption. Si on souhaite utiliser un autre circuit pic (par exemple un apic), il “suffira” de réécrire ces fonctions, il n’y aura pas besoin de modifier le code des nombreux drivers (au moins deux, rendez-vous compte du boulot !) qui l’utilisent.</p>
+<p>Le principe général consiste à définir un handler d’interruption unique qui va prendre en charge toutes les interruptions générées au travers du pic. Ce handler traitera les aspects spécifiques au pic puis invoquera le handler de chacun des “clients” c’est-à-dire des drivers des matériels qui sont à la source des interrruptions.</p>
+<p>Décrivons les fonctions principales. Vous retrouverez leur code dans <code><a class="el" href="intel-8259a_8c.html">i386/intel-8259a.c</a></code>.</p>
+<h4><a class="anchor" id="autotoc_md67"></a>
+&lt;tt&gt;i8259aInit&lt;/tt&gt;</h4>
+<p>permet d’initialiser les circuits (le pic) et de les configurer pour que les interruptions générées utilisent une plage de numéros commençant à une valeur passée en paramètre.</p>
+<h4><a class="anchor" id="autotoc_md68"></a>
+&lt;tt&gt;i8259aAjouterHandler&lt;/tt&gt;</h4>
+<p>permet d’associer une fonction et des données à une irq. C’est par le biais de cette fonction qu’un client va se faire connaître auprès de notre système.</p>
+<h4><a class="anchor" id="autotoc_md69"></a>
+&lt;tt&gt;i8259aGestionIRQ&lt;/tt&gt;</h4>
+<p>[1] C’est un peu plus compliqué sur un système multiprocesseur.</p>
+<p>[2] <b>Intel-8259a-spec?</b></p>
+<p>[3] <b>intel386pru1986?</b> </p>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

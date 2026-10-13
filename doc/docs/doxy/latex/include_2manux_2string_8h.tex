@@ -1,0 +1,106 @@
+\doxysection{Référence du fichier /home/manu/\+PROGRAMMATION/\+C/\+Manu\+X/include/manux/string.h}
+\hypertarget{include_2manux_2string_8h}{}\label{include_2manux_2string_8h}\index{/home/manu/PROGRAMMATION/C/ManuX/include/manux/string.h@{/home/manu/PROGRAMMATION/C/ManuX/include/manux/string.h}}
+{\ttfamily \#include $<$manux/types.\+h$>$}\newline
+Graphe des dépendances par inclusion de string.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=250pt]{include_2manux_2string_8h__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{include_2manux_2string_8h_a2dee044e4e667b5b789b493abd21cfa4}{strlen}} (const char \texorpdfstring{$\ast$}{*}s)
+\item 
+\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{include_2manux_2string_8h_aba088e716bccbc96d42da97e96316df1}{memcpy}} (\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} \texorpdfstring{$\ast$}{*}dest, const \mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} \texorpdfstring{$\ast$}{*}src, \mbox{\hyperlink{include_2manux_2stddef_8h_acf18a0d6c4b39d531e021702e9a77984}{size\+\_\+t}} n)
+\item 
+\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{include_2manux_2string_8h_a88e5d365ae422f80172d7d30cea7f2df}{memset}} (\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} \texorpdfstring{$\ast$}{*}dest, int val, \mbox{\hyperlink{include_2manux_2stddef_8h_acf18a0d6c4b39d531e021702e9a77984}{size\+\_\+t}} n)
+\item 
+\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} \mbox{\hyperlink{include_2manux_2string_8h_a37010cca25d22c6942c90bf65ae9cc0d}{bcopy}} (const \mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} \texorpdfstring{$\ast$}{*}src, \mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} \texorpdfstring{$\ast$}{*}dest, int n)
+\item 
+int \mbox{\hyperlink{include_2manux_2string_8h_a07f4a84c11c106e95c32b6ab509346ef}{strncmp}} (const char \texorpdfstring{$\ast$}{*}s1, const char \texorpdfstring{$\ast$}{*}s2, \mbox{\hyperlink{include_2manux_2stddef_8h_acf18a0d6c4b39d531e021702e9a77984}{size\+\_\+t}} n)
+\item 
+int \mbox{\hyperlink{include_2manux_2string_8h_a11bd144d7d44914099a3aeddf1c8567d}{strcmp}} (const char \texorpdfstring{$\ast$}{*}s1, const char \texorpdfstring{$\ast$}{*}s2)
+\item 
+char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{include_2manux_2string_8h_add02b305040e403f25f4e86c95db4ca5}{prochain\+Delimiteur}} (char \texorpdfstring{$\ast$}{*}chaine, char delimiteur)
+\begin{DoxyCompactList}\small\item\em Recherche d\textquotesingle{}un délimiteur dans une chaîne. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Documentation des fonctions}
+\Hypertarget{include_2manux_2string_8h_a37010cca25d22c6942c90bf65ae9cc0d}\label{include_2manux_2string_8h_a37010cca25d22c6942c90bf65ae9cc0d} 
+\index{string.h@{string.h}!bcopy@{bcopy}}
+\index{bcopy@{bcopy}!string.h@{string.h}}
+\doxysubsubsection{\texorpdfstring{bcopy()}{bcopy()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} bcopy (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} \texorpdfstring{$\ast$}{*}}]{src,  }\item[{\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} \texorpdfstring{$\ast$}{*}}]{dest,  }\item[{int}]{n }\end{DoxyParamCaption})}
+
+
+
+Définition à la ligne \mbox{\hyperlink{string_8c_source_l00035}{35}} du fichier \mbox{\hyperlink{string_8c_source}{string.\+c}}.
+
+\Hypertarget{include_2manux_2string_8h_aba088e716bccbc96d42da97e96316df1}\label{include_2manux_2string_8h_aba088e716bccbc96d42da97e96316df1} 
+\index{string.h@{string.h}!memcpy@{memcpy}}
+\index{memcpy@{memcpy}!string.h@{string.h}}
+\doxysubsubsection{\texorpdfstring{memcpy()}{memcpy()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} \texorpdfstring{$\ast$}{*} memcpy (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} \texorpdfstring{$\ast$}{*}}]{dest,  }\item[{const \mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} \texorpdfstring{$\ast$}{*}}]{src,  }\item[{\mbox{\hyperlink{include_2manux_2stddef_8h_acf18a0d6c4b39d531e021702e9a77984}{size\+\_\+t}}}]{n }\end{DoxyParamCaption})}
+
+WARNING à refaire en assembleur 
+
+Définition à la ligne \mbox{\hyperlink{string_8c_source_l00012}{12}} du fichier \mbox{\hyperlink{string_8c_source}{string.\+c}}.
+
+\Hypertarget{include_2manux_2string_8h_a88e5d365ae422f80172d7d30cea7f2df}\label{include_2manux_2string_8h_a88e5d365ae422f80172d7d30cea7f2df} 
+\index{string.h@{string.h}!memset@{memset}}
+\index{memset@{memset}!string.h@{string.h}}
+\doxysubsubsection{\texorpdfstring{memset()}{memset()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} \texorpdfstring{$\ast$}{*} memset (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} \texorpdfstring{$\ast$}{*}}]{dest,  }\item[{int}]{val,  }\item[{\mbox{\hyperlink{include_2manux_2stddef_8h_acf18a0d6c4b39d531e021702e9a77984}{size\+\_\+t}}}]{n }\end{DoxyParamCaption})}
+
+WARNING à refaire en assembleur 
+
+Définition à la ligne \mbox{\hyperlink{string_8c_source_l00025}{25}} du fichier \mbox{\hyperlink{string_8c_source}{string.\+c}}.
+
+\Hypertarget{include_2manux_2string_8h_add02b305040e403f25f4e86c95db4ca5}\label{include_2manux_2string_8h_add02b305040e403f25f4e86c95db4ca5} 
+\index{string.h@{string.h}!prochainDelimiteur@{prochainDelimiteur}}
+\index{prochainDelimiteur@{prochainDelimiteur}!string.h@{string.h}}
+\doxysubsubsection{\texorpdfstring{prochainDelimiteur()}{prochainDelimiteur()}}
+{\footnotesize\ttfamily char \texorpdfstring{$\ast$}{*} prochain\+Delimiteur (\begin{DoxyParamCaption}\item[{char \texorpdfstring{$\ast$}{*}}]{chaine,  }\item[{char}]{delimiteur }\end{DoxyParamCaption})}
+
+
+
+Recherche d\textquotesingle{}un délimiteur dans une chaîne. 
+
+renvoie un pointeur dans la chaine sur le premier délimiteur ou un pointeur sur le 0 final. Contrairement à strtok, la chaîne n\textquotesingle{}est pas modifiée, pas de problème de réentrance.
+
+renvoie un pointeur dans la chaine sur le premier délimiteur ou un pointeur sur le 0 final. 
+
+Définition à la ligne \mbox{\hyperlink{string_8c_source_l00104}{104}} du fichier \mbox{\hyperlink{string_8c_source}{string.\+c}}.
+
+\Hypertarget{include_2manux_2string_8h_a11bd144d7d44914099a3aeddf1c8567d}\label{include_2manux_2string_8h_a11bd144d7d44914099a3aeddf1c8567d} 
+\index{string.h@{string.h}!strcmp@{strcmp}}
+\index{strcmp@{strcmp}!string.h@{string.h}}
+\doxysubsubsection{\texorpdfstring{strcmp()}{strcmp()}}
+{\footnotesize\ttfamily int strcmp (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{s1,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{s2 }\end{DoxyParamCaption})}
+
+
+
+Définition à la ligne \mbox{\hyperlink{string_8c_source_l00074}{74}} du fichier \mbox{\hyperlink{string_8c_source}{string.\+c}}.
+
+\Hypertarget{include_2manux_2string_8h_a2dee044e4e667b5b789b493abd21cfa4}\label{include_2manux_2string_8h_a2dee044e4e667b5b789b493abd21cfa4} 
+\index{string.h@{string.h}!strlen@{strlen}}
+\index{strlen@{strlen}!string.h@{string.h}}
+\doxysubsubsection{\texorpdfstring{strlen()}{strlen()}}
+{\footnotesize\ttfamily int strlen (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{s }\end{DoxyParamCaption})}
+
+
+
+Définition à la ligne \mbox{\hyperlink{string_8c_source_l00046}{46}} du fichier \mbox{\hyperlink{string_8c_source}{string.\+c}}.
+
+\Hypertarget{include_2manux_2string_8h_a07f4a84c11c106e95c32b6ab509346ef}\label{include_2manux_2string_8h_a07f4a84c11c106e95c32b6ab509346ef} 
+\index{string.h@{string.h}!strncmp@{strncmp}}
+\index{strncmp@{strncmp}!string.h@{string.h}}
+\doxysubsubsection{\texorpdfstring{strncmp()}{strncmp()}}
+{\footnotesize\ttfamily int strncmp (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{s1,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{s2,  }\item[{\mbox{\hyperlink{include_2manux_2stddef_8h_acf18a0d6c4b39d531e021702e9a77984}{size\+\_\+t}}}]{n }\end{DoxyParamCaption})}
+
+
+
+Définition à la ligne \mbox{\hyperlink{string_8c_source_l00057}{57}} du fichier \mbox{\hyperlink{string_8c_source}{string.\+c}}.
+

@@ -8,11 +8,14 @@
  *   simplement son adresse avec celle de l'écran physique. Du coup, les
  *   affichages se font réellement à l'écran.                               
  *                                                                            
- *                                                  (C) Manu Chaput 2000-2023 
+ *                                                     (C) Manu Chaput 2000-2026 
  *                                                                            */
+#include "manux/ascii.h"
+#include "manux/ecran.h"
 #include <manux/console.h>
 
 #include <manux/errno.h>
+#include <manux/io.h>
 #include <manux/appelsysteme.h>
 #include <manux/memoire.h>      // NULL 
 #include <manux/string.h>       // memcpy
@@ -49,17 +52,27 @@ Console * consoleActive;
  * mémoire est déclarée ici.
  */
 static char copieEcranConsoleNoyau[2*MANUX_CON_COLONNES*MANUX_CON_LIGNES];
-
-#ifdef MANUX_CLAVIER_CONSOLE
-static char bufferClavierNoyau[4096]; // WARNING taille 1 page, pas joli de le harcoder !
-#endif
-
-
 #endif // MANUX_CONSOLES_VIRTUELLES
+
+/**
+ * @brief Si on gère le clavier, on prévoie une zone mémoire pour
+ * celui du noyau (qui est le seule si pas de consoles virtuelles).
+ */
+#ifdef MANUX_CLAVIER_CONSOLE
+/**
+ * @brief Le buffer clavier du noyau
+ * WARNING taille 1 page, pas joli de le harcoder, mais je veux que la
+ * console soit opérationnelle le plus tôt possible, y compris avant
+ * les outils d'allocation mémoire afin de les déboguer. Peut-être on
+ * peut reporter l'initialisation du clavier à plus tard, ...
+ */
+static char bufferClavierNoyau[4096]; 
+
+#endif // MANUX_CLAVIER_CONSOLE
 
 void consoleAffecterCouleurFond(Console * cons, Couleur coul)
 {
-   cons->attribut = (cons->attribut & 0x0F)|(coul<<4);
+   cons->attribut = (cons->attribut & 0x0F)|(coul);
 }
 
 void consoleAffecterCouleurTexte(Console * cons, Couleur coul)
@@ -81,7 +94,7 @@ void consoleEffacer(Console * cons)
    cons->colonne = 0;
 }
 
-void scrollUp(Console * cons)
+static void scrollUp(Console * cons)
 /*
  * Remonté de l'écran d'une ligne
  */
@@ -100,7 +113,7 @@ void scrollUp(Console * cons)
    }
 }
 
-void avancerLigne(Console * cons)
+static void avancerLigne(Console * cons)
 {
    assert(cons->nbLignes != 0);
 
@@ -115,8 +128,10 @@ void avancerLigne(Console * cons)
  * L'attribut est là pour maintenir la compilation même sans
  * optimisation (donc pour le debogage) 
  */
+static
+inline
  __attribute__((always_inline))
-inline void consoleAfficherCaractere(Console * cons, char c)
+void consoleAfficherCaractere(Console * cons, char c)
 {
    cons->adresseEcran[(cons->nbColonnes*cons->ligne+cons->colonne)*2] = c;
    cons->adresseEcran[(cons->nbColonnes*cons->ligne+cons->colonne)*2+1] = cons->attribut;
@@ -130,75 +145,273 @@ inline void consoleAfficherCaractere(Console * cons, char c)
    }
 }
 
+#define MIN(a, b) (((a)<(b))?(a):(b))
+#define MAX(a, b) (((a)>(b))?(a):(b))
+
+/**
+ * @brief Choix des couleurs de texte et fond de la console
+ *
+ * Il s'agit essentiellement d'une correspondance depuis les couleurs
+ * proposées dans les escape codes ANSI vers les codes définis par le
+ * BIOS.
+ */
+static void consoleSelectGraphicRendition(Console * cons, int m)
+{
+   switch (m) {
+      case 0 : 
+         // WARNING utiliser la macro de défaut
+         consoleAffecterCouleurTexte(cons, COUL_TXT_GRIS_CLAIR);
+         consoleAffecterCouleurFond(cons, COUL_FOND_NOIR);
+      break;
+      case 30 : 
+         consoleAffecterCouleurTexte(cons, COUL_TXT_NOIR);
+      break;
+      case 31 :
+         consoleAffecterCouleurTexte(cons, COUL_TXT_ROUGE);
+      break;
+      case 32 : 
+         consoleAffecterCouleurTexte(cons, COUL_TXT_VERT);
+      break;
+      case 33 : 
+         consoleAffecterCouleurTexte(cons, COUL_TXT_JAUNE);
+      break;
+      case 34 :
+         consoleAffecterCouleurTexte(cons, COUL_TXT_BLEU);
+      break;
+      case 35 :
+         consoleAffecterCouleurTexte(cons, COUL_TXT_MAGENTA);
+      break;
+      case 36 :
+         consoleAffecterCouleurTexte(cons, COUL_TXT_CYAN);
+      break;
+      case 37 :
+         consoleAffecterCouleurTexte(cons, COUL_TXT_BLANC);
+      break;
+      case 90 : 
+         consoleAffecterCouleurTexte(cons, COUL_TXT_GRIS);
+      break;
+      case 91 :
+         consoleAffecterCouleurTexte(cons, COUL_TXT_ROUGE_CLAIR);
+      break;
+      case 92 : 
+         consoleAffecterCouleurTexte(cons, COUL_TXT_VERT_CLAIR);
+      break;
+      case 93 : 
+         consoleAffecterCouleurTexte(cons, COUL_TXT_JAUNE);
+      break;
+      case 94 :
+         consoleAffecterCouleurTexte(cons, COUL_TXT_BLEU_CLAIR);
+      break;
+      case 95 :
+         consoleAffecterCouleurTexte(cons, COUL_TXT_MAGENTA_CLAIR);
+      break;
+      case 96 :
+         consoleAffecterCouleurTexte(cons, COUL_TXT_CYAN_CLAIR);
+      break;
+      case 97 :
+         consoleAffecterCouleurTexte(cons, COUL_TXT_BLANC);
+      break;
+
+      case 40 : 
+         consoleAffecterCouleurFond(cons, COUL_FOND_NOIR);
+      break;
+      case 41 :
+         consoleAffecterCouleurFond(cons, COUL_FOND_ROUGE);
+      break;
+      case 42 : 
+         consoleAffecterCouleurFond(cons, COUL_FOND_VERT);
+      break;
+      case 43 : 
+         consoleAffecterCouleurFond(cons, COUL_FOND_JAUNE);
+      break;
+      case 44 :
+         consoleAffecterCouleurFond(cons, COUL_FOND_BLEU);
+      break;
+      case 45 :
+         consoleAffecterCouleurFond(cons, COUL_FOND_MAGENTA);
+      break;
+      case 46 :
+         consoleAffecterCouleurFond(cons, COUL_FOND_CYAN);
+      break;
+      case 47 :
+         consoleAffecterCouleurFond(cons, COUL_FOND_BLANC);
+      break;
+      case 100 : 
+         consoleAffecterCouleurFond(cons, COUL_FOND_GRIS);
+      break;
+      case 101 :
+         consoleAffecterCouleurFond(cons, COUL_FOND_ROUGE_CLAIR);
+      break;
+      case 102 : 
+         consoleAffecterCouleurFond(cons, COUL_FOND_VERT_CLAIR);
+      break;
+      case 103 : 
+         consoleAffecterCouleurFond(cons, COUL_FOND_JAUNE);
+      break;
+      case 104 :
+         consoleAffecterCouleurFond(cons, COUL_FOND_BLEU_CLAIR);
+      break;
+      case 105 :
+         consoleAffecterCouleurFond(cons, COUL_FOND_MAGENTA_CLAIR);
+      break;
+      case 106 :
+         consoleAffecterCouleurFond(cons, COUL_FOND_CYAN_CLAIR);
+      break;
+      case 107 :
+         consoleAffecterCouleurFond(cons, COUL_FOND_BLANC);
+      break;
+
+      default:
+      break;
+   }
+}
+
+/**
+ * @brief Traitement d'un code d'échappement ANSI de type CSI
+ *
+ * Voir par exemple https://en.wikipedia.org/wiki/ANSI_escape_code
+ *
+ * Codes actuellement gérés : CUU, CUD, CUF, CUB, CNL, CPL, CHA, CUP
+ *
+ */
+static void consoleTraiterAEC_CSI(Console * cons, int n, int m, char c)
+{
+   switch (c) {
+      case 'F' : // CPL : Cursor beginning of n(=1) lines up
+         cons->colonne = 0;
+	 [[fallthrough]];
+      case 'A' : // CUU : Cursor up n (default n=1) cell
+         n = n?n:1;
+         cons->ligne = MAX(cons->ligne - n, 0); 
+      break;
+      case 'E' : // CNL : Cursor beginning of n(=1) lines down
+         cons->colonne = 0;
+	 [[fallthrough]];
+      case 'B' : // CUD : Cursor down n (default n=1) cell
+         n = n?n:1;
+         cons->ligne = MIN(cons->ligne + n, cons->nbLignes); 
+      break;
+      case 'C' : // CUF : Cursor forward n (default n=1) cell
+         n = n?n:1;
+         cons->colonne = MIN(cons->colonne + n, cons->nbColonnes); 
+      break;
+      case 'D' : // CUB : Cursor back n (default n=1) cell
+         n = n?n:1;
+         cons->colonne = MAX(cons->colonne - n, 0); 
+      break;
+      case 'G' : // CHA: Cursor horizontal absolute n (default n=1)
+         n = n?n:1;
+         cons->colonne = MIN(cons->nbColonnes, n); 
+      break;
+      case 'H' : // CUP: Cursor position n, m (default 1)
+         n = n?n:1 - 1;  // Ca commence à 1 mais moi à 0
+         m = m?m:1 - 1;
+         cons->ligne = MIN(cons->nbLignes, n); 
+         cons->colonne = MIN(cons->nbColonnes, m); 
+      break;
+      case 'J' : // ED : Erase in Display
+         if (n == 0) {
+            // On efface tout à partir du curseur
+         } else if (n == 1) {
+            // On efface tout jusqu'au curseur
+         } else if (n == 2) {
+            consoleEffacer(cons);
+         }
+      break;
+      case 'm' : // SGR : Select Graphic Rendition
+         consoleSelectGraphicRendition(cons, n);
+      break;
+   }
+}
+
+/**
+ * @brief Gestion des codes d’échappement ANSI
+ *
+ * On ne gère pour le moment que certains codes CSI.
+ * Voir par exemple https://en.wikipedia.org/wiki/ANSI_escape_code
+ * 
+ * @param cons la console sur laquelle on affiche ça
+ * @param msg la chaîne de caractères (commençant par ASCII_ESC)
+ * @param nbOctets est la longueur maximale de la chaîne
+ * @return nombre d'octets consommés 
+ */
+static int consoleGererAEC(Console * cons, char * msg, int nbOctets)
+{
+   int a=0, b=0;  //< Il peut y avoir deux coefficients
+   char c;        //< Le code lui-même
+   int r = 0;     //< Le nombre d'octets consommés
+
+   // On teste et on consomme l'ASCII_ESC
+   if (msg[r] != ASCII_ESC) {
+      goto fin;  
+   }
+   r++;
+   if (r >= nbOctets){
+      goto fin;  
+   }
+   // Pour le moment on ne gère que les CSI
+   if (msg[r] != '[') {
+      goto fin;  
+   }
+   r++;
+   
+   // Lecture du premier coefficient
+   while ((r < nbOctets)&&(msg[r] >= ASCII_0)&&(msg[r] <= ASCII_9)) {
+      a = 10*a + msg[r] - ASCII_0;
+      r++;	
+   }
+   if (r >= nbOctets){
+      goto fin;  
+   }
+   if (msg[r] == ASCII_SEMICOLON) {
+      r++;
+   }
+   if (r >= nbOctets){
+      goto fin;  
+   }
+   // Lecture du second coefficient
+   while ((r < nbOctets)&&(msg[r] >= ASCII_0)&&(msg[r] <= ASCII_9)) {
+      b = 10*b + msg[r] - ASCII_0;
+      r++;	
+   }
+   if (r >= nbOctets){
+      goto fin;  
+   }
+   // On lit enfin le code lui-même
+   c = msg[r];
+
+   // On peut maintenant appliquer le code
+   consoleTraiterAEC_CSI(cons, a, b, c);
+   
+   // On termine en donnant le nombre d'octets consommés
+   fin :
+      return r;
+}
+
 void consoleAfficherN(Console * cons, char * msg, int nbOctets)
 {
-  int controle;
-
-  assert(nbOctets > 0);
+   int r;
+   
+   assert(nbOctets > 0);
 
 #ifdef MANUX_CONSOLE_AVEC_MUTEX
    exclusionMutuelleEntrer(&cons->scAcces);
 #endif
 
-  assert(cons->nbColonnes != 0);
+   assert(cons->nbColonnes != 0);
 
    while (nbOctets) {
       switch (*msg) {
-         case '\n' :
+         case ASCII_LINE_FEED :        // '\n'
             avancerLigne(cons);
+	    [[fallthrough]];
+         case ASCII_CARRIAGE_RETURN :  // '\r'
             cons->colonne = 0;
          break;
          case ASCII_ESC :
-            msg++;
-            nbOctets--;
-            if (*msg == 91){   // 91 = ASCII('[')
-               do {
-                  msg++;
-                  controle = 0;
-                  while((*msg <= '9') && (*msg >= '0')) {
-                     controle = controle * 10 + * msg - '0';
-                     msg++;nbOctets--;
-	          }
-                  switch (controle) {
-                     case 0 : 
-                        consoleAffecterCouleurTexte(cons, COUL_TXT_BLANC);
-                        consoleAffecterCouleurFond(cons, COUL_FOND_NOIR);
-                     break;
-                     case 30 : 
-                        consoleAffecterCouleurTexte(cons, COUL_TXT_NOIR);
-                     break;
-                     case 31 :
-                        consoleAffecterCouleurTexte(cons, COUL_TXT_ROUGE);
-                     break;
-                     case 32 : 
-                        consoleAffecterCouleurTexte(cons, COUL_TXT_VERT);
-                     break;
-                     case 34 :
-                        consoleAffecterCouleurTexte(cons, COUL_TXT_BLEU);
-                     break;
-                     case 37 :
-                        consoleAffecterCouleurTexte(cons, COUL_TXT_BLANC);
-                     break;
-                     case 40 : 
-                        consoleAffecterCouleurFond(cons, COUL_FOND_NOIR);
-                     break;
-                     case 41 :
-                        consoleAffecterCouleurFond(cons, COUL_FOND_ROUGE);
-                     break;
-                     case 42 : 
-                        consoleAffecterCouleurFond(cons, COUL_FOND_VERT);
-                     break;
-                     case 44 :
-                        consoleAffecterCouleurFond(cons, COUL_FOND_BLEU);
-                     break;
-                     case 47 :
-                        consoleAffecterCouleurFond(cons, COUL_FOND_GRIS_CLAIR);
-                     break;
-                     default:
-                     break;
-		  }
-               } while (*msg == 59); // 59 = ASCII(';') // WARNING !!!
-            }
+	    r = consoleGererAEC(cons, msg, nbOctets);
+	    msg += r;
+	    nbOctets -= r;
 	    break;
          default :
             consoleAfficherCaractere(cons, *msg);
@@ -242,28 +455,11 @@ void consoleAfficherEntier(Console * cons, int n)
    }
 }
 
-void consoleAfficherEntierHex(Console * cons, int nbOctets, uint32_t reg)
-{
-   char chiffre[17] = "0123456789abcdef";
-   char nombre[2*nbOctets+2];
-   int i = 0;
-
-   for (i = 0; i<2*nbOctets; i++) {
-      nombre[i] = chiffre[reg%16];
-      reg = reg / 16;
-   };
-   nombre[i++] = 'x';
-   nombre[i] = '0';
-   for (; i>=0; i--) {
-     assert(cons->nbColonnes != 0);
-      consoleAfficherCaractere(cons, nombre[i]);
-   }
-}
-
 #ifdef MANUX_CLAVIER_CONSOLE
-void consoleSetClavier(Console * cons, void * buffer)
+static void consoleSetClavier(Console * cons, void * buffer)
 {
    // Le buffer accueillant le clavier
+   cons->tailleBuffer = 4096; // WARNING !!
    cons->bufferClavier = buffer;
    cons->nbCarAttente = 0;
    cons->indiceProchainCar = 0;
@@ -275,7 +471,7 @@ void consoleSetClavier(Console * cons, void * buffer)
  *
  * Les espaces mémoire doivent avoir été alloués par ailleurs.
  */
-void consoleInitialiser(Console * cons, char * adresseEcran)
+static void consoleInitialiser(Console * cons, char * adresseEcran)
 {
    //! Adresse de la zone d'écran. L'affichage consiste en fait à
    //! écrire des choses dans la zone mémoire pointée
@@ -291,7 +487,7 @@ void consoleInitialiser(Console * cons, char * adresseEcran)
    cons->colonne = 0;
    cons->nbLignes = MANUX_CON_LIGNES;
    cons->nbColonnes = MANUX_CON_COLONNES;
-   cons->attribut = COUL_TXT_GRIS_CLAIR | COUL_FOND_NOIR;
+   cons->attribut = MANUX_COULEUR_TEXTE | MANUX_COULEUR_FOND;
 
    /* Initialisation du verrou */
 #ifdef MANUX_CONSOLE_AVEC_MUTEX
@@ -302,23 +498,23 @@ void consoleInitialiser(Console * cons, char * adresseEcran)
    consoleEffacer(cons);
 
 #ifdef MANUX_CONSOLES_VIRTUELLES
-   /* On l'insère après la console active dans la liste des consoles gérées */
+   // On l'insère après la console active dans la liste des consoles gérées
    cons->suivante = consoleActive->suivante;
    consoleActive->suivante = cons;
    cons->precedente = consoleActive;
    cons->suivante->precedente = cons;
    cons->numero = nombreDeConsoles++;
-#endif
+#endif // MANUX_CONSOLES_VIRTUELLES
 #ifdef MANUX_CLAVIER_CONSOLE
    consoleSetClavier(cons, NULL);
-#endif
+#endif // MANUX_CLAVIER_CONSOLE
 }
 
 #ifdef MANUX_CONSOLES_VIRTUELLES
 /**
  * @brief : Création (avec allocation mémoire) d'une console
  */
-Console * creerConsoleVirtuelle()
+Console * creerConsoleVirtuelle(void)
 {
    Console * result;
    void    * page;
@@ -338,14 +534,33 @@ Console * creerConsoleVirtuelle()
 
 #ifdef MANUX_CLAVIER_CONSOLE
    consoleSetClavier(result, allouerPage());
-#endif
+#endif // MANUX_CLAVIER_CONSOLE
 
 #ifdef MANUX_BASCULER_NOUVELLE_CONSOLE
    basculerVersConsole(result);
-#endif
+#endif // MANUX_BASCULER_NOUVELLE_CONSOLE
    
    return result;
 }
+
+static void consoleAfficherEntierHex(Console * cons, int nbOctets, uint32_t reg)
+{
+   char chiffre[17] = "0123456789abcdef";
+   char nombre[2*nbOctets+2];
+   int i = 0;
+
+   for (i = 0; i<2*nbOctets; i++) {
+      nombre[i] = chiffre[reg%16];
+      reg = reg / 16;
+   };
+   nombre[i++] = 'x';
+   nombre[i] = '0';
+   for (; i>=0; i--) {
+     assert(cons->nbColonnes != 0);
+      consoleAfficherCaractere(cons, nombre[i]);
+   }
+}
+
 
 /*
  * Basculer vers une console virtuelle. Attention, elle doit exister.
@@ -414,7 +629,7 @@ void basculerVersConsole(Console * suivante)
 /*
  * Basculer vers la console suivante
  */
-void basculerVersConsoleSuivante()
+void basculerVersConsoleSuivante(void)
 {
    assert(consoleActive != NULL);
 
@@ -446,11 +661,51 @@ int consoleLire(Console * cons, void * buffer, int nbOctets)
      cons->indiceProchainCar = (cons->indiceProchainCar + aLire); // WARNING FAUX !
      cons->nbCarAttente = cons->nbCarAttente - aLire;
 
-     //     printk("(0x%x) LIRE copie %d, ipc = %d, nb = %d\n", cons, aLire, cons->indiceProchainCar, cons->nbCarAttente);
      lu = lu + aLire;
    }
 
    return lu;
+}
+
+/**
+ * @brief Lecture d'un entier dans la console
+ *
+ * Cette fonction est un peu un hack, elle ne devrait pas exister, ou
+ * ne pas être là. C'est une horreur, il faudrait des mutex, ...
+ */
+#define EST_CHIFFRE_DEC(x) ((x>= '0') && (x<= '9'))
+#define EST_CHIFFRE_HEX(x) (((x>= '0') && (x<= '9')) ||((x>= 'a') && (x<= 'f')))
+
+int consoleLireEntier(Console * cons)
+{
+   int result = 0;
+
+   do {
+      // On attend qu'il y ai qqchose
+      while (cons->nbCarAttente == 0)
+         ordonnanceur();
+
+      // On lit tant qu'il y a des chiffres et on arrête quand il y a
+      // autre chose
+      while ((cons->nbCarAttente)
+          && (EST_CHIFFRE_HEX(cons->bufferClavier[cons->indiceProchainCar]))  
+   	  ) {
+         if (EST_CHIFFRE_DEC(cons->bufferClavier[cons->indiceProchainCar])) {
+	    result = 16 * result + cons->bufferClavier[cons->indiceProchainCar] - '0';
+	 } else {
+	    result = 16 * result + cons->bufferClavier[cons->indiceProchainCar] - 'a' + 10;
+	 }
+         cons->nbCarAttente--;
+         cons->indiceProchainCar++;  // WARNING modulo taille !!!
+      }
+   } while ((cons->nbCarAttente == 0)
+	  ||(EST_CHIFFRE_HEX(cons->bufferClavier[cons->indiceProchainCar])));
+   // On supprime le caractère qui nous a fait finir (WARNING !!)
+   if (cons->nbCarAttente) {
+      cons->nbCarAttente--;
+      cons->indiceProchainCar++;  // WARNING modulo taille !!!
+   }
+   return result;
 }
 
 /**
@@ -459,21 +714,27 @@ int consoleLire(Console * cons, void * buffer, int nbOctets)
  * On va chercher des données éventuellement mises à dispo par le
  * clavier. 
  */
-size_t consoleFichierLire(Fichier * f, void * buffer, size_t nbOctets)
+[[maybe_unused]]   // Juste affectée
+static size_t consoleFichierLire(Fichier * f, void * buffer, size_t nbOctets)
 {
    Console * con = f->iNoeud->prive;
 
    return consoleLire(con, buffer, nbOctets);
 }
-#else
+#else  // MANUX_CLAVIER_CONSOLE
 /**
  * En l'absence de clavier, rien à lire !
  */
-size_t consoleFichierLire(Fichier * f, void * buffer, size_t nbOctets)
+[[maybe_unused]]    // Juste affectée
+static size_t consoleFichierLire(Fichier * f, void * buffer, size_t nbOctets)
 {
+   (void) f;
+   (void) buffer;
+   (void) nbOctets;
+
    return 0;
 }
-#endif
+#endif // MANUX_CLAVIER_CONSOLE
 
 #ifdef MANUX_FICHIER
 /**
@@ -482,8 +743,13 @@ size_t consoleFichierLire(Fichier * f, void * buffer, size_t nbOctets)
  * WARNING : si vraiment rien à faire, on peut supprimer (la méthode
  * ouvrir peut ne pas être implantée)
  */
-int consoleOuvrir(INoeud * iNoeud, Fichier * f, uint16_t fanions, uint16_t mode)
+static int consoleOuvrir(INoeud * iNoeud, Fichier * f, uint16_t fanions, uint16_t mode)
 {
+   (void) iNoeud;
+   (void) f;
+   (void) fanions;
+   (void) mode;
+
    return ESUCCES;
 }
 
@@ -514,7 +780,7 @@ MethodesFichier consoleMethodesFichier = {
  * @brief Initialisation de la console du noyau
  *
  */
-void initialiserConsoleNoyau()
+static void initialiserConsoleNoyau(void)
 {
    //! Le gros du travail est fait par initialiserConsole
    consoleInitialiser(&_consoleNoyau, MANUX_CON_SCREEN);
@@ -539,14 +805,14 @@ void initialiserConsoleNoyau()
 /**
  * @brief Obtention d'un pointeur sur la console par défaut
  */
-Console * consoleNoyau()
+Console * consoleNoyau(void)
 {
    return &_consoleNoyau;
 }
 
 #ifdef MANUX_FICHIER
 
-void consoleInitialiserINoeud(INoeud * i, Console * c)
+static void consoleInitialiserINoeud(INoeud * i, Console * c)
 {
    i->typePeripherique.majeur = MANUX_CONSOLE_MAJEUR;
 #ifdef MANUX_CONSOLES_VIRTUELLES
@@ -567,7 +833,7 @@ void consoleInitialiserINoeud(INoeud * i, Console * c)
 int consoleInitialisationINoeud(INoeud * iNoeudConsole)
 {
    //! On initialise la console
-   initialiserConsoleNoyau();
+   consoleInitialisation();
 
    //! On initialise l'INoeud qui la décrit
    consoleInitialiserINoeud(iNoeudConsole,  &_consoleNoyau);
@@ -594,15 +860,19 @@ INoeud * consoleCreerINoeud(Console * c)
    
    return result;
 }
-
 #   endif // MANUX_KMALLOC
 #endif
+
 /**
- * Initialisation du système de console. 
+ * @brief Initialisation du système de console. 
  */
-int consoleInitialisation()
+int consoleInitialisation(void)
 {
    initialiserConsoleNoyau();
+
+   // On invalide le curseur du BIOS
+   outb(0x3D4, 0x0A);
+   outb(0x3D5, 0x20);
    
    return ESUCCES;
 }
@@ -613,6 +883,8 @@ int consoleInitialisation()
  */
 int sys_ecrireConsole(ParametreAS as, void * msg, int n)
 {
+   (void) as; // Juste pour ne pas écraser les paramètres
+   
    //! Si on a attribué une console à  chaque tâche, on va la chercher
    //! Si ce n'est pas le cas, on prend la seule console, celle du
    //! noyau

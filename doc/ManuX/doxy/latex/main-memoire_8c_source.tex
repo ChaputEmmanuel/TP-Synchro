@@ -1,0 +1,41 @@
+\doxysection{main-\/memoire.c}
+\hypertarget{main-memoire_8c_source}{}\label{main-memoire_8c_source}\index{/home/manu/PROGRAMMATION/C/ManuX/noyau/main-\/memoire.c@{/home/manu/PROGRAMMATION/C/ManuX/noyau/main-\/memoire.c}}
+\mbox{\hyperlink{main-memoire_8c}{Aller Ã  la documentation de ce fichier.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{main-memoire_8c_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{main-memoire_8c_source_l00007}00007\ \textcolor{preprocessor}{\#include\ <manux/config.h>}}
+\DoxyCodeLine{\Hypertarget{main-memoire_8c_source_l00008}00008\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{include_2manux_2memoire_8h}{manux/memoire.h}}>}}
+\DoxyCodeLine{\Hypertarget{main-memoire_8c_source_l00009}00009\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{include_2manux_2console_8h}{manux/console.h}}>}}
+\DoxyCodeLine{\Hypertarget{main-memoire_8c_source_l00010}00010\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{include_2manux_2printk_8h}{manux/printk.h}}>}}
+\DoxyCodeLine{\Hypertarget{main-memoire_8c_source_l00011}00011\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{manux_2debug_8h}{manux/debug.h}}>}}
+\DoxyCodeLine{\Hypertarget{main-memoire_8c_source_l00012}00012\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{manux_2bootloader_8h}{manux/bootloader.h}}>}}
+\DoxyCodeLine{\Hypertarget{main-memoire_8c_source_l00013}00013\ \textcolor{preprocessor}{\#include\ <manux/i386.h>}\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ ADDR\_VERS\_PAGE}}
+\DoxyCodeLine{\Hypertarget{main-memoire_8c_source_l00014}00014\ }
+\DoxyCodeLine{\Hypertarget{main-memoire_8c_source_l00018}\mbox{\hyperlink{main-memoire_8c_a2aa9fab483760ccde1d2a826b09b9fec}{00018}}\ \textcolor{preprocessor}{\#define\ NB\_PAGES\_ALLOC\ 16}}
+\DoxyCodeLine{\Hypertarget{main-memoire_8c_source_l00019}00019\ }
+\DoxyCodeLine{\Hypertarget{main-memoire_8c_source_l00020}\mbox{\hyperlink{main-memoire_8c_a3568df994044ade7d37160ef731c223f}{00020}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{main-memoire_8c_a3568df994044ade7d37160ef731c223f}{startManuX}}()}
+\DoxyCodeLine{\Hypertarget{main-memoire_8c_source_l00021}00021\ \{}
+\DoxyCodeLine{\Hypertarget{main-memoire_8c_source_l00022}00022\ \ \ \ \textcolor{keywordtype}{void}\ *\ p;}
+\DoxyCodeLine{\Hypertarget{main-memoire_8c_source_l00023}00023\ }
+\DoxyCodeLine{\Hypertarget{main-memoire_8c_source_l00024}00024\ \ \ \ \textcolor{comment}{//\ Initialisation\ de\ la\ console\ noyau}}
+\DoxyCodeLine{\Hypertarget{main-memoire_8c_source_l00025}00025\ \ \ \ \mbox{\hyperlink{include_2manux_2console_8h_a29466c636bd065544638829883090d54}{consoleInitialisation}}();}
+\DoxyCodeLine{\Hypertarget{main-memoire_8c_source_l00026}00026\ }
+\DoxyCodeLine{\Hypertarget{main-memoire_8c_source_l00027}00027\ \ \ \ \textcolor{comment}{//\ Initialisation\ des\ informations\ depuis\ le\ bootloader}}
+\DoxyCodeLine{\Hypertarget{main-memoire_8c_source_l00028}00028\ \ \ \ \mbox{\hyperlink{manux_2bootloader_8h_ae56092aa42bf357bf0026df0b0808db4}{bootloaderInitialiser}}();}
+\DoxyCodeLine{\Hypertarget{main-memoire_8c_source_l00029}00029\ }
+\DoxyCodeLine{\Hypertarget{main-memoire_8c_source_l00030}00030\ \ \ \ \textcolor{comment}{/*\ Initialisation\ de\ la\ gestion\ mémoire\ */}}
+\DoxyCodeLine{\Hypertarget{main-memoire_8c_source_l00031}00031\ \ \ \ \mbox{\hyperlink{include_2manux_2memoire_8h_a4338550e2017b7c95021bdc27e4f3345}{initialiserMemoire}}(\mbox{\hyperlink{manux_2bootloader_8h_abf4319b3adb9dd5752045f58f65369e6}{infoSysteme}}.\mbox{\hyperlink{struct__InfoSysteme_a6047965dfba552f4957f7df33b777e8c}{memoireDeBase}},}
+\DoxyCodeLine{\Hypertarget{main-memoire_8c_source_l00032}00032\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{manux_2bootloader_8h_abf4319b3adb9dd5752045f58f65369e6}{infoSysteme}}.\mbox{\hyperlink{struct__InfoSysteme_aeed4b08b9edfc29ff917ed26d87c9cda}{memoireEtendue}});}
+\DoxyCodeLine{\Hypertarget{main-memoire_8c_source_l00033}00033\ }
+\DoxyCodeLine{\Hypertarget{main-memoire_8c_source_l00034}00034\ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{main-memoire_8c_a2aa9fab483760ccde1d2a826b09b9fec}{NB\_PAGES\_ALLOC}}\ >\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{main-memoire_8c_source_l00035}00035\ \ \ \ \ \ \ \mbox{\hyperlink{include_2manux_2printk_8h_a25b30e8bbadd54650c56895999dd808f}{printk}}(\textcolor{stringliteral}{"{}Allocation\ de\ \%d\ pages\ :\(\backslash\)n"{}},\ \mbox{\hyperlink{main-memoire_8c_a2aa9fab483760ccde1d2a826b09b9fec}{NB\_PAGES\_ALLOC}});}
+\DoxyCodeLine{\Hypertarget{main-memoire_8c_source_l00036}00036\ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{main-memoire_8c_source_l00037}00037\ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ n\ =\ 0;\ n\ <\ \mbox{\hyperlink{main-memoire_8c_a2aa9fab483760ccde1d2a826b09b9fec}{NB\_PAGES\_ALLOC}};\ n++)\ \{}
+\DoxyCodeLine{\Hypertarget{main-memoire_8c_source_l00038}00038\ \ \ \ \ \ \ p\ =\ \mbox{\hyperlink{include_2manux_2memoire_8h_ad9072ff00da9e7f32b882e5c1361d46f}{allouerPage}}();}
+\DoxyCodeLine{\Hypertarget{main-memoire_8c_source_l00039}00039\ \ \ \ \ \ \ \mbox{\hyperlink{include_2manux_2printk_8h_a25b30e8bbadd54650c56895999dd808f}{printk}}(\textcolor{stringliteral}{"{}0x\%x\ (page\ 0x\%2x)\ "{}},\ p,\ \mbox{\hyperlink{include_2manux_2i386_8h_a7d3db7e7b71d403226d271da40d6101a}{ADDR\_VERS\_PAGE}}((\textcolor{keywordtype}{int})p));}
+\DoxyCodeLine{\Hypertarget{main-memoire_8c_source_l00040}00040\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (((n+1)\ \%\ 4\ )\ ==\ 0\ )\ \mbox{\hyperlink{include_2manux_2printk_8h_a25b30e8bbadd54650c56895999dd808f}{printk}}(\textcolor{stringliteral}{"{}\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{main-memoire_8c_source_l00041}00041\ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{main-memoire_8c_source_l00042}00042\ \}\ \ \ \textcolor{comment}{/*\ \_start\ */}}
+\DoxyCodeLine{\Hypertarget{main-memoire_8c_source_l00043}00043\ }
+
+\end{DoxyCode}

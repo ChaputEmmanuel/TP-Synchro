@@ -1,0 +1,173 @@
+\doxysection{main.\+c}
+\hypertarget{main_8c_source}{}\label{main_8c_source}\index{/home/manu/PROGRAMMATION/C/ManuX/noyau/main.c@{/home/manu/PROGRAMMATION/C/ManuX/noyau/main.c}}
+\mbox{\hyperlink{main_8c}{Aller Ã  la documentation de ce fichier.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00010}00010\ \textcolor{preprocessor}{\#include\ <manux/config.h>}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00011}00011\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{manux_2bootloader_8h}{manux/bootloader.h}}>}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00012}00012\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{include_2manux_2registre_8h}{manux/registre.h}}>}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00013}00013\ \textcolor{preprocessor}{\#include\ <manux/errno.h>}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00014}00014\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{include_2manux_2console_8h}{manux/console.h}}>}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00015}00015\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{manux_2clavier_8h}{manux/clavier.h}}>}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00016}00016\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{tache_8h}{manux/tache.h}}>}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00017}00017\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{horloge_8h}{manux/horloge.h}}>}\ \ \ \ \ \ \ \ \textcolor{comment}{//\ initialiserHorloge}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00018}00018\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{scheduler_8h}{manux/scheduler.h}}>}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00019}00019\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{include_2manux_2interruptions_8h}{manux/interruptions.h}}>}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00020}00020\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{io_8h}{manux/io.h}}>}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00021}00021\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{segment_8h}{manux/segment.h}}>}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00022}00022\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{include_2manux_2memoire_8h}{manux/memoire.h}}>}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00023}00023\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{manux_2stdlib_8h}{manux/stdlib.h}}>}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00024}00024\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{include_2manux_2kmalloc_8h}{manux/kmalloc.h}}>}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00025}00025\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{atomique_8h}{manux/atomique.h}}>}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00026}00026\ \textcolor{preprocessor}{\#include\ <manux/appelsysteme.h>}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00027}00027\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{manux_2pci_8h}{manux/pci.h}}>}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00028}00028\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{manux_2ramdisk_8h}{manux/ramdisk.h}}>}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00029}00029\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{include_2manux_2printk_8h}{manux/printk.h}}>}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00030}00030\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{manux_2debug_8h}{manux/debug.h}}>}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00031}00031\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{limites_8h}{manux/limites.h}}>}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00032}00032\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{pagination_8h}{manux/pagination.h}}>}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00033}00033\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{include_2manux_2journal_8h}{manux/journal.h}}>}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00034}00034\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fichier_8h}{manux/fichier.h}}>}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00035}00035\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{include_2manux_2virtio-net_8h}{manux/virtio-\/net.h}}>}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00036}00036\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{virtio-console_8h}{manux/virtio-\/console.h}}>}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00037}00037\ }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00038}00038\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{main_8c_a21bf9d845e4ae7f33652b85730016a11}{startManuX}}(\textcolor{keywordtype}{void});\ \ \textcolor{comment}{//\ WARNING\ faire\ un\ include\ ?}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00039}00039\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{main_8c_a2858154e2009b0e6e616f313177762bc}{init}}(\textcolor{keywordtype}{void});\ \textcolor{comment}{//\ Faire\ un\ init.h}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00040}00040\ }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00041}00041\ \textcolor{comment}{//\ Pour\ manipuler\ la\ console\ virtuelle\ comme\ un\ fichier}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00042}\mbox{\hyperlink{main_8c_a025b00386237bd94848dfda7561bc35a}{00042}}\ \mbox{\hyperlink{struct__INoeud}{INoeud}}\ \mbox{\hyperlink{main_8c_a025b00386237bd94848dfda7561bc35a}{iNoeudVirtioConsole}};}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00043}\mbox{\hyperlink{main_8c_ae51ed4923ff3dc7cd81a10324b2eaac4}{00043}}\ \mbox{\hyperlink{struct__Fichier}{Fichier}}\ \mbox{\hyperlink{main_8c_ae51ed4923ff3dc7cd81a10324b2eaac4}{fichierVirtioConsole}};}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00044}00044\ }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00048}\mbox{\hyperlink{main_8c_a972ff77e8e64fb59c5b315287496a83e}{00048}}\ \mbox{\hyperlink{struct__INoeud}{INoeud}}\ \ \mbox{\hyperlink{main_8c_a972ff77e8e64fb59c5b315287496a83e}{iNoeudConsole}};\ \ \textcolor{comment}{//\ Le\ INoeud\ qui\ décrit\ la\ console}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00049}00049\ }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00050}\mbox{\hyperlink{main_8c_a21bf9d845e4ae7f33652b85730016a11}{00050}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{main_8c_a21bf9d845e4ae7f33652b85730016a11}{startManuX}}(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00051}00051\ \{}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00052}00052\ \ \ \ \textcolor{comment}{//\ Initialisation\ de\ la\ console\ manipulée comme\ un\ fichier}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00053}00053\ \ \ \ consoleInitialisationINoeud(\&\mbox{\hyperlink{main_8c_a972ff77e8e64fb59c5b315287496a83e}{iNoeudConsole}});}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00054}00054\ }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00055}00055\ \textcolor{preprocessor}{\#if\ MANUX\_ARCH\ ==\ i386}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00056}00056\ \ \ \ \textcolor{keyword}{union\ }\{}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00057}00057\ \ \ \ \ \ \ \mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\_t}}\ registres[3];}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00058}00058\ \ \ \ \ \ \ \textcolor{keywordtype}{char}\ \ \ \ \ caracteres[13];}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00059}00059\ \ \ \ \}\ descriptionProc;}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00060}00060\ }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00061}00061\ \ \ \ \textcolor{comment}{//\ Lecture\ du\ nom\ du\ processeur}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00062}00062\ \ \ \ descriptionProcesseur(0,\ descriptionProc.registres);}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00063}00063\ \ \ \ descriptionProc.caracteres[12]\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00064}00064\ }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00065}00065\ \ \ \ \textcolor{comment}{//\ Affichage\ d'un\ premier\ message}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00066}00066\ \ \ \ \mbox{\hyperlink{manux_2debug_8h_ad4cabea5084373436d91b5dc4e8d0a49}{printk\_debug}}(\mbox{\hyperlink{manux_2debug_8h_a97cb921ecb429c2c4c3755b2ca69364b}{DBG\_KERNEL\_START}},\ \textcolor{stringliteral}{"{}32\ bit\ ManuX\ running\ on\ a\ '\%s'\ ...\(\backslash\)n"{}},}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00067}00067\ \ \ \ \ \ \ \ \ descriptionProc.caracteres);}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00068}00068\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00069}00069\ }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00070}00070\ \ \ \ \textcolor{comment}{//\ Initialisation\ du\ bootloader\ :\ infoSysteme,\ cmdLine,\ ...}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00071}00071\ \ \ \ \mbox{\hyperlink{manux_2debug_8h_ad4cabea5084373436d91b5dc4e8d0a49}{printk\_debug}}(\mbox{\hyperlink{manux_2debug_8h_a97cb921ecb429c2c4c3755b2ca69364b}{DBG\_KERNEL\_START}},\ \textcolor{stringliteral}{"{}Initialisation\ du\ bootloader\ ...\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00072}00072\ \ \ \ \mbox{\hyperlink{manux_2bootloader_8h_ae56092aa42bf357bf0026df0b0808db4}{bootloaderInitialiser}}();}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00073}00073\ }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00074}00074\ \ \ \ \textcolor{comment}{//\ Initialisation\ de\ la\ gestion\ des\ pages\ mémoire\ (utilise\ le}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00075}00075\ \ \ \ \textcolor{comment}{//\ bootloader)}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00076}00076\ \ \ \ \mbox{\hyperlink{manux_2debug_8h_ad4cabea5084373436d91b5dc4e8d0a49}{printk\_debug}}(\mbox{\hyperlink{manux_2debug_8h_a97cb921ecb429c2c4c3755b2ca69364b}{DBG\_KERNEL\_START}},\ \textcolor{stringliteral}{"{}Initialisation\ memoire\ ...\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00077}00077\ \ \ \ \mbox{\hyperlink{include_2manux_2memoire_8h_a4338550e2017b7c95021bdc27e4f3345}{initialiserMemoire}}(\mbox{\hyperlink{manux_2bootloader_8h_abf4319b3adb9dd5752045f58f65369e6}{infoSysteme}}.\mbox{\hyperlink{struct__InfoSysteme_a6047965dfba552f4957f7df33b777e8c}{memoireDeBase}},}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00078}00078\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{manux_2bootloader_8h_abf4319b3adb9dd5752045f58f65369e6}{infoSysteme}}.\mbox{\hyperlink{struct__InfoSysteme_aeed4b08b9edfc29ff917ed26d87c9cda}{memoireEtendue}});}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00079}00079\ }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00080}00080\ \ \ \ \textcolor{comment}{//\ Affichage\ de\ la\ mémoire\ disponible\ }}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00081}00081\ \ \ \ \mbox{\hyperlink{manux_2debug_8h_ad4cabea5084373436d91b5dc4e8d0a49}{printk\_debug}}(\mbox{\hyperlink{manux_2debug_8h_a97cb921ecb429c2c4c3755b2ca69364b}{DBG\_KERNEL\_START}},\ \textcolor{stringliteral}{"{}Memoire\ :\ \%d\ +\ \%d\ Ko\(\backslash\)n"{}},}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00082}00082\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{manux_2bootloader_8h_abf4319b3adb9dd5752045f58f65369e6}{infoSysteme}}.\mbox{\hyperlink{struct__InfoSysteme_a6047965dfba552f4957f7df33b777e8c}{memoireDeBase}},}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00083}00083\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{manux_2bootloader_8h_abf4319b3adb9dd5752045f58f65369e6}{infoSysteme}}.\mbox{\hyperlink{struct__InfoSysteme_aeed4b08b9edfc29ff917ed26d87c9cda}{memoireEtendue}});}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00084}00084\ }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00085}00085\ \ \ \ \textcolor{comment}{//\ Initialisation\ des\ descripteurs\ de\ segments}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00086}00086\ \ \ \ \mbox{\hyperlink{segment_8c_ae0e123e68e81d00dad08bd7a0215e9a8}{initialiserGDT}}();}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00087}00087\ }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00088}00088\ \ \ \ \textcolor{comment}{//\ Initialisation\ de\ la\ table\ des\ interruptions}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00089}00089\ \ \ \ \mbox{\hyperlink{interruptions_8c_a8bab70dd2ead4ff36a0c2de9b3d3aff8}{initialiserIDT}}();\ \ \ }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00090}00090\ }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00091}00091\ \ \ \ \textcolor{comment}{//\ Initialisation\ de\ la\ pagination}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00092}00092\ \ \ \ \mbox{\hyperlink{manux_2debug_8h_ad4cabea5084373436d91b5dc4e8d0a49}{printk\_debug}}(\mbox{\hyperlink{manux_2debug_8h_a97cb921ecb429c2c4c3755b2ca69364b}{DBG\_KERNEL\_START}},\ \textcolor{stringliteral}{"{}Initialisation\ pagination\ ...\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00093}00093\ \ \ \ \mbox{\hyperlink{pagination_8h_a6d1efa14988749e044655482a3330dce}{initialiserPagination}}(\mbox{\hyperlink{manux_2bootloader_8h_abf4319b3adb9dd5752045f58f65369e6}{infoSysteme}}.\mbox{\hyperlink{struct__InfoSysteme_aeed4b08b9edfc29ff917ed26d87c9cda}{memoireEtendue}});}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00094}00094\ \ \ \ \mbox{\hyperlink{manux_2debug_8h_ad4cabea5084373436d91b5dc4e8d0a49}{printk\_debug}}(\mbox{\hyperlink{manux_2debug_8h_a97cb921ecb429c2c4c3755b2ca69364b}{DBG\_KERNEL\_START}},\ \textcolor{stringliteral}{"{}Pagination\ initialisee\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00095}00095\ }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00096}00096\ \ \ \ \textcolor{comment}{//\ Initilisation\ du\ système\ kmalloc}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00097}00097\ \ \ \ \mbox{\hyperlink{manux_2debug_8h_ad4cabea5084373436d91b5dc4e8d0a49}{printk\_debug}}(\mbox{\hyperlink{manux_2debug_8h_a97cb921ecb429c2c4c3755b2ca69364b}{DBG\_KERNEL\_START}},\ \textcolor{stringliteral}{"{}Initialisation\ de\ kmalloc\ ...\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00098}00098\ \ \ \ \mbox{\hyperlink{kmalloc-zs_8h_a9834d71816871b865956b59d641f602f}{kmallocInitialisation}}();}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00099}00099\ }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00100}00100\ \ \ \ \textcolor{comment}{//\ Initialisation\ du\ système\ de\ debug}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00101}00101\ \ \ \ \mbox{\hyperlink{manux_2debug_8h_ad4cabea5084373436d91b5dc4e8d0a49}{printk\_debug}}(\mbox{\hyperlink{manux_2debug_8h_a97cb921ecb429c2c4c3755b2ca69364b}{DBG\_KERNEL\_START}},\ \textcolor{stringliteral}{"{}Initialisation\ du\ debug\ ...\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00102}00102\ \ \ \ \mbox{\hyperlink{manux_2debug_8h_afecb2fc4768dcaba6f0098c4a46bff0c}{debugInitialiser}}();}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00103}00103\ }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00104}00104\ \ \ \ \textcolor{comment}{//\ Initialisation\ du\ journal}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00105}00105\ \ \ \ \mbox{\hyperlink{manux_2debug_8h_ad4cabea5084373436d91b5dc4e8d0a49}{printk\_debug}}(\mbox{\hyperlink{manux_2debug_8h_a97cb921ecb429c2c4c3755b2ca69364b}{DBG\_KERNEL\_START}},\ \textcolor{stringliteral}{"{}Initialisation\ du\ journal\ ...\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00106}00106\ \ \ \ \mbox{\hyperlink{include_2manux_2journal_8h_ae0b1891a78b329589a71603f76447eb3}{journalInitialiser}}();}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00107}00107\ \ \ \ \mbox{\hyperlink{manux_2debug_8h_ad4cabea5084373436d91b5dc4e8d0a49}{printk\_debug}}(\mbox{\hyperlink{manux_2debug_8h_a97cb921ecb429c2c4c3755b2ca69364b}{DBG\_KERNEL\_START}},\ \textcolor{stringliteral}{"{}Journal\ initialise\ ...\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00108}00108\ }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00109}00109\ \ \ \ \textcolor{comment}{//\ Initialisation\ de\ la\ table\ des\ appels\ système}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00110}00110\ \ \ \ \mbox{\hyperlink{manux_2debug_8h_ad4cabea5084373436d91b5dc4e8d0a49}{printk\_debug}}(\mbox{\hyperlink{manux_2debug_8h_a97cb921ecb429c2c4c3755b2ca69364b}{DBG\_KERNEL\_START}},\ \textcolor{stringliteral}{"{}Initialisation\ appels\ systeme\ ...\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00111}00111\ \ \ \ \mbox{\hyperlink{include_2manux_2appelsysteme_8h_ae9c459f3384b085e316b0d43a308d69b}{initialiserAppelsSysteme}}();}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00112}00112\ \ \ \ \mbox{\hyperlink{manux_2debug_8h_ad4cabea5084373436d91b5dc4e8d0a49}{printk\_debug}}(\mbox{\hyperlink{manux_2debug_8h_a97cb921ecb429c2c4c3755b2ca69364b}{DBG\_KERNEL\_START}},\ \textcolor{stringliteral}{"{}Appels\ systeme\ initialises\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00113}00113\ \ \ \ }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00114}00114\ \ \ \ \textcolor{comment}{//\ Initialisation\ du\ bus\ PCI}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00115}00115\ \ \ \ \mbox{\hyperlink{manux_2debug_8h_ad4cabea5084373436d91b5dc4e8d0a49}{printk\_debug}}(\mbox{\hyperlink{manux_2debug_8h_a97cb921ecb429c2c4c3755b2ca69364b}{DBG\_KERNEL\_START}},\ \textcolor{stringliteral}{"{}Initialisation\ du\ bus\ PCI\ ...\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00116}00116\ \ \ \ \mbox{\hyperlink{manux_2pci_8h_a883b4a272bc719952fa1b66b9faeec2a}{PCIEnumerationDesEquipements}}();}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00117}00117\ \ \ \ \mbox{\hyperlink{manux_2debug_8h_ad4cabea5084373436d91b5dc4e8d0a49}{printk\_debug}}(\mbox{\hyperlink{manux_2debug_8h_a97cb921ecb429c2c4c3755b2ca69364b}{DBG\_KERNEL\_START}},\ \textcolor{stringliteral}{"{}Bus\ PCI\ initialise...\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00118}00118\ }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00119}00119\ \textcolor{preprocessor}{\#ifdef\ MANUX\_VIRTIO\_CONSOLE}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00120}00120\ \ \ \ \mbox{\hyperlink{manux_2debug_8h_ad4cabea5084373436d91b5dc4e8d0a49}{printk\_debug}}(\mbox{\hyperlink{manux_2debug_8h_a97cb921ecb429c2c4c3755b2ca69364b}{DBG\_KERNEL\_START}},\ \textcolor{stringliteral}{"{}Initialisation\ de\ virtio\ console\ ...\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00121}00121\ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{virtio-console_8h_ac49e16140b7d870db12706ab03aa282d}{virtioConsoleInitialisation}}(\&\mbox{\hyperlink{main_8c_a025b00386237bd94848dfda7561bc35a}{iNoeudVirtioConsole}})\ ==\ \mbox{\hyperlink{include_2manux_2errno_8h_a7c87371c2c584aeb5a722830670b9bfd}{ESUCCES}})\ \{}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00122}00122\ \ \ \ \ \ \ \mbox{\hyperlink{fichier_8h_ab4279a068c868f6efab9279aa021bc76}{fichierOuvrir}}(\&\mbox{\hyperlink{main_8c_a025b00386237bd94848dfda7561bc35a}{iNoeudVirtioConsole}},\ \&\mbox{\hyperlink{main_8c_ae51ed4923ff3dc7cd81a10324b2eaac4}{fichierVirtioConsole}},\ \mbox{\hyperlink{fichier_8h_a11b644a8526139c4cc1850dac1271ced}{O\_WRONLY}},\ 0);}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00123}00123\ \ \ \ \ \ \ \mbox{\hyperlink{include_2manux_2journal_8h_aed4c0b68122d57fe6486e4963f38054b}{journalAffecterFichier}}(\&\mbox{\hyperlink{main_8c_ae51ed4923ff3dc7cd81a10324b2eaac4}{fichierVirtioConsole}});}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00124}00124\ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00125}00125\ \ \ \ \mbox{\hyperlink{manux_2debug_8h_ad4cabea5084373436d91b5dc4e8d0a49}{printk\_debug}}(\mbox{\hyperlink{manux_2debug_8h_a97cb921ecb429c2c4c3755b2ca69364b}{DBG\_KERNEL\_START}},\ \textcolor{stringliteral}{"{}Virtio\ console\ initialise...\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00126}00126\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00127}00127\ }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00128}00128\ \textcolor{preprocessor}{\#ifdef\ MANUX\_RESEAU}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00129}00129\ \ \ \ \textcolor{comment}{//\ Initialisation\ du\ réseau}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00130}00130\ \ \ \ \mbox{\hyperlink{manux_2debug_8h_ad4cabea5084373436d91b5dc4e8d0a49}{printk\_debug}}(\mbox{\hyperlink{manux_2debug_8h_a97cb921ecb429c2c4c3755b2ca69364b}{DBG\_KERNEL\_START}},\ \textcolor{stringliteral}{"{}Initialisation\ du\ reseau\ ...\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00131}00131\ \textcolor{preprocessor}{\#\ \ \ ifdef\ MANUX\_VIRTIO\_NET}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00132}00132\ \ \ \ \mbox{\hyperlink{include_2manux_2virtio-net_8h_ae8ee56f5798a32fb0f3092501b7560ce}{virtioNetInit}}();}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00133}00133\ \textcolor{preprocessor}{\#\ \ \ endif}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00134}00134\ \ \ \ \mbox{\hyperlink{manux_2debug_8h_ad4cabea5084373436d91b5dc4e8d0a49}{printk\_debug}}(\mbox{\hyperlink{manux_2debug_8h_a97cb921ecb429c2c4c3755b2ca69364b}{DBG\_KERNEL\_START}},\ \textcolor{stringliteral}{"{}Reseau\ initialise\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00135}00135\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00136}00136\ }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00137}00137\ \textcolor{preprocessor}{\#ifdef\ MANUX\_FICHIER}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00138}00138\ \ \ \ \textcolor{comment}{//\ Initialisation\ de\ la\ gestion\ des\ systèmes\ de\ fichiers}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00139}00139\ \ \ \ \mbox{\hyperlink{manux_2debug_8h_ad4cabea5084373436d91b5dc4e8d0a49}{printk\_debug}}(\mbox{\hyperlink{manux_2debug_8h_a97cb921ecb429c2c4c3755b2ca69364b}{DBG\_KERNEL\_START}},\ \textcolor{stringliteral}{"{}Initialisation\ du\ systeme\ de\ fichiers\ ...\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00140}00140\ \ \ \ \mbox{\hyperlink{fichier_8h_a431c9fdbc351bde6f9c419267bd5adc5}{sfInitialiser}}();}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00141}00141\ \ \ \ \mbox{\hyperlink{manux_2debug_8h_ad4cabea5084373436d91b5dc4e8d0a49}{printk\_debug}}(\mbox{\hyperlink{manux_2debug_8h_a97cb921ecb429c2c4c3755b2ca69364b}{DBG\_KERNEL\_START}},\ \textcolor{stringliteral}{"{}Systeme\ de\ fichiers\ initialise\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00142}00142\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00143}00143\ }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00144}00144\ \textcolor{preprocessor}{\#ifdef\ MANUX\_CLAVIER}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00145}00145\ \ \ \ \textcolor{comment}{//\ Initialisation\ du\ clavier}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00146}00146\ \ \ \ \mbox{\hyperlink{manux_2debug_8h_ad4cabea5084373436d91b5dc4e8d0a49}{printk\_debug}}(\mbox{\hyperlink{manux_2debug_8h_a97cb921ecb429c2c4c3755b2ca69364b}{DBG\_KERNEL\_START}},\ \textcolor{stringliteral}{"{}Initialisation\ du\ clavier\ ...\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00147}00147\ \ \ \ \mbox{\hyperlink{manux_2clavier_8h_adeb7648f2d16a4967670148c998f83cc}{initialiserClavier}}();}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00148}00148\ \ \ \ \mbox{\hyperlink{manux_2debug_8h_ad4cabea5084373436d91b5dc4e8d0a49}{printk\_debug}}(\mbox{\hyperlink{manux_2debug_8h_a97cb921ecb429c2c4c3755b2ca69364b}{DBG\_KERNEL\_START}},\ \textcolor{stringliteral}{"{}Clavier\ initialise\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00149}00149\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00150}00150\ }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00151}00151\ \textcolor{preprocessor}{\#ifdef\ MANUX\_TACHES}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00152}00152\ \ \ \ \textcolor{comment}{//\ Initialisation\ de\ la\ gestion\ des\ processus}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00153}00153\ \ \ \ \mbox{\hyperlink{manux_2debug_8h_ad4cabea5084373436d91b5dc4e8d0a49}{printk\_debug}}(\mbox{\hyperlink{manux_2debug_8h_a97cb921ecb429c2c4c3755b2ca69364b}{DBG\_KERNEL\_START}},\ \textcolor{stringliteral}{"{}Initialisation\ du\ scheduler\ ...\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00154}00154\ \ \ \ \mbox{\hyperlink{scheduler_8h_a32c7cefad94adc3dd3953dc5c71b32ad}{initialiserScheduler}}();}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00155}00155\ \ \ \ \mbox{\hyperlink{manux_2debug_8h_ad4cabea5084373436d91b5dc4e8d0a49}{printk\_debug}}(\mbox{\hyperlink{manux_2debug_8h_a97cb921ecb429c2c4c3755b2ca69364b}{DBG\_KERNEL\_START}},\ \textcolor{stringliteral}{"{}Scheduler\ initialise\(\backslash\)n"{}});\ }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00156}00156\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00157}00157\ }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00158}00158\ \ \ \ \mbox{\hyperlink{manux_2debug_8h_ad4cabea5084373436d91b5dc4e8d0a49}{printk\_debug}}(\mbox{\hyperlink{manux_2debug_8h_a97cb921ecb429c2c4c3755b2ca69364b}{DBG\_KERNEL\_START}},\ \textcolor{stringliteral}{"{}Initialisation\ de\ l'horloge\ ...\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00159}00159\ \ \ \ \mbox{\hyperlink{horloge_8c_aec6b6ea786b76653d49b3eb7f6d320c0}{initialiserHorloge}}();}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00160}00160\ \ \ \ \mbox{\hyperlink{manux_2debug_8h_ad4cabea5084373436d91b5dc4e8d0a49}{printk\_debug}}(\mbox{\hyperlink{manux_2debug_8h_a97cb921ecb429c2c4c3755b2ca69364b}{DBG\_KERNEL\_START}},\ \textcolor{stringliteral}{"{}Horloge\ initialisee\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00161}00161\ }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00162}00162\ }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00163}00163\ \textcolor{preprocessor}{\#ifdef\ MANUX\_REGISTRE}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00164}00164\ \ \ \ \textcolor{comment}{//\ Initialisation\ du\ registre\ (utilise\ kmalloc)}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00165}00165\ \ \ \ \mbox{\hyperlink{manux_2debug_8h_ad4cabea5084373436d91b5dc4e8d0a49}{printk\_debug}}(\mbox{\hyperlink{manux_2debug_8h_a97cb921ecb429c2c4c3755b2ca69364b}{DBG\_KERNEL\_START}},\ \textcolor{stringliteral}{"{}Initialisation\ du\ registre\ ...\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00166}00166\ \ \ \ \mbox{\hyperlink{include_2manux_2registre_8h_a63129c6b1232b7c3a5b4e21103ef0d2c}{registreSystemeInitialiser}}();}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00167}00167\ \ \ \ \mbox{\hyperlink{manux_2debug_8h_ad4cabea5084373436d91b5dc4e8d0a49}{printk\_debug}}(\mbox{\hyperlink{manux_2debug_8h_a97cb921ecb429c2c4c3755b2ca69364b}{DBG\_KERNEL\_START}},\ \textcolor{stringliteral}{"{}Registre\ initialise...\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00168}00168\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00169}00169\ }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00170}00170\ \textcolor{preprocessor}{\#ifdef\ MANUX\_CONSOLES\_VIRTUELLES}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00171}00171\ \ \ \ \textcolor{comment}{//\ On\ va\ maintenant\ faire\ de\ la\ tâche\ en\ cours\ une\ tâche\ "{}banale"{}}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00172}00172\ \ \ \ tacheSetConsole(\mbox{\hyperlink{scheduler_8h_aafdf44b33a86f1bef6141d33a4abb94b}{tacheEnCours}},\ creerConsoleVirtuelle());}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00173}00173\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00174}00174\ }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00175}00175\ \ \ \ \mbox{\hyperlink{main_8c_a2858154e2009b0e6e616f313177762bc}{init}}();}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00176}00176\ \}\ \ \ \textcolor{comment}{/*\ startManuX\ */}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00177}00177\ }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00178}00178\ }
+
+\end{DoxyCode}

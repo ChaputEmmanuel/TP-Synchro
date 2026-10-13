@@ -1,0 +1,39 @@
+\doxysection{debug.\+c}
+\hypertarget{debug_8c_source}{}\label{debug_8c_source}\index{/home/manu/PROGRAMMATION/C/ManuX/noyau/debug.c@{/home/manu/PROGRAMMATION/C/ManuX/noyau/debug.c}}
+\mbox{\hyperlink{debug_8c}{Aller à la documentation de ce fichier.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{debug_8c_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{debug_8c_source_l00007}00007\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{manux_2debug_8h}{manux/debug.h}}>}}
+\DoxyCodeLine{\Hypertarget{debug_8c_source_l00008}00008\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{include_2manux_2printk_8h}{manux/printk.h}}>}\ \ \ \ \textcolor{comment}{//\ snprintk}}
+\DoxyCodeLine{\Hypertarget{debug_8c_source_l00009}00009\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{manux_2stdlib_8h}{manux/stdlib.h}}>}\ \ \ \ \textcolor{comment}{//\ atoihex}}
+\DoxyCodeLine{\Hypertarget{debug_8c_source_l00010}00010\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{include_2manux_2registre_8h}{manux/registre.h}}>}}
+\DoxyCodeLine{\Hypertarget{debug_8c_source_l00011}00011\ }
+\DoxyCodeLine{\Hypertarget{debug_8c_source_l00012}00012\ \textcolor{preprocessor}{\#ifdef\ MANUX\_DEBUGMASK\_VAR}}
+\DoxyCodeLine{\Hypertarget{debug_8c_source_l00013}00013\ \mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\_t}}\ \mbox{\hyperlink{manux_2debug_8h_a895b956a2419f199f255ee6542ed1f2d}{masqueDebugageConsole}}\ =\ \mbox{\hyperlink{manux_2debug_8h_a0aa3be7488358b17c7ecf87f67fc820d}{\_masqueDebugageConsole}};}
+\DoxyCodeLine{\Hypertarget{debug_8c_source_l00014}00014\ \mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\_t}}\ \mbox{\hyperlink{manux_2debug_8h_a4f75a22599327492938e80d95d6e7805}{masqueDebugageFichier}}\ =\ \mbox{\hyperlink{manux_2debug_8h_a5da5b3d524cfe49bc2f1799b70c2ef44}{\_masqueDebugageFichier}};}
+\DoxyCodeLine{\Hypertarget{debug_8c_source_l00015}00015\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{debug_8c_source_l00016}00016\ }
+\DoxyCodeLine{\Hypertarget{debug_8c_source_l00020}00020\ \textcolor{keyword}{static}}
+\DoxyCodeLine{\Hypertarget{debug_8c_source_l00021}00021\ \textcolor{keywordtype}{void}\ debugMiseAJourMasque(\textcolor{keywordtype}{void}\ *\ masque,\ \textcolor{keywordtype}{char}\ *\ valeur)}
+\DoxyCodeLine{\Hypertarget{debug_8c_source_l00022}00022\ \{}
+\DoxyCodeLine{\Hypertarget{debug_8c_source_l00023}00023\ \ \ \ \mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\_t}}\ *\ \_masque\ =\ (\mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\_t}}\ *)masque;}
+\DoxyCodeLine{\Hypertarget{debug_8c_source_l00024}00024\ }
+\DoxyCodeLine{\Hypertarget{debug_8c_source_l00025}00025\ \ \ \ *\_masque\ =\ \mbox{\hyperlink{manux_2stdlib_8h_af7d33f72f92288b6d3d5978e255b2fa9}{atoihex}}(valeur);}
+\DoxyCodeLine{\Hypertarget{debug_8c_source_l00026}00026\ \}}
+\DoxyCodeLine{\Hypertarget{debug_8c_source_l00027}00027\ }
+\DoxyCodeLine{\Hypertarget{debug_8c_source_l00037}\mbox{\hyperlink{manux_2debug_8h_afecb2fc4768dcaba6f0098c4a46bff0c}{00037}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{debug_8c_afecb2fc4768dcaba6f0098c4a46bff0c}{debugInitialiser}}(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\Hypertarget{debug_8c_source_l00038}00038\ \{}
+\DoxyCodeLine{\Hypertarget{debug_8c_source_l00039}00039\ \textcolor{preprocessor}{\#if\ defined(MANUX\_DEBUGMASK\_VAR)\ \&\&\ defined(MANUX\_REGISTRE)}}
+\DoxyCodeLine{\Hypertarget{debug_8c_source_l00040}00040\ \ \ \ \textcolor{keywordtype}{char}\ v[32];}
+\DoxyCodeLine{\Hypertarget{debug_8c_source_l00041}00041\ }
+\DoxyCodeLine{\Hypertarget{debug_8c_source_l00042}00042\ \ \ \ \mbox{\hyperlink{include_2manux_2printk_8h_aa5a2042f078fa0c6e569acc563f2dac5}{snprintk}}(v,\ 32,\ \textcolor{stringliteral}{"{}0x\%x"{}},\ \mbox{\hyperlink{manux_2debug_8h_a0aa3be7488358b17c7ecf87f67fc820d}{\_masqueDebugageConsole}});}
+\DoxyCodeLine{\Hypertarget{debug_8c_source_l00043}00043\ \ \ \ \mbox{\hyperlink{include_2manux_2registre_8h_af63f1d827d195edd2d25338101785bf2}{registreSystemeAffecterParametre}}(v,\ \&\mbox{\hyperlink{manux_2debug_8h_a895b956a2419f199f255ee6542ed1f2d}{masqueDebugageConsole}},\ debugMiseAJourMasque,}
+\DoxyCodeLine{\Hypertarget{debug_8c_source_l00044}00044\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}debug"{}},\ \textcolor{stringliteral}{"{}masque"{}},\ \textcolor{stringliteral}{"{}console"{}},\ \mbox{\hyperlink{include_2manux_2stddef_8h_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}});}
+\DoxyCodeLine{\Hypertarget{debug_8c_source_l00045}00045\ \ \ \ \mbox{\hyperlink{include_2manux_2printk_8h_aa5a2042f078fa0c6e569acc563f2dac5}{snprintk}}(v,\ 32,\ \textcolor{stringliteral}{"{}0x\%x"{}},\ \mbox{\hyperlink{manux_2debug_8h_a0aa3be7488358b17c7ecf87f67fc820d}{\_masqueDebugageConsole}});}
+\DoxyCodeLine{\Hypertarget{debug_8c_source_l00046}00046\ \ \ \ \mbox{\hyperlink{include_2manux_2registre_8h_af63f1d827d195edd2d25338101785bf2}{registreSystemeAffecterParametre}}(v,\ \&\mbox{\hyperlink{manux_2debug_8h_a4f75a22599327492938e80d95d6e7805}{masqueDebugageFichier}},\ debugMiseAJourMasque,}
+\DoxyCodeLine{\Hypertarget{debug_8c_source_l00047}00047\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}debug"{}},\ \textcolor{stringliteral}{"{}masque"{}},\ \textcolor{stringliteral}{"{}fichier"{}},\ \mbox{\hyperlink{include_2manux_2stddef_8h_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}});}
+\DoxyCodeLine{\Hypertarget{debug_8c_source_l00048}00048\ }
+\DoxyCodeLine{\Hypertarget{debug_8c_source_l00049}00049\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{debug_8c_source_l00050}00050\ \}}
+
+\end{DoxyCode}

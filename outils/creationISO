@@ -20,7 +20,7 @@ do
 NOM=`basename $NOYAU`
 cat << EOF >> "$ISO_REP_BASE"/boot/grub/grub.cfg
   menuentry "$NOM" {
-  multiboot /boot/$NOM
+  multiboot /boot/$NOM debug.masque.fichier=0x003,debug.masque.console=0x003,a.b.c.d=1,x.y.z=2,x.y.w=3,a.b.c.e=0x4832,x.y.t=12
 }
 EOF
 cp $NOYAU "$ISO_REP_BASE"/boot/$NOM

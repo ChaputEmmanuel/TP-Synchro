@@ -1,0 +1,45 @@
+\doxysection{pc-\/i386.h}
+\hypertarget{pc-i386_8h_source}{}\label{pc-i386_8h_source}\index{/home/manu/PROGRAMMATION/C/ManuX/include/config/pc-\/i386.h@{/home/manu/PROGRAMMATION/C/ManuX/include/config/pc-\/i386.h}}
+\mbox{\hyperlink{pc-i386_8h}{Aller à la documentation de ce fichier.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{pc-i386_8h_source_l00001}00001\ \textcolor{comment}{/*============================================================================*/}}
+\DoxyCodeLine{\Hypertarget{pc-i386_8h_source_l00002}00002\ \textcolor{comment}{/*\ \ \ Définitions\ liées\ au\ processeur.\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{pc-i386_8h_source_l00003}00003\ \textcolor{comment}{/*============================================================================*/}}
+\DoxyCodeLine{\Hypertarget{pc-i386_8h_source_l00007}\mbox{\hyperlink{pc-i386_8h_a78c57c8d7f0d70efb205edcc560b60e8}{00007}}\ \textcolor{preprocessor}{\#define\ MANUX\_LIBI386}}
+\DoxyCodeLine{\Hypertarget{pc-i386_8h_source_l00008}00008\ }
+\DoxyCodeLine{\Hypertarget{pc-i386_8h_source_l00009}00009\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{plan-memoire-pc_8h}{config/plan-\/memoire-\/pc.h}}>}}
+\DoxyCodeLine{\Hypertarget{pc-i386_8h_source_l00010}00010\ }
+\DoxyCodeLine{\Hypertarget{pc-i386_8h_source_l00011}00011\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{pc-i386_8h_source_l00012}00012\ \textcolor{comment}{/*\ \ \ Configuration\ des\ interruptions\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}\ }
+\DoxyCodeLine{\Hypertarget{pc-i386_8h_source_l00013}00013\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{pc-i386_8h_source_l00017}00017\ \textcolor{preprocessor}{\#ifndef\ MANUX\_NB\_EXCEPTIONS}}
+\DoxyCodeLine{\Hypertarget{pc-i386_8h_source_l00018}\mbox{\hyperlink{pc-i386_8h_add17ebfce684a3313a36a88096f7cdcb}{00018}}\ \textcolor{preprocessor}{\#\ \ \ define\ MANUX\_NB\_EXCEPTIONS\ 32}}
+\DoxyCodeLine{\Hypertarget{pc-i386_8h_source_l00019}00019\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{pc-i386_8h_source_l00020}00020\ }
+\DoxyCodeLine{\Hypertarget{pc-i386_8h_source_l00024}00024\ \textcolor{preprocessor}{\#ifndef\ MANUX\_NB\_INTERRUPTIONS}}
+\DoxyCodeLine{\Hypertarget{pc-i386_8h_source_l00025}\mbox{\hyperlink{pc-i386_8h_ab5548f00ea513aad00307cef92ac24ac}{00025}}\ \textcolor{preprocessor}{\#\ \ \ define\ MANUX\_NB\_INTERRUPTIONS\ 256}}
+\DoxyCodeLine{\Hypertarget{pc-i386_8h_source_l00026}00026\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{pc-i386_8h_source_l00027}00027\ }
+\DoxyCodeLine{\Hypertarget{pc-i386_8h_source_l00032}00032\ \textcolor{preprocessor}{\#ifndef\ MANUX\_INT\_BASE\_IRQ}}
+\DoxyCodeLine{\Hypertarget{pc-i386_8h_source_l00033}\mbox{\hyperlink{pc-i386_8h_aa16fe4051fc8254307ded29de196bbfc}{00033}}\ \textcolor{preprocessor}{\#\ \ \ define\ MANUX\_INT\_BASE\_IRQ\ MANUX\_NB\_EXCEPTIONS}}
+\DoxyCodeLine{\Hypertarget{pc-i386_8h_source_l00034}00034\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{pc-i386_8h_source_l00035}00035\ }
+\DoxyCodeLine{\Hypertarget{pc-i386_8h_source_l00039}00039\ \textcolor{preprocessor}{\#ifndef\ MANUX\_PIC}}
+\DoxyCodeLine{\Hypertarget{pc-i386_8h_source_l00040}\mbox{\hyperlink{pc-i386_8h_a73ac6a93091f7d7252f0325f14c4c76b}{00040}}\ \textcolor{preprocessor}{\#\ \ \ define\ MANUX\_PIC\ INTEL\_8259A}}
+\DoxyCodeLine{\Hypertarget{pc-i386_8h_source_l00041}00041\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{pc-i386_8h_source_l00042}00042\ }
+\DoxyCodeLine{\Hypertarget{pc-i386_8h_source_l00043}00043\ \textcolor{preprocessor}{\#if\ (MANUX\_PIC\ ==\ INTEL\_8259A)}}
+\DoxyCodeLine{\Hypertarget{pc-i386_8h_source_l00044}00044\ \textcolor{preprocessor}{\#\ \ \ include\ "{}\mbox{\hyperlink{config_2intel-8259a_8h}{config/intel-\/8259a.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{pc-i386_8h_source_l00045}00045\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{\Hypertarget{pc-i386_8h_source_l00046}00046\ \textcolor{preprocessor}{\#\ \ \ error\ "{}Pas\ de\ PIC\ !?"{}}}
+\DoxyCodeLine{\Hypertarget{pc-i386_8h_source_l00047}00047\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{pc-i386_8h_source_l00048}00048\ }
+\DoxyCodeLine{\Hypertarget{pc-i386_8h_source_l00052}\mbox{\hyperlink{pc-i386_8h_ae27c84c77be5e82d588fd53b45770ec0}{00052}}\ \textcolor{preprocessor}{\#define\ MANUX\_INT\_AUDIT}}
+\DoxyCodeLine{\Hypertarget{pc-i386_8h_source_l00053}00053\ }
+\DoxyCodeLine{\Hypertarget{pc-i386_8h_source_l00054}00054\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{pc-i386_8h_source_l00055}00055\ \textcolor{comment}{\ *\ Les\ IRQ\ des\ matériels\ pris\ en\ charge}}
+\DoxyCodeLine{\Hypertarget{pc-i386_8h_source_l00056}00056\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{pc-i386_8h_source_l00057}\mbox{\hyperlink{pc-i386_8h_adf6423221c28748360f9b34b021d1434}{00057}}\ \textcolor{preprocessor}{\#define\ IRQ\_HORLOGE\ \ \ 0}}
+\DoxyCodeLine{\Hypertarget{pc-i386_8h_source_l00058}\mbox{\hyperlink{pc-i386_8h_a5969b45e9b889e18d3673d8f72a1af1f}{00058}}\ \textcolor{preprocessor}{\#define\ IRQ\_CLAVIER\ \ \ 1}}
+
+\end{DoxyCode}

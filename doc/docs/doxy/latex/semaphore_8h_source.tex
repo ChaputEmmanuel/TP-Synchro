@@ -1,0 +1,43 @@
+\doxysection{semaphore.\+h}
+\hypertarget{semaphore_8h_source}{}\label{semaphore_8h_source}\index{/home/manu/PROGRAMMATION/C/ManuX/include/manux/semaphore.h@{/home/manu/PROGRAMMATION/C/ManuX/include/manux/semaphore.h}}
+\mbox{\hyperlink{semaphore_8h}{Aller à la documentation de ce fichier.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{semaphore_8h_source_l00001}00001\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{semaphore_8h_source_l00002}00002\ \textcolor{comment}{/*\ \ \ \ \ \ Définition\ des\ sémaphores\ et\ opértions\ associées.\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{semaphore_8h_source_l00003}00003\ \textcolor{comment}{/*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{semaphore_8h_source_l00004}00004\ \textcolor{comment}{/*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (C)\ Manu\ Chaput\ 2000\ */}}
+\DoxyCodeLine{\Hypertarget{semaphore_8h_source_l00005}00005\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{semaphore_8h_source_l00006}00006\ \textcolor{preprocessor}{\#ifndef\ SEMAPHORE\_DEF}}
+\DoxyCodeLine{\Hypertarget{semaphore_8h_source_l00007}00007\ \textcolor{preprocessor}{\#define\ SEMAPHORE\_DEF}}
+\DoxyCodeLine{\Hypertarget{semaphore_8h_source_l00008}00008\ }
+\DoxyCodeLine{\Hypertarget{semaphore_8h_source_l00009}00009\ \textcolor{preprocessor}{\#include\ <manux/types.h>}}
+\DoxyCodeLine{\Hypertarget{semaphore_8h_source_l00010}00010\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{atomique_8h}{manux/atomique.h}}>}}
+\DoxyCodeLine{\Hypertarget{semaphore_8h_source_l00011}00011\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{listetaches_8h}{manux/listetaches.h}}>}}
+\DoxyCodeLine{\Hypertarget{semaphore_8h_source_l00012}00012\ }
+\DoxyCodeLine{\Hypertarget{semaphore_8h_source_l00013}00013\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{semaphore_8h_source_l00014}00014\ \textcolor{comment}{\ *\ Le\ type\ de\ base}}
+\DoxyCodeLine{\Hypertarget{semaphore_8h_source_l00015}00015\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{semaphore_8h_source_l00016}\mbox{\hyperlink{struct__Semaphore}{00016}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__Semaphore}{\_Semaphore}}\ \{}
+\DoxyCodeLine{\Hypertarget{semaphore_8h_source_l00017}\mbox{\hyperlink{struct__Semaphore_ae5ec4d3646fc546fc4f0a0db667ce37c}{00017}}\ \ \ \textcolor{keywordtype}{int}\ \ \ \ \ \ \ \ \mbox{\hyperlink{struct__Semaphore_ae5ec4d3646fc546fc4f0a0db667ce37c}{valeur}};}
+\DoxyCodeLine{\Hypertarget{semaphore_8h_source_l00018}\mbox{\hyperlink{struct__Semaphore_a9bc845d701de949c7399b68f1d6c88a9}{00018}}\ \ \ \mbox{\hyperlink{atomique_8h_a34aa37778d3701c511b28edcb866cedb}{Atomique}}\ \ \ \mbox{\hyperlink{struct__Semaphore_a9bc845d701de949c7399b68f1d6c88a9}{verrou}};}
+\DoxyCodeLine{\Hypertarget{semaphore_8h_source_l00019}\mbox{\hyperlink{struct__Semaphore_a92955aa1996878eb7da0a45dccebc489}{00019}}\ \ \ \mbox{\hyperlink{struct__ListeTache}{ListeTache}}\ \mbox{\hyperlink{struct__Semaphore_a92955aa1996878eb7da0a45dccebc489}{tachesEnAttente}};}
+\DoxyCodeLine{\Hypertarget{semaphore_8h_source_l00020}\mbox{\hyperlink{semaphore_8h_a8b32b6e6a178bbcab6ee276fb6ed6e02}{00020}}\ \}\ \mbox{\hyperlink{semaphore_8h_a8b32b6e6a178bbcab6ee276fb6ed6e02}{Semaphore}};}
+\DoxyCodeLine{\Hypertarget{semaphore_8h_source_l00021}00021\ }
+\DoxyCodeLine{\Hypertarget{semaphore_8h_source_l00022}00022\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{semaphore_8h_a31f1f455ae7ea7bba94a0fd5a78baf16}{semInit}}(\mbox{\hyperlink{struct__Semaphore}{Semaphore}}\ *\ sem,\ \textcolor{keywordtype}{int}\ val);}
+\DoxyCodeLine{\Hypertarget{semaphore_8h_source_l00023}00023\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{semaphore_8h_source_l00024}00024\ \textcolor{comment}{\ *\ Définition\ de\ la\ valeur\ initiale\ d'un\ sémaphore}}
+\DoxyCodeLine{\Hypertarget{semaphore_8h_source_l00025}00025\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{semaphore_8h_source_l00026}00026\ }
+\DoxyCodeLine{\Hypertarget{semaphore_8h_source_l00027}00027\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{semaphore_8h_a8adec18a504ce671493dec9ce2f0c890}{semObtenir}}(\mbox{\hyperlink{struct__Semaphore}{Semaphore}}\ *\ sem);}
+\DoxyCodeLine{\Hypertarget{semaphore_8h_source_l00028}00028\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{semaphore_8h_source_l00029}00029\ \textcolor{comment}{\ *\ Obtention\ d'une\ ressource.\ Cette\ opération\ est\ bloquante.}}
+\DoxyCodeLine{\Hypertarget{semaphore_8h_source_l00030}00030\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{semaphore_8h_source_l00031}00031\ }
+\DoxyCodeLine{\Hypertarget{semaphore_8h_source_l00032}00032\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{semaphore_8h_ac5799c5dd36c1f89079f0f07432830c4}{semRelacher}}(\mbox{\hyperlink{struct__Semaphore}{Semaphore}}\ *\ sem);}
+\DoxyCodeLine{\Hypertarget{semaphore_8h_source_l00033}00033\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{semaphore_8h_source_l00034}00034\ \textcolor{comment}{\ *\ Remise\ au\ système\ d'une\ ressource\ préalablement\ obtenue.}}
+\DoxyCodeLine{\Hypertarget{semaphore_8h_source_l00035}00035\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{semaphore_8h_source_l00036}00036\ }
+\DoxyCodeLine{\Hypertarget{semaphore_8h_source_l00037}00037\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

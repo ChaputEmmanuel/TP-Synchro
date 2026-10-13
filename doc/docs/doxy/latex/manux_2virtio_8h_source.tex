@@ -1,0 +1,112 @@
+\doxysection{virtio.\+h}
+\hypertarget{manux_2virtio_8h_source}{}\label{manux_2virtio_8h_source}\index{/home/manu/PROGRAMMATION/C/ManuX/include/manux/virtio.h@{/home/manu/PROGRAMMATION/C/ManuX/include/manux/virtio.h}}
+\mbox{\hyperlink{manux_2virtio_8h}{Aller à la documentation de ce fichier.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{manux_2virtio_8h_source_l00001}\mbox{\hyperlink{manux_2virtio_8h_ac163b2e97d1947206a39de24bb61f6cd}{00001}}\ }
+\DoxyCodeLine{\Hypertarget{manux_2virtio_8h_source_l00018}00018\ \textcolor{preprocessor}{\#ifndef\ VIRTIO\_DEF}}
+\DoxyCodeLine{\Hypertarget{manux_2virtio_8h_source_l00019}00019\ \textcolor{preprocessor}{\#define\ VIRTIO\_DEF}}
+\DoxyCodeLine{\Hypertarget{manux_2virtio_8h_source_l00020}00020\ }
+\DoxyCodeLine{\Hypertarget{manux_2virtio_8h_source_l00021}00021\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{manux_2pci_8h}{manux/pci.h}}>}\ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ virtio\ est\ un\ système\ PCI}}
+\DoxyCodeLine{\Hypertarget{manux_2virtio_8h_source_l00022}00022\ \textcolor{preprocessor}{\#include\ <manux/types.h>}}
+\DoxyCodeLine{\Hypertarget{manux_2virtio_8h_source_l00023}00023\ }
+\DoxyCodeLine{\Hypertarget{manux_2virtio_8h_source_l00031}00031\ \textcolor{preprocessor}{\#ifndef\ MANUX\_VIRTIO\_NB\_MAX\_FILES}}
+\DoxyCodeLine{\Hypertarget{manux_2virtio_8h_source_l00032}\mbox{\hyperlink{manux_2virtio_8h_a8115952f83de7ee4a2e78a68b9768ae4}{00032}}\ \textcolor{preprocessor}{\#\ \ \ define\ MANUX\_VIRTIO\_NB\_MAX\_FILES\ 3}}
+\DoxyCodeLine{\Hypertarget{manux_2virtio_8h_source_l00033}00033\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{manux_2virtio_8h_source_l00034}00034\ }
+\DoxyCodeLine{\Hypertarget{manux_2virtio_8h_source_l00038}\mbox{\hyperlink{manux_2virtio_8h_abd1fd54d3752cd6b4048adf26185a9e2}{00038}}\ \textcolor{preprocessor}{\#define\ PCI\_VENDEUR\_VIRTIO\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x1AF4}}
+\DoxyCodeLine{\Hypertarget{manux_2virtio_8h_source_l00039}\mbox{\hyperlink{manux_2virtio_8h_a1f5bb63742f93f3e024d029e969c9ebc}{00039}}\ \textcolor{preprocessor}{\#define\ PCI\_PERIPHERIQUE\_VIRTIO\_NET\ \ \ \ \ \ 0x1000}}
+\DoxyCodeLine{\Hypertarget{manux_2virtio_8h_source_l00040}\mbox{\hyperlink{manux_2virtio_8h_a2d5c8760e871b37dd666c6ffc7f73beb}{00040}}\ \textcolor{preprocessor}{\#define\ PCI\_PERIPHERIQUE\_VIRTIO\_CONSOLE\ \ 0x1003}}
+\DoxyCodeLine{\Hypertarget{manux_2virtio_8h_source_l00041}00041\ }
+\DoxyCodeLine{\Hypertarget{manux_2virtio_8h_source_l00045}\mbox{\hyperlink{manux_2virtio_8h_a0bf8bb3f47d683ef24e98be8cc181507}{00045}}\ \textcolor{preprocessor}{\#define\ VIRTIO\_RESET\ \ \ \ \ \ \ 0x00}}
+\DoxyCodeLine{\Hypertarget{manux_2virtio_8h_source_l00046}\mbox{\hyperlink{manux_2virtio_8h_a0ad6c59930e1ce2700aa25d22f5830c0}{00046}}\ \textcolor{preprocessor}{\#define\ VIRTIO\_ACKNOWLEDGE\ 0x01}}
+\DoxyCodeLine{\Hypertarget{manux_2virtio_8h_source_l00047}\mbox{\hyperlink{manux_2virtio_8h_a4fb4cdeef8eaa5100abc25654b7c0bf9}{00047}}\ \textcolor{preprocessor}{\#define\ VIRTIO\_DRIVER\ \ \ \ \ \ 0x02}}
+\DoxyCodeLine{\Hypertarget{manux_2virtio_8h_source_l00048}\mbox{\hyperlink{manux_2virtio_8h_a76bf5da5c683247105cff72421a401aa}{00048}}\ \textcolor{preprocessor}{\#define\ VIRTIO\_DRIVER\_OK\ \ \ 0x04}}
+\DoxyCodeLine{\Hypertarget{manux_2virtio_8h_source_l00049}\mbox{\hyperlink{manux_2virtio_8h_adf8974dcda7f78e14c7d2095fe673670}{00049}}\ \textcolor{preprocessor}{\#define\ VIRTIO\_FEATURES\_OK\ 0x08}}
+\DoxyCodeLine{\Hypertarget{manux_2virtio_8h_source_l00050}00050\ }
+\DoxyCodeLine{\Hypertarget{manux_2virtio_8h_source_l00054}\mbox{\hyperlink{manux_2virtio_8h_af2be61c8bf06c0ccb2981edc68b550c8}{00054}}\ \textcolor{preprocessor}{\#define\ VIRTIO\_F\_RING\_INDIRECT\_DESC\ \ \ \ \ \ \ \ \ 0x10000000\ \ \ }\textcolor{comment}{//\ 28\ }}
+\DoxyCodeLine{\Hypertarget{manux_2virtio_8h_source_l00055}\mbox{\hyperlink{manux_2virtio_8h_ab38199ceadff677543608d047faef801}{00055}}\ \textcolor{preprocessor}{\#define\ VIRTIO\_F\_RING\_EVENT\_IDX\ \ \ \ \ \ \ \ \ \ \ \ \ 0x20000000\ \ \ }\textcolor{comment}{//\ 29}}
+\DoxyCodeLine{\Hypertarget{manux_2virtio_8h_source_l00056}00056\ }
+\DoxyCodeLine{\Hypertarget{manux_2virtio_8h_source_l00062}\mbox{\hyperlink{manux_2virtio_8h_a18a8ea706e6bf42f254942310ce22018}{00062}}\ \textcolor{preprocessor}{\#define\ VIRTIO\_HIST\_CAPA\_EQUIP\ \ \ \ \ 0x00\ \ }\textcolor{comment}{//\ Les\ capacités\ de\ l'équipement}}
+\DoxyCodeLine{\Hypertarget{manux_2virtio_8h_source_l00063}\mbox{\hyperlink{manux_2virtio_8h_a02a76460dc0eda80bd6458313c57349c}{00063}}\ \textcolor{preprocessor}{\#define\ VIRTIO\_HIST\_CAPA\_PILOTE\ \ \ \ 0x04\ \ }\textcolor{comment}{//\ Les\ capacités\ du\ pilote}}
+\DoxyCodeLine{\Hypertarget{manux_2virtio_8h_source_l00064}\mbox{\hyperlink{manux_2virtio_8h_ab95cde33094c871d2a43a107932583da}{00064}}\ \textcolor{preprocessor}{\#define\ VIRTIO\_HIST\_ADDRESS\_FILE\ \ \ 0x08\ \ }\textcolor{comment}{//\ Numéro\ de\ page\ de\ la\ file}}
+\DoxyCodeLine{\Hypertarget{manux_2virtio_8h_source_l00065}00065\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ sélectionnée}}
+\DoxyCodeLine{\Hypertarget{manux_2virtio_8h_source_l00066}\mbox{\hyperlink{manux_2virtio_8h_a4650a29bab89174d53d283b2f655abba}{00066}}\ \textcolor{preprocessor}{\#define\ VIRTIO\_HIST\_TAILLE\_FILE\ \ \ \ 0x0C\ \ }\textcolor{comment}{//\ Taille\ de\ la\ file}}
+\DoxyCodeLine{\Hypertarget{manux_2virtio_8h_source_l00067}\mbox{\hyperlink{manux_2virtio_8h_a4892b6f194bc60cffd9fd6122d10f9ba}{00067}}\ \textcolor{preprocessor}{\#define\ VIRTIO\_HIST\_FILE\_SEL\ \ \ \ \ \ \ 0x0E\ \ }\textcolor{comment}{//\ Sélection\ de\ la\ file\ }}
+\DoxyCodeLine{\Hypertarget{manux_2virtio_8h_source_l00068}\mbox{\hyperlink{manux_2virtio_8h_a0dd520c4c9ecbac4e54726cec15ac922}{00068}}\ \textcolor{preprocessor}{\#define\ VIRTIO\_HIST\_FILE\_NOTIF\ \ \ \ \ 0x10\ \ }\textcolor{comment}{//\ Notification\ de\ la\ file}}
+\DoxyCodeLine{\Hypertarget{manux_2virtio_8h_source_l00069}\mbox{\hyperlink{manux_2virtio_8h_a64a73d12ded9bb64f4d3b759a36394fc}{00069}}\ \textcolor{preprocessor}{\#define\ VIRTIO\_HIST\_ETAT\ \ \ \ \ \ \ \ \ \ \ 0x12\ \ }\textcolor{comment}{//\ Etat\ du\ périph\ et\ du\ pilote}}
+\DoxyCodeLine{\Hypertarget{manux_2virtio_8h_source_l00070}\mbox{\hyperlink{manux_2virtio_8h_adc3d7827e53dc913f0706947a110b300}{00070}}\ \textcolor{preprocessor}{\#define\ VIRTIO\_HIST\_ISR\ \ \ \ \ \ \ \ \ \ \ \ 0x13}}
+\DoxyCodeLine{\Hypertarget{manux_2virtio_8h_source_l00071}00071\ }
+\DoxyCodeLine{\Hypertarget{manux_2virtio_8h_source_l00075}\mbox{\hyperlink{manux_2virtio_8h_ac98030127cfdd5b7e53a4756a38d3e28}{00075}}\ \textcolor{preprocessor}{\#define\ VRING\_DESC\_F\_NEXT\ \ 1}}
+\DoxyCodeLine{\Hypertarget{manux_2virtio_8h_source_l00076}\mbox{\hyperlink{manux_2virtio_8h_a74fe2dbfe07fd3d386e87e7e7a921691}{00076}}\ \textcolor{preprocessor}{\#define\ VRING\_DESC\_F\_WRITE\ 2}}
+\DoxyCodeLine{\Hypertarget{manux_2virtio_8h_source_l00077}00077\ }
+\DoxyCodeLine{\Hypertarget{manux_2virtio_8h_source_l00083}00083\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{manux_2virtio_8h_ac163b2e97d1947206a39de24bb61f6cd}{\_\_attribute\_\_}}((\_\_packed\_\_))\ \_VirtioDescripteurBuffer\ \{}
+\DoxyCodeLine{\Hypertarget{manux_2virtio_8h_source_l00084}00084\ \ \ \ \mbox{\hyperlink{include_2manux_2types_8h_aaa5d1cd013383c889537491c3cfd9aad}{uint64\_t}}\ adresse;}
+\DoxyCodeLine{\Hypertarget{manux_2virtio_8h_source_l00085}00085\ \ \ \ \mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\_t}}\ longueur;}
+\DoxyCodeLine{\Hypertarget{manux_2virtio_8h_source_l00086}00086\ \ \ \ \mbox{\hyperlink{include_2manux_2types_8h_a273cf69d639a59973b6019625df33e30}{uint16\_t}}\ flags;}
+\DoxyCodeLine{\Hypertarget{manux_2virtio_8h_source_l00087}00087\ \ \ \ \mbox{\hyperlink{include_2manux_2types_8h_a273cf69d639a59973b6019625df33e30}{uint16\_t}}\ suivant;}
+\DoxyCodeLine{\Hypertarget{manux_2virtio_8h_source_l00088}\mbox{\hyperlink{manux_2virtio_8h_a127ee3bd259d3fe2f28ae79dc92d5c8e}{00088}}\ \}\ \mbox{\hyperlink{manux_2virtio_8h_a127ee3bd259d3fe2f28ae79dc92d5c8e}{VirtioDescripteurBuffer}};}
+\DoxyCodeLine{\Hypertarget{manux_2virtio_8h_source_l00089}00089\ }
+\DoxyCodeLine{\Hypertarget{manux_2virtio_8h_source_l00093}00093\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{manux_2virtio_8h_ac163b2e97d1947206a39de24bb61f6cd}{\_\_attribute\_\_}}((\_\_packed\_\_))\ \_VirtioBufferDisponible\ \{}
+\DoxyCodeLine{\Hypertarget{manux_2virtio_8h_source_l00094}00094\ \ \ \ \mbox{\hyperlink{include_2manux_2types_8h_a273cf69d639a59973b6019625df33e30}{uint16\_t}}\ flags;}
+\DoxyCodeLine{\Hypertarget{manux_2virtio_8h_source_l00095}00095\ \ \ \ \mbox{\hyperlink{include_2manux_2types_8h_a273cf69d639a59973b6019625df33e30}{uint16\_t}}\ indice;}
+\DoxyCodeLine{\Hypertarget{manux_2virtio_8h_source_l00096}00096\ \ \ \ \mbox{\hyperlink{include_2manux_2types_8h_a273cf69d639a59973b6019625df33e30}{uint16\_t}}\ indicesDesBuffer[];}
+\DoxyCodeLine{\Hypertarget{manux_2virtio_8h_source_l00097}00097\ \ \ \ \textcolor{comment}{//uint16\_t\ evenementUtilise;\ //\ On\ ne\ peut\ pas\ le\ déclarer\ !}}
+\DoxyCodeLine{\Hypertarget{manux_2virtio_8h_source_l00098}\mbox{\hyperlink{manux_2virtio_8h_ac5fff7fd3b85f66c9af5b1513d8dd48a}{00098}}\ \}\ \mbox{\hyperlink{manux_2virtio_8h_ac5fff7fd3b85f66c9af5b1513d8dd48a}{VirtioBufferDisponible}};}
+\DoxyCodeLine{\Hypertarget{manux_2virtio_8h_source_l00099}00099\ }
+\DoxyCodeLine{\Hypertarget{manux_2virtio_8h_source_l00103}00103\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{manux_2virtio_8h_ac163b2e97d1947206a39de24bb61f6cd}{\_\_attribute\_\_}}((\_\_packed\_\_))\ \_VirtioElementUtilise\ \{}
+\DoxyCodeLine{\Hypertarget{manux_2virtio_8h_source_l00104}00104\ \ \ \ \mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\_t}}\ indiceBuffer;\ \textcolor{comment}{//\ Dans\ la\ table\ des\ descripteurs}}
+\DoxyCodeLine{\Hypertarget{manux_2virtio_8h_source_l00105}00105\ \ \ \ \mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\_t}}\ longueur;\ \ \ \ \ \textcolor{comment}{//\ Le\ nombre\ d'octets\ utilisés}}
+\DoxyCodeLine{\Hypertarget{manux_2virtio_8h_source_l00106}\mbox{\hyperlink{manux_2virtio_8h_a28361e3cba02dc1562f91a82929e4dbc}{00106}}\ \}\ \mbox{\hyperlink{manux_2virtio_8h_a28361e3cba02dc1562f91a82929e4dbc}{VirtioElementUtilise}};}
+\DoxyCodeLine{\Hypertarget{manux_2virtio_8h_source_l00107}00107\ }
+\DoxyCodeLine{\Hypertarget{manux_2virtio_8h_source_l00111}00111\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{manux_2virtio_8h_ac163b2e97d1947206a39de24bb61f6cd}{\_\_attribute\_\_}}((\_\_packed\_\_))\ \_VirtioBufferUtilise\ \{}
+\DoxyCodeLine{\Hypertarget{manux_2virtio_8h_source_l00112}00112\ \ \ \ \mbox{\hyperlink{include_2manux_2types_8h_a273cf69d639a59973b6019625df33e30}{uint16\_t}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ flags;}
+\DoxyCodeLine{\Hypertarget{manux_2virtio_8h_source_l00113}00113\ \ \ \ \mbox{\hyperlink{include_2manux_2types_8h_a273cf69d639a59973b6019625df33e30}{uint16\_t}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ indice;}
+\DoxyCodeLine{\Hypertarget{manux_2virtio_8h_source_l00114}00114\ \ \ \ \mbox{\hyperlink{manux_2virtio_8h_a28361e3cba02dc1562f91a82929e4dbc}{VirtioElementUtilise}}\ \ elementsUtilises[];}
+\DoxyCodeLine{\Hypertarget{manux_2virtio_8h_source_l00115}00115\ \ \ \ \textcolor{comment}{//uint16\_t\ \ \ \ \ \ \ \ \ \ \ \ evenementDisponible;\ //\ On\ ne\ peut\ pas\ le\ déclarer}}
+\DoxyCodeLine{\Hypertarget{manux_2virtio_8h_source_l00116}\mbox{\hyperlink{manux_2virtio_8h_a7dd7aeaced1fdc2450b3ba514603b4d0}{00116}}\ \}\ \mbox{\hyperlink{manux_2virtio_8h_a7dd7aeaced1fdc2450b3ba514603b4d0}{VirtioBufferUtilise}};}
+\DoxyCodeLine{\Hypertarget{manux_2virtio_8h_source_l00117}00117\ }
+\DoxyCodeLine{\Hypertarget{manux_2virtio_8h_source_l00123}00123\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{manux_2virtio_8h_ac163b2e97d1947206a39de24bb61f6cd}{\_\_attribute\_\_}}((\_\_packed\_\_))\ \_VirtioFileVirtuelle\ \{}
+\DoxyCodeLine{\Hypertarget{manux_2virtio_8h_source_l00124}00124\ \ \ \ \mbox{\hyperlink{include_2manux_2types_8h_a273cf69d639a59973b6019625df33e30}{uint16\_t}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ taille;}
+\DoxyCodeLine{\Hypertarget{manux_2virtio_8h_source_l00125}00125\ \ \ \ \mbox{\hyperlink{include_2manux_2types_8h_a273cf69d639a59973b6019625df33e30}{uint16\_t}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ prochainDescripteur;\ \textcolor{comment}{//\ Le\ prochain\ à\ utiliser}}
+\DoxyCodeLine{\Hypertarget{manux_2virtio_8h_source_l00126}00126\ \ \ \ \mbox{\hyperlink{include_2manux_2types_8h_a273cf69d639a59973b6019625df33e30}{uint16\_t}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ nbDescripteursLibres;\textcolor{comment}{//\ A-\/t-\/on\ encore\ des\ desc\ ?}}
+\DoxyCodeLine{\Hypertarget{manux_2virtio_8h_source_l00127}00127\ \ \ \ \mbox{\hyperlink{manux_2virtio_8h_a127ee3bd259d3fe2f28ae79dc92d5c8e}{VirtioDescripteurBuffer}}\ *\ tableDescripteurs;\ \ \ \textcolor{comment}{//\ La\ table\ des}}
+\DoxyCodeLine{\Hypertarget{manux_2virtio_8h_source_l00128}00128\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ descripteurs\ de}}
+\DoxyCodeLine{\Hypertarget{manux_2virtio_8h_source_l00129}00129\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ buffer}}
+\DoxyCodeLine{\Hypertarget{manux_2virtio_8h_source_l00130}00130\ \ \ \ \mbox{\hyperlink{manux_2virtio_8h_ac5fff7fd3b85f66c9af5b1513d8dd48a}{VirtioBufferDisponible}}\ \ *\ buffersDisponibles\ ;}
+\DoxyCodeLine{\Hypertarget{manux_2virtio_8h_source_l00131}00131\ \ \ \ \mbox{\hyperlink{manux_2virtio_8h_a7dd7aeaced1fdc2450b3ba514603b4d0}{VirtioBufferUtilise}}\ \ \ \ \ *\ buffersUtilises;}
+\DoxyCodeLine{\Hypertarget{manux_2virtio_8h_source_l00132}00132\ \ \ \ \mbox{\hyperlink{include_2manux_2types_8h_a273cf69d639a59973b6019625df33e30}{uint16\_t}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ dernierIndiceUtilise;\ \textcolor{comment}{//\ WARNING\ le\ nom\ n'est\ pas\ bon\ je\ pense}}
+\DoxyCodeLine{\Hypertarget{manux_2virtio_8h_source_l00133}\mbox{\hyperlink{manux_2virtio_8h_a3f078bcc0894ca39b56f2af3bce4be7f}{00133}}\ \}\ \mbox{\hyperlink{manux_2virtio_8h_a3f078bcc0894ca39b56f2af3bce4be7f}{VirtioFileVirtuelle}};}
+\DoxyCodeLine{\Hypertarget{manux_2virtio_8h_source_l00134}00134\ }
+\DoxyCodeLine{\Hypertarget{manux_2virtio_8h_source_l00138}00138\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{manux_2virtio_8h_ac163b2e97d1947206a39de24bb61f6cd}{\_\_attribute\_\_}}((\_\_packed\_\_))\ \_VirtioPeripherique\ \{}
+\DoxyCodeLine{\Hypertarget{manux_2virtio_8h_source_l00139}00139\ \ \ \ \mbox{\hyperlink{struct__PCIEquipement}{PCIEquipement}}\ \ \ \ \ \ \ *\ pciEquipement;\ \ \textcolor{comment}{//\ Pointeur\ sur\ les\ caractéristiques\ PCI}}
+\DoxyCodeLine{\Hypertarget{manux_2virtio_8h_source_l00140}00140\ \ \ \ \mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\_t}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ caracteristiques;}
+\DoxyCodeLine{\Hypertarget{manux_2virtio_8h_source_l00141}00141\ \ \ \ \mbox{\hyperlink{manux_2virtio_8h_a3f078bcc0894ca39b56f2af3bce4be7f}{VirtioFileVirtuelle}}\ \ \ filesVirtuelles[\mbox{\hyperlink{manux_2virtio_8h_a8115952f83de7ee4a2e78a68b9768ae4}{MANUX\_VIRTIO\_NB\_MAX\_FILES}}];\ \ \ \ }
+\DoxyCodeLine{\Hypertarget{manux_2virtio_8h_source_l00142}\mbox{\hyperlink{manux_2virtio_8h_ae5ce3884f555c701f9f8099645f09fe5}{00142}}\ \}\ \mbox{\hyperlink{manux_2virtio_8h_ae5ce3884f555c701f9f8099645f09fe5}{VirtioPeripherique}};}
+\DoxyCodeLine{\Hypertarget{manux_2virtio_8h_source_l00143}00143\ }
+\DoxyCodeLine{\Hypertarget{manux_2virtio_8h_source_l00153}00153\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{manux_2virtio_8h_a4c591d0f2cd08e9d586138bbf25ef2d3}{virtioInitPeripheriquePCI}}(\mbox{\hyperlink{manux_2virtio_8h_ae5ce3884f555c701f9f8099645f09fe5}{VirtioPeripherique}}\ *\ vp,}
+\DoxyCodeLine{\Hypertarget{manux_2virtio_8h_source_l00154}00154\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ PCINum,}
+\DoxyCodeLine{\Hypertarget{manux_2virtio_8h_source_l00155}00155\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\_t}}\ masque);}
+\DoxyCodeLine{\Hypertarget{manux_2virtio_8h_source_l00156}00156\ }
+\DoxyCodeLine{\Hypertarget{manux_2virtio_8h_source_l00169}00169\ \textcolor{keywordtype}{int}\ \ \mbox{\hyperlink{manux_2virtio_8h_a23087510e5490671c78fb8e7a99bb208}{virtioFournirBuffer}}(\mbox{\hyperlink{manux_2virtio_8h_ae5ce3884f555c701f9f8099645f09fe5}{VirtioPeripherique}}\ *\ vp,}
+\DoxyCodeLine{\Hypertarget{manux_2virtio_8h_source_l00170}00170\ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{include_2manux_2types_8h_a273cf69d639a59973b6019625df33e30}{uint16\_t}}\ \textcolor{keywordtype}{id},}
+\DoxyCodeLine{\Hypertarget{manux_2virtio_8h_source_l00171}00171\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ *\ bu,\ \textcolor{keywordtype}{int}\ lg,}
+\DoxyCodeLine{\Hypertarget{manux_2virtio_8h_source_l00172}00172\ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{include_2manux_2types_8h_a273cf69d639a59973b6019625df33e30}{uint16\_t}}\ fl);}
+\DoxyCodeLine{\Hypertarget{manux_2virtio_8h_source_l00173}00173\ }
+\DoxyCodeLine{\Hypertarget{manux_2virtio_8h_source_l00174}00174\ }
+\DoxyCodeLine{\Hypertarget{manux_2virtio_8h_source_l00191}00191\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{manux_2virtio_8h_aa3eee079eb5936797e7aea41dddf9f8f}{virtioFournirBuffers}}(\mbox{\hyperlink{manux_2virtio_8h_ae5ce3884f555c701f9f8099645f09fe5}{VirtioPeripherique}}\ *\ vp,}
+\DoxyCodeLine{\Hypertarget{manux_2virtio_8h_source_l00192}00192\ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{include_2manux_2types_8h_a273cf69d639a59973b6019625df33e30}{uint16\_t}}\ \textcolor{keywordtype}{id},}
+\DoxyCodeLine{\Hypertarget{manux_2virtio_8h_source_l00193}00193\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ *\ bu[],\ \textcolor{keywordtype}{int}\ lg[],\ \textcolor{keywordtype}{int}\ nb,}
+\DoxyCodeLine{\Hypertarget{manux_2virtio_8h_source_l00194}00194\ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{include_2manux_2types_8h_a273cf69d639a59973b6019625df33e30}{uint16\_t}}\ fl);}
+\DoxyCodeLine{\Hypertarget{manux_2virtio_8h_source_l00195}00195\ }
+\DoxyCodeLine{\Hypertarget{manux_2virtio_8h_source_l00197}00197\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{manux_2virtio_8h_aad0abebf096dcffb576a391ef8d1ec09}{virtioFileRecupererBuffers}}(\mbox{\hyperlink{manux_2virtio_8h_a3f078bcc0894ca39b56f2af3bce4be7f}{VirtioFileVirtuelle}}\ *\ fv,\ \textcolor{keywordtype}{void}\ *\ bu[],\ \textcolor{keywordtype}{int}\ lg[],\ \textcolor{keywordtype}{int}\ nb);}
+\DoxyCodeLine{\Hypertarget{manux_2virtio_8h_source_l00198}00198\ }
+\DoxyCodeLine{\Hypertarget{manux_2virtio_8h_source_l00199}00199\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{manux_2virtio_8h_a519d7149faa9d7fce1d52e67b6e7f342}{virtioFileInterdireInterruption}}(\mbox{\hyperlink{manux_2virtio_8h_a3f078bcc0894ca39b56f2af3bce4be7f}{VirtioFileVirtuelle}}\ *\ fv);}
+\DoxyCodeLine{\Hypertarget{manux_2virtio_8h_source_l00200}00200\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{manux_2virtio_8h_a463360d60781bf28d8d47ea1a8e7e496}{virtioFileAutoriserInterruption}}(\mbox{\hyperlink{manux_2virtio_8h_a3f078bcc0894ca39b56f2af3bce4be7f}{VirtioFileVirtuelle}}\ *\ fv);}
+\DoxyCodeLine{\Hypertarget{manux_2virtio_8h_source_l00201}00201\ }
+\DoxyCodeLine{\Hypertarget{manux_2virtio_8h_source_l00202}00202\ \textcolor{preprocessor}{\#ifdef\ MANUX\_VIRTIO\_AUDIT}}
+\DoxyCodeLine{\Hypertarget{manux_2virtio_8h_source_l00206}00206\ \textcolor{keywordtype}{void}\ virtioAfficherFile(\mbox{\hyperlink{manux_2virtio_8h_a3f078bcc0894ca39b56f2af3bce4be7f}{VirtioFileVirtuelle}}\ *\ fv);}
+\DoxyCodeLine{\Hypertarget{manux_2virtio_8h_source_l00207}00207\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ MANUX\_VIRTIO\_AUDIT}}
+\DoxyCodeLine{\Hypertarget{manux_2virtio_8h_source_l00208}00208\ }
+\DoxyCodeLine{\Hypertarget{manux_2virtio_8h_source_l00209}00209\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

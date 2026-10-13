@@ -1,0 +1,72 @@
+\doxysection{fichier.\+h}
+\hypertarget{fichier_8h_source}{}\label{fichier_8h_source}\index{/home/manu/PROGRAMMATION/C/ManuX/include/manux/fichier.h@{/home/manu/PROGRAMMATION/C/ManuX/include/manux/fichier.h}}
+\mbox{\hyperlink{fichier_8h}{Aller à la documentation de ce fichier.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{fichier_8h_source_l00001}00001\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{fichier_8h_source_l00002}00002\ \textcolor{comment}{/*\ \ \ \ \ \ Définition\ des\ fichiers\ de\ Manux.\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{fichier_8h_source_l00003}00003\ \textcolor{comment}{/*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{fichier_8h_source_l00004}00004\ \textcolor{comment}{/*\ Pour\ le\ moment\ très\ simplifié\ :\ on\ ne\ se\ soucis\ pas\ d'ouvrir\ ou\ de\ fermer\ \ */}}
+\DoxyCodeLine{\Hypertarget{fichier_8h_source_l00005}00005\ \textcolor{comment}{/*\ par\ exemple\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{fichier_8h_source_l00006}00006\ \textcolor{comment}{/*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (C)\ Manu\ Chaput\ 2002-\/2023\ */}}
+\DoxyCodeLine{\Hypertarget{fichier_8h_source_l00007}00007\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{fichier_8h_source_l00008}00008\ \textcolor{preprocessor}{\#ifndef\ FICHIER\_DEF}}
+\DoxyCodeLine{\Hypertarget{fichier_8h_source_l00009}00009\ \textcolor{preprocessor}{\#define\ FICHIER\_DEF}}
+\DoxyCodeLine{\Hypertarget{fichier_8h_source_l00010}00010\ }
+\DoxyCodeLine{\Hypertarget{fichier_8h_source_l00011}00011\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{inoeud_8h}{manux/inoeud.h}}>}}
+\DoxyCodeLine{\Hypertarget{fichier_8h_source_l00012}00012\ \textcolor{preprocessor}{\#include\ <manux/appelsysteme.h>}\ \textcolor{comment}{//\ ParametreAS}}
+\DoxyCodeLine{\Hypertarget{fichier_8h_source_l00013}00013\ }
+\DoxyCodeLine{\Hypertarget{fichier_8h_source_l00014}\mbox{\hyperlink{fichier_8h_af21b1af90951b2649333714c85dfe197}{00014}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__Fichier}{\_Fichier}}\ \mbox{\hyperlink{struct__Fichier}{Fichier}};}
+\DoxyCodeLine{\Hypertarget{fichier_8h_source_l00015}00015\ }
+\DoxyCodeLine{\Hypertarget{fichier_8h_source_l00019}\mbox{\hyperlink{fichier_8h_aa4953048861776a86cd387c0d96db449}{00019}}\ \textcolor{preprocessor}{\#define\ FMODE\_READ\ \ \ 0x0001}}
+\DoxyCodeLine{\Hypertarget{fichier_8h_source_l00020}\mbox{\hyperlink{fichier_8h_ae003a38311b8eb87254113b1c57a38f0}{00020}}\ \textcolor{preprocessor}{\#define\ FMODE\_WRITE\ \ 0x0002}}
+\DoxyCodeLine{\Hypertarget{fichier_8h_source_l00021}00021\ }
+\DoxyCodeLine{\Hypertarget{fichier_8h_source_l00027}\mbox{\hyperlink{fichier_8h_a7a68c9ffaac7dbcd652225dd7c06a54b}{00027}}\ \textcolor{preprocessor}{\#define\ O\_RDONLY\ \ \ \ \ 0x0001}}
+\DoxyCodeLine{\Hypertarget{fichier_8h_source_l00028}\mbox{\hyperlink{fichier_8h_a11b644a8526139c4cc1850dac1271ced}{00028}}\ \textcolor{preprocessor}{\#define\ O\_WRONLY\ \ \ \ \ 0x0002}}
+\DoxyCodeLine{\Hypertarget{fichier_8h_source_l00029}\mbox{\hyperlink{fichier_8h_abb0586253488ee61072b73557eeb873b}{00029}}\ \textcolor{preprocessor}{\#define\ O\_RDWR\ \ \ \ \ \ \ (O\_RDONLY|O\_WRONLY)}}
+\DoxyCodeLine{\Hypertarget{fichier_8h_source_l00030}\mbox{\hyperlink{fichier_8h_a39d33ce33804efd4d52606d59071c6d8}{00030}}\ \textcolor{preprocessor}{\#define\ O\_NONBLOCK\ \ \ 0x0004}}
+\DoxyCodeLine{\Hypertarget{fichier_8h_source_l00031}\mbox{\hyperlink{fichier_8h_aae85139bfa94236d126bb1e3b772998f}{00031}}\ \textcolor{preprocessor}{\#define\ O\_SYNC\ \ \ \ \ \ \ 0x0008}}
+\DoxyCodeLine{\Hypertarget{fichier_8h_source_l00032}00032\ }
+\DoxyCodeLine{\Hypertarget{fichier_8h_source_l00036}\mbox{\hyperlink{struct__MethodesFichier}{00036}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__MethodesFichier}{\_MethodesFichier}}\ \{}
+\DoxyCodeLine{\Hypertarget{fichier_8h_source_l00037}\mbox{\hyperlink{struct__MethodesFichier_a3e23aaea9f7edd7b7cac7b95cb574d19}{00037}}\ \ \ \ int\ (*\mbox{\hyperlink{struct__MethodesFichier_a3e23aaea9f7edd7b7cac7b95cb574d19}{ouvrir}})\ (\mbox{\hyperlink{struct__INoeud}{INoeud}}\ *\ iNoeud,\ \mbox{\hyperlink{struct__Fichier}{Fichier}}\ *\ f,\ \mbox{\hyperlink{include_2manux_2types_8h_a273cf69d639a59973b6019625df33e30}{uint16\_t}}\ fanions,\ \mbox{\hyperlink{include_2manux_2types_8h_a273cf69d639a59973b6019625df33e30}{uint16\_t}}\ mode);}
+\DoxyCodeLine{\Hypertarget{fichier_8h_source_l00038}\mbox{\hyperlink{struct__MethodesFichier_a06f81e89f851134e20527a4846781442}{00038}}\ \ \ \ int\ (*\mbox{\hyperlink{struct__MethodesFichier_a06f81e89f851134e20527a4846781442}{fermer}})\ (\mbox{\hyperlink{struct__Fichier}{Fichier}}\ *\ f);}
+\DoxyCodeLine{\Hypertarget{fichier_8h_source_l00039}\mbox{\hyperlink{struct__MethodesFichier_a9c0e50e5e0612aab9df6a94f36947942}{00039}}\ \ \ \ \mbox{\hyperlink{include_2manux_2stddef_8h_acf18a0d6c4b39d531e021702e9a77984}{size\_t}}\ (*\mbox{\hyperlink{struct__MethodesFichier_a9c0e50e5e0612aab9df6a94f36947942}{ecrire}})\ (\mbox{\hyperlink{struct__Fichier}{Fichier}}\ *\ f,\ \textcolor{keywordtype}{void}\ *\ buffer,\ \textcolor{keywordtype}{size\_t}\ nbOctets);}
+\DoxyCodeLine{\Hypertarget{fichier_8h_source_l00040}\mbox{\hyperlink{struct__MethodesFichier_a5b1b2c44bada2f0ade23befa3b48834f}{00040}}\ \ \ \ \mbox{\hyperlink{include_2manux_2stddef_8h_acf18a0d6c4b39d531e021702e9a77984}{size\_t}}\ (*\mbox{\hyperlink{struct__MethodesFichier_a5b1b2c44bada2f0ade23befa3b48834f}{lire}})\ (\mbox{\hyperlink{struct__Fichier}{Fichier}}\ *\ f,\ \textcolor{keywordtype}{void}\ *\ buffer,\ \textcolor{keywordtype}{size\_t}\ nbOctets);}
+\DoxyCodeLine{\Hypertarget{fichier_8h_source_l00041}\mbox{\hyperlink{fichier_8h_aa50864b665282e0139a9fbea6eab26d4}{00041}}\ \}\ \mbox{\hyperlink{fichier_8h_aa50864b665282e0139a9fbea6eab26d4}{MethodesFichier}};}
+\DoxyCodeLine{\Hypertarget{fichier_8h_source_l00042}00042\ }
+\DoxyCodeLine{\Hypertarget{fichier_8h_source_l00046}\mbox{\hyperlink{struct__Fichier}{00046}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__Fichier}{\_Fichier}}\ \{}
+\DoxyCodeLine{\Hypertarget{fichier_8h_source_l00047}\mbox{\hyperlink{struct__Fichier_a39fb043fce9256f50b0db131cd10d814}{00047}}\ \ \ \ \textcolor{keywordtype}{void}\ \ \ \ \ \ \ \ \ \ \ \ *\ \mbox{\hyperlink{struct__Fichier_a39fb043fce9256f50b0db131cd10d814}{prive}};\ \ \ }
+\DoxyCodeLine{\Hypertarget{fichier_8h_source_l00048}\mbox{\hyperlink{struct__Fichier_a2701084fbf362681f2d2480b1b323de7}{00048}}\ \ \ \ \mbox{\hyperlink{struct__INoeud}{INoeud}}\ \ \ \ \ \ \ \ \ \ *\ \mbox{\hyperlink{struct__Fichier_a2701084fbf362681f2d2480b1b323de7}{iNoeud}};\ \ }
+\DoxyCodeLine{\Hypertarget{fichier_8h_source_l00049}\mbox{\hyperlink{struct__Fichier_ac64af7e18d98ddd6dfa617ea39eff2d2}{00049}}\ \ \ \ \mbox{\hyperlink{include_2manux_2types_8h_a273cf69d639a59973b6019625df33e30}{uint16\_t}}\ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct__Fichier_ac64af7e18d98ddd6dfa617ea39eff2d2}{mode}};\ \ \ \ }
+\DoxyCodeLine{\Hypertarget{fichier_8h_source_l00050}\mbox{\hyperlink{struct__Fichier_a56519e60d0981ec5edef4b0fb0c38010}{00050}}\ \ \ \ \mbox{\hyperlink{include_2manux_2types_8h_a273cf69d639a59973b6019625df33e30}{uint16\_t}}\ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct__Fichier_a56519e60d0981ec5edef4b0fb0c38010}{fanions}};\ }
+\DoxyCodeLine{\Hypertarget{fichier_8h_source_l00051}00051\ \ \ \textcolor{comment}{//\ \ \ MethodesFichier\ *\ methodes;}}
+\DoxyCodeLine{\Hypertarget{fichier_8h_source_l00052}00052\ \}\ \mbox{\hyperlink{fichier_8h_af21b1af90951b2649333714c85dfe197}{Fichier}};}
+\DoxyCodeLine{\Hypertarget{fichier_8h_source_l00053}00053\ }
+\DoxyCodeLine{\Hypertarget{fichier_8h_source_l00054}00054\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{fichier_8h_abc65f3c0efeb699107be0fb3dede5098}{fichierEcrire}}(\mbox{\hyperlink{struct__Fichier}{Fichier}}\ *\ f,\ \textcolor{keywordtype}{void}\ *\ buffer,\ \textcolor{keywordtype}{int}\ nbOctets);}
+\DoxyCodeLine{\Hypertarget{fichier_8h_source_l00055}00055\ }
+\DoxyCodeLine{\Hypertarget{fichier_8h_source_l00056}00056\ \textcolor{preprocessor}{\#ifdef\ MANUX\_APPELS\_SYSTEME}}
+\DoxyCodeLine{\Hypertarget{fichier_8h_source_l00057}00057\ }
+\DoxyCodeLine{\Hypertarget{fichier_8h_source_l00061}00061\ \textcolor{keywordtype}{int}\ sys\_fermer(\mbox{\hyperlink{struct__ParametreAS}{ParametreAS}}\ as,\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{init-acces-concurrent_8c_a62d2d983a3da1fde907ff0f255bf4956}{fd}});}
+\DoxyCodeLine{\Hypertarget{fichier_8h_source_l00062}00062\ }
+\DoxyCodeLine{\Hypertarget{fichier_8h_source_l00063}00063\ \textcolor{keywordtype}{int}\ sys\_ecrire(\mbox{\hyperlink{struct__ParametreAS}{ParametreAS}}\ as,\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{init-acces-concurrent_8c_a62d2d983a3da1fde907ff0f255bf4956}{fd}},\ \textcolor{keywordtype}{void}\ *\ buffer,\ \textcolor{keywordtype}{int}\ nbOctets);}
+\DoxyCodeLine{\Hypertarget{fichier_8h_source_l00068}00068\ \textcolor{keywordtype}{int}\ sys\_lire(\mbox{\hyperlink{struct__ParametreAS}{ParametreAS}}\ as,\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{init-acces-concurrent_8c_a62d2d983a3da1fde907ff0f255bf4956}{fd}},\ \textcolor{keywordtype}{void}\ *\ buffer,\ \textcolor{keywordtype}{int}\ nbOctets);}
+\DoxyCodeLine{\Hypertarget{fichier_8h_source_l00072}00072\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{fichier_8h_source_l00073}00073\ }
+\DoxyCodeLine{\Hypertarget{fichier_8h_source_l00074}00074\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{fichier_8h_a431c9fdbc351bde6f9c419267bd5adc5}{sfInitialiser}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{fichier_8h_source_l00075}00075\ \textcolor{comment}{/*\ }}
+\DoxyCodeLine{\Hypertarget{fichier_8h_source_l00076}00076\ \textcolor{comment}{\ *\ Initialisation\ de\ tout\ ce\ qui\ est\ lié\ au\ SF}}
+\DoxyCodeLine{\Hypertarget{fichier_8h_source_l00077}00077\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{fichier_8h_source_l00078}00078\ }
+\DoxyCodeLine{\Hypertarget{fichier_8h_source_l00086}00086\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{fichier_8h_ab4279a068c868f6efab9279aa021bc76}{fichierOuvrir}}(\mbox{\hyperlink{struct__INoeud}{INoeud}}\ *\ iNoeud,\ \mbox{\hyperlink{struct__Fichier}{Fichier}}\ *\ f,\ \mbox{\hyperlink{include_2manux_2types_8h_a273cf69d639a59973b6019625df33e30}{uint16\_t}}\ fanions,\ \mbox{\hyperlink{include_2manux_2types_8h_a273cf69d639a59973b6019625df33e30}{uint16\_t}}\ mode);}
+\DoxyCodeLine{\Hypertarget{fichier_8h_source_l00087}00087\ }
+\DoxyCodeLine{\Hypertarget{fichier_8h_source_l00088}00088\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{fichier_8h_a00fc4fac4da6a7b5c9206308bc159c9d}{fichierFermer}}(\mbox{\hyperlink{struct__Fichier}{Fichier}}\ *\ f);}
+\DoxyCodeLine{\Hypertarget{fichier_8h_source_l00089}00089\ }
+\DoxyCodeLine{\Hypertarget{fichier_8h_source_l00090}00090\ \textcolor{preprocessor}{\#ifdef\ MANUX\_KMALLOC}}
+\DoxyCodeLine{\Hypertarget{fichier_8h_source_l00097}00097\ \mbox{\hyperlink{struct__Fichier}{Fichier}}\ *\ fichierDupliquer(\mbox{\hyperlink{struct__Fichier}{Fichier}}\ *\ f);}
+\DoxyCodeLine{\Hypertarget{fichier_8h_source_l00098}00098\ }
+\DoxyCodeLine{\Hypertarget{fichier_8h_source_l00102}00102\ \mbox{\hyperlink{struct__Fichier}{Fichier}}\ *\ fichierCreer(\mbox{\hyperlink{struct__INoeud}{INoeud}}\ *\ iNoeud,\ \mbox{\hyperlink{include_2manux_2types_8h_a273cf69d639a59973b6019625df33e30}{uint16\_t}}\ fanions,\ \mbox{\hyperlink{include_2manux_2types_8h_a273cf69d639a59973b6019625df33e30}{uint16\_t}}\ mode);}
+\DoxyCodeLine{\Hypertarget{fichier_8h_source_l00103}00103\ }
+\DoxyCodeLine{\Hypertarget{fichier_8h_source_l00104}00104\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ MANUX\_KMALLOC}}
+\DoxyCodeLine{\Hypertarget{fichier_8h_source_l00105}00105\ }
+\DoxyCodeLine{\Hypertarget{fichier_8h_source_l00106}00106\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

@@ -1,0 +1,88 @@
+\doxysection{Référence du fichier /home/manu/\+PROGRAMMATION/\+C/\+Manu\+X/reseau/reseau.c}
+\hypertarget{reseau_8c}{}\label{reseau_8c}\index{/home/manu/PROGRAMMATION/C/ManuX/reseau/reseau.c@{/home/manu/PROGRAMMATION/C/ManuX/reseau/reseau.c}}
+
+
+Implantation des éléments principaux du sous système réseau.  
+
+
+{\ttfamily \#include $<$manux/reseau.\+h$>$}\newline
+{\ttfamily \#include $<$manux/buffer-\/reseau.\+h$>$}\newline
+{\ttfamily \#include $<$manux/debug.\+h$>$}\newline
+Graphe des dépendances par inclusion de reseau.\+c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{reseau_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} \mbox{\hyperlink{reseau_8c_acca8d0ddd01a9fcae4b6694a42a6f51f}{reseau\+Initialiser}} (\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}})
+\begin{DoxyCompactList}\small\item\em Initialisation du sous-\/système réseau. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} \mbox{\hyperlink{reseau_8c_a73d56fca253dc3bae0d42792ec85f002}{reseau\+Afficher\+Liste\+Reception}} ()
+\begin{DoxyCompactList}\small\item\em Affichage de la liste de buffers de réception. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{buffer-reseau_8h_ab99f07b5236134ff40767dd01cea2973}{Liste\+Buffer\+Reseau}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{reseau_8c_af36c1bc68d00611a83c96ef02d155bdf}{liste\+Buffers\+Recus}} = \mbox{\hyperlink{include_2manux_2stddef_8h_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}}
+\begin{DoxyCompactList}\small\item\em La liste des buffers qui ont été reçus mais non encore traités. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Implantation des éléments principaux du sous système réseau. 
+
+\begin{DoxyVerb}                                                             (C) Manu Chaput 2025
+\end{DoxyVerb}
+ 
+
+Définition dans le fichier \mbox{\hyperlink{reseau_8c_source}{reseau.\+c}}.
+
+
+
+\doxysubsection{Documentation des fonctions}
+\Hypertarget{reseau_8c_a73d56fca253dc3bae0d42792ec85f002}\label{reseau_8c_a73d56fca253dc3bae0d42792ec85f002} 
+\index{reseau.c@{reseau.c}!reseauAfficherListeReception@{reseauAfficherListeReception}}
+\index{reseauAfficherListeReception@{reseauAfficherListeReception}!reseau.c@{reseau.c}}
+\doxysubsubsection{\texorpdfstring{reseauAfficherListeReception()}{reseauAfficherListeReception()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} reseau\+Afficher\+Liste\+Reception (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}}}]{ }\end{DoxyParamCaption})}
+
+
+
+Affichage de la liste de buffers de réception. 
+
+
+
+Définition à la ligne \mbox{\hyperlink{reseau_8c_source_l00054}{54}} du fichier \mbox{\hyperlink{reseau_8c_source}{reseau.\+c}}.
+
+\Hypertarget{reseau_8c_acca8d0ddd01a9fcae4b6694a42a6f51f}\label{reseau_8c_acca8d0ddd01a9fcae4b6694a42a6f51f} 
+\index{reseau.c@{reseau.c}!reseauInitialiser@{reseauInitialiser}}
+\index{reseauInitialiser@{reseauInitialiser}!reseau.c@{reseau.c}}
+\doxysubsubsection{\texorpdfstring{reseauInitialiser()}{reseauInitialiser()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} reseau\+Initialiser (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}}}]{ }\end{DoxyParamCaption})}
+
+
+
+Initialisation du sous-\/système réseau. 
+
+Initialisation du sous système réseau. 
+
+Définition à la ligne \mbox{\hyperlink{reseau_8c_source_l00037}{37}} du fichier \mbox{\hyperlink{reseau_8c_source}{reseau.\+c}}.
+
+
+
+\doxysubsection{Documentation des variables}
+\Hypertarget{reseau_8c_af36c1bc68d00611a83c96ef02d155bdf}\label{reseau_8c_af36c1bc68d00611a83c96ef02d155bdf} 
+\index{reseau.c@{reseau.c}!listeBuffersRecus@{listeBuffersRecus}}
+\index{listeBuffersRecus@{listeBuffersRecus}!reseau.c@{reseau.c}}
+\doxysubsubsection{\texorpdfstring{listeBuffersRecus}{listeBuffersRecus}}
+{\footnotesize\ttfamily \mbox{\hyperlink{buffer-reseau_8h_ab99f07b5236134ff40767dd01cea2973}{Liste\+Buffer\+Reseau}}\texorpdfstring{$\ast$}{*} liste\+Buffers\+Recus = \mbox{\hyperlink{include_2manux_2stddef_8h_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}}}
+
+
+
+La liste des buffers qui ont été reçus mais non encore traités. 
+
+
+
+Définition à la ligne \mbox{\hyperlink{reseau_8c_source_l00019}{19}} du fichier \mbox{\hyperlink{reseau_8c_source}{reseau.\+c}}.
+

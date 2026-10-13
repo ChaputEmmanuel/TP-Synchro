@@ -1,0 +1,20 @@
+<map id="_ExclusionMutuelle" name="_ExclusionMutuelle">
+<area shape="rect" id="Node000001" title="Définition des exclusions mutuelles." alt="" coords="5,548,153,573"/>
+<area shape="rect" id="Node000002" href="$struct__ListeTache.html" title=" " alt="" coords="31,460,128,485"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="82,499,82,547,77,547,77,499"/>
+<area shape="rect" id="Node000003" href="$struct__CelluleTache.html" title=" " alt="" coords="24,357,135,383"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="82,397,82,460,77,460,77,397"/>
+<area shape="poly" id="edge9_Node000003_Node000003" title=" " alt="" coords="150,361,161,370,153,378,135,381,135,375,151,373,156,370,147,366"/>
+<area shape="rect" id="Node000004" href="$struct__Tache.html" title=": Définition du type décrivant une tache." alt="" coords="46,269,113,295"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="82,309,82,357,77,357,77,309"/>
+<area shape="rect" id="Node000005" href="$struct__IntelTSS.html" title=" " alt="" coords="11,181,94,207"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="63,219,78,268,73,270,58,220"/>
+<area shape="rect" id="Node000006" href="$struct__DescriptorTable.html" title=" " alt="" coords="118,181,249,207"/>
+<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="161,217,95,271,92,267,157,213"/>
+<area shape="rect" id="Node000007" href="$union__Descripteur.html" title=" " alt="" coords="131,93,235,119"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="186,133,186,181,181,181,181,133"/>
+<area shape="rect" id="Node000008" href="$struct__DescSegment.html" title=" " alt="" coords="61,5,180,31"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="139,40,177,91,172,94,135,43"/>
+<area shape="rect" id="Node000009" href="$struct__DescTSS.html" title=" " alt="" coords="205,5,290,31"/>
+<area shape="poly" id="edge8_Node000007_Node000009" title=" " alt="" coords="233,43,194,94,190,91,228,40"/>
+</map>

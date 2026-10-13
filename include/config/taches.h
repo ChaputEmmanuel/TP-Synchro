@@ -10,3 +10,9 @@
  * Ordonnancement préemptif ?
  */
 #define MANUX_PREEMPTIF
+
+/**
+ * @brief Par défaut, on lancera la dummy task
+ */
+#include <config/dummy-task.h>
+

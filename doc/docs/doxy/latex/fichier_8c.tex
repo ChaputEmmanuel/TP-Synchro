@@ -1,0 +1,83 @@
+\doxysection{Référence du fichier /home/manu/\+PROGRAMMATION/\+C/\+Manu\+X/sf/fichier.c}
+\hypertarget{fichier_8c}{}\label{fichier_8c}\index{/home/manu/PROGRAMMATION/C/ManuX/sf/fichier.c@{/home/manu/PROGRAMMATION/C/ManuX/sf/fichier.c}}
+{\ttfamily \#include $<$manux/fichier.\+h$>$}\newline
+{\ttfamily \#include $<$manux/debug.\+h$>$}\newline
+{\ttfamily \#include $<$manux/string.\+h$>$}\newline
+{\ttfamily \#include $<$manux/scheduler.\+h$>$}\newline
+{\ttfamily \#include $<$manux/errno.\+h$>$}\newline
+Graphe des dépendances par inclusion de fichier.\+c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{fichier_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{fichier_8c_abc65f3c0efeb699107be0fb3dede5098}{fichier\+Ecrire}} (\mbox{\hyperlink{fichier_8h_af21b1af90951b2649333714c85dfe197}{Fichier}} \texorpdfstring{$\ast$}{*}f, \mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} \texorpdfstring{$\ast$}{*}buffer, int nb\+Octets)
+\item 
+\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} \mbox{\hyperlink{fichier_8c_a431c9fdbc351bde6f9c419267bd5adc5}{sf\+Initialiser}} (\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}})
+\item 
+int \mbox{\hyperlink{fichier_8c_ab4279a068c868f6efab9279aa021bc76}{fichier\+Ouvrir}} (\mbox{\hyperlink{inoeud_8h_a27ca90a5da64ab349726ed0513ec6e73}{INoeud}} \texorpdfstring{$\ast$}{*}i\+Noeud, \mbox{\hyperlink{fichier_8h_af21b1af90951b2649333714c85dfe197}{Fichier}} \texorpdfstring{$\ast$}{*}f, \mbox{\hyperlink{include_2manux_2types_8h_a273cf69d639a59973b6019625df33e30}{uint16\+\_\+t}} fanions, \mbox{\hyperlink{include_2manux_2types_8h_a273cf69d639a59973b6019625df33e30}{uint16\+\_\+t}} mode)
+\begin{DoxyCompactList}\small\item\em \+: Ouverture d\textquotesingle{}un fichier. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{fichier_8c_a00fc4fac4da6a7b5c9206308bc159c9d}{fichier\+Fermer}} (\mbox{\hyperlink{fichier_8h_af21b1af90951b2649333714c85dfe197}{Fichier}} \texorpdfstring{$\ast$}{*}f)
+\begin{DoxyCompactList}\small\item\em Fermeture d\textquotesingle{}un fichier. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Documentation des fonctions}
+\Hypertarget{fichier_8c_abc65f3c0efeb699107be0fb3dede5098}\label{fichier_8c_abc65f3c0efeb699107be0fb3dede5098} 
+\index{fichier.c@{fichier.c}!fichierEcrire@{fichierEcrire}}
+\index{fichierEcrire@{fichierEcrire}!fichier.c@{fichier.c}}
+\doxysubsubsection{\texorpdfstring{fichierEcrire()}{fichierEcrire()}}
+{\footnotesize\ttfamily int fichier\+Ecrire (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{fichier_8h_af21b1af90951b2649333714c85dfe197}{Fichier}} \texorpdfstring{$\ast$}{*}}]{f,  }\item[{\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} \texorpdfstring{$\ast$}{*}}]{buffer,  }\item[{int}]{nb\+Octets }\end{DoxyParamCaption})}
+
+
+
+Définition à la ligne \mbox{\hyperlink{fichier_8c_source_l00036}{36}} du fichier \mbox{\hyperlink{fichier_8c_source}{fichier.\+c}}.
+
+\Hypertarget{fichier_8c_a00fc4fac4da6a7b5c9206308bc159c9d}\label{fichier_8c_a00fc4fac4da6a7b5c9206308bc159c9d} 
+\index{fichier.c@{fichier.c}!fichierFermer@{fichierFermer}}
+\index{fichierFermer@{fichierFermer}!fichier.c@{fichier.c}}
+\doxysubsubsection{\texorpdfstring{fichierFermer()}{fichierFermer()}}
+{\footnotesize\ttfamily int fichier\+Fermer (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{fichier_8h_af21b1af90951b2649333714c85dfe197}{Fichier}} \texorpdfstring{$\ast$}{*}}]{f }\end{DoxyParamCaption})}
+
+
+
+Fermeture d\textquotesingle{}un fichier. 
+
+
+
+Définition à la ligne \mbox{\hyperlink{fichier_8c_source_l00168}{168}} du fichier \mbox{\hyperlink{fichier_8c_source}{fichier.\+c}}.
+
+\Hypertarget{fichier_8c_ab4279a068c868f6efab9279aa021bc76}\label{fichier_8c_ab4279a068c868f6efab9279aa021bc76} 
+\index{fichier.c@{fichier.c}!fichierOuvrir@{fichierOuvrir}}
+\index{fichierOuvrir@{fichierOuvrir}!fichier.c@{fichier.c}}
+\doxysubsubsection{\texorpdfstring{fichierOuvrir()}{fichierOuvrir()}}
+{\footnotesize\ttfamily int fichier\+Ouvrir (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{inoeud_8h_a27ca90a5da64ab349726ed0513ec6e73}{INoeud}} \texorpdfstring{$\ast$}{*}}]{i\+Noeud,  }\item[{\mbox{\hyperlink{fichier_8h_af21b1af90951b2649333714c85dfe197}{Fichier}} \texorpdfstring{$\ast$}{*}}]{f,  }\item[{\mbox{\hyperlink{include_2manux_2types_8h_a273cf69d639a59973b6019625df33e30}{uint16\+\_\+t}}}]{fanions,  }\item[{\mbox{\hyperlink{include_2manux_2types_8h_a273cf69d639a59973b6019625df33e30}{uint16\+\_\+t}}}]{mode }\end{DoxyParamCaption})}
+
+
+
+\+: Ouverture d\textquotesingle{}un fichier. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em i\+Noeud} & \+: le noeud à ouvrir (in) \\
+\hline
+{\em f} & \+: le fichier ouvert (out)\\
+\hline
+\end{DoxyParams}
+On utilise la fonction d\textquotesingle{}ouverture du type de périphérique correspondant 
+
+Définition à la ligne \mbox{\hyperlink{fichier_8c_source_l00145}{145}} du fichier \mbox{\hyperlink{fichier_8c_source}{fichier.\+c}}.
+
+\Hypertarget{fichier_8c_a431c9fdbc351bde6f9c419267bd5adc5}\label{fichier_8c_a431c9fdbc351bde6f9c419267bd5adc5} 
+\index{fichier.c@{fichier.c}!sfInitialiser@{sfInitialiser}}
+\index{sfInitialiser@{sfInitialiser}!fichier.c@{fichier.c}}
+\doxysubsubsection{\texorpdfstring{sfInitialiser()}{sfInitialiser()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} sf\+Initialiser (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}}}]{ }\end{DoxyParamCaption})}
+
+
+
+Définition à la ligne \mbox{\hyperlink{fichier_8c_source_l00129}{129}} du fichier \mbox{\hyperlink{fichier_8c_source}{fichier.\+c}}.
+

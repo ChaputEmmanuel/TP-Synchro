@@ -1,0 +1,41 @@
+\doxysection{makeconfig.\+c}
+\hypertarget{makeconfig_8c_source}{}\label{makeconfig_8c_source}\index{/home/manu/PROGRAMMATION/C/ManuX/outils/makeconfig.c@{/home/manu/PROGRAMMATION/C/ManuX/outils/makeconfig.c}}
+\mbox{\hyperlink{makeconfig_8c}{Aller Ã  la documentation de ce fichier.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{makeconfig_8c_source_l00001}00001\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{makeconfig_8c_source_l00002}00002\ \textcolor{comment}{/*\ \ \ \ \ \ Outils\ permettant\ de\ générer\ un\ make.conf\ pour\ la\ compilation\ de\ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{makeconfig_8c_source_l00003}00003\ \textcolor{comment}{/*\ ManuX\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{makeconfig_8c_source_l00004}00004\ \textcolor{comment}{/*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (C)\ Manu\ Chaput\ 2000-\/2021\ */}}
+\DoxyCodeLine{\Hypertarget{makeconfig_8c_source_l00005}00005\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{makeconfig_8c_source_l00006}00006\ \textcolor{preprocessor}{\#include\ <manux/config.h>}}
+\DoxyCodeLine{\Hypertarget{makeconfig_8c_source_l00007}00007\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{stdio_8h}{stdio.h}}>}}
+\DoxyCodeLine{\Hypertarget{makeconfig_8c_source_l00008}00008\ }
+\DoxyCodeLine{\Hypertarget{makeconfig_8c_source_l00009}\mbox{\hyperlink{makeconfig_8c_a77881bcc9a5f3e420a72320fe72142f0}{00009}}\ \textcolor{preprocessor}{\#define\ addMacro(m)\ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{makeconfig_8c_source_l00010}00010\ \textcolor{preprocessor}{\ \ \ printf(\#m\ "{}\ =\ 0x\%x\(\backslash\)n"{},\ m);}}
+\DoxyCodeLine{\Hypertarget{makeconfig_8c_source_l00011}00011\ \ \ }
+\DoxyCodeLine{\Hypertarget{makeconfig_8c_source_l00012}00012\ \ \ }
+\DoxyCodeLine{\Hypertarget{makeconfig_8c_source_l00013}\mbox{\hyperlink{makeconfig_8c_a0ddf1224851353fc92bfbff6f499fa97}{00013}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{makeconfig_8c_a0ddf1224851353fc92bfbff6f499fa97}{main}}(\textcolor{keywordtype}{int}\ argc,\textcolor{keywordtype}{char}\ *\ argv[])}
+\DoxyCodeLine{\Hypertarget{makeconfig_8c_source_l00014}00014\ \{}
+\DoxyCodeLine{\Hypertarget{makeconfig_8c_source_l00015}00015\ \ \ \ \mbox{\hyperlink{stdio_8h_a63c54f1d737929378b379911b1ca4a45}{printf}}(\textcolor{stringliteral}{"{}\#\ Fichier\ généré automatiquement,\ ne\ pas\ modifier\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{makeconfig_8c_source_l00016}00016\ }
+\DoxyCodeLine{\Hypertarget{makeconfig_8c_source_l00017}00017\ \ \ \ \mbox{\hyperlink{makeconfig_8c_a77881bcc9a5f3e420a72320fe72142f0}{addMacro}}(\mbox{\hyperlink{gestion-memoire_8h_ae8ff0cb54526f5b759984090d013d49f}{MANUX\_TAILLE\_PAGE}});}
+\DoxyCodeLine{\Hypertarget{makeconfig_8c_source_l00018}00018\ \ \ \ \mbox{\hyperlink{makeconfig_8c_a77881bcc9a5f3e420a72320fe72142f0}{addMacro}}(\mbox{\hyperlink{gestion-memoire_8h_a51d5bb3cbd6cdd278b2886f57507f3b9}{MANUX\_NOMBRE\_PAGES\_SYSTEME}});}
+\DoxyCodeLine{\Hypertarget{makeconfig_8c_source_l00019}00019\ \ \ \ \mbox{\hyperlink{makeconfig_8c_a77881bcc9a5f3e420a72320fe72142f0}{addMacro}}(\mbox{\hyperlink{plan-memoire-pc_8h_a90e73b4a95861b66b3a04ed56c246643}{MANUX\_KERNEL\_START\_ADDRESS}});}
+\DoxyCodeLine{\Hypertarget{makeconfig_8c_source_l00020}00020\ }
+\DoxyCodeLine{\Hypertarget{makeconfig_8c_source_l00021}00021\ \ \ \ \mbox{\hyperlink{makeconfig_8c_a77881bcc9a5f3e420a72320fe72142f0}{addMacro}}(\mbox{\hyperlink{plan-memoire-pc_8h_a28b589324e233e3b4a45519dc7036ac7}{MANUX\_INIT\_START\_ADDRESS}});}
+\DoxyCodeLine{\Hypertarget{makeconfig_8c_source_l00022}00022\ \ \ \ \mbox{\hyperlink{makeconfig_8c_a77881bcc9a5f3e420a72320fe72142f0}{addMacro}}(\mbox{\hyperlink{plan-memoire-pc_8h_ac1911f2c247c7256109cbb0a6689cf52}{MANUX\_STACK\_SEG\_16}});}
+\DoxyCodeLine{\Hypertarget{makeconfig_8c_source_l00023}00023\ }
+\DoxyCodeLine{\Hypertarget{makeconfig_8c_source_l00024}00024\ \ \ \ \mbox{\hyperlink{makeconfig_8c_a77881bcc9a5f3e420a72320fe72142f0}{addMacro}}(\mbox{\hyperlink{plan-memoire-pc_8h_a9755ed17f5e377b123289d1aec5a7f34}{MANUX\_ELF\_HEADER\_SIZE}});}
+\DoxyCodeLine{\Hypertarget{makeconfig_8c_source_l00025}00025\ \ \ \ \mbox{\hyperlink{makeconfig_8c_a77881bcc9a5f3e420a72320fe72142f0}{addMacro}}(\mbox{\hyperlink{plan-memoire-pc_8h_a9ef01c49cb4a8dcc6b1ddb898d0c8ab9}{MANUX\_ADRESSE\_ECRAN}});}
+\DoxyCodeLine{\Hypertarget{makeconfig_8c_source_l00026}00026\ \ \ \ \mbox{\hyperlink{makeconfig_8c_a77881bcc9a5f3e420a72320fe72142f0}{addMacro}}(\mbox{\hyperlink{plan-memoire-pc_8h_af452db28d2cd0cf5d21e50add240d583}{MANUX\_NB\_SECT\_INIT}});}
+\DoxyCodeLine{\Hypertarget{makeconfig_8c_source_l00027}00027\ \ \ \ \mbox{\hyperlink{makeconfig_8c_a77881bcc9a5f3e420a72320fe72142f0}{addMacro}}(\mbox{\hyperlink{config_2ramdisk_8h_a7e39ca8fab9d3a9841a7b90eaa177f7c}{MANUX\_NB\_SECT\_RAMDISK}});}
+\DoxyCodeLine{\Hypertarget{makeconfig_8c_source_l00028}00028\ \ \ \ \mbox{\hyperlink{makeconfig_8c_a77881bcc9a5f3e420a72320fe72142f0}{addMacro}}(\mbox{\hyperlink{config_2ramdisk_8h_a3598e87eebbc5860d4fc0c5f9b882ed0}{MANUX\_SEGMENT\_TRANSIT\_RAMDISK}});}
+\DoxyCodeLine{\Hypertarget{makeconfig_8c_source_l00029}00029\ \ \ \ \mbox{\hyperlink{makeconfig_8c_a77881bcc9a5f3e420a72320fe72142f0}{addMacro}}(\mbox{\hyperlink{config_2ramdisk_8h_a7e8331aecb5ebf342dc0f9340b2598ec}{MANUX\_PREMIER\_SECT\_RAMDISK}});}
+\DoxyCodeLine{\Hypertarget{makeconfig_8c_source_l00030}00030\ }
+\DoxyCodeLine{\Hypertarget{makeconfig_8c_source_l00031}00031\ \ \ \ \mbox{\hyperlink{makeconfig_8c_a77881bcc9a5f3e420a72320fe72142f0}{addMacro}}(MANUX\_portDonneesClavier);}
+\DoxyCodeLine{\Hypertarget{makeconfig_8c_source_l00032}00032\ \ \ \ \mbox{\hyperlink{makeconfig_8c_a77881bcc9a5f3e420a72320fe72142f0}{addMacro}}(MANUX\_portCmdClavier);}
+\DoxyCodeLine{\Hypertarget{makeconfig_8c_source_l00033}00033\ }
+\DoxyCodeLine{\Hypertarget{makeconfig_8c_source_l00034}00034\ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\Hypertarget{makeconfig_8c_source_l00035}00035\ \}}
+
+\end{DoxyCode}

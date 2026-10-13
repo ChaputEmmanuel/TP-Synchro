@@ -1,0 +1,205 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>My Project: Gestion de la mémoire</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">My Project
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+</div><!-- top -->
+<div><div class="header">
+  <div class="headertitle"><div class="title">Gestion de la mémoire</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><p><a class="anchor" id="autotoc_md70"></a> La gestion de la mémoire est une fonction essentielle d’un système d’exploitation. Nous allons dans un premier temps jeter un coup d’œuil rapide à la gestion de la mémoire vue par Intel.</p>
+<p>Il y a plusieurs concepts à intégrer. Cela peut sembler complexe, mais en prenant un peu de temps, vous vous rendrez compte qu’il n’y a rien de méchant !</p>
+<p>Le premier est la <em>segmentation</em>. Pour faire simple, imaginez-vous fin des années 70 avec un microprocesseur dont les registres sont sur 32 bits. Comment adresser plus de 64 Ko ? La segmentation consiste à utiliser deux registres pour composer une adresse de plus de 32 bits. Nous allons voir que ce concept a été enrichi et utilisé à d’autres fins.</p>
+<p>Le second est la <em>pagination</em>. L’idée ici est de découper la mémoire en <em>pages</em> de taille fixe. Chaque page pourra être dotée de propriétés qui lui sont propre. La pagination va nécessiter la mise en place d’un certain nombre de tables d’indirection, ce qui peut sembler un peu lourd, mais qui va en particulier permettre de la mémoire virtuelle, de l’isolation entre les tâches, …</p>
+<h1><a class="anchor" id="autotoc_md71"></a>
+Organisation de la mémoire au boot</h1>
+<p>Lorsque GRUB a chargé le noyau en mémoire, il lui passe la main et celui-ci doit donc s’occuper rapidement de la gestion de la mémoire. La structure est alors celle décrite par la figure suivante.</p>
+<p><img src="images/memoire-au-boot.png" alt="image" class="inline"/></p>
+<p>La première page est utilisée pour les handlers d’interruptions.</p>
+<p>J’ai fait le choix de placer derrière la idt puis la gdt. Leurs adresses et leurs tailles sont définies en ce sens dans <a href="/doxy/html/plan-memoire-pc_8h_source.html"><code>include/config/plan-memoire-pc.h</code></a>(<a href="/doxy/html/plan-memoire-pc_8h.html">dox</a>).</p>
+<p>Lors du démarrage d’un pc, le secteur de boot est placé à l’adresse <code>0x7C00</code> et GRUB est chargé juste derrière à l’adresse <code>0x8000</code>. On ne peut évidemment pas demander à GRUB de charger le noyau à une adresse qu’il occupe, je fais donc le choix de lui demander de charger ManuX à partir de la page 16, donc à l’adresse <code>0x10000</code>. Cette adresse également est définie dans le fichier <a href="/doxy/html/plan-memoire-pc_8h_source.html"><code>include/config/plan-memoire-pc.h</code></a>(<a href="/doxy/html/plan-memoire-pc_8h.html">dox</a>) par la macro <code>MANUX_KERNEL_START_ADDRESS</code>. C’est le linker qui utilise cette macro pour positionner le noyau.</p>
+<p>Vient ensuite la pile du noyau qui est positionnée juste après le noyau (mais à une frontière de page). Cette place est définie dans le fichier de configuration du linker : <a href="/doxy/html/manux_8ld_source.html"><code>noyau/manux.ld</code></a>(<a href="/doxy/html/manux_8ld.html">dox</a>).</p>
+<p>Je place ensuite derrière cet espace réservé à la pile une zone mémoire qui va me servir à la gestion des pages mémoire.</p>
+<p>À partir l’adresse <code>0x80000</code>, c’est le bios . Dans un soucis de tranquillité, je vais considérer que les 512 Ko qui commencent à cette adresse sont inutilisables car réservés au bios . Il y a moyen d’être un peu plus subtile, et d’en récupérer tout ou partie en fonction de la situation, mais on ne va pas s’y embêter pour le moment.</p>
+<p>Tout ce qui est au delà est alors utilisable.</p>
+<p>Pour illustrer cela, la figure ci-dessous montre l’exécution d’un noyau qui alloue quelques pages après son démarrage. Il s’agit de l’image obtenue avec <code>CFG=memoire</code>.</p>
+<p><img src="images/memoire-allocation-pages.png" alt="image" class="inline"/></p>
+<p>On peut constater que les quelques premières pages allouées sont situées entre la gdt et le noyau et que les suivantes sont allouées après la gestion mémoire.</p>
+<h1><a class="anchor" id="autotoc_md72"></a>
+La segmentation</h1>
+<p>Essayons de comprendre ce qui se passe lorsqu’une instruction du processeur doit manipuler une adresse. Nous nous en tiendrons ici à l’architecture des Intel 386.</p>
+<p>Imaginons par exemple une instruction qui doit aller lire ou écrire un octet en mémoire ou encore une instruction qui effectue un saut vers une nouvelle zone de code. Une telle instruction va donc exprimer explicitement une adresse, appelée <em>adresse logique</em>. Cette adresse logique est composée de deux parties : un <em>segment</em>, et un <em>offset</em>.</p>
+<p>Le segment est une partie de la mémoire, et l’offset un déplacement dans le segment, comme l’illustre la figure <a href="#figure:adresse-logique" data-reference-type="ref" data-reference="figure:adresse-logique">1</a> ci-dessous. On peut donc voir ça comme une découpe de la mémoire en zones (ou segments) logiques et/ou comme une façon d’accéder à des adresses plus élevées que ce que permet la taille des registres.</p>
+<p>&lt;figure id="figure:adresse-logique"&gt; </p><div class="center"> <img src="images/adresse-logique.png" alt="" style="width:60.0%" class="inline"/> </div><p> &lt;figcaption&gt;<span id="figure:adresse-logique" label="figure:adresse-logique"></span>Principe d’une adresse logique&lt;/figcaption&gt; &lt;/figure&gt;</p>
+<p>Le segment est contenu dans un registre qui peut être fourni explicitement ou implicitement par l’instruction. Il donne donc l’adresse de la zone mémoire que l’on appelle un segment. Sauf que c’est malheureusement un peu plus complexe que ça ! Un segment n’est en effet pas décrit uniquement par son adresse (et quand bien même ! On a dit qu’un registre ne pouvait pas contenir une adresse entière).</p>
+<p>En fait, le registre en question permet d’accéder à un <em>descripteur de segment</em>. C’est évidemment ce dernier (que nous allons décrire par la suite) qui donne, entre autres, l’adresse du segment. La figure <a href="#figure:adresse-logique-sel" data-reference-type="ref" data-reference="figure:adresse-logique-sel">2</a> illustre cette indirection.</p>
+<p>&lt;figure id="figure:adresse-logique-sel"&gt; <img src="images/adresse-logique-sel.png" alt="" style="width:40.0%" class="inline"/> &lt;figcaption&gt;<span id="figure:adresse-logique-sel" label="figure:adresse-logique-sel"></span>Adresse logique et sélecteur de segment&lt;/figcaption&gt; &lt;/figure&gt;</p>
+<p>Dans les versions antérieures de ses processeurs (et dans le mode “réel” du 386), la mémoire est découpée logiquement en <em>segments</em>. Une adresse est alors désignée par un couple composé d’un <em>registre de segment</em> et d’un <em>registre d’offset</em>.</p>
+<p>Concrètement, la taille d’un segment est de 64 Ko (puisque le registre d’offset est sur 32 bits).</p>
+<p>À partir du 286 (si je ne me trompe pas), en mode dit “protégé”, un registre de segment devient une référence vers un <em>descripteur de segment</em>. Ce dernier permet une gestion beaucoup plus évoluée de la mémoire.</p>
+<p>Les descripteurs de segment sont rassemblés dans une table, la gdt (***G**lobal **D**escriptor **T**able*) ou la ldt (***L**ocal **D**escriptor **T**able*). Un registre de segment représente alors simplement le décalage d’un descripteur dans la table.</p>
+<p>Lorsque l’on utilise un registre de segment, il contient donc en fait l’adresse (dans la ldt ou dans la gdt) d’un descripteur de registre. Ce descripteur contient lui-même l’adresse du segment.</p>
+<h2><a class="anchor" id="autotoc_md73"></a>
+Les descripteurs de segment</h2>
+<p>La figure <a href="#Figure:DescrSegment" data-reference-type="ref" data-reference="Figure:DescrSegment">[Figure:DescrSegment]</a> montre la structure d’un descripteur de segment.</p>
+<p>Dans ManuX, la fonction suivante crée un descripteur de segment et l’ajoute dans la gdt ou la ldt passée en paramètre : </p><pre class="fragment">{}
+int setDescripteurSegment(DescriptorTable * dt,
+                          uint32 adresse, uint32 limite,
+                          uint8 type,
+                          uint8 gd0a)
+</pre><p> Pour cela, elle initalise une structure de type <code>DescSegment</code> définie dans <code>include/i386/segment.h</code> de la façon suivante </p><pre class="fragment">{}
+typedef struct _DescSegment {
+   uint16 limiteFaible;
+   uint16 baseFaible;
+   uint8  baseInter;
+   uint8  type;
+   uint8  limiteFort;
+   uint8  baseFort;
+} DescSegment;
+</pre> <h2><a class="anchor" id="autotoc_md74"></a>
+Les tables de descripteurs de segments ldt et gdt</h2>
+<p>La gdt est donc la table globale contenant les descripteurs de segment du système.</p>
+<p>Dans ManuX, elle est initialisée par la fonction suivante </p><pre class="fragment">{}
+void initialiserGDT();     
+</pre><p> Pour le moment, cette fonction est la plus simple possible, elle crée quatre descripteurs de segments</p>
+<ul>
+<li>un descripteur nul, obligatoire ;</li>
+<li>un descripteur pour le segment de code, occupant les 4 Go de base ;</li>
+<li>un descripteur pour le segment de données, occupant les 4 Go de base ;</li>
+<li>un descripteur pour le segment de pile, occupant les 4 Go de base.</li>
+</ul>
+<p>Les trois segments se recouvrent donc.</p>
+<p>La ldt est une table similaire à la gdt mais spécifique à une tâche. Dans ManuX, pour le moment, elle est initialisée, lors de la création de chaque tâche, comme une copie de la gdt.</p>
+<h2><a class="anchor" id="autotoc_md75"></a>
+La segmentation dans Manux</h2>
+<p>Nous allons utiliser dans ManuX un mode “à plat” (ou <em>flat mode</em>). Dans ce mode minimaliste, deux segments seront définis, l’un pour le code, l’autre pour les données, chacun couvrant l’intégralité de la mémoire de 0 à 4 G.</p>
+<p>L’avantage de ce modèle est sa grande simplicité. Un de ses inconvénients est le fait que la mémoire est à la fois visible au travers d’un segment de code (donc exécutable) et d’un segment de données (donc modifiable). De ce fait, aucun contrôle n’est fait ici permettant d’éviter que du code soit modifié, …</p>
+<p>La mise en place de ce mode segmentation est réalisée dans le fichier <code><a class="el" href="segment_8c.html">i386/segment.c</a></code> par la fonction <code><a class="el" href="segment_8c.html#ae0e123e68e81d00dad08bd7a0215e9a8">initialiserGDT()</a></code> qui construit les descripteurs de segments en question et les insère dans la gdt. Cette dernière est ensuite activée sur le système par un appel à la fonction <code>chagerGDT()</code>.</p>
+<p>L’adresse de la gdt est définie de façon statique au travers de la macro <code>MANUX_ADRESSE_GDT</code> dans <code>manux/config.h</code>. Une page complète lui est réservée, ce qui est plus que suffisant, surtout tant que l’on utilise le format à plat, qui ne nécéssite que 4 entrées (de 8 octets chacune) !</p>
+<h1><a class="anchor" id="autotoc_md76"></a>
+Adresse linéaire et adresse physique</h1>
+<p>C’est finalement relativement simple, non ? Alors continuons, …</p>
+<p>L’adresse ainsi obtenu est une adresse qualifiée de <em>linéaire</em>. La structure d’une adresse linéaire est donnée dans la figure <a href="#Figure:addlin" data-reference-type="ref" data-reference="Figure:addlin">[Figure:addlin]</a>.</p>
+<p><img src="adresse-lineaire.png" alt="image" style="width:80.0%" class="inline"/></p>
+<p>Les bits de poids forts (<code>Dir</code>) donnent la position dans le répertoire de page de l’adresse d’une table de pages. Les bits suivants (<code>Page</code>) donnent la position dans dans cette table de l’adresse d’une page en mémoire. Les derniers bits (<code>Offset</code>) donnent alors la position recherchée dans cette page.</p>
+<p>Bien entendu, toutes les tables évoquées ici sont stoquées en mémoire.</p>
+<h1><a class="anchor" id="autotoc_md77"></a>
+La mémoire virtuelle</h1>
+<p>Les processeurs Intel offrent depuis le 386 un mécanisme appelé <em>pagination</em> permettant de définir un espace d’adressage <em>virtuel</em> qui est réparti sur un espace d’adressage physique. Une partie de cet espace physique peut être située ailleurs qu’en mémoire centrale, ce qui permet de construire une mémoire virtuelle plus grande que la mémoire réellement disponible.</p>
+<p>De plus, la gestion de la pagination peut être spécifique à chaque tâche, ce qui permet de construire un système multitâche dans lequel chaque tâche a une vision de l’espace mémoire qui lui est propre.</p>
+<p>Il y a donc deux problèmes à résoudre, que sont l’organisation de la mémoire physique (et sa répartition entre les différentes tâches) et l’organisation de la mémoire virtuelle vue par une tâche. Nous allons voir comment ils sont résolus dans Manux, mais regardons d’abord un peu comment la pagination est mise en œuvre.</p>
+<h2><a class="anchor" id="autotoc_md78"></a>
+Pagination</h2>
+<p>Le mécanisme de pagination des processeurs Intel permet, comme l’illustre la figure <a href="#Figure:Pagination" data-reference-type="ref" data-reference="Figure:Pagination">[Figure:Pagination]</a>, de construire une mémoire virtuelle, découpée en pages (de 4 Ko) à partir de pages physiques situées “n’importe où” en mémoire physique (ou même sur un autre support tel qu’un disque dur ou autre).</p>
+<p>Le processeur offre (via sa mmu) des mécanismes évolués permettant la mise en place de la pagination. La pagination est activée en positionnant à un le bit 31 du registre cr0.</p>
+<p>Lorsque la pagination est activée, le registre cr3 doit contenir l’adresse (physique) d’une page mémoire contenant le <em>répertoire de pagination</em> .</p>
+<h2><a class="anchor" id="autotoc_md79"></a>
+Gestion de la mémoire physique dans ManuX</h2>
+<p>La mémoire physique est partagée entre une partie système et une partie application. La première partie est dédiée à la gestion du système et la seconde et utilisée pour satisfaire les besoins en mémoire des différentes applications.</p>
+<p>Au niveau système, la mémoire est gérée par page (une gestion plus fine doit donc être implantée au niveau application, par le biais des librairies).</p>
+<h3><a class="anchor" id="autotoc_md80"></a>
+Organisation de la mémoire physique</h3>
+<p>Traditionnellement, sur un PC, la mémoire physique est organisée comme décrit par la figure <a href="#etat-memoire-base" data-reference-type="ref" data-reference="etat-memoire-base">[etat-memoire-base]</a>.</p>
+<p>Une partie est réservée pour le bios et la vidéo, nous nous garderons bien d’aller y lire ou écrire pour autre chose !</p>
+<p>L’état de cette mémoire à la fin du boot (décrit plus haut) est donné par la figure <a href="#etat-memoire-boot-2" data-reference-type="ref" data-reference="etat-memoire-boot-2">[etat-memoire-boot-2]</a> que nous redonnons ici.</p>
+<p><img src="images/etat-memoire-boot.png" alt="image" class="inline"/></p>
+<p>Il est important de l’avoir en tête pour la suite afin de déterminer quelles sont les zones que nous pouvos allouer et celles qui ne doivent pas être utilisées.</p>
+<h3><a class="anchor" id="autotoc_md81"></a>
+Allocation de la mémoire</h3>
+<p>Chaque page mémoire peut être allouée à une tâche (ou au noyau) ou libre (non allouée). C’est le tableau <code>proprietairePage</code> défini dans le fichier <code><a class="el" href="memoire_8c.html">noyau/memoire.c</a></code> qui définit cela comme illustré par la figure <a href="#Figure:ProprietairePage" data-reference-type="ref" data-reference="Figure:ProprietairePage">[Figure:ProprietairePage]</a>. Une page libre sera associée à un propriétaire nul et une page allouée au système à la tâche 1.</p>
+<p><img src="images/proprietaire-page.png" alt="image" style="width:50.0%" class="inline"/></p>
+<h4><a class="anchor" id="autotoc_md82"></a>
+Initialisation</h4>
+<h4><a class="anchor" id="autotoc_md83"></a>
+Allocation</h4>
+<p>Deux fonctions permettent d’allouer une page mémoire, ce sont </p><pre class="fragment">{}
+void * allouerPageSysteme();
+void * allouerPage();
+</pre><p> qui permettent d’obtenir respectivement une page mémoire système et une page mémoire application.</p>
+<h1><a class="anchor" id="autotoc_md84"></a>
+Gestion fine de la mémoire dans le noyau</h1>
+<p>L’allocation de la mémoire physique page par page et importante, mais il est également très utile de pouvoir allouer la mémoire avec une granularité bien plus fine. Tous les sous-systèmes du noyau qui ont besoin d’allocation dynamique manipulent des objets qui sont pour la plupart bien plus petits qu’une page !</p>
+<p>On peut alors envisager deux grandes familles de techniques : un allocateur “généraliste” (qui va fournir un service tel que le malloc classique de la librairie C) ou un allocateur plus spécialisé (qui permettra une gestion bien plus efficace d’un type d’objets unique avec éventuellement un système d’initialisation, etc ...)</p>
+<h2><a class="anchor" id="autotoc_md85"></a>
+Un allocateur généraliste</h2>
+<p>Dans ManuX, un système d’allocation fine est implanté dans les fichiers kmallc-zs.h et .c. Il utilise la technique des “zones siamoises” ou buddy memory allocation system.</p>
+<p>Il fournit essentiellement les trois fonctions suivantes </p><pre class="fragment">void kmallocInitialisation();
+
+void * kmalloc(size_t n);
+
+void kfree(void * p);
+</pre> <h2><a class="anchor" id="autotoc_md86"></a>
+Organisation de la mémoire virtuelle</h2>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

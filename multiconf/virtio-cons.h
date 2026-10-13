@@ -1,8 +1,8 @@
 /**
  * @file multiconf/virtio-cons.h
- * @brief Exemple de configuration pour l'utilisation des consoles virtio.
+ * @brief Affichage de messages sur une console virtuelle de type virtio.
  *
- *                                                     (C) Manu Chaput 2000-2023
+ *                                                     (C) Manu Chaput 2000-2024
  */
 
 #ifdef MANUX_FICHIER_CONFIG
@@ -16,8 +16,9 @@
 
 #include <config/base.h>
 #include <config/bootloader.h>
-#include <config/plan-memoire.h>
+#include <config/plan-memoire-pc.h>
 #include <config/gestion-memoire.h>
+#include <config/kmalloc.h>   // Parce que dans tâche, on hérite des fichiers
 #include <config/console.h>
 #include <config/printk.h>
 #include <config/systeme-fichiers.h>
@@ -25,6 +26,7 @@
 #include <config/pc-i386.h>
 #include <config/pci.h>
 #include <config/virtio.h>
+#undef MANUX_VIRTIO_NET
 
 #include <config/verifications.h>
 

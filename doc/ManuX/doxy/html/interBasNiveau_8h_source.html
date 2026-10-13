@@ -1,0 +1,210 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>My Project:  Fichier source de /home/manu/PROGRAMMATION/C/ManuX/include/manux/interBasNiveau.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">My Project
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function() { init_codefold(0); });
+/* @license-end */
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_7ae9ae23548caaa7aeb1f148c6e00073.html">manux</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle"><div class="title">interBasNiveau.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="interBasNiveau_8h.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">/*----------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment">/*      Définition des fonctions de bas-niveau permettant de manipuler les    */</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment">/*   interruptions.                                                           */</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment">/*                                                  (C) Manu Chaput 2000-2021 */</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment">/*----------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#ifndef INTER_BAS_NIVEAU_DEF</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#define INTER_BAS_NIVEAU_DEF</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno"><a class="line" href="interBasNiveau_8h.html#a13b5f17b7643984676af137edc35863a">    9</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="interBasNiveau_8h.html#a13b5f17b7643984676af137edc35863a">stubHandlerNop</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="comment">/*</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="comment"> * Un handler de bas niveau qui ne fait rien</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno"><a class="line" href="interBasNiveau_8h.html#ae9a43b32831f8cf032ddf86ff0f9d785">   17</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="interBasNiveau_8h.html#ae9a43b32831f8cf032ddf86ff0f9d785">stubHandlerExDiv0</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="interBasNiveau_8h.html#a27ac1f92e0d2549cf30191faef7f6ec4">   18</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="interBasNiveau_8h.html#a27ac1f92e0d2549cf30191faef7f6ec4">stubHandlerExDebug</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="interBasNiveau_8h.html#a04e7d30f0f16ce6dc4a7159bbe367297">   19</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="interBasNiveau_8h.html#a04e7d30f0f16ce6dc4a7159bbe367297">stubHandlerExNMI</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="interBasNiveau_8h.html#ad2192f3561a64d7ee582a88210a1c498">   20</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="interBasNiveau_8h.html#ad2192f3561a64d7ee582a88210a1c498">stubHandlerExBreakpoint</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="interBasNiveau_8h.html#a8510e0ebc5c591d6accb900f5b121113">   21</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="interBasNiveau_8h.html#a8510e0ebc5c591d6accb900f5b121113">stubHandlerExOverflow</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="interBasNiveau_8h.html#ad974b301dcd029ed13c7f656f5a361f7">   22</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="interBasNiveau_8h.html#ad974b301dcd029ed13c7f656f5a361f7">stubHandlerExBoundExceeded</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno"><a class="line" href="interBasNiveau_8h.html#a3a3465972788a956d8d9db6638e7585d">   23</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="interBasNiveau_8h.html#a3a3465972788a956d8d9db6638e7585d">stubHandlerExDeviceInvalidOpcode</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="interBasNiveau_8h.html#aa58f19b30c3c7b9adc1a62491a405204">   24</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="interBasNiveau_8h.html#aa58f19b30c3c7b9adc1a62491a405204">stubHandlerExDeviceUnavailable</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="interBasNiveau_8h.html#a99abb3ee76bb7aa4b8f608990ddbd812">   25</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="interBasNiveau_8h.html#a99abb3ee76bb7aa4b8f608990ddbd812">stubHandlerExDoubleFault</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="interBasNiveau_8h.html#ac06f56674ff2a663414476cce3f3182d">   26</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="interBasNiveau_8h.html#ac06f56674ff2a663414476cce3f3182d">stubHandlerExCoproOverrun</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="interBasNiveau_8h.html#aa045fe1383422111cc5c1ee41681a5cf">   27</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="interBasNiveau_8h.html#aa045fe1383422111cc5c1ee41681a5cf">stubHandlerExInvalidTSS</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="interBasNiveau_8h.html#ae5d73b6a0c47b160e80a694f9d64e0c1">   28</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="interBasNiveau_8h.html#ae5d73b6a0c47b160e80a694f9d64e0c1">stubHandlerExSegmentNotPresent</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno"><a class="line" href="interBasNiveau_8h.html#a9700916c831dc027fb175a6be10c805b">   29</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="interBasNiveau_8h.html#a9700916c831dc027fb175a6be10c805b">stubHandlerExStackSegmentFault</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno"><a class="line" href="interBasNiveau_8h.html#ab0e365b41572e37520c967d0b902d020">   30</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="interBasNiveau_8h.html#ab0e365b41572e37520c967d0b902d020">stubHandlerExGeneralProtectionFault</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="interBasNiveau_8h.html#ad25dcc5af284896e4ac66d00b4497dc6">   31</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="interBasNiveau_8h.html#ad25dcc5af284896e4ac66d00b4497dc6">stubHandlerExPageFault</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="interBasNiveau_8h.html#a20d4fbf6dd9cd705e15abc46b19ec7ca">   32</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="interBasNiveau_8h.html#a20d4fbf6dd9cd705e15abc46b19ec7ca">stubHandlerExReserved</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno"><a class="line" href="interBasNiveau_8h.html#ad3e86564d7ecf32aced790b68b99cf18">   33</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="interBasNiveau_8h.html#ad3e86564d7ecf32aced790b68b99cf18">stubHandlerExFloatingPoint</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="interBasNiveau_8h.html#a9b475a19483577e79b6b265c93688075">   34</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="interBasNiveau_8h.html#a9b475a19483577e79b6b265c93688075">stubHandlerExAlignmentCheck</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="interBasNiveau_8h.html#af013e6697a29ff17e005c06ca6040bf6">   35</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="interBasNiveau_8h.html#af013e6697a29ff17e005c06ca6040bf6">stubHandlerExFloatingMachineCheck</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno"><a class="line" href="interBasNiveau_8h.html#a265bf1e556cdf41fea502a748590d646">   36</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="interBasNiveau_8h.html#a265bf1e556cdf41fea502a748590d646">stubHandlerExFloatingSIMDFPE</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="interBasNiveau_8h.html#a0117f311fdad002499381f5c5d714f49">   37</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="interBasNiveau_8h.html#a0117f311fdad002499381f5c5d714f49">stubHandlerExFloatingVirtualization</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno"><a class="line" href="interBasNiveau_8h.html#ade93d3d2ec4958e8361099ca91a32c18">   38</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="interBasNiveau_8h.html#ade93d3d2ec4958e8361099ca91a32c18">stubHandlerExControlProtection</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno"><a class="line" href="interBasNiveau_8h.html#aa77313f083e02c3baeadbf8169340f64">   39</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="interBasNiveau_8h.html#aa77313f083e02c3baeadbf8169340f64">stubHandlerExReserved2</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno"><a class="line" href="interBasNiveau_8h.html#ad8e09db3803eaf9d226c3468dc24147a">   40</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="interBasNiveau_8h.html#ad8e09db3803eaf9d226c3468dc24147a">stubHandlerExReserved3</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno"><a class="line" href="interBasNiveau_8h.html#a346546ae5b849858b5a5cbed308054df">   41</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="interBasNiveau_8h.html#a346546ae5b849858b5a5cbed308054df">stubHandlerExReserved4</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno"><a class="line" href="interBasNiveau_8h.html#ac0f4a0148031aa2f786bcff94e762a9c">   42</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="interBasNiveau_8h.html#ac0f4a0148031aa2f786bcff94e762a9c">stubHandlerExReserved5</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno"><a class="line" href="interBasNiveau_8h.html#a028f6297c8f7e318fd5adf4631e5f418">   43</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="interBasNiveau_8h.html#a028f6297c8f7e318fd5adf4631e5f418">stubHandlerExReserved6</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno"><a class="line" href="interBasNiveau_8h.html#ae282903a40ffd696d05f6f266f9da6c1">   44</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="interBasNiveau_8h.html#ae282903a40ffd696d05f6f266f9da6c1">stubHandlerExReserved7</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno"><a class="line" href="interBasNiveau_8h.html#acd8ef72b577ea14e54a9a2c963a2e650">   45</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="interBasNiveau_8h.html#acd8ef72b577ea14e54a9a2c963a2e650">stubHandlerExHypervisionInjection</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno"><a class="line" href="interBasNiveau_8h.html#a9f52dfd2e02df4dffe10df694456de92">   46</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="interBasNiveau_8h.html#a9f52dfd2e02df4dffe10df694456de92">stubHandlerExVMMCommunication</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno"><a class="line" href="interBasNiveau_8h.html#af3e5b5751c7ecb28580cd14400aef4ca">   47</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="interBasNiveau_8h.html#af3e5b5751c7ecb28580cd14400aef4ca">stubHandlerExSecurity</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno"><a class="line" href="interBasNiveau_8h.html#ad1943929cb3660db3db8e8106bb229dd">   48</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="interBasNiveau_8h.html#ad1943929cb3660db3db8e8106bb229dd">stubHandlerExReserved8</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno"><a class="line" href="interBasNiveau_8h.html#a55b0a363fd83bfe79ff8211eabb439d3">   54</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="interBasNiveau_8h.html#a55b0a363fd83bfe79ff8211eabb439d3">stubHandlerIRQ0</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno"><a class="line" href="interBasNiveau_8h.html#a2d7bb2bd066ecaedc298d8763e4cd0ce">   55</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="interBasNiveau_8h.html#a2d7bb2bd066ecaedc298d8763e4cd0ce">stubHandlerIRQ1</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno"><a class="line" href="interBasNiveau_8h.html#abae5f73bb19161edced8117d9303baa5">   56</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="interBasNiveau_8h.html#abae5f73bb19161edced8117d9303baa5">stubHandlerIRQ2</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno"><a class="line" href="interBasNiveau_8h.html#a8ab0216e14cfa66342615327aeb91784">   57</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="interBasNiveau_8h.html#a8ab0216e14cfa66342615327aeb91784">stubHandlerIRQ3</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno"><a class="line" href="interBasNiveau_8h.html#a2088efebfb49df3de42ebdd0ae827bb7">   58</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="interBasNiveau_8h.html#a2088efebfb49df3de42ebdd0ae827bb7">stubHandlerIRQ4</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno"><a class="line" href="interBasNiveau_8h.html#a21acfb830484cd026c7e70b1c28333dc">   59</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="interBasNiveau_8h.html#a21acfb830484cd026c7e70b1c28333dc">stubHandlerIRQ5</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno"><a class="line" href="interBasNiveau_8h.html#a181b2a4955dc66bea034f7a56c2e72fc">   60</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="interBasNiveau_8h.html#a181b2a4955dc66bea034f7a56c2e72fc">stubHandlerIRQ6</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno"><a class="line" href="interBasNiveau_8h.html#a433f74c07f731c2e888a63758d796ed9">   61</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="interBasNiveau_8h.html#a433f74c07f731c2e888a63758d796ed9">stubHandlerIRQ7</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno"><a class="line" href="interBasNiveau_8h.html#ab93ab2201811257de771734f16873fc2">   62</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="interBasNiveau_8h.html#ab93ab2201811257de771734f16873fc2">stubHandlerIRQ8</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno"><a class="line" href="interBasNiveau_8h.html#a14817650be1a106da0a82e456c170616">   63</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="interBasNiveau_8h.html#a14817650be1a106da0a82e456c170616">stubHandlerIRQ9</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno"><a class="line" href="interBasNiveau_8h.html#ad2278d9aaf018136d5a478c03f758dc3">   64</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="interBasNiveau_8h.html#ad2278d9aaf018136d5a478c03f758dc3">stubHandlerIRQ10</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno"><a class="line" href="interBasNiveau_8h.html#ab31d7fee5d206c63761d5dc760a5b121">   65</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="interBasNiveau_8h.html#ab31d7fee5d206c63761d5dc760a5b121">stubHandlerIRQ11</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno"><a class="line" href="interBasNiveau_8h.html#a83c08b1cf2f1838657e8cad9d1ae8db4">   66</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="interBasNiveau_8h.html#a83c08b1cf2f1838657e8cad9d1ae8db4">stubHandlerIRQ12</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno"><a class="line" href="interBasNiveau_8h.html#a65a33d0a792bf722ce339f1d6fcf6d5d">   67</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="interBasNiveau_8h.html#a65a33d0a792bf722ce339f1d6fcf6d5d">stubHandlerIRQ13</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno"><a class="line" href="interBasNiveau_8h.html#abbc6b673ac6bca412c67184e95e2a45e">   68</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="interBasNiveau_8h.html#abbc6b673ac6bca412c67184e95e2a45e">stubHandlerIRQ14</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno"><a class="line" href="interBasNiveau_8h.html#a011dc7f9e3233a2a50283751c23ac9ff">   69</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="interBasNiveau_8h.html#a011dc7f9e3233a2a50283751c23ac9ff">stubHandlerIRQ15</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span> </div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno"><a class="line" href="interBasNiveau_8h.html#a67b1392997118e20801ed67159276e9d">   71</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="interBasNiveau_8h.html#a67b1392997118e20801ed67159276e9d">stubHandlerInt66</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span> </div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno"><a class="line" href="interBasNiveau_8h.html#ac99465ca0b3ae5ceca688cd0bd3b3a2a">   73</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="interBasNiveau_8h.html#ac99465ca0b3ae5ceca688cd0bd3b3a2a">initialiserHandlersInterruption</a>(<span class="keywordtype">void</span> * table, <a class="code hl_typedef" href="include_2manux_2types_8h.html#a06896e8c53f721507066c079052171f8">uint32_t</a> taille);</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span><span class="preprocessor">#endif</span></div>
+<div class="ttc" id="ainclude_2manux_2types_8h_html_a06896e8c53f721507066c079052171f8"><div class="ttname"><a href="include_2manux_2types_8h.html#a06896e8c53f721507066c079052171f8">uint32_t</a></div><div class="ttdeci">unsigned long uint32_t</div><div class="ttdef"><b>Definition</b> <a href="include_2manux_2types_8h_source.html#l00020">types.h:20</a></div></div>
+<div class="ttc" id="ainterBasNiveau_8h_html_a0117f311fdad002499381f5c5d714f49"><div class="ttname"><a href="interBasNiveau_8h.html#a0117f311fdad002499381f5c5d714f49">stubHandlerExFloatingVirtualization</a></div><div class="ttdeci">void stubHandlerExFloatingVirtualization(void)</div></div>
+<div class="ttc" id="ainterBasNiveau_8h_html_a011dc7f9e3233a2a50283751c23ac9ff"><div class="ttname"><a href="interBasNiveau_8h.html#a011dc7f9e3233a2a50283751c23ac9ff">stubHandlerIRQ15</a></div><div class="ttdeci">void stubHandlerIRQ15(void)</div></div>
+<div class="ttc" id="ainterBasNiveau_8h_html_a028f6297c8f7e318fd5adf4631e5f418"><div class="ttname"><a href="interBasNiveau_8h.html#a028f6297c8f7e318fd5adf4631e5f418">stubHandlerExReserved6</a></div><div class="ttdeci">void stubHandlerExReserved6(void)</div></div>
+<div class="ttc" id="ainterBasNiveau_8h_html_a04e7d30f0f16ce6dc4a7159bbe367297"><div class="ttname"><a href="interBasNiveau_8h.html#a04e7d30f0f16ce6dc4a7159bbe367297">stubHandlerExNMI</a></div><div class="ttdeci">void stubHandlerExNMI(void)</div></div>
+<div class="ttc" id="ainterBasNiveau_8h_html_a13b5f17b7643984676af137edc35863a"><div class="ttname"><a href="interBasNiveau_8h.html#a13b5f17b7643984676af137edc35863a">stubHandlerNop</a></div><div class="ttdeci">void stubHandlerNop(void)</div></div>
+<div class="ttc" id="ainterBasNiveau_8h_html_a14817650be1a106da0a82e456c170616"><div class="ttname"><a href="interBasNiveau_8h.html#a14817650be1a106da0a82e456c170616">stubHandlerIRQ9</a></div><div class="ttdeci">void stubHandlerIRQ9(void)</div></div>
+<div class="ttc" id="ainterBasNiveau_8h_html_a181b2a4955dc66bea034f7a56c2e72fc"><div class="ttname"><a href="interBasNiveau_8h.html#a181b2a4955dc66bea034f7a56c2e72fc">stubHandlerIRQ6</a></div><div class="ttdeci">void stubHandlerIRQ6(void)</div></div>
+<div class="ttc" id="ainterBasNiveau_8h_html_a2088efebfb49df3de42ebdd0ae827bb7"><div class="ttname"><a href="interBasNiveau_8h.html#a2088efebfb49df3de42ebdd0ae827bb7">stubHandlerIRQ4</a></div><div class="ttdeci">void stubHandlerIRQ4(void)</div></div>
+<div class="ttc" id="ainterBasNiveau_8h_html_a20d4fbf6dd9cd705e15abc46b19ec7ca"><div class="ttname"><a href="interBasNiveau_8h.html#a20d4fbf6dd9cd705e15abc46b19ec7ca">stubHandlerExReserved</a></div><div class="ttdeci">void stubHandlerExReserved(void)</div></div>
+<div class="ttc" id="ainterBasNiveau_8h_html_a21acfb830484cd026c7e70b1c28333dc"><div class="ttname"><a href="interBasNiveau_8h.html#a21acfb830484cd026c7e70b1c28333dc">stubHandlerIRQ5</a></div><div class="ttdeci">void stubHandlerIRQ5(void)</div></div>
+<div class="ttc" id="ainterBasNiveau_8h_html_a265bf1e556cdf41fea502a748590d646"><div class="ttname"><a href="interBasNiveau_8h.html#a265bf1e556cdf41fea502a748590d646">stubHandlerExFloatingSIMDFPE</a></div><div class="ttdeci">void stubHandlerExFloatingSIMDFPE(void)</div></div>
+<div class="ttc" id="ainterBasNiveau_8h_html_a27ac1f92e0d2549cf30191faef7f6ec4"><div class="ttname"><a href="interBasNiveau_8h.html#a27ac1f92e0d2549cf30191faef7f6ec4">stubHandlerExDebug</a></div><div class="ttdeci">void stubHandlerExDebug(void)</div></div>
+<div class="ttc" id="ainterBasNiveau_8h_html_a2d7bb2bd066ecaedc298d8763e4cd0ce"><div class="ttname"><a href="interBasNiveau_8h.html#a2d7bb2bd066ecaedc298d8763e4cd0ce">stubHandlerIRQ1</a></div><div class="ttdeci">void stubHandlerIRQ1(void)</div></div>
+<div class="ttc" id="ainterBasNiveau_8h_html_a346546ae5b849858b5a5cbed308054df"><div class="ttname"><a href="interBasNiveau_8h.html#a346546ae5b849858b5a5cbed308054df">stubHandlerExReserved4</a></div><div class="ttdeci">void stubHandlerExReserved4(void)</div></div>
+<div class="ttc" id="ainterBasNiveau_8h_html_a3a3465972788a956d8d9db6638e7585d"><div class="ttname"><a href="interBasNiveau_8h.html#a3a3465972788a956d8d9db6638e7585d">stubHandlerExDeviceInvalidOpcode</a></div><div class="ttdeci">void stubHandlerExDeviceInvalidOpcode(void)</div></div>
+<div class="ttc" id="ainterBasNiveau_8h_html_a433f74c07f731c2e888a63758d796ed9"><div class="ttname"><a href="interBasNiveau_8h.html#a433f74c07f731c2e888a63758d796ed9">stubHandlerIRQ7</a></div><div class="ttdeci">void stubHandlerIRQ7(void)</div></div>
+<div class="ttc" id="ainterBasNiveau_8h_html_a55b0a363fd83bfe79ff8211eabb439d3"><div class="ttname"><a href="interBasNiveau_8h.html#a55b0a363fd83bfe79ff8211eabb439d3">stubHandlerIRQ0</a></div><div class="ttdeci">void stubHandlerIRQ0(void)</div></div>
+<div class="ttc" id="ainterBasNiveau_8h_html_a65a33d0a792bf722ce339f1d6fcf6d5d"><div class="ttname"><a href="interBasNiveau_8h.html#a65a33d0a792bf722ce339f1d6fcf6d5d">stubHandlerIRQ13</a></div><div class="ttdeci">void stubHandlerIRQ13(void)</div></div>
+<div class="ttc" id="ainterBasNiveau_8h_html_a67b1392997118e20801ed67159276e9d"><div class="ttname"><a href="interBasNiveau_8h.html#a67b1392997118e20801ed67159276e9d">stubHandlerInt66</a></div><div class="ttdeci">void stubHandlerInt66(void)</div></div>
+<div class="ttc" id="ainterBasNiveau_8h_html_a83c08b1cf2f1838657e8cad9d1ae8db4"><div class="ttname"><a href="interBasNiveau_8h.html#a83c08b1cf2f1838657e8cad9d1ae8db4">stubHandlerIRQ12</a></div><div class="ttdeci">void stubHandlerIRQ12(void)</div></div>
+<div class="ttc" id="ainterBasNiveau_8h_html_a8510e0ebc5c591d6accb900f5b121113"><div class="ttname"><a href="interBasNiveau_8h.html#a8510e0ebc5c591d6accb900f5b121113">stubHandlerExOverflow</a></div><div class="ttdeci">void stubHandlerExOverflow(void)</div></div>
+<div class="ttc" id="ainterBasNiveau_8h_html_a8ab0216e14cfa66342615327aeb91784"><div class="ttname"><a href="interBasNiveau_8h.html#a8ab0216e14cfa66342615327aeb91784">stubHandlerIRQ3</a></div><div class="ttdeci">void stubHandlerIRQ3(void)</div></div>
+<div class="ttc" id="ainterBasNiveau_8h_html_a9700916c831dc027fb175a6be10c805b"><div class="ttname"><a href="interBasNiveau_8h.html#a9700916c831dc027fb175a6be10c805b">stubHandlerExStackSegmentFault</a></div><div class="ttdeci">void stubHandlerExStackSegmentFault(void)</div></div>
+<div class="ttc" id="ainterBasNiveau_8h_html_a99abb3ee76bb7aa4b8f608990ddbd812"><div class="ttname"><a href="interBasNiveau_8h.html#a99abb3ee76bb7aa4b8f608990ddbd812">stubHandlerExDoubleFault</a></div><div class="ttdeci">void stubHandlerExDoubleFault(void)</div></div>
+<div class="ttc" id="ainterBasNiveau_8h_html_a9b475a19483577e79b6b265c93688075"><div class="ttname"><a href="interBasNiveau_8h.html#a9b475a19483577e79b6b265c93688075">stubHandlerExAlignmentCheck</a></div><div class="ttdeci">void stubHandlerExAlignmentCheck(void)</div></div>
+<div class="ttc" id="ainterBasNiveau_8h_html_a9f52dfd2e02df4dffe10df694456de92"><div class="ttname"><a href="interBasNiveau_8h.html#a9f52dfd2e02df4dffe10df694456de92">stubHandlerExVMMCommunication</a></div><div class="ttdeci">void stubHandlerExVMMCommunication(void)</div></div>
+<div class="ttc" id="ainterBasNiveau_8h_html_aa045fe1383422111cc5c1ee41681a5cf"><div class="ttname"><a href="interBasNiveau_8h.html#aa045fe1383422111cc5c1ee41681a5cf">stubHandlerExInvalidTSS</a></div><div class="ttdeci">void stubHandlerExInvalidTSS(void)</div></div>
+<div class="ttc" id="ainterBasNiveau_8h_html_aa58f19b30c3c7b9adc1a62491a405204"><div class="ttname"><a href="interBasNiveau_8h.html#aa58f19b30c3c7b9adc1a62491a405204">stubHandlerExDeviceUnavailable</a></div><div class="ttdeci">void stubHandlerExDeviceUnavailable(void)</div></div>
+<div class="ttc" id="ainterBasNiveau_8h_html_aa77313f083e02c3baeadbf8169340f64"><div class="ttname"><a href="interBasNiveau_8h.html#aa77313f083e02c3baeadbf8169340f64">stubHandlerExReserved2</a></div><div class="ttdeci">void stubHandlerExReserved2(void)</div></div>
+<div class="ttc" id="ainterBasNiveau_8h_html_ab0e365b41572e37520c967d0b902d020"><div class="ttname"><a href="interBasNiveau_8h.html#ab0e365b41572e37520c967d0b902d020">stubHandlerExGeneralProtectionFault</a></div><div class="ttdeci">void stubHandlerExGeneralProtectionFault(void)</div></div>
+<div class="ttc" id="ainterBasNiveau_8h_html_ab31d7fee5d206c63761d5dc760a5b121"><div class="ttname"><a href="interBasNiveau_8h.html#ab31d7fee5d206c63761d5dc760a5b121">stubHandlerIRQ11</a></div><div class="ttdeci">void stubHandlerIRQ11(void)</div></div>
+<div class="ttc" id="ainterBasNiveau_8h_html_ab93ab2201811257de771734f16873fc2"><div class="ttname"><a href="interBasNiveau_8h.html#ab93ab2201811257de771734f16873fc2">stubHandlerIRQ8</a></div><div class="ttdeci">void stubHandlerIRQ8(void)</div></div>
+<div class="ttc" id="ainterBasNiveau_8h_html_abae5f73bb19161edced8117d9303baa5"><div class="ttname"><a href="interBasNiveau_8h.html#abae5f73bb19161edced8117d9303baa5">stubHandlerIRQ2</a></div><div class="ttdeci">void stubHandlerIRQ2(void)</div></div>
+<div class="ttc" id="ainterBasNiveau_8h_html_abbc6b673ac6bca412c67184e95e2a45e"><div class="ttname"><a href="interBasNiveau_8h.html#abbc6b673ac6bca412c67184e95e2a45e">stubHandlerIRQ14</a></div><div class="ttdeci">void stubHandlerIRQ14(void)</div></div>
+<div class="ttc" id="ainterBasNiveau_8h_html_ac06f56674ff2a663414476cce3f3182d"><div class="ttname"><a href="interBasNiveau_8h.html#ac06f56674ff2a663414476cce3f3182d">stubHandlerExCoproOverrun</a></div><div class="ttdeci">void stubHandlerExCoproOverrun(void)</div></div>
+<div class="ttc" id="ainterBasNiveau_8h_html_ac0f4a0148031aa2f786bcff94e762a9c"><div class="ttname"><a href="interBasNiveau_8h.html#ac0f4a0148031aa2f786bcff94e762a9c">stubHandlerExReserved5</a></div><div class="ttdeci">void stubHandlerExReserved5(void)</div></div>
+<div class="ttc" id="ainterBasNiveau_8h_html_ac99465ca0b3ae5ceca688cd0bd3b3a2a"><div class="ttname"><a href="interBasNiveau_8h.html#ac99465ca0b3ae5ceca688cd0bd3b3a2a">initialiserHandlersInterruption</a></div><div class="ttdeci">void initialiserHandlersInterruption(void *table, uint32_t taille)</div></div>
+<div class="ttc" id="ainterBasNiveau_8h_html_acd8ef72b577ea14e54a9a2c963a2e650"><div class="ttname"><a href="interBasNiveau_8h.html#acd8ef72b577ea14e54a9a2c963a2e650">stubHandlerExHypervisionInjection</a></div><div class="ttdeci">void stubHandlerExHypervisionInjection(void)</div></div>
+<div class="ttc" id="ainterBasNiveau_8h_html_ad1943929cb3660db3db8e8106bb229dd"><div class="ttname"><a href="interBasNiveau_8h.html#ad1943929cb3660db3db8e8106bb229dd">stubHandlerExReserved8</a></div><div class="ttdeci">void stubHandlerExReserved8(void)</div></div>
+<div class="ttc" id="ainterBasNiveau_8h_html_ad2192f3561a64d7ee582a88210a1c498"><div class="ttname"><a href="interBasNiveau_8h.html#ad2192f3561a64d7ee582a88210a1c498">stubHandlerExBreakpoint</a></div><div class="ttdeci">void stubHandlerExBreakpoint(void)</div></div>
+<div class="ttc" id="ainterBasNiveau_8h_html_ad2278d9aaf018136d5a478c03f758dc3"><div class="ttname"><a href="interBasNiveau_8h.html#ad2278d9aaf018136d5a478c03f758dc3">stubHandlerIRQ10</a></div><div class="ttdeci">void stubHandlerIRQ10(void)</div></div>
+<div class="ttc" id="ainterBasNiveau_8h_html_ad25dcc5af284896e4ac66d00b4497dc6"><div class="ttname"><a href="interBasNiveau_8h.html#ad25dcc5af284896e4ac66d00b4497dc6">stubHandlerExPageFault</a></div><div class="ttdeci">void stubHandlerExPageFault(void)</div></div>
+<div class="ttc" id="ainterBasNiveau_8h_html_ad3e86564d7ecf32aced790b68b99cf18"><div class="ttname"><a href="interBasNiveau_8h.html#ad3e86564d7ecf32aced790b68b99cf18">stubHandlerExFloatingPoint</a></div><div class="ttdeci">void stubHandlerExFloatingPoint(void)</div></div>
+<div class="ttc" id="ainterBasNiveau_8h_html_ad8e09db3803eaf9d226c3468dc24147a"><div class="ttname"><a href="interBasNiveau_8h.html#ad8e09db3803eaf9d226c3468dc24147a">stubHandlerExReserved3</a></div><div class="ttdeci">void stubHandlerExReserved3(void)</div></div>
+<div class="ttc" id="ainterBasNiveau_8h_html_ad974b301dcd029ed13c7f656f5a361f7"><div class="ttname"><a href="interBasNiveau_8h.html#ad974b301dcd029ed13c7f656f5a361f7">stubHandlerExBoundExceeded</a></div><div class="ttdeci">void stubHandlerExBoundExceeded(void)</div></div>
+<div class="ttc" id="ainterBasNiveau_8h_html_ade93d3d2ec4958e8361099ca91a32c18"><div class="ttname"><a href="interBasNiveau_8h.html#ade93d3d2ec4958e8361099ca91a32c18">stubHandlerExControlProtection</a></div><div class="ttdeci">void stubHandlerExControlProtection(void)</div></div>
+<div class="ttc" id="ainterBasNiveau_8h_html_ae282903a40ffd696d05f6f266f9da6c1"><div class="ttname"><a href="interBasNiveau_8h.html#ae282903a40ffd696d05f6f266f9da6c1">stubHandlerExReserved7</a></div><div class="ttdeci">void stubHandlerExReserved7(void)</div></div>
+<div class="ttc" id="ainterBasNiveau_8h_html_ae5d73b6a0c47b160e80a694f9d64e0c1"><div class="ttname"><a href="interBasNiveau_8h.html#ae5d73b6a0c47b160e80a694f9d64e0c1">stubHandlerExSegmentNotPresent</a></div><div class="ttdeci">void stubHandlerExSegmentNotPresent(void)</div></div>
+<div class="ttc" id="ainterBasNiveau_8h_html_ae9a43b32831f8cf032ddf86ff0f9d785"><div class="ttname"><a href="interBasNiveau_8h.html#ae9a43b32831f8cf032ddf86ff0f9d785">stubHandlerExDiv0</a></div><div class="ttdeci">void stubHandlerExDiv0(void)</div></div>
+<div class="ttc" id="ainterBasNiveau_8h_html_af013e6697a29ff17e005c06ca6040bf6"><div class="ttname"><a href="interBasNiveau_8h.html#af013e6697a29ff17e005c06ca6040bf6">stubHandlerExFloatingMachineCheck</a></div><div class="ttdeci">void stubHandlerExFloatingMachineCheck(void)</div></div>
+<div class="ttc" id="ainterBasNiveau_8h_html_af3e5b5751c7ecb28580cd14400aef4ca"><div class="ttname"><a href="interBasNiveau_8h.html#af3e5b5751c7ecb28580cd14400aef4ca">stubHandlerExSecurity</a></div><div class="ttdeci">void stubHandlerExSecurity(void)</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

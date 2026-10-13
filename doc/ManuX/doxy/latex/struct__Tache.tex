@@ -1,0 +1,159 @@
+\doxysection{Référence de la structure \+\_\+\+Tache}
+\hypertarget{struct__Tache}{}\label{struct__Tache}\index{\_Tache@{\_Tache}}
+
+
+\+: Définition du type décrivant une tache.  
+
+
+
+
+{\ttfamily \#include $<$tache.\+h$>$}
+
+
+
+Graphe de collaboration de \+\_\+\+Tache\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=289pt]{struct__Tache__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Attributs publics}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{tache_8h_af5b9601373a4046cda03c6c8f1a17f98}{Intel\+TSS}} \mbox{\hyperlink{struct__Tache_af2bac45e38758f03f8b91fff30e0fb3e}{tss}}
+\item 
+\mbox{\hyperlink{segment_8h_ae5e4cb3889e9015f7648c7208c5aad01}{Descriptor\+Table}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct__Tache_a5b70cfbdeeb9dd7fe9448185490d5fa6}{ldt}}
+\item 
+\mbox{\hyperlink{include_2manux_2types_8h_a273cf69d639a59973b6019625df33e30}{uint16\+\_\+t}} \mbox{\hyperlink{struct__Tache_ab249d7e8cd1654617b229e6abee76736}{indice\+TSSDescriptor}}
+\item 
+\mbox{\hyperlink{include_2manux_2types_8h_a1aa19b97c742cff758e6532b519954c4}{Tache\+ID}} \mbox{\hyperlink{struct__Tache_adcc9e272e58793e4bae000102d6537a3}{numero}}
+\item 
+\mbox{\hyperlink{tache_8h_a4ef64c3567697a3cbcb901cc34fbf3bd}{Etat\+Tache}} \mbox{\hyperlink{struct__Tache_a52778b74cd5dd7afca337370e89d1668}{etat}}
+\item 
+\mbox{\hyperlink{tache_8h_a8cdfdbee5b3891f88dff0dc3a94cfdce}{void}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct__Tache_ac053a0bcac4f36fcad81e909c1e81b3a}{taille\+Memoire}}
+\item 
+Corps\+Tache \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct__Tache_a69b3de36a23cd4f91f04f976a66c452d}{fonction\+Principale}}
+\item 
+\mbox{\hyperlink{include_2manux_2types_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}} \mbox{\hyperlink{struct__Tache_adf8333ec5a3905476de96e3159051672}{non\+Preemptible}}
+\item 
+\mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\+\_\+t}} \mbox{\hyperlink{struct__Tache_a75f1c6827f13f0d92b905e4f6b0d42e5}{nb\+Activations}}
+\item 
+\mbox{\hyperlink{include_2manux_2types_8h_abe4acab18c967c397d24aa95c2d48b27}{Temps}} \mbox{\hyperlink{struct__Tache_a8e4b96d2966bc94de3d6d47cdb10ace0}{temps\+Execution}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+\+: Définition du type décrivant une tache. 
+
+Définition à la ligne \mbox{\hyperlink{tache_8h_source_l00083}{83}} du fichier \mbox{\hyperlink{tache_8h_source}{tache.\+h}}.
+
+
+
+\doxysubsection{Documentation des données membres}
+\Hypertarget{struct__Tache_a52778b74cd5dd7afca337370e89d1668}\label{struct__Tache_a52778b74cd5dd7afca337370e89d1668} 
+\index{\_Tache@{\_Tache}!etat@{etat}}
+\index{etat@{etat}!\_Tache@{\_Tache}}
+\doxysubsubsection{\texorpdfstring{etat}{etat}}
+{\footnotesize\ttfamily \mbox{\hyperlink{tache_8h_a4ef64c3567697a3cbcb901cc34fbf3bd}{Etat\+Tache}} \+\_\+\+Tache\+::etat}
+
+
+
+Définition à la ligne \mbox{\hyperlink{tache_8h_source_l00089}{89}} du fichier \mbox{\hyperlink{tache_8h_source}{tache.\+h}}.
+
+\Hypertarget{struct__Tache_a69b3de36a23cd4f91f04f976a66c452d}\label{struct__Tache_a69b3de36a23cd4f91f04f976a66c452d} 
+\index{\_Tache@{\_Tache}!fonctionPrincipale@{fonctionPrincipale}}
+\index{fonctionPrincipale@{fonctionPrincipale}!\_Tache@{\_Tache}}
+\doxysubsubsection{\texorpdfstring{fonctionPrincipale}{fonctionPrincipale}}
+{\footnotesize\ttfamily Corps\+Tache\texorpdfstring{$\ast$}{*} \+\_\+\+Tache\+::fonction\+Principale}
+
+
+
+Définition à la ligne \mbox{\hyperlink{tache_8h_source_l00092}{92}} du fichier \mbox{\hyperlink{tache_8h_source}{tache.\+h}}.
+
+\Hypertarget{struct__Tache_ab249d7e8cd1654617b229e6abee76736}\label{struct__Tache_ab249d7e8cd1654617b229e6abee76736} 
+\index{\_Tache@{\_Tache}!indiceTSSDescriptor@{indiceTSSDescriptor}}
+\index{indiceTSSDescriptor@{indiceTSSDescriptor}!\_Tache@{\_Tache}}
+\doxysubsubsection{\texorpdfstring{indiceTSSDescriptor}{indiceTSSDescriptor}}
+{\footnotesize\ttfamily \mbox{\hyperlink{include_2manux_2types_8h_a273cf69d639a59973b6019625df33e30}{uint16\+\_\+t}} \+\_\+\+Tache\+::indice\+TSSDescriptor}
+
+
+
+Définition à la ligne \mbox{\hyperlink{tache_8h_source_l00086}{86}} du fichier \mbox{\hyperlink{tache_8h_source}{tache.\+h}}.
+
+\Hypertarget{struct__Tache_a5b70cfbdeeb9dd7fe9448185490d5fa6}\label{struct__Tache_a5b70cfbdeeb9dd7fe9448185490d5fa6} 
+\index{\_Tache@{\_Tache}!ldt@{ldt}}
+\index{ldt@{ldt}!\_Tache@{\_Tache}}
+\doxysubsubsection{\texorpdfstring{ldt}{ldt}}
+{\footnotesize\ttfamily \mbox{\hyperlink{segment_8h_ae5e4cb3889e9015f7648c7208c5aad01}{Descriptor\+Table}}\texorpdfstring{$\ast$}{*} \+\_\+\+Tache\+::ldt}
+
+
+
+Définition à la ligne \mbox{\hyperlink{tache_8h_source_l00085}{85}} du fichier \mbox{\hyperlink{tache_8h_source}{tache.\+h}}.
+
+\Hypertarget{struct__Tache_a75f1c6827f13f0d92b905e4f6b0d42e5}\label{struct__Tache_a75f1c6827f13f0d92b905e4f6b0d42e5} 
+\index{\_Tache@{\_Tache}!nbActivations@{nbActivations}}
+\index{nbActivations@{nbActivations}!\_Tache@{\_Tache}}
+\doxysubsubsection{\texorpdfstring{nbActivations}{nbActivations}}
+{\footnotesize\ttfamily \mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\+\_\+t}} \+\_\+\+Tache\+::nb\+Activations}
+
+
+
+Définition à la ligne \mbox{\hyperlink{tache_8h_source_l00104}{104}} du fichier \mbox{\hyperlink{tache_8h_source}{tache.\+h}}.
+
+\Hypertarget{struct__Tache_adf8333ec5a3905476de96e3159051672}\label{struct__Tache_adf8333ec5a3905476de96e3159051672} 
+\index{\_Tache@{\_Tache}!nonPreemptible@{nonPreemptible}}
+\index{nonPreemptible@{nonPreemptible}!\_Tache@{\_Tache}}
+\doxysubsubsection{\texorpdfstring{nonPreemptible}{nonPreemptible}}
+{\footnotesize\ttfamily \mbox{\hyperlink{include_2manux_2types_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}} \+\_\+\+Tache\+::non\+Preemptible}
+
+
+
+Définition à la ligne \mbox{\hyperlink{tache_8h_source_l00094}{94}} du fichier \mbox{\hyperlink{tache_8h_source}{tache.\+h}}.
+
+\Hypertarget{struct__Tache_adcc9e272e58793e4bae000102d6537a3}\label{struct__Tache_adcc9e272e58793e4bae000102d6537a3} 
+\index{\_Tache@{\_Tache}!numero@{numero}}
+\index{numero@{numero}!\_Tache@{\_Tache}}
+\doxysubsubsection{\texorpdfstring{numero}{numero}}
+{\footnotesize\ttfamily \mbox{\hyperlink{include_2manux_2types_8h_a1aa19b97c742cff758e6532b519954c4}{Tache\+ID}} \+\_\+\+Tache\+::numero}
+
+
+
+Définition à la ligne \mbox{\hyperlink{tache_8h_source_l00088}{88}} du fichier \mbox{\hyperlink{tache_8h_source}{tache.\+h}}.
+
+\Hypertarget{struct__Tache_ac053a0bcac4f36fcad81e909c1e81b3a}\label{struct__Tache_ac053a0bcac4f36fcad81e909c1e81b3a} 
+\index{\_Tache@{\_Tache}!tailleMemoire@{tailleMemoire}}
+\index{tailleMemoire@{tailleMemoire}!\_Tache@{\_Tache}}
+\doxysubsubsection{\texorpdfstring{tailleMemoire}{tailleMemoire}}
+{\footnotesize\ttfamily \mbox{\hyperlink{tache_8h_a8cdfdbee5b3891f88dff0dc3a94cfdce}{void}}\texorpdfstring{$\ast$}{*} \+\_\+\+Tache\+::taille\+Memoire}
+
+
+
+Définition à la ligne \mbox{\hyperlink{tache_8h_source_l00090}{90}} du fichier \mbox{\hyperlink{tache_8h_source}{tache.\+h}}.
+
+\Hypertarget{struct__Tache_a8e4b96d2966bc94de3d6d47cdb10ace0}\label{struct__Tache_a8e4b96d2966bc94de3d6d47cdb10ace0} 
+\index{\_Tache@{\_Tache}!tempsExecution@{tempsExecution}}
+\index{tempsExecution@{tempsExecution}!\_Tache@{\_Tache}}
+\doxysubsubsection{\texorpdfstring{tempsExecution}{tempsExecution}}
+{\footnotesize\ttfamily \mbox{\hyperlink{include_2manux_2types_8h_abe4acab18c967c397d24aa95c2d48b27}{Temps}} \+\_\+\+Tache\+::temps\+Execution}
+
+
+
+Définition à la ligne \mbox{\hyperlink{tache_8h_source_l00105}{105}} du fichier \mbox{\hyperlink{tache_8h_source}{tache.\+h}}.
+
+\Hypertarget{struct__Tache_af2bac45e38758f03f8b91fff30e0fb3e}\label{struct__Tache_af2bac45e38758f03f8b91fff30e0fb3e} 
+\index{\_Tache@{\_Tache}!tss@{tss}}
+\index{tss@{tss}!\_Tache@{\_Tache}}
+\doxysubsubsection{\texorpdfstring{tss}{tss}}
+{\footnotesize\ttfamily \mbox{\hyperlink{tache_8h_af5b9601373a4046cda03c6c8f1a17f98}{Intel\+TSS}} \+\_\+\+Tache\+::tss}
+
+
+
+Définition à la ligne \mbox{\hyperlink{tache_8h_source_l00084}{84}} du fichier \mbox{\hyperlink{tache_8h_source}{tache.\+h}}.
+
+
+
+La documentation de cette structure a été générée à partir du fichier suivant \+:\begin{DoxyCompactItemize}
+\item 
+/home/manu/\+PROGRAMMATION/\+C/\+Manu\+X/include/manux/\mbox{\hyperlink{tache_8h}{tache.\+h}}\end{DoxyCompactItemize}

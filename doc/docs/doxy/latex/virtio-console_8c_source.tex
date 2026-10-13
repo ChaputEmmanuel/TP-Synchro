@@ -1,0 +1,255 @@
+\doxysection{virtio-\/console.c}
+\hypertarget{virtio-console_8c_source}{}\label{virtio-console_8c_source}\index{/home/manu/PROGRAMMATION/C/ManuX/noyau/virtio-\/console.c@{/home/manu/PROGRAMMATION/C/ManuX/noyau/virtio-\/console.c}}
+\mbox{\hyperlink{virtio-console_8c}{Aller à la documentation de ce fichier.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00016}00016\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{virtio-console_8h}{manux/virtio-\/console.h}}>}}
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00017}00017\ }
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00018}00018\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{manux_2intel-8259a_8h}{manux/intel-\/8259a.h}}>}\ \ \textcolor{comment}{//\ pour\ les\ interruptions\ }}
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00019}00019\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{manux_2pci_8h}{manux/pci.h}}>}\ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Pour\ aller\ récupérer\ l'irq,\ on\ doit}}
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00020}00020\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ pouvoir\ s'en\ passer\ avec\ une}}
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00021}00021\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ fonction\ dans\ virtio}}
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00022}00022\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{include_2manux_2memoire_8h}{manux/memoire.h}}>}\ \ \ \ \ \ \textcolor{comment}{//\ allouerPages}}
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00023}00023\ }
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00024}00024\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{io_8h}{manux/io.h}}>}\ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ outb}}
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00025}00025\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{manux_2debug_8h}{manux/debug.h}}>}}
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00026}00026\ \textcolor{preprocessor}{\#include\ <manux/errno.h>}}
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00027}00027\ \textcolor{preprocessor}{\#include\ <manux/string.h>}}
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00028}00028\ }
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00032}\mbox{\hyperlink{structVirtioConsole__t}{00032}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structVirtioConsole__t}{VirtioConsole\_t}}\ \{}
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00033}\mbox{\hyperlink{structVirtioConsole__t_a20b9ed9d5f67d4ff0cd1d788aa4f20f7}{00033}}\ \ \ \ \mbox{\hyperlink{manux_2virtio_8h_ae5ce3884f555c701f9f8099645f09fe5}{VirtioPeripherique}}\ \ \ \ \mbox{\hyperlink{structVirtioConsole__t_a20b9ed9d5f67d4ff0cd1d788aa4f20f7}{virtioPeripherique}};\ }
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00034}\mbox{\hyperlink{structVirtioConsole__t_a05b8958338bfd8850c03181960db110a}{00034}}\ \ \ \ \mbox{\hyperlink{include_2manux_2types_8h_a273cf69d639a59973b6019625df33e30}{uint16\_t}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structVirtioConsole__t_a05b8958338bfd8850c03181960db110a}{nbItRecues}};}
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00035}\mbox{\hyperlink{virtio-console_8c_af241654ca930adb8ea2d8e81823a219a}{00035}}\ \}\ \mbox{\hyperlink{virtio-console_8c_af241654ca930adb8ea2d8e81823a219a}{VirtioConsole}};}
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00036}00036\ }
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00041}\mbox{\hyperlink{virtio-console_8c_add3b40b0ce7fe696ce7d7cde78411235}{00041}}\ \mbox{\hyperlink{structVirtioConsole__t}{VirtioConsole}}\ \mbox{\hyperlink{virtio-console_8c_add3b40b0ce7fe696ce7d7cde78411235}{virtioConsole}};\ }
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00042}00042\ }
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00043}00043\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{int}\ \ \ \ nbPageAlloueesIci\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00044}00044\ }
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00052}\mbox{\hyperlink{virtio-console_8c_a3aa7bc24ee0d41414c55faf897b193d5}{00052}}\ \textcolor{preprocessor}{\#define\ NB\_BUFF\_TRAITES\ 16}}
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00053}00053\ \textcolor{keyword}{static}}
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00054}00054\ \textcolor{keywordtype}{void}\ virtioConsoleTraiterBuffers(\mbox{\hyperlink{structVirtioConsole__t}{VirtioConsole}}\ *\ vc)}
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00055}00055\ \{}
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00056}00056\ \ \ \ \textcolor{keywordtype}{void}\ *bf\ [\mbox{\hyperlink{virtio-console_8c_a3aa7bc24ee0d41414c55faf897b193d5}{NB\_BUFF\_TRAITES}}];}
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00057}00057\ \ \ \ \textcolor{keywordtype}{int}\ lg[\mbox{\hyperlink{virtio-console_8c_a3aa7bc24ee0d41414c55faf897b193d5}{NB\_BUFF\_TRAITES}}];}
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00058}00058\ \ \ \ \textcolor{keywordtype}{int}\ nbLu;}
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00059}00059\ }
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00060}00060\ \ \ \ \textcolor{comment}{//\ Récupération\ d'une\ éventuelle\ entrée}}
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00061}00061\ \ \ \ nbLu\ =\ \mbox{\hyperlink{manux_2virtio_8h_aad0abebf096dcffb576a391ef8d1ec09}{virtioFileRecupererBuffers}}(}
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00062}00062\ \ \ \ \ \ \ \&(vc-\/>\mbox{\hyperlink{structVirtioConsole__t_a20b9ed9d5f67d4ff0cd1d788aa4f20f7}{virtioPeripherique}}.filesVirtuelles[\mbox{\hyperlink{virtio-console_8h_af28c83b7a2df18ff5cb620e6c5cf777b}{VIRTIO\_CONSOLE\_PORT0\_IN}}]),}
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00063}00063\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ bf,\ lg,\ \mbox{\hyperlink{virtio-console_8c_a3aa7bc24ee0d41414c55faf897b193d5}{NB\_BUFF\_TRAITES}});}
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00064}00064\ \ \ \ \textcolor{comment}{//printk("{}[7]\ FQ\ \%d\(\backslash\)n"{},\ nbLu);}}
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00065}00065\ \ \ \ \textcolor{keywordflow}{do}\ \{}
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00066}00066\ \ \ \ \ \ \ \textcolor{comment}{//\ Récupération\ des\ buffers\ émis\ et\ consommés}}
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00067}00067\ \ \ \ \ \ \ nbLu\ =\ \mbox{\hyperlink{manux_2virtio_8h_aad0abebf096dcffb576a391ef8d1ec09}{virtioFileRecupererBuffers}}(\ \ }
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00068}00068\ \ \ \ \ \ \ \ \ \ \&(vc-\/>\mbox{\hyperlink{structVirtioConsole__t_a20b9ed9d5f67d4ff0cd1d788aa4f20f7}{virtioPeripherique}}.filesVirtuelles[\mbox{\hyperlink{virtio-console_8h_a796c69a670b660db8a1a6f5e4c84b557}{VIRTIO\_CONSOLE\_PORT0\_OUT}}]),}
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00069}00069\ \ \ \ \ \ \ \ \ \ bf,\ lg,\ \mbox{\hyperlink{virtio-console_8c_a3aa7bc24ee0d41414c55faf897b193d5}{NB\_BUFF\_TRAITES}});}
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00070}00070\ \ \ \ \ \ \ \textcolor{comment}{//printk("{}[7]\ OK\ !\(\backslash\)n"{});}}
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00071}00071\ }
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00072}00072\ \ \ \ \ \ \ \textcolor{comment}{//\ WARNING\ Pas\ top,\ est-\/ce\ qu'il\ faut\ vraiment\ des\ désallouer\ !?}}
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00073}00073\ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ n\ =\ 0;\ n\ <\ nbLu;\ n++)\ \{}
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00074}00074\ \ \ \ \ \ \mbox{\hyperlink{include_2manux_2memoire_8h_aee3b45cedb3e2add79c773ed3558a1c8}{libererPage}}(bf[n]);}
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00075}00075\ \ \ \ \ \ \ \ \ \ nbPageAlloueesIci\ -\/-\/;}
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00076}00076\ \ \ \ \ \ \textcolor{comment}{//\ \ printk("{}[7]\ virtioConsoleTraiterBuffers\ libere\ page\ 0x\%x\ (reste\ \%d)\(\backslash\)n"{},\ bf[n],\ nbPageAlloueesIci);}}
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00077}00077\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00078}00078\ \ \ \ \}\ \textcolor{keywordflow}{while}\ (nbLu\ >\ 0);}
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00079}00079\ \ \ \ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00080}00080\ \textcolor{comment}{\ \ \ printk("{}[7]\ Apres\ lecture\ ...\(\backslash\)n"{});}}
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00081}00081\ \textcolor{comment}{\ \ \ virtioAfficherFile(\&(vc-\/>virtioPeripherique.filesVirtuelles[VIRTIO\_CONSOLE\_PORT0\_OUT]));}}
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00082}00082\ \textcolor{comment}{\ \ \ */}}
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00083}00083\ \ \ \ \mbox{\hyperlink{manux_2virtio_8h_a463360d60781bf28d8d47ea1a8e7e496}{virtioFileAutoriserInterruption}}(\&(vc-\/>\mbox{\hyperlink{structVirtioConsole__t_a20b9ed9d5f67d4ff0cd1d788aa4f20f7}{virtioPeripherique}}.filesVirtuelles[\mbox{\hyperlink{virtio-console_8h_a796c69a670b660db8a1a6f5e4c84b557}{VIRTIO\_CONSOLE\_PORT0\_OUT}}]));}
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00084}00084\ \ \ \ \mbox{\hyperlink{manux_2virtio_8h_a463360d60781bf28d8d47ea1a8e7e496}{virtioFileAutoriserInterruption}}(\&(vc-\/>\mbox{\hyperlink{structVirtioConsole__t_a20b9ed9d5f67d4ff0cd1d788aa4f20f7}{virtioPeripherique}}.filesVirtuelles[\mbox{\hyperlink{virtio-console_8h_af28c83b7a2df18ff5cb620e6c5cf777b}{VIRTIO\_CONSOLE\_PORT0\_IN}}]));}
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00085}00085\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00086}00086\ }
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00090}00090\ \textcolor{keyword}{static}}
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00091}00091\ \textcolor{keywordtype}{void}\ virtioConsoleGestionInt(\textcolor{keywordtype}{void}\ *\ pr)}
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00092}00092\ \{}
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00093}00093\ \ \ \ \mbox{\hyperlink{structVirtioConsole__t}{VirtioConsole}}\ *\ vc\ =\ (\mbox{\hyperlink{structVirtioConsole__t}{VirtioConsole}}\ *)\ pr;}
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00094}00094\ \ \ \ \mbox{\hyperlink{include_2manux_2types_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\_t}}\ isr;}
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00095}00095\ }
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00096}00096\ \ \ \ vc-\/>\mbox{\hyperlink{structVirtioConsole__t_a05b8958338bfd8850c03181960db110a}{nbItRecues}}++;}
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00097}00097\ \ \ \ \mbox{\hyperlink{manux_2debug_8h_ad4cabea5084373436d91b5dc4e8d0a49}{printk\_debug}}(\mbox{\hyperlink{manux_2debug_8h_a75f152fead74e7da11622606d11d4a96}{DBG\_KERNEL\_VIRTIO}},\ \textcolor{stringliteral}{"{}Interruption\ \%d\ !!!\(\backslash\)n"{}},\ vc-\/>\mbox{\hyperlink{structVirtioConsole__t_a05b8958338bfd8850c03181960db110a}{nbItRecues}});}
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00098}00098\ }
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00099}00099\ \ \ \ \textcolor{comment}{//\ Est-\/ce\ moi\ qui\ suis\ visé\ ?}}
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00100}00100\ \ \ \ \mbox{\hyperlink{io_8h_a4f4a2af12435f72838eae7049d0ca6ee}{inb}}((\mbox{\hyperlink{include_2manux_2types_8h_a273cf69d639a59973b6019625df33e30}{uint16\_t}})(vc-\/>\mbox{\hyperlink{structVirtioConsole__t_a20b9ed9d5f67d4ff0cd1d788aa4f20f7}{virtioPeripherique}}.pciEquipement-\/>adresseES\ +\ \mbox{\hyperlink{manux_2virtio_8h_adc3d7827e53dc913f0706947a110b300}{VIRTIO\_HIST\_ISR}}),\ isr);}
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00101}00101\ \ \ \ \textcolor{keywordflow}{if}\ (isr\ \&\ 0x1)\ \{}
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00102}00102\ \ \ \ \ \ \ \mbox{\hyperlink{manux_2debug_8h_ad4cabea5084373436d91b5dc4e8d0a49}{printk\_debug}}(\mbox{\hyperlink{manux_2debug_8h_a75f152fead74e7da11622606d11d4a96}{DBG\_KERNEL\_VIRTIO}},\ \textcolor{stringliteral}{"{}C'est\ pour\ moi,\ ...\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00103}00103\ }
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00104}00104\ \ \ \ \ \ \ \textcolor{comment}{//\ La\ suite\ est\ à\ déférer\ dans\ une\ partie\ basse}}
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00105}00105\ \ \ \ \ \ \ virtioConsoleTraiterBuffers(vc);}
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00106}00106\ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00107}00107\ \ \ \ \ \ \mbox{\hyperlink{manux_2debug_8h_ad4cabea5084373436d91b5dc4e8d0a49}{printk\_debug}}(\mbox{\hyperlink{manux_2debug_8h_a75f152fead74e7da11622606d11d4a96}{DBG\_KERNEL\_VIRTIO}},\ \textcolor{stringliteral}{"{}Fuck\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00108}00108\ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00109}00109\ \}}
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00110}00110\ }
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00111}00111\ }
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00116}00116\ \textcolor{keyword}{static}}
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00117}00117\ \textcolor{keywordtype}{int}\ virtioConsoleInitPeripherique(\textcolor{keywordtype}{int}\ PCINumeroPeripherique)}
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00118}00118\ \{}
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00119}00119\ \ \ \ \mbox{\hyperlink{struct__PCIEquipement}{PCIEquipement}}\ \ \ \ \ \ \ *\ pciEquip\ =\ \mbox{\hyperlink{manux_2pci_8h_a9da90032fa74e35abe5c7156c1542d1e}{PCIEquipementNumero}}(PCINumeroPeripherique);}
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00120}00120\ \ \ \ \textcolor{keywordtype}{void}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *\ pointeur;\ \textcolor{comment}{//\ Pour\ allouer\ de\ la\ mémoire\ en}}
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00121}00121\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ réception}}
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00122}00122\ \ \ \ \mbox{\hyperlink{manux_2virtio_8h_a3f078bcc0894ca39b56f2af3bce4be7f}{VirtioFileVirtuelle}}\ *\ fr;\ \ \ \ \ \ \ \textcolor{comment}{//\ réception}}
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00123}00123\ \ \ \ \textcolor{comment}{//\ On\ va\ construire\ un\ tableau\ de\ buffers\ (et\ un\ de\ leurs}}
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00124}00124\ \ \ \ \textcolor{comment}{//\ longueurs)\ pour\ passer\ à\ virtioFournirBuffers}}
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00125}00125\ \ \ \ \textcolor{keywordtype}{void}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *\ buffers[1];}
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00126}00126\ \ \ \ \textcolor{keywordtype}{int}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ longueurs[1];}
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00127}00127\ }
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00128}00128\ \ \ \ \mbox{\hyperlink{manux_2debug_8h_ad4cabea5084373436d91b5dc4e8d0a49}{printk\_debug}}(\mbox{\hyperlink{manux_2debug_8h_a75f152fead74e7da11622606d11d4a96}{DBG\_KERNEL\_VIRTIO}},\ \textcolor{stringliteral}{"{}IN\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00129}00129\ }
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00130}00130\ \ \ \ \textcolor{comment}{//\ On\ renseigne\ la\ structure}}
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00131}00131\ \ \ \ \mbox{\hyperlink{manux_2virtio_8h_a4c591d0f2cd08e9d586138bbf25ef2d3}{virtioInitPeripheriquePCI}}(\&(\mbox{\hyperlink{virtio-console_8c_add3b40b0ce7fe696ce7d7cde78411235}{virtioConsole}}.\mbox{\hyperlink{structVirtioConsole__t_a20b9ed9d5f67d4ff0cd1d788aa4f20f7}{virtioPeripherique}}),}
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00132}00132\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ PCINumeroPeripherique,}
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00133}00133\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{virtio-console_8h_a05487bc9e2a0992472ddbe8483673590}{VIRTIO\_CONSOLE\_F\_SIZE}}}
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00134}00134\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ \mbox{\hyperlink{virtio-console_8h_a54f3e528134c6656328c7e63655b216c}{VIRTIO\_CONSOLE\_F\_MULTIPORT}});}
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00135}00135\ }
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00136}00136\ \ \ \ \textcolor{comment}{//\ La\ suite\ est\ à\ mettre\ dans\ virtio\ (ou\ à\ virer\ ?)}}
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00137}00137\ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{intel-8259a_8c_a8c849c456bff2b144e72c0d55873647a}{i8259aAjouterHandler}}(pciEquip-\/>\mbox{\hyperlink{struct__PCIEquipement_a16694af679e00d8362c3e81e911fc672}{interruption}},}
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00138}00138\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ virtioConsoleGestionInt,}
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00139}00139\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \&\mbox{\hyperlink{virtio-console_8c_add3b40b0ce7fe696ce7d7cde78411235}{virtioConsole}}))\{}
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00140}00140\ \ \ \ \ \ \ \mbox{\hyperlink{include_2manux_2printk_8h_a25b30e8bbadd54650c56895999dd808f}{printk}}(\mbox{\hyperlink{include_2manux_2printk_8h_a08a69e546e1f4ef9f2e1f3dcd1441ebc}{PRINTK\_CRITIQUE}}\ \textcolor{stringliteral}{"{}Trop\ de\ handler\ sur\ l'interruption\ \%d\(\backslash\)n"{}},\ pciEquip-\/>\mbox{\hyperlink{struct__PCIEquipement_a16694af679e00d8362c3e81e911fc672}{interruption}});}
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00141}00141\ \ \ \ \ \ \ \mbox{\hyperlink{manux_2debug_8h_a94bcf41c2acfb543c52dcb281acba959}{paniqueNoyau}}(\textcolor{stringliteral}{"{}Pas\ possible"{}});}
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00142}00142\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{include_2manux_2errno_8h_a03e689f378f643d16ea7537918528a48}{ENOENT}};}
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00143}00143\ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00144}00144\ \ \ \ \mbox{\hyperlink{intel-8259a_8c_a9b846f608e7cad3491d9bff7e870ef00}{i8259aAutoriserIRQ}}(pciEquip-\/>\mbox{\hyperlink{struct__PCIEquipement_a16694af679e00d8362c3e81e911fc672}{interruption}});}
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00145}00145\ \ \ \ \mbox{\hyperlink{virtio-console_8c_add3b40b0ce7fe696ce7d7cde78411235}{virtioConsole}}.\mbox{\hyperlink{structVirtioConsole__t_a05b8958338bfd8850c03181960db110a}{nbItRecues}}\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00146}00146\ \ \ \ }
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00147}00147\ \ \ \ \textcolor{comment}{//\ On\ ajoute\ des\ buffers\ sur\ la\ file\ d'entrée}}
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00148}00148\ \ \ \ fr\ =\ \&(\mbox{\hyperlink{virtio-console_8c_add3b40b0ce7fe696ce7d7cde78411235}{virtioConsole}}.\mbox{\hyperlink{structVirtioConsole__t_a20b9ed9d5f67d4ff0cd1d788aa4f20f7}{virtioPeripherique}}.filesVirtuelles[\mbox{\hyperlink{virtio-console_8h_af28c83b7a2df18ff5cb620e6c5cf777b}{VIRTIO\_CONSOLE\_PORT0\_IN}}]);}
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00149}00149\ }
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00150}00150\ \ \ \ \textcolor{comment}{//\ Pas\ de\ malloc,\ ...\ WARNING\ :\ faire\ version\ avec\ malloc}}
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00151}00151\ \ \ \ pointeur\ =\ \mbox{\hyperlink{include_2manux_2memoire_8h_a09bebf2806a04211ae6bb6c11ffb6a66}{allouerPages}}(\mbox{\hyperlink{include_2manux_2memoire_8h_a86a8d5a4cf169fff16174f294cdb101d}{NB\_PAGES}}(fr-\/>taille*(1024)));}
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00152}00152\ }
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00153}00153\ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0\ ;\ i\ <\ fr-\/>taille\ ;\ i++)\ \{}
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00154}00154\ \ \ \ \ \ \ buffers[0]\ =\ pointeur;}
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00155}00155\ \ \ \ \ \ \ longueurs[0]\ =\ 1024;}
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00156}00156\ \ \ \ \ \ \ pointeur\ +=\ longueurs[0];}
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00157}00157\ }
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00158}00158\ \ \ \ \ \ \ \mbox{\hyperlink{manux_2virtio_8h_aa3eee079eb5936797e7aea41dddf9f8f}{virtioFournirBuffers}}(\&(\mbox{\hyperlink{virtio-console_8c_add3b40b0ce7fe696ce7d7cde78411235}{virtioConsole}}.\mbox{\hyperlink{structVirtioConsole__t_a20b9ed9d5f67d4ff0cd1d788aa4f20f7}{virtioPeripherique}}),}
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00159}00159\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{virtio-console_8h_af28c83b7a2df18ff5cb620e6c5cf777b}{VIRTIO\_CONSOLE\_PORT0\_IN}},}
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00160}00160\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ buffers,\ longueurs,}
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00161}00161\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 1,}
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00162}00162\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{manux_2virtio_8h_a74fe2dbfe07fd3d386e87e7e7a921691}{VRING\_DESC\_F\_WRITE}});}
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00163}00163\ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00164}00164\ }
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00165}00165\ \ \ \ \mbox{\hyperlink{manux_2debug_8h_ad4cabea5084373436d91b5dc4e8d0a49}{printk\_debug}}(\mbox{\hyperlink{manux_2debug_8h_a75f152fead74e7da11622606d11d4a96}{DBG\_KERNEL\_VIRTIO}},\ \textcolor{stringliteral}{"{}OUT\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00166}00166\ }
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00167}00167\ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{include_2manux_2errno_8h_a7c87371c2c584aeb5a722830670b9bfd}{ESUCCES}};}
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00168}00168\ \}}
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00169}00169\ }
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00170}00170\ \textcolor{preprocessor}{\#ifdef\ MANUX\_FICHIER}}
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00171}00171\ \mbox{\hyperlink{struct__MethodesFichier}{MethodesFichier}}\ virtioConsoleMethodesFichier;}
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00172}00172\ }
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00176}00176\ \textcolor{keyword}{static}}
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00177}00177\ \textcolor{keywordtype}{size\_t}\ virtioConsoleEcrire(\mbox{\hyperlink{struct__Fichier}{Fichier}}\ *\ f,\ \textcolor{keywordtype}{void}\ *\ \mbox{\hyperlink{main-bootreg_8c_a7976cd62f9b61a65e8104a3cf7c15099}{b}},\ \textcolor{keywordtype}{size\_t}\ l)}
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00178}00178\ \{}
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00179}00179\ \ \ \ \mbox{\hyperlink{structVirtioConsole__t}{VirtioConsole}}\ *\ vc\ =\ (\mbox{\hyperlink{structVirtioConsole__t}{VirtioConsole}}\ *)f-\/>\mbox{\hyperlink{struct__Fichier_a39fb043fce9256f50b0db131cd10d814}{prive}};}
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00180}00180\ }
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00181}00181\ \ \ \ \textcolor{keywordtype}{void}\ *bf\ [1];}
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00182}00182\ \ \ \ \textcolor{keywordtype}{int}\ lg[1];}
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00183}00183\ \ \ \ \textcolor{keywordtype}{int}\ nb;}
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00184}00184\ }
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00185}00185\ \ \ \ \textcolor{comment}{//\ On\ essaie\ d'aller\ chercher\ des\ buffers\ WARNING\ :pas\ sûr\ de\ la\ logique\ !}}
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00186}00186\ \ \ \ virtioConsoleTraiterBuffers(vc);}
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00187}00187\ }
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00188}00188\ \ \ \ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00189}00189\ \textcolor{comment}{\ \ \ printk("{}[7]\ Avant\ ecriture\ ...\(\backslash\)n"{});}}
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00190}00190\ \textcolor{comment}{\ \ \ virtioAfficherFile(\&(vc-\/>virtioPeripherique.filesVirtuelles[VIRTIO\_CONSOLE\_PORT0\_OUT]));}}
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00191}00191\ \textcolor{comment}{\ \ \ */}}
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00192}00192\ \ \ \ \textcolor{comment}{//\ WARNING\ Pas\ top}}
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00193}00193\ \ \ \ bf[0]\ =\ \mbox{\hyperlink{include_2manux_2memoire_8h_ad9072ff00da9e7f32b882e5c1361d46f}{allouerPage}}();}
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00194}00194\ \ \ \ nbPageAlloueesIci\ ++;}
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00195}00195\ \ \ \ \textcolor{comment}{//\ \ \ printk("{}[7]\ virtioConsoleTraiterBuffers\ allouee\ page\ 0x\%x\ (donc\ \%d)\(\backslash\)n"{},\ bf[0],\ nbPageAlloueesIci);}}
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00196}00196\ \ \ \ }
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00197}00197\ \ \ \ \mbox{\hyperlink{include_2manux_2string_8h_aba088e716bccbc96d42da97e96316df1}{memcpy}}(bf[0],\ \mbox{\hyperlink{main-bootreg_8c_a7976cd62f9b61a65e8104a3cf7c15099}{b}},\ l);}
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00198}00198\ }
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00199}00199\ \ \ \ lg[0]\ =\ l;}
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00200}00200\ }
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00201}00201\ \ \ \ nb\ =\ \mbox{\hyperlink{manux_2virtio_8h_aa3eee079eb5936797e7aea41dddf9f8f}{virtioFournirBuffers}}(\&(vc-\/>\mbox{\hyperlink{structVirtioConsole__t_a20b9ed9d5f67d4ff0cd1d788aa4f20f7}{virtioPeripherique}}),}
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00202}00202\ \ \ \ \ \ \ \ \ \ \ \ \ 1,}
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00203}00203\ \ \ \ \ \ \ \ \ \ \ \ \ bf,\ lg,\ 1,\ 0);}
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00204}00204\ }
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00205}00205\ \ \ \ \textcolor{comment}{//\ Un\ peu\ simpliste,\ ...}}
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00206}00206\ \ \ \ \textcolor{keywordflow}{if}\ (nb)\ \{}
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00207}00207\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ l;}
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00208}00208\ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00209}00209\ \ \ \ }
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00210}00210\ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00211}00211\ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00212}00212\ \}}
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00213}00213\ }
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00217}00217\ \textcolor{keyword}{static}}
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00218}00218\ \textcolor{keywordtype}{size\_t}\ virtioConsoleLire(\mbox{\hyperlink{struct__Fichier}{Fichier}}\ *\ f,\ \textcolor{keywordtype}{void}\ *\ \mbox{\hyperlink{main-bootreg_8c_a7976cd62f9b61a65e8104a3cf7c15099}{b}},\ \textcolor{keywordtype}{size\_t}\ l)}
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00219}00219\ \{}
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00220}00220\ \ \ \ (\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}})\ f;}
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00221}00221\ \ \ \ (\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}})\ \mbox{\hyperlink{main-bootreg_8c_a7976cd62f9b61a65e8104a3cf7c15099}{b}};}
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00222}00222\ \ \ \ (\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}})\ l;}
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00223}00223\ \ }
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00224}00224\ \ \ \ \mbox{\hyperlink{manux_2debug_8h_ad4cabea5084373436d91b5dc4e8d0a49}{printk\_debug}}(\mbox{\hyperlink{manux_2debug_8h_a75f152fead74e7da11622606d11d4a96}{DBG\_KERNEL\_VIRTIO}},\ \textcolor{stringliteral}{"{}in\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00225}00225\ }
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00226}00226\ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00227}00227\ \}}
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00228}00228\ }
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00229}00229\ \textcolor{keyword}{static}}
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00230}00230\ \textcolor{keywordtype}{int}\ virtioConsoleOuvrir(\mbox{\hyperlink{struct__INoeud}{INoeud}}\ *\ iNoeud,\ \mbox{\hyperlink{struct__Fichier}{Fichier}}\ *\ f,\ \mbox{\hyperlink{include_2manux_2types_8h_a273cf69d639a59973b6019625df33e30}{uint16\_t}}\ fanions,\ \mbox{\hyperlink{include_2manux_2types_8h_a273cf69d639a59973b6019625df33e30}{uint16\_t}}\ mode)}
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00231}00231\ \{}
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00232}00232\ \ \ \ (\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}})\ iNoeud;}
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00233}00233\ \ \ \ (\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}})\ fanions;}
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00234}00234\ \ \ \ (\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}})\ mode;}
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00235}00235\ }
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00236}00236\ \ \ \ f-\/>\mbox{\hyperlink{struct__Fichier_a39fb043fce9256f50b0db131cd10d814}{prive}}\ =\ \&\mbox{\hyperlink{virtio-console_8c_add3b40b0ce7fe696ce7d7cde78411235}{virtioConsole}};\ \textcolor{comment}{//\ WARNING,\ il\ peut\ y\ en\ avoir\ plusieurs\ }}
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00237}00237\ }
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00238}00238\ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{include_2manux_2errno_8h_a7c87371c2c584aeb5a722830670b9bfd}{ESUCCES}};}
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00239}00239\ \}}
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00240}00240\ }
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00245}00245\ \mbox{\hyperlink{struct__MethodesFichier}{MethodesFichier}}\ virtioConsoleMethodesFichier\ =\ \{}
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00246}00246\ \ \ \ .\mbox{\hyperlink{struct__MethodesFichier_a3e23aaea9f7edd7b7cac7b95cb574d19}{ouvrir}}\ =\ virtioConsoleOuvrir,}
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00247}00247\ \ \ \ .lire\ =\ virtioConsoleLire,}
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00248}00248\ \ \ \ .ecrire\ =\ virtioConsoleEcrire}
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00249}00249\ \};}
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00250}00250\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ MANUX\_FICHIER}}
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00251}00251\ }
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00255}\mbox{\hyperlink{virtio-console_8h_ac49e16140b7d870db12706ab03aa282d}{00255}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{virtio-console_8c_ac49e16140b7d870db12706ab03aa282d}{virtioConsoleInitialisation}}(\mbox{\hyperlink{struct__INoeud}{INoeud}}\ *\ \mbox{\hyperlink{main_8c_a025b00386237bd94848dfda7561bc35a}{iNoeudVirtioConsole}})}
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00256}00256\ \{}
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00257}00257\ \ \ \ \textcolor{keywordtype}{int}\ PCINumeroPeripherique;}
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00258}00258\ \ \ }
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00259}00259\ \ \ \ \mbox{\hyperlink{manux_2debug_8h_ad4cabea5084373436d91b5dc4e8d0a49}{printk\_debug}}(\mbox{\hyperlink{manux_2debug_8h_a75f152fead74e7da11622606d11d4a96}{DBG\_KERNEL\_VIRTIO}},\ \textcolor{stringliteral}{"{}IN\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00260}00260\ }
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00261}00261\ \ \ \ \textcolor{comment}{//\ On\ va\ chercher\ un\ peripherique\ virtio\ net}}
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00262}00262\ \ \ \ PCINumeroPeripherique\ =\ \mbox{\hyperlink{manux_2pci_8h_a50c3ecf5057a9dd21f23f92fb9bedd1f}{PCIObtenirProchainEquipement}}(\mbox{\hyperlink{manux_2virtio_8h_abd1fd54d3752cd6b4048adf26185a9e2}{PCI\_VENDEUR\_VIRTIO}},}
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00263}00263\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{manux_2virtio_8h_a2d5c8760e871b37dd666c6ffc7f73beb}{PCI\_PERIPHERIQUE\_VIRTIO\_CONSOLE}},}
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00264}00264\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ -\/1);}
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00265}00265\ \ \ \ \mbox{\hyperlink{manux_2debug_8h_ad4cabea5084373436d91b5dc4e8d0a49}{printk\_debug}}(\mbox{\hyperlink{manux_2debug_8h_a75f152fead74e7da11622606d11d4a96}{DBG\_KERNEL\_VIRTIO}},\ \textcolor{stringliteral}{"{}Peripherique\ PCI\ \%d\(\backslash\)n"{}},\ PCINumeroPeripherique);}
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00266}00266\ }
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00267}00267\ \ \ \ \textcolor{keywordflow}{if}\ (PCINumeroPeripherique\ ==\ -\/1)\ \{}
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00268}00268\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{include_2manux_2errno_8h_a03e689f378f643d16ea7537918528a48}{ENOENT}};}
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00269}00269\ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00270}00270\ \ \ \ }
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00271}00271\ \ \ \ \textcolor{comment}{//\ Initialisation\ de\ l'unique\ périphérique\ pour\ le\ moment}}
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00272}00272\ \ \ \ \textcolor{keywordflow}{if}\ (virtioConsoleInitPeripherique(PCINumeroPeripherique)==\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00273}00273\ \ \ \ \ \ \ \mbox{\hyperlink{manux_2debug_8h_ad4cabea5084373436d91b5dc4e8d0a49}{printk\_debug}}(\mbox{\hyperlink{manux_2debug_8h_a75f152fead74e7da11622606d11d4a96}{DBG\_KERNEL\_VIRTIO}},\ \textcolor{stringliteral}{"{}Console\ virtio\ initialisee\ !\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00274}00274\ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00275}00275\ }
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00276}00276\ \textcolor{preprocessor}{\#ifdef\ MANUX\_FICHIER}}
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00277}00277\ \ \ \ \mbox{\hyperlink{main_8c_a025b00386237bd94848dfda7561bc35a}{iNoeudVirtioConsole}}-\/>\mbox{\hyperlink{struct__INoeud_a2784bdb93ecdd734d2e76ceb1d99d7a2}{typePeripherique}}.\mbox{\hyperlink{struct__TypePeripherique_adb5ce138561260770a523a33d9aace63}{majeur}}\ =\ \mbox{\hyperlink{config_2virtio_8h_a6eb89cce0f4758d42cd25060200a7968}{MANUX\_VIRTIO\_CONSOLE\_MAJEUR}};}
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00278}00278\ \ \ \ \mbox{\hyperlink{main_8c_a025b00386237bd94848dfda7561bc35a}{iNoeudVirtioConsole}}-\/>\mbox{\hyperlink{struct__INoeud_a2784bdb93ecdd734d2e76ceb1d99d7a2}{typePeripherique}}.\mbox{\hyperlink{struct__TypePeripherique_ac567355263c9068f662c52b3012ec941}{mineur}}\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00279}00279\ \ \ \ \mbox{\hyperlink{main_8c_a025b00386237bd94848dfda7561bc35a}{iNoeudVirtioConsole}}-\/>\mbox{\hyperlink{struct__INoeud_a84fd695269334aa4097d5066674f901f}{prive}}\ =\ \mbox{\hyperlink{include_2manux_2stddef_8h_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}};}
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00280}00280\ \ \ \ \mbox{\hyperlink{main_8c_a025b00386237bd94848dfda7561bc35a}{iNoeudVirtioConsole}}-\/>\mbox{\hyperlink{struct__INoeud_ab6ac2683b253e58d522492afa706a7d9}{methodesFichier}}\ =\ \&virtioConsoleMethodesFichier;}
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00281}00281\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00282}00282\ \ \ \ }
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00283}00283\ \ \ \ \mbox{\hyperlink{manux_2debug_8h_ad4cabea5084373436d91b5dc4e8d0a49}{printk\_debug}}(\mbox{\hyperlink{manux_2debug_8h_a75f152fead74e7da11622606d11d4a96}{DBG\_KERNEL\_VIRTIO}},\ \textcolor{stringliteral}{"{}out\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00284}00284\ }
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00285}00285\ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{include_2manux_2errno_8h_a7c87371c2c584aeb5a722830670b9bfd}{ESUCCES}};}
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00286}00286\ \}}
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00287}00287\ }
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00288}00288\ \textcolor{preprocessor}{\#ifdef\ MANUX\_VIRTIO\_AUDIT}}
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00292}00292\ \textcolor{keywordtype}{void}\ virtioConsoleAfficher(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00293}00293\ \{}
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00294}00294\ \ \ \ \mbox{\hyperlink{structVirtioConsole__t}{VirtioConsole}}\ *\ vc\ =\ \&\mbox{\hyperlink{virtio-console_8c_add3b40b0ce7fe696ce7d7cde78411235}{virtioConsole}};}
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00295}00295\ }
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00296}00296\ \ \ \ \mbox{\hyperlink{include_2manux_2printk_8h_a25b30e8bbadd54650c56895999dd808f}{printk}}(\textcolor{stringliteral}{"{}Console\ virtio\ 0x\%x\ (\%d\ it):\(\backslash\)n"{}},\ vc,\ vc-\/>\mbox{\hyperlink{structVirtioConsole__t_a05b8958338bfd8850c03181960db110a}{nbItRecues}});}
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00297}00297\ \ \ \ \mbox{\hyperlink{include_2manux_2printk_8h_a25b30e8bbadd54650c56895999dd808f}{printk}}(\textcolor{stringliteral}{"{}\ \ \ Etat\ de\ sa\ file\ :\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00298}00298\ \}}
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00299}00299\ }
+\DoxyCodeLine{\Hypertarget{virtio-console_8c_source_l00300}00300\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ MANUX\_VIRTIO\_AUDIT}}
+
+\end{DoxyCode}

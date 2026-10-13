@@ -1,0 +1,10 @@
+<map id="_registre" name="_registre">
+<area shape="rect" id="Node000001" title="Un registre est simplement une liste (nommée) de paramètres. Les paramètres peuvent être eux&#45;mêmes de..." alt="" coords="39,288,118,313"/>
+<area shape="rect" id="Node000002" href="$struct__listeParametres.html" title=" " alt="" coords="13,200,144,225"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="81,239,81,287,76,287,76,239"/>
+<area shape="rect" id="Node000003" href="$struct__chainonParametre.html" title="On va construire des listes de paramètres." alt="" coords="5,95,152,121"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="81,135,81,200,76,200,76,135"/>
+<area shape="poly" id="edge4_Node000003_Node000003" title=" " alt="" coords="167,99,179,108,170,116,153,119,152,113,168,111,173,108,164,104"/>
+<area shape="rect" id="Node000004" href="$struct__parametre.html" title="Un paramètre est simplement une valeur sous forme de chaîne de caractères associée à un nom." alt="" coords="30,5,127,31"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="81,44,81,95,76,95,76,44"/>
+</map>

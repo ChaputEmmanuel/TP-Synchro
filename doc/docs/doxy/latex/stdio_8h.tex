@@ -1,0 +1,71 @@
+\doxysection{Référence du fichier /home/manu/\+PROGRAMMATION/\+C/\+Manu\+X/usr/include/stdio.h}
+\hypertarget{stdio_8h}{}\label{stdio_8h}\index{/home/manu/PROGRAMMATION/C/ManuX/usr/include/stdio.h@{/home/manu/PROGRAMMATION/C/ManuX/usr/include/stdio.h}}
+{\ttfamily \#include $<$stdarg.\+h$>$}\newline
+Graphe des dépendances par inclusion de stdio.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=250pt]{stdio_8h__incl}
+\end{center}
+\end{figure}
+Ce graphe montre quels fichiers incluent directement ou indirectement ce fichier \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{stdio_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} \mbox{\hyperlink{stdio_8h_a63c54f1d737929378b379911b1ca4a45}{printf}} (char \texorpdfstring{$\ast$}{*}format,...)
+\begin{DoxyCompactList}\small\item\em Un premier printf. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{stdio_8h_a861f236a5adfcd353291fd93b2498226}{ecrire\+Console}} (char \texorpdfstring{$\ast$}{*}buffer, int nb\+Bytes)
+\item 
+int \mbox{\hyperlink{stdio_8h_a0d64d8b56640a3dea27ca2d59f711e35}{lire}} (int \mbox{\hyperlink{init-acces-concurrent_8c_a62d2d983a3da1fde907ff0f255bf4956}{fd}}, \mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} \texorpdfstring{$\ast$}{*}buffer, int nb)
+\item 
+int \mbox{\hyperlink{stdio_8h_afb8a53c515b7e4b7b0c2d9abf9f7d0c0}{ecrire}} (int \mbox{\hyperlink{init-acces-concurrent_8c_a62d2d983a3da1fde907ff0f255bf4956}{fd}}, \mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} \texorpdfstring{$\ast$}{*}buffer, int nb)
+\item 
+int \mbox{\hyperlink{stdio_8h_a66a9ef9199d2ddbbf2b6b0c7f7b99ab5}{fermer}} (int \mbox{\hyperlink{init-acces-concurrent_8c_a62d2d983a3da1fde907ff0f255bf4956}{fd}})
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Documentation des fonctions}
+\Hypertarget{stdio_8h_afb8a53c515b7e4b7b0c2d9abf9f7d0c0}\label{stdio_8h_afb8a53c515b7e4b7b0c2d9abf9f7d0c0} 
+\index{stdio.h@{stdio.h}!ecrire@{ecrire}}
+\index{ecrire@{ecrire}!stdio.h@{stdio.h}}
+\doxysubsubsection{\texorpdfstring{ecrire()}{ecrire()}}
+{\footnotesize\ttfamily int ecrire (\begin{DoxyParamCaption}\item[{int}]{fd,  }\item[{\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} \texorpdfstring{$\ast$}{*}}]{buffer,  }\item[{int}]{nb }\end{DoxyParamCaption})}
+
+\Hypertarget{stdio_8h_a861f236a5adfcd353291fd93b2498226}\label{stdio_8h_a861f236a5adfcd353291fd93b2498226} 
+\index{stdio.h@{stdio.h}!ecrireConsole@{ecrireConsole}}
+\index{ecrireConsole@{ecrireConsole}!stdio.h@{stdio.h}}
+\doxysubsubsection{\texorpdfstring{ecrireConsole()}{ecrireConsole()}}
+{\footnotesize\ttfamily int ecrire\+Console (\begin{DoxyParamCaption}\item[{char \texorpdfstring{$\ast$}{*}}]{buffer,  }\item[{int}]{nb\+Bytes }\end{DoxyParamCaption})}
+
+\Hypertarget{stdio_8h_a66a9ef9199d2ddbbf2b6b0c7f7b99ab5}\label{stdio_8h_a66a9ef9199d2ddbbf2b6b0c7f7b99ab5} 
+\index{stdio.h@{stdio.h}!fermer@{fermer}}
+\index{fermer@{fermer}!stdio.h@{stdio.h}}
+\doxysubsubsection{\texorpdfstring{fermer()}{fermer()}}
+{\footnotesize\ttfamily int fermer (\begin{DoxyParamCaption}\item[{int}]{fd }\end{DoxyParamCaption})}
+
+\Hypertarget{stdio_8h_a0d64d8b56640a3dea27ca2d59f711e35}\label{stdio_8h_a0d64d8b56640a3dea27ca2d59f711e35} 
+\index{stdio.h@{stdio.h}!lire@{lire}}
+\index{lire@{lire}!stdio.h@{stdio.h}}
+\doxysubsubsection{\texorpdfstring{lire()}{lire()}}
+{\footnotesize\ttfamily int lire (\begin{DoxyParamCaption}\item[{int}]{fd,  }\item[{\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} \texorpdfstring{$\ast$}{*}}]{buffer,  }\item[{int}]{nb }\end{DoxyParamCaption})}
+
+\Hypertarget{stdio_8h_a63c54f1d737929378b379911b1ca4a45}\label{stdio_8h_a63c54f1d737929378b379911b1ca4a45} 
+\index{stdio.h@{stdio.h}!printf@{printf}}
+\index{printf@{printf}!stdio.h@{stdio.h}}
+\doxysubsubsection{\texorpdfstring{printf()}{printf()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} printf (\begin{DoxyParamCaption}\item[{char \texorpdfstring{$\ast$}{*}}]{format,  }\item[{}]{... }\end{DoxyParamCaption})}
+
+
+
+Un premier printf. 
+
+
+
+Définition à la ligne \mbox{\hyperlink{stdio_8c_source_l00142}{142}} du fichier \mbox{\hyperlink{stdio_8c_source}{stdio.\+c}}.
+

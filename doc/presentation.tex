@@ -98,15 +98,24 @@ fichiers inclus. Ils se trouvent dans le répertoire {\tt
 %...............................................................................
 \subsubsection{Le code du noyau proprement dit}
 
-
+   Le gros de ce code est distribué dans un certain nombre de
+répertoires tels que~:
+   
 \begin{description}
-   \item[{\tt lib}]
-   \item[{\tt noyau}]
-   \item[{\tt i386}]
-   \item[{\tt outils}]
-   \item[{\tt boot}]
-   \item[{\tt sf}]
-   \item[{\tt doc}]
+   \item[{\tt noyau}] contient les éléments de base constitutifs d'un
+     noyau ;
+   \item[{\tt lib}] contient quant à lui du code un peu plus
+     ``générique'' ;
+   \item[{\tt i386}] héberge le code spécifique à l'architecture
+     matérielle Intel ;
+   \item[{\tt outils}] contient quelques outils annexes utilisés pour
+     la construction du noyau ;
+   \item[{\tt boot}] est consacré à tout le processus de chargement du
+     noyau, nous le décrirons dans une section spécifique ;
+   \item[{\tt sf}] est le répertoire dans lequel se trouvent les
+     fichiers liés à la manipulation des fichiers ;
+   \item[{\tt doc}] rassemble le peu de documentation que j'arrive à
+     vaguement tenir à jour.
 \end{description}
 
 %-------------------------------------------------------------------------------
@@ -114,7 +123,10 @@ fichiers inclus. Ils se trouvent dans le répertoire {\tt
 %-------------------------------------------------------------------------------
 \subsection{Configuration}
 
-   La configuration se fait essentiellement au travers du fichier {\tt manux/config.h}.
+   La configuration se fait essentiellement au travers du fichier {\tt
+manux/config.h}. Comme nous le verrons dans la section sur les outils,
+il est possible de gérer plusieurs versions de ce fichier, de sorte à
+pouvoir générer plusieurs images du noyau.
 
    Certaines valeurs sont utilisées ailleurs que dans du C (dans du NASM,
 ou directement dans le {\tt Makefile}) et une cible  {\tt make} est là

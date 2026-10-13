@@ -1,0 +1,32 @@
+\doxysection{unistd.\+h}
+\hypertarget{unistd_8h_source}{}\label{unistd_8h_source}\index{/home/manu/PROGRAMMATION/C/ManuX/usr/include/unistd.h@{/home/manu/PROGRAMMATION/C/ManuX/usr/include/unistd.h}}
+\mbox{\hyperlink{unistd_8h}{Aller à la documentation de ce fichier.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{unistd_8h_source_l00001}00001\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{unistd_8h_source_l00002}00002\ \textcolor{comment}{/*\ \ \ \ \ \ Définition\ des\ fonctions\ de\ base\ du\ mode\ utilisateur\ de\ ManuX.\ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{unistd_8h_source_l00003}00003\ \textcolor{comment}{/*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{unistd_8h_source_l00004}00004\ \textcolor{comment}{/*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (C)\ Manu\ Chaput\ 2002-\/2021\ */}}
+\DoxyCodeLine{\Hypertarget{unistd_8h_source_l00005}00005\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{unistd_8h_source_l00006}00006\ \textcolor{preprocessor}{\#ifndef\ \_UNISTD\_H}}
+\DoxyCodeLine{\Hypertarget{unistd_8h_source_l00007}00007\ \textcolor{preprocessor}{\#define\ \_UNISTD\_H}}
+\DoxyCodeLine{\Hypertarget{unistd_8h_source_l00008}00008\ }
+\DoxyCodeLine{\Hypertarget{unistd_8h_source_l00009}00009\ \textcolor{preprocessor}{\#include\ <manux/config.h>}}
+\DoxyCodeLine{\Hypertarget{unistd_8h_source_l00010}00010\ \textcolor{preprocessor}{\#include\ <manux/types.h>}}
+\DoxyCodeLine{\Hypertarget{unistd_8h_source_l00011}00011\ }
+\DoxyCodeLine{\Hypertarget{unistd_8h_source_l00018}\mbox{\hyperlink{unistd_8h_aa504f61bfbbdfa9a463450f8b21db44f}{00018}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{unistd_8h_aa504f61bfbbdfa9a463450f8b21db44f}{creerNouvelleTache}}(\textcolor{keywordtype}{void}\ (corps()),\ \mbox{\hyperlink{include_2manux_2types_8h_a5b7544e51b136e716e4eccc0602bafd7}{booleen}}\ shareCons);}
+\DoxyCodeLine{\Hypertarget{unistd_8h_source_l00019}00019\ }
+\DoxyCodeLine{\Hypertarget{unistd_8h_source_l00024}\mbox{\hyperlink{unistd_8h_a3d9572ab938a72bddfc58ab5f224d831}{00024}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{unistd_8h_a3d9572ab938a72bddfc58ab5f224d831}{basculerTache}}();}
+\DoxyCodeLine{\Hypertarget{unistd_8h_source_l00025}00025\ }
+\DoxyCodeLine{\Hypertarget{unistd_8h_source_l00029}\mbox{\hyperlink{unistd_8h_abf637d92e7036ee63342a8693dc9c228}{00029}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{unistd_8h_abf637d92e7036ee63342a8693dc9c228}{appelSystemeInutile}}();}
+\DoxyCodeLine{\Hypertarget{unistd_8h_source_l00030}00030\ }
+\DoxyCodeLine{\Hypertarget{unistd_8h_source_l00034}\mbox{\hyperlink{unistd_8h_a40fbcf01646e76422f8b48f5837996d7}{00034}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{unistd_8h_a40fbcf01646e76422f8b48f5837996d7}{tube}}(\textcolor{keywordtype}{int}\ *\ \mbox{\hyperlink{init-acces-concurrent_8c_a62d2d983a3da1fde907ff0f255bf4956}{fd}});}
+\DoxyCodeLine{\Hypertarget{unistd_8h_source_l00035}00035\ }
+\DoxyCodeLine{\Hypertarget{unistd_8h_source_l00039}\mbox{\hyperlink{unistd_8h_a321e672f528d0dd0927c93ff3a09c5c7}{00039}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{unistd_8h_a321e672f528d0dd0927c93ff3a09c5c7}{identifiantTache}}();}
+\DoxyCodeLine{\Hypertarget{unistd_8h_source_l00040}00040\ }
+\DoxyCodeLine{\Hypertarget{unistd_8h_source_l00044}00044\ \textcolor{preprocessor}{\#ifdef\ MANUX\_AS\_TEST\_SYNCHRO}}
+\DoxyCodeLine{\Hypertarget{unistd_8h_source_l00045}00045\ \textcolor{keywordtype}{int}\ testSynchro(\textcolor{keywordtype}{int}\ increment,\ \textcolor{keywordtype}{int}\ action);}
+\DoxyCodeLine{\Hypertarget{unistd_8h_source_l00046}00046\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{unistd_8h_source_l00047}00047\ }
+\DoxyCodeLine{\Hypertarget{unistd_8h_source_l00048}00048\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

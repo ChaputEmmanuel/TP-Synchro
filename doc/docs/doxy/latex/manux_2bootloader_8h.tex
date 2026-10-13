@@ -1,0 +1,229 @@
+\doxysection{Référence du fichier /home/manu/\+PROGRAMMATION/\+C/\+Manu\+X/include/manux/bootloader.h}
+\hypertarget{manux_2bootloader_8h}{}\label{manux_2bootloader_8h}\index{/home/manu/PROGRAMMATION/C/ManuX/include/manux/bootloader.h@{/home/manu/PROGRAMMATION/C/ManuX/include/manux/bootloader.h}}
+
+
+Interfaçage avec les bootloader.  
+
+
+{\ttfamily \#include $<$manux/types.\+h$>$}\newline
+{\ttfamily \#include $<$manux/string.\+h$>$}\newline
+Graphe des dépendances par inclusion de bootloader.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=278pt]{manux_2bootloader_8h__incl}
+\end{center}
+\end{figure}
+Ce graphe montre quels fichiers incluent directement ou indirectement ce fichier \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{manux_2bootloader_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct__InfoSysteme}{\+\_\+\+Info\+Systeme}}
+\begin{DoxyCompactList}\small\item\em Structure passée en paramètre par la phase d\textquotesingle{}init (cf init-\/manux.\+nasm) \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{manux_2bootloader_8h_aeebc872fce330a0401cbb598e685747a}{MULTIBOOT\+\_\+\+SIGNATURE}}~0x2\+BADB002
+\begin{DoxyCompactList}\small\item\em la signature d\textquotesingle{}un chargement par multiboot (legacy) \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{manux_2bootloader_8h_a73a48a509476717a563b9d265c3d07b7}{MANUX\+\_\+\+INIT\+\_\+\+SIGNATURE}}~0x01c0ffee
+\begin{DoxyCompactList}\small\item\em la signature d\textquotesingle{}un chargement par init-\/manux \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{manux_2bootloader_8h_aab5e5487e858de2a031cd3f1232f7b60}{MULTIBOOT\+\_\+\+PAGE\+\_\+\+ALIGN}}~0x00000001
+\begin{DoxyCompactList}\small\item\em les diverses informations que peut fournir le bootloader \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{manux_2bootloader_8h_afdfca6bbbf4b7dca40e9d43e58201f55}{MULTIBOOT\+\_\+\+MEMORY\+\_\+\+INFO}}~0x00000002
+\item 
+\#define \mbox{\hyperlink{manux_2bootloader_8h_ae75fb4f821b7ab405d46318d9b90a677}{MULTIBOOT\+\_\+\+INFO\+\_\+\+CMDLINE}}~0x00000004
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Définitions de type}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \mbox{\hyperlink{struct__InfoSysteme}{\+\_\+\+Info\+Systeme}} \mbox{\hyperlink{manux_2bootloader_8h_aa0111f31993601255859b4d7fbb3758c}{Info\+Systeme}}
+\begin{DoxyCompactList}\small\item\em Structure passée en paramètre par la phase d\textquotesingle{}init (cf init-\/manux.\+nasm) \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} \mbox{\hyperlink{manux_2bootloader_8h_ae56092aa42bf357bf0026df0b0808db4}{bootloader\+Initialiser}} (\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}})
+\begin{DoxyCompactList}\small\item\em Lecture des informations fournies par le bootloader. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} \mbox{\hyperlink{manux_2bootloader_8h_a42deb6a81c1a6411ef8390967dddf837}{bootloader\+Lire\+Ligne\+Cmd}} (\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}})
+\begin{DoxyCompactList}\small\item\em Analyse de la ligne de commande et modification de certains paramètres. Cette fonction estparticulièrement utile avec un regsitre. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\+\_\+t}} \mbox{\hyperlink{manux_2bootloader_8h_a1e90c03140ae6d42c414e1593656dbdf}{signature\+Bootloader}}
+\begin{DoxyCompactList}\small\item\em Valeur passée via eax par le bootloader pour s\textquotesingle{}identifier. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{manux_2bootloader_8h_aa0111f31993601255859b4d7fbb3758c}{Info\+Systeme}} \mbox{\hyperlink{manux_2bootloader_8h_abf4319b3adb9dd5752045f58f65369e6}{info\+Systeme}}
+\begin{DoxyCompactList}\small\item\em Stockage des informations décrivant le système fournies par le bootloader. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{manux_2bootloader_8h_aa0111f31993601255859b4d7fbb3758c}{Info\+Systeme}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{manux_2bootloader_8h_aa85dc51cfdf9c6e6e69730e417681cd7}{\+\_\+info\+Systeme}}
+\begin{DoxyCompactList}\small\item\em Adresse de la zone mémoire dans laquelle le bootloader nous fournit les informations sur le système. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Interfaçage avec les bootloader. 
+
+\begin{DoxyVerb}                                           (C) Manu Chaput 2000 - 2024 
+\end{DoxyVerb}
+ 
+
+Définition dans le fichier \mbox{\hyperlink{manux_2bootloader_8h_source}{bootloader.\+h}}.
+
+
+
+\doxysubsection{Documentation des macros}
+\Hypertarget{manux_2bootloader_8h_a73a48a509476717a563b9d265c3d07b7}\label{manux_2bootloader_8h_a73a48a509476717a563b9d265c3d07b7} 
+\index{bootloader.h@{bootloader.h}!MANUX\_INIT\_SIGNATURE@{MANUX\_INIT\_SIGNATURE}}
+\index{MANUX\_INIT\_SIGNATURE@{MANUX\_INIT\_SIGNATURE}!bootloader.h@{bootloader.h}}
+\doxysubsubsection{\texorpdfstring{MANUX\_INIT\_SIGNATURE}{MANUX\_INIT\_SIGNATURE}}
+{\footnotesize\ttfamily \#define MANUX\+\_\+\+INIT\+\_\+\+SIGNATURE~0x01c0ffee}
+
+
+
+la signature d\textquotesingle{}un chargement par init-\/manux 
+
+
+
+Définition à la ligne \mbox{\hyperlink{manux_2bootloader_8h_source_l00027}{27}} du fichier \mbox{\hyperlink{manux_2bootloader_8h_source}{bootloader.\+h}}.
+
+\Hypertarget{manux_2bootloader_8h_ae75fb4f821b7ab405d46318d9b90a677}\label{manux_2bootloader_8h_ae75fb4f821b7ab405d46318d9b90a677} 
+\index{bootloader.h@{bootloader.h}!MULTIBOOT\_INFO\_CMDLINE@{MULTIBOOT\_INFO\_CMDLINE}}
+\index{MULTIBOOT\_INFO\_CMDLINE@{MULTIBOOT\_INFO\_CMDLINE}!bootloader.h@{bootloader.h}}
+\doxysubsubsection{\texorpdfstring{MULTIBOOT\_INFO\_CMDLINE}{MULTIBOOT\_INFO\_CMDLINE}}
+{\footnotesize\ttfamily \#define MULTIBOOT\+\_\+\+INFO\+\_\+\+CMDLINE~0x00000004}
+
+
+
+Définition à la ligne \mbox{\hyperlink{manux_2bootloader_8h_source_l00035}{35}} du fichier \mbox{\hyperlink{manux_2bootloader_8h_source}{bootloader.\+h}}.
+
+\Hypertarget{manux_2bootloader_8h_afdfca6bbbf4b7dca40e9d43e58201f55}\label{manux_2bootloader_8h_afdfca6bbbf4b7dca40e9d43e58201f55} 
+\index{bootloader.h@{bootloader.h}!MULTIBOOT\_MEMORY\_INFO@{MULTIBOOT\_MEMORY\_INFO}}
+\index{MULTIBOOT\_MEMORY\_INFO@{MULTIBOOT\_MEMORY\_INFO}!bootloader.h@{bootloader.h}}
+\doxysubsubsection{\texorpdfstring{MULTIBOOT\_MEMORY\_INFO}{MULTIBOOT\_MEMORY\_INFO}}
+{\footnotesize\ttfamily \#define MULTIBOOT\+\_\+\+MEMORY\+\_\+\+INFO~0x00000002}
+
+
+
+Définition à la ligne \mbox{\hyperlink{manux_2bootloader_8h_source_l00034}{34}} du fichier \mbox{\hyperlink{manux_2bootloader_8h_source}{bootloader.\+h}}.
+
+\Hypertarget{manux_2bootloader_8h_aab5e5487e858de2a031cd3f1232f7b60}\label{manux_2bootloader_8h_aab5e5487e858de2a031cd3f1232f7b60} 
+\index{bootloader.h@{bootloader.h}!MULTIBOOT\_PAGE\_ALIGN@{MULTIBOOT\_PAGE\_ALIGN}}
+\index{MULTIBOOT\_PAGE\_ALIGN@{MULTIBOOT\_PAGE\_ALIGN}!bootloader.h@{bootloader.h}}
+\doxysubsubsection{\texorpdfstring{MULTIBOOT\_PAGE\_ALIGN}{MULTIBOOT\_PAGE\_ALIGN}}
+{\footnotesize\ttfamily \#define MULTIBOOT\+\_\+\+PAGE\+\_\+\+ALIGN~0x00000001}
+
+
+
+les diverses informations que peut fournir le bootloader 
+
+
+
+Définition à la ligne \mbox{\hyperlink{manux_2bootloader_8h_source_l00033}{33}} du fichier \mbox{\hyperlink{manux_2bootloader_8h_source}{bootloader.\+h}}.
+
+\Hypertarget{manux_2bootloader_8h_aeebc872fce330a0401cbb598e685747a}\label{manux_2bootloader_8h_aeebc872fce330a0401cbb598e685747a} 
+\index{bootloader.h@{bootloader.h}!MULTIBOOT\_SIGNATURE@{MULTIBOOT\_SIGNATURE}}
+\index{MULTIBOOT\_SIGNATURE@{MULTIBOOT\_SIGNATURE}!bootloader.h@{bootloader.h}}
+\doxysubsubsection{\texorpdfstring{MULTIBOOT\_SIGNATURE}{MULTIBOOT\_SIGNATURE}}
+{\footnotesize\ttfamily \#define MULTIBOOT\+\_\+\+SIGNATURE~0x2\+BADB002}
+
+
+
+la signature d\textquotesingle{}un chargement par multiboot (legacy) 
+
+
+
+Définition à la ligne \mbox{\hyperlink{manux_2bootloader_8h_source_l00016}{16}} du fichier \mbox{\hyperlink{manux_2bootloader_8h_source}{bootloader.\+h}}.
+
+
+
+\doxysubsection{Documentation des définitions de type}
+\Hypertarget{manux_2bootloader_8h_aa0111f31993601255859b4d7fbb3758c}\label{manux_2bootloader_8h_aa0111f31993601255859b4d7fbb3758c} 
+\index{bootloader.h@{bootloader.h}!InfoSysteme@{InfoSysteme}}
+\index{InfoSysteme@{InfoSysteme}!bootloader.h@{bootloader.h}}
+\doxysubsubsection{\texorpdfstring{InfoSysteme}{InfoSysteme}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{struct__InfoSysteme}{\+\_\+\+Info\+Systeme}} \mbox{\hyperlink{manux_2bootloader_8h_aa0111f31993601255859b4d7fbb3758c}{Info\+Systeme}}}
+
+
+
+Structure passée en paramètre par la phase d\textquotesingle{}init (cf init-\/manux.\+nasm) 
+
+
+
+\doxysubsection{Documentation des fonctions}
+\Hypertarget{manux_2bootloader_8h_ae56092aa42bf357bf0026df0b0808db4}\label{manux_2bootloader_8h_ae56092aa42bf357bf0026df0b0808db4} 
+\index{bootloader.h@{bootloader.h}!bootloaderInitialiser@{bootloaderInitialiser}}
+\index{bootloaderInitialiser@{bootloaderInitialiser}!bootloader.h@{bootloader.h}}
+\doxysubsubsection{\texorpdfstring{bootloaderInitialiser()}{bootloaderInitialiser()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} bootloader\+Initialiser (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}}}]{ }\end{DoxyParamCaption})}
+
+
+
+Lecture des informations fournies par le bootloader. 
+
+Cette fonction doit être invoquée relativement tôt, car elle a la charge de recopier des informations fournies par le bootloader. Ces informations sont dans une zole mémoire que l\textquotesingle{}on risque ensuite d\textquotesingle{}utiliser.
+
+Cette fonction doit être invoquée relativement tôt, car elle a la charge de recopier des informations fournies par le bootloader. Ces informations étant dans une zone mémoire que l\textquotesingle{}on risque ensuite d\textquotesingle{}utiliser. Il s\textquotesingle{}agit de info\+Systeme et cmd\+Line. 
+
+Définition à la ligne \mbox{\hyperlink{bootloader_8c_source_l00046}{46}} du fichier \mbox{\hyperlink{bootloader_8c_source}{bootloader.\+c}}.
+
+\Hypertarget{manux_2bootloader_8h_a42deb6a81c1a6411ef8390967dddf837}\label{manux_2bootloader_8h_a42deb6a81c1a6411ef8390967dddf837} 
+\index{bootloader.h@{bootloader.h}!bootloaderLireLigneCmd@{bootloaderLireLigneCmd}}
+\index{bootloaderLireLigneCmd@{bootloaderLireLigneCmd}!bootloader.h@{bootloader.h}}
+\doxysubsubsection{\texorpdfstring{bootloaderLireLigneCmd()}{bootloaderLireLigneCmd()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} bootloader\+Lire\+Ligne\+Cmd (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}}}]{ }\end{DoxyParamCaption})}
+
+
+
+Analyse de la ligne de commande et modification de certains paramètres. Cette fonction estparticulièrement utile avec un regsitre. 
+
+
+
+Définition à la ligne \mbox{\hyperlink{bootloader_8c_source_l00104}{104}} du fichier \mbox{\hyperlink{bootloader_8c_source}{bootloader.\+c}}.
+
+
+
+\doxysubsection{Documentation des variables}
+\Hypertarget{manux_2bootloader_8h_aa85dc51cfdf9c6e6e69730e417681cd7}\label{manux_2bootloader_8h_aa85dc51cfdf9c6e6e69730e417681cd7} 
+\index{bootloader.h@{bootloader.h}!\_infoSysteme@{\_infoSysteme}}
+\index{\_infoSysteme@{\_infoSysteme}!bootloader.h@{bootloader.h}}
+\doxysubsubsection{\texorpdfstring{\_infoSysteme}{\_infoSysteme}}
+{\footnotesize\ttfamily \mbox{\hyperlink{manux_2bootloader_8h_aa0111f31993601255859b4d7fbb3758c}{Info\+Systeme}}\texorpdfstring{$\ast$}{*} \+\_\+info\+Systeme\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+Adresse de la zone mémoire dans laquelle le bootloader nous fournit les informations sur le système. 
+
+
+
+Définition à la ligne \mbox{\hyperlink{bootloader_8c_source_l00035}{35}} du fichier \mbox{\hyperlink{bootloader_8c_source}{bootloader.\+c}}.
+
+\Hypertarget{manux_2bootloader_8h_abf4319b3adb9dd5752045f58f65369e6}\label{manux_2bootloader_8h_abf4319b3adb9dd5752045f58f65369e6} 
+\index{bootloader.h@{bootloader.h}!infoSysteme@{infoSysteme}}
+\index{infoSysteme@{infoSysteme}!bootloader.h@{bootloader.h}}
+\doxysubsubsection{\texorpdfstring{infoSysteme}{infoSysteme}}
+{\footnotesize\ttfamily \mbox{\hyperlink{manux_2bootloader_8h_aa0111f31993601255859b4d7fbb3758c}{Info\+Systeme}} info\+Systeme\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+Stockage des informations décrivant le système fournies par le bootloader. 
+
+
+
+Définition à la ligne \mbox{\hyperlink{bootloader_8c_source_l00029}{29}} du fichier \mbox{\hyperlink{bootloader_8c_source}{bootloader.\+c}}.
+
+\Hypertarget{manux_2bootloader_8h_a1e90c03140ae6d42c414e1593656dbdf}\label{manux_2bootloader_8h_a1e90c03140ae6d42c414e1593656dbdf} 
+\index{bootloader.h@{bootloader.h}!signatureBootloader@{signatureBootloader}}
+\index{signatureBootloader@{signatureBootloader}!bootloader.h@{bootloader.h}}
+\doxysubsubsection{\texorpdfstring{signatureBootloader}{signatureBootloader}}
+{\footnotesize\ttfamily \mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\+\_\+t}} signature\+Bootloader\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+Valeur passée via eax par le bootloader pour s\textquotesingle{}identifier. 
+
+
+
+Définition à la ligne \mbox{\hyperlink{bootloader_8c_source_l00023}{23}} du fichier \mbox{\hyperlink{bootloader_8c_source}{bootloader.\+c}}.
+

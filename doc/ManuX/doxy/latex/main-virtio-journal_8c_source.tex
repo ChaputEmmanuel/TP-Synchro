@@ -1,0 +1,53 @@
+\doxysection{main-\/virtio-\/journal.c}
+\hypertarget{main-virtio-journal_8c_source}{}\label{main-virtio-journal_8c_source}\index{/home/manu/PROGRAMMATION/C/ManuX/noyau/main-\/virtio-\/journal.c@{/home/manu/PROGRAMMATION/C/ManuX/noyau/main-\/virtio-\/journal.c}}
+\mbox{\hyperlink{main-virtio-journal_8c}{Aller à la documentation de ce fichier.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{main-virtio-journal_8c_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{main-virtio-journal_8c_source_l00006}00006\ \textcolor{preprocessor}{\#include\ <manux/config.h>}}
+\DoxyCodeLine{\Hypertarget{main-virtio-journal_8c_source_l00007}00007\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{manux_2debug_8h}{manux/debug.h}}>}}
+\DoxyCodeLine{\Hypertarget{main-virtio-journal_8c_source_l00008}00008\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{manux_2bootloader_8h}{manux/bootloader.h}}>}\ \ \ \ \ \ \textcolor{comment}{//\ infoSysteme}}
+\DoxyCodeLine{\Hypertarget{main-virtio-journal_8c_source_l00009}00009\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{include_2manux_2memoire_8h}{manux/memoire.h}}>}\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ initialiserMemoire}}
+\DoxyCodeLine{\Hypertarget{main-virtio-journal_8c_source_l00010}00010\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{include_2manux_2console_8h}{manux/console.h}}>}}
+\DoxyCodeLine{\Hypertarget{main-virtio-journal_8c_source_l00011}00011\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{include_2manux_2printk_8h}{manux/printk.h}}>}}
+\DoxyCodeLine{\Hypertarget{main-virtio-journal_8c_source_l00012}00012\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fichier_8h}{manux/fichier.h}}>}}
+\DoxyCodeLine{\Hypertarget{main-virtio-journal_8c_source_l00013}00013\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{include_2manux_2journal_8h}{manux/journal.h}}>}}
+\DoxyCodeLine{\Hypertarget{main-virtio-journal_8c_source_l00014}00014\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{manux_2pci_8h}{manux/pci.h}}>}}
+\DoxyCodeLine{\Hypertarget{main-virtio-journal_8c_source_l00015}00015\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{virtio-console_8h}{manux/virtio-\/console.h}}>}}
+\DoxyCodeLine{\Hypertarget{main-virtio-journal_8c_source_l00016}00016\ }
+\DoxyCodeLine{\Hypertarget{main-virtio-journal_8c_source_l00017}\mbox{\hyperlink{main-virtio-journal_8c_a3568df994044ade7d37160ef731c223f}{00017}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{main-virtio-journal_8c_a3568df994044ade7d37160ef731c223f}{startManuX}}()}
+\DoxyCodeLine{\Hypertarget{main-virtio-journal_8c_source_l00018}00018\ \{}
+\DoxyCodeLine{\Hypertarget{main-virtio-journal_8c_source_l00019}00019\ \ \ \ \mbox{\hyperlink{struct__INoeud}{INoeud}}\ \ \mbox{\hyperlink{main-acces-concurrent_8c_a972ff77e8e64fb59c5b315287496a83e}{iNoeudConsole}};\ \ \textcolor{comment}{//\ Le\ INoeud\ qui\ décrit\ la\ console}}
+\DoxyCodeLine{\Hypertarget{main-virtio-journal_8c_source_l00020}00020\ }
+\DoxyCodeLine{\Hypertarget{main-virtio-journal_8c_source_l00021}00021\ \ \ \ \mbox{\hyperlink{struct__INoeud}{INoeud}}\ iNoeudVirtioConsole;\ }
+\DoxyCodeLine{\Hypertarget{main-virtio-journal_8c_source_l00022}00022\ \ \ \ \mbox{\hyperlink{struct__Fichier}{Fichier}}\ fichierVirtioConsole;}
+\DoxyCodeLine{\Hypertarget{main-virtio-journal_8c_source_l00023}00023\ \ \ \ }
+\DoxyCodeLine{\Hypertarget{main-virtio-journal_8c_source_l00024}00024\ \ \ \ \mbox{\hyperlink{manux_2bootloader_8h_ae56092aa42bf357bf0026df0b0808db4}{bootloaderInitialiser}}();}
+\DoxyCodeLine{\Hypertarget{main-virtio-journal_8c_source_l00025}00025\ }
+\DoxyCodeLine{\Hypertarget{main-virtio-journal_8c_source_l00026}00026\ \ \ \ \textcolor{comment}{//\ Initialisation\ de\ la\ console\ noyau}}
+\DoxyCodeLine{\Hypertarget{main-virtio-journal_8c_source_l00027}00027\ \ \ \ consoleInitialisationINoeud(\&\mbox{\hyperlink{main-acces-concurrent_8c_a972ff77e8e64fb59c5b315287496a83e}{iNoeudConsole}});}
+\DoxyCodeLine{\Hypertarget{main-virtio-journal_8c_source_l00028}00028\ }
+\DoxyCodeLine{\Hypertarget{main-virtio-journal_8c_source_l00029}00029\ \ \ \ \textcolor{comment}{//bootloaderInitialiser();}}
+\DoxyCodeLine{\Hypertarget{main-virtio-journal_8c_source_l00030}00030\ }
+\DoxyCodeLine{\Hypertarget{main-virtio-journal_8c_source_l00031}00031\ \ \ \ \mbox{\hyperlink{include_2manux_2memoire_8h_a4338550e2017b7c95021bdc27e4f3345}{initialiserMemoire}}(\mbox{\hyperlink{manux_2bootloader_8h_abf4319b3adb9dd5752045f58f65369e6}{infoSysteme}}.\mbox{\hyperlink{struct__InfoSysteme_a6047965dfba552f4957f7df33b777e8c}{memoireDeBase}},}
+\DoxyCodeLine{\Hypertarget{main-virtio-journal_8c_source_l00032}00032\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{manux_2bootloader_8h_abf4319b3adb9dd5752045f58f65369e6}{infoSysteme}}.\mbox{\hyperlink{struct__InfoSysteme_aeed4b08b9edfc29ff917ed26d87c9cda}{memoireEtendue}});}
+\DoxyCodeLine{\Hypertarget{main-virtio-journal_8c_source_l00033}00033\ }
+\DoxyCodeLine{\Hypertarget{main-virtio-journal_8c_source_l00034}00034\ \ \ \ \textcolor{comment}{//\ Initialisation\ du\ journal}}
+\DoxyCodeLine{\Hypertarget{main-virtio-journal_8c_source_l00035}00035\ \ \ \ \mbox{\hyperlink{include_2manux_2journal_8h_ae0b1891a78b329589a71603f76447eb3}{journalInitialiser}}(\&\mbox{\hyperlink{main-acces-concurrent_8c_a972ff77e8e64fb59c5b315287496a83e}{iNoeudConsole}});}
+\DoxyCodeLine{\Hypertarget{main-virtio-journal_8c_source_l00036}00036\ }
+\DoxyCodeLine{\Hypertarget{main-virtio-journal_8c_source_l00037}00037\ \ \ \ \textcolor{comment}{//\ Initialisation\ du\ bus\ PCI}}
+\DoxyCodeLine{\Hypertarget{main-virtio-journal_8c_source_l00038}00038\ \ \ \ \mbox{\hyperlink{manux_2pci_8h_a883b4a272bc719952fa1b66b9faeec2a}{PCIEnumerationDesEquipements}}();}
+\DoxyCodeLine{\Hypertarget{main-virtio-journal_8c_source_l00039}00039\ }
+\DoxyCodeLine{\Hypertarget{main-virtio-journal_8c_source_l00040}00040\ \ \ \ \textcolor{comment}{//\ Initialisation\ de\ la\ console\ virtio}}
+\DoxyCodeLine{\Hypertarget{main-virtio-journal_8c_source_l00041}00041\ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{virtio-console_8h_ac49e16140b7d870db12706ab03aa282d}{virtioConsoleInitialisation}}(\&iNoeudVirtioConsole)\ ==\ 0\textcolor{comment}{/*ESUCCES*/})\ \{}
+\DoxyCodeLine{\Hypertarget{main-virtio-journal_8c_source_l00042}00042\ \ \ \ \ \ \ \mbox{\hyperlink{fichier_8h_ab4279a068c868f6efab9279aa021bc76}{fichierOuvrir}}(\&iNoeudVirtioConsole,\ \&fichierVirtioConsole,\ \mbox{\hyperlink{fichier_8h_a11b644a8526139c4cc1850dac1271ced}{O\_WRONLY}},\ 0);}
+\DoxyCodeLine{\Hypertarget{main-virtio-journal_8c_source_l00043}00043\ \ \ \ \ \ \ \mbox{\hyperlink{include_2manux_2journal_8h_aed4c0b68122d57fe6486e4963f38054b}{journalAffecterFichier}}(\&fichierVirtioConsole);}
+\DoxyCodeLine{\Hypertarget{main-virtio-journal_8c_source_l00044}00044\ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{main-virtio-journal_8c_source_l00045}00045\ \ \ \ }
+\DoxyCodeLine{\Hypertarget{main-virtio-journal_8c_source_l00046}00046\ \ \ \ \textcolor{comment}{//\ Un\ petit\ message}}
+\DoxyCodeLine{\Hypertarget{main-virtio-journal_8c_source_l00047}00047\ \ \ \ \mbox{\hyperlink{include_2manux_2printk_8h_a25b30e8bbadd54650c56895999dd808f}{printk}}(\textcolor{stringliteral}{"{}Printk\ dit\ bonjour\ via\ le\ journal\ !\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{main-virtio-journal_8c_source_l00048}00048\ \ \ }
+\DoxyCodeLine{\Hypertarget{main-virtio-journal_8c_source_l00049}00049\ \}\ \ \ \textcolor{comment}{/*\ startManuX\ */}}
+\DoxyCodeLine{\Hypertarget{main-virtio-journal_8c_source_l00050}00050\ }
+\DoxyCodeLine{\Hypertarget{main-virtio-journal_8c_source_l00051}00051\ }
+
+\end{DoxyCode}

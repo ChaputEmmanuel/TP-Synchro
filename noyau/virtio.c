@@ -15,8 +15,6 @@
  *   [3] http://ozlabs.org/~rusty/virtio-spec/virtio-0.9.5.pdf
  */
 
-#define min(a, b)   (((a)<(b))?(a):(b))
-
 #include <manux/virtio.h>
 #include <manux/debug.h>
 #include <manux/memoire.h> // allouerPages
@@ -29,22 +27,26 @@ static int nbFournis =0;
 static int nbAcceptes =0;
 static int nbRendus =0;
 
+#define min(a, b) (((a)<(b))?(a):(b))
+#define max(a, b) (((a)>(b))?(a):(b))
+
+#ifdef MANUX_VIRTIO_AUDIT
 /**
- * Affichage de l état d'une file, à des fins de debug
+ * @brief Affichage de l état d'une file, à des fins de debug
  */
 void virtioAfficherFile(VirtioFileVirtuelle * fv)
 {
-   printk("[7]File 0x%x (lg %d nxt %d), used idx %d, dispo idx %d fr %d %d/%d/%d\n",
-		fv,
-		fv->taille,
-                fv->prochainDescripteur,
-		fv->buffersUtilises->indice,
+   printk("[7] File 0x%x (lg %d nxt %d), used_idx= %d, disp_idx=%d free_idx=%d (f=%d/a=%d/r=%d)\n",
+	  fv,
+	  fv->taille,
+	  fv->prochainDescripteur,
+	  fv->buffersUtilises->indice,
 	  fv->buffersDisponibles->indice,
 	  fv->nbDescripteursLibres,
 	  nbFournis, nbAcceptes, nbRendus
 	  );
-   /*
-   printk("[7]Desc [@/l f n] : [%llx %ld %d %d][%llx %ld %d %d][%llx %ld %d %d]\n",
+
+   printk("[7] Desc [@/l f n] : [%llx %ld %d %d][%llx %ld %d %d][%llx %ld %d %d]\n",
 		fv->tableDescripteurs[0].adresse,
 		fv->tableDescripteurs[0].longueur,
 		fv->tableDescripteurs[0].flags,
@@ -60,7 +62,7 @@ void virtioAfficherFile(VirtioFileVirtuelle * fv)
 		fv->tableDescripteurs[2].flags,
 		fv->tableDescripteurs[2].suivant
 		);
-   printk("[7]Used fl 0x%x, idx %d (i/l) : [%d/%ld][%d/%ld][%d/%ld]\n",
+   printk("[7] Used fl 0x%x, idx %d (i/l) : [%d/%ld][%d/%ld][%d/%ld]\n",
 		fv->buffersUtilises->flags,
 		fv->buffersUtilises->indice,
 		fv->buffersUtilises->elementsUtilises[0].indiceBuffer,
@@ -70,15 +72,15 @@ void virtioAfficherFile(VirtioFileVirtuelle * fv)
 		fv->buffersUtilises->elementsUtilises[2].indiceBuffer,
 		fv->buffersUtilises->elementsUtilises[2].longueur
 		);
-   printk("[7]Dispo fl 0x%x, idx %d (i) : [%d][%d][%d]\n",
+   printk("[7] Dispo fl 0x%x, idx %d (i) : [%d][%d][%d]\n",
 		fv->buffersDisponibles->flags,
 		fv->buffersDisponibles->indice,
 		fv->buffersDisponibles->indicesDesBuffer[0],
 		fv->buffersDisponibles->indicesDesBuffer[1],
 		fv->buffersDisponibles->indicesDesBuffer[2]
 		);
-   */
 }
+#endif // MANUX_VIRTIO_AUDIT
 
 /**
  * Création d'une file de communication.
@@ -93,6 +95,7 @@ void virtioAfficherFile(VirtioFileVirtuelle * fv)
  * On va donc calculer la taille de chacune de ces deux parties
  * (alignées sur une page).
  */
+static
 int virtioCreerFileVirtuelle(VirtioFileVirtuelle * fileVirtuelle,
                              uint16_t tailleFile)
 {
@@ -376,8 +379,10 @@ int virtioFournirBuffers(VirtioPeripherique * vp,
  *
  * Voir [3] section 2.4.2 "Receiving Used Buffers From The Device"
  *
- * On fait au plus simple : on renvoie un(e chaîne de) buffer(s) tel
- * que fourni par le périphérique.
+ * On fait au plus simple : on renvoie un ensembles de buffers.
+ * Attention, on revnoie des pointeurs vers les buffers virtio, pas de
+ * nouveaux pointeurs alloués. L'appelant doit donc immédiatement en
+ * recopier le contenu.
  */
 int virtioFileRecupererBuffers(VirtioFileVirtuelle * fv,
 			       void * bu[], int lg[], int nb)
@@ -393,17 +398,22 @@ int virtioFileRecupererBuffers(VirtioFileVirtuelle * fv,
       return result;
    }
 
+   barriereMemoire();  // WARNING, c'est là ?
+
    while ((fv->dernierIndiceUtilise != fv->buffersUtilises->indice) && (result < nb)) {
       // Récupération de l'indice du descripteur libéré
       indiceBuffer = fv->buffersUtilises->elementsUtilises
 	                      [fv->dernierIndiceUtilise % fv->taille].indiceBuffer;
+      longueur = fv->buffersUtilises->elementsUtilises
+	                      [fv->dernierIndiceUtilise % fv->taille].longueur;
       do {
          // On récupère les données et leur longueur
-         longueur = fv->tableDescripteurs[indiceBuffer].longueur;
          ad = (uint32_t)fv->tableDescripteurs[indiceBuffer].adresse;
+	 //printk("{%d @ %d}\n", longueur, ad);
          bu[result] = (void *) ad;
-	 lg[result] = longueur; 
-
+	 lg[result] = min(longueur, fv->tableDescripteurs[indiceBuffer].longueur); 
+         longueur -= lg[result];
+	 
 	 result++;  // Ca en fait un de plus !
 
 	 // Cela peut être le premier d'une chaîne
@@ -414,15 +424,15 @@ int virtioFileRecupererBuffers(VirtioFileVirtuelle * fv,
 	 // les fournir
       } while ((result < nb)
 	       && (!finDeChaine));
-      if (!finDeChaine) {
+      /*      if (!finDeChaine) {
 	printk("[7] Ca pue du cul !\n");
       } else {
-	//	printk("[7] Ouf !\n");
-      }
+	printk("[7] Fin de chaine !\n");
+	}*/
       // On vient de traiter un buffer (peut-être une chaîne)
       fv->dernierIndiceUtilise++;  
    }
-   // On a donc récupérer result descripteurs
+   // On a donc récupéré result descripteurs
    fv->nbDescripteursLibres += result;
    nbRendus += result;
 

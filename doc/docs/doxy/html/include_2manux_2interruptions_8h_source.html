@@ -1,0 +1,237 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>My Project:  Fichier source de /home/manu/PROGRAMMATION/C/ManuX/include/manux/interruptions.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">My Project
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function() { init_codefold(0); });
+/* @license-end */
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_7ae9ae23548caaa7aeb1f148c6e00073.html">manux</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle"><div class="title">interruptions.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="include_2manux_2interruptions_8h.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">/*----------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment">/*      Définition des éléments liés aux interruptions.                       */</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment">/*                                     (C) Manu Chaput 2000, 2001, 2002, 2003 */</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment">/*----------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#ifndef INTERRUPTION_DEF</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#define INTERRUPTION_DEF</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &lt;manux/types.h&gt;</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="comment">/*</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="comment"> * Définition d&#39;un Task Gate Descriptor ([1] p 6-9, 5-14)</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="comment"> */</span></div>
+<div class="foldopen" id="foldopen00013" data-start="{" data-end="};">
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno"><a class="line" href="structTaskGateDescriptor.html">   13</a></span><span class="keyword">typedef</span> <span class="keyword">struct </span>{</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno"><a class="line" href="structTaskGateDescriptor.html#a7de36e91a81c16e421ad0761b0da4f77">   14</a></span>   <a class="code hl_typedef" href="include_2manux_2types_8h.html#a273cf69d639a59973b6019625df33e30">uint16_t</a> <a class="code hl_variable" href="structTaskGateDescriptor.html#a7de36e91a81c16e421ad0761b0da4f77">reserve1</a>;</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno"><a class="line" href="structTaskGateDescriptor.html#a12fa55fec6070b6ede6c09fd42a51543">   15</a></span>   <a class="code hl_typedef" href="include_2manux_2types_8h.html#a273cf69d639a59973b6019625df33e30">uint16_t</a> <a class="code hl_variable" href="structTaskGateDescriptor.html#a12fa55fec6070b6ede6c09fd42a51543">tss</a>;</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="structTaskGateDescriptor.html#a7fefe00b3aeb7560886048928e63e1cb">   16</a></span>   <a class="code hl_typedef" href="include_2manux_2types_8h.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a>  <a class="code hl_variable" href="structTaskGateDescriptor.html#a7fefe00b3aeb7560886048928e63e1cb">reserve2</a>;</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno"><a class="line" href="structTaskGateDescriptor.html#ad1fb1b0dba067de09873cb5efa877642">   17</a></span>   <a class="code hl_typedef" href="include_2manux_2types_8h.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a>  <a class="code hl_variable" href="structTaskGateDescriptor.html#ad1fb1b0dba067de09873cb5efa877642">parametres</a>;</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="structTaskGateDescriptor.html#adc26aedab9d899303ba168f9f2d55d7f">   18</a></span>   <a class="code hl_typedef" href="include_2manux_2types_8h.html#a273cf69d639a59973b6019625df33e30">uint16_t</a> <a class="code hl_variable" href="structTaskGateDescriptor.html#adc26aedab9d899303ba168f9f2d55d7f">reserve3</a>;</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>} <a class="code hl_struct" href="structTaskGateDescriptor.html">TaskGateDescriptor</a>;</div>
+</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="comment">/*</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="comment"> * Définition d&#39;une Interrupt Gate ([1] p 5-14)</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="comment"> */</span></div>
+<div class="foldopen" id="foldopen00024" data-start="{" data-end="};">
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="structInterruptGate.html">   24</a></span><span class="keyword">typedef</span> <span class="keyword">struct </span>{</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="structInterruptGate.html#a8f6998191d4546fa0c7540de8ee34a34">   25</a></span>   <a class="code hl_typedef" href="include_2manux_2types_8h.html#a273cf69d639a59973b6019625df33e30">uint16_t</a> <a class="code hl_variable" href="structInterruptGate.html#a8f6998191d4546fa0c7540de8ee34a34">offsetFaible</a>;</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="structInterruptGate.html#a105c008658bc429a6f77accc49fd6fad">   26</a></span>   <a class="code hl_typedef" href="include_2manux_2types_8h.html#a273cf69d639a59973b6019625df33e30">uint16_t</a> <a class="code hl_variable" href="structInterruptGate.html#a105c008658bc429a6f77accc49fd6fad">selSegment</a>;</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="structInterruptGate.html#acc9c27d134401dcf59daa9a3f8c4914b">   27</a></span>   <a class="code hl_typedef" href="include_2manux_2types_8h.html#a273cf69d639a59973b6019625df33e30">uint16_t</a> <a class="code hl_variable" href="structInterruptGate.html#acc9c27d134401dcf59daa9a3f8c4914b">parametres</a>;</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="structInterruptGate.html#a7c47db2e430453edb02fb7db16860ec9">   28</a></span>   <a class="code hl_typedef" href="include_2manux_2types_8h.html#a273cf69d639a59973b6019625df33e30">uint16_t</a> <a class="code hl_variable" href="structInterruptGate.html#a7c47db2e430453edb02fb7db16860ec9">offsetFort</a>;</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>} <a class="code hl_struct" href="structInterruptGate.html">InterruptGate</a>;</div>
+</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="comment">/*</span></div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="comment"> * Définition d&#39;une Trap Gate ([1] p 5-14)</span></div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="comment"> */</span></div>
+<div class="foldopen" id="foldopen00034" data-start="{" data-end="};">
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="structTrapGate.html">   34</a></span><span class="keyword">typedef</span> <span class="keyword">struct </span>{</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="structTrapGate.html#a651196aa4b125a6671593cd2ce7a4d22">   35</a></span>   <a class="code hl_typedef" href="include_2manux_2types_8h.html#a273cf69d639a59973b6019625df33e30">uint16_t</a> <a class="code hl_variable" href="structTrapGate.html#a651196aa4b125a6671593cd2ce7a4d22">offsetFaible</a>;</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno"><a class="line" href="structTrapGate.html#a1fb68156872eacf1b17991121b73e266">   36</a></span>   <a class="code hl_typedef" href="include_2manux_2types_8h.html#a273cf69d639a59973b6019625df33e30">uint16_t</a> <a class="code hl_variable" href="structTrapGate.html#a1fb68156872eacf1b17991121b73e266">selSegment</a>;</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="structTrapGate.html#ab8ae4e80a767e2d3a9d4b90883cd461c">   37</a></span>   <a class="code hl_typedef" href="include_2manux_2types_8h.html#a273cf69d639a59973b6019625df33e30">uint16_t</a> <a class="code hl_variable" href="structTrapGate.html#ab8ae4e80a767e2d3a9d4b90883cd461c">parametres</a>;</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno"><a class="line" href="structTrapGate.html#aa689e9f925400e6aded6623aa775a62a">   38</a></span>   <a class="code hl_typedef" href="include_2manux_2types_8h.html#a273cf69d639a59973b6019625df33e30">uint16_t</a> <a class="code hl_variable" href="structTrapGate.html#aa689e9f925400e6aded6623aa775a62a">offsetFort</a>;</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>} <a class="code hl_struct" href="structTrapGate.html">TrapGate</a>;</div>
+</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="comment">/*</span></div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="comment"> * Description des enregistrements de l&#39;IDT</span></div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><span class="comment"> */</span></div>
+<div class="foldopen" id="foldopen00044" data-start="{" data-end="};">
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno"><a class="line" href="unionIDTGate.html">   44</a></span><span class="keyword">typedef</span> <span class="keyword">union </span>{</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno"><a class="line" href="unionIDTGate.html#a7df2a819e2dcaca993b5a094b7d03282">   45</a></span>   <a class="code hl_struct" href="structTaskGateDescriptor.html">TaskGateDescriptor</a> <a class="code hl_variable" href="unionIDTGate.html#a7df2a819e2dcaca993b5a094b7d03282">tsg</a>;</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno"><a class="line" href="unionIDTGate.html#a830d4393af0828c3ae284de03aa040b8">   46</a></span>   <a class="code hl_struct" href="structInterruptGate.html">InterruptGate</a>      <a class="code hl_variable" href="unionIDTGate.html#a830d4393af0828c3ae284de03aa040b8">itg</a>;</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno"><a class="line" href="unionIDTGate.html#ac2ade0b2e3c339aa9629b4fc76089fc9">   47</a></span>   <a class="code hl_struct" href="structTrapGate.html">TrapGate</a>           <a class="code hl_variable" href="unionIDTGate.html#ac2ade0b2e3c339aa9629b4fc76089fc9">trg</a>;</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>} <a class="code hl_union" href="unionIDTGate.html">IDTGate</a>;</div>
+</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span><span class="comment">/*</span></div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span><span class="comment"> * L&#39;IDT est un tableau de 256 (max) IDTGate</span></div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno"><a class="line" href="include_2manux_2interruptions_8h.html#a6cffd840f089c59ab7cbfe7daa931438">   53</a></span><span class="keyword">typedef</span> <a class="code hl_union" href="unionIDTGate.html">IDTGate</a> * <a class="code hl_typedef" href="include_2manux_2interruptions_8h.html#a6cffd840f089c59ab7cbfe7daa931438">IDT</a>;</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span><span class="comment">/*</span></div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span><span class="comment"> * Type des fonctions servant de handler d&#39;interruption</span></div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno"><a class="line" href="include_2manux_2interruptions_8h.html#a4fda31edc92f8ccd48b6f4bb50f2e7e1">   58</a></span><span class="keyword">typedef</span> <a class="code hl_function" href="include_2manux_2interruptions_8h.html#a4fda31edc92f8ccd48b6f4bb50f2e7e1">void</a> (Handler(<span class="keywordtype">void</span>));</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span> </div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span><span class="keywordtype">void</span> <a class="code hl_function" href="include_2manux_2interruptions_8h.html#a8bab70dd2ead4ff36a0c2de9b3d3aff8">initialiserIDT</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno"><a class="line" href="include_2manux_2interruptions_8h.html#a4b86502c050e73afc4f906e73dc06cec">   68</a></span><span class="keyword">typedef</span> <a class="code hl_function" href="include_2manux_2interruptions_8h.html#a4fda31edc92f8ccd48b6f4bb50f2e7e1">void</a> (* <a class="code hl_typedef" href="include_2manux_2interruptions_8h.html#a4b86502c050e73afc4f906e73dc06cec">FonctionGestionException</a>)(TousRegistres registres,</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>                      <a class="code hl_typedef" href="include_2manux_2types_8h.html#a06896e8c53f721507066c079052171f8">uint32_t</a> eip, <a class="code hl_typedef" href="include_2manux_2types_8h.html#a06896e8c53f721507066c079052171f8">uint32_t</a> cs, <a class="code hl_typedef" href="include_2manux_2types_8h.html#a06896e8c53f721507066c079052171f8">uint32_t</a> eFlags,</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>                      <a class="code hl_typedef" href="include_2manux_2types_8h.html#a06896e8c53f721507066c079052171f8">uint32_t</a> numEx,<a class="code hl_typedef" href="include_2manux_2types_8h.html#a06896e8c53f721507066c079052171f8">uint32_t</a> errCode);</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span> </div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno"><a class="line" href="include_2manux_2interruptions_8h.html#aeba1bb9393b1868b44581e72a4206150">   75</a></span><span class="keyword">typedef</span> <a class="code hl_function" href="include_2manux_2interruptions_8h.html#a4fda31edc92f8ccd48b6f4bb50f2e7e1">void</a> (* <a class="code hl_typedef" href="include_2manux_2interruptions_8h.html#aeba1bb9393b1868b44581e72a4206150">FonctionGestionInterruption</a>)(TousRegistres registres,</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>                         <a class="code hl_typedef" href="include_2manux_2types_8h.html#a06896e8c53f721507066c079052171f8">uint32_t</a> eip, <a class="code hl_typedef" href="include_2manux_2types_8h.html#a06896e8c53f721507066c079052171f8">uint32_t</a> cs, <a class="code hl_typedef" href="include_2manux_2types_8h.html#a06896e8c53f721507066c079052171f8">uint32_t</a> eFlags,</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>                         <a class="code hl_typedef" href="include_2manux_2types_8h.html#a06896e8c53f721507066c079052171f8">uint32_t</a> numIt);</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span> </div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span><span class="keywordtype">int</span> <a class="code hl_function" href="include_2manux_2interruptions_8h.html#a30b0f4c7aa0fe2acf51d23228cd34a38">definirFonctionGestionInterruption</a>(<span class="keywordtype">int</span> num,</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>                                       <a class="code hl_typedef" href="include_2manux_2interruptions_8h.html#aeba1bb9393b1868b44581e72a4206150">FonctionGestionInterruption</a> fg);</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno"><a class="line" href="include_2manux_2interruptions_8h.html#a68c330e94fe121eba993e5a5973c3162">   86</a></span><span class="preprocessor">#define cli() __asm__(&quot;cli&quot;::);</span></div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span><span class="comment">/*</span></div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span><span class="comment"> * Interdire les interruptions</span></div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span><span class="comment"> * WARNING : ce n&#39;est peut être pas le meilleur endroit où le définir</span></div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span> </div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno"><a class="line" href="include_2manux_2interruptions_8h.html#ac5d15f274bc9b1e96230f3d3c60fd1f8">   92</a></span><span class="preprocessor">#define sti() __asm__(&quot;sti&quot;::);</span></div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span><span class="comment">/*</span></div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span><span class="comment"> * Autoriser les interruptions</span></div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span><span class="comment"> * WARNING : ce n&#39;est peut être pas le meilleur endroit où le définir</span></div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span> </div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span><span class="comment">/*</span></div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span><span class="comment"> * Nombre de tops d&#39;horloge depuis le boot</span></div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span> </div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span><span class="keywordtype">void</span> <a class="code hl_function" href="include_2manux_2interruptions_8h.html#a1c93a6acba307c0339b7208e55cf9c29">gestionInterruption</a>(TousRegistres registres,</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>             <a class="code hl_typedef" href="include_2manux_2types_8h.html#a06896e8c53f721507066c079052171f8">uint32_t</a> numIt,</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>             <a class="code hl_typedef" href="include_2manux_2types_8h.html#a06896e8c53f721507066c079052171f8">uint32_t</a> eip, <a class="code hl_typedef" href="include_2manux_2types_8h.html#a06896e8c53f721507066c079052171f8">uint32_t</a> cs, <a class="code hl_typedef" href="include_2manux_2types_8h.html#a06896e8c53f721507066c079052171f8">uint32_t</a> eFlags);</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span> </div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span><span class="keywordtype">void</span> <a class="code hl_function" href="include_2manux_2interruptions_8h.html#ab8ede39e92b659dc067644ea9a5d43ba">gestionException</a>(TousRegistres registres,</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>              <a class="code hl_typedef" href="include_2manux_2types_8h.html#a06896e8c53f721507066c079052171f8">uint32_t</a> numEx, <a class="code hl_typedef" href="include_2manux_2types_8h.html#a06896e8c53f721507066c079052171f8">uint32_t</a> errCode,</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>                      <a class="code hl_typedef" href="include_2manux_2types_8h.html#a06896e8c53f721507066c079052171f8">uint32_t</a> eip, <a class="code hl_typedef" href="include_2manux_2types_8h.html#a06896e8c53f721507066c079052171f8">uint32_t</a> cs, <a class="code hl_typedef" href="include_2manux_2types_8h.html#a06896e8c53f721507066c079052171f8">uint32_t</a> eFlags);</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span> </div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno"><a class="line" href="include_2manux_2interruptions_8h.html#ad045bb2309fda8ce932e293b5959e08c">  118</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="include_2manux_2interruptions_8h.html#ad045bb2309fda8ce932e293b5959e08c">setFrequenceTimer</a>(<a class="code hl_typedef" href="include_2manux_2types_8h.html#a273cf69d639a59973b6019625df33e30">uint16_t</a> freqHz);</div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span><span class="comment">/*</span></div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span><span class="comment"> * Positionne la fréquence du timer 0</span></div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span> </div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span><span class="preprocessor">#ifdef MANUX_INT_AUDIT</span></div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span><span class="keyword">extern</span> <a class="code hl_typedef" href="include_2manux_2types_8h.html#a06896e8c53f721507066c079052171f8">uint32_t</a> nbItRecues[<a class="code hl_define" href="pc-i386_8h.html#ab5548f00ea513aad00307cef92ac24ac">MANUX_NB_INTERRUPTIONS</a>];</div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span><span class="preprocessor">#endif </span><span class="comment">// MANUX_INT_AUDIT</span></div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span> </div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span><span class="preprocessor">#endif </span><span class="comment">//  INTERRUPTION_DEF</span></div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span> </div>
+<div class="ttc" id="ainclude_2manux_2interruptions_8h_html_a1c93a6acba307c0339b7208e55cf9c29"><div class="ttname"><a href="include_2manux_2interruptions_8h.html#a1c93a6acba307c0339b7208e55cf9c29">gestionInterruption</a></div><div class="ttdeci">void gestionInterruption(TousRegistres registres, uint32_t numIt, uint32_t eip, uint32_t cs, uint32_t eFlags)</div><div class="ttdoc">: Fonction de base de gestion d'une exception</div><div class="ttdef"><b>Definition</b> <a href="interruptions_8c_source.html#l00119">interruptions.c:119</a></div></div>
+<div class="ttc" id="ainclude_2manux_2interruptions_8h_html_a30b0f4c7aa0fe2acf51d23228cd34a38"><div class="ttname"><a href="include_2manux_2interruptions_8h.html#a30b0f4c7aa0fe2acf51d23228cd34a38">definirFonctionGestionInterruption</a></div><div class="ttdeci">int definirFonctionGestionInterruption(int num, FonctionGestionInterruption fg)</div><div class="ttdef"><b>Definition</b> <a href="interruptions_8c_source.html#l00174">interruptions.c:174</a></div></div>
+<div class="ttc" id="ainclude_2manux_2interruptions_8h_html_a4b86502c050e73afc4f906e73dc06cec"><div class="ttname"><a href="include_2manux_2interruptions_8h.html#a4b86502c050e73afc4f906e73dc06cec">FonctionGestionException</a></div><div class="ttdeci">void(* FonctionGestionException)(TousRegistres registres, uint32_t eip, uint32_t cs, uint32_t eFlags, uint32_t numEx, uint32_t errCode)</div><div class="ttdef"><b>Definition</b> <a href="include_2manux_2interruptions_8h_source.html#l00068">interruptions.h:68</a></div></div>
+<div class="ttc" id="ainclude_2manux_2interruptions_8h_html_a4fda31edc92f8ccd48b6f4bb50f2e7e1"><div class="ttname"><a href="include_2manux_2interruptions_8h.html#a4fda31edc92f8ccd48b6f4bb50f2e7e1">void</a></div><div class="ttdeci">typedef void(Handler(void))</div></div>
+<div class="ttc" id="ainclude_2manux_2interruptions_8h_html_a6cffd840f089c59ab7cbfe7daa931438"><div class="ttname"><a href="include_2manux_2interruptions_8h.html#a6cffd840f089c59ab7cbfe7daa931438">IDT</a></div><div class="ttdeci">IDTGate * IDT</div><div class="ttdef"><b>Definition</b> <a href="include_2manux_2interruptions_8h_source.html#l00053">interruptions.h:53</a></div></div>
+<div class="ttc" id="ainclude_2manux_2interruptions_8h_html_a8bab70dd2ead4ff36a0c2de9b3d3aff8"><div class="ttname"><a href="include_2manux_2interruptions_8h.html#a8bab70dd2ead4ff36a0c2de9b3d3aff8">initialiserIDT</a></div><div class="ttdeci">void initialiserIDT(void)</div><div class="ttdoc">! Initialiser l'IDT (Interrupt Description Table)</div><div class="ttdef"><b>Definition</b> <a href="interruptions_8c_source.html#l00185">interruptions.c:185</a></div></div>
+<div class="ttc" id="ainclude_2manux_2interruptions_8h_html_ab8ede39e92b659dc067644ea9a5d43ba"><div class="ttname"><a href="include_2manux_2interruptions_8h.html#ab8ede39e92b659dc067644ea9a5d43ba">gestionException</a></div><div class="ttdeci">void gestionException(TousRegistres registres, uint32_t numEx, uint32_t errCode, uint32_t eip, uint32_t cs, uint32_t eFlags)</div><div class="ttdoc">: Fonction de base de gestion d'une exception</div><div class="ttdef"><b>Definition</b> <a href="interruptions_8c_source.html#l00083">interruptions.c:83</a></div></div>
+<div class="ttc" id="ainclude_2manux_2interruptions_8h_html_ad045bb2309fda8ce932e293b5959e08c"><div class="ttname"><a href="include_2manux_2interruptions_8h.html#ad045bb2309fda8ce932e293b5959e08c">setFrequenceTimer</a></div><div class="ttdeci">void setFrequenceTimer(uint16_t freqHz)</div></div>
+<div class="ttc" id="ainclude_2manux_2interruptions_8h_html_aeba1bb9393b1868b44581e72a4206150"><div class="ttname"><a href="include_2manux_2interruptions_8h.html#aeba1bb9393b1868b44581e72a4206150">FonctionGestionInterruption</a></div><div class="ttdeci">void(* FonctionGestionInterruption)(TousRegistres registres, uint32_t eip, uint32_t cs, uint32_t eFlags, uint32_t numIt)</div><div class="ttdef"><b>Definition</b> <a href="include_2manux_2interruptions_8h_source.html#l00075">interruptions.h:75</a></div></div>
+<div class="ttc" id="ainclude_2manux_2types_8h_html_a06896e8c53f721507066c079052171f8"><div class="ttname"><a href="include_2manux_2types_8h.html#a06896e8c53f721507066c079052171f8">uint32_t</a></div><div class="ttdeci">unsigned long uint32_t</div><div class="ttdef"><b>Definition</b> <a href="include_2manux_2types_8h_source.html#l00020">types.h:20</a></div></div>
+<div class="ttc" id="ainclude_2manux_2types_8h_html_a273cf69d639a59973b6019625df33e30"><div class="ttname"><a href="include_2manux_2types_8h.html#a273cf69d639a59973b6019625df33e30">uint16_t</a></div><div class="ttdeci">unsigned short uint16_t</div><div class="ttdef"><b>Definition</b> <a href="include_2manux_2types_8h_source.html#l00016">types.h:16</a></div></div>
+<div class="ttc" id="ainclude_2manux_2types_8h_html_aba7bc1797add20fe3efdf37ced1182c5"><div class="ttname"><a href="include_2manux_2types_8h.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a></div><div class="ttdeci">unsigned char uint8_t</div><div class="ttdef"><b>Definition</b> <a href="include_2manux_2types_8h_source.html#l00012">types.h:12</a></div></div>
+<div class="ttc" id="apc-i386_8h_html_ab5548f00ea513aad00307cef92ac24ac"><div class="ttname"><a href="pc-i386_8h.html#ab5548f00ea513aad00307cef92ac24ac">MANUX_NB_INTERRUPTIONS</a></div><div class="ttdeci">#define MANUX_NB_INTERRUPTIONS</div><div class="ttdef"><b>Definition</b> <a href="pc-i386_8h_source.html#l00025">pc-i386.h:25</a></div></div>
+<div class="ttc" id="astructInterruptGate_html"><div class="ttname"><a href="structInterruptGate.html">InterruptGate</a></div><div class="ttdef"><b>Definition</b> <a href="include_2manux_2interruptions_8h_source.html#l00024">interruptions.h:24</a></div></div>
+<div class="ttc" id="astructInterruptGate_html_a105c008658bc429a6f77accc49fd6fad"><div class="ttname"><a href="structInterruptGate.html#a105c008658bc429a6f77accc49fd6fad">InterruptGate::selSegment</a></div><div class="ttdeci">uint16_t selSegment</div><div class="ttdef"><b>Definition</b> <a href="include_2manux_2interruptions_8h_source.html#l00026">interruptions.h:26</a></div></div>
+<div class="ttc" id="astructInterruptGate_html_a7c47db2e430453edb02fb7db16860ec9"><div class="ttname"><a href="structInterruptGate.html#a7c47db2e430453edb02fb7db16860ec9">InterruptGate::offsetFort</a></div><div class="ttdeci">uint16_t offsetFort</div><div class="ttdef"><b>Definition</b> <a href="include_2manux_2interruptions_8h_source.html#l00028">interruptions.h:28</a></div></div>
+<div class="ttc" id="astructInterruptGate_html_a8f6998191d4546fa0c7540de8ee34a34"><div class="ttname"><a href="structInterruptGate.html#a8f6998191d4546fa0c7540de8ee34a34">InterruptGate::offsetFaible</a></div><div class="ttdeci">uint16_t offsetFaible</div><div class="ttdef"><b>Definition</b> <a href="include_2manux_2interruptions_8h_source.html#l00025">interruptions.h:25</a></div></div>
+<div class="ttc" id="astructInterruptGate_html_acc9c27d134401dcf59daa9a3f8c4914b"><div class="ttname"><a href="structInterruptGate.html#acc9c27d134401dcf59daa9a3f8c4914b">InterruptGate::parametres</a></div><div class="ttdeci">uint16_t parametres</div><div class="ttdef"><b>Definition</b> <a href="include_2manux_2interruptions_8h_source.html#l00027">interruptions.h:27</a></div></div>
+<div class="ttc" id="astructTaskGateDescriptor_html"><div class="ttname"><a href="structTaskGateDescriptor.html">TaskGateDescriptor</a></div><div class="ttdef"><b>Definition</b> <a href="include_2manux_2interruptions_8h_source.html#l00013">interruptions.h:13</a></div></div>
+<div class="ttc" id="astructTaskGateDescriptor_html_a12fa55fec6070b6ede6c09fd42a51543"><div class="ttname"><a href="structTaskGateDescriptor.html#a12fa55fec6070b6ede6c09fd42a51543">TaskGateDescriptor::tss</a></div><div class="ttdeci">uint16_t tss</div><div class="ttdef"><b>Definition</b> <a href="include_2manux_2interruptions_8h_source.html#l00015">interruptions.h:15</a></div></div>
+<div class="ttc" id="astructTaskGateDescriptor_html_a7de36e91a81c16e421ad0761b0da4f77"><div class="ttname"><a href="structTaskGateDescriptor.html#a7de36e91a81c16e421ad0761b0da4f77">TaskGateDescriptor::reserve1</a></div><div class="ttdeci">uint16_t reserve1</div><div class="ttdef"><b>Definition</b> <a href="include_2manux_2interruptions_8h_source.html#l00014">interruptions.h:14</a></div></div>
+<div class="ttc" id="astructTaskGateDescriptor_html_a7fefe00b3aeb7560886048928e63e1cb"><div class="ttname"><a href="structTaskGateDescriptor.html#a7fefe00b3aeb7560886048928e63e1cb">TaskGateDescriptor::reserve2</a></div><div class="ttdeci">uint8_t reserve2</div><div class="ttdef"><b>Definition</b> <a href="include_2manux_2interruptions_8h_source.html#l00016">interruptions.h:16</a></div></div>
+<div class="ttc" id="astructTaskGateDescriptor_html_ad1fb1b0dba067de09873cb5efa877642"><div class="ttname"><a href="structTaskGateDescriptor.html#ad1fb1b0dba067de09873cb5efa877642">TaskGateDescriptor::parametres</a></div><div class="ttdeci">uint8_t parametres</div><div class="ttdef"><b>Definition</b> <a href="include_2manux_2interruptions_8h_source.html#l00017">interruptions.h:17</a></div></div>
+<div class="ttc" id="astructTaskGateDescriptor_html_adc26aedab9d899303ba168f9f2d55d7f"><div class="ttname"><a href="structTaskGateDescriptor.html#adc26aedab9d899303ba168f9f2d55d7f">TaskGateDescriptor::reserve3</a></div><div class="ttdeci">uint16_t reserve3</div><div class="ttdef"><b>Definition</b> <a href="include_2manux_2interruptions_8h_source.html#l00018">interruptions.h:18</a></div></div>
+<div class="ttc" id="astructTrapGate_html"><div class="ttname"><a href="structTrapGate.html">TrapGate</a></div><div class="ttdef"><b>Definition</b> <a href="include_2manux_2interruptions_8h_source.html#l00034">interruptions.h:34</a></div></div>
+<div class="ttc" id="astructTrapGate_html_a1fb68156872eacf1b17991121b73e266"><div class="ttname"><a href="structTrapGate.html#a1fb68156872eacf1b17991121b73e266">TrapGate::selSegment</a></div><div class="ttdeci">uint16_t selSegment</div><div class="ttdef"><b>Definition</b> <a href="include_2manux_2interruptions_8h_source.html#l00036">interruptions.h:36</a></div></div>
+<div class="ttc" id="astructTrapGate_html_a651196aa4b125a6671593cd2ce7a4d22"><div class="ttname"><a href="structTrapGate.html#a651196aa4b125a6671593cd2ce7a4d22">TrapGate::offsetFaible</a></div><div class="ttdeci">uint16_t offsetFaible</div><div class="ttdef"><b>Definition</b> <a href="include_2manux_2interruptions_8h_source.html#l00035">interruptions.h:35</a></div></div>
+<div class="ttc" id="astructTrapGate_html_aa689e9f925400e6aded6623aa775a62a"><div class="ttname"><a href="structTrapGate.html#aa689e9f925400e6aded6623aa775a62a">TrapGate::offsetFort</a></div><div class="ttdeci">uint16_t offsetFort</div><div class="ttdef"><b>Definition</b> <a href="include_2manux_2interruptions_8h_source.html#l00038">interruptions.h:38</a></div></div>
+<div class="ttc" id="astructTrapGate_html_ab8ae4e80a767e2d3a9d4b90883cd461c"><div class="ttname"><a href="structTrapGate.html#ab8ae4e80a767e2d3a9d4b90883cd461c">TrapGate::parametres</a></div><div class="ttdeci">uint16_t parametres</div><div class="ttdef"><b>Definition</b> <a href="include_2manux_2interruptions_8h_source.html#l00037">interruptions.h:37</a></div></div>
+<div class="ttc" id="aunionIDTGate_html"><div class="ttname"><a href="unionIDTGate.html">IDTGate</a></div><div class="ttdef"><b>Definition</b> <a href="include_2manux_2interruptions_8h_source.html#l00044">interruptions.h:44</a></div></div>
+<div class="ttc" id="aunionIDTGate_html_a7df2a819e2dcaca993b5a094b7d03282"><div class="ttname"><a href="unionIDTGate.html#a7df2a819e2dcaca993b5a094b7d03282">IDTGate::tsg</a></div><div class="ttdeci">TaskGateDescriptor tsg</div><div class="ttdef"><b>Definition</b> <a href="include_2manux_2interruptions_8h_source.html#l00045">interruptions.h:45</a></div></div>
+<div class="ttc" id="aunionIDTGate_html_a830d4393af0828c3ae284de03aa040b8"><div class="ttname"><a href="unionIDTGate.html#a830d4393af0828c3ae284de03aa040b8">IDTGate::itg</a></div><div class="ttdeci">InterruptGate itg</div><div class="ttdef"><b>Definition</b> <a href="include_2manux_2interruptions_8h_source.html#l00046">interruptions.h:46</a></div></div>
+<div class="ttc" id="aunionIDTGate_html_ac2ade0b2e3c339aa9629b4fc76089fc9"><div class="ttname"><a href="unionIDTGate.html#ac2ade0b2e3c339aa9629b4fc76089fc9">IDTGate::trg</a></div><div class="ttdeci">TrapGate trg</div><div class="ttdef"><b>Definition</b> <a href="include_2manux_2interruptions_8h_source.html#l00047">interruptions.h:47</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

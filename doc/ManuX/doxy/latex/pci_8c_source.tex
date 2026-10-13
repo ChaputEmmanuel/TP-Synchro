@@ -1,0 +1,178 @@
+\doxysection{pci.\+c}
+\hypertarget{pci_8c_source}{}\label{pci_8c_source}\index{/home/manu/PROGRAMMATION/C/ManuX/noyau/pci.c@{/home/manu/PROGRAMMATION/C/ManuX/noyau/pci.c}}
+\mbox{\hyperlink{pci_8c}{Aller à la documentation de ce fichier.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{pci_8c_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{pci_8c_source_l00010}00010\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{manux_2pci_8h}{manux/pci.h}}>}}
+\DoxyCodeLine{\Hypertarget{pci_8c_source_l00011}00011\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{io_8h}{manux/io.h}}>}\ \ \ \ \ \ \textcolor{comment}{//\ inl/outl/...}}
+\DoxyCodeLine{\Hypertarget{pci_8c_source_l00012}00012\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{include_2manux_2memoire_8h}{manux/memoire.h}}>}\ \textcolor{comment}{//\ NULL}}
+\DoxyCodeLine{\Hypertarget{pci_8c_source_l00013}00013\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{manux_2debug_8h}{manux/debug.h}}>}}
+\DoxyCodeLine{\Hypertarget{pci_8c_source_l00014}00014\ }
+\DoxyCodeLine{\Hypertarget{pci_8c_source_l00018}\mbox{\hyperlink{pci_8c_a76d99054f60e8063457ce94102d43e3f}{00018}}\ \textcolor{preprocessor}{\#define\ PCI\_NB\_EQUIP\_PAR\_BUS\ 8\ }\textcolor{comment}{//32}}
+\DoxyCodeLine{\Hypertarget{pci_8c_source_l00019}00019\ }
+\DoxyCodeLine{\Hypertarget{pci_8c_source_l00023}00023\ \textcolor{preprocessor}{\#ifndef\ PCI\_CONFIG\_ADDRESS}}
+\DoxyCodeLine{\Hypertarget{pci_8c_source_l00024}\mbox{\hyperlink{pci_8c_aaa58db8af2d00af66c78624104e1016b}{00024}}\ \textcolor{preprocessor}{\#\ \ \ define\ PCI\_CONFIG\_ADDRESS\ \ 0xCF8}}
+\DoxyCodeLine{\Hypertarget{pci_8c_source_l00025}00025\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{pci_8c_source_l00026}00026\ \textcolor{preprocessor}{\#ifndef\ PCI\_CONFIG\_DATA}}
+\DoxyCodeLine{\Hypertarget{pci_8c_source_l00027}\mbox{\hyperlink{pci_8c_ad1fedcf5fe37518ccc1ddfcb880d1b01}{00027}}\ \textcolor{preprocessor}{\#\ \ \ define\ PCI\_CONFIG\_DATA\ \ \ \ \ 0xCFC}}
+\DoxyCodeLine{\Hypertarget{pci_8c_source_l00028}00028\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{pci_8c_source_l00029}00029\ }
+\DoxyCodeLine{\Hypertarget{pci_8c_source_l00033}\mbox{\hyperlink{pci_8c_a4f822a1f149cac6db683db4f3c1538d7}{00033}}\ \textcolor{preprocessor}{\#define\ MANUX\_NB\_BUS\_PCI\ 1}}
+\DoxyCodeLine{\Hypertarget{pci_8c_source_l00034}00034\ }
+\DoxyCodeLine{\Hypertarget{pci_8c_source_l00038}\mbox{\hyperlink{pci_8c_a46eac916776409f9ca95f9ab4557d94e}{00038}}\ \textcolor{preprocessor}{\#define\ PCI\_ID\_VENDEUR\ \ \ \ 0x00}}
+\DoxyCodeLine{\Hypertarget{pci_8c_source_l00039}\mbox{\hyperlink{pci_8c_a1f1a8ffed01cc77fc4211337005a3299}{00039}}\ \textcolor{preprocessor}{\#define\ PCI\_ID\_EQUIPEMENT\ 0x02}}
+\DoxyCodeLine{\Hypertarget{pci_8c_source_l00040}\mbox{\hyperlink{pci_8c_aace483a071ea645c25efcc12db5b3729}{00040}}\ \textcolor{preprocessor}{\#define\ PCI\_REVISION\ \ \ \ \ \ 0x08}}
+\DoxyCodeLine{\Hypertarget{pci_8c_source_l00041}\mbox{\hyperlink{pci_8c_a24d8b91698474af77dc208df68424d64}{00041}}\ \textcolor{preprocessor}{\#define\ PCI\_INTERRUPTION\ \ 0x3C}}
+\DoxyCodeLine{\Hypertarget{pci_8c_source_l00042}\mbox{\hyperlink{pci_8c_ac46c3b0065c7e8e9775dd842af22344c}{00042}}\ \textcolor{preprocessor}{\#define\ PCI\_BAR\_0\ \ \ \ \ \ \ \ \ 0x10\ \ \ }\textcolor{comment}{//\ Base\ Address\ Register}}
+\DoxyCodeLine{\Hypertarget{pci_8c_source_l00043}\mbox{\hyperlink{pci_8c_a6ef954b421ae2e15edda17a2cc74474a}{00043}}\ \textcolor{preprocessor}{\#define\ PCI\_BAR\_1\ \ \ \ \ \ \ \ \ 0x14}}
+\DoxyCodeLine{\Hypertarget{pci_8c_source_l00044}\mbox{\hyperlink{pci_8c_a3d75d753130a888886bcd046b87ae434}{00044}}\ \textcolor{preprocessor}{\#define\ PCI\_BAR\_2\ \ \ \ \ \ \ \ \ 0x18}}
+\DoxyCodeLine{\Hypertarget{pci_8c_source_l00045}\mbox{\hyperlink{pci_8c_a7f3bb9c6a8f16029b0bcf5c0b8864b21}{00045}}\ \textcolor{preprocessor}{\#define\ PCI\_BAR\_3\ \ \ \ \ \ \ \ \ 0x1C}}
+\DoxyCodeLine{\Hypertarget{pci_8c_source_l00046}\mbox{\hyperlink{pci_8c_a9ffaecd7d866bf5bfc64e85eecb3067f}{00046}}\ \textcolor{preprocessor}{\#define\ PCI\_BAR\_4\ \ \ \ \ \ \ \ \ 0x20}}
+\DoxyCodeLine{\Hypertarget{pci_8c_source_l00047}\mbox{\hyperlink{pci_8c_a19285f776c8666b2cf999111e7fae165}{00047}}\ \textcolor{preprocessor}{\#define\ PCI\_BAR\_5\ \ \ \ \ \ \ \ \ 0x24}}
+\DoxyCodeLine{\Hypertarget{pci_8c_source_l00048}00048\ }
+\DoxyCodeLine{\Hypertarget{pci_8c_source_l00052}\mbox{\hyperlink{pci_8c_a959211a91f46ea1222f3f67486db9fd6}{00052}}\ \textcolor{preprocessor}{\#define\ PCI\_BAR\_IO\ \ \ \ \ \ \ \ 0x01}}
+\DoxyCodeLine{\Hypertarget{pci_8c_source_l00053}\mbox{\hyperlink{pci_8c_a74e51cf1894682ef1817c6c516f5ef4e}{00053}}\ \textcolor{preprocessor}{\#define\ PCI\_AUCUN\_VENDEUR\ 0xFFFF}}
+\DoxyCodeLine{\Hypertarget{pci_8c_source_l00054}00054\ }
+\DoxyCodeLine{\Hypertarget{pci_8c_source_l00059}\mbox{\hyperlink{pci_8c_a278e24c363d5729179619c807001694b}{00059}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{pci_8c_a278e24c363d5729179619c807001694b}{PCINombreEquipements}}\ =\ 0;\ \textcolor{comment}{//\ Le\ nombre\ d'équipements\ détectés}}
+\DoxyCodeLine{\Hypertarget{pci_8c_source_l00060}00060\ }
+\DoxyCodeLine{\Hypertarget{pci_8c_source_l00061}\mbox{\hyperlink{pci_8c_aa6dd82edf1e1673d848dacfcf2b98fea}{00061}}\ \mbox{\hyperlink{struct__PCIEquipement}{PCIEquipement}}\ \mbox{\hyperlink{pci_8c_aa6dd82edf1e1673d848dacfcf2b98fea}{PCIEquipements}}[\mbox{\hyperlink{config_2pci_8h_a9a3f40332f0c15b9d84d7b73cf98886d}{MANUX\_NB\_MAX\_EQUIPEMENTS\_PCI}}];}
+\DoxyCodeLine{\Hypertarget{pci_8c_source_l00062}00062\ }
+\DoxyCodeLine{\Hypertarget{pci_8c_source_l00075}\mbox{\hyperlink{manux_2pci_8h_ae74b8ebfa7614c51d4d85f964b97e19b}{00075}}\ \mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\_t}}\ \mbox{\hyperlink{pci_8c_ae74b8ebfa7614c51d4d85f964b97e19b}{PCILireLong}}(\mbox{\hyperlink{include_2manux_2types_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\_t}}\ bus,\ \mbox{\hyperlink{include_2manux_2types_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\_t}}\ slot,\ \mbox{\hyperlink{include_2manux_2types_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\_t}}\ fonction,\ \mbox{\hyperlink{include_2manux_2types_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\_t}}\ offset)}
+\DoxyCodeLine{\Hypertarget{pci_8c_source_l00076}00076\ \{}
+\DoxyCodeLine{\Hypertarget{pci_8c_source_l00077}00077\ \ \ \ \mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\_t}}\ result;}
+\DoxyCodeLine{\Hypertarget{pci_8c_source_l00078}00078\ \ \ \ \mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\_t}}\ adresse\ =\ (((\mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\_t}})bus)\ <<\ 16)}
+\DoxyCodeLine{\Hypertarget{pci_8c_source_l00079}00079\ \ \ \ \ \ |\ (((\mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\_t}})slot)\ <<\ 11)}
+\DoxyCodeLine{\Hypertarget{pci_8c_source_l00080}00080\ \ \ \ \ \ |\ (((\mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\_t}})fonction)\ <<\ 8)}
+\DoxyCodeLine{\Hypertarget{pci_8c_source_l00081}00081\ \ \ \ \ \ |\ (((\mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\_t}})offset)\ \&\ 0xFC)}
+\DoxyCodeLine{\Hypertarget{pci_8c_source_l00082}00082\ \ \ \ \ \ |\ ((\mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\_t}})0x80000000);}
+\DoxyCodeLine{\Hypertarget{pci_8c_source_l00083}00083\ }
+\DoxyCodeLine{\Hypertarget{pci_8c_source_l00084}00084\ \ \ \ \textcolor{comment}{//\ On\ envoie\ l'adresse\ qui\ nous\ intéresse}}
+\DoxyCodeLine{\Hypertarget{pci_8c_source_l00085}00085\ \ \ \ \mbox{\hyperlink{io_8h_a92a4b4982e75909904a35aef114cc3de}{outl}}((\mbox{\hyperlink{include_2manux_2types_8h_a273cf69d639a59973b6019625df33e30}{uint16\_t}})\mbox{\hyperlink{pci_8c_aaa58db8af2d00af66c78624104e1016b}{PCI\_CONFIG\_ADDRESS}},\ adresse);}
+\DoxyCodeLine{\Hypertarget{pci_8c_source_l00086}00086\ }
+\DoxyCodeLine{\Hypertarget{pci_8c_source_l00087}00087\ \ \ \ \textcolor{comment}{//\ On\ y\ lit\ un\ long\ conformément\ à\ [1]}}
+\DoxyCodeLine{\Hypertarget{pci_8c_source_l00088}00088\ \ \ \ \mbox{\hyperlink{io_8h_a58dac80d57e8fe473d87545a4d78ad53}{inl}}((\mbox{\hyperlink{include_2manux_2types_8h_a273cf69d639a59973b6019625df33e30}{uint16\_t}})\mbox{\hyperlink{pci_8c_ad1fedcf5fe37518ccc1ddfcb880d1b01}{PCI\_CONFIG\_DATA}},\ result);}
+\DoxyCodeLine{\Hypertarget{pci_8c_source_l00089}00089\ }
+\DoxyCodeLine{\Hypertarget{pci_8c_source_l00090}00090\ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{\Hypertarget{pci_8c_source_l00091}00091\ \}}
+\DoxyCodeLine{\Hypertarget{pci_8c_source_l00092}00092\ }
+\DoxyCodeLine{\Hypertarget{pci_8c_source_l00093}\mbox{\hyperlink{manux_2pci_8h_a315cad18d567e1dccdfc96fab0a58c49}{00093}}\ \mbox{\hyperlink{include_2manux_2types_8h_a273cf69d639a59973b6019625df33e30}{uint16\_t}}\ \mbox{\hyperlink{pci_8c_a315cad18d567e1dccdfc96fab0a58c49}{PCILireMot}}(\mbox{\hyperlink{include_2manux_2types_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\_t}}\ bus,\ \mbox{\hyperlink{include_2manux_2types_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\_t}}\ slot,\ \mbox{\hyperlink{include_2manux_2types_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\_t}}\ fonction,\ \mbox{\hyperlink{include_2manux_2types_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\_t}}\ offset)}
+\DoxyCodeLine{\Hypertarget{pci_8c_source_l00094}00094\ \{}
+\DoxyCodeLine{\Hypertarget{pci_8c_source_l00095}00095\ \ \ \ \mbox{\hyperlink{include_2manux_2types_8h_a273cf69d639a59973b6019625df33e30}{uint16\_t}}\ result;}
+\DoxyCodeLine{\Hypertarget{pci_8c_source_l00096}00096\ \ \ }
+\DoxyCodeLine{\Hypertarget{pci_8c_source_l00097}00097\ \ \ \ \textcolor{comment}{//\ Si\ l'offset\ nous\ fait\ pointer\ sur\ le\ mot\ de\ poids\ fort,\ on\ décale}}
+\DoxyCodeLine{\Hypertarget{pci_8c_source_l00098}00098\ \ \ \ \textcolor{comment}{//\ à\ gauche\ d'un\ mot\ (2\ *\ 8).\ Sinon\ non\ (0\ *\ 8).\ Puis\ on\ masque\ car}}
+\DoxyCodeLine{\Hypertarget{pci_8c_source_l00099}00099\ \ \ \ \textcolor{comment}{//\ on\ ne\ veut\ qu'un\ mot}}
+\DoxyCodeLine{\Hypertarget{pci_8c_source_l00100}00100\ \ \ \ result\ =\ (\mbox{\hyperlink{include_2manux_2types_8h_a273cf69d639a59973b6019625df33e30}{uint16\_t}})(\mbox{\hyperlink{pci_8c_ae74b8ebfa7614c51d4d85f964b97e19b}{PCILireLong}}(bus,\ slot,\ fonction,}
+\DoxyCodeLine{\Hypertarget{pci_8c_source_l00101}00101\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ offset\ \&\ ((\mbox{\hyperlink{include_2manux_2types_8h_a273cf69d639a59973b6019625df33e30}{uint16\_t}})\string~0x3))\ >>\ ((offset\ \&\ 2)\ *\ 8))\&\ 0xFFFF;}
+\DoxyCodeLine{\Hypertarget{pci_8c_source_l00102}00102\ }
+\DoxyCodeLine{\Hypertarget{pci_8c_source_l00103}00103\ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{\Hypertarget{pci_8c_source_l00104}00104\ \}}
+\DoxyCodeLine{\Hypertarget{pci_8c_source_l00105}00105\ }
+\DoxyCodeLine{\Hypertarget{pci_8c_source_l00106}\mbox{\hyperlink{manux_2pci_8h_a6457a470746af5e05f5b9624f45fda56}{00106}}\ \mbox{\hyperlink{include_2manux_2types_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\_t}}\ \mbox{\hyperlink{pci_8c_a6457a470746af5e05f5b9624f45fda56}{PCILireOctet}}(\mbox{\hyperlink{include_2manux_2types_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\_t}}\ bus,\ \mbox{\hyperlink{include_2manux_2types_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\_t}}\ slot,\ \mbox{\hyperlink{include_2manux_2types_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\_t}}\ fonction,\ \mbox{\hyperlink{include_2manux_2types_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\_t}}\ offset)}
+\DoxyCodeLine{\Hypertarget{pci_8c_source_l00107}00107\ \{}
+\DoxyCodeLine{\Hypertarget{pci_8c_source_l00108}00108\ \ \ \ \mbox{\hyperlink{include_2manux_2types_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\_t}}\ result;}
+\DoxyCodeLine{\Hypertarget{pci_8c_source_l00109}00109\ }
+\DoxyCodeLine{\Hypertarget{pci_8c_source_l00110}00110\ \ \ \ \textcolor{comment}{//\ On\ décale\ de\ 0\ à\ 3\ octets\ en\ fonction\ des\ 3\ bits\ de\ poids\ faible}}
+\DoxyCodeLine{\Hypertarget{pci_8c_source_l00111}00111\ \ \ \ result\ =\ (\mbox{\hyperlink{include_2manux_2types_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\_t}})(\mbox{\hyperlink{pci_8c_ae74b8ebfa7614c51d4d85f964b97e19b}{PCILireLong}}(bus,\ slot,\ fonction,\ offset\ \&\ \string~0x3)\ >>\ ((offset\ \&\ 3)\ *\ 8))\&\ 0xFF;}
+\DoxyCodeLine{\Hypertarget{pci_8c_source_l00112}00112\ }
+\DoxyCodeLine{\Hypertarget{pci_8c_source_l00113}00113\ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{\Hypertarget{pci_8c_source_l00114}00114\ \}}
+\DoxyCodeLine{\Hypertarget{pci_8c_source_l00115}00115\ }
+\DoxyCodeLine{\Hypertarget{pci_8c_source_l00121}00121\ \textcolor{keyword}{static}}
+\DoxyCodeLine{\Hypertarget{pci_8c_source_l00122}00122\ \textcolor{keywordtype}{void}\ PCIEnumerationDesEquipementsDuBus(\mbox{\hyperlink{include_2manux_2types_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\_t}}\ bus)}
+\DoxyCodeLine{\Hypertarget{pci_8c_source_l00123}00123\ \{}
+\DoxyCodeLine{\Hypertarget{pci_8c_source_l00124}00124\ \ \ \ \mbox{\hyperlink{include_2manux_2types_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\_t}}\ \ numEquipement;\ \ \textcolor{comment}{//\ Pour\ boucler}}
+\DoxyCodeLine{\Hypertarget{pci_8c_source_l00125}00125\ \ \ \ \mbox{\hyperlink{include_2manux_2types_8h_a273cf69d639a59973b6019625df33e30}{uint16\_t}}\ idVendeur;}
+\DoxyCodeLine{\Hypertarget{pci_8c_source_l00126}00126\ \ \ \ \mbox{\hyperlink{include_2manux_2types_8h_a273cf69d639a59973b6019625df33e30}{uint16\_t}}\ idEquipement;}
+\DoxyCodeLine{\Hypertarget{pci_8c_source_l00127}00127\ \ \ \ \mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\_t}}\ adresse;\ \ \ \ \ \ \ \ \textcolor{comment}{//\ Pour\ chercher\ les\ adresse\ d'E/S}}
+\DoxyCodeLine{\Hypertarget{pci_8c_source_l00128}00128\ \ \ \ \mbox{\hyperlink{include_2manux_2types_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\_t}}\ \ bar;\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Parcourir\ les\ BAR}}
+\DoxyCodeLine{\Hypertarget{pci_8c_source_l00129}00129\ \ \ \ }
+\DoxyCodeLine{\Hypertarget{pci_8c_source_l00130}00130\ \ \ \ \textcolor{keywordflow}{for}\ (numEquipement\ =\ 0;\ numEquipement\ <\ \mbox{\hyperlink{pci_8c_a76d99054f60e8063457ce94102d43e3f}{PCI\_NB\_EQUIP\_PAR\_BUS}};\ numEquipement++)\ \{}
+\DoxyCodeLine{\Hypertarget{pci_8c_source_l00131}00131\ \ \ \ \ \ \ \textcolor{comment}{//printk(PRINTK\_CRITIQUE"{}id/nb\ \%3d/\%3d\(\backslash\)r"{},\ numEquipement,\ PCI\_NB\_EQUIP\_PAR\_BUS);}}
+\DoxyCodeLine{\Hypertarget{pci_8c_source_l00132}00132\ }
+\DoxyCodeLine{\Hypertarget{pci_8c_source_l00133}00133\ \ \ \ \ \ \ \textcolor{comment}{//\ Lecture\ des\ numéros\ de\ vendeur\ et\ d'équipement}}
+\DoxyCodeLine{\Hypertarget{pci_8c_source_l00134}00134\ \ \ \ \ \ \ idVendeur\ =\ \mbox{\hyperlink{pci_8c_a315cad18d567e1dccdfc96fab0a58c49}{PCILireMot}}(bus,\ numEquipement,\ 0,\ \mbox{\hyperlink{pci_8c_a46eac916776409f9ca95f9ab4557d94e}{PCI\_ID\_VENDEUR}});}
+\DoxyCodeLine{\Hypertarget{pci_8c_source_l00135}00135\ }
+\DoxyCodeLine{\Hypertarget{pci_8c_source_l00136}00136\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (idVendeur\ !=\ \mbox{\hyperlink{pci_8c_a74e51cf1894682ef1817c6c516f5ef4e}{PCI\_AUCUN\_VENDEUR}})\ \{}
+\DoxyCodeLine{\Hypertarget{pci_8c_source_l00137}00137\ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{pci_8c_a278e24c363d5729179619c807001694b}{PCINombreEquipements}}\ >=\ \mbox{\hyperlink{config_2pci_8h_a9a3f40332f0c15b9d84d7b73cf98886d}{MANUX\_NB\_MAX\_EQUIPEMENTS\_PCI}})\ \{}
+\DoxyCodeLine{\Hypertarget{pci_8c_source_l00138}00138\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{include_2manux_2printk_8h_a25b30e8bbadd54650c56895999dd808f}{printk}}(\mbox{\hyperlink{include_2manux_2printk_8h_a08a69e546e1f4ef9f2e1f3dcd1441ebc}{PRINTK\_CRITIQUE}}\textcolor{stringliteral}{"{}Trop\ d'equipements\ PCI\ pour\ moi\ (\%d\ vs\ \%d)!\(\backslash\)n"{}},}
+\DoxyCodeLine{\Hypertarget{pci_8c_source_l00139}00139\ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{pci_8c_a278e24c363d5729179619c807001694b}{PCINombreEquipements}},\ \mbox{\hyperlink{config_2pci_8h_a9a3f40332f0c15b9d84d7b73cf98886d}{MANUX\_NB\_MAX\_EQUIPEMENTS\_PCI}});}
+\DoxyCodeLine{\Hypertarget{pci_8c_source_l00140}00140\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{pci_8c_source_l00141}00141\ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{pci_8c_source_l00142}00142\ \ \ \ \ \ idEquipement\ =\ \mbox{\hyperlink{pci_8c_a315cad18d567e1dccdfc96fab0a58c49}{PCILireMot}}(bus,\ numEquipement,\ 0,\ \mbox{\hyperlink{pci_8c_a1f1a8ffed01cc77fc4211337005a3299}{PCI\_ID\_EQUIPEMENT}});}
+\DoxyCodeLine{\Hypertarget{pci_8c_source_l00143}00143\ }
+\DoxyCodeLine{\Hypertarget{pci_8c_source_l00144}00144\ \ \ \ \ \ \textcolor{comment}{//\ Les\ identifiants}}
+\DoxyCodeLine{\Hypertarget{pci_8c_source_l00145}00145\ \ \ \ \ \ \mbox{\hyperlink{pci_8c_aa6dd82edf1e1673d848dacfcf2b98fea}{PCIEquipements}}[\mbox{\hyperlink{pci_8c_a278e24c363d5729179619c807001694b}{PCINombreEquipements}}].\mbox{\hyperlink{struct__PCIEquipement_a551234b4f03dbe357bd5465f89ce700f}{vendeur}}\ =\ idVendeur;}
+\DoxyCodeLine{\Hypertarget{pci_8c_source_l00146}00146\ \ \ \ \ \ \mbox{\hyperlink{pci_8c_aa6dd82edf1e1673d848dacfcf2b98fea}{PCIEquipements}}[\mbox{\hyperlink{pci_8c_a278e24c363d5729179619c807001694b}{PCINombreEquipements}}].\mbox{\hyperlink{struct__PCIEquipement_a22f4d5304467c79d42c4058ce4d7263b}{equipement}}\ =\ idEquipement;}
+\DoxyCodeLine{\Hypertarget{pci_8c_source_l00147}00147\ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{pci_8c_source_l00148}00148\ \ \ \ \ \ \mbox{\hyperlink{pci_8c_aa6dd82edf1e1673d848dacfcf2b98fea}{PCIEquipements}}[\mbox{\hyperlink{pci_8c_a278e24c363d5729179619c807001694b}{PCINombreEquipements}}].\mbox{\hyperlink{struct__PCIEquipement_a0b10bdcfadcb0b14bb757962bbf76e93}{configAddress}}.\mbox{\hyperlink{struct__PCIEquipement_1_1__PCIConfigAddress_abcd4e645c261288ff27fe4402453542f}{nul}}\ =\ 0\ ;}
+\DoxyCodeLine{\Hypertarget{pci_8c_source_l00149}00149\ \ \ \ \ \ \mbox{\hyperlink{pci_8c_aa6dd82edf1e1673d848dacfcf2b98fea}{PCIEquipements}}[\mbox{\hyperlink{pci_8c_a278e24c363d5729179619c807001694b}{PCINombreEquipements}}].\mbox{\hyperlink{struct__PCIEquipement_a0b10bdcfadcb0b14bb757962bbf76e93}{configAddress}}.\mbox{\hyperlink{struct__PCIEquipement_1_1__PCIConfigAddress_a47cfc34e3ebe1fb560235cb68db6f90f}{registreOffset}}\ =\ 0\ ;}
+\DoxyCodeLine{\Hypertarget{pci_8c_source_l00150}00150\ \ \ \ \ \ \mbox{\hyperlink{pci_8c_aa6dd82edf1e1673d848dacfcf2b98fea}{PCIEquipements}}[\mbox{\hyperlink{pci_8c_a278e24c363d5729179619c807001694b}{PCINombreEquipements}}].\mbox{\hyperlink{struct__PCIEquipement_a0b10bdcfadcb0b14bb757962bbf76e93}{configAddress}}.\mbox{\hyperlink{struct__PCIEquipement_1_1__PCIConfigAddress_af1f0aea3000b3b97eea4d3dcdef9715d}{numeroFonction}}\ =\ 0\ ;}
+\DoxyCodeLine{\Hypertarget{pci_8c_source_l00151}00151\ \ \ \ \ \ \mbox{\hyperlink{pci_8c_aa6dd82edf1e1673d848dacfcf2b98fea}{PCIEquipements}}[\mbox{\hyperlink{pci_8c_a278e24c363d5729179619c807001694b}{PCINombreEquipements}}].\mbox{\hyperlink{struct__PCIEquipement_a0b10bdcfadcb0b14bb757962bbf76e93}{configAddress}}.\mbox{\hyperlink{struct__PCIEquipement_1_1__PCIConfigAddress_a477803d27af5a6affc19201c74446de3}{numeroEquipement}}\ =\ numEquipement\ ;}
+\DoxyCodeLine{\Hypertarget{pci_8c_source_l00152}00152\ \ \ \ \ \ \mbox{\hyperlink{pci_8c_aa6dd82edf1e1673d848dacfcf2b98fea}{PCIEquipements}}[\mbox{\hyperlink{pci_8c_a278e24c363d5729179619c807001694b}{PCINombreEquipements}}].\mbox{\hyperlink{struct__PCIEquipement_a0b10bdcfadcb0b14bb757962bbf76e93}{configAddress}}.\mbox{\hyperlink{struct__PCIEquipement_1_1__PCIConfigAddress_ab64ba2a35bae48147b3b11f2e90662cf}{numeroBus}}\ =\ 0\ ;}
+\DoxyCodeLine{\Hypertarget{pci_8c_source_l00153}00153\ }
+\DoxyCodeLine{\Hypertarget{pci_8c_source_l00154}00154\ }
+\DoxyCodeLine{\Hypertarget{pci_8c_source_l00155}00155\ \ \ \ \ \ \textcolor{comment}{//\ L'interruption}}
+\DoxyCodeLine{\Hypertarget{pci_8c_source_l00156}00156\ \ \ \ \ \ \mbox{\hyperlink{pci_8c_aa6dd82edf1e1673d848dacfcf2b98fea}{PCIEquipements}}[\mbox{\hyperlink{pci_8c_a278e24c363d5729179619c807001694b}{PCINombreEquipements}}].\mbox{\hyperlink{struct__PCIEquipement_a16694af679e00d8362c3e81e911fc672}{interruption}}\ =}
+\DoxyCodeLine{\Hypertarget{pci_8c_source_l00157}00157\ \ \ \ \ \ \ \ \mbox{\hyperlink{pci_8c_a6457a470746af5e05f5b9624f45fda56}{PCILireOctet}}(bus,\ numEquipement,\ 0,\ \mbox{\hyperlink{pci_8c_a24d8b91698474af77dc208df68424d64}{PCI\_INTERRUPTION}});}
+\DoxyCodeLine{\Hypertarget{pci_8c_source_l00158}00158\ }
+\DoxyCodeLine{\Hypertarget{pci_8c_source_l00159}00159\ \ \ \ \ \ \textcolor{comment}{//\ On\ cherche\ l'adresse\ d'E/S}}
+\DoxyCodeLine{\Hypertarget{pci_8c_source_l00160}00160\ \ \ \ \ \ \textcolor{comment}{//\ On\ parcourt\ tous\ les\ registres\ mémoire}}
+\DoxyCodeLine{\Hypertarget{pci_8c_source_l00161}00161\ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (bar\ =\ \mbox{\hyperlink{pci_8c_ac46c3b0065c7e8e9775dd842af22344c}{PCI\_BAR\_0}};\ bar\ <=\ \mbox{\hyperlink{pci_8c_a19285f776c8666b2cf999111e7fae165}{PCI\_BAR\_5}};\ bar\ +=\ 4)\ \{}
+\DoxyCodeLine{\Hypertarget{pci_8c_source_l00162}00162\ \ \ \ \ \ \ \ \ \ \ \ \ adresse\ =\ \mbox{\hyperlink{pci_8c_ae74b8ebfa7614c51d4d85f964b97e19b}{PCILireLong}}(0,\ numEquipement,\ 0,\ bar);}
+\DoxyCodeLine{\Hypertarget{pci_8c_source_l00163}00163\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Est-\/ce\ une\ adresse\ d'E/S\ ?}}
+\DoxyCodeLine{\Hypertarget{pci_8c_source_l00164}00164\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (adresse\ \&\ \mbox{\hyperlink{pci_8c_a959211a91f46ea1222f3f67486db9fd6}{PCI\_BAR\_IO}})\ \{}
+\DoxyCodeLine{\Hypertarget{pci_8c_source_l00165}00165\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ On\ est\ aligné\ sur\ 32\ bits,\ les\ 2\ bits\ de\ poids\ faible\ sont\ donc}}
+\DoxyCodeLine{\Hypertarget{pci_8c_source_l00166}00166\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ non\ signifiants}}
+\DoxyCodeLine{\Hypertarget{pci_8c_source_l00167}00167\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{pci_8c_aa6dd82edf1e1673d848dacfcf2b98fea}{PCIEquipements}}[\mbox{\hyperlink{pci_8c_a278e24c363d5729179619c807001694b}{PCINombreEquipements}}].\mbox{\hyperlink{struct__PCIEquipement_a169a4bcf976f6b9697627ee6cd6cb4ea}{adresseES}}\ =\ adresse\ \&\ (\string~0x3);}
+\DoxyCodeLine{\Hypertarget{pci_8c_source_l00168}00168\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{pci_8c_source_l00169}00169\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{manux_2debug_8h_ad4cabea5084373436d91b5dc4e8d0a49}{printk\_debug}}(\mbox{\hyperlink{manux_2debug_8h_a8d713d223ce338433fb2b615c5c7bc70}{DBG\_KERNEL\_A\_FAIRE}},\ \textcolor{stringliteral}{"{}Memory\ BARs\ a\ prendre\ en\ compte\ !\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{pci_8c_source_l00170}00170\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{pci_8c_source_l00171}00171\ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{pci_8c_source_l00172}00172\ }
+\DoxyCodeLine{\Hypertarget{pci_8c_source_l00173}00173\ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{manux_2debug_8h_ad4cabea5084373436d91b5dc4e8d0a49}{printk\_debug}}(\mbox{\hyperlink{manux_2debug_8h_a52bf70fba6e2076903fb1be25cfc90c8}{DBG\_KERNEL\_PCI}},\ \textcolor{stringliteral}{"{}[\%d]\ Vd/Id\ 0x\%x/0x\%x\(\backslash\)n"{}},}
+\DoxyCodeLine{\Hypertarget{pci_8c_source_l00174}00174\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{pci_8c_a278e24c363d5729179619c807001694b}{PCINombreEquipements}},\ idVendeur,\ idEquipement);}
+\DoxyCodeLine{\Hypertarget{pci_8c_source_l00175}00175\ \ \ \ \ \ \mbox{\hyperlink{pci_8c_a278e24c363d5729179619c807001694b}{PCINombreEquipements}}++;}
+\DoxyCodeLine{\Hypertarget{pci_8c_source_l00176}00176\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{pci_8c_source_l00177}00177\ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{pci_8c_source_l00178}00178\ \}}
+\DoxyCodeLine{\Hypertarget{pci_8c_source_l00179}00179\ }
+\DoxyCodeLine{\Hypertarget{pci_8c_source_l00180}\mbox{\hyperlink{manux_2pci_8h_a883b4a272bc719952fa1b66b9faeec2a}{00180}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{pci_8c_a883b4a272bc719952fa1b66b9faeec2a}{PCIEnumerationDesEquipements}}(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\Hypertarget{pci_8c_source_l00181}00181\ \{}
+\DoxyCodeLine{\Hypertarget{pci_8c_source_l00182}00182\ \ \ \ \mbox{\hyperlink{include_2manux_2types_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\_t}}\ bus;}
+\DoxyCodeLine{\Hypertarget{pci_8c_source_l00183}00183\ }
+\DoxyCodeLine{\Hypertarget{pci_8c_source_l00184}00184\ \ \ \ \mbox{\hyperlink{manux_2debug_8h_ad4cabea5084373436d91b5dc4e8d0a49}{printk\_debug}}(\mbox{\hyperlink{manux_2debug_8h_a52bf70fba6e2076903fb1be25cfc90c8}{DBG\_KERNEL\_PCI}},\ \textcolor{stringliteral}{"{}Enum.\ des\ equip.\ PCI\ ...\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{pci_8c_source_l00185}00185\ \ \ \ }
+\DoxyCodeLine{\Hypertarget{pci_8c_source_l00186}00186\ \ \ \ \textcolor{keywordflow}{for}\ (bus\ =\ 0;\ bus\ <\ \mbox{\hyperlink{pci_8c_a4f822a1f149cac6db683db4f3c1538d7}{MANUX\_NB\_BUS\_PCI}};\ bus++)\ \{}
+\DoxyCodeLine{\Hypertarget{pci_8c_source_l00187}00187\ \ \ \ \ \ \ \mbox{\hyperlink{include_2manux_2printk_8h_a25b30e8bbadd54650c56895999dd808f}{printk}}(\mbox{\hyperlink{include_2manux_2printk_8h_a08a69e546e1f4ef9f2e1f3dcd1441ebc}{PRINTK\_CRITIQUE}}\textcolor{stringliteral}{"{}\ \ \ \ \ \ \ \ \ \ \ \ \ \ -\/\ bus\ \%3d/\%3d\(\backslash\)r"{}},\ bus,\ \mbox{\hyperlink{pci_8c_a4f822a1f149cac6db683db4f3c1538d7}{MANUX\_NB\_BUS\_PCI}});}
+\DoxyCodeLine{\Hypertarget{pci_8c_source_l00188}00188\ \ \ \ \ \ \ PCIEnumerationDesEquipementsDuBus(bus);}
+\DoxyCodeLine{\Hypertarget{pci_8c_source_l00189}00189\ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{pci_8c_source_l00190}00190\ \ \ \ \mbox{\hyperlink{include_2manux_2printk_8h_a25b30e8bbadd54650c56895999dd808f}{printk}}(\mbox{\hyperlink{include_2manux_2printk_8h_a08a69e546e1f4ef9f2e1f3dcd1441ebc}{PRINTK\_CRITIQUE}}\textcolor{stringliteral}{"{}\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{pci_8c_source_l00191}00191\ }
+\DoxyCodeLine{\Hypertarget{pci_8c_source_l00192}00192\ \ \ \ \mbox{\hyperlink{manux_2debug_8h_ad4cabea5084373436d91b5dc4e8d0a49}{printk\_debug}}(\mbox{\hyperlink{manux_2debug_8h_a52bf70fba6e2076903fb1be25cfc90c8}{DBG\_KERNEL\_PCI}},\ \textcolor{stringliteral}{"{}\%d\ equipements\ PCI\(\backslash\)n"{}},\ \mbox{\hyperlink{pci_8c_a278e24c363d5729179619c807001694b}{PCINombreEquipements}});}
+\DoxyCodeLine{\Hypertarget{pci_8c_source_l00193}00193\ \}}
+\DoxyCodeLine{\Hypertarget{pci_8c_source_l00194}00194\ }
+\DoxyCodeLine{\Hypertarget{pci_8c_source_l00206}\mbox{\hyperlink{manux_2pci_8h_a50c3ecf5057a9dd21f23f92fb9bedd1f}{00206}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{pci_8c_a50c3ecf5057a9dd21f23f92fb9bedd1f}{PCIObtenirProchainEquipement}}(\mbox{\hyperlink{include_2manux_2types_8h_a273cf69d639a59973b6019625df33e30}{uint16\_t}}\ vendeur,\ \mbox{\hyperlink{include_2manux_2types_8h_a273cf69d639a59973b6019625df33e30}{uint16\_t}}\ equipement,\ \textcolor{keywordtype}{int}\ precedent)}
+\DoxyCodeLine{\Hypertarget{pci_8c_source_l00207}00207\ \{}
+\DoxyCodeLine{\Hypertarget{pci_8c_source_l00208}00208\ \ \ \ \textcolor{keywordtype}{int}\ result\ =\ precedent;}
+\DoxyCodeLine{\Hypertarget{pci_8c_source_l00209}00209\ }
+\DoxyCodeLine{\Hypertarget{pci_8c_source_l00210}00210\ \ \ \ \textcolor{keywordflow}{while}\ ((++result\ <\ \mbox{\hyperlink{pci_8c_a278e24c363d5729179619c807001694b}{PCINombreEquipements}})}
+\DoxyCodeLine{\Hypertarget{pci_8c_source_l00211}00211\ \ \ \ \ \ \ \&\&\ ((\mbox{\hyperlink{pci_8c_aa6dd82edf1e1673d848dacfcf2b98fea}{PCIEquipements}}[result].vendeur\ !=\ vendeur)}
+\DoxyCodeLine{\Hypertarget{pci_8c_source_l00212}00212\ \ \ \ \ \ \ \ \ \ \ ||\ (\mbox{\hyperlink{pci_8c_aa6dd82edf1e1673d848dacfcf2b98fea}{PCIEquipements}}[result].equipement\ !=\ equipement))}
+\DoxyCodeLine{\Hypertarget{pci_8c_source_l00213}00213\ \ \ \ )\ \{\}}
+\DoxyCodeLine{\Hypertarget{pci_8c_source_l00214}00214\ }
+\DoxyCodeLine{\Hypertarget{pci_8c_source_l00215}00215\ \ \ \ \textcolor{keywordflow}{if}\ (result\ >=\ \mbox{\hyperlink{pci_8c_a278e24c363d5729179619c807001694b}{PCINombreEquipements}})}
+\DoxyCodeLine{\Hypertarget{pci_8c_source_l00216}00216\ \ \ \ \ \ \ result\ =\ -\/1;}
+\DoxyCodeLine{\Hypertarget{pci_8c_source_l00217}00217\ \ \ \ }
+\DoxyCodeLine{\Hypertarget{pci_8c_source_l00218}00218\ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{\Hypertarget{pci_8c_source_l00219}00219\ \}}
+\DoxyCodeLine{\Hypertarget{pci_8c_source_l00220}00220\ }
+\DoxyCodeLine{\Hypertarget{pci_8c_source_l00226}\mbox{\hyperlink{manux_2pci_8h_a9da90032fa74e35abe5c7156c1542d1e}{00226}}\ \mbox{\hyperlink{struct__PCIEquipement}{PCIEquipement}}\ *\ \mbox{\hyperlink{pci_8c_a9da90032fa74e35abe5c7156c1542d1e}{PCIEquipementNumero}}(\textcolor{keywordtype}{int}\ n)}
+\DoxyCodeLine{\Hypertarget{pci_8c_source_l00227}00227\ \{}
+\DoxyCodeLine{\Hypertarget{pci_8c_source_l00228}00228\ \ \ \ \textcolor{keywordflow}{if}\ ((n\ >=\ 0)\ \&\&\ (n\ <\ \mbox{\hyperlink{pci_8c_a278e24c363d5729179619c807001694b}{PCINombreEquipements}}))}
+\DoxyCodeLine{\Hypertarget{pci_8c_source_l00229}00229\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \&(\mbox{\hyperlink{pci_8c_aa6dd82edf1e1673d848dacfcf2b98fea}{PCIEquipements}}[n]);}
+\DoxyCodeLine{\Hypertarget{pci_8c_source_l00230}00230\ }
+\DoxyCodeLine{\Hypertarget{pci_8c_source_l00231}00231\ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{include_2manux_2stddef_8h_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}};}
+\DoxyCodeLine{\Hypertarget{pci_8c_source_l00232}00232\ \}}
+
+\end{DoxyCode}

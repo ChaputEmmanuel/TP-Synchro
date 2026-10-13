@@ -15,7 +15,7 @@
 /**
  * Le nombre maximal d'équipements sur un bus PCI
  */
-#define PCI_NB_EQUIP_PAR_BUS 32
+#define PCI_NB_EQUIP_PAR_BUS 8 //32
 
 /**
  * @brief Les ports d'E/S de configuration du PCI
@@ -26,6 +26,11 @@
 #ifndef PCI_CONFIG_DATA
 #   define PCI_CONFIG_DATA     0xCFC
 #endif
+
+/**
+ * @brief : Le nombre de bus
+ */
+#define MANUX_NB_BUS_PCI 1
 
 /**
  * Les registres standards, voir en particulier [2] (Section Standardized registers)
@@ -45,8 +50,6 @@
  * Pour identifier les BAR
  */
 #define PCI_BAR_IO        0x01
-
-
 #define PCI_AUCUN_VENDEUR 0xFFFF
 
 /**
@@ -90,11 +93,12 @@ uint32_t PCILireLong(uint8_t bus, uint8_t slot, uint8_t fonction, uint8_t offset
 uint16_t PCILireMot(uint8_t bus, uint8_t slot, uint8_t fonction, uint8_t offset)
 {
    uint16_t result;
-
+  
    // Si l'offset nous fait pointer sur le mot de poids fort, on décale
    // à gauche d'un mot (2 * 8). Sinon non (0 * 8). Puis on masque car
    // on ne veut qu'un mot
-   result = (uint16_t)(PCILireLong(bus, slot, fonction, offset & ~0x3) >> ((offset & 2) * 8))& 0xFFFF;
+   result = (uint16_t)(PCILireLong(bus, slot, fonction,
+				   offset & ((uint16_t)~0x3)) >> ((offset & 2) * 8))& 0xFFFF;
 
    return result;
 }
@@ -114,7 +118,8 @@ uint8_t PCILireOctet(uint8_t bus, uint8_t slot, uint8_t fonction, uint8_t offset
  *
  * WARNING : On recherche les équipements sur un seul bus pour le moment.
  */
-void PCIEnumerationDesEquipements()
+static
+void PCIEnumerationDesEquipementsDuBus(uint8_t bus)
 {
    uint8_t  numEquipement;  // Pour boucler
    uint16_t idVendeur;
@@ -122,13 +127,19 @@ void PCIEnumerationDesEquipements()
    uint32_t adresse;        // Pour chercher les adresse d'E/S
    uint8_t  bar;            // Parcourir les BAR
    
-   printk_debug(DBG_KERNEL_PCI, "Enumeration des equipements PCI ...\n");
-   
    for (numEquipement = 0; numEquipement < PCI_NB_EQUIP_PAR_BUS; numEquipement++) {
+      //printk(PRINTK_CRITIQUE"id/nb %3d/%3d\r", numEquipement, PCI_NB_EQUIP_PAR_BUS);
+
       // Lecture des numéros de vendeur et d'équipement
-      idVendeur = PCILireMot(0, numEquipement, 0, PCI_ID_VENDEUR);
+      idVendeur = PCILireMot(bus, numEquipement, 0, PCI_ID_VENDEUR);
+
       if (idVendeur != PCI_AUCUN_VENDEUR) {
-         idEquipement = PCILireMot(0, numEquipement, 0, PCI_ID_EQUIPEMENT);
+	 if (PCINombreEquipements >= MANUX_NB_MAX_EQUIPEMENTS_PCI) {
+	    printk(PRINTK_CRITIQUE"Trop d'equipements PCI pour moi (%d vs %d)!\n",
+		   PCINombreEquipements, MANUX_NB_MAX_EQUIPEMENTS_PCI);
+            return;
+	 }
+	 idEquipement = PCILireMot(bus, numEquipement, 0, PCI_ID_EQUIPEMENT);
 
 	 // Les identifiants
 	 PCIEquipements[PCINombreEquipements].vendeur = idVendeur;
@@ -140,9 +151,10 @@ void PCIEnumerationDesEquipements()
 	 PCIEquipements[PCINombreEquipements].configAddress.numeroEquipement = numEquipement ;
 	 PCIEquipements[PCINombreEquipements].configAddress.numeroBus = 0 ;
 
+
 	 // L'interruption
 	 PCIEquipements[PCINombreEquipements].interruption =
-	   PCILireOctet(0, numEquipement, 0, PCI_INTERRUPTION);
+	   PCILireOctet(bus, numEquipement, 0, PCI_INTERRUPTION);
 
 	 // On cherche l'adresse d'E/S
 	 // On parcourt tous les registres mémoire
@@ -157,17 +169,26 @@ void PCIEnumerationDesEquipements()
                printk_debug(DBG_KERNEL_A_FAIRE, "Memory BARs a prendre en compte !\n");
 	    }
 	 }
-	 
-         printk_debug(DBG_KERNEL_PCI, "[%d] Vendeur/Id 0x%x/0x%x\n",
-		      PCINombreEquipements, idVendeur, idEquipement);
 
+         printk_debug(DBG_KERNEL_PCI, "[%d] Vd/Id 0x%x/0x%x\n",
+		      PCINombreEquipements, idVendeur, idEquipement);
 	 PCINombreEquipements++;
-	 if (PCINombreEquipements >= MANUX_NB_MAX_EQUIPEMENTS_PCI) {
-            printk(PRINTK_CRITIQUE"Trop d'equipements PCI pour moi !\n");
-            return;
-	 }
       }
    }
+}
+
+void PCIEnumerationDesEquipements(void)
+{
+   uint8_t bus;
+
+   printk_debug(DBG_KERNEL_PCI, "Enum. des equip. PCI ...\n");
+   
+   for (bus = 0; bus < MANUX_NB_BUS_PCI; bus++) {
+      printk(PRINTK_CRITIQUE"              - bus %3d/%3d\r", bus, MANUX_NB_BUS_PCI);
+      PCIEnumerationDesEquipementsDuBus(bus);
+   }
+   printk(PRINTK_CRITIQUE"\n");
+
    printk_debug(DBG_KERNEL_PCI, "%d equipements PCI\n", PCINombreEquipements);
 }
 

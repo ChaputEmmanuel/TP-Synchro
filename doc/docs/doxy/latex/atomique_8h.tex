@@ -1,0 +1,140 @@
+\doxysection{Référence du fichier /home/manu/\+PROGRAMMATION/\+C/\+Manu\+X/include/manux/atomique.h}
+\hypertarget{atomique_8h}{}\label{atomique_8h}\index{/home/manu/PROGRAMMATION/C/ManuX/include/manux/atomique.h@{/home/manu/PROGRAMMATION/C/ManuX/include/manux/atomique.h}}
+
+
+Définition des opérations de synchronisation de ManuX.  
+
+
+{\ttfamily \#include $<$manux/types.\+h$>$}\newline
+{\ttfamily \#include $<$manux/scheduler.\+h$>$}\newline
+Graphe des dépendances par inclusion de atomique.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{atomique_8h__incl}
+\end{center}
+\end{figure}
+Ce graphe montre quels fichiers incluent directement ou indirectement ce fichier \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{atomique_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{atomique_8h_a1bb0181b87d9cf1e927b3a15b33f23b5}{atomique\+Init}}(atom,  val)~   \texorpdfstring{$\ast$}{*}(atom) = (val);
+\item 
+\#define \mbox{\hyperlink{atomique_8h_a0475d3daa7ff8c2fae21d4274e6b5a4d}{atomique\+Lire}}(atom)~   (atom)
+\item 
+\#define \mbox{\hyperlink{atomique_8h_a21402071421d990cbda21a50a68cb5a4}{\+\_\+compare\+Et\+Echange}}(ptr,  cond,  val)
+\item 
+\#define \mbox{\hyperlink{atomique_8h_adecd92baad52906329fa83905abcda34}{tache\+En\+Cours\+Interdire\+Preemption}}()~   \mbox{\hyperlink{scheduler_8h_aafdf44b33a86f1bef6141d33a4abb94b}{tache\+En\+Cours}}-\/$>$non\+Preemptible++;
+\begin{DoxyCompactList}\small\item\em Empêcher la préemption pour la tâche en cours. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{atomique_8h_a596cc7fc760ebb62e6511c6b65f4184d}{tache\+En\+Cours\+Autoriser\+Preemption}}()~   \mbox{\hyperlink{scheduler_8h_aafdf44b33a86f1bef6141d33a4abb94b}{tache\+En\+Cours}}-\/$>$non\+Preemptible-\/-\/;
+\begin{DoxyCompactList}\small\item\em Autoriser la préemption pour la tâche en cours. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Définitions de type}
+\begin{DoxyCompactItemize}
+\item 
+typedef \mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\+\_\+t}} \mbox{\hyperlink{atomique_8h_a34aa37778d3701c511b28edcb866cedb}{Atomique}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Définition des opérations de synchronisation de ManuX. 
+
+\begin{DoxyVerb} A faire : déplacer des choses dans plusieurs fichiers thématiques.
+
+                                               (C) Manu Chaput 2000-2024
+\end{DoxyVerb}
+ 
+
+Définition dans le fichier \mbox{\hyperlink{atomique_8h_source}{atomique.\+h}}.
+
+
+
+\doxysubsection{Documentation des macros}
+\Hypertarget{atomique_8h_a21402071421d990cbda21a50a68cb5a4}\label{atomique_8h_a21402071421d990cbda21a50a68cb5a4} 
+\index{atomique.h@{atomique.h}!\_compareEtEchange@{\_compareEtEchange}}
+\index{\_compareEtEchange@{\_compareEtEchange}!atomique.h@{atomique.h}}
+\doxysubsubsection{\texorpdfstring{\_compareEtEchange}{\_compareEtEchange}}
+{\footnotesize\ttfamily \#define \+\_\+compare\+Et\+Echange(\begin{DoxyParamCaption}\item[{}]{ptr,  }\item[{}]{cond,  }\item[{}]{val }\end{DoxyParamCaption})}
+
+{\bfseries Valeur \+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ \{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\_t}}\ \_cmpxchg\_resultat;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \_\_asm\_\_\ \textcolor{keyword}{volatile}(\textcolor{stringliteral}{"{}cmpxchg\ \%2,\ \%1\ \(\backslash\)n\(\backslash\)t"{}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ :\ \textcolor{stringliteral}{"{}=a"{}}(\_cmpxchg\_resultat),\ \textcolor{stringliteral}{"{}+m"{}}(ptr)\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ \textcolor{stringliteral}{"{}r"{}}(val),\ \textcolor{stringliteral}{"{}0"{}}(cond)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ :\ \textcolor{stringliteral}{"{}memory"{}});\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \_cmpxchg\_resultat;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+Définition à la ligne \mbox{\hyperlink{atomique_8h_source_l00041}{41}} du fichier \mbox{\hyperlink{atomique_8h_source}{atomique.\+h}}.
+
+\Hypertarget{atomique_8h_a1bb0181b87d9cf1e927b3a15b33f23b5}\label{atomique_8h_a1bb0181b87d9cf1e927b3a15b33f23b5} 
+\index{atomique.h@{atomique.h}!atomiqueInit@{atomiqueInit}}
+\index{atomiqueInit@{atomiqueInit}!atomique.h@{atomique.h}}
+\doxysubsubsection{\texorpdfstring{atomiqueInit}{atomiqueInit}}
+{\footnotesize\ttfamily \#define atomique\+Init(\begin{DoxyParamCaption}\item[{}]{atom,  }\item[{}]{val }\end{DoxyParamCaption})~   \texorpdfstring{$\ast$}{*}(atom) = (val);}
+
+
+
+Définition à la ligne \mbox{\hyperlink{atomique_8h_source_l00021}{21}} du fichier \mbox{\hyperlink{atomique_8h_source}{atomique.\+h}}.
+
+\Hypertarget{atomique_8h_a0475d3daa7ff8c2fae21d4274e6b5a4d}\label{atomique_8h_a0475d3daa7ff8c2fae21d4274e6b5a4d} 
+\index{atomique.h@{atomique.h}!atomiqueLire@{atomiqueLire}}
+\index{atomiqueLire@{atomiqueLire}!atomique.h@{atomique.h}}
+\doxysubsubsection{\texorpdfstring{atomiqueLire}{atomiqueLire}}
+{\footnotesize\ttfamily \#define atomique\+Lire(\begin{DoxyParamCaption}\item[{}]{atom }\end{DoxyParamCaption})~   (atom)}
+
+
+
+Définition à la ligne \mbox{\hyperlink{atomique_8h_source_l00024}{24}} du fichier \mbox{\hyperlink{atomique_8h_source}{atomique.\+h}}.
+
+\Hypertarget{atomique_8h_a596cc7fc760ebb62e6511c6b65f4184d}\label{atomique_8h_a596cc7fc760ebb62e6511c6b65f4184d} 
+\index{atomique.h@{atomique.h}!tacheEnCoursAutoriserPreemption@{tacheEnCoursAutoriserPreemption}}
+\index{tacheEnCoursAutoriserPreemption@{tacheEnCoursAutoriserPreemption}!atomique.h@{atomique.h}}
+\doxysubsubsection{\texorpdfstring{tacheEnCoursAutoriserPreemption}{tacheEnCoursAutoriserPreemption}}
+{\footnotesize\ttfamily \#define tache\+En\+Cours\+Autoriser\+Preemption(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})~   \mbox{\hyperlink{scheduler_8h_aafdf44b33a86f1bef6141d33a4abb94b}{tache\+En\+Cours}}-\/$>$non\+Preemptible-\/-\/;}
+
+
+
+Autoriser la préemption pour la tâche en cours. 
+
+
+
+Définition à la ligne \mbox{\hyperlink{atomique_8h_source_l00078}{78}} du fichier \mbox{\hyperlink{atomique_8h_source}{atomique.\+h}}.
+
+\Hypertarget{atomique_8h_adecd92baad52906329fa83905abcda34}\label{atomique_8h_adecd92baad52906329fa83905abcda34} 
+\index{atomique.h@{atomique.h}!tacheEnCoursInterdirePreemption@{tacheEnCoursInterdirePreemption}}
+\index{tacheEnCoursInterdirePreemption@{tacheEnCoursInterdirePreemption}!atomique.h@{atomique.h}}
+\doxysubsubsection{\texorpdfstring{tacheEnCoursInterdirePreemption}{tacheEnCoursInterdirePreemption}}
+{\footnotesize\ttfamily \#define tache\+En\+Cours\+Interdire\+Preemption(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})~   \mbox{\hyperlink{scheduler_8h_aafdf44b33a86f1bef6141d33a4abb94b}{tache\+En\+Cours}}-\/$>$non\+Preemptible++;}
+
+
+
+Empêcher la préemption pour la tâche en cours. 
+
+A utiliser de façon très limitée ! 
+
+Définition à la ligne \mbox{\hyperlink{atomique_8h_source_l00072}{72}} du fichier \mbox{\hyperlink{atomique_8h_source}{atomique.\+h}}.
+
+
+
+\doxysubsection{Documentation des définitions de type}
+\Hypertarget{atomique_8h_a34aa37778d3701c511b28edcb866cedb}\label{atomique_8h_a34aa37778d3701c511b28edcb866cedb} 
+\index{atomique.h@{atomique.h}!Atomique@{Atomique}}
+\index{Atomique@{Atomique}!atomique.h@{atomique.h}}
+\doxysubsubsection{\texorpdfstring{Atomique}{Atomique}}
+{\footnotesize\ttfamily typedef \mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\+\_\+t}} \mbox{\hyperlink{atomique_8h_a34aa37778d3701c511b28edcb866cedb}{Atomique}}}
+
+
+
+Définition à la ligne \mbox{\hyperlink{atomique_8h_source_l00019}{19}} du fichier \mbox{\hyperlink{atomique_8h_source}{atomique.\+h}}.
+

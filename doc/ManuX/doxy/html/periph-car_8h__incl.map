@@ -1,0 +1,12 @@
+<map id="/home/manu/PROGRAMMATION/C/ManuX/include/manux/periph&#45;car.h" name="/home/manu/PROGRAMMATION/C/ManuX/include/manux/periph&#45;car.h">
+<area shape="rect" id="Node000001" title="définition des périphériques orientés caractère" alt="" coords="5,5,232,60"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="59,255,178,280"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="111,61,99,109,91,158,96,206,109,242,104,243,91,207,86,157,93,107,106,60"/>
+<area shape="rect" id="Node000003" href="$fichier_8h.html" title=" " alt="" coords="108,108,231,133"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="136,59,158,95,153,97,132,61"/>
+<area shape="rect" id="Node000004" href="$inoeud_8h.html" title=": description des noeuds d&#39;information (C) Manu Chaput 2002&#45;2023" alt="" coords="106,181,233,207"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="172,134,172,168,167,168,167,134"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="257,181,431,207"/>
+<area shape="poly" id="edge5_Node000003_Node000005" title=" " alt="" coords="198,131,304,174,302,178,196,136"/>
+<area shape="poly" id="edge4_Node000004_Node000002" title=" " alt="" coords="163,209,137,245,133,242,159,205"/>
+</map>

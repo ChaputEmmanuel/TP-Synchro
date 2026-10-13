@@ -8,7 +8,7 @@
 
 #include <manux/types.h>
 
-void halt();
+void halt(void);
 /*
  * Arret complet du système
  *

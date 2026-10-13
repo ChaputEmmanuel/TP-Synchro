@@ -1,0 +1,91 @@
+\doxysection{init-\/acces-\/concurrent.c}
+\hypertarget{init-acces-concurrent_8c_source}{}\label{init-acces-concurrent_8c_source}\index{/home/manu/PROGRAMMATION/C/ManuX/usr/init-\/acces-\/concurrent.c@{/home/manu/PROGRAMMATION/C/ManuX/usr/init-\/acces-\/concurrent.c}}
+\mbox{\hyperlink{init-acces-concurrent_8c}{Aller à la documentation de ce fichier.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{init-acces-concurrent_8c_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{init-acces-concurrent_8c_source_l00007}00007\ \textcolor{preprocessor}{\#include\ <manux/types.h>}}
+\DoxyCodeLine{\Hypertarget{init-acces-concurrent_8c_source_l00008}00008\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{stdio_8h}{stdio.h}}>}}
+\DoxyCodeLine{\Hypertarget{init-acces-concurrent_8c_source_l00009}00009\ \textcolor{preprocessor}{\#include\ <manux/errno.h>}}
+\DoxyCodeLine{\Hypertarget{init-acces-concurrent_8c_source_l00010}00010\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{unistd_8h}{unistd.h}}>}\ \ \ \textcolor{comment}{//\ creerNouvelleTache}}
+\DoxyCodeLine{\Hypertarget{init-acces-concurrent_8c_source_l00011}00011\ \textcolor{preprocessor}{\#include\ <manux/string.h>}}
+\DoxyCodeLine{\Hypertarget{init-acces-concurrent_8c_source_l00012}00012\ }
+\DoxyCodeLine{\Hypertarget{init-acces-concurrent_8c_source_l00016}\mbox{\hyperlink{init-acces-concurrent_8c_afa7b7638d0ac972327d9fadc93db9802}{00016}}\ \textcolor{preprocessor}{\#define\ TAILLE\_BUFFER\ 16}}
+\DoxyCodeLine{\Hypertarget{init-acces-concurrent_8c_source_l00017}00017\ }
+\DoxyCodeLine{\Hypertarget{init-acces-concurrent_8c_source_l00021}\mbox{\hyperlink{init-acces-concurrent_8c_a4555b23c30d8218901d05b82e3285c7d}{00021}}\ \textcolor{preprocessor}{\#define\ NB\_LECTEURS\ \ 2}}
+\DoxyCodeLine{\Hypertarget{init-acces-concurrent_8c_source_l00022}\mbox{\hyperlink{init-acces-concurrent_8c_a5e2163deb903618b0564223548c831a7}{00022}}\ \textcolor{preprocessor}{\#define\ NB\_ECRIVAINS\ 2}}
+\DoxyCodeLine{\Hypertarget{init-acces-concurrent_8c_source_l00023}00023\ }
+\DoxyCodeLine{\Hypertarget{init-acces-concurrent_8c_source_l00024}\mbox{\hyperlink{init-acces-concurrent_8c_a62d2d983a3da1fde907ff0f255bf4956}{00024}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{init-acces-concurrent_8c_a62d2d983a3da1fde907ff0f255bf4956}{fd}}[2];\ \ \textcolor{comment}{//\ Le\ tube}}
+\DoxyCodeLine{\Hypertarget{init-acces-concurrent_8c_source_l00025}00025\ }
+\DoxyCodeLine{\Hypertarget{init-acces-concurrent_8c_source_l00026}\mbox{\hyperlink{init-acces-concurrent_8c_addee7001bdfdeeb5f4853e467b4c34de}{00026}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{init-acces-concurrent_8c_addee7001bdfdeeb5f4853e467b4c34de}{lecteur}}()}
+\DoxyCodeLine{\Hypertarget{init-acces-concurrent_8c_source_l00027}00027\ \{}
+\DoxyCodeLine{\Hypertarget{init-acces-concurrent_8c_source_l00028}00028\ \ \ \ \textcolor{keywordtype}{int}\ r,\ \mbox{\hyperlink{main-bootreg_8c_add06ad5d8520e7cff4ff84b2811c0982}{c}}=0;}
+\DoxyCodeLine{\Hypertarget{init-acces-concurrent_8c_source_l00029}00029\ \ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{main-bootreg_8c_a7976cd62f9b61a65e8104a3cf7c15099}{b}}[\mbox{\hyperlink{init-acces-concurrent_8c_afa7b7638d0ac972327d9fadc93db9802}{TAILLE\_BUFFER}}];}
+\DoxyCodeLine{\Hypertarget{init-acces-concurrent_8c_source_l00030}00030\ \ \ \ }
+\DoxyCodeLine{\Hypertarget{init-acces-concurrent_8c_source_l00031}00031\ \ \ \ \mbox{\hyperlink{stdio_8h_a63c54f1d737929378b379911b1ca4a45}{printf}}(\textcolor{stringliteral}{"{}[\%d]\ Je\ suis\ un\ lecteur\ !\(\backslash\)n"{}},\ \mbox{\hyperlink{unistd_8h_a321e672f528d0dd0927c93ff3a09c5c7}{identifiantTache}}());}
+\DoxyCodeLine{\Hypertarget{init-acces-concurrent_8c_source_l00032}00032\ \ \ \ \mbox{\hyperlink{stdio_8h_a66a9ef9199d2ddbbf2b6b0c7f7b99ab5}{fermer}}(\mbox{\hyperlink{init-acces-concurrent_8c_a62d2d983a3da1fde907ff0f255bf4956}{fd}}[1]);}
+\DoxyCodeLine{\Hypertarget{init-acces-concurrent_8c_source_l00033}00033\ \ \ \ }
+\DoxyCodeLine{\Hypertarget{init-acces-concurrent_8c_source_l00034}00034\ \ \ \ \textcolor{keywordflow}{do}\ \{}
+\DoxyCodeLine{\Hypertarget{init-acces-concurrent_8c_source_l00035}00035\ \ \ \ \ \ \ r\ =\ \mbox{\hyperlink{stdio_8h_a0d64d8b56640a3dea27ca2d59f711e35}{lire}}(\mbox{\hyperlink{init-acces-concurrent_8c_a62d2d983a3da1fde907ff0f255bf4956}{fd}}[0],\ \mbox{\hyperlink{main-bootreg_8c_a7976cd62f9b61a65e8104a3cf7c15099}{b}},\ \mbox{\hyperlink{init-acces-concurrent_8c_afa7b7638d0ac972327d9fadc93db9802}{TAILLE\_BUFFER}}\ -\/\ 1);}
+\DoxyCodeLine{\Hypertarget{init-acces-concurrent_8c_source_l00036}00036\ \ \ \ \ \ \ \mbox{\hyperlink{stdio_8h_a63c54f1d737929378b379911b1ca4a45}{printf}}(\textcolor{stringliteral}{"{}[\%d]\ lecture\ \%d\(\backslash\)n"{}},\ \mbox{\hyperlink{unistd_8h_a321e672f528d0dd0927c93ff3a09c5c7}{identifiantTache}}(),\ r);}
+\DoxyCodeLine{\Hypertarget{init-acces-concurrent_8c_source_l00037}00037\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (r\ >\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{init-acces-concurrent_8c_source_l00038}00038\ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{main-bootreg_8c_a7976cd62f9b61a65e8104a3cf7c15099}{b}}[r]\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{init-acces-concurrent_8c_source_l00039}00039\ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{stdio_8h_a63c54f1d737929378b379911b1ca4a45}{printf}}(\mbox{\hyperlink{main-bootreg_8c_a7976cd62f9b61a65e8104a3cf7c15099}{b}});}
+\DoxyCodeLine{\Hypertarget{init-acces-concurrent_8c_source_l00040}00040\ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{main-bootreg_8c_add06ad5d8520e7cff4ff84b2811c0982}{c}}\ +=\ r;}
+\DoxyCodeLine{\Hypertarget{init-acces-concurrent_8c_source_l00041}00041\ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (r\ <\ 0)\{}
+\DoxyCodeLine{\Hypertarget{init-acces-concurrent_8c_source_l00042}00042\ \ \ \ \ \mbox{\hyperlink{stdio_8h_a63c54f1d737929378b379911b1ca4a45}{printf}}(\textcolor{stringliteral}{"{}[\%d]\ Erreur\ lecture\(\backslash\)n"{}},\ \mbox{\hyperlink{unistd_8h_a321e672f528d0dd0927c93ff3a09c5c7}{identifiantTache}}());}
+\DoxyCodeLine{\Hypertarget{init-acces-concurrent_8c_source_l00043}00043\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{init-acces-concurrent_8c_source_l00044}00044\ \ \ \ \}\ \textcolor{keywordflow}{while}\ (r\ >\ 0);}
+\DoxyCodeLine{\Hypertarget{init-acces-concurrent_8c_source_l00045}00045\ }
+\DoxyCodeLine{\Hypertarget{init-acces-concurrent_8c_source_l00046}00046\ \ \ \ \mbox{\hyperlink{stdio_8h_a63c54f1d737929378b379911b1ca4a45}{printf}}(\textcolor{stringliteral}{"{}\(\backslash\)n[\%d]\ Fini\ ...\ En\ tout,\ j'ai\ lu\ \%d\ !\(\backslash\)n"{}},\ \mbox{\hyperlink{unistd_8h_a321e672f528d0dd0927c93ff3a09c5c7}{identifiantTache}}(),\ \mbox{\hyperlink{main-bootreg_8c_add06ad5d8520e7cff4ff84b2811c0982}{c}});}
+\DoxyCodeLine{\Hypertarget{init-acces-concurrent_8c_source_l00047}00047\ \}}
+\DoxyCodeLine{\Hypertarget{init-acces-concurrent_8c_source_l00048}00048\ }
+\DoxyCodeLine{\Hypertarget{init-acces-concurrent_8c_source_l00049}\mbox{\hyperlink{init-acces-concurrent_8c_aef0b8c8afc9d6871eaacfe54ea39c33e}{00049}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{init-acces-concurrent_8c_aef0b8c8afc9d6871eaacfe54ea39c33e}{ecrivain}}()}
+\DoxyCodeLine{\Hypertarget{init-acces-concurrent_8c_source_l00050}00050\ \{}
+\DoxyCodeLine{\Hypertarget{init-acces-concurrent_8c_source_l00051}00051\ \ \ \ \textcolor{keywordtype}{int}\ r,\ \mbox{\hyperlink{main-bootreg_8c_add06ad5d8520e7cff4ff84b2811c0982}{c}}\ \ =\ 0;}
+\DoxyCodeLine{\Hypertarget{init-acces-concurrent_8c_source_l00052}00052\ \ \ \ }
+\DoxyCodeLine{\Hypertarget{init-acces-concurrent_8c_source_l00053}00053\ \ \ \ \textcolor{keywordtype}{char}\ *\ \mbox{\hyperlink{main-bootreg_8c_a7976cd62f9b61a65e8104a3cf7c15099}{b}}\ =\ \textcolor{stringliteral}{"{}Bonjour\ les\ jeunes\ !\ "{}};}
+\DoxyCodeLine{\Hypertarget{init-acces-concurrent_8c_source_l00054}00054\ }
+\DoxyCodeLine{\Hypertarget{init-acces-concurrent_8c_source_l00055}00055\ \ \ \ \mbox{\hyperlink{stdio_8h_a63c54f1d737929378b379911b1ca4a45}{printf}}(\textcolor{stringliteral}{"{}[\%d]\ Je\ suis\ un\ ecrivain\ !\(\backslash\)n"{}},\ \mbox{\hyperlink{unistd_8h_a321e672f528d0dd0927c93ff3a09c5c7}{identifiantTache}}());}
+\DoxyCodeLine{\Hypertarget{init-acces-concurrent_8c_source_l00056}00056\ \ \ \ \mbox{\hyperlink{stdio_8h_a66a9ef9199d2ddbbf2b6b0c7f7b99ab5}{fermer}}(\mbox{\hyperlink{init-acces-concurrent_8c_a62d2d983a3da1fde907ff0f255bf4956}{fd}}[0]);}
+\DoxyCodeLine{\Hypertarget{init-acces-concurrent_8c_source_l00057}00057\ }
+\DoxyCodeLine{\Hypertarget{init-acces-concurrent_8c_source_l00058}00058\ \ \ \ \textcolor{keywordflow}{do}\ \{}
+\DoxyCodeLine{\Hypertarget{init-acces-concurrent_8c_source_l00059}00059\ \ \ \ \ \ \mbox{\hyperlink{stdio_8h_a63c54f1d737929378b379911b1ca4a45}{printf}}(\textcolor{stringliteral}{"{}[\%d]\ Je\ vais\ ecrire\ \%d\(\backslash\)n"{}},\ \mbox{\hyperlink{unistd_8h_a321e672f528d0dd0927c93ff3a09c5c7}{identifiantTache}}(),\ \mbox{\hyperlink{include_2manux_2string_8h_a2dee044e4e667b5b789b493abd21cfa4}{strlen}}(\mbox{\hyperlink{main-bootreg_8c_a7976cd62f9b61a65e8104a3cf7c15099}{b}}));}
+\DoxyCodeLine{\Hypertarget{init-acces-concurrent_8c_source_l00060}00060\ \ \ \ \ \ \ r\ =\ \mbox{\hyperlink{stdio_8h_afb8a53c515b7e4b7b0c2d9abf9f7d0c0}{ecrire}}(\mbox{\hyperlink{init-acces-concurrent_8c_a62d2d983a3da1fde907ff0f255bf4956}{fd}}[1],\ \mbox{\hyperlink{main-bootreg_8c_a7976cd62f9b61a65e8104a3cf7c15099}{b}},\ \mbox{\hyperlink{include_2manux_2string_8h_a2dee044e4e667b5b789b493abd21cfa4}{strlen}}(\mbox{\hyperlink{main-bootreg_8c_a7976cd62f9b61a65e8104a3cf7c15099}{b}}));}
+\DoxyCodeLine{\Hypertarget{init-acces-concurrent_8c_source_l00061}00061\ \ \ \ \ \ \ \mbox{\hyperlink{stdio_8h_a63c54f1d737929378b379911b1ca4a45}{printf}}(\textcolor{stringliteral}{"{}[\%d]\ Voila\ j'ai\ ecrit\ \%d\(\backslash\)n"{}},\ \mbox{\hyperlink{unistd_8h_a321e672f528d0dd0927c93ff3a09c5c7}{identifiantTache}}(),\ r);}
+\DoxyCodeLine{\Hypertarget{init-acces-concurrent_8c_source_l00062}00062\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (r\ >=\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{init-acces-concurrent_8c_source_l00063}00063\ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{main-bootreg_8c_add06ad5d8520e7cff4ff84b2811c0982}{c}}\ +=\ r;}
+\DoxyCodeLine{\Hypertarget{init-acces-concurrent_8c_source_l00064}00064\ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{init-acces-concurrent_8c_source_l00065}00065\ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{stdio_8h_a63c54f1d737929378b379911b1ca4a45}{printf}}(\textcolor{stringliteral}{"{}[\%d]\ Erreur\ ecriture\(\backslash\)n"{}},\ \mbox{\hyperlink{unistd_8h_a321e672f528d0dd0927c93ff3a09c5c7}{identifiantTache}}());}
+\DoxyCodeLine{\Hypertarget{init-acces-concurrent_8c_source_l00066}00066\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{init-acces-concurrent_8c_source_l00067}00067\ \ \ \ \}\ \textcolor{keywordflow}{while}\ (r\ >\ 0);}
+\DoxyCodeLine{\Hypertarget{init-acces-concurrent_8c_source_l00068}00068\ }
+\DoxyCodeLine{\Hypertarget{init-acces-concurrent_8c_source_l00069}00069\ \ \ \ \mbox{\hyperlink{stdio_8h_a63c54f1d737929378b379911b1ca4a45}{printf}}(\textcolor{stringliteral}{"{}[\%d]\ En\ tout,\ j'ai\ ecrit\ \%d\ !\(\backslash\)n"{}},\ \mbox{\hyperlink{unistd_8h_a321e672f528d0dd0927c93ff3a09c5c7}{identifiantTache}}(),\ \mbox{\hyperlink{main-bootreg_8c_add06ad5d8520e7cff4ff84b2811c0982}{c}});}
+\DoxyCodeLine{\Hypertarget{init-acces-concurrent_8c_source_l00070}00070\ }
+\DoxyCodeLine{\Hypertarget{init-acces-concurrent_8c_source_l00071}00071\ \ \ \ \mbox{\hyperlink{stdio_8h_a66a9ef9199d2ddbbf2b6b0c7f7b99ab5}{fermer}}(\mbox{\hyperlink{init-acces-concurrent_8c_a62d2d983a3da1fde907ff0f255bf4956}{fd}}[1]);}
+\DoxyCodeLine{\Hypertarget{init-acces-concurrent_8c_source_l00072}00072\ \}}
+\DoxyCodeLine{\Hypertarget{init-acces-concurrent_8c_source_l00073}00073\ }
+\DoxyCodeLine{\Hypertarget{init-acces-concurrent_8c_source_l00074}\mbox{\hyperlink{main-acces-concurrent_8c_a02fd73d861ef2e4aabb38c0c9ff82947}{00074}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{init-acces-concurrent_8c_a02fd73d861ef2e4aabb38c0c9ff82947}{init}}()}
+\DoxyCodeLine{\Hypertarget{init-acces-concurrent_8c_source_l00075}00075\ \{}
+\DoxyCodeLine{\Hypertarget{init-acces-concurrent_8c_source_l00076}00076\ \ \ \textcolor{keywordtype}{int}\ r,\ l,\ e;}
+\DoxyCodeLine{\Hypertarget{init-acces-concurrent_8c_source_l00077}00077\ }
+\DoxyCodeLine{\Hypertarget{init-acces-concurrent_8c_source_l00078}00078\ \ \ \ \mbox{\hyperlink{stdio_8h_a63c54f1d737929378b379911b1ca4a45}{printf}}(\textcolor{stringliteral}{"{}Bonjour\ le\ mode\ utilisateur\ !\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{init-acces-concurrent_8c_source_l00079}00079\ }
+\DoxyCodeLine{\Hypertarget{init-acces-concurrent_8c_source_l00080}00080\ \ \ \ r\ =\ \mbox{\hyperlink{unistd_8h_a40fbcf01646e76422f8b48f5837996d7}{tube}}(\mbox{\hyperlink{init-acces-concurrent_8c_a62d2d983a3da1fde907ff0f255bf4956}{fd}});}
+\DoxyCodeLine{\Hypertarget{init-acces-concurrent_8c_source_l00081}00081\ }
+\DoxyCodeLine{\Hypertarget{init-acces-concurrent_8c_source_l00082}00082\ \ \ \ \textcolor{keywordflow}{if}\ (\ r\ !=\ \mbox{\hyperlink{include_2manux_2errno_8h_a7c87371c2c584aeb5a722830670b9bfd}{ESUCCES}})\ \{}
+\DoxyCodeLine{\Hypertarget{init-acces-concurrent_8c_source_l00083}00083\ \ \ \ \ \ \ \mbox{\hyperlink{stdio_8h_a63c54f1d737929378b379911b1ca4a45}{printf}}(\textcolor{stringliteral}{"{}r\ =\ \%d\ :\ casse\ la\ pipe\ !?\(\backslash\)n"{}},\ r);}
+\DoxyCodeLine{\Hypertarget{init-acces-concurrent_8c_source_l00084}00084\ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{init-acces-concurrent_8c_source_l00085}00085\ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (e\ =\ 0;\ e\ <\ \mbox{\hyperlink{init-acces-concurrent_8c_a5e2163deb903618b0564223548c831a7}{NB\_ECRIVAINS}};\ e++)\ \{}
+\DoxyCodeLine{\Hypertarget{init-acces-concurrent_8c_source_l00086}00086\ \ \ \ \ \ \ \ \ \ r\ =\ \mbox{\hyperlink{unistd_8h_aa504f61bfbbdfa9a463450f8b21db44f}{creerNouvelleTache}}(\mbox{\hyperlink{init-acces-concurrent_8c_aef0b8c8afc9d6871eaacfe54ea39c33e}{ecrivain}},\ \mbox{\hyperlink{include_2manux_2types_8h_aa93f0eb578d23995850d61f7d61c55c1}{FALSE}});}
+\DoxyCodeLine{\Hypertarget{init-acces-concurrent_8c_source_l00087}00087\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{init-acces-concurrent_8c_source_l00088}00088\ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (l\ =\ 0;\ l\ <\ \mbox{\hyperlink{init-acces-concurrent_8c_a4555b23c30d8218901d05b82e3285c7d}{NB\_LECTEURS}};\ l++)\ \{}
+\DoxyCodeLine{\Hypertarget{init-acces-concurrent_8c_source_l00089}00089\ \ \ \ \ \ \ \ \ \ r\ =\ \mbox{\hyperlink{unistd_8h_aa504f61bfbbdfa9a463450f8b21db44f}{creerNouvelleTache}}(\mbox{\hyperlink{init-acces-concurrent_8c_addee7001bdfdeeb5f4853e467b4c34de}{lecteur}},\ \mbox{\hyperlink{include_2manux_2types_8h_aa93f0eb578d23995850d61f7d61c55c1}{FALSE}});}
+\DoxyCodeLine{\Hypertarget{init-acces-concurrent_8c_source_l00090}00090\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{init-acces-concurrent_8c_source_l00091}00091\ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{init-acces-concurrent_8c_source_l00092}00092\ \ \ \ \mbox{\hyperlink{stdio_8h_a66a9ef9199d2ddbbf2b6b0c7f7b99ab5}{fermer}}(\mbox{\hyperlink{init-acces-concurrent_8c_a62d2d983a3da1fde907ff0f255bf4956}{fd}}[0]);}
+\DoxyCodeLine{\Hypertarget{init-acces-concurrent_8c_source_l00093}00093\ \ \ \ \mbox{\hyperlink{stdio_8h_a66a9ef9199d2ddbbf2b6b0c7f7b99ab5}{fermer}}(\mbox{\hyperlink{init-acces-concurrent_8c_a62d2d983a3da1fde907ff0f255bf4956}{fd}}[1]);}
+\DoxyCodeLine{\Hypertarget{init-acces-concurrent_8c_source_l00094}00094\ \ \ \ \mbox{\hyperlink{stdio_8h_a63c54f1d737929378b379911b1ca4a45}{printf}}(\textcolor{stringliteral}{"{}Voila\ voila\ !\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{init-acces-concurrent_8c_source_l00095}00095\ \ \ \ \textcolor{keywordflow}{while}(1)\{\};}
+\DoxyCodeLine{\Hypertarget{init-acces-concurrent_8c_source_l00096}00096\ \}}
+
+\end{DoxyCode}

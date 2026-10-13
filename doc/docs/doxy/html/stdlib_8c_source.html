@@ -1,0 +1,156 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>My Project:  Fichier source de /home/manu/PROGRAMMATION/C/ManuX/lib/stdlib.c</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">My Project
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function() { init_codefold(0); });
+/* @license-end */
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_97aefd0d527b934f1d99a682da8fe6a9.html">lib</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle"><div class="title">stdlib.c</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="stdlib_8c.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;<a class="code" href="manux_2stdlib_8h.html">manux/stdlib.h</a>&gt;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span> </div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="keyword">static</span> <a class="code hl_typedef" href="include_2manux_2types_8h.html#a06896e8c53f721507066c079052171f8">uint32_t</a> valeurAleatoire = 4832;</div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno"><a class="line" href="stdlib_8c.html#ada0c01ede140c79965af404372b6d2a0">    7</a></span><a class="code hl_typedef" href="include_2manux_2types_8h.html#a06896e8c53f721507066c079052171f8">uint32_t</a> <a class="code hl_variable" href="stdlib_8c.html#ada0c01ede140c79965af404372b6d2a0">factMult</a> = 742938285;</div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
+<div class="foldopen" id="foldopen00012" data-start="{" data-end="}">
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno"><a class="line" href="manux_2stdlib_8h.html#ad6001b066295ad1e959c9501d409bf28">   12</a></span><a class="code hl_typedef" href="include_2manux_2types_8h.html#a06896e8c53f721507066c079052171f8">uint32_t</a> <a class="code hl_function" href="stdlib_8c.html#ad6001b066295ad1e959c9501d409bf28">rand</a>(<span class="keywordtype">void</span>)</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>{</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>   valeurAleatoire = (valeurAleatoire * <a class="code hl_variable" href="stdlib_8c.html#ada0c01ede140c79965af404372b6d2a0">factMult</a>) % 2147483647;</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>   <span class="keywordflow">return</span> valeurAleatoire % (<a class="code hl_define" href="manux_2stdlib_8h.html#a690f251553b39fd4f31894826141b61a">RAND_MAX</a> + 1);</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>}</div>
+</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
+<div class="foldopen" id="foldopen00021" data-start="{" data-end="}">
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="manux_2stdlib_8h.html#a04e5a7570081c1690eab05b17421afa1">   21</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="stdlib_8c.html#a04e5a7570081c1690eab05b17421afa1">srand</a>(<a class="code hl_typedef" href="include_2manux_2types_8h.html#a06896e8c53f721507066c079052171f8">uint32_t</a> graine)</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>{</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>   valeurAleatoire = graine;</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>}</div>
+</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
+<div class="foldopen" id="foldopen00026" data-start="{" data-end="}">
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="manux_2stdlib_8h.html#a2fcb3e4ef2147f927ecc1e2018d227c0">   26</a></span><span class="keywordtype">int</span> <a class="code hl_function" href="stdlib_8c.html#a2fcb3e4ef2147f927ecc1e2018d227c0">atoi</a>(<span class="keywordtype">char</span> * ch)</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>{</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>   <span class="keywordtype">int</span> i = 0, result = 0;</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>   <span class="keywordflow">while</span> ((ch[i] &gt;= <span class="charliteral">&#39;0&#39;</span>) &amp;&amp; (ch[i] &lt;= <span class="charliteral">&#39;9&#39;</span>)) {</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>      result = 10 * result + ch[i++] - <span class="charliteral">&#39;0&#39;</span>;</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>   }</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>   <span class="keywordflow">return</span> result;</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>}</div>
+</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
+<div class="foldopen" id="foldopen00036" data-start="{" data-end="}">
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno"><a class="line" href="manux_2stdlib_8h.html#af7d33f72f92288b6d3d5978e255b2fa9">   36</a></span><span class="keywordtype">int</span> <a class="code hl_function" href="stdlib_8c.html#af7d33f72f92288b6d3d5978e255b2fa9">atoihex</a>(<span class="keywordtype">char</span> * ch)</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>{</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>   <span class="keywordtype">int</span> i = 2, result = 0;</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>   <span class="keywordflow">if</span> ((ch[0] == <span class="charliteral">&#39;0&#39;</span>) &amp;&amp; (ch[1] == <span class="charliteral">&#39;x&#39;</span>)) {</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>     </div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>      <span class="keywordflow">while</span> (   ((ch[i] &gt;= <span class="charliteral">&#39;0&#39;</span>) &amp;&amp; (ch[i] &lt;= <span class="charliteral">&#39;9&#39;</span>))</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>        || ((ch[i] &gt;= <span class="charliteral">&#39;A&#39;</span>) &amp;&amp; (ch[i] &lt;= <span class="charliteral">&#39;F&#39;</span>)) </div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>            || ((ch[i] &gt;= <span class="charliteral">&#39;a&#39;</span>) &amp;&amp; (ch[i] &lt;= <span class="charliteral">&#39;f&#39;</span>))) {</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>         <span class="keywordflow">if</span> ((ch[i] &gt;= <span class="charliteral">&#39;0&#39;</span>) &amp;&amp; (ch[i] &lt;= <span class="charliteral">&#39;9&#39;</span>)) {</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>            result = 16 * result + ch[i] - <span class="charliteral">&#39;0&#39;</span>;</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>     } <span class="keywordflow">else</span> <span class="keywordflow">if</span> ((ch[i] &gt;= <span class="charliteral">&#39;A&#39;</span>) &amp;&amp; (ch[i] &lt;= <span class="charliteral">&#39;F&#39;</span>)) {</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>            result = 16 * result + 10 + ch[i] - <span class="charliteral">&#39;A&#39;</span>;</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>     } <span class="keywordflow">else</span> {</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>       result = 16 * result + 10 + ch[i] - <span class="charliteral">&#39;a&#39;</span>;</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>     }</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>         i++;</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>      }</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>   }</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>   <span class="keywordflow">return</span> result;</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>}</div>
+</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span> </div>
+<div class="ttc" id="ainclude_2manux_2types_8h_html_a06896e8c53f721507066c079052171f8"><div class="ttname"><a href="include_2manux_2types_8h.html#a06896e8c53f721507066c079052171f8">uint32_t</a></div><div class="ttdeci">unsigned long uint32_t</div><div class="ttdef"><b>Definition</b> <a href="include_2manux_2types_8h_source.html#l00020">types.h:20</a></div></div>
+<div class="ttc" id="amanux_2stdlib_8h_html"><div class="ttname"><a href="manux_2stdlib_8h.html">stdlib.h</a></div><div class="ttdoc">Définition de quelques fonctions de base (C) Manu Chaput 2020-2023.</div></div>
+<div class="ttc" id="amanux_2stdlib_8h_html_a690f251553b39fd4f31894826141b61a"><div class="ttname"><a href="manux_2stdlib_8h.html#a690f251553b39fd4f31894826141b61a">RAND_MAX</a></div><div class="ttdeci">#define RAND_MAX</div><div class="ttdef"><b>Definition</b> <a href="manux_2stdlib_8h_source.html#l00010">stdlib.h:10</a></div></div>
+<div class="ttc" id="astdlib_8c_html_a04e5a7570081c1690eab05b17421afa1"><div class="ttname"><a href="stdlib_8c.html#a04e5a7570081c1690eab05b17421afa1">srand</a></div><div class="ttdeci">void srand(uint32_t graine)</div><div class="ttdoc">Modification de la graine du générateur &quot;aléatoire&quot;.</div><div class="ttdef"><b>Definition</b> <a href="stdlib_8c_source.html#l00021">stdlib.c:21</a></div></div>
+<div class="ttc" id="astdlib_8c_html_a2fcb3e4ef2147f927ecc1e2018d227c0"><div class="ttname"><a href="stdlib_8c.html#a2fcb3e4ef2147f927ecc1e2018d227c0">atoi</a></div><div class="ttdeci">int atoi(char *ch)</div><div class="ttdoc">Conversion d'une chaîne en entier.</div><div class="ttdef"><b>Definition</b> <a href="stdlib_8c_source.html#l00026">stdlib.c:26</a></div></div>
+<div class="ttc" id="astdlib_8c_html_ad6001b066295ad1e959c9501d409bf28"><div class="ttname"><a href="stdlib_8c.html#ad6001b066295ad1e959c9501d409bf28">rand</a></div><div class="ttdeci">uint32_t rand(void)</div><div class="ttdoc">Génération d'un nombre &quot;aléatoire&quot; entre 0 et RAND_MAX.</div><div class="ttdef"><b>Definition</b> <a href="stdlib_8c_source.html#l00012">stdlib.c:12</a></div></div>
+<div class="ttc" id="astdlib_8c_html_ada0c01ede140c79965af404372b6d2a0"><div class="ttname"><a href="stdlib_8c.html#ada0c01ede140c79965af404372b6d2a0">factMult</a></div><div class="ttdeci">uint32_t factMult</div><div class="ttdef"><b>Definition</b> <a href="stdlib_8c_source.html#l00007">stdlib.c:7</a></div></div>
+<div class="ttc" id="astdlib_8c_html_af7d33f72f92288b6d3d5978e255b2fa9"><div class="ttname"><a href="stdlib_8c.html#af7d33f72f92288b6d3d5978e255b2fa9">atoihex</a></div><div class="ttdeci">int atoihex(char *ch)</div><div class="ttdoc">Version hexadécimale de atoi()</div><div class="ttdef"><b>Definition</b> <a href="stdlib_8c_source.html#l00036">stdlib.c:36</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

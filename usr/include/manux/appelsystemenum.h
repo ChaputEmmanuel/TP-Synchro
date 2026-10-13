@@ -34,5 +34,8 @@
 #   define NBAS_TUBE          10
 #endif
 #define NBAS_FERMER           11
+#ifdef MANUX_AS_TEST_SYNCHRO
+#   define NBAS_TEST_SYNC     12
+#endif
 
 #endif // APPEL_SYSTEME_NUM_DEF

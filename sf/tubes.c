@@ -18,7 +18,8 @@
 #include <manux/memoire.h>  // NULL
 #include <manux/kmalloc.h>  // NULL
 #include <manux/string.h>   // memcpy
-#include <manux/atomique.h> // exclusions mutuelles
+#include <manux/exclusion-mutuelle.h> 
+#include <manux/condition.h> 
 
 MethodesFichier tubeMethodesFichier;
 
@@ -36,26 +37,23 @@ MethodesFichier tubeMethodesFichier;
  */
 typedef struct _tube {
    uint8_t * donnees;   //< Pointeur sur la zone de données
-   int taille;          //< Nombre d'octets présents dans le tube
-   int indiceProchain ; //< Position de la prochaine insertion
-
-   int nbEcrivains;
-   int nbLecteurs;
-  
+   uint32_t  taille;          //< Nombre d'octets présents dans le tube
+   uint32_t  indiceProchain ; //< Position de la prochaine insertion
 } Tube;
 
 /**
   * @brief Ouverture d'un tube en tant que Fichier 
   */
+static
 int tubeOuvrir(INoeud * iNoeud, Fichier * f, uint16_t fanions, uint16_t mode)
 {
    Tube * tube = (Tube *) f->iNoeud->prive;
+   (void)iNoeud;
+   (void)mode;
    
    if (fanions & O_RDONLY) {
-      tube->nbLecteurs++;
    }
    if (fanions & O_WRONLY) {
-      tube->nbEcrivains++;
    }
 
    f->prive = NULL;
@@ -66,30 +64,25 @@ int tubeOuvrir(INoeud * iNoeud, Fichier * f, uint16_t fanions, uint16_t mode)
 /**
   * @brief Fermeture d'un tube en tant que Fichier 
   */
+static
 int tubeFermer(Fichier * f)
 {
 
    printk_debug(DBG_KERNEL_TUBE, "in\n");
    Tube * tube = (Tube *) f->iNoeud->prive;
    
-   if (f->fanions & O_RDONLY) {
-      tube->nbLecteurs--;
-   }
-   if (f->fanions & O_WRONLY) {
-      tube->nbEcrivains--;
-   }
-
    return ESUCCES;
 }
 
 /**
  * @brief Écriture dans un fichier
  */
+static
 size_t tubeEcrire(Fichier * f, void * buffer, size_t nbOctets)
 {
-   Tube * tube;
-   int n = 0;
-   int nbOctetsEcrits = 0; // Le nombre d'octets déja écrits
+   Tube *   tube;
+   uint32_t n = 0;
+   uint32_t nbOctetsEcrits = 0; // Le nombre d'octets déja écrits
 
    printk_debug(DBG_KERNEL_TUBE, "in\n");
    
@@ -99,6 +92,7 @@ size_t tubeEcrire(Fichier * f, void * buffer, size_t nbOctets)
    }
    tube = f->iNoeud->prive;
 
+   
    // On fait une boucle, car il est possible que l'on doive écrire en
    // deux fois si on est proche de la fin du tableau qui contient les
    // données.
@@ -127,6 +121,7 @@ size_t tubeEcrire(Fichier * f, void * buffer, size_t nbOctets)
    return nbOctetsEcrits;  
 }
 
+static
 size_t tubeLire(Fichier * f, void * buffer, size_t nbOctets)
 {
    Tube * tube;
@@ -198,7 +193,8 @@ int sys_tube(ParametreAS as, int * fds)
    INoeud  * iNoeud;
    Fichier * fichiers[2];
    Tube    * tube;
-
+   (void) as;
+   
    printk_debug(DBG_KERNEL_TUBE, "Creation d'un tube (lire = 0x%x) ...\n", tubeLire);
 
    // Création de la structure

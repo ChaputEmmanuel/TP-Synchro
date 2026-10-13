@@ -1,0 +1,234 @@
+\doxysection{kmalloc-\/zs.c}
+\hypertarget{kmalloc-zs_8c_source}{}\label{kmalloc-zs_8c_source}\index{/home/manu/PROGRAMMATION/C/ManuX/noyau/kmalloc-\/zs.c@{/home/manu/PROGRAMMATION/C/ManuX/noyau/kmalloc-\/zs.c}}
+\mbox{\hyperlink{kmalloc-zs_8c}{Aller à la documentation de ce fichier.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00009}00009\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{include_2manux_2printk_8h}{manux/printk.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00010}00010\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{manux_2debug_8h}{manux/debug.h}}>}\ \ \ \ \ \ \ \ \textcolor{comment}{//\ assert}}
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00011}00011\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{include_2manux_2memoire_8h}{manux/memoire.h}}>}}
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00012}00012\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{kmalloc-zs_8h}{manux/kmalloc-\/zs.h}}>}}
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00013}00013\ }
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00018}\mbox{\hyperlink{kmalloc-zs_8c_a39753000a6c327c0f33daa798d5b7357}{00018}}\ \textcolor{preprocessor}{\#define\ MANUX\_KMALLOC\_MAGIQUE\ 0x4832}}
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00019}00019\ }
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00023}\mbox{\hyperlink{kmalloc-zs_8c_ae89de83ab36636d777d5dcde5b1675a8}{00023}}\ \textcolor{preprocessor}{\#define\ MANUX\_KMALLOC\_ORDRE\_MIN\ \ 3}}
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00024}\mbox{\hyperlink{kmalloc-zs_8c_a68c5237b82c6bd6925f8767b62dbf6a4}{00024}}\ \textcolor{preprocessor}{\#define\ MANUX\_KMALLOC\_ORDRE\_MAX\ 12}}
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00025}00025\ }
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00038}\mbox{\hyperlink{struct__enteteBlocMemoire}{00038}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__enteteBlocMemoire}{\_enteteBlocMemoire}}\ \{}
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00039}00039\ \ \ \ \textcolor{keyword}{union\ }\{}
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00040}00040\ \ \ \ \ \ \ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00041}\mbox{\hyperlink{struct__enteteBlocMemoire_a89fd81363a6eafef88ddbccd474cc222}{00041}}\ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{include_2manux_2types_8h_a273cf69d639a59973b6019625df33e30}{uint16\_t}}\ \mbox{\hyperlink{struct__enteteBlocMemoire_a89fd81363a6eafef88ddbccd474cc222}{magique}};}
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00042}\mbox{\hyperlink{struct__enteteBlocMemoire_a9e5c08ea104ec9f011fb817e2408da60}{00042}}\ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{include_2manux_2types_8h_a273cf69d639a59973b6019625df33e30}{uint16\_t}}\ \mbox{\hyperlink{struct__enteteBlocMemoire_a9e5c08ea104ec9f011fb817e2408da60}{ordre}};}
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00043}\mbox{\hyperlink{struct__enteteBlocMemoire_afc3f47672517fcc3b00f36c9e1042718}{00043}}\ \ \ \ \ \ \ \}\ \mbox{\hyperlink{struct__enteteBlocMemoire_afc3f47672517fcc3b00f36c9e1042718}{alloue}};\ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00044}\mbox{\hyperlink{struct__enteteBlocMemoire_a70b90175c64ee52b9a44f1e03d944472}{00044}}\ \ \ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__enteteBlocMemoire}{\_enteteBlocMemoire}}\ *\ \mbox{\hyperlink{struct__enteteBlocMemoire_a70b90175c64ee52b9a44f1e03d944472}{suivant}};}
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00045}\mbox{\hyperlink{struct__enteteBlocMemoire_a1b688ebdc7fd15a31f953cf76c172462}{00045}}\ \ \ \ \}\ \mbox{\hyperlink{struct__enteteBlocMemoire_a1b688ebdc7fd15a31f953cf76c172462}{e}};}
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00046}\mbox{\hyperlink{kmalloc-zs_8c_a9ddc11628cf9571287c41a7fdbde4549}{00046}}\ \}\ \mbox{\hyperlink{kmalloc-zs_8c_a9ddc11628cf9571287c41a7fdbde4549}{enteteBlocMemoire}};}
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00047}00047\ }
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00051}\mbox{\hyperlink{kmalloc-zs_8c_a8a4e30f5bbfcad6f64ab7a4de58cb256}{00051}}\ \mbox{\hyperlink{struct__enteteBlocMemoire}{enteteBlocMemoire}}\ *\ \mbox{\hyperlink{kmalloc-zs_8c_a8a4e30f5bbfcad6f64ab7a4de58cb256}{blocsLibres}}[\mbox{\hyperlink{kmalloc-zs_8c_a68c5237b82c6bd6925f8767b62dbf6a4}{MANUX\_KMALLOC\_ORDRE\_MAX}}+1]\ =\ \{\mbox{\hyperlink{include_2manux_2stddef_8h_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}}\};}
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00052}00052\ }
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00053}00053\ \textcolor{preprocessor}{\#ifdef\ MANUX\_KMALLOC\_STAT}}
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00054}00054\ \mbox{\hyperlink{include_2manux_2types_8h_ad362a62f5bae89670bdcd2f18a0a73a8}{int32\_t}}\ nbPagesAllouees\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00055}00055\ \mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\_t}}\ nbAlloc[\mbox{\hyperlink{kmalloc-zs_8c_a68c5237b82c6bd6925f8767b62dbf6a4}{MANUX\_KMALLOC\_ORDRE\_MAX}}+1]\ =\ \{0\};}
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00056}00056\ \mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\_t}}\ nbFree[\mbox{\hyperlink{kmalloc-zs_8c_a68c5237b82c6bd6925f8767b62dbf6a4}{MANUX\_KMALLOC\_ORDRE\_MAX}}+1]\ =\ \{0\};}
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00057}00057\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ MANUX\_KMALLOC\_STAT}}
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00058}00058\ }
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00059}\mbox{\hyperlink{kmalloc-zs_8c_a612af40ff50bab56d5d2ce7b0e37dc53}{00059}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{kmalloc-zs_8c_a612af40ff50bab56d5d2ce7b0e37dc53}{kmallocAfficherStatistiques}}(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00060}00060\ \{}
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00061}00061\ \ \ \ \ \mbox{\hyperlink{include_2manux_2types_8h_a273cf69d639a59973b6019625df33e30}{uint16\_t}}\ \mbox{\hyperlink{struct__enteteBlocMemoire_a9e5c08ea104ec9f011fb817e2408da60}{ordre}};}
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00062}00062\ \ \ \ \ \mbox{\hyperlink{struct__enteteBlocMemoire}{enteteBlocMemoire}}\ *\ bloc;}
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00063}00063\ \ \ \ \ \textcolor{keywordtype}{int}\ nb;}
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00064}00064\ }
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00065}00065\ \ \ \ \ \mbox{\hyperlink{include_2manux_2printk_8h_a7d5a6dcede19ea52bd0064cb40d66a25}{printkc}}(\textcolor{stringliteral}{"{}Pages\ allouees\ (kmalloc)\ /\ total\ :\ \%d\ (\%d)\ /\ \%d\(\backslash\)n"{}},}
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00066}00066\ \ \ \ \ \ \ \ \mbox{\hyperlink{include_2manux_2memoire_8h_a3aef845c64cbb35e0c25f697fd39156a}{nombrePagesAllouees}}(),\ nbPagesAllouees,\ \mbox{\hyperlink{include_2manux_2memoire_8h_a4f075bfff5a918e6ac19bf24be879e96}{nombrePagesTotal}}());}
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00067}00067\ \ \ \ \ \mbox{\hyperlink{include_2manux_2printk_8h_a7d5a6dcede19ea52bd0064cb40d66a25}{printkc}}(\textcolor{stringliteral}{"{}ordre\ alloc\ free\ \ blocs\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00068}00068\ \ \ \ \ \textcolor{keywordflow}{for}\ (\mbox{\hyperlink{struct__enteteBlocMemoire_a9e5c08ea104ec9f011fb817e2408da60}{ordre}}\ =\ \mbox{\hyperlink{kmalloc-zs_8c_ae89de83ab36636d777d5dcde5b1675a8}{MANUX\_KMALLOC\_ORDRE\_MIN}}\ ;\ \mbox{\hyperlink{struct__enteteBlocMemoire_a9e5c08ea104ec9f011fb817e2408da60}{ordre}}\ <=\ \mbox{\hyperlink{kmalloc-zs_8c_a68c5237b82c6bd6925f8767b62dbf6a4}{MANUX\_KMALLOC\_ORDRE\_MAX}};\ \mbox{\hyperlink{struct__enteteBlocMemoire_a9e5c08ea104ec9f011fb817e2408da60}{ordre}}++)\ \{}
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00069}00069\ \ \ \ \ \ \ \ nb=0;}
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00070}00070\ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (bloc\ =\ \mbox{\hyperlink{kmalloc-zs_8c_a8a4e30f5bbfcad6f64ab7a4de58cb256}{blocsLibres}}[\mbox{\hyperlink{struct__enteteBlocMemoire_a9e5c08ea104ec9f011fb817e2408da60}{ordre}}];\ bloc\ !=\ \mbox{\hyperlink{include_2manux_2stddef_8h_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}};\ bloc\ =\ bloc-\/>\mbox{\hyperlink{struct__enteteBlocMemoire_a1b688ebdc7fd15a31f953cf76c172462}{e}}.\mbox{\hyperlink{struct__enteteBlocMemoire_a70b90175c64ee52b9a44f1e03d944472}{suivant}})\{}
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00071}00071\ \ \ \ \ \ \ \ \ \ \ nb++;}
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00072}00072\ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00073}00073\ \ \ \ \ \ \ \ \mbox{\hyperlink{include_2manux_2printk_8h_a7d5a6dcede19ea52bd0064cb40d66a25}{printkc}}(\textcolor{stringliteral}{"{}\ \ \ \%2d\ \ \%4d\ \ \%4d\ \ \%4d\(\backslash\)n"{}},\ \mbox{\hyperlink{struct__enteteBlocMemoire_a9e5c08ea104ec9f011fb817e2408da60}{ordre}},\ nbAlloc[\mbox{\hyperlink{struct__enteteBlocMemoire_a9e5c08ea104ec9f011fb817e2408da60}{ordre}}],\ nbFree[\mbox{\hyperlink{struct__enteteBlocMemoire_a9e5c08ea104ec9f011fb817e2408da60}{ordre}}],\ nb);}
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00074}00074\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00075}00075\ \}}
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00076}00076\ }
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00080}\mbox{\hyperlink{kmalloc-zs_8h_a9834d71816871b865956b59d641f602f}{00080}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{kmalloc-zs_8c_a9834d71816871b865956b59d641f602f}{kmallocInitialisation}}(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00081}00081\ \{}
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00082}00082\ \ \ \ \textcolor{comment}{//\ Pour\ le\ moment,\ on\ commence\ à\ vide\ !}}
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00083}00083\ }
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00084}00084\ \ \ \ \textcolor{comment}{//\ Attention,\ on\ ne\ peut\ rien\ afficher\ car\ il\ faut\ que\ cette}}
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00085}00085\ \ \ \ \textcolor{comment}{//\ fonction\ soit\ invoquée\ (le\ jour\ où\ elle\ fera\ quelque\ chose\ !)}}
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00086}00086\ \ \ \ \textcolor{comment}{//\ avant\ l'initialisation\ de\ la\ console,\ au\ cas\ où\ la\ macro}}
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00087}00087\ \ \ \ \textcolor{comment}{//\ MANUX\_ATOMIQUE\_AUDIT\ soit\ initialisée,\ ...}}
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00088}00088\ \}}
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00089}00089\ }
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00093}00093\ \textcolor{keyword}{static}\ \textcolor{keyword}{inline}\ \mbox{\hyperlink{include_2manux_2types_8h_a273cf69d639a59973b6019625df33e30}{uint16\_t}}\ ordreDe(\mbox{\hyperlink{include_2manux_2types_8h_a273cf69d639a59973b6019625df33e30}{uint16\_t}}\ taille)}
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00094}00094\ \{}
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00095}00095\ \ \ \ \mbox{\hyperlink{include_2manux_2types_8h_a273cf69d639a59973b6019625df33e30}{uint16\_t}}\ result\ =\ \mbox{\hyperlink{kmalloc-zs_8c_a68c5237b82c6bd6925f8767b62dbf6a4}{MANUX\_KMALLOC\_ORDRE\_MAX}};}
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00096}00096\ \ \ \ \mbox{\hyperlink{include_2manux_2types_8h_a273cf69d639a59973b6019625df33e30}{uint16\_t}}\ tailleTotale\ =\ taille\ +\ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{kmalloc-zs_8c_a9ddc11628cf9571287c41a7fdbde4549}{enteteBlocMemoire}});}
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00097}00097\ }
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00098}00098\ \ \ \ \mbox{\hyperlink{manux_2debug_8h_a3153a272f18d0f805028fce7e4337b53}{assert}}(tailleTotale\ <=\ (1<<\mbox{\hyperlink{kmalloc-zs_8c_a68c5237b82c6bd6925f8767b62dbf6a4}{MANUX\_KMALLOC\_ORDRE\_MAX}}));}
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00099}00099\ }
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00100}00100\ \ \ \ \textcolor{keywordflow}{while}\ (1<<\ (result\ -\/\ 1)\ >=\ tailleTotale)\ \{\ }
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00101}00101\ \ \ \ \ \ \ result\ -\/-\/;}
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00102}00102\ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00103}00103\ }
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00104}00104\ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00105}00105\ \}}
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00106}00106\ }
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00110}00110\ \textcolor{keyword}{static}}
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00111}00111\ \textcolor{keywordtype}{void}\ decouperUnBloc(\mbox{\hyperlink{include_2manux_2types_8h_a273cf69d639a59973b6019625df33e30}{uint16\_t}}\ o)}
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00112}00112\ \{}
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00113}00113\ \ \ \ \mbox{\hyperlink{struct__enteteBlocMemoire}{enteteBlocMemoire}}\ *\ origine\ =\ \mbox{\hyperlink{kmalloc-zs_8c_a8a4e30f5bbfcad6f64ab7a4de58cb256}{blocsLibres}}[o];}
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00114}00114\ \ \ \ \mbox{\hyperlink{struct__enteteBlocMemoire}{enteteBlocMemoire}}\ *\ part1,\ *\ part2;}
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00115}00115\ \ \ \ }
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00116}00116\ \ \ \ \mbox{\hyperlink{manux_2debug_8h_a3153a272f18d0f805028fce7e4337b53}{assert}}(\mbox{\hyperlink{kmalloc-zs_8c_a8a4e30f5bbfcad6f64ab7a4de58cb256}{blocsLibres}}[o]\ !=\ \mbox{\hyperlink{include_2manux_2stddef_8h_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}});}
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00117}00117\ }
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00118}00118\ \ \ \ \textcolor{comment}{//\ On\ supprime\ le\ bloc\ de\ la\ liste\ d'ordre\ o}}
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00119}00119\ \ \ \ \mbox{\hyperlink{kmalloc-zs_8c_a8a4e30f5bbfcad6f64ab7a4de58cb256}{blocsLibres}}[o]\ =\ origine-\/>\mbox{\hyperlink{struct__enteteBlocMemoire_a1b688ebdc7fd15a31f953cf76c172462}{e}}.\mbox{\hyperlink{struct__enteteBlocMemoire_a70b90175c64ee52b9a44f1e03d944472}{suivant}};}
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00120}00120\ }
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00121}00121\ \ \ \ \textcolor{comment}{//\ On\ descend\ d'un\ ordre}}
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00122}00122\ \ \ \ o-\/-\/;}
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00123}00123\ \ \ \ }
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00124}00124\ \ \ \ \textcolor{comment}{//\ Le\ suivant\ est\ à\ une\ distance\ d'un\ ordre\ inférieur}}
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00125}00125\ \ \ \ part1\ =\ origine;}
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00126}00126\ \ \ \ part2\ =\ (\mbox{\hyperlink{struct__enteteBlocMemoire}{enteteBlocMemoire}}\ *)((\textcolor{keywordtype}{void}\ *)origine\ +\ (1<<o));}
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00127}00127\ }
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00128}00128\ \ \ \ \textcolor{comment}{//\ On\ les\ insère\ en\ tête\ de\ liste}}
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00129}00129\ \ \ \ part1-\/>\mbox{\hyperlink{struct__enteteBlocMemoire_a1b688ebdc7fd15a31f953cf76c172462}{e}}.\mbox{\hyperlink{struct__enteteBlocMemoire_a70b90175c64ee52b9a44f1e03d944472}{suivant}}\ =\ part2;}
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00130}00130\ \ \ \ part2-\/>\mbox{\hyperlink{struct__enteteBlocMemoire_a1b688ebdc7fd15a31f953cf76c172462}{e}}.\mbox{\hyperlink{struct__enteteBlocMemoire_a70b90175c64ee52b9a44f1e03d944472}{suivant}}\ =\ \mbox{\hyperlink{kmalloc-zs_8c_a8a4e30f5bbfcad6f64ab7a4de58cb256}{blocsLibres}}[o];}
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00131}00131\ \ \ \ \mbox{\hyperlink{kmalloc-zs_8c_a8a4e30f5bbfcad6f64ab7a4de58cb256}{blocsLibres}}[o]\ =\ part1;}
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00132}00132\ }
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00133}00133\ \}}
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00134}00134\ }
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00139}\mbox{\hyperlink{kmalloc-zs_8h_af549fce4aa887cd31918e6c5dd0950f5}{00139}}\ \textcolor{keywordtype}{void}\ *\ \mbox{\hyperlink{kmalloc-zs_8c_af549fce4aa887cd31918e6c5dd0950f5}{kmalloc}}(\textcolor{keywordtype}{size\_t}\ n)}
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00140}00140\ \{}
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00141}00141\ \ \ \ \mbox{\hyperlink{struct__enteteBlocMemoire}{enteteBlocMemoire}}\ *\ enteteBlocAlloue\ =\ \mbox{\hyperlink{include_2manux_2stddef_8h_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}};}
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00142}00142\ \ \ \ \mbox{\hyperlink{include_2manux_2types_8h_a273cf69d639a59973b6019625df33e30}{uint16\_t}}\ \mbox{\hyperlink{struct__enteteBlocMemoire_a9e5c08ea104ec9f011fb817e2408da60}{ordre}};\ \ \ \ \textcolor{comment}{//<\ Log2\ de\ la\ taille\ totale}}
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00143}00143\ \ \ \ \mbox{\hyperlink{include_2manux_2types_8h_a273cf69d639a59973b6019625df33e30}{uint16\_t}}\ o;\ \ \ \ \ \ \ \ \textcolor{comment}{//<\ indice\ de\ recherche\ de\ blocs}}
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00144}00144\ \ \ \ }
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00145}00145\ \ \ \ \mbox{\hyperlink{struct__enteteBlocMemoire_a9e5c08ea104ec9f011fb817e2408da60}{ordre}}\ =\ ordreDe(n);}
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00146}00146\ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{struct__enteteBlocMemoire_a9e5c08ea104ec9f011fb817e2408da60}{ordre}}\ <\ \mbox{\hyperlink{kmalloc-zs_8c_ae89de83ab36636d777d5dcde5b1675a8}{MANUX\_KMALLOC\_ORDRE\_MIN}})\ \{}
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00147}00147\ \ \ \ \ \ \ \mbox{\hyperlink{struct__enteteBlocMemoire_a9e5c08ea104ec9f011fb817e2408da60}{ordre}}\ =\ \mbox{\hyperlink{kmalloc-zs_8c_ae89de83ab36636d777d5dcde5b1675a8}{MANUX\_KMALLOC\_ORDRE\_MIN}};}
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00148}00148\ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00149}00149\ \ \ \ }
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00150}00150\ \ \ \ \mbox{\hyperlink{manux_2debug_8h_a3153a272f18d0f805028fce7e4337b53}{assert}}(\mbox{\hyperlink{struct__enteteBlocMemoire_a9e5c08ea104ec9f011fb817e2408da60}{ordre}}\ <=\ \mbox{\hyperlink{kmalloc-zs_8c_a68c5237b82c6bd6925f8767b62dbf6a4}{MANUX\_KMALLOC\_ORDRE\_MAX}});}
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00151}00151\ \ \ \ \mbox{\hyperlink{manux_2debug_8h_a3153a272f18d0f805028fce7e4337b53}{assert}}(\mbox{\hyperlink{struct__enteteBlocMemoire_a9e5c08ea104ec9f011fb817e2408da60}{ordre}}\ >=\ \mbox{\hyperlink{kmalloc-zs_8c_ae89de83ab36636d777d5dcde5b1675a8}{MANUX\_KMALLOC\_ORDRE\_MIN}});}
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00152}00152\ \ \ \ }
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00153}00153\ \ \ \ \textcolor{comment}{//\ On\ recherche\ un\ bloc\ assez\ gros\ pour\ la\ demande}}
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00154}00154\ \ \ \ o\ =\ \mbox{\hyperlink{struct__enteteBlocMemoire_a9e5c08ea104ec9f011fb817e2408da60}{ordre}};}
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00155}00155\ \ \ \ \textcolor{keywordflow}{while}\ ((\ o\ <=\ \mbox{\hyperlink{kmalloc-zs_8c_a68c5237b82c6bd6925f8767b62dbf6a4}{MANUX\_KMALLOC\_ORDRE\_MAX}})\ \&\&\ (\mbox{\hyperlink{kmalloc-zs_8c_a8a4e30f5bbfcad6f64ab7a4de58cb256}{blocsLibres}}[o]\ ==\ \mbox{\hyperlink{include_2manux_2stddef_8h_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}}))\ \{}
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00156}00156\ \ \ \ \ \ \ o++;}
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00157}00157\ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00158}00158\ }
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00159}00159\ \ \ \ \mbox{\hyperlink{manux_2debug_8h_a3153a272f18d0f805028fce7e4337b53}{assert}}(\mbox{\hyperlink{struct__enteteBlocMemoire_a9e5c08ea104ec9f011fb817e2408da60}{ordre}}\ <=\ \mbox{\hyperlink{kmalloc-zs_8c_a68c5237b82c6bd6925f8767b62dbf6a4}{MANUX\_KMALLOC\_ORDRE\_MAX}});}
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00160}00160\ \ \ \ \mbox{\hyperlink{manux_2debug_8h_a3153a272f18d0f805028fce7e4337b53}{assert}}(\mbox{\hyperlink{struct__enteteBlocMemoire_a9e5c08ea104ec9f011fb817e2408da60}{ordre}}\ >=\ \mbox{\hyperlink{kmalloc-zs_8c_ae89de83ab36636d777d5dcde5b1675a8}{MANUX\_KMALLOC\_ORDRE\_MIN}});}
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00161}00161\ }
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00162}00162\ \ \ \ \textcolor{comment}{//\ Si\ on\ a\ dépasser\ la\ taille\ max,\ c'est\ qu'on\ a\ rien\ trouvé.\ On}}
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00163}00163\ \ \ \ \textcolor{comment}{//\ alloue\ alors\ un\ bloc\ de\ taille\ maximale.}}
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00164}00164\ \ \ \ \textcolor{keywordflow}{if}\ (o\ >\ \mbox{\hyperlink{kmalloc-zs_8c_a68c5237b82c6bd6925f8767b62dbf6a4}{MANUX\_KMALLOC\_ORDRE\_MAX}})\ \{}
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00165}00165\ \ \ \ \ \ \ \textcolor{comment}{//\ WARNING\ traiter\ cas\ où\ MANUX\_KMALLOC\_ORDRE\_MAX\ est\ plus\ gros\ qu'une\ page\ ...}}
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00166}00166\ \ \ \ \ \ \ \mbox{\hyperlink{kmalloc-zs_8c_a8a4e30f5bbfcad6f64ab7a4de58cb256}{blocsLibres}}[\mbox{\hyperlink{kmalloc-zs_8c_a68c5237b82c6bd6925f8767b62dbf6a4}{MANUX\_KMALLOC\_ORDRE\_MAX}}]\ =\ \mbox{\hyperlink{include_2manux_2memoire_8h_ad9072ff00da9e7f32b882e5c1361d46f}{allouerPage}}();}
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00167}00167\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{kmalloc-zs_8c_a8a4e30f5bbfcad6f64ab7a4de58cb256}{blocsLibres}}[\mbox{\hyperlink{kmalloc-zs_8c_a68c5237b82c6bd6925f8767b62dbf6a4}{MANUX\_KMALLOC\_ORDRE\_MAX}}]\ ==\ \mbox{\hyperlink{include_2manux_2stddef_8h_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}})\ \{}
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00168}00168\ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{include_2manux_2stddef_8h_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}};}
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00169}00169\ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00170}00170\ \textcolor{preprocessor}{\#ifdef\ MANUX\_KMALLOC\_STAT}}
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00171}00171\ \ \ \ \ \ \ \ \ \ nbPagesAllouees++;}
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00172}00172\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00173}00173\ \ \ \ \ \ \ \ \ \ o\ =\ \mbox{\hyperlink{kmalloc-zs_8c_a68c5237b82c6bd6925f8767b62dbf6a4}{MANUX\_KMALLOC\_ORDRE\_MAX}};}
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00174}00174\ \ \ \ \ \ \mbox{\hyperlink{kmalloc-zs_8c_a8a4e30f5bbfcad6f64ab7a4de58cb256}{blocsLibres}}[o]-\/>\mbox{\hyperlink{struct__enteteBlocMemoire_a1b688ebdc7fd15a31f953cf76c172462}{e}}.\mbox{\hyperlink{struct__enteteBlocMemoire_a70b90175c64ee52b9a44f1e03d944472}{suivant}}\ =\ \mbox{\hyperlink{include_2manux_2stddef_8h_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}};}
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00175}00175\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00176}00176\ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00177}00177\ \ \ \ }
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00178}00178\ \ \ \ \textcolor{comment}{//\ S'il\ est\ trop\ gros\ on\ le\ coupe\ en\ deux\ jusqu'à\ la\ bonne\ taille}}
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00179}00179\ \ \ \ \textcolor{keywordflow}{while}\ (o\ >\ \mbox{\hyperlink{struct__enteteBlocMemoire_a9e5c08ea104ec9f011fb817e2408da60}{ordre}})\ \{}
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00180}00180\ \ \ \ \ \ \ decouperUnBloc(o);}
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00181}00181\ \ \ \ \ \ \ o-\/-\/;}
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00182}00182\ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00183}00183\ }
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00184}00184\ \ \ \ \textcolor{comment}{//\ On\ y\ est,\ par\ construction\ il\ y\ a\ un\ bloc\ de\ la\ bonne\ taille}}
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00185}00185\ \ \ \ \textcolor{comment}{//\ on\ l'alloue}}
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00186}00186\ \ \ \ enteteBlocAlloue\ =\ \mbox{\hyperlink{kmalloc-zs_8c_a8a4e30f5bbfcad6f64ab7a4de58cb256}{blocsLibres}}[o];}
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00187}00187\ \ \ \ \mbox{\hyperlink{kmalloc-zs_8c_a8a4e30f5bbfcad6f64ab7a4de58cb256}{blocsLibres}}[o]\ =\ enteteBlocAlloue-\/>\mbox{\hyperlink{struct__enteteBlocMemoire_a1b688ebdc7fd15a31f953cf76c172462}{e}}.\mbox{\hyperlink{struct__enteteBlocMemoire_a70b90175c64ee52b9a44f1e03d944472}{suivant}};}
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00188}00188\ \ \ \ enteteBlocAlloue-\/>\mbox{\hyperlink{struct__enteteBlocMemoire_a1b688ebdc7fd15a31f953cf76c172462}{e}}.\mbox{\hyperlink{struct__enteteBlocMemoire_afc3f47672517fcc3b00f36c9e1042718}{alloue}}.\mbox{\hyperlink{struct__enteteBlocMemoire_a89fd81363a6eafef88ddbccd474cc222}{magique}}\ =\ \mbox{\hyperlink{kmalloc-zs_8c_a39753000a6c327c0f33daa798d5b7357}{MANUX\_KMALLOC\_MAGIQUE}};}
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00189}00189\ \ \ \ enteteBlocAlloue-\/>\mbox{\hyperlink{struct__enteteBlocMemoire_a1b688ebdc7fd15a31f953cf76c172462}{e}}.\mbox{\hyperlink{struct__enteteBlocMemoire_afc3f47672517fcc3b00f36c9e1042718}{alloue}}.\mbox{\hyperlink{struct__enteteBlocMemoire_a9e5c08ea104ec9f011fb817e2408da60}{ordre}}\ =\ \mbox{\hyperlink{struct__enteteBlocMemoire_a9e5c08ea104ec9f011fb817e2408da60}{ordre}};}
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00190}00190\ \ \ \ }
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00191}00191\ \ \ \ \textcolor{keywordflow}{if}\ (enteteBlocAlloue\ ==\ \mbox{\hyperlink{include_2manux_2stddef_8h_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}})\ \{}
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00192}00192\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{include_2manux_2stddef_8h_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}};}
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00193}00193\ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00194}00194\ \textcolor{preprocessor}{\#ifdef\ MANUX\_KMALLOC\_STAT}}
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00195}00195\ \ \ \ \ \ \ nbAlloc[\mbox{\hyperlink{struct__enteteBlocMemoire_a9e5c08ea104ec9f011fb817e2408da60}{ordre}}]++;}
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00196}00196\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00197}00197\ }
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00198}00198\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ enteteBlocAlloue\ +\ 1;}
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00199}00199\ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00200}00200\ \}}
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00201}00201\ }
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00210}00210\ \textcolor{keyword}{static}}
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00211}00211\ \textcolor{keywordtype}{void}\ reintegrerBloc(\mbox{\hyperlink{struct__enteteBlocMemoire}{enteteBlocMemoire}}\ *\ bloc)}
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00212}00212\ \{}
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00213}00213\ \ \ \ \mbox{\hyperlink{include_2manux_2types_8h_a273cf69d639a59973b6019625df33e30}{uint16\_t}}\ \mbox{\hyperlink{struct__enteteBlocMemoire_a9e5c08ea104ec9f011fb817e2408da60}{ordre}}\ =\ bloc-\/>\mbox{\hyperlink{struct__enteteBlocMemoire_a1b688ebdc7fd15a31f953cf76c172462}{e}}.\mbox{\hyperlink{struct__enteteBlocMemoire_afc3f47672517fcc3b00f36c9e1042718}{alloue}}.\mbox{\hyperlink{struct__enteteBlocMemoire_a9e5c08ea104ec9f011fb817e2408da60}{ordre}};\ \textcolor{comment}{//<\ Ordre\ du\ bloc\ à\ intégrer}}
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00214}00214\ \ \ \ \mbox{\hyperlink{struct__enteteBlocMemoire}{enteteBlocMemoire}}\ *\ siamois,\ *prec\ =\ \mbox{\hyperlink{include_2manux_2stddef_8h_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}};}
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00215}00215\ }
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00216}00216\ \ \ \ \textcolor{keywordflow}{do}\ \{}
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00217}00217\ \ \ \ \ \ \ \mbox{\hyperlink{manux_2debug_8h_a3153a272f18d0f805028fce7e4337b53}{assert}}(\mbox{\hyperlink{struct__enteteBlocMemoire_a9e5c08ea104ec9f011fb817e2408da60}{ordre}}\ <=\ \mbox{\hyperlink{kmalloc-zs_8c_a68c5237b82c6bd6925f8767b62dbf6a4}{MANUX\_KMALLOC\_ORDRE\_MAX}});}
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00218}00218\ \ \ \ \ \ \ \mbox{\hyperlink{manux_2debug_8h_a3153a272f18d0f805028fce7e4337b53}{assert}}(\mbox{\hyperlink{struct__enteteBlocMemoire_a9e5c08ea104ec9f011fb817e2408da60}{ordre}}\ >=\ \mbox{\hyperlink{kmalloc-zs_8c_ae89de83ab36636d777d5dcde5b1675a8}{MANUX\_KMALLOC\_ORDRE\_MIN}});}
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00219}00219\ }
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00220}00220\ \ \ \ \ \ \ \textcolor{comment}{//\ On\ cherche\ le\ siamois,\ dont\ l'adresse\ ne\ diffère\ que\ par\ le}}
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00221}00221\ \ \ \ \ \ \ \textcolor{comment}{//\ bit\ de\ l'ordre}}
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00222}00222\ \ \ \ \ \ \ prec\ =\ \mbox{\hyperlink{include_2manux_2stddef_8h_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}};}
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00223}00223\ \ \ \ \ \ \ siamois\ =\ \mbox{\hyperlink{kmalloc-zs_8c_a8a4e30f5bbfcad6f64ab7a4de58cb256}{blocsLibres}}[\mbox{\hyperlink{struct__enteteBlocMemoire_a9e5c08ea104ec9f011fb817e2408da60}{ordre}}];}
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00224}00224\ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ ((siamois\ !=\ \mbox{\hyperlink{include_2manux_2stddef_8h_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}})\ \&\&\ (((\mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\_t}})siamois\ \string^\ (1<<\mbox{\hyperlink{struct__enteteBlocMemoire_a9e5c08ea104ec9f011fb817e2408da60}{ordre}}))\ !=\ (\mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\_t}})bloc))\ \{}
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00225}00225\ \ \ \ \ \ \ \ \ \ prec\ =\ siamois;}
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00226}00226\ \ \ \ \ \ siamois\ =\ siamois-\/>\mbox{\hyperlink{struct__enteteBlocMemoire_a1b688ebdc7fd15a31f953cf76c172462}{e}}.\mbox{\hyperlink{struct__enteteBlocMemoire_a70b90175c64ee52b9a44f1e03d944472}{suivant}};}
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00227}00227\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00228}00228\ }
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00229}00229\ \ \ \ \ \ \ \textcolor{comment}{//\ Si\ le\ siamois\ était\ dans\ les\ libres,\ on\ l'enlève\ et\ \ on\ procède}}
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00230}00230\ \ \ \ \ \ \ \textcolor{comment}{//\ à\ la\ fusion}}
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00231}00231\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (siamois\ !=\ \mbox{\hyperlink{include_2manux_2stddef_8h_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}})\ \{}
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00232}00232\ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ On\ extrait\ le\ siamois}}
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00233}00233\ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (prec\ ==\ \mbox{\hyperlink{include_2manux_2stddef_8h_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}})\{\ \textcolor{comment}{//\ Si\ c'était\ le\ premier}}
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00234}00234\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{kmalloc-zs_8c_a8a4e30f5bbfcad6f64ab7a4de58cb256}{blocsLibres}}[\mbox{\hyperlink{struct__enteteBlocMemoire_a9e5c08ea104ec9f011fb817e2408da60}{ordre}}]\ =\ siamois-\/>\mbox{\hyperlink{struct__enteteBlocMemoire_a1b688ebdc7fd15a31f953cf76c172462}{e}}.\mbox{\hyperlink{struct__enteteBlocMemoire_a70b90175c64ee52b9a44f1e03d944472}{suivant}};}
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00235}00235\ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{\ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Sinon}}
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00236}00236\ \ \ \ \ \ \ \ \ prec-\/>\mbox{\hyperlink{struct__enteteBlocMemoire_a1b688ebdc7fd15a31f953cf76c172462}{e}}.\mbox{\hyperlink{struct__enteteBlocMemoire_a70b90175c64ee52b9a44f1e03d944472}{suivant}}\ =\ \ siamois-\/>\mbox{\hyperlink{struct__enteteBlocMemoire_a1b688ebdc7fd15a31f953cf76c172462}{e}}.\mbox{\hyperlink{struct__enteteBlocMemoire_a70b90175c64ee52b9a44f1e03d944472}{suivant}};}
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00237}00237\ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00238}00238\ \ }
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00239}00239\ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ On\ recrée\ le\ bloc\ constitué\ de\ la\ fusion.\ L'adresse\ est\ celle}}
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00240}00240\ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ des\ deux\ avec\ le\ bit\ d'ordre\ ordre\ à\ zéro}}
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00241}00241\ \ \ \ \ \ \ \ \ \ bloc\ =\ (\mbox{\hyperlink{struct__enteteBlocMemoire}{enteteBlocMemoire}}\ *)(((\mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\_t}})bloc)\&(\string~(1\ <<\ \mbox{\hyperlink{struct__enteteBlocMemoire_a9e5c08ea104ec9f011fb817e2408da60}{ordre}})));}
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00242}00242\ }
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00243}00243\ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ On\ remonte\ donc\ d'un\ ordre}}
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00244}00244\ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct__enteteBlocMemoire_a9e5c08ea104ec9f011fb817e2408da60}{ordre}}++;}
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00245}00245\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00246}00246\ \ \ \ \}\ \textcolor{keywordflow}{while}\ ((siamois\ !=\ \mbox{\hyperlink{include_2manux_2stddef_8h_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}})\ \textcolor{comment}{//\ Si\ la\ fusion\ a\ pu\ être\ faite,\ on}}
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00247}00247\ \ \ \ \ \ \ \ \ \ \ \&\&(\mbox{\hyperlink{struct__enteteBlocMemoire_a9e5c08ea104ec9f011fb817e2408da60}{ordre}}\ <\ \mbox{\hyperlink{kmalloc-zs_8c_a68c5237b82c6bd6925f8767b62dbf6a4}{MANUX\_KMALLOC\_ORDRE\_MAX}}));\ \textcolor{comment}{//\ essaye\ de\ fusionner\ un\ ordre\ au\ dessus}}
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00248}00248\ }
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00249}00249\ \ \ \ \textcolor{comment}{//\ A\ ce\ stade,\ on\ a\ effectué\ toutes\ les\ fusions\ possibles}}
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00250}00250\ \ \ \ \textcolor{comment}{//\ concernant\ ce\ bloc.\ L'état\ final\ du\ bloc\ intègre\ ces}}
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00251}00251\ \ \ \ \textcolor{comment}{//\ éventuellles\ fusions\ et\ l'ordre\ a\ donc\ été\ incrémenté\ à\ chaque}}
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00252}00252\ \ \ \ \textcolor{comment}{//\ fusion.\ Il\ ne\ nous\ reste\ donc\ plus\ qu'à\ intègrer\ le\ bloc\ final}}
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00253}00253\ \ \ \ \textcolor{comment}{//\ dans\ les\ libres\ }}
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00254}00254\ \ \ \ bloc-\/>\mbox{\hyperlink{struct__enteteBlocMemoire_a1b688ebdc7fd15a31f953cf76c172462}{e}}.\mbox{\hyperlink{struct__enteteBlocMemoire_a70b90175c64ee52b9a44f1e03d944472}{suivant}}\ =\ \mbox{\hyperlink{kmalloc-zs_8c_a8a4e30f5bbfcad6f64ab7a4de58cb256}{blocsLibres}}[\mbox{\hyperlink{struct__enteteBlocMemoire_a9e5c08ea104ec9f011fb817e2408da60}{ordre}}];}
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00255}00255\ \ \ \ \mbox{\hyperlink{kmalloc-zs_8c_a8a4e30f5bbfcad6f64ab7a4de58cb256}{blocsLibres}}[\mbox{\hyperlink{struct__enteteBlocMemoire_a9e5c08ea104ec9f011fb817e2408da60}{ordre}}]\ =\ bloc;\ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00256}00256\ \ \ \ }
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00257}00257\ \}}
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00258}00258\ }
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00265}\mbox{\hyperlink{kmalloc-zs_8h_af7105034bf054e37218d6ade20db4684}{00265}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{kmalloc-zs_8c_af7105034bf054e37218d6ade20db4684}{kfree}}(\textcolor{keywordtype}{void}\ *\ p)}
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00266}00266\ \{}
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00267}00267\ \ \ \ \mbox{\hyperlink{struct__enteteBlocMemoire}{enteteBlocMemoire}}\ *\ bloc\ =\ (\mbox{\hyperlink{struct__enteteBlocMemoire}{enteteBlocMemoire}}\ *)p\ ;}
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00268}00268\ }
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00269}00269\ \ \ \ bloc-\/-\/;}
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00270}00270\ \ }
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00271}00271\ \ \ \ \textcolor{keywordflow}{if}\ (bloc-\/>\mbox{\hyperlink{struct__enteteBlocMemoire_a1b688ebdc7fd15a31f953cf76c172462}{e}}.\mbox{\hyperlink{struct__enteteBlocMemoire_afc3f47672517fcc3b00f36c9e1042718}{alloue}}.\mbox{\hyperlink{struct__enteteBlocMemoire_a89fd81363a6eafef88ddbccd474cc222}{magique}}\ !=\ \mbox{\hyperlink{kmalloc-zs_8c_a39753000a6c327c0f33daa798d5b7357}{MANUX\_KMALLOC\_MAGIQUE}})\ \{}
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00272}00272\ \ \ \ \ \ \mbox{\hyperlink{manux_2debug_8h_a94bcf41c2acfb543c52dcb281acba959}{paniqueNoyau}}(\textcolor{stringliteral}{"{}Tentative\ de\ libérer\ un\ bloc\ 0x\%x\ inconnu\ (m=0x\%x,\ o=\%d)\(\backslash\)n"{}},}
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00273}00273\ \ \ \ \ \ \ \ \ \ \ p,\ bloc-\/>\mbox{\hyperlink{struct__enteteBlocMemoire_a1b688ebdc7fd15a31f953cf76c172462}{e}}.\mbox{\hyperlink{struct__enteteBlocMemoire_afc3f47672517fcc3b00f36c9e1042718}{alloue}}.\mbox{\hyperlink{struct__enteteBlocMemoire_a89fd81363a6eafef88ddbccd474cc222}{magique}},\ bloc-\/>\mbox{\hyperlink{struct__enteteBlocMemoire_a1b688ebdc7fd15a31f953cf76c172462}{e}}.\mbox{\hyperlink{struct__enteteBlocMemoire_afc3f47672517fcc3b00f36c9e1042718}{alloue}}.\mbox{\hyperlink{struct__enteteBlocMemoire_a9e5c08ea104ec9f011fb817e2408da60}{ordre}});}
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00274}00274\ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00275}00275\ }
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00276}00276\ \textcolor{preprocessor}{\#ifdef\ MANUX\_KMALLOC\_STAT}}
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00277}00277\ \ \ \ nbFree[bloc-\/>\mbox{\hyperlink{struct__enteteBlocMemoire_a1b688ebdc7fd15a31f953cf76c172462}{e}}.\mbox{\hyperlink{struct__enteteBlocMemoire_afc3f47672517fcc3b00f36c9e1042718}{alloue}}.\mbox{\hyperlink{struct__enteteBlocMemoire_a9e5c08ea104ec9f011fb817e2408da60}{ordre}}]++;}
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00278}00278\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00279}00279\ }
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00280}00280\ \ \ \ \textcolor{keywordflow}{if}\ (bloc-\/>\mbox{\hyperlink{struct__enteteBlocMemoire_a1b688ebdc7fd15a31f953cf76c172462}{e}}.\mbox{\hyperlink{struct__enteteBlocMemoire_afc3f47672517fcc3b00f36c9e1042718}{alloue}}.\mbox{\hyperlink{struct__enteteBlocMemoire_a9e5c08ea104ec9f011fb817e2408da60}{ordre}}\ <\ \mbox{\hyperlink{kmalloc-zs_8c_a68c5237b82c6bd6925f8767b62dbf6a4}{MANUX\_KMALLOC\_ORDRE\_MAX}})\ \{}
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00281}00281\ \ \ \ \ \ \ reintegrerBloc(bloc);}
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00282}00282\ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00283}00283\ \}}
+\DoxyCodeLine{\Hypertarget{kmalloc-zs_8c_source_l00284}00284\ }
+
+\end{DoxyCode}

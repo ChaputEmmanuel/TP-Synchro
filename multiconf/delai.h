@@ -16,7 +16,7 @@
 
 #include <config/base.h>
 #include <config/gestion-memoire.h>
-#include <config/plan-memoire.h>
+#include <config/plan-memoire-pc.h>
 #include <config/console.h>
 #include <config/printk.h>
 #include <config/pc-i386.h>

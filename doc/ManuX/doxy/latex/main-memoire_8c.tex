@@ -1,0 +1,69 @@
+\doxysection{Référence du fichier /home/manu/\+PROGRAMMATION/\+C/\+Manu\+X/noyau/main-\/memoire.c}
+\hypertarget{main-memoire_8c}{}\label{main-memoire_8c}\index{/home/manu/PROGRAMMATION/C/ManuX/noyau/main-\/memoire.c@{/home/manu/PROGRAMMATION/C/ManuX/noyau/main-\/memoire.c}}
+
+
+Un exemple pitoyable de d�but de noyau.  
+
+
+{\ttfamily \#include $<$manux/config.\+h$>$}\newline
+{\ttfamily \#include $<$manux/memoire.\+h$>$}\newline
+{\ttfamily \#include $<$manux/console.\+h$>$}\newline
+{\ttfamily \#include $<$manux/printk.\+h$>$}\newline
+{\ttfamily \#include $<$manux/debug.\+h$>$}\newline
+{\ttfamily \#include $<$manux/bootloader.\+h$>$}\newline
+{\ttfamily \#include $<$manux/i386.\+h$>$}\newline
+Graphe des dépendances par inclusion de main-\/memoire.c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{main-memoire_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{main-memoire_8c_a2aa9fab483760ccde1d2a826b09b9fec}{NB\+\_\+\+PAGES\+\_\+\+ALLOC}}~16
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} \mbox{\hyperlink{main-memoire_8c_a3568df994044ade7d37160ef731c223f}{start\+ManuX}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Un exemple pitoyable de d�but de noyau. 
+
+\begin{DoxyVerb}                                                (C) Manu Chaput 2000-2026
+\end{DoxyVerb}
+ 
+
+Définition dans le fichier \mbox{\hyperlink{main-memoire_8c_source}{main-\/memoire.\+c}}.
+
+
+
+\doxysubsection{Documentation des macros}
+\Hypertarget{main-memoire_8c_a2aa9fab483760ccde1d2a826b09b9fec}\label{main-memoire_8c_a2aa9fab483760ccde1d2a826b09b9fec} 
+\index{main-\/memoire.c@{main-\/memoire.c}!NB\_PAGES\_ALLOC@{NB\_PAGES\_ALLOC}}
+\index{NB\_PAGES\_ALLOC@{NB\_PAGES\_ALLOC}!main-\/memoire.c@{main-\/memoire.c}}
+\doxysubsubsection{\texorpdfstring{NB\_PAGES\_ALLOC}{NB\_PAGES\_ALLOC}}
+{\footnotesize\ttfamily \#define NB\+\_\+\+PAGES\+\_\+\+ALLOC~16}
+
+Nombre de pages dont on va demander l\textquotesingle{}allocation 
+
+Définition à la ligne \mbox{\hyperlink{main-memoire_8c_source_l00018}{18}} du fichier \mbox{\hyperlink{main-memoire_8c_source}{main-\/memoire.\+c}}.
+
+
+
+\doxysubsection{Documentation des fonctions}
+\Hypertarget{main-memoire_8c_a3568df994044ade7d37160ef731c223f}\label{main-memoire_8c_a3568df994044ade7d37160ef731c223f} 
+\index{main-\/memoire.c@{main-\/memoire.c}!startManuX@{startManuX}}
+\index{startManuX@{startManuX}!main-\/memoire.c@{main-\/memoire.c}}
+\doxysubsubsection{\texorpdfstring{startManuX()}{startManuX()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} start\+ManuX (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}}}]{ }\end{DoxyParamCaption})}
+
+
+
+Définition à la ligne \mbox{\hyperlink{main-memoire_8c_source_l00020}{20}} du fichier \mbox{\hyperlink{main-memoire_8c_source}{main-\/memoire.\+c}}.
+

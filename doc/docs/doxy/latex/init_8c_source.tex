@@ -1,0 +1,81 @@
+\doxysection{init.\+c}
+\hypertarget{init_8c_source}{}\label{init_8c_source}\index{/home/manu/PROGRAMMATION/C/ManuX/usr/init.c@{/home/manu/PROGRAMMATION/C/ManuX/usr/init.c}}
+\mbox{\hyperlink{init_8c}{Aller Ã  la documentation de ce fichier.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{init_8c_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{init_8c_source_l00007}00007\ \textcolor{preprocessor}{\#include\ <manux/config.h>}}
+\DoxyCodeLine{\Hypertarget{init_8c_source_l00008}00008\ \textcolor{preprocessor}{\#include\ <manux/types.h>}}
+\DoxyCodeLine{\Hypertarget{init_8c_source_l00009}00009\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{stdio_8h}{stdio.h}}>}}
+\DoxyCodeLine{\Hypertarget{init_8c_source_l00010}00010\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{unistd_8h}{unistd.h}}>}}
+\DoxyCodeLine{\Hypertarget{init_8c_source_l00011}00011\ }
+\DoxyCodeLine{\Hypertarget{init_8c_source_l00012}00012\ \textcolor{preprocessor}{\#include\ <manux/i386.h>}\ \textcolor{comment}{//\ halt}}
+\DoxyCodeLine{\Hypertarget{init_8c_source_l00013}00013\ }
+\DoxyCodeLine{\Hypertarget{init_8c_source_l00014}\mbox{\hyperlink{init_8c_adcc04219ac7361145a94318c33e7682d}{00014}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{init_8c_adcc04219ac7361145a94318c33e7682d}{calculerPremiers}}(\textcolor{keywordtype}{int}\ q)}
+\DoxyCodeLine{\Hypertarget{init_8c_source_l00015}00015\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{init_8c_source_l00016}00016\ \textcolor{comment}{\ *\ Calcul\ et\ affichage\ des\ nombres\ premiers.\ Le\ but\ est\ juste\ de\ faire}}
+\DoxyCodeLine{\Hypertarget{init_8c_source_l00017}00017\ \textcolor{comment}{\ *\ bosser\ le\ processeur,\ donc\ on\ ne\ cherche\ pas\ du\ tout\ à faire\ les}}
+\DoxyCodeLine{\Hypertarget{init_8c_source_l00018}00018\ \textcolor{comment}{\ *\ choses\ vite\ ou\ bien.}}
+\DoxyCodeLine{\Hypertarget{init_8c_source_l00019}00019\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{init_8c_source_l00020}00020\ \{}
+\DoxyCodeLine{\Hypertarget{init_8c_source_l00021}00021\ \ \ \ \textcolor{keywordtype}{int}\ n;\ \textcolor{comment}{/*\ Indice\ de\ la\ boucle\ de\ recherche\ d'un\ premier*/}}
+\DoxyCodeLine{\Hypertarget{init_8c_source_l00022}00022\ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{main-registre_8c_aaa0e9a03072c04ebe2d49f53bc7bc785}{d}};\ \textcolor{comment}{/*\ Indice\ de\ la\ boucle\ de\ recherche\ de\ diviseur\ */}}
+\DoxyCodeLine{\Hypertarget{init_8c_source_l00023}00023\ \ \ \ \mbox{\hyperlink{include_2manux_2types_8h_a5b7544e51b136e716e4eccc0602bafd7}{booleen}}\ compose;}
+\DoxyCodeLine{\Hypertarget{init_8c_source_l00024}00024\ \ \ \ \textcolor{keywordtype}{int}\ cpt\ =\ 1;}
+\DoxyCodeLine{\Hypertarget{init_8c_source_l00025}00025\ \ \ \ \textcolor{keywordtype}{int}\ nbLu;}
+\DoxyCodeLine{\Hypertarget{init_8c_source_l00026}00026\ \ \ \ }
+\DoxyCodeLine{\Hypertarget{init_8c_source_l00027}00027\ \ \ \ \textcolor{keywordtype}{char}\ txt[32];}
+\DoxyCodeLine{\Hypertarget{init_8c_source_l00028}00028\ \ \ \ }
+\DoxyCodeLine{\Hypertarget{init_8c_source_l00029}00029\ \ \ \ \textcolor{keywordflow}{while}\ (\mbox{\hyperlink{include_2manux_2types_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{TRUE}})\ \{}
+\DoxyCodeLine{\Hypertarget{init_8c_source_l00030}00030\ \ \ \ \ \ \ \mbox{\hyperlink{stdio_8h_a63c54f1d737929378b379911b1ca4a45}{printf}}(\textcolor{stringliteral}{"{}[\%d]\ C'est\ la\ boucle\ numero\ \%d\ :\ \(\backslash\)n"{}},\ q,\ cpt++);}
+\DoxyCodeLine{\Hypertarget{init_8c_source_l00031}00031\ \ \ \ \ \ \ \mbox{\hyperlink{stdio_8h_a63c54f1d737929378b379911b1ca4a45}{printf}}(\textcolor{stringliteral}{"{}\%d"{}},\ 2);}
+\DoxyCodeLine{\Hypertarget{init_8c_source_l00032}00032\ \ \ \ \ \textcolor{keywordflow}{while}(1)\{\};\ \ \ \ \ \ \textcolor{keywordflow}{for}\ (n\ =\ 3;\ n\ <\ 32;\ n\ +=\ 2)\ \{}
+\DoxyCodeLine{\Hypertarget{init_8c_source_l00033}00033\ \ \ \ \ \ \ \ \ \ compose\ =\ \mbox{\hyperlink{include_2manux_2types_8h_aa93f0eb578d23995850d61f7d61c55c1}{FALSE}};}
+\DoxyCodeLine{\Hypertarget{init_8c_source_l00034}00034\ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{main-registre_8c_aaa0e9a03072c04ebe2d49f53bc7bc785}{d}}\ =\ 3;}
+\DoxyCodeLine{\Hypertarget{init_8c_source_l00035}00035\ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ ((!compose)\ \&\&\ (\mbox{\hyperlink{main-registre_8c_aaa0e9a03072c04ebe2d49f53bc7bc785}{d}}*\mbox{\hyperlink{main-registre_8c_aaa0e9a03072c04ebe2d49f53bc7bc785}{d}}\ <=\ n))\ \{}
+\DoxyCodeLine{\Hypertarget{init_8c_source_l00036}00036\ \ \ \ \ \ \ \ \ compose\ =\ compose\ ||\ (n\%\mbox{\hyperlink{main-registre_8c_aaa0e9a03072c04ebe2d49f53bc7bc785}{d}}\ ==\ 0);}
+\DoxyCodeLine{\Hypertarget{init_8c_source_l00037}00037\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{main-registre_8c_aaa0e9a03072c04ebe2d49f53bc7bc785}{d}}\ +=\ 2;}
+\DoxyCodeLine{\Hypertarget{init_8c_source_l00038}00038\ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{init_8c_source_l00039}00039\ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!compose)\ \{}
+\DoxyCodeLine{\Hypertarget{init_8c_source_l00040}00040\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{stdio_8h_a63c54f1d737929378b379911b1ca4a45}{printf}}(\textcolor{stringliteral}{"{},\ \%d"{}},\ n);\ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i<10000000;\ i+=2)\{\textcolor{keyword}{asm}(\textcolor{stringliteral}{"{}"{}});\};}
+\DoxyCodeLine{\Hypertarget{init_8c_source_l00041}00041\ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{init_8c_source_l00042}00042\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{init_8c_source_l00043}00043\ \ \ \ \ \ \ \mbox{\hyperlink{stdio_8h_a63c54f1d737929378b379911b1ca4a45}{printf}}(\textcolor{stringliteral}{"{}\(\backslash\)n-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{init_8c_source_l00044}00044\ }
+\DoxyCodeLine{\Hypertarget{init_8c_source_l00045}00045\ \ \ \ \ \ \ \textcolor{comment}{//\ Test\ du\ clavier\ et\ stdin}}
+\DoxyCodeLine{\Hypertarget{init_8c_source_l00046}00046\ \ \ \ \ \ \ nbLu\ =\ \mbox{\hyperlink{stdio_8h_a0d64d8b56640a3dea27ca2d59f711e35}{lire}}(0,\ txt,\ 31);}
+\DoxyCodeLine{\Hypertarget{init_8c_source_l00047}00047\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (nbLu)\ \{}
+\DoxyCodeLine{\Hypertarget{init_8c_source_l00048}00048\ \ \ \ \ \ txt[nbLu]\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{init_8c_source_l00049}00049\ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{stdio_8h_a63c54f1d737929378b379911b1ca4a45}{printf}}(\textcolor{stringliteral}{"{}\ \ \ Lu\ \%d\ =>\ '\%s'\(\backslash\)n"{}},\ nbLu,\ txt);}
+\DoxyCodeLine{\Hypertarget{init_8c_source_l00050}00050\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{init_8c_source_l00051}00051\ }
+\DoxyCodeLine{\Hypertarget{init_8c_source_l00052}00052\ \textcolor{preprocessor}{\#ifndef\ MANUX\_PREEMPTIF}}
+\DoxyCodeLine{\Hypertarget{init_8c_source_l00053}00053\ \ \ \ \ \ \ \mbox{\hyperlink{unistd_8h_a3d9572ab938a72bddfc58ab5f224d831}{basculerTache}}();}
+\DoxyCodeLine{\Hypertarget{init_8c_source_l00054}00054\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{init_8c_source_l00055}00055\ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{init_8c_source_l00056}00056\ \}}
+\DoxyCodeLine{\Hypertarget{init_8c_source_l00057}00057\ }
+\DoxyCodeLine{\Hypertarget{init_8c_source_l00058}\mbox{\hyperlink{init_8c_ab7b9942fee4c3d553719d4eaa47b33f4}{00058}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{init_8c_ab7b9942fee4c3d553719d4eaa47b33f4}{deuxiemeTache}}()}
+\DoxyCodeLine{\Hypertarget{init_8c_source_l00059}00059\ \{}
+\DoxyCodeLine{\Hypertarget{init_8c_source_l00060}00060\ \ \ \ \textcolor{keywordtype}{int}\ n;}
+\DoxyCodeLine{\Hypertarget{init_8c_source_l00061}00061\ \ \ \ }
+\DoxyCodeLine{\Hypertarget{init_8c_source_l00062}00062\ \ \ \ \mbox{\hyperlink{stdio_8h_a63c54f1d737929378b379911b1ca4a45}{printf}}(\textcolor{stringliteral}{"{}Deuxieme\ tache\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{init_8c_source_l00063}00063\ }
+\DoxyCodeLine{\Hypertarget{init_8c_source_l00064}00064\ \ \ \ \textcolor{keywordflow}{for}\ (n\ =\ 0;\ n\ <\ 10000000;\ n++)\ \{}
+\DoxyCodeLine{\Hypertarget{init_8c_source_l00065}00065\ \ \ \ \ \ \ \mbox{\hyperlink{init_8c_adcc04219ac7361145a94318c33e7682d}{calculerPremiers}}(2);}
+\DoxyCodeLine{\Hypertarget{init_8c_source_l00066}00066\ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{init_8c_source_l00067}00067\ \}}
+\DoxyCodeLine{\Hypertarget{init_8c_source_l00068}00068\ }
+\DoxyCodeLine{\Hypertarget{init_8c_source_l00069}\mbox{\hyperlink{init_8c_a02fd73d861ef2e4aabb38c0c9ff82947}{00069}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{init_8c_a02fd73d861ef2e4aabb38c0c9ff82947}{init}}()}
+\DoxyCodeLine{\Hypertarget{init_8c_source_l00070}00070\ \{}
+\DoxyCodeLine{\Hypertarget{init_8c_source_l00071}00071\ \ \ \ \textcolor{keywordtype}{int}\ n=2;\ \textcolor{comment}{//\ nombre\ de\ messages\ affichés}}
+\DoxyCodeLine{\Hypertarget{init_8c_source_l00072}00072\ }
+\DoxyCodeLine{\Hypertarget{init_8c_source_l00073}00073\ \ \ \ \mbox{\hyperlink{stdio_8h_a63c54f1d737929378b379911b1ca4a45}{printf}}(\textcolor{stringliteral}{"{}Greetings\ from\ userland\ !\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{init_8c_source_l00074}00074\ }
+\DoxyCodeLine{\Hypertarget{init_8c_source_l00075}00075\ \ \ \ n\ =\ \mbox{\hyperlink{unistd_8h_aa504f61bfbbdfa9a463450f8b21db44f}{creerNouvelleTache}}(\mbox{\hyperlink{init_8c_ab7b9942fee4c3d553719d4eaa47b33f4}{deuxiemeTache}},\ \mbox{\hyperlink{include_2manux_2types_8h_aa93f0eb578d23995850d61f7d61c55c1}{FALSE}});}
+\DoxyCodeLine{\Hypertarget{init_8c_source_l00076}00076\ }
+\DoxyCodeLine{\Hypertarget{init_8c_source_l00077}00077\ \ \ \ \textcolor{keywordflow}{for}\ (n\ =\ 0;\ n\ <\ 10000000;\ n++)\ \{}
+\DoxyCodeLine{\Hypertarget{init_8c_source_l00078}00078\ \ \ \ \ \ \ \mbox{\hyperlink{init_8c_adcc04219ac7361145a94318c33e7682d}{calculerPremiers}}(1);}
+\DoxyCodeLine{\Hypertarget{init_8c_source_l00079}00079\ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{init_8c_source_l00080}00080\ \}}
+
+\end{DoxyCode}

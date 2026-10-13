@@ -1,10 +1,12 @@
-/*----------------------------------------------------------------------------*/
-/*      Définition des types de base.                                         */
-/*                                                                            */ 
-/*                                                  (C) Manu Chaput 2000-2021 */
-/*----------------------------------------------------------------------------*/
+/**
+ *      Définition des types de base.
+ *
+ *                                                     (C) Manu Chaput 2000-2024
+ */
 #ifndef MANUX_TYPES
 #define MANUX_TYPES
+
+#include <manux/stddef.h>
 
 #ifndef uint8_t
 typedef unsigned char uint8_t;
@@ -24,10 +26,6 @@ typedef unsigned long int32_t;
 
 #ifndef uint64_t
 typedef unsigned long long uint64_t;
-#endif
-
-#ifndef size_t
-typedef uint32_t size_t;
 #endif
 
 #ifndef booleen

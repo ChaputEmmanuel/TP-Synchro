@@ -1,0 +1,315 @@
+\doxysection{Référence du fichier /home/manu/\+PROGRAMMATION/\+C/\+Manu\+X/include/manux/ecran.h}
+\hypertarget{ecran_8h}{}\label{ecran_8h}\index{/home/manu/PROGRAMMATION/C/ManuX/include/manux/ecran.h@{/home/manu/PROGRAMMATION/C/ManuX/include/manux/ecran.h}}
+
+
+Définition des caractéristiques de base de l\textquotesingle{}écran.  
+
+
+{\ttfamily \#include $<$manux/config.\+h$>$}\newline
+{\ttfamily \#include $<$manux/types.\+h$>$}\newline
+{\ttfamily \#include $<$manux/ascii.\+h$>$}\newline
+Graphe des dépendances par inclusion de ecran.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ecran_8h__incl}
+\end{center}
+\end{figure}
+Ce graphe montre quels fichiers incluent directement ou indirectement ce fichier \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ecran_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{ecran_8h_a9ef01c49cb4a8dcc6b1ddb898d0c8ab9}{MANUX\+\_\+\+ADRESSE\+\_\+\+ECRAN}}~0xb8000
+\item 
+\#define \mbox{\hyperlink{ecran_8h_ab2f128566f2e94b8f4b99ae450177cf6}{MANUX\+\_\+\+CON\+\_\+\+SCREEN}}~(char \texorpdfstring{$\ast$}{*})\mbox{\hyperlink{plan-memoire-pc_8h_a9ef01c49cb4a8dcc6b1ddb898d0c8ab9}{MANUX\+\_\+\+ADRESSE\+\_\+\+ECRAN}}
+\item 
+\#define \mbox{\hyperlink{ecran_8h_a2d2474bd7bcb1773d94f27ce4a99b622}{MANUX\+\_\+\+CON\+\_\+\+COLONNES}}~80
+\item 
+\#define \mbox{\hyperlink{ecran_8h_a37c13c6455313f3e19c0b21ee08dba5f}{MANUX\+\_\+\+CON\+\_\+\+LIGNES}}~25
+\item 
+\#define \mbox{\hyperlink{ecran_8h_ab9f401a398c39bc8735890e0e47c3fbb}{MANUX\+\_\+\+COULEUR\+\_\+\+TEXTE}}~\mbox{\hyperlink{ecran_8h_aa304d0ca681f782b1d7735da33037dd7a9586c08f3a67b64d0002b7025bb75b35}{COUL\+\_\+\+TXT\+\_\+\+VERT}}
+\begin{DoxyCompactList}\small\item\em Les couleurs utilisées par défaut pour l\textquotesingle{}écran ManuX. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{ecran_8h_acfbf1901075a9fab9d597f747749f7ac}{MANUX\+\_\+\+COULEUR\+\_\+\+FOND}}~\mbox{\hyperlink{ecran_8h_aa304d0ca681f782b1d7735da33037dd7ae0f079def8b121e94d5e50228418c378}{COUL\+\_\+\+FOND\+\_\+\+MARRON}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Énumérations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{ecran_8h_aa304d0ca681f782b1d7735da33037dd7}{Couleur}} \{ \newline
+\mbox{\hyperlink{ecran_8h_aa304d0ca681f782b1d7735da33037dd7a373f12dab5d4f6c611b4089ba53f92ab}{COUL\+\_\+\+TXT\+\_\+\+NOIR}} = 0x00
+, \mbox{\hyperlink{ecran_8h_aa304d0ca681f782b1d7735da33037dd7a94dea63574355f8d3b35ba4e48490197}{COUL\+\_\+\+TXT\+\_\+\+BLEU}} = 0x01
+, \mbox{\hyperlink{ecran_8h_aa304d0ca681f782b1d7735da33037dd7a9586c08f3a67b64d0002b7025bb75b35}{COUL\+\_\+\+TXT\+\_\+\+VERT}} = 0x02
+, \mbox{\hyperlink{ecran_8h_aa304d0ca681f782b1d7735da33037dd7afddd9d809729970803212c058341f015}{COUL\+\_\+\+TXT\+\_\+\+CYAN}} = 0x03
+, \newline
+\mbox{\hyperlink{ecran_8h_aa304d0ca681f782b1d7735da33037dd7acbd2b27f81348d3340c852d86f87201d}{COUL\+\_\+\+TXT\+\_\+\+ROUGE}} = 0x04
+, \mbox{\hyperlink{ecran_8h_aa304d0ca681f782b1d7735da33037dd7a8e9122b2915c1cddd182a8fd911bb9c8}{COUL\+\_\+\+TXT\+\_\+\+MAGENTA}} = 0x05
+, \mbox{\hyperlink{ecran_8h_aa304d0ca681f782b1d7735da33037dd7acaa6d25261447515401d2355c68435e4}{COUL\+\_\+\+TXT\+\_\+\+MARRON}} = 0x06
+, \mbox{\hyperlink{ecran_8h_aa304d0ca681f782b1d7735da33037dd7accbd14bad1583582f611def849a9e8e4}{COUL\+\_\+\+TXT\+\_\+\+GRIS\+\_\+\+CLAIR}} = 0x07
+, \newline
+\mbox{\hyperlink{ecran_8h_aa304d0ca681f782b1d7735da33037dd7aac427ac734da7e4ca4eeedf0aa18122d}{COUL\+\_\+\+TXT\+\_\+\+GRIS}} = 0x08
+, \mbox{\hyperlink{ecran_8h_aa304d0ca681f782b1d7735da33037dd7a0dfb3a1f815a9f14dd6b644916a0bd5b}{COUL\+\_\+\+TXT\+\_\+\+BLEU\+\_\+\+CLAIR}} = 0x09
+, \mbox{\hyperlink{ecran_8h_aa304d0ca681f782b1d7735da33037dd7adf2e59b2c13eb2e865002d60111665cf}{COUL\+\_\+\+TXT\+\_\+\+VERT\+\_\+\+CLAIR}} = 0x0A
+, \mbox{\hyperlink{ecran_8h_aa304d0ca681f782b1d7735da33037dd7a38b820ca82b9e3bdfcff2856b04767e1}{COUL\+\_\+\+TXT\+\_\+\+CYAN\+\_\+\+CLAIR}} = 0x0B
+, \newline
+\mbox{\hyperlink{ecran_8h_aa304d0ca681f782b1d7735da33037dd7aca43b9e7b8e150100cd9853c7bdd9693}{COUL\+\_\+\+TXT\+\_\+\+ROUGE\+\_\+\+CLAIR}} = 0x0C
+, \mbox{\hyperlink{ecran_8h_aa304d0ca681f782b1d7735da33037dd7a17adee25b265c356259b8d55a47131e3}{COUL\+\_\+\+TXT\+\_\+\+MAGENTA\+\_\+\+CLAIR}} = 0x0D
+, \mbox{\hyperlink{ecran_8h_aa304d0ca681f782b1d7735da33037dd7a2dedea63ce13170e0c4057e7abdb4d34}{COUL\+\_\+\+TXT\+\_\+\+JAUNE}} = 0x0E
+, \mbox{\hyperlink{ecran_8h_aa304d0ca681f782b1d7735da33037dd7a695c7671d495aa177f99626642db678e}{COUL\+\_\+\+TXT\+\_\+\+BLANC}} = 0x0F
+, \newline
+\mbox{\hyperlink{ecran_8h_aa304d0ca681f782b1d7735da33037dd7ad1e9fec872384b719ad2aebee2449bc3}{COUL\+\_\+\+FOND\+\_\+\+NOIR}} = 0x00
+, \mbox{\hyperlink{ecran_8h_aa304d0ca681f782b1d7735da33037dd7a23bfccf6d49f0bbbffe51ff39573d0c1}{COUL\+\_\+\+FOND\+\_\+\+BLEU}} = 0x10
+, \mbox{\hyperlink{ecran_8h_aa304d0ca681f782b1d7735da33037dd7a4be85a0dcd2fbf5947b7bc4df4b7a931}{COUL\+\_\+\+FOND\+\_\+\+VERT}} = 0x20
+, \mbox{\hyperlink{ecran_8h_aa304d0ca681f782b1d7735da33037dd7a40608734c22415dbd0da25bb3eef8ef6}{COUL\+\_\+\+FOND\+\_\+\+CYAN}} = 0x30
+, \newline
+\mbox{\hyperlink{ecran_8h_aa304d0ca681f782b1d7735da33037dd7a84a79a2d6e322839d7ac78a472dc09a2}{COUL\+\_\+\+FOND\+\_\+\+ROUGE}} = 0x40
+, \mbox{\hyperlink{ecran_8h_aa304d0ca681f782b1d7735da33037dd7a3c9f6fc0dcfb8cd101b2f38b97ce0463}{COUL\+\_\+\+FOND\+\_\+\+MAGENTA}} = 0x50
+, \mbox{\hyperlink{ecran_8h_aa304d0ca681f782b1d7735da33037dd7ae0f079def8b121e94d5e50228418c378}{COUL\+\_\+\+FOND\+\_\+\+MARRON}} = 0x60
+, \mbox{\hyperlink{ecran_8h_aa304d0ca681f782b1d7735da33037dd7abe31678d60c08bcff1e54ee0f8f5a4a3}{COUL\+\_\+\+FOND\+\_\+\+GRIS\+\_\+\+CLAIR}} = 0x70
+, \newline
+\mbox{\hyperlink{ecran_8h_aa304d0ca681f782b1d7735da33037dd7a44e2ebd19633406f388ae93d63d4f76c}{COUL\+\_\+\+FOND\+\_\+\+GRIS}} = 0x80
+, \mbox{\hyperlink{ecran_8h_aa304d0ca681f782b1d7735da33037dd7a0535f370390c3e7531b10340ed2a6c43}{COUL\+\_\+\+FOND\+\_\+\+BLEU\+\_\+\+CLAIR}} = 0x90
+, \mbox{\hyperlink{ecran_8h_aa304d0ca681f782b1d7735da33037dd7adeefb75f129966c09bc08e62cb68e464}{COUL\+\_\+\+FOND\+\_\+\+VERT\+\_\+\+CLAIR}} = 0x\+A0
+, \mbox{\hyperlink{ecran_8h_aa304d0ca681f782b1d7735da33037dd7a385b93fa0d37db2fb5770c198a4d6ddf}{COUL\+\_\+\+FOND\+\_\+\+CYAN\+\_\+\+CLAIR}} = 0x\+B0
+, \newline
+\mbox{\hyperlink{ecran_8h_aa304d0ca681f782b1d7735da33037dd7ae8e9d862da18ffbbb69474203db56276}{COUL\+\_\+\+FOND\+\_\+\+ROUGE\+\_\+\+CLAIR}} = 0x\+C0
+, \mbox{\hyperlink{ecran_8h_aa304d0ca681f782b1d7735da33037dd7a7745c772f64d621a8c0baf4a604f806f}{COUL\+\_\+\+FOND\+\_\+\+MAGENTA\+\_\+\+CLAIR}} = 0x\+D0
+, \mbox{\hyperlink{ecran_8h_aa304d0ca681f782b1d7735da33037dd7a416d6f5d1cbf3d38f4a271fe4ada6bc2}{COUL\+\_\+\+FOND\+\_\+\+JAUNE}} = 0x\+E0
+, \mbox{\hyperlink{ecran_8h_aa304d0ca681f782b1d7735da33037dd7a0ea65930728ab16fff70be212005a797}{COUL\+\_\+\+FOND\+\_\+\+BLANC}} = 0x\+F0
+, \newline
+\mbox{\hyperlink{ecran_8h_aa304d0ca681f782b1d7735da33037dd7a9ecf98fed31c03e8896447e590f5f3b4}{COUL\+\_\+\+CLIGNOTANT}} = 0x80
+ \}
+\begin{DoxyCompactList}\small\item\em Définition des couleurs utilisables pour l\textquotesingle{}affichage. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Définition des caractéristiques de base de l\textquotesingle{}écran. 
+
+Attention, il s\textquotesingle{}agit ici de l\textquotesingle{}écran d\textquotesingle{}un bon vieux PC. \begin{DoxyVerb}                                              (C) Manu Chaput 2000 - 2026
+\end{DoxyVerb}
+ 
+
+Définition dans le fichier \mbox{\hyperlink{ecran_8h_source}{ecran.\+h}}.
+
+
+
+\doxysubsection{Documentation des macros}
+\Hypertarget{ecran_8h_a9ef01c49cb4a8dcc6b1ddb898d0c8ab9}\label{ecran_8h_a9ef01c49cb4a8dcc6b1ddb898d0c8ab9} 
+\index{ecran.h@{ecran.h}!MANUX\_ADRESSE\_ECRAN@{MANUX\_ADRESSE\_ECRAN}}
+\index{MANUX\_ADRESSE\_ECRAN@{MANUX\_ADRESSE\_ECRAN}!ecran.h@{ecran.h}}
+\doxysubsubsection{\texorpdfstring{MANUX\_ADRESSE\_ECRAN}{MANUX\_ADRESSE\_ECRAN}}
+{\footnotesize\ttfamily \#define MANUX\+\_\+\+ADRESSE\+\_\+\+ECRAN~0xb8000}
+
+A voir où cette adresse doit être définie 
+
+Définition à la ligne \mbox{\hyperlink{ecran_8h_source_l00021}{21}} du fichier \mbox{\hyperlink{ecran_8h_source}{ecran.\+h}}.
+
+\Hypertarget{ecran_8h_a2d2474bd7bcb1773d94f27ce4a99b622}\label{ecran_8h_a2d2474bd7bcb1773d94f27ce4a99b622} 
+\index{ecran.h@{ecran.h}!MANUX\_CON\_COLONNES@{MANUX\_CON\_COLONNES}}
+\index{MANUX\_CON\_COLONNES@{MANUX\_CON\_COLONNES}!ecran.h@{ecran.h}}
+\doxysubsubsection{\texorpdfstring{MANUX\_CON\_COLONNES}{MANUX\_CON\_COLONNES}}
+{\footnotesize\ttfamily \#define MANUX\+\_\+\+CON\+\_\+\+COLONNES~80}
+
+
+
+Définition à la ligne \mbox{\hyperlink{ecran_8h_source_l00028}{28}} du fichier \mbox{\hyperlink{ecran_8h_source}{ecran.\+h}}.
+
+\Hypertarget{ecran_8h_a37c13c6455313f3e19c0b21ee08dba5f}\label{ecran_8h_a37c13c6455313f3e19c0b21ee08dba5f} 
+\index{ecran.h@{ecran.h}!MANUX\_CON\_LIGNES@{MANUX\_CON\_LIGNES}}
+\index{MANUX\_CON\_LIGNES@{MANUX\_CON\_LIGNES}!ecran.h@{ecran.h}}
+\doxysubsubsection{\texorpdfstring{MANUX\_CON\_LIGNES}{MANUX\_CON\_LIGNES}}
+{\footnotesize\ttfamily \#define MANUX\+\_\+\+CON\+\_\+\+LIGNES~25}
+
+
+
+Définition à la ligne \mbox{\hyperlink{ecran_8h_source_l00029}{29}} du fichier \mbox{\hyperlink{ecran_8h_source}{ecran.\+h}}.
+
+\Hypertarget{ecran_8h_ab2f128566f2e94b8f4b99ae450177cf6}\label{ecran_8h_ab2f128566f2e94b8f4b99ae450177cf6} 
+\index{ecran.h@{ecran.h}!MANUX\_CON\_SCREEN@{MANUX\_CON\_SCREEN}}
+\index{MANUX\_CON\_SCREEN@{MANUX\_CON\_SCREEN}!ecran.h@{ecran.h}}
+\doxysubsubsection{\texorpdfstring{MANUX\_CON\_SCREEN}{MANUX\_CON\_SCREEN}}
+{\footnotesize\ttfamily \#define MANUX\+\_\+\+CON\+\_\+\+SCREEN~(char \texorpdfstring{$\ast$}{*})\mbox{\hyperlink{plan-memoire-pc_8h_a9ef01c49cb4a8dcc6b1ddb898d0c8ab9}{MANUX\+\_\+\+ADRESSE\+\_\+\+ECRAN}}}
+
+Caractéristiques de l\textquotesingle{}écran physique 
+
+Définition à la ligne \mbox{\hyperlink{ecran_8h_source_l00027}{27}} du fichier \mbox{\hyperlink{ecran_8h_source}{ecran.\+h}}.
+
+\Hypertarget{ecran_8h_acfbf1901075a9fab9d597f747749f7ac}\label{ecran_8h_acfbf1901075a9fab9d597f747749f7ac} 
+\index{ecran.h@{ecran.h}!MANUX\_COULEUR\_FOND@{MANUX\_COULEUR\_FOND}}
+\index{MANUX\_COULEUR\_FOND@{MANUX\_COULEUR\_FOND}!ecran.h@{ecran.h}}
+\doxysubsubsection{\texorpdfstring{MANUX\_COULEUR\_FOND}{MANUX\_COULEUR\_FOND}}
+{\footnotesize\ttfamily \#define MANUX\+\_\+\+COULEUR\+\_\+\+FOND~\mbox{\hyperlink{ecran_8h_aa304d0ca681f782b1d7735da33037dd7ae0f079def8b121e94d5e50228418c378}{COUL\+\_\+\+FOND\+\_\+\+MARRON}}}
+
+
+
+Définition à la ligne \mbox{\hyperlink{ecran_8h_source_l00081}{81}} du fichier \mbox{\hyperlink{ecran_8h_source}{ecran.\+h}}.
+
+\Hypertarget{ecran_8h_ab9f401a398c39bc8735890e0e47c3fbb}\label{ecran_8h_ab9f401a398c39bc8735890e0e47c3fbb} 
+\index{ecran.h@{ecran.h}!MANUX\_COULEUR\_TEXTE@{MANUX\_COULEUR\_TEXTE}}
+\index{MANUX\_COULEUR\_TEXTE@{MANUX\_COULEUR\_TEXTE}!ecran.h@{ecran.h}}
+\doxysubsubsection{\texorpdfstring{MANUX\_COULEUR\_TEXTE}{MANUX\_COULEUR\_TEXTE}}
+{\footnotesize\ttfamily \#define MANUX\+\_\+\+COULEUR\+\_\+\+TEXTE~\mbox{\hyperlink{ecran_8h_aa304d0ca681f782b1d7735da33037dd7a9586c08f3a67b64d0002b7025bb75b35}{COUL\+\_\+\+TXT\+\_\+\+VERT}}}
+
+
+
+Les couleurs utilisées par défaut pour l\textquotesingle{}écran ManuX. 
+
+WARNING \+: on devrait probablement le mettre ailleurs (console.\+h ?) 
+
+Définition à la ligne \mbox{\hyperlink{ecran_8h_source_l00078}{78}} du fichier \mbox{\hyperlink{ecran_8h_source}{ecran.\+h}}.
+
+
+
+\doxysubsection{Documentation du type de l\textquotesingle{}énumération}
+\Hypertarget{ecran_8h_aa304d0ca681f782b1d7735da33037dd7}\label{ecran_8h_aa304d0ca681f782b1d7735da33037dd7} 
+\index{ecran.h@{ecran.h}!Couleur@{Couleur}}
+\index{Couleur@{Couleur}!ecran.h@{ecran.h}}
+\doxysubsubsection{\texorpdfstring{Couleur}{Couleur}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{ecran_8h_aa304d0ca681f782b1d7735da33037dd7}{Couleur}}}
+
+
+
+Définition des couleurs utilisables pour l\textquotesingle{}affichage. 
+
+Ce sont les couleurs définies par le BIOS \begin{DoxyEnumFields}{Valeurs énumérées}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{COUL\_TXT\_NOIR@{COUL\_TXT\_NOIR}!ecran.h@{ecran.h}}\index{ecran.h@{ecran.h}!COUL\_TXT\_NOIR@{COUL\_TXT\_NOIR}}}\Hypertarget{ecran_8h_aa304d0ca681f782b1d7735da33037dd7a373f12dab5d4f6c611b4089ba53f92ab}\label{ecran_8h_aa304d0ca681f782b1d7735da33037dd7a373f12dab5d4f6c611b4089ba53f92ab} 
+COUL\+\_\+\+TXT\+\_\+\+NOIR&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{COUL\_TXT\_BLEU@{COUL\_TXT\_BLEU}!ecran.h@{ecran.h}}\index{ecran.h@{ecran.h}!COUL\_TXT\_BLEU@{COUL\_TXT\_BLEU}}}\Hypertarget{ecran_8h_aa304d0ca681f782b1d7735da33037dd7a94dea63574355f8d3b35ba4e48490197}\label{ecran_8h_aa304d0ca681f782b1d7735da33037dd7a94dea63574355f8d3b35ba4e48490197} 
+COUL\+\_\+\+TXT\+\_\+\+BLEU&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{COUL\_TXT\_VERT@{COUL\_TXT\_VERT}!ecran.h@{ecran.h}}\index{ecran.h@{ecran.h}!COUL\_TXT\_VERT@{COUL\_TXT\_VERT}}}\Hypertarget{ecran_8h_aa304d0ca681f782b1d7735da33037dd7a9586c08f3a67b64d0002b7025bb75b35}\label{ecran_8h_aa304d0ca681f782b1d7735da33037dd7a9586c08f3a67b64d0002b7025bb75b35} 
+COUL\+\_\+\+TXT\+\_\+\+VERT&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{COUL\_TXT\_CYAN@{COUL\_TXT\_CYAN}!ecran.h@{ecran.h}}\index{ecran.h@{ecran.h}!COUL\_TXT\_CYAN@{COUL\_TXT\_CYAN}}}\Hypertarget{ecran_8h_aa304d0ca681f782b1d7735da33037dd7afddd9d809729970803212c058341f015}\label{ecran_8h_aa304d0ca681f782b1d7735da33037dd7afddd9d809729970803212c058341f015} 
+COUL\+\_\+\+TXT\+\_\+\+CYAN&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{COUL\_TXT\_ROUGE@{COUL\_TXT\_ROUGE}!ecran.h@{ecran.h}}\index{ecran.h@{ecran.h}!COUL\_TXT\_ROUGE@{COUL\_TXT\_ROUGE}}}\Hypertarget{ecran_8h_aa304d0ca681f782b1d7735da33037dd7acbd2b27f81348d3340c852d86f87201d}\label{ecran_8h_aa304d0ca681f782b1d7735da33037dd7acbd2b27f81348d3340c852d86f87201d} 
+COUL\+\_\+\+TXT\+\_\+\+ROUGE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{COUL\_TXT\_MAGENTA@{COUL\_TXT\_MAGENTA}!ecran.h@{ecran.h}}\index{ecran.h@{ecran.h}!COUL\_TXT\_MAGENTA@{COUL\_TXT\_MAGENTA}}}\Hypertarget{ecran_8h_aa304d0ca681f782b1d7735da33037dd7a8e9122b2915c1cddd182a8fd911bb9c8}\label{ecran_8h_aa304d0ca681f782b1d7735da33037dd7a8e9122b2915c1cddd182a8fd911bb9c8} 
+COUL\+\_\+\+TXT\+\_\+\+MAGENTA&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{COUL\_TXT\_MARRON@{COUL\_TXT\_MARRON}!ecran.h@{ecran.h}}\index{ecran.h@{ecran.h}!COUL\_TXT\_MARRON@{COUL\_TXT\_MARRON}}}\Hypertarget{ecran_8h_aa304d0ca681f782b1d7735da33037dd7acaa6d25261447515401d2355c68435e4}\label{ecran_8h_aa304d0ca681f782b1d7735da33037dd7acaa6d25261447515401d2355c68435e4} 
+COUL\+\_\+\+TXT\+\_\+\+MARRON&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{COUL\_TXT\_GRIS\_CLAIR@{COUL\_TXT\_GRIS\_CLAIR}!ecran.h@{ecran.h}}\index{ecran.h@{ecran.h}!COUL\_TXT\_GRIS\_CLAIR@{COUL\_TXT\_GRIS\_CLAIR}}}\Hypertarget{ecran_8h_aa304d0ca681f782b1d7735da33037dd7accbd14bad1583582f611def849a9e8e4}\label{ecran_8h_aa304d0ca681f782b1d7735da33037dd7accbd14bad1583582f611def849a9e8e4} 
+COUL\+\_\+\+TXT\+\_\+\+GRIS\+\_\+\+CLAIR&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{COUL\_TXT\_GRIS@{COUL\_TXT\_GRIS}!ecran.h@{ecran.h}}\index{ecran.h@{ecran.h}!COUL\_TXT\_GRIS@{COUL\_TXT\_GRIS}}}\Hypertarget{ecran_8h_aa304d0ca681f782b1d7735da33037dd7aac427ac734da7e4ca4eeedf0aa18122d}\label{ecran_8h_aa304d0ca681f782b1d7735da33037dd7aac427ac734da7e4ca4eeedf0aa18122d} 
+COUL\+\_\+\+TXT\+\_\+\+GRIS&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{COUL\_TXT\_BLEU\_CLAIR@{COUL\_TXT\_BLEU\_CLAIR}!ecran.h@{ecran.h}}\index{ecran.h@{ecran.h}!COUL\_TXT\_BLEU\_CLAIR@{COUL\_TXT\_BLEU\_CLAIR}}}\Hypertarget{ecran_8h_aa304d0ca681f782b1d7735da33037dd7a0dfb3a1f815a9f14dd6b644916a0bd5b}\label{ecran_8h_aa304d0ca681f782b1d7735da33037dd7a0dfb3a1f815a9f14dd6b644916a0bd5b} 
+COUL\+\_\+\+TXT\+\_\+\+BLEU\+\_\+\+CLAIR&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{COUL\_TXT\_VERT\_CLAIR@{COUL\_TXT\_VERT\_CLAIR}!ecran.h@{ecran.h}}\index{ecran.h@{ecran.h}!COUL\_TXT\_VERT\_CLAIR@{COUL\_TXT\_VERT\_CLAIR}}}\Hypertarget{ecran_8h_aa304d0ca681f782b1d7735da33037dd7adf2e59b2c13eb2e865002d60111665cf}\label{ecran_8h_aa304d0ca681f782b1d7735da33037dd7adf2e59b2c13eb2e865002d60111665cf} 
+COUL\+\_\+\+TXT\+\_\+\+VERT\+\_\+\+CLAIR&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{COUL\_TXT\_CYAN\_CLAIR@{COUL\_TXT\_CYAN\_CLAIR}!ecran.h@{ecran.h}}\index{ecran.h@{ecran.h}!COUL\_TXT\_CYAN\_CLAIR@{COUL\_TXT\_CYAN\_CLAIR}}}\Hypertarget{ecran_8h_aa304d0ca681f782b1d7735da33037dd7a38b820ca82b9e3bdfcff2856b04767e1}\label{ecran_8h_aa304d0ca681f782b1d7735da33037dd7a38b820ca82b9e3bdfcff2856b04767e1} 
+COUL\+\_\+\+TXT\+\_\+\+CYAN\+\_\+\+CLAIR&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{COUL\_TXT\_ROUGE\_CLAIR@{COUL\_TXT\_ROUGE\_CLAIR}!ecran.h@{ecran.h}}\index{ecran.h@{ecran.h}!COUL\_TXT\_ROUGE\_CLAIR@{COUL\_TXT\_ROUGE\_CLAIR}}}\Hypertarget{ecran_8h_aa304d0ca681f782b1d7735da33037dd7aca43b9e7b8e150100cd9853c7bdd9693}\label{ecran_8h_aa304d0ca681f782b1d7735da33037dd7aca43b9e7b8e150100cd9853c7bdd9693} 
+COUL\+\_\+\+TXT\+\_\+\+ROUGE\+\_\+\+CLAIR&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{COUL\_TXT\_MAGENTA\_CLAIR@{COUL\_TXT\_MAGENTA\_CLAIR}!ecran.h@{ecran.h}}\index{ecran.h@{ecran.h}!COUL\_TXT\_MAGENTA\_CLAIR@{COUL\_TXT\_MAGENTA\_CLAIR}}}\Hypertarget{ecran_8h_aa304d0ca681f782b1d7735da33037dd7a17adee25b265c356259b8d55a47131e3}\label{ecran_8h_aa304d0ca681f782b1d7735da33037dd7a17adee25b265c356259b8d55a47131e3} 
+COUL\+\_\+\+TXT\+\_\+\+MAGENTA\+\_\+\+CLAIR&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{COUL\_TXT\_JAUNE@{COUL\_TXT\_JAUNE}!ecran.h@{ecran.h}}\index{ecran.h@{ecran.h}!COUL\_TXT\_JAUNE@{COUL\_TXT\_JAUNE}}}\Hypertarget{ecran_8h_aa304d0ca681f782b1d7735da33037dd7a2dedea63ce13170e0c4057e7abdb4d34}\label{ecran_8h_aa304d0ca681f782b1d7735da33037dd7a2dedea63ce13170e0c4057e7abdb4d34} 
+COUL\+\_\+\+TXT\+\_\+\+JAUNE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{COUL\_TXT\_BLANC@{COUL\_TXT\_BLANC}!ecran.h@{ecran.h}}\index{ecran.h@{ecran.h}!COUL\_TXT\_BLANC@{COUL\_TXT\_BLANC}}}\Hypertarget{ecran_8h_aa304d0ca681f782b1d7735da33037dd7a695c7671d495aa177f99626642db678e}\label{ecran_8h_aa304d0ca681f782b1d7735da33037dd7a695c7671d495aa177f99626642db678e} 
+COUL\+\_\+\+TXT\+\_\+\+BLANC&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{COUL\_FOND\_NOIR@{COUL\_FOND\_NOIR}!ecran.h@{ecran.h}}\index{ecran.h@{ecran.h}!COUL\_FOND\_NOIR@{COUL\_FOND\_NOIR}}}\Hypertarget{ecran_8h_aa304d0ca681f782b1d7735da33037dd7ad1e9fec872384b719ad2aebee2449bc3}\label{ecran_8h_aa304d0ca681f782b1d7735da33037dd7ad1e9fec872384b719ad2aebee2449bc3} 
+COUL\+\_\+\+FOND\+\_\+\+NOIR&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{COUL\_FOND\_BLEU@{COUL\_FOND\_BLEU}!ecran.h@{ecran.h}}\index{ecran.h@{ecran.h}!COUL\_FOND\_BLEU@{COUL\_FOND\_BLEU}}}\Hypertarget{ecran_8h_aa304d0ca681f782b1d7735da33037dd7a23bfccf6d49f0bbbffe51ff39573d0c1}\label{ecran_8h_aa304d0ca681f782b1d7735da33037dd7a23bfccf6d49f0bbbffe51ff39573d0c1} 
+COUL\+\_\+\+FOND\+\_\+\+BLEU&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{COUL\_FOND\_VERT@{COUL\_FOND\_VERT}!ecran.h@{ecran.h}}\index{ecran.h@{ecran.h}!COUL\_FOND\_VERT@{COUL\_FOND\_VERT}}}\Hypertarget{ecran_8h_aa304d0ca681f782b1d7735da33037dd7a4be85a0dcd2fbf5947b7bc4df4b7a931}\label{ecran_8h_aa304d0ca681f782b1d7735da33037dd7a4be85a0dcd2fbf5947b7bc4df4b7a931} 
+COUL\+\_\+\+FOND\+\_\+\+VERT&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{COUL\_FOND\_CYAN@{COUL\_FOND\_CYAN}!ecran.h@{ecran.h}}\index{ecran.h@{ecran.h}!COUL\_FOND\_CYAN@{COUL\_FOND\_CYAN}}}\Hypertarget{ecran_8h_aa304d0ca681f782b1d7735da33037dd7a40608734c22415dbd0da25bb3eef8ef6}\label{ecran_8h_aa304d0ca681f782b1d7735da33037dd7a40608734c22415dbd0da25bb3eef8ef6} 
+COUL\+\_\+\+FOND\+\_\+\+CYAN&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{COUL\_FOND\_ROUGE@{COUL\_FOND\_ROUGE}!ecran.h@{ecran.h}}\index{ecran.h@{ecran.h}!COUL\_FOND\_ROUGE@{COUL\_FOND\_ROUGE}}}\Hypertarget{ecran_8h_aa304d0ca681f782b1d7735da33037dd7a84a79a2d6e322839d7ac78a472dc09a2}\label{ecran_8h_aa304d0ca681f782b1d7735da33037dd7a84a79a2d6e322839d7ac78a472dc09a2} 
+COUL\+\_\+\+FOND\+\_\+\+ROUGE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{COUL\_FOND\_MAGENTA@{COUL\_FOND\_MAGENTA}!ecran.h@{ecran.h}}\index{ecran.h@{ecran.h}!COUL\_FOND\_MAGENTA@{COUL\_FOND\_MAGENTA}}}\Hypertarget{ecran_8h_aa304d0ca681f782b1d7735da33037dd7a3c9f6fc0dcfb8cd101b2f38b97ce0463}\label{ecran_8h_aa304d0ca681f782b1d7735da33037dd7a3c9f6fc0dcfb8cd101b2f38b97ce0463} 
+COUL\+\_\+\+FOND\+\_\+\+MAGENTA&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{COUL\_FOND\_MARRON@{COUL\_FOND\_MARRON}!ecran.h@{ecran.h}}\index{ecran.h@{ecran.h}!COUL\_FOND\_MARRON@{COUL\_FOND\_MARRON}}}\Hypertarget{ecran_8h_aa304d0ca681f782b1d7735da33037dd7ae0f079def8b121e94d5e50228418c378}\label{ecran_8h_aa304d0ca681f782b1d7735da33037dd7ae0f079def8b121e94d5e50228418c378} 
+COUL\+\_\+\+FOND\+\_\+\+MARRON&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{COUL\_FOND\_GRIS\_CLAIR@{COUL\_FOND\_GRIS\_CLAIR}!ecran.h@{ecran.h}}\index{ecran.h@{ecran.h}!COUL\_FOND\_GRIS\_CLAIR@{COUL\_FOND\_GRIS\_CLAIR}}}\Hypertarget{ecran_8h_aa304d0ca681f782b1d7735da33037dd7abe31678d60c08bcff1e54ee0f8f5a4a3}\label{ecran_8h_aa304d0ca681f782b1d7735da33037dd7abe31678d60c08bcff1e54ee0f8f5a4a3} 
+COUL\+\_\+\+FOND\+\_\+\+GRIS\+\_\+\+CLAIR&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{COUL\_FOND\_GRIS@{COUL\_FOND\_GRIS}!ecran.h@{ecran.h}}\index{ecran.h@{ecran.h}!COUL\_FOND\_GRIS@{COUL\_FOND\_GRIS}}}\Hypertarget{ecran_8h_aa304d0ca681f782b1d7735da33037dd7a44e2ebd19633406f388ae93d63d4f76c}\label{ecran_8h_aa304d0ca681f782b1d7735da33037dd7a44e2ebd19633406f388ae93d63d4f76c} 
+COUL\+\_\+\+FOND\+\_\+\+GRIS&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{COUL\_FOND\_BLEU\_CLAIR@{COUL\_FOND\_BLEU\_CLAIR}!ecran.h@{ecran.h}}\index{ecran.h@{ecran.h}!COUL\_FOND\_BLEU\_CLAIR@{COUL\_FOND\_BLEU\_CLAIR}}}\Hypertarget{ecran_8h_aa304d0ca681f782b1d7735da33037dd7a0535f370390c3e7531b10340ed2a6c43}\label{ecran_8h_aa304d0ca681f782b1d7735da33037dd7a0535f370390c3e7531b10340ed2a6c43} 
+COUL\+\_\+\+FOND\+\_\+\+BLEU\+\_\+\+CLAIR&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{COUL\_FOND\_VERT\_CLAIR@{COUL\_FOND\_VERT\_CLAIR}!ecran.h@{ecran.h}}\index{ecran.h@{ecran.h}!COUL\_FOND\_VERT\_CLAIR@{COUL\_FOND\_VERT\_CLAIR}}}\Hypertarget{ecran_8h_aa304d0ca681f782b1d7735da33037dd7adeefb75f129966c09bc08e62cb68e464}\label{ecran_8h_aa304d0ca681f782b1d7735da33037dd7adeefb75f129966c09bc08e62cb68e464} 
+COUL\+\_\+\+FOND\+\_\+\+VERT\+\_\+\+CLAIR&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{COUL\_FOND\_CYAN\_CLAIR@{COUL\_FOND\_CYAN\_CLAIR}!ecran.h@{ecran.h}}\index{ecran.h@{ecran.h}!COUL\_FOND\_CYAN\_CLAIR@{COUL\_FOND\_CYAN\_CLAIR}}}\Hypertarget{ecran_8h_aa304d0ca681f782b1d7735da33037dd7a385b93fa0d37db2fb5770c198a4d6ddf}\label{ecran_8h_aa304d0ca681f782b1d7735da33037dd7a385b93fa0d37db2fb5770c198a4d6ddf} 
+COUL\+\_\+\+FOND\+\_\+\+CYAN\+\_\+\+CLAIR&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{COUL\_FOND\_ROUGE\_CLAIR@{COUL\_FOND\_ROUGE\_CLAIR}!ecran.h@{ecran.h}}\index{ecran.h@{ecran.h}!COUL\_FOND\_ROUGE\_CLAIR@{COUL\_FOND\_ROUGE\_CLAIR}}}\Hypertarget{ecran_8h_aa304d0ca681f782b1d7735da33037dd7ae8e9d862da18ffbbb69474203db56276}\label{ecran_8h_aa304d0ca681f782b1d7735da33037dd7ae8e9d862da18ffbbb69474203db56276} 
+COUL\+\_\+\+FOND\+\_\+\+ROUGE\+\_\+\+CLAIR&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{COUL\_FOND\_MAGENTA\_CLAIR@{COUL\_FOND\_MAGENTA\_CLAIR}!ecran.h@{ecran.h}}\index{ecran.h@{ecran.h}!COUL\_FOND\_MAGENTA\_CLAIR@{COUL\_FOND\_MAGENTA\_CLAIR}}}\Hypertarget{ecran_8h_aa304d0ca681f782b1d7735da33037dd7a7745c772f64d621a8c0baf4a604f806f}\label{ecran_8h_aa304d0ca681f782b1d7735da33037dd7a7745c772f64d621a8c0baf4a604f806f} 
+COUL\+\_\+\+FOND\+\_\+\+MAGENTA\+\_\+\+CLAIR&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{COUL\_FOND\_JAUNE@{COUL\_FOND\_JAUNE}!ecran.h@{ecran.h}}\index{ecran.h@{ecran.h}!COUL\_FOND\_JAUNE@{COUL\_FOND\_JAUNE}}}\Hypertarget{ecran_8h_aa304d0ca681f782b1d7735da33037dd7a416d6f5d1cbf3d38f4a271fe4ada6bc2}\label{ecran_8h_aa304d0ca681f782b1d7735da33037dd7a416d6f5d1cbf3d38f4a271fe4ada6bc2} 
+COUL\+\_\+\+FOND\+\_\+\+JAUNE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{COUL\_FOND\_BLANC@{COUL\_FOND\_BLANC}!ecran.h@{ecran.h}}\index{ecran.h@{ecran.h}!COUL\_FOND\_BLANC@{COUL\_FOND\_BLANC}}}\Hypertarget{ecran_8h_aa304d0ca681f782b1d7735da33037dd7a0ea65930728ab16fff70be212005a797}\label{ecran_8h_aa304d0ca681f782b1d7735da33037dd7a0ea65930728ab16fff70be212005a797} 
+COUL\+\_\+\+FOND\+\_\+\+BLANC&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{COUL\_CLIGNOTANT@{COUL\_CLIGNOTANT}!ecran.h@{ecran.h}}\index{ecran.h@{ecran.h}!COUL\_CLIGNOTANT@{COUL\_CLIGNOTANT}}}\Hypertarget{ecran_8h_aa304d0ca681f782b1d7735da33037dd7a9ecf98fed31c03e8896447e590f5f3b4}\label{ecran_8h_aa304d0ca681f782b1d7735da33037dd7a9ecf98fed31c03e8896447e590f5f3b4} 
+COUL\+\_\+\+CLIGNOTANT&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Définition à la ligne \mbox{\hyperlink{ecran_8h_source_l00036}{36}} du fichier \mbox{\hyperlink{ecran_8h_source}{ecran.\+h}}.
+

@@ -1,0 +1,13 @@
+<map id="/home/manu/PROGRAMMATION/C/ManuX/multiconf/printk.h" name="/home/manu/PROGRAMMATION/C/ManuX/multiconf/printk.h">
+<area shape="rect" id="Node000001" title="Exemple de configuration pour l&#39;utilisation de printk." alt="" coords="302,5,529,45"/>
+<area shape="rect" id="Node000002" href="$base_8h.html" title="Eléments de base de la configuration." alt="" coords="5,93,113,119"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="331,48,125,93,124,88,329,43"/>
+<area shape="rect" id="Node000003" href="$plan-memoire-pc_8h.html" title=" " alt="" coords="138,93,327,119"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="373,48,273,90,271,85,371,43"/>
+<area shape="rect" id="Node000004" href="$include_2config_2console_8h.html" title=" " alt="" coords="352,93,479,119"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="418,46,418,79,413,79,413,46"/>
+<area shape="rect" id="Node000005" href="$include_2config_2printk_8h.html" title=" " alt="" coords="503,93,618,119"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="451,43,529,84,526,89,449,48"/>
+<area shape="rect" id="Node000006" href="$verifications_8h.html" title=" " alt="" coords="642,93,799,119"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="489,43,663,87,662,92,488,48"/>
+</map>

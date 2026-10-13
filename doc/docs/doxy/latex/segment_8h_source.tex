@@ -1,0 +1,98 @@
+\doxysection{segment.\+h}
+\hypertarget{segment_8h_source}{}\label{segment_8h_source}\index{/home/manu/PROGRAMMATION/C/ManuX/include/manux/segment.h@{/home/manu/PROGRAMMATION/C/ManuX/include/manux/segment.h}}
+\mbox{\hyperlink{segment_8h}{Aller à la documentation de ce fichier.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{segment_8h_source_l00001}00001\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{segment_8h_source_l00002}00002\ \textcolor{comment}{/*\ \ \ \ \ \ Définition\ des\ segments\ et\ leurs\ descripteurs\ et\ sélecteurs.\ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{segment_8h_source_l00003}00003\ \textcolor{comment}{/*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{segment_8h_source_l00004}00004\ \textcolor{comment}{/*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (C)\ Manu\ Chaput\ 2000\ */}}
+\DoxyCodeLine{\Hypertarget{segment_8h_source_l00005}00005\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{segment_8h_source_l00006}00006\ \textcolor{preprocessor}{\#ifndef\ SEGMENT\_DEF}}
+\DoxyCodeLine{\Hypertarget{segment_8h_source_l00007}00007\ \textcolor{preprocessor}{\#define\ SEGMENT\_DEF}}
+\DoxyCodeLine{\Hypertarget{segment_8h_source_l00008}00008\ }
+\DoxyCodeLine{\Hypertarget{segment_8h_source_l00009}00009\ \textcolor{preprocessor}{\#include\ <manux/types.h>}}
+\DoxyCodeLine{\Hypertarget{segment_8h_source_l00010}00010\ }
+\DoxyCodeLine{\Hypertarget{segment_8h_source_l00011}00011\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{segment_8h_source_l00012}00012\ \textcolor{comment}{\ *\ Un\ descripteur\ de\ segment}}
+\DoxyCodeLine{\Hypertarget{segment_8h_source_l00013}00013\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{segment_8h_source_l00014}\mbox{\hyperlink{struct__DescSegment}{00014}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__DescSegment}{\_DescSegment}}\ \{}
+\DoxyCodeLine{\Hypertarget{segment_8h_source_l00015}\mbox{\hyperlink{struct__DescSegment_aaa1016bae9310abe4a6f9c87e759d97f}{00015}}\ \ \ \ \mbox{\hyperlink{include_2manux_2types_8h_a273cf69d639a59973b6019625df33e30}{uint16\_t}}\ \mbox{\hyperlink{struct__DescSegment_aaa1016bae9310abe4a6f9c87e759d97f}{limiteFaible}};}
+\DoxyCodeLine{\Hypertarget{segment_8h_source_l00016}\mbox{\hyperlink{struct__DescSegment_a06a1d9060b12b7b638cb6ee07d7d1505}{00016}}\ \ \ \ \mbox{\hyperlink{include_2manux_2types_8h_a273cf69d639a59973b6019625df33e30}{uint16\_t}}\ \mbox{\hyperlink{struct__DescSegment_a06a1d9060b12b7b638cb6ee07d7d1505}{baseFaible}};}
+\DoxyCodeLine{\Hypertarget{segment_8h_source_l00017}\mbox{\hyperlink{struct__DescSegment_a66cfc2edc24d6d7ee1836ff35980198a}{00017}}\ \ \ \ \mbox{\hyperlink{include_2manux_2types_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\_t}}\ \ \mbox{\hyperlink{struct__DescSegment_a66cfc2edc24d6d7ee1836ff35980198a}{baseInter}};}
+\DoxyCodeLine{\Hypertarget{segment_8h_source_l00018}\mbox{\hyperlink{struct__DescSegment_ab77cdfae3f849a7cb8d15eefb0631282}{00018}}\ \ \ \ \mbox{\hyperlink{include_2manux_2types_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\_t}}\ \ \mbox{\hyperlink{struct__DescSegment_ab77cdfae3f849a7cb8d15eefb0631282}{type}};}
+\DoxyCodeLine{\Hypertarget{segment_8h_source_l00019}\mbox{\hyperlink{struct__DescSegment_a251ec8a74fc148dcd045b23959131400}{00019}}\ \ \ \ \mbox{\hyperlink{include_2manux_2types_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\_t}}\ \ \mbox{\hyperlink{struct__DescSegment_a251ec8a74fc148dcd045b23959131400}{limiteFort}};}
+\DoxyCodeLine{\Hypertarget{segment_8h_source_l00020}\mbox{\hyperlink{struct__DescSegment_ae40b1efc708500ffa3394b4c0bc6afae}{00020}}\ \ \ \ \mbox{\hyperlink{include_2manux_2types_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\_t}}\ \ \mbox{\hyperlink{struct__DescSegment_ae40b1efc708500ffa3394b4c0bc6afae}{baseFort}};}
+\DoxyCodeLine{\Hypertarget{segment_8h_source_l00021}\mbox{\hyperlink{segment_8h_a80cb7bf88a72fbe13bc4539da990ce5b}{00021}}\ \}\ \mbox{\hyperlink{segment_8h_a80cb7bf88a72fbe13bc4539da990ce5b}{DescSegment}};}
+\DoxyCodeLine{\Hypertarget{segment_8h_source_l00022}00022\ }
+\DoxyCodeLine{\Hypertarget{segment_8h_source_l00023}00023\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{segment_8h_source_l00024}00024\ \textcolor{comment}{\ *\ Un\ descripteur\ de\ TSS\ ([1]\ p\ 6-\/7)}}
+\DoxyCodeLine{\Hypertarget{segment_8h_source_l00025}00025\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{segment_8h_source_l00026}\mbox{\hyperlink{struct__DescTSS}{00026}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__DescTSS}{\_DescTSS}}\ \{}
+\DoxyCodeLine{\Hypertarget{segment_8h_source_l00027}\mbox{\hyperlink{struct__DescTSS_a8b1a7d2d31c6c3acb7bc75c1a5521dad}{00027}}\ \ \ \ \mbox{\hyperlink{include_2manux_2types_8h_a273cf69d639a59973b6019625df33e30}{uint16\_t}}\ \mbox{\hyperlink{struct__DescTSS_a8b1a7d2d31c6c3acb7bc75c1a5521dad}{limiteFaible}};}
+\DoxyCodeLine{\Hypertarget{segment_8h_source_l00028}\mbox{\hyperlink{struct__DescTSS_a79edebb6f912c512b000cb1cce719725}{00028}}\ \ \ \ \mbox{\hyperlink{include_2manux_2types_8h_a273cf69d639a59973b6019625df33e30}{uint16\_t}}\ \mbox{\hyperlink{struct__DescTSS_a79edebb6f912c512b000cb1cce719725}{baseFaible}};}
+\DoxyCodeLine{\Hypertarget{segment_8h_source_l00029}\mbox{\hyperlink{struct__DescTSS_ab5b1064213c68bb2cb9d07b5204fcecf}{00029}}\ \ \ \ \mbox{\hyperlink{include_2manux_2types_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\_t}}\ \ \mbox{\hyperlink{struct__DescTSS_ab5b1064213c68bb2cb9d07b5204fcecf}{baseInter}};\ \ }
+\DoxyCodeLine{\Hypertarget{segment_8h_source_l00030}\mbox{\hyperlink{struct__DescTSS_a1ffa53611eb212a29b7089c9daf7ab8a}{00030}}\ \ \ \ \mbox{\hyperlink{include_2manux_2types_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\_t}}\ \ \mbox{\hyperlink{struct__DescTSS_a1ffa53611eb212a29b7089c9daf7ab8a}{type}};\ \ \ \ \ \ \ \textcolor{comment}{/*\ P,DPL,010B1\ */}}
+\DoxyCodeLine{\Hypertarget{segment_8h_source_l00031}\mbox{\hyperlink{struct__DescTSS_aeba21868aa60682c722f50c4a92d2d98}{00031}}\ \ \ \ \mbox{\hyperlink{include_2manux_2types_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\_t}}\ \ \mbox{\hyperlink{struct__DescTSS_aeba21868aa60682c722f50c4a92d2d98}{limiteFort}};\ \textcolor{comment}{/*\ G,00,AVL,lim\ */}}
+\DoxyCodeLine{\Hypertarget{segment_8h_source_l00032}\mbox{\hyperlink{struct__DescTSS_af68c88388d2109c9eda98ebc2eb0dd1d}{00032}}\ \ \ \ \mbox{\hyperlink{include_2manux_2types_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\_t}}\ \ \mbox{\hyperlink{struct__DescTSS_af68c88388d2109c9eda98ebc2eb0dd1d}{baseFort}};}
+\DoxyCodeLine{\Hypertarget{segment_8h_source_l00033}\mbox{\hyperlink{segment_8h_a41dfd815a374d24765469d03fc858d6e}{00033}}\ \}\ \mbox{\hyperlink{segment_8h_a41dfd815a374d24765469d03fc858d6e}{DescTSS}};}
+\DoxyCodeLine{\Hypertarget{segment_8h_source_l00034}00034\ }
+\DoxyCodeLine{\Hypertarget{segment_8h_source_l00035}\mbox{\hyperlink{union__Descripteur}{00035}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{union\ }\mbox{\hyperlink{union__Descripteur}{\_Descripteur}}\ \{}
+\DoxyCodeLine{\Hypertarget{segment_8h_source_l00036}\mbox{\hyperlink{union__Descripteur_a8bafbc4c5182e81587c22d852b9dcc7f}{00036}}\ \ \ \ \mbox{\hyperlink{struct__DescSegment}{DescSegment}}\ \mbox{\hyperlink{union__Descripteur_a8bafbc4c5182e81587c22d852b9dcc7f}{ds}};}
+\DoxyCodeLine{\Hypertarget{segment_8h_source_l00037}\mbox{\hyperlink{union__Descripteur_aebbba8ba52309981be3829a116d05df2}{00037}}\ \ \ \ \mbox{\hyperlink{struct__DescTSS}{DescTSS}}\ \ \ \ \ \mbox{\hyperlink{union__Descripteur_aebbba8ba52309981be3829a116d05df2}{dt}};}
+\DoxyCodeLine{\Hypertarget{segment_8h_source_l00038}\mbox{\hyperlink{segment_8h_ad0ea392665f248eb1c5d00bdd69fe1f4}{00038}}\ \}\ \mbox{\hyperlink{segment_8h_ad0ea392665f248eb1c5d00bdd69fe1f4}{Descripteur}};}
+\DoxyCodeLine{\Hypertarget{segment_8h_source_l00039}00039\ }
+\DoxyCodeLine{\Hypertarget{segment_8h_source_l00040}00040\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{segment_8h_source_l00041}00041\ \textcolor{comment}{\ *\ La\ DescriptorTable\ est\ un\ tableau\ de\ descripteurs\ de\ segments\ auquel\ on\ ajoute}}
+\DoxyCodeLine{\Hypertarget{segment_8h_source_l00042}00042\ \textcolor{comment}{\ *\ sa\ taille\ effective.}}
+\DoxyCodeLine{\Hypertarget{segment_8h_source_l00043}00043\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{segment_8h_source_l00044}\mbox{\hyperlink{struct__DescriptorTable}{00044}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__DescriptorTable}{\_DescriptorTable}}\ \{}
+\DoxyCodeLine{\Hypertarget{segment_8h_source_l00045}\mbox{\hyperlink{struct__DescriptorTable_a506f73d9871220f5639b7f0ce470926b}{00045}}\ \ \ \textcolor{keywordtype}{int}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct__DescriptorTable_a506f73d9871220f5639b7f0ce470926b}{capacite}};}
+\DoxyCodeLine{\Hypertarget{segment_8h_source_l00046}\mbox{\hyperlink{struct__DescriptorTable_af383a85f6ad710d325447d0b36cd0dc8}{00046}}\ \ \ \textcolor{keywordtype}{int}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct__DescriptorTable_af383a85f6ad710d325447d0b36cd0dc8}{taille}};}
+\DoxyCodeLine{\Hypertarget{segment_8h_source_l00047}\mbox{\hyperlink{struct__DescriptorTable_a315f73e13af36b7bdd5269d4cd5cb58c}{00047}}\ \ \ \mbox{\hyperlink{union__Descripteur}{Descripteur}}\ \mbox{\hyperlink{struct__DescriptorTable_a315f73e13af36b7bdd5269d4cd5cb58c}{descripteur}}[0];}
+\DoxyCodeLine{\Hypertarget{segment_8h_source_l00048}\mbox{\hyperlink{segment_8h_ae5e4cb3889e9015f7648c7208c5aad01}{00048}}\ \}\ \mbox{\hyperlink{segment_8h_ae5e4cb3889e9015f7648c7208c5aad01}{DescriptorTable}};}
+\DoxyCodeLine{\Hypertarget{segment_8h_source_l00049}00049\ }
+\DoxyCodeLine{\Hypertarget{segment_8h_source_l00050}\mbox{\hyperlink{segment_8h_ad22f59f7521cefe856cda77319352e17}{00050}}\ \textcolor{preprocessor}{\#define\ tailleGDTSysteme\ (sizeof(int)+\ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{segment_8h_source_l00051}00051\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ sizeof(int)+\ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{segment_8h_source_l00052}00052\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ gdtSysteme-\/>taille*sizeof(Descripteur))}}
+\DoxyCodeLine{\Hypertarget{segment_8h_source_l00053}00053\ }
+\DoxyCodeLine{\Hypertarget{segment_8h_source_l00054}00054\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{struct__DescriptorTable}{DescriptorTable}}\ *\ \mbox{\hyperlink{segment_8h_aa7b2be909929911d7772352d013a9480}{gdtSysteme}};}
+\DoxyCodeLine{\Hypertarget{segment_8h_source_l00055}00055\ }
+\DoxyCodeLine{\Hypertarget{segment_8h_source_l00056}00056\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{segment_8h_ae0e123e68e81d00dad08bd7a0215e9a8}{initialiserGDT}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{segment_8h_source_l00057}00057\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{segment_8h_source_l00058}00058\ \textcolor{comment}{\ *\ Initiliser\ la\ GDT\ (Global\ Description\ Table)}}
+\DoxyCodeLine{\Hypertarget{segment_8h_source_l00059}00059\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{segment_8h_source_l00060}00060\ }
+\DoxyCodeLine{\Hypertarget{segment_8h_source_l00061}00061\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{segment_8h_a9d73adba0d9db3f42a705fd1789e113e}{chargerGDT}}(\mbox{\hyperlink{struct__DescriptorTable}{DescriptorTable}}\ *\ gdt);}
+\DoxyCodeLine{\Hypertarget{segment_8h_source_l00062}00062\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{segment_8h_source_l00063}00063\ \textcolor{comment}{\ *\ Chargement\ de\ la\ Global\ Descriptor\ Table}}
+\DoxyCodeLine{\Hypertarget{segment_8h_source_l00064}00064\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{segment_8h_source_l00065}00065\ }
+\DoxyCodeLine{\Hypertarget{segment_8h_source_l00066}00066\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{segment_8h_a7fa1329c2ae053fa9ef8b91043bd02d2}{chargerLDT}}(\mbox{\hyperlink{struct__DescriptorTable}{DescriptorTable}}\ *\ ldt);}
+\DoxyCodeLine{\Hypertarget{segment_8h_source_l00067}00067\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{segment_8h_source_l00068}00068\ \textcolor{comment}{\ *\ Chargement\ de\ la\ Local\ Descriptor\ Table}}
+\DoxyCodeLine{\Hypertarget{segment_8h_source_l00069}00069\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{segment_8h_source_l00070}00070\ }
+\DoxyCodeLine{\Hypertarget{segment_8h_source_l00071}00071\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{segment_8h_a98c72dee0a629fb7b8ac0171521c52cc}{ajouterDescTSS}}(\mbox{\hyperlink{struct__DescriptorTable}{DescriptorTable}}\ *\ dt,}
+\DoxyCodeLine{\Hypertarget{segment_8h_source_l00072}00072\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ *\ adresse,\ \mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\_t}}\ limite,}
+\DoxyCodeLine{\Hypertarget{segment_8h_source_l00073}00073\ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{include_2manux_2types_8h_a5b7544e51b136e716e4eccc0602bafd7}{booleen}}\ busyTask);}
+\DoxyCodeLine{\Hypertarget{segment_8h_source_l00074}00074\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{segment_8h_source_l00075}00075\ \textcolor{comment}{\ *\ Ajout\ d'un\ descripteur\ de\ TSS\ à\ la\ DescriptorTable}}
+\DoxyCodeLine{\Hypertarget{segment_8h_source_l00076}00076\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{segment_8h_source_l00077}00077\ \textcolor{comment}{\ *\ L'adresse\ et\ la\ limite\ du\ segment\ sont\ fournies\ en\ paramètre.}}
+\DoxyCodeLine{\Hypertarget{segment_8h_source_l00078}00078\ \textcolor{comment}{\ *\ L'indice\ dans\ la\ DescriptorTable\ est\ fournie\ en\ retour\ (multiplié}}
+\DoxyCodeLine{\Hypertarget{segment_8h_source_l00079}00079\ \textcolor{comment}{\ *\ par\ 8\ comme\ l'index\ Intel).}}
+\DoxyCodeLine{\Hypertarget{segment_8h_source_l00080}00080\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{segment_8h_source_l00081}00081\ }
+\DoxyCodeLine{\Hypertarget{segment_8h_source_l00082}00082\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{segment_8h_a89a9fc5562cf33c6869b1d0df950d1a6}{setDescripteurSegment}}(\mbox{\hyperlink{struct__DescriptorTable}{DescriptorTable}}\ *\ dt,}
+\DoxyCodeLine{\Hypertarget{segment_8h_source_l00083}00083\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\_t}}\ adresse,\ \mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\_t}}\ limite,}
+\DoxyCodeLine{\Hypertarget{segment_8h_source_l00084}00084\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{include_2manux_2types_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\_t}}\ type,}
+\DoxyCodeLine{\Hypertarget{segment_8h_source_l00085}00085\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{include_2manux_2types_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\_t}}\ gd0a);}
+\DoxyCodeLine{\Hypertarget{segment_8h_source_l00086}00086\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{segment_8h_source_l00087}00087\ \textcolor{comment}{\ *\ Initialisation\ d'un\ \ descripteur\ de\ segment\ dans\ une\ table\ de\ descripteur}}
+\DoxyCodeLine{\Hypertarget{segment_8h_source_l00088}00088\ \textcolor{comment}{\ *\ gd0a\ doit\ contenir\ dans\ son\ quadret\ de\ poids\ fort\ les\ bits\ G,\ D/B,\ 0}}
+\DoxyCodeLine{\Hypertarget{segment_8h_source_l00089}00089\ \textcolor{comment}{\ *\ et\ AVL\ ([1]\ p\ 3-\/11)}}
+\DoxyCodeLine{\Hypertarget{segment_8h_source_l00090}00090\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{segment_8h_source_l00091}00091\ }
+\DoxyCodeLine{\Hypertarget{segment_8h_source_l00092}00092\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

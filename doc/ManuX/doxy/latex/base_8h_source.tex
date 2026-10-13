@@ -1,0 +1,35 @@
+\doxysection{base.\+h}
+\hypertarget{base_8h_source}{}\label{base_8h_source}\index{/home/manu/PROGRAMMATION/C/ManuX/include/config/base.h@{/home/manu/PROGRAMMATION/C/ManuX/include/config/base.h}}
+\mbox{\hyperlink{base_8h}{Aller à la documentation de ce fichier.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{base_8h_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{base_8h_source_l00015}00015\ \textcolor{preprocessor}{\#ifndef\ MANUX\_INIT\_MAGIC}}
+\DoxyCodeLine{\Hypertarget{base_8h_source_l00016}\mbox{\hyperlink{base_8h_aaa04a2cbdf99d70127ff5d2eb0b67ef8}{00016}}\ \textcolor{preprocessor}{\#\ \ \ define\ MANUX\_INIT\_MAGIC\ 0x01c0ffee}}
+\DoxyCodeLine{\Hypertarget{base_8h_source_l00017}00017\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{base_8h_source_l00018}00018\ }
+\DoxyCodeLine{\Hypertarget{base_8h_source_l00022}00022\ \textcolor{preprocessor}{\#ifndef\ MANUX\_FICHIER\_MAIN}}
+\DoxyCodeLine{\Hypertarget{base_8h_source_l00023}\mbox{\hyperlink{base_8h_aa3594499e1eed61df06d17199e875181}{00023}}\ \textcolor{preprocessor}{\#\ \ \ define\ MANUX\_FICHIER\_MAIN\ main}}
+\DoxyCodeLine{\Hypertarget{base_8h_source_l00024}00024\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{base_8h_source_l00025}00025\ }
+\DoxyCodeLine{\Hypertarget{base_8h_source_l00029}00029\ \textcolor{preprocessor}{\#ifndef\ MANUX\_FREQUENCE\_HORLOGE}}
+\DoxyCodeLine{\Hypertarget{base_8h_source_l00030}\mbox{\hyperlink{base_8h_a061b8540217c36ef218c1d30d4f9ff2a}{00030}}\ \textcolor{preprocessor}{\#\ \ \ define\ MANUX\_FREQUENCE\_HORLOGE\ 100}}
+\DoxyCodeLine{\Hypertarget{base_8h_source_l00031}00031\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{base_8h_source_l00032}00032\ }
+\DoxyCodeLine{\Hypertarget{base_8h_source_l00042}00042\ \textcolor{preprocessor}{\#ifndef\ MANUX\_NB\_CYCLES\_CALIBRAGE}}
+\DoxyCodeLine{\Hypertarget{base_8h_source_l00043}\mbox{\hyperlink{base_8h_af1f07adf33f5e3d7ae6856bdf632e842}{00043}}\ \textcolor{preprocessor}{\#\ \ \ define\ MANUX\_NB\_CYCLES\_CALIBRAGE\ MANUX\_FREQUENCE\_HORLOGE}}
+\DoxyCodeLine{\Hypertarget{base_8h_source_l00044}00044\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{base_8h_source_l00045}00045\ }
+\DoxyCodeLine{\Hypertarget{base_8h_source_l00051}00051\ \textcolor{preprocessor}{\#ifndef\ MANUX\_ARCH}}
+\DoxyCodeLine{\Hypertarget{base_8h_source_l00052}\mbox{\hyperlink{base_8h_a2ffaf7a8c303ea1e49cdea2e81ce15d7}{00052}}\ \textcolor{preprocessor}{\#\ \ define\ MANUX\_ARCH\ i386}}
+\DoxyCodeLine{\Hypertarget{base_8h_source_l00053}00053\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{base_8h_source_l00054}00054\ }
+\DoxyCodeLine{\Hypertarget{base_8h_source_l00058}00058\ \textcolor{preprocessor}{\#ifdef\ \_\_clang\_\_}}
+\DoxyCodeLine{\Hypertarget{base_8h_source_l00059}00059\ \textcolor{preprocessor}{\#\ define\ NO\_OPTIMIZE\ \_\_attribute\_\_((optnone))}}
+\DoxyCodeLine{\Hypertarget{base_8h_source_l00060}00060\ \textcolor{preprocessor}{\#elif\ defined(\_\_GNUC\_\_)}}
+\DoxyCodeLine{\Hypertarget{base_8h_source_l00061}00061\ \textcolor{preprocessor}{\#\ define\ NO\_OPTIMIZE\ \_\_attribute\_\_((optimize("{}O0"{})))}}
+\DoxyCodeLine{\Hypertarget{base_8h_source_l00062}00062\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{\Hypertarget{base_8h_source_l00063}\mbox{\hyperlink{base_8h_a06159baf0f2e69d6cfda9f93bfcc2e3b}{00063}}\ \textcolor{preprocessor}{\#\ define\ NO\_OPTINO\_OPTIMIZE\ Attention}}
+\DoxyCodeLine{\Hypertarget{base_8h_source_l00064}00064\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{base_8h_source_l00065}00065\ }
+
+\end{DoxyCode}

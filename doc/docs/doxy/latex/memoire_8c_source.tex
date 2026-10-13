@@ -1,0 +1,320 @@
+\doxysection{memoire.\+c}
+\hypertarget{memoire_8c_source}{}\label{memoire_8c_source}\index{/home/manu/PROGRAMMATION/C/ManuX/noyau/memoire.c@{/home/manu/PROGRAMMATION/C/ManuX/noyau/memoire.c}}
+\mbox{\hyperlink{memoire_8c}{Aller Ã  la documentation de ce fichier.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00010}00010\ \textcolor{preprocessor}{\#include\ <manux/config.h>}}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00011}00011\ \textcolor{preprocessor}{\#include\ <manux/types.h>}\ \ \ \ \ \ \textcolor{comment}{/*\ TacheID\ */}}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00012}00012\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{manux_2debug_8h}{manux/debug.h}}>}\ \ \ \ \ \ \textcolor{comment}{/*\ assert\ */}}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00013}00013\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{include_2manux_2memoire_8h}{manux/memoire.h}}>}}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00014}00014\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{atomique_8h}{manux/atomique.h}}>}}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00015}00015\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{pagination_8h}{manux/pagination.h}}>}\ \textcolor{comment}{/*\ ajouterPage()\ */}}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00016}00016\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{include_2manux_2console_8h}{manux/console.h}}>}}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00017}00017\ \textcolor{preprocessor}{\#include\ <manux/i386.h>}\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ ADDR\_VERS\_PAGE}}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00018}00018\ }
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00027}00027\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\_t}}\ \mbox{\hyperlink{memoire_8c_a236ba6714aa86a8d6b11194aacd8f06d}{\_adresseDebutManuX}}[],}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00028}\mbox{\hyperlink{memoire_8c_ac2cf2a9cdeed6732e8b03405b155c559}{00028}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{memoire_8c_ac2cf2a9cdeed6732e8b03405b155c559}{\_adresseFinManuX}}[],}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00029}\mbox{\hyperlink{memoire_8c_a9b3845eb76291c3e41541e9dbba5bd8b}{00029}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{memoire_8c_a9b3845eb76291c3e41541e9dbba5bd8b}{\_adressePileManuX}}[],}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00030}\mbox{\hyperlink{memoire_8c_a37e50039a12a2e84c9f40e3c9badd68e}{00030}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{memoire_8c_a37e50039a12a2e84c9f40e3c9badd68e}{\_adresseLimitePileManuX}}[];}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00031}00031\ }
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00032}\mbox{\hyperlink{memoire_8c_aa01d90dd8a9ab43fe183ba17befaf7ff}{00032}}\ \mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\_t}}\ \mbox{\hyperlink{memoire_8c_aa01d90dd8a9ab43fe183ba17befaf7ff}{adresseDebutManuX}}\ =\ ((\mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\_t}})\mbox{\hyperlink{memoire_8c_a236ba6714aa86a8d6b11194aacd8f06d}{\_adresseDebutManuX}});}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00033}\mbox{\hyperlink{memoire_8c_a7d3baaeec8923e57d98493d7087215a8}{00033}}\ \mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\_t}}\ \mbox{\hyperlink{memoire_8c_a7d3baaeec8923e57d98493d7087215a8}{adresseFinManuX}}\ =\ ((\mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\_t}})\mbox{\hyperlink{memoire_8c_ac2cf2a9cdeed6732e8b03405b155c559}{\_adresseFinManuX}});}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00034}\mbox{\hyperlink{memoire_8c_ada7ea2f9b729bc65c1adc6b4afc878f8}{00034}}\ \mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\_t}}\ \mbox{\hyperlink{memoire_8c_ada7ea2f9b729bc65c1adc6b4afc878f8}{adressePileManuX}}\ =\ ((\mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\_t}})\mbox{\hyperlink{memoire_8c_a9b3845eb76291c3e41541e9dbba5bd8b}{\_adressePileManuX}});}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00035}\mbox{\hyperlink{memoire_8c_a40c472c1d550a802484196d93a333c89}{00035}}\ \mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\_t}}\ \mbox{\hyperlink{memoire_8c_a40c472c1d550a802484196d93a333c89}{adresseLimitePileManuX}}\ =\ ((\mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\_t}})\mbox{\hyperlink{memoire_8c_a37e50039a12a2e84c9f40e3c9badd68e}{\_adresseLimitePileManuX}});}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00036}00036\ }
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00037}00037\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00038}00038\ \textcolor{comment}{\ *\ Début\ de\ la\ zone\ mémoire\ dans\ laquelle\ on\ mémorise\ l'occupation}}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00039}00039\ \textcolor{comment}{\ *\ des\ pages}}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00040}00040\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00041}00041\ \textcolor{preprocessor}{\#ifndef\ MANUX\_AFFECTATION\_PAGES}}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00042}\mbox{\hyperlink{memoire_8c_a2d0833c5ad400fa899bbfc035098e3e9}{00042}}\ \textcolor{preprocessor}{\#\ \ \ define\ MANUX\_AFFECTATION\_PAGES\ 0x1000}}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00043}00043\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00044}00044\ }
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00045}00045\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00046}00046\ \textcolor{comment}{\ *\ Nombre\ de\ pages\ communes\ à toutes\ les\ tâches.}}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00047}00047\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00048}\mbox{\hyperlink{include_2manux_2memoire_8h_a0e9c7b044c6a0b46ab3a7a38d9c4a10a}{00048}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{memoire_8c_a0e9c7b044c6a0b46ab3a7a38d9c4a10a}{nombrePagesSysteme}}\ =\ \mbox{\hyperlink{gestion-memoire_8h_a51d5bb3cbd6cdd278b2886f57507f3b9}{MANUX\_NOMBRE\_PAGES\_SYSTEME}};}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00049}00049\ }
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00050}00050\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00051}00051\ \textcolor{comment}{\ *\ Le\ propriétaire\ de\ chaque\ page\ mémoire\ est\ identifié dans\ le}}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00052}00052\ \textcolor{comment}{\ *\ tableau\ suivant\ (0\ <=>\ page\ libre).\ WARNING,\ pour\ le\ moment,}}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00053}00053\ \textcolor{comment}{\ *\ c'est\ 1\ ou\ 0\ (utilisé ou\ libre).}}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00054}00054\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00055}00055\ \textcolor{comment}{//TacheID\ *\ proprietairePage\ =\ (TacheID\ *)MANUX\_AFFECTATION\_PAGES\ ;}}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00056}\mbox{\hyperlink{memoire_8c_ada1d6ba9175cadf17930cb95e1aaf56e}{00056}}\ \mbox{\hyperlink{include_2manux_2types_8h_a1aa19b97c742cff758e6532b519954c4}{TacheID}}\ *\ \mbox{\hyperlink{memoire_8c_ada1d6ba9175cadf17930cb95e1aaf56e}{proprietairePage}};}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00057}00057\ }
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00058}00058\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00059}00059\ \textcolor{comment}{\ *\ Le\ nombre\ global\ de\ pages\ dans\ le\ système}}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00060}00060\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00061}00061\ \textcolor{keyword}{static}\ \mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\_t}}\ nombrePages\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00062}00062\ \textcolor{keyword}{static}\ \mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\_t}}\ nombreDePagesAllouees\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00063}00063\ }
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00064}00064\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00065}00065\ \textcolor{comment}{\ *\ Marquer\ une\ page\ comme\ réservée.\ WARNING\ :\ il\ faut\ se\ protéger\ par\ un\ mutex}}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00066}00066\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00067}00067\ \textcolor{keyword}{inline}}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00068}00068\ \textcolor{keyword}{static}}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00069}00069\ \textcolor{keywordtype}{void}\ reserverPage(\mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\_t}}\ i)}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00070}00070\ \{}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00071}00071\ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{memoire_8c_ada1d6ba9175cadf17930cb95e1aaf56e}{proprietairePage}}[i]\ !=\ (\mbox{\hyperlink{include_2manux_2types_8h_a1aa19b97c742cff758e6532b519954c4}{TacheID}})0)\ \{}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00072}00072\ \ \ \ \ \ \mbox{\hyperlink{manux_2debug_8h_a94bcf41c2acfb543c52dcb281acba959}{paniqueNoyau}}(\textcolor{stringliteral}{"{}Page\ 0x\%x\ (\%d)\ deja\ prise\(\backslash\)n"{}},\ i,\ i);}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00073}00073\ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00074}00074\ \ \ \ nombreDePagesAllouees++;}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00075}00075\ \ \ \ \mbox{\hyperlink{memoire_8c_ada1d6ba9175cadf17930cb95e1aaf56e}{proprietairePage}}[i]\ =\ (\mbox{\hyperlink{include_2manux_2types_8h_a1aa19b97c742cff758e6532b519954c4}{TacheID}})1;\ \ \textcolor{comment}{//\ WARNING}}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00076}00076\ \}}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00077}00077\ }
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00081}\mbox{\hyperlink{include_2manux_2memoire_8h_aee3b45cedb3e2add79c773ed3558a1c8}{00081}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{memoire_8c_aee3b45cedb3e2add79c773ed3558a1c8}{libererPage}}(\textcolor{keywordtype}{void}\ *\ pageLiberee)}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00082}00082\ \{}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00083}00083\ \ \ \ \textcolor{keywordtype}{int}\ i\ =\ ((\mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\_t}})\ pageLiberee)\ /\ \mbox{\hyperlink{gestion-memoire_8h_ae8ff0cb54526f5b759984090d013d49f}{MANUX\_TAILLE\_PAGE}};}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00084}00084\ \ \ \ }
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00085}00085\ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{memoire_8c_ada1d6ba9175cadf17930cb95e1aaf56e}{proprietairePage}}[i]\ ==\ (\mbox{\hyperlink{include_2manux_2types_8h_a1aa19b97c742cff758e6532b519954c4}{TacheID}})0)\ \{}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00086}00086\ \ \ \ \ \ \ \mbox{\hyperlink{manux_2debug_8h_a94bcf41c2acfb543c52dcb281acba959}{paniqueNoyau}}(\textcolor{stringliteral}{"{}Liberation\ de\ la\ page\ \%d\ non\ allouee\ !\(\backslash\)n"{}},\ i);}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00087}00087\ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00088}00088\ \ \ \ nombreDePagesAllouees-\/-\/;}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00089}00089\ \ \ \ \mbox{\hyperlink{memoire_8c_ada1d6ba9175cadf17930cb95e1aaf56e}{proprietairePage}}[i]\ =\ (\mbox{\hyperlink{include_2manux_2types_8h_a1aa19b97c742cff758e6532b519954c4}{TacheID}})0;}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00090}00090\ \ \ }
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00091}00091\ \}}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00092}00092\ }
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00093}00093\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00094}00094\ \textcolor{comment}{\ *\ Marquer\ une\ page\ comme\ libre\ (WARNING\ trouve\ un\ plus\ joli\ nom)}}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00095}00095\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00096}00096\ \textcolor{keyword}{static}}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00097}00097\ \textcolor{keyword}{inline}}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00098}00098\ \textcolor{keywordtype}{void}\ demarquerPage(\mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\_t}}\ i)}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00099}00099\ \{}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00100}00100\ \ \ \ \mbox{\hyperlink{memoire_8c_ada1d6ba9175cadf17930cb95e1aaf56e}{proprietairePage}}[i]\ =\ (\mbox{\hyperlink{include_2manux_2types_8h_a1aa19b97c742cff758e6532b519954c4}{TacheID}})0;}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00101}00101\ \}}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00102}00102\ }
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00103}\mbox{\hyperlink{include_2manux_2memoire_8h_a4338550e2017b7c95021bdc27e4f3345}{00103}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{memoire_8c_a4338550e2017b7c95021bdc27e4f3345}{initialiserMemoire}}(\mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\_t}}\ tailleMemoireDeBase,}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00104}00104\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\_t}}\ tailleMemoireEtendue)}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00105}00105\ \{}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00106}00106\ \ \ \ \mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\_t}}\ i;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Pour\ compter\ les\ pages\ initialisées\ }}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00107}00107\ \ \ \ \mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\_t}}\ tailleProprietaire;\ \textcolor{comment}{//\ Taille\ nécessaire\ pour\ les\ gérer}}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00108}00108\ \ \ \ \mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\_t}}\ nbrePagesManuX,\ nbrePagesPile;}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00109}00109\ }
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00110}00110\ \ \ \ \textcolor{comment}{//\ On\ met\ l'allocation\ des\ pages\ après la\ pile}}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00111}00111\ \ \ \ \mbox{\hyperlink{memoire_8c_ada1d6ba9175cadf17930cb95e1aaf56e}{proprietairePage}}\ \ =\ \ (\mbox{\hyperlink{include_2manux_2types_8h_a1aa19b97c742cff758e6532b519954c4}{TacheID}}\ *)\mbox{\hyperlink{memoire_8c_a40c472c1d550a802484196d93a333c89}{adresseLimitePileManuX}};}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00112}00112\ }
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00113}00113\ \ \ \ \textcolor{comment}{//\ On\ affiche\ un\ petit\ récapitulatif}}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00114}00114\ \ \ \ \mbox{\hyperlink{manux_2debug_8h_ad4cabea5084373436d91b5dc4e8d0a49}{printk\_debug}}(\mbox{\hyperlink{manux_2debug_8h_a792aa769935a581bc10439a92a648b6b}{DBG\_KERNEL\_MEMOIRE}},\ \textcolor{stringliteral}{"{}base\ =\ \%d,\ et\ =\ \%d\(\backslash\)n"{}},}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00115}00115\ \ \ \ \ \ \ \ \ tailleMemoireDeBase,\ tailleMemoireEtendue);}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00116}00116\ \ \ \ \mbox{\hyperlink{manux_2debug_8h_ad4cabea5084373436d91b5dc4e8d0a49}{printk\_debug}}(\mbox{\hyperlink{manux_2debug_8h_a792aa769935a581bc10439a92a648b6b}{DBG\_KERNEL\_MEMOIRE}},\ \textcolor{stringliteral}{"{}noyau\ d\ =\ 0x\%x\ ,\ f\ =\ 0x\%x\(\backslash\)n"{}},\ \mbox{\hyperlink{memoire_8c_aa01d90dd8a9ab43fe183ba17befaf7ff}{adresseDebutManuX}},\ \mbox{\hyperlink{memoire_8c_a7d3baaeec8923e57d98493d7087215a8}{adresseFinManuX}});}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00117}00117\ \ \ \ \mbox{\hyperlink{manux_2debug_8h_ad4cabea5084373436d91b5dc4e8d0a49}{printk\_debug}}(\mbox{\hyperlink{manux_2debug_8h_a792aa769935a581bc10439a92a648b6b}{DBG\_KERNEL\_MEMOIRE}},\ \textcolor{stringliteral}{"{}pile\ \ d\ =\ 0x\%x\ ,\ f\ =\ 0x\%x\(\backslash\)n"{}},\ \mbox{\hyperlink{memoire_8c_ada7ea2f9b729bc65c1adc6b4afc878f8}{adressePileManuX}},\ \mbox{\hyperlink{memoire_8c_a40c472c1d550a802484196d93a333c89}{adresseLimitePileManuX}});}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00118}00118\ \ \ \ \mbox{\hyperlink{manux_2debug_8h_ad4cabea5084373436d91b5dc4e8d0a49}{printk\_debug}}(\mbox{\hyperlink{manux_2debug_8h_a792aa769935a581bc10439a92a648b6b}{DBG\_KERNEL\_MEMOIRE}},\ \textcolor{stringliteral}{"{}mem\ \ \ d\ =\ 0x\%x\(\backslash\)n"{}},\ \mbox{\hyperlink{memoire_8c_ada1d6ba9175cadf17930cb95e1aaf56e}{proprietairePage}});}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00119}00119\ }
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00120}00120\ \ \ \ \textcolor{comment}{//\ Les\ tailles\ sont\ données\ en\ Ko}}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00121}00121\ \ \ \ nombrePages\ =\ (tailleMemoireDeBase\ +\ tailleMemoireEtendue)\ /\ 4;}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00122}00122\ }
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00123}00123\ \ \ \ \mbox{\hyperlink{manux_2debug_8h_ad4cabea5084373436d91b5dc4e8d0a49}{printk\_debug}}(\mbox{\hyperlink{manux_2debug_8h_a792aa769935a581bc10439a92a648b6b}{DBG\_KERNEL\_MEMOIRE}},\ \textcolor{stringliteral}{"{}\%d\ pages\ de\ \%d\ octets\(\backslash\)n"{}},}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00124}00124\ \ \ \ \ \ \ \ \ nombrePages,\ \mbox{\hyperlink{gestion-memoire_8h_ae8ff0cb54526f5b759984090d013d49f}{MANUX\_TAILLE\_PAGE}});}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00125}00125\ }
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00126}00126\ \ \ \ \textcolor{comment}{/*\ De\ combien\ de\ pages\ a-\/t-\/on\ besoin\ pour\ les\ gérer\ ?\ */}}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00127}00127\ \ \ \ \textcolor{comment}{/*\ Pour\ le\ moment,\ la\ gestion\ d'une\ page\ demande\ 4\ octets\ (bientôt 1\ bit\ !)\ */}}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00128}00128\ \ \ \ tailleProprietaire\ =\ 4\ *\ nombrePages\ \ /\ \mbox{\hyperlink{gestion-memoire_8h_ae8ff0cb54526f5b759984090d013d49f}{MANUX\_TAILLE\_PAGE}};\ }
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00129}00129\ \ \ \ \mbox{\hyperlink{manux_2debug_8h_ad4cabea5084373436d91b5dc4e8d0a49}{printk\_debug}}(\mbox{\hyperlink{manux_2debug_8h_a792aa769935a581bc10439a92a648b6b}{DBG\_KERNEL\_MEMOIRE}},\ \textcolor{stringliteral}{"{}taille\ proprietaire\ \%d\(\backslash\)n"{}},\ tailleProprietaire);}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00130}00130\ \ \ \ }
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00131}00131\ \ \ \ \textcolor{comment}{//\ Le\ tableau\ d'allocation\ des\ pages\ ne\ doit\ pas\ télescoper\ le\ BIOS\ !}}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00132}00132\ \ \ \ \mbox{\hyperlink{manux_2debug_8h_a3153a272f18d0f805028fce7e4337b53}{assert}}((\textcolor{keywordtype}{void}*)(\mbox{\hyperlink{memoire_8c_ada1d6ba9175cadf17930cb95e1aaf56e}{proprietairePage}}\ +\ tailleProprietaire*\mbox{\hyperlink{gestion-memoire_8h_ae8ff0cb54526f5b759984090d013d49f}{MANUX\_TAILLE\_PAGE}})}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00133}00133\ \ \ \ \ \ \ <\ (\textcolor{keywordtype}{void}\ *)\mbox{\hyperlink{plan-memoire-pc_8h_a388a07c865445c2f274a778c1f50ca3d}{MANUX\_ADRESSE\_BIOS}});}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00134}00134\ }
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00135}00135\ \ \ \ \textcolor{comment}{//\ Par\ défaut\ tout\ est\ libre}}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00136}00136\ \ \ \ \textcolor{keywordflow}{for}\ (i\ =\ 0;\ i\ <\ nombrePages;\ i++)\ \{}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00137}00137\ \ \ \ \ \ \ demarquerPage(i);\ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00138}00138\ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00139}00139\ }
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00140}00140\ \ \ \ \textcolor{comment}{//\ Les\ handlers\ :\ WARNING\ est-\/ce\ utile\ ?}}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00141}00141\ \ \ \ reserverPage(0);}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00142}00142\ \ \ \ \mbox{\hyperlink{manux_2debug_8h_ad4cabea5084373436d91b5dc4e8d0a49}{printk\_debug}}(\mbox{\hyperlink{manux_2debug_8h_a792aa769935a581bc10439a92a648b6b}{DBG\_KERNEL\_MEMOIRE}},\ \textcolor{stringliteral}{"{}\%3d\ pg\ 0x00\ a\ 0x00\ pour\ les\ handlers\(\backslash\)n"{}},\ 1);}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00143}00143\ \ \ \ }
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00144}00144\ \ \ \ \textcolor{comment}{//\ La\ IDT}}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00145}00145\ \ \ \ \textcolor{keywordflow}{for}\ (i=0\ ;\ i\ <\ \mbox{\hyperlink{usr_2include_2manux_2config_8h_ad22d7374b7be39da4606996f340f6d7a}{MANUX\_IDT\_NB\_PAGES}};\ i++)\ \{}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00146}00146\ \ \ \ \ \ \ reserverPage(\mbox{\hyperlink{include_2manux_2i386_8h_a7d3db7e7b71d403226d271da40d6101a}{ADDR\_VERS\_PAGE}}(\mbox{\hyperlink{plan-memoire-pc_8h_a3dac2f2810749b6bc48abc5444e83503}{MANUX\_ADRESSE\_IDT}})+i);}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00147}00147\ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00148}00148\ \ \ \ \mbox{\hyperlink{manux_2debug_8h_ad4cabea5084373436d91b5dc4e8d0a49}{printk\_debug}}(\mbox{\hyperlink{manux_2debug_8h_a792aa769935a581bc10439a92a648b6b}{DBG\_KERNEL\_MEMOIRE}},\ \textcolor{stringliteral}{"{}\%3d\ pg\ 0x0\%x\ a\ 0x0\%x\ pour\ la\ IDT\(\backslash\)n"{}},}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00149}00149\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{usr_2include_2manux_2config_8h_ad22d7374b7be39da4606996f340f6d7a}{MANUX\_IDT\_NB\_PAGES}},}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00150}00150\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{include_2manux_2i386_8h_a7d3db7e7b71d403226d271da40d6101a}{ADDR\_VERS\_PAGE}}(\mbox{\hyperlink{plan-memoire-pc_8h_a3dac2f2810749b6bc48abc5444e83503}{MANUX\_ADRESSE\_IDT}}),}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00151}00151\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{include_2manux_2i386_8h_a7d3db7e7b71d403226d271da40d6101a}{ADDR\_VERS\_PAGE}}(\mbox{\hyperlink{plan-memoire-pc_8h_a3dac2f2810749b6bc48abc5444e83503}{MANUX\_ADRESSE\_IDT}})\ +\ \mbox{\hyperlink{usr_2include_2manux_2config_8h_ad22d7374b7be39da4606996f340f6d7a}{MANUX\_IDT\_NB\_PAGES}}-\/1);}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00152}00152\ }
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00153}00153\ \ \ \ \textcolor{comment}{//\ La\ GDT}}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00154}00154\ \ \ \ \textcolor{keywordflow}{for}\ (i=0\ ;\ i\ <\ \mbox{\hyperlink{plan-memoire-pc_8h_a47a480233a5bb67636294c6f3b243039}{MANUX\_GDT\_NB\_PAGES}};\ i++)\ \{}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00155}00155\ \ \ \ \ \ \ reserverPage(\mbox{\hyperlink{include_2manux_2i386_8h_a7d3db7e7b71d403226d271da40d6101a}{ADDR\_VERS\_PAGE}}(\mbox{\hyperlink{plan-memoire-pc_8h_ab5e25660831ed8f2f45c1cce5c2261f1}{MANUX\_ADRESSE\_GDT}})+i);}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00156}00156\ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00157}00157\ \ \ \ \mbox{\hyperlink{manux_2debug_8h_ad4cabea5084373436d91b5dc4e8d0a49}{printk\_debug}}(\mbox{\hyperlink{manux_2debug_8h_a792aa769935a581bc10439a92a648b6b}{DBG\_KERNEL\_MEMOIRE}},\ \textcolor{stringliteral}{"{}\%3d\ pg\ 0x0\%x\ a\ 0x0\%x\ pour\ la\ GDT\(\backslash\)n"{}},}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00158}00158\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{plan-memoire-pc_8h_a47a480233a5bb67636294c6f3b243039}{MANUX\_GDT\_NB\_PAGES}},}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00159}00159\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{include_2manux_2i386_8h_a7d3db7e7b71d403226d271da40d6101a}{ADDR\_VERS\_PAGE}}(\mbox{\hyperlink{plan-memoire-pc_8h_ab5e25660831ed8f2f45c1cce5c2261f1}{MANUX\_ADRESSE\_GDT}}),}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00160}00160\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{include_2manux_2i386_8h_a7d3db7e7b71d403226d271da40d6101a}{ADDR\_VERS\_PAGE}}(\mbox{\hyperlink{plan-memoire-pc_8h_ab5e25660831ed8f2f45c1cce5c2261f1}{MANUX\_ADRESSE\_GDT}})\ +\ \mbox{\hyperlink{plan-memoire-pc_8h_a47a480233a5bb67636294c6f3b243039}{MANUX\_GDT\_NB\_PAGES}}-\/1);}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00161}00161\ }
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00162}00162\ \ \ \ \textcolor{comment}{//\ Le\ noyau}}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00163}00163\ \ \ \ nbrePagesManuX\ =\ (\mbox{\hyperlink{memoire_8c_a7d3baaeec8923e57d98493d7087215a8}{adresseFinManuX}}-\/\mbox{\hyperlink{memoire_8c_aa01d90dd8a9ab43fe183ba17befaf7ff}{adresseDebutManuX}})/\mbox{\hyperlink{gestion-memoire_8h_ae8ff0cb54526f5b759984090d013d49f}{MANUX\_TAILLE\_PAGE}}}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00164}00164\ \ \ \ \ \ +\ (((\mbox{\hyperlink{memoire_8c_a7d3baaeec8923e57d98493d7087215a8}{adresseFinManuX}}-\/\mbox{\hyperlink{memoire_8c_aa01d90dd8a9ab43fe183ba17befaf7ff}{adresseDebutManuX}})\%\mbox{\hyperlink{gestion-memoire_8h_ae8ff0cb54526f5b759984090d013d49f}{MANUX\_TAILLE\_PAGE}})?1:0);}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00165}00165\ \ \ \ \textcolor{keywordflow}{for}\ (i=0\ ;\ i\ <\ nbrePagesManuX;\ i++)\ \{}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00166}00166\ \ \ \ \ \ \ reserverPage(\mbox{\hyperlink{include_2manux_2i386_8h_a7d3db7e7b71d403226d271da40d6101a}{ADDR\_VERS\_PAGE}}(\mbox{\hyperlink{memoire_8c_aa01d90dd8a9ab43fe183ba17befaf7ff}{adresseDebutManuX}})+i);}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00167}00167\ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00168}00168\ \ \ \ \mbox{\hyperlink{manux_2debug_8h_ad4cabea5084373436d91b5dc4e8d0a49}{printk\_debug}}(\mbox{\hyperlink{manux_2debug_8h_a792aa769935a581bc10439a92a648b6b}{DBG\_KERNEL\_MEMOIRE}},\ \textcolor{stringliteral}{"{}\%3d\ pg\ 0x\%2x\ a\ 0x\%2x\ pour\ le\ noyau\(\backslash\)n"{}},}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00169}00169\ \ \ \ \ \ \ \ \ nbrePagesManuX,}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00170}00170\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{include_2manux_2i386_8h_a7d3db7e7b71d403226d271da40d6101a}{ADDR\_VERS\_PAGE}}(\mbox{\hyperlink{memoire_8c_aa01d90dd8a9ab43fe183ba17befaf7ff}{adresseDebutManuX}}),}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00171}00171\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{include_2manux_2i386_8h_a7d3db7e7b71d403226d271da40d6101a}{ADDR\_VERS\_PAGE}}(\mbox{\hyperlink{memoire_8c_aa01d90dd8a9ab43fe183ba17befaf7ff}{adresseDebutManuX}})+nbrePagesManuX-\/1);}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00172}00172\ }
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00173}00173\ \ \ \ \textcolor{comment}{//\ La\ pipile}}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00174}00174\ \ \ \ nbrePagesPile\ =\ (\mbox{\hyperlink{memoire_8c_a40c472c1d550a802484196d93a333c89}{adresseLimitePileManuX}}-\/\mbox{\hyperlink{memoire_8c_ada7ea2f9b729bc65c1adc6b4afc878f8}{adressePileManuX}})/\mbox{\hyperlink{gestion-memoire_8h_ae8ff0cb54526f5b759984090d013d49f}{MANUX\_TAILLE\_PAGE}}}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00175}00175\ \ \ \ \ \ +\ (((\mbox{\hyperlink{memoire_8c_a40c472c1d550a802484196d93a333c89}{adresseLimitePileManuX}}-\/\mbox{\hyperlink{memoire_8c_ada7ea2f9b729bc65c1adc6b4afc878f8}{adressePileManuX}})\%\mbox{\hyperlink{gestion-memoire_8h_ae8ff0cb54526f5b759984090d013d49f}{MANUX\_TAILLE\_PAGE}})?1:0);}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00176}00176\ \ \ \ \textcolor{keywordflow}{for}\ (i=0\ ;\ i\ <\ nbrePagesPile;\ i++)\ \{}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00177}00177\ \ \ \ \ \ \ reserverPage(\mbox{\hyperlink{include_2manux_2i386_8h_a7d3db7e7b71d403226d271da40d6101a}{ADDR\_VERS\_PAGE}}(\mbox{\hyperlink{memoire_8c_ada7ea2f9b729bc65c1adc6b4afc878f8}{adressePileManuX}})+i);}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00178}00178\ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00179}00179\ \ \ \ \mbox{\hyperlink{manux_2debug_8h_ad4cabea5084373436d91b5dc4e8d0a49}{printk\_debug}}(\mbox{\hyperlink{manux_2debug_8h_a792aa769935a581bc10439a92a648b6b}{DBG\_KERNEL\_MEMOIRE}},\ \textcolor{stringliteral}{"{}\%3d\ pg\ 0x\%2x\ a\ 0x\%2x\ pour\ la\ pile\(\backslash\)n"{}},}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00180}00180\ \ \ \ \ \ \ \ \ nbrePagesPile,}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00181}00181\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{include_2manux_2i386_8h_a7d3db7e7b71d403226d271da40d6101a}{ADDR\_VERS\_PAGE}}(\mbox{\hyperlink{memoire_8c_ada7ea2f9b729bc65c1adc6b4afc878f8}{adressePileManuX}}),}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00182}00182\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{include_2manux_2i386_8h_a7d3db7e7b71d403226d271da40d6101a}{ADDR\_VERS\_PAGE}}(\mbox{\hyperlink{memoire_8c_a40c472c1d550a802484196d93a333c89}{adresseLimitePileManuX}}-\/1));}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00183}00183\ \ \ \ \textcolor{comment}{//\ \ \ \ \ \ \ ADDR\_VERS\_PAGE()+nbrePagesPile-\/1);}}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00184}00184\ }
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00185}00185\ \ \ \ \textcolor{comment}{//\ La\ table\ d'allocation\ de\ la\ mémoire}}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00186}00186\ \ \ \ \textcolor{keywordflow}{for}\ (i=0\ ;\ i\ <\ tailleProprietaire;\ i++)\{}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00187}00187\ \ \ \ \ \ \ reserverPage(\mbox{\hyperlink{include_2manux_2i386_8h_a7d3db7e7b71d403226d271da40d6101a}{ADDR\_VERS\_PAGE}}(((\mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\_t}})\mbox{\hyperlink{memoire_8c_ada1d6ba9175cadf17930cb95e1aaf56e}{proprietairePage}}))+i);}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00188}00188\ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00189}00189\ \ \ \ \mbox{\hyperlink{manux_2debug_8h_ad4cabea5084373436d91b5dc4e8d0a49}{printk\_debug}}(\mbox{\hyperlink{manux_2debug_8h_a792aa769935a581bc10439a92a648b6b}{DBG\_KERNEL\_MEMOIRE}},\ \textcolor{stringliteral}{"{}\%3d\ pg\ 0x\%2x\ a\ 0x\%2x\ pour\ gestion\ memoire\(\backslash\)n"{}},}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00190}00190\ \ \ \ \ \ \ \ \ tailleProprietaire,}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00191}00191\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{include_2manux_2i386_8h_a7d3db7e7b71d403226d271da40d6101a}{ADDR\_VERS\_PAGE}}(((\mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\_t}})\mbox{\hyperlink{memoire_8c_ada1d6ba9175cadf17930cb95e1aaf56e}{proprietairePage}})),}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00192}00192\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{include_2manux_2i386_8h_a7d3db7e7b71d403226d271da40d6101a}{ADDR\_VERS\_PAGE}}(((\mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\_t}})\mbox{\hyperlink{memoire_8c_ada1d6ba9175cadf17930cb95e1aaf56e}{proprietairePage}}))\ +\ tailleProprietaire-\/1);}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00193}00193\ \ \ \ }
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00194}00194\ \ \ \ \textcolor{comment}{//\ Le\ BIOS\ (indéboulonable\ !)}}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00195}00195\ \ \ \ \textcolor{keywordflow}{for}\ (i=0\ ;\ i\ <\ \mbox{\hyperlink{plan-memoire-pc_8h_a31a76702a9c442daf7d70fa850e362c3}{MANUX\_BIOS\_NB\_PAGES}};\ i++)\ \{}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00196}00196\ \ \ \ \ \ \ reserverPage(\mbox{\hyperlink{include_2manux_2i386_8h_a7d3db7e7b71d403226d271da40d6101a}{ADDR\_VERS\_PAGE}}(\mbox{\hyperlink{plan-memoire-pc_8h_a388a07c865445c2f274a778c1f50ca3d}{MANUX\_ADRESSE\_BIOS}})+i);}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00197}00197\ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00198}00198\ \ \ \ \mbox{\hyperlink{manux_2debug_8h_ad4cabea5084373436d91b5dc4e8d0a49}{printk\_debug}}(\mbox{\hyperlink{manux_2debug_8h_a792aa769935a581bc10439a92a648b6b}{DBG\_KERNEL\_MEMOIRE}},\ \textcolor{stringliteral}{"{}\%3d\ pg\ 0x\%2x\ a\ 0x\%2x\ pour\ le\ BIOS\(\backslash\)n"{}},}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00199}00199\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{plan-memoire-pc_8h_a31a76702a9c442daf7d70fa850e362c3}{MANUX\_BIOS\_NB\_PAGES}},}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00200}00200\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{include_2manux_2i386_8h_a7d3db7e7b71d403226d271da40d6101a}{ADDR\_VERS\_PAGE}}(\mbox{\hyperlink{plan-memoire-pc_8h_a388a07c865445c2f274a778c1f50ca3d}{MANUX\_ADRESSE\_BIOS}}),}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00201}00201\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{include_2manux_2i386_8h_a7d3db7e7b71d403226d271da40d6101a}{ADDR\_VERS\_PAGE}}(\mbox{\hyperlink{plan-memoire-pc_8h_a388a07c865445c2f274a778c1f50ca3d}{MANUX\_ADRESSE\_BIOS}})+\mbox{\hyperlink{plan-memoire-pc_8h_a31a76702a9c442daf7d70fa850e362c3}{MANUX\_BIOS\_NB\_PAGES}}-\/1);}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00202}00202\ }
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00203}00203\ \}}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00204}00204\ }
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00205}00205\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00206}00206\ \textcolor{comment}{void\ *\ reserverPageSysteme()}}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00207}00207\ \textcolor{comment}{\{}}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00208}00208\ \textcolor{comment}{\ \ \ void\ *\ pageAllouee\ =\ NULL;}}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00209}00209\ \textcolor{comment}{\ \ \ int\ \ \ \ numeroPage;}}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00210}00210\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00211}00211\ \textcolor{comment}{\ \ \ while\ (pageAllouee\ ==\ NULL)\ \{}}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00212}00212\ \textcolor{comment}{\ \ \ \ \ \ numeroPage\ =\ MANUX\_DEBUT\_MEMOIRE\_ETENDUE/MANUX\_TAILLE\_PAGE;}}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00213}00213\ \textcolor{comment}{\ \ \ \ \ \ while\ (\ \ (numeroPage\ <\ nombrePagesSysteme)}}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00214}00214\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \&\&(proprietairePage[numeroPage]\ !=\ (TacheID)\ 0))\ \{}}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00215}00215\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ numeroPage++;}}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00216}00216\ \textcolor{comment}{\ \ \ \ \ \ \}}}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00217}00217\ \textcolor{comment}{\ \ \ \ \ \ //\ Si\ on\ trouve\ une\ page\ dispo\ }}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00218}00218\ \textcolor{comment}{\ \ \ \ \ \ if\ (numeroPage\ <\ nombrePages)\ \{}}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00219}00219\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ //\ On\ essaie\ de\ la\ réserver\ }}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00220}00220\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ if\ (atomiqueTestInit((Atomique\ *)\&(proprietairePage[numeroPage]),}}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00221}00221\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 1,\ 0))\ \{}}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00222}00222\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ pageAllouee\ =\ (void\ *)\ (numeroPage\ *\ MANUX\_TAILLE\_PAGE);}}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00223}00223\ \textcolor{comment}{\ \ \ \ \ \}}}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00224}00224\ \textcolor{comment}{\ \ \ \ \ \ //\ Sinon\ inutile\ de\ continuer\ }}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00225}00225\ \textcolor{comment}{\ \ \ \ \ \ \}\ else\ \{}}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00226}00226\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ return\ NULL;}}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00227}00227\ \textcolor{comment}{\ \ \ \ \ \ \}}}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00228}00228\ \textcolor{comment}{\ \ \ \}}}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00229}00229\ \textcolor{comment}{\ \ \ //printk("{}return\ 0x\%x\(\backslash\)n"{},\ pageAllouee);}}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00230}00230\ \textcolor{comment}{\ \ \ return\ pageAllouee;}}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00231}00231\ \textcolor{comment}{\}}}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00232}00232\ \textcolor{comment}{*/}}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00233}00233\ }
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00234}\mbox{\hyperlink{include_2manux_2memoire_8h_ad9072ff00da9e7f32b882e5c1361d46f}{00234}}\ \textcolor{keywordtype}{void}\ *\ \mbox{\hyperlink{memoire_8c_ad9072ff00da9e7f32b882e5c1361d46f}{allouerPage}}(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00235}00235\ \{}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00236}00236\ \ \ \ \textcolor{keywordtype}{void}\ *\ \ \ pageAllouee\ =\ \mbox{\hyperlink{include_2manux_2stddef_8h_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}};}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00237}00237\ \ \ \ \mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\_t}}\ numeroPage\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00238}00238\ }
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00239}00239\ \ \ \ \textcolor{comment}{//\ On\ cherche\ la\ première\ page\ libre}}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00240}00240\ \ \ \ \textcolor{keywordflow}{while}\ (\ \ (numeroPage\ <\ nombrePages)}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00241}00241\ \ \ \ \ \ \ \ \ \ \&\&(\mbox{\hyperlink{memoire_8c_ada1d6ba9175cadf17930cb95e1aaf56e}{proprietairePage}}[numeroPage]\ !=\ (\mbox{\hyperlink{include_2manux_2types_8h_a1aa19b97c742cff758e6532b519954c4}{TacheID}})\ 0))\ \{}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00242}00242\ \ \ \ \ \ \ numeroPage++;}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00243}00243\ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00244}00244\ }
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00245}00245\ \ \ \ \textcolor{comment}{/*\ Si\ on\ trouve\ une\ page\ dispo\ */}}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00246}00246\ \ \ \ \textcolor{keywordflow}{if}\ (numeroPage\ <\ nombrePages)\ \{}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00247}00247\ \ \ \ \ \ \ reserverPage(numeroPage);}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00248}00248\ \ \ \ \ \ \ pageAllouee\ =\ (\textcolor{keywordtype}{void}\ *)\ (numeroPage\ *\ \mbox{\hyperlink{gestion-memoire_8h_ae8ff0cb54526f5b759984090d013d49f}{MANUX\_TAILLE\_PAGE}});}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00249}00249\ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00250}00250\ \ \ \ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00251}00251\ \textcolor{comment}{\ \ \ printk\_debug(DBG\_KERNEL\_MEMOIRE,\ "{}Page\ 0x\%x\ allouee\(\backslash\)n"{},}}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00252}00252\ \textcolor{comment}{\ \ \ \ \ \ \ \ numeroPage);}}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00253}00253\ \textcolor{comment}{\ \ \ */}}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00254}00254\ \ \ \ \textcolor{keywordflow}{return}\ pageAllouee;}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00255}00255\ \}}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00256}00256\ }
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00257}\mbox{\hyperlink{include_2manux_2memoire_8h_a3aef845c64cbb35e0c25f697fd39156a}{00257}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{memoire_8c_a3aef845c64cbb35e0c25f697fd39156a}{nombrePagesAllouees}}(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00258}00258\ \{}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00259}00259\ \ \ \textcolor{keywordflow}{return}\ nombreDePagesAllouees;}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00260}00260\ \}}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00261}00261\ }
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00262}\mbox{\hyperlink{include_2manux_2memoire_8h_a4f075bfff5a918e6ac19bf24be879e96}{00262}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{memoire_8c_a4f075bfff5a918e6ac19bf24be879e96}{nombrePagesTotal}}(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00263}00263\ \{}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00264}00264\ \ \ \textcolor{keywordflow}{return}\ nombrePages;}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00265}00265\ \}}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00266}00266\ }
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00270}00270\ \textcolor{keyword}{static}}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00271}00271\ \mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\_t}}\ nombrePagesLibres(\mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\_t}}\ numeroPage)}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00272}00272\ \{}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00273}00273\ \ \ \ \textcolor{keywordtype}{int}\ result\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00274}00274\ }
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00275}00275\ \ \ \ \textcolor{keywordflow}{while}\ ((\mbox{\hyperlink{memoire_8c_ada1d6ba9175cadf17930cb95e1aaf56e}{proprietairePage}}[numeroPage+result]\ ==\ (\mbox{\hyperlink{include_2manux_2types_8h_a1aa19b97c742cff758e6532b519954c4}{TacheID}})\ 0)}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00276}00276\ \ \ \ \ \ \ \&\&\ (numeroPage\ +\ ++result\ <\ nombrePages))\ \{}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00277}00277\ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00278}00278\ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00279}00279\ \}}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00280}00280\ }
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00284}\mbox{\hyperlink{include_2manux_2memoire_8h_a09bebf2806a04211ae6bb6c11ffb6a66}{00284}}\ \textcolor{keywordtype}{void}\ *\ \mbox{\hyperlink{memoire_8c_a09bebf2806a04211ae6bb6c11ffb6a66}{allouerPages}}(\mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\_t}}\ nombre)}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00285}00285\ \{}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00286}00286\ \ \ \ \textcolor{keywordtype}{void}\ *\ \ \ result\ =\ \mbox{\hyperlink{include_2manux_2stddef_8h_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}};}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00287}00287\ \ \ \ \mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\_t}}\ numeroPage\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00288}00288\ }
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00289}00289\ \ \ \ \textcolor{comment}{//\ On\ cherche\ la\ première\ page\ libre}}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00290}00290\ \ \ \ \textcolor{keywordflow}{while}\ (\ \ (numeroPage\ <\ nombrePages\ -\/\ nombre)}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00291}00291\ \ \ \ \ \ \ \ \ \&\&\ (nombrePagesLibres(numeroPage)\ <\ nombre))\ \{}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00292}00292\ \ \ \ \ \ \textcolor{comment}{//\ Inutile\ d'aller\ voir\ les\ suivantes,\ qui\ sont\ trop\ peu}}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00293}00293\ \ \ \ \ \ \textcolor{comment}{//\ nombreuses,\ ni\ celle\ d'après,\ qui\ est\ allouée.}}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00294}00294\ \ \ \ \ \ numeroPage\ +=\ nombrePagesLibres(numeroPage)\ +\ 1;}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00295}00295\ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00296}00296\ }
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00297}00297\ \ \ \ \textcolor{comment}{/*\ Si\ on\ trouve\ une\ page\ dispo\ */}}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00298}00298\ \ \ \ \textcolor{keywordflow}{if}\ ((numeroPage\ <\ nombrePages)\ \ \&\&\ (nombrePagesLibres(numeroPage)\ >=\ nombre))\{}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00299}00299\ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\_t}}\ i\ =\ numeroPage;\ i\ <\ numeroPage+nombre;\ i++)\ \{}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00300}00300\ \ \ \ \ \ \ \ \ \ reserverPage(i);}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00301}00301\ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00302}00302\ \ \ \ \ \ result\ =\ (\textcolor{keywordtype}{void}\ *)\ (numeroPage\ *\ \mbox{\hyperlink{gestion-memoire_8h_ae8ff0cb54526f5b759984090d013d49f}{MANUX\_TAILLE\_PAGE}});}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00303}00303\ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00304}00304\ }
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00305}00305\ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00306}00306\ \}}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00307}00307\ }
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00308}00308\ \textcolor{preprocessor}{\#if\ defined(MANUX\_APPELS\_SYSTEME)\ \&\&\ defined(MANUX\_PAGINATION)}}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00309}00309\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00310}00310\ \textcolor{comment}{\ *\ WARNING\ :\ pas\ encore\ utilisé ?!}}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00311}00311\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00312}00312\ [[maybe\_unused]]}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00313}00313\ \textcolor{keyword}{static}}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00314}00314\ \textcolor{keywordtype}{int}\ AS\_obtenirPages(\mbox{\hyperlink{struct__ParametreAS}{ParametreAS}}\ p,\ \textcolor{keywordtype}{int}\ nbPages)}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00315}00315\ \{}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00316}00316\ \ \ \ \mbox{\hyperlink{include_2manux_2types_8h_a1541e9c22944f11aa406a073c3ddd6ff}{Page}}\ unePage;}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00317}00317\ \ \ \ \mbox{\hyperlink{struct__Tache}{Tache}}\ *\ tache\ =\ \mbox{\hyperlink{scheduler_8h_aafdf44b33a86f1bef6141d33a4abb94b}{tacheEnCours}};}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00318}00318\ }
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00319}00319\ \ \ \ (\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}})\ p;}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00320}00320\ }
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00321}00321\ \ \ \ \textcolor{comment}{/*\ Pour\ le\ moment,\ on\ ne\ sait\ faire\ qu'une\ à la\ fois\ */}}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00322}00322\ \ \ \ \textcolor{keywordflow}{if}\ (nbPages\ !=\ 1)\ \{}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00323}00323\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00324}00324\ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00325}00325\ }
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00326}00326\ \ \ \ \textcolor{comment}{/*\ Obtention\ de\ la\ page\ */}}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00327}00327\ \ \ \ unePage\ =\ \mbox{\hyperlink{memoire_8c_ad9072ff00da9e7f32b882e5c1361d46f}{allouerPage}}();}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00328}00328\ }
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00329}00329\ \ \ \ \textcolor{comment}{/*\ Ajout\ à la\ fin\ de\ la\ mémoire\ virtuelle\ de\ la\ tâche\ */}}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00330}00330\ \ \ \ \mbox{\hyperlink{pagination_8h_a84dafc7d068bc475db5b6e2573899abc}{ajouterPage}}((\mbox{\hyperlink{pagination_8h_adea7218ca4ee2deb864db4fdd23419d2}{PageDirectory}}\ *)\&tache-\/>\mbox{\hyperlink{struct__Tache_af2bac45e38758f03f8b91fff30e0fb3e}{tss}}.\mbox{\hyperlink{struct__IntelTSS_a8c4955d0d3666b75a5f64df1932a8d06}{CR3}},}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00331}00331\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ unePage,}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00332}00332\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ tache-\/>\mbox{\hyperlink{struct__Tache_ac053a0bcac4f36fcad81e909c1e81b3a}{tailleMemoire}});}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00333}00333\ }
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00334}00334\ \ \ \ \textcolor{comment}{/*\ On\ note\ qu'on\ a\ davantage\ de\ mémoire\ */}}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00335}00335\ \ \ \ tache-\/>\mbox{\hyperlink{struct__Tache_ac053a0bcac4f36fcad81e909c1e81b3a}{tailleMemoire}}\ +=\ \mbox{\hyperlink{gestion-memoire_8h_ae8ff0cb54526f5b759984090d013d49f}{MANUX\_TAILLE\_PAGE}};}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00336}00336\ }
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00337}00337\ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00338}00338\ \}}
+\DoxyCodeLine{\Hypertarget{memoire_8c_source_l00339}00339\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

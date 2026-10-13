@@ -1,3 +1,7 @@
+        A PRIORI C'EST OBSOLETE !!
+
+	   A VIRER DONC NON ? * 
+	
 /*----------------------------------------------------------------------------*/
 /*      Outils permettant de générer un taille.conf pour la compilation de    */
 /* ManuX                                                                      */

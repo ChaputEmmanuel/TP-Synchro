@@ -1,0 +1,9 @@
+<map id="_Fichier" name="_Fichier">
+<area shape="rect" id="Node000001" title=": Qu&#39;est&#45;ce qu&#39;un fichier ouvert du point de vue du noyau ?" alt="" coords="121,181,193,207"/>
+<area shape="rect" id="Node000002" href="$struct__INoeud.html" title=": Un INoeud représente un fichier, d&#39;un point de vue statique Il s&#39;agit donc de la description d&#39;un f..." alt="" coords="120,93,195,119"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="160,133,160,181,155,181,155,133"/>
+<area shape="rect" id="Node000003" href="$struct__TypePeripherique.html" title=": Définition du type d&#39;un périphérique Pour le moment il sera représenté de façon assez classique par..." alt="" coords="5,5,147,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="83,43,95,68,110,81,127,91,125,95,107,85,91,71,78,45"/>
+<area shape="rect" id="Node000004" href="$struct__MethodesFichier.html" title=": Définition des opérations réalisables sur un fichier" alt="" coords="171,5,307,31"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="230,45,211,71,180,95,177,91,207,67,225,41"/>
+</map>

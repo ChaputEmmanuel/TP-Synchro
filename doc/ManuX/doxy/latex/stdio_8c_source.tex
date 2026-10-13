@@ -1,0 +1,155 @@
+\doxysection{stdio.\+c}
+\hypertarget{stdio_8c_source}{}\label{stdio_8c_source}\index{/home/manu/PROGRAMMATION/C/ManuX/usr/stdio.c@{/home/manu/PROGRAMMATION/C/ManuX/usr/stdio.c}}
+\mbox{\hyperlink{stdio_8c}{Aller Ã  la documentation de ce fichier.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{stdio_8c_source_l00001}00001\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{stdio_8c_source_l00002}00002\ \textcolor{comment}{/*\ \ \ \ \ \ Implantion\ des\ fonctions\ de\ base\ d'entrée-\/sortie\ du\ mode\ utilisateur.\ */}}
+\DoxyCodeLine{\Hypertarget{stdio_8c_source_l00003}00003\ \textcolor{comment}{/*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{stdio_8c_source_l00004}00004\ \textcolor{comment}{/*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (C)\ Manu\ Chaput\ 2002-\/2021\ */}}
+\DoxyCodeLine{\Hypertarget{stdio_8c_source_l00005}00005\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{stdio_8c_source_l00006}00006\ \textcolor{preprocessor}{\#include\ <manux/config.h>}\ \ \ \ \ \textcolor{comment}{//\ Suivant\ la\ config\ on\ passe\ par\ fs\ ou\ pas}}
+\DoxyCodeLine{\Hypertarget{stdio_8c_source_l00007}00007\ \textcolor{preprocessor}{\#include\ <manux/appelsysteme.h>}}
+\DoxyCodeLine{\Hypertarget{stdio_8c_source_l00008}00008\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{stdio_8h}{stdio.h}}>}}
+\DoxyCodeLine{\Hypertarget{stdio_8c_source_l00009}00009\ }
+\DoxyCodeLine{\Hypertarget{stdio_8c_source_l00014}\mbox{\hyperlink{stdio_8c_a35c1f462c29ba66bacdb8819d37c502e}{00014}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{stdio_8c_a35c1f462c29ba66bacdb8819d37c502e}{vsnprintk}}(\textcolor{keywordtype}{char}\ *\ \mbox{\hyperlink{include_2manux_2i386_8h_a78b6d0d522b49e5b375731d08f4c39fd}{str}},\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{size\_t}\ l,\ \textcolor{keywordtype}{char}\ *\ format,\ \mbox{\hyperlink{include_2manux_2stdarg_8h_af53f622e3b6c080daeb167c1955d7ec1}{va\_list}}\ argList);}
+\DoxyCodeLine{\Hypertarget{stdio_8c_source_l00015}00015\ }
+\DoxyCodeLine{\Hypertarget{stdio_8c_source_l00016}\mbox{\hyperlink{stdio_8c_a6fb514b92925e962cc3576445492ad06}{00016}}\ \textcolor{preprocessor}{\#define\ MAX\_PRINTF\_LENGTH\ 64}}
+\DoxyCodeLine{\Hypertarget{stdio_8c_source_l00017}00017\ }
+\DoxyCodeLine{\Hypertarget{stdio_8c_source_l00018}\mbox{\hyperlink{stdio_8c_a751b71485e6bb228423b412943328232}{00018}}\ \textcolor{preprocessor}{\#define\ chiffre\ "{}0123456789abcdef"{}}}
+\DoxyCodeLine{\Hypertarget{stdio_8c_source_l00019}00019\ }
+\DoxyCodeLine{\Hypertarget{stdio_8c_source_l00020}\mbox{\hyperlink{stdio_8c_a85f127722c8d051635ac6fac12c99571}{00020}}\ \mbox{\hyperlink{usr_2include_2manux_2appelsysteme_8h_ac79254a5f0c355a82f51b90313058041}{appelSysteme3}}(\mbox{\hyperlink{include_2manux_2appelsystemenum_8h_af6f2b6432cfa9ae465218edc7dce87d8}{NBAS\_ECRIRE}},\ \textcolor{keywordtype}{int},\ \mbox{\hyperlink{stdio_8h_afb8a53c515b7e4b7b0c2d9abf9f7d0c0}{ecrire}},\ \textcolor{keywordtype}{int},\ \textcolor{keywordtype}{void}\ *,\ \textcolor{keywordtype}{int});}
+\DoxyCodeLine{\Hypertarget{stdio_8c_source_l00021}00021\ }
+\DoxyCodeLine{\Hypertarget{stdio_8c_source_l00022}\mbox{\hyperlink{stdio_8c_a2ccd5a40c9a25558db6fa1887ecce751}{00022}}\ \mbox{\hyperlink{usr_2include_2manux_2appelsysteme_8h_ac79254a5f0c355a82f51b90313058041}{appelSysteme3}}(\mbox{\hyperlink{include_2manux_2appelsystemenum_8h_aaf3a5c58d84af2705d30a45914274b7c}{NBAS\_LIRE}},\ \textcolor{keywordtype}{int},\ \mbox{\hyperlink{stdio_8h_a0d64d8b56640a3dea27ca2d59f711e35}{lire}},\ \textcolor{keywordtype}{int},\ \textcolor{keywordtype}{void}\ *,\ \textcolor{keywordtype}{int});}
+\DoxyCodeLine{\Hypertarget{stdio_8c_source_l00023}00023\ }
+\DoxyCodeLine{\Hypertarget{stdio_8c_source_l00024}\mbox{\hyperlink{stdio_8c_ac0840e2d8114956f8614d2427bd8c726}{00024}}\ \mbox{\hyperlink{usr_2include_2manux_2appelsysteme_8h_aa537637276ac00892b710bad5cf28292}{appelSysteme1}}(\mbox{\hyperlink{include_2manux_2appelsystemenum_8h_a8bc3e6338e5b025a7e139f7e33181447}{NBAS\_FERMER}},\ \textcolor{keywordtype}{int},\ \mbox{\hyperlink{stdio_8h_a66a9ef9199d2ddbbf2b6b0c7f7b99ab5}{fermer}},\ \textcolor{keywordtype}{int});}
+\DoxyCodeLine{\Hypertarget{stdio_8c_source_l00025}00025\ }
+\DoxyCodeLine{\Hypertarget{stdio_8c_source_l00026}00026\ }
+\DoxyCodeLine{\Hypertarget{stdio_8c_source_l00027}00027\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{stdio_8c_source_l00028}00028\ \textcolor{comment}{\ *\ ecrireConsole\ est\ un\ appel\ système.\ Son\ "{}implantation"{}\ côté}}
+\DoxyCodeLine{\Hypertarget{stdio_8c_source_l00029}00029\ \textcolor{comment}{\ *\ utilisateur\ passe\ donc\ par\ une\ macro.}}
+\DoxyCodeLine{\Hypertarget{stdio_8c_source_l00030}00030\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{stdio_8c_source_l00031}\mbox{\hyperlink{stdio_8c_af7790270f6ec0e3a8b4535c070602a37}{00031}}\ \mbox{\hyperlink{usr_2include_2manux_2appelsysteme_8h_acaae5c8a118b6ba8d8fc01dc8b7fe648}{appelSysteme2}}(\mbox{\hyperlink{include_2manux_2appelsystemenum_8h_a5b97a0359c72a132c3943c5678d2321e}{NBAS\_ECRIRE\_CONS}},\ \textcolor{keywordtype}{int},\ \mbox{\hyperlink{stdio_8h_a861f236a5adfcd353291fd93b2498226}{ecrireConsole}},\ \textcolor{keywordtype}{char}\ *,\ \textcolor{keywordtype}{int});}
+\DoxyCodeLine{\Hypertarget{stdio_8c_source_l00032}00032\ }
+\DoxyCodeLine{\Hypertarget{stdio_8c_source_l00038}\mbox{\hyperlink{stdio_8c_a0daccbeb6277ebc17e52e3ae03e11c27}{00038}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{stdio_8c_a0daccbeb6277ebc17e52e3ae03e11c27}{vsnprintf}}(\textcolor{keywordtype}{char}\ *\ \mbox{\hyperlink{include_2manux_2i386_8h_a78b6d0d522b49e5b375731d08f4c39fd}{str}},\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{size\_t}\ l,\ \textcolor{keywordtype}{char}\ *\ format,\ \mbox{\hyperlink{include_2manux_2stdarg_8h_af53f622e3b6c080daeb167c1955d7ec1}{va\_list}}\ argList)}
+\DoxyCodeLine{\Hypertarget{stdio_8c_source_l00039}00039\ \{}
+\DoxyCodeLine{\Hypertarget{stdio_8c_source_l00040}00040\ \ \ \ \textcolor{keywordtype}{size\_t}\ \ \ \ indice\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{stdio_8c_source_l00041}00041\ \ \ \ \textcolor{comment}{//\ \ \ long\ long\ int\ \ \ \ \ \ \ n;\ \ \ //\ valeur\ associée à un\ \%[l]d}}
+\DoxyCodeLine{\Hypertarget{stdio_8c_source_l00042}00042\ \ \ \ \textcolor{keywordtype}{long}\ \textcolor{keywordtype}{int}\ \ \ \ \ \ \ n;\ \ \ \textcolor{comment}{//\ valeur\ associée à un\ \%[l]d}}
+\DoxyCodeLine{\Hypertarget{stdio_8c_source_l00043}00043\ \ \ \ \textcolor{keywordtype}{char}\ \ \ \ \ \ nombre[10];\ \ \ \ \textcolor{comment}{//\ chaîne\ du\ nombre}}
+\DoxyCodeLine{\Hypertarget{stdio_8c_source_l00044}00044\ \ \ \ \textcolor{keywordtype}{char}\ \ \ \ *\ s;\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ valeur\ associée à un\ \%s}}
+\DoxyCodeLine{\Hypertarget{stdio_8c_source_l00045}00045\ \ \ \ \textcolor{keywordtype}{char}\ \ \ \ \ \ \mbox{\hyperlink{main-bootreg_8c_add06ad5d8520e7cff4ff84b2811c0982}{c}};\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Affichage\ d'un\ caractère}}
+\DoxyCodeLine{\Hypertarget{stdio_8c_source_l00046}00046\ \ \ \ \textcolor{keywordtype}{int}\ \ \ \ \ \ \ in;\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ indice\ pour\ les\ boucles\ internes}}
+\DoxyCodeLine{\Hypertarget{stdio_8c_source_l00047}00047\ \ \ \ \textcolor{keywordtype}{int}\ \ \ \ \ \ \ nbChiffres;\ \ \ \ \textcolor{comment}{//\ pour\ les\ \%[n]d}}
+\DoxyCodeLine{\Hypertarget{stdio_8c_source_l00048}00048\ \ \ \ \textcolor{keywordtype}{int}\ \ \ \ \ \ \ base;\ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ de\ l'affichage\ entier}}
+\DoxyCodeLine{\Hypertarget{stdio_8c_source_l00049}00049\ \ \ \ \textcolor{keywordtype}{int}\ \ \ \ \ \ \ prefixe;\ \ \ \ \ \ \ \textcolor{comment}{//\ 0\ int,\ 1\ long\ int,\ 2\ long\ long\ int}}
+\DoxyCodeLine{\Hypertarget{stdio_8c_source_l00050}00050\ \ \ \ }
+\DoxyCodeLine{\Hypertarget{stdio_8c_source_l00051}00051\ \ \ \ \textcolor{keywordflow}{while}\ ((*format)\ \&\&\ (indice\ <\ l-\/1))\ \{}
+\DoxyCodeLine{\Hypertarget{stdio_8c_source_l00052}00052\ \ \ \ \ \ \ \textcolor{keywordflow}{switch}\ (*format)\ \{}
+\DoxyCodeLine{\Hypertarget{stdio_8c_source_l00053}00053\ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'\%'}\ :}
+\DoxyCodeLine{\Hypertarget{stdio_8c_source_l00054}00054\ \ \ \ \ \ \ \ \ \ \ \ \ format++;}
+\DoxyCodeLine{\Hypertarget{stdio_8c_source_l00055}00055\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Lecture\ de\ la\ taille}}
+\DoxyCodeLine{\Hypertarget{stdio_8c_source_l00056}00056\ \ \ \ \ \ \ \ \ \ \ \ \ nbChiffres\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{stdio_8c_source_l00057}00057\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ ((*format\ <=\ \textcolor{charliteral}{'9'})\ \&\&\ (*format\ >=\ \textcolor{charliteral}{'0'}))\ \{}
+\DoxyCodeLine{\Hypertarget{stdio_8c_source_l00058}00058\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ nbChiffres\ =\ nbChiffres\ *\ 10\ +\ *format\ -\/\ \textcolor{charliteral}{'0'};}
+\DoxyCodeLine{\Hypertarget{stdio_8c_source_l00059}00059\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ format++;}
+\DoxyCodeLine{\Hypertarget{stdio_8c_source_l00060}00060\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stdio_8c_source_l00061}00061\ }
+\DoxyCodeLine{\Hypertarget{stdio_8c_source_l00062}00062\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Pas\ forcément\ bien\ là, mais\ j'ai\ pas\ mieux\ dans\ l'immédiat}}
+\DoxyCodeLine{\Hypertarget{stdio_8c_source_l00063}00063\ \ \ \ \ \ \ \ \ prefixe\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{stdio_8c_source_l00064}00064\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (*format\ ==\ \textcolor{charliteral}{'l'})\ \{}
+\DoxyCodeLine{\Hypertarget{stdio_8c_source_l00065}00065\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ format++;}
+\DoxyCodeLine{\Hypertarget{stdio_8c_source_l00066}00066\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (*format\ ==\ \textcolor{charliteral}{'l'})\ \{}
+\DoxyCodeLine{\Hypertarget{stdio_8c_source_l00067}00067\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ format++;}
+\DoxyCodeLine{\Hypertarget{stdio_8c_source_l00068}00068\ \ \ \ \ \ \ \ \ \ \ prefixe\ =\ 2;}
+\DoxyCodeLine{\Hypertarget{stdio_8c_source_l00069}00069\ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{stdio_8c_source_l00070}00070\ \ \ \ \ \ \ \ \ \ \ prefixe\ =\ 1;}
+\DoxyCodeLine{\Hypertarget{stdio_8c_source_l00071}00071\ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stdio_8c_source_l00072}00072\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stdio_8c_source_l00073}00073\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{switch}\ (*format)\ \{}
+\DoxyCodeLine{\Hypertarget{stdio_8c_source_l00074}00074\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'o'}\ :}
+\DoxyCodeLine{\Hypertarget{stdio_8c_source_l00075}00075\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ base\ =\ 8;}
+\DoxyCodeLine{\Hypertarget{stdio_8c_source_l00076}00076\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{goto}\ affent;}
+\DoxyCodeLine{\Hypertarget{stdio_8c_source_l00077}00077\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'x'}\ :}
+\DoxyCodeLine{\Hypertarget{stdio_8c_source_l00078}00078\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ base\ =\ 16;}
+\DoxyCodeLine{\Hypertarget{stdio_8c_source_l00079}00079\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{goto}\ affent;}
+\DoxyCodeLine{\Hypertarget{stdio_8c_source_l00080}00080\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'d'}\ :}
+\DoxyCodeLine{\Hypertarget{stdio_8c_source_l00081}00081\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ base\ =\ 10;}
+\DoxyCodeLine{\Hypertarget{stdio_8c_source_l00082}00082\ affent\ :\ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{switch}\ (prefixe)\ \{}
+\DoxyCodeLine{\Hypertarget{stdio_8c_source_l00083}00083\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 2\ :}
+\DoxyCodeLine{\Hypertarget{stdio_8c_source_l00084}00084\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ n\ =\ 0;\ \textcolor{comment}{//;va\_arg(argList,\ long\ long\ int);\ WARNING}}
+\DoxyCodeLine{\Hypertarget{stdio_8c_source_l00085}00085\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{stdio_8c_source_l00086}00086\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 1\ :}
+\DoxyCodeLine{\Hypertarget{stdio_8c_source_l00087}00087\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ n\ =\ \mbox{\hyperlink{include_2manux_2stdarg_8h_a81ebe6ea6253b0c6618e29de70fe10eb}{va\_arg}}(argList,\ \textcolor{keywordtype}{long}\ \textcolor{keywordtype}{int});}
+\DoxyCodeLine{\Hypertarget{stdio_8c_source_l00088}00088\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{stdio_8c_source_l00089}00089\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ default\ :}
+\DoxyCodeLine{\Hypertarget{stdio_8c_source_l00090}00090\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ n\ =\ \mbox{\hyperlink{include_2manux_2stdarg_8h_a81ebe6ea6253b0c6618e29de70fe10eb}{va\_arg}}(argList,\ \textcolor{keywordtype}{int});}
+\DoxyCodeLine{\Hypertarget{stdio_8c_source_l00091}00091\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{stdio_8c_source_l00092}00092\ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stdio_8c_source_l00093}00093\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (n\ <\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{stdio_8c_source_l00094}00094\ \ \ \ \ \ \ \ \ \ \ \ \ \ n\ =\ -\/n;}
+\DoxyCodeLine{\Hypertarget{stdio_8c_source_l00095}00095\ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{include_2manux_2i386_8h_a78b6d0d522b49e5b375731d08f4c39fd}{str}}[indice++]\ =\ \textcolor{charliteral}{'-\/'};}
+\DoxyCodeLine{\Hypertarget{stdio_8c_source_l00096}00096\ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stdio_8c_source_l00097}00097\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ in\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{stdio_8c_source_l00098}00098\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{do}\ \{}
+\DoxyCodeLine{\Hypertarget{stdio_8c_source_l00099}00099\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ nombre[in++]\ =\ \mbox{\hyperlink{stdio_8c_a751b71485e6bb228423b412943328232}{chiffre}}[n\%base];}
+\DoxyCodeLine{\Hypertarget{stdio_8c_source_l00100}00100\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ n\ =\ n/base;\ \ \ \textcolor{comment}{//\ n\ est\ défini\ comme\ long\ long,\ }}
+\DoxyCodeLine{\Hypertarget{stdio_8c_source_l00101}00101\ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{while}\ (n\ !=\ 0);}
+\DoxyCodeLine{\Hypertarget{stdio_8c_source_l00102}00102\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (nbChiffres\ >\ in)\ \{}
+\DoxyCodeLine{\Hypertarget{stdio_8c_source_l00103}00103\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ nbChiffres-\/-\/;}
+\DoxyCodeLine{\Hypertarget{stdio_8c_source_l00104}00104\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{include_2manux_2i386_8h_a78b6d0d522b49e5b375731d08f4c39fd}{str}}[indice++]\ =\ \textcolor{charliteral}{'\ '};}
+\DoxyCodeLine{\Hypertarget{stdio_8c_source_l00105}00105\ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stdio_8c_source_l00106}00106\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{do}\ \{}
+\DoxyCodeLine{\Hypertarget{stdio_8c_source_l00107}00107\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{include_2manux_2i386_8h_a78b6d0d522b49e5b375731d08f4c39fd}{str}}[indice++]\ =\ nombre[-\/-\/in];}
+\DoxyCodeLine{\Hypertarget{stdio_8c_source_l00108}00108\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{while}\ (in);}
+\DoxyCodeLine{\Hypertarget{stdio_8c_source_l00109}00109\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};\ }
+\DoxyCodeLine{\Hypertarget{stdio_8c_source_l00110}00110\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'s'}\ :}
+\DoxyCodeLine{\Hypertarget{stdio_8c_source_l00111}00111\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ s\ =\ \mbox{\hyperlink{include_2manux_2stdarg_8h_a81ebe6ea6253b0c6618e29de70fe10eb}{va\_arg}}(argList,\ \textcolor{keywordtype}{char}\ *);}
+\DoxyCodeLine{\Hypertarget{stdio_8c_source_l00112}00112\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ in\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{stdio_8c_source_l00113}00113\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (s[in])\ \{}
+\DoxyCodeLine{\Hypertarget{stdio_8c_source_l00114}00114\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{include_2manux_2i386_8h_a78b6d0d522b49e5b375731d08f4c39fd}{str}}[indice++]\ =\ s[in++];}
+\DoxyCodeLine{\Hypertarget{stdio_8c_source_l00115}00115\ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stdio_8c_source_l00116}00116\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{stdio_8c_source_l00117}00117\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'c'}\ :}
+\DoxyCodeLine{\Hypertarget{stdio_8c_source_l00118}00118\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{main-bootreg_8c_add06ad5d8520e7cff4ff84b2811c0982}{c}}\ =\ (char)\mbox{\hyperlink{include_2manux_2stdarg_8h_a81ebe6ea6253b0c6618e29de70fe10eb}{va\_arg}}(argList,\ \textcolor{keywordtype}{int});}
+\DoxyCodeLine{\Hypertarget{stdio_8c_source_l00119}00119\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ in\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{stdio_8c_source_l00120}00120\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{include_2manux_2i386_8h_a78b6d0d522b49e5b375731d08f4c39fd}{str}}[indice++]\ =\ \mbox{\hyperlink{main-bootreg_8c_add06ad5d8520e7cff4ff84b2811c0982}{c}};}
+\DoxyCodeLine{\Hypertarget{stdio_8c_source_l00121}00121\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{stdio_8c_source_l00122}00122\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ default\ :}
+\DoxyCodeLine{\Hypertarget{stdio_8c_source_l00123}00123\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};\ }
+\DoxyCodeLine{\Hypertarget{stdio_8c_source_l00124}00124\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stdio_8c_source_l00125}00125\ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{stdio_8c_source_l00126}00126\ \ \ \ \ \ default\ :}
+\DoxyCodeLine{\Hypertarget{stdio_8c_source_l00127}00127\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{include_2manux_2i386_8h_a78b6d0d522b49e5b375731d08f4c39fd}{str}}[indice++]\ =\ *format;}
+\DoxyCodeLine{\Hypertarget{stdio_8c_source_l00128}00128\ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{stdio_8c_source_l00129}00129\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stdio_8c_source_l00130}00130\ \ \ \ \ \ \ format++;}
+\DoxyCodeLine{\Hypertarget{stdio_8c_source_l00131}00131\ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stdio_8c_source_l00132}00132\ }
+\DoxyCodeLine{\Hypertarget{stdio_8c_source_l00133}00133\ \ \ \ \mbox{\hyperlink{include_2manux_2i386_8h_a78b6d0d522b49e5b375731d08f4c39fd}{str}}[(indice\ <\ l)?indice:(l-\/1)]\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{stdio_8c_source_l00134}00134\ }
+\DoxyCodeLine{\Hypertarget{stdio_8c_source_l00135}00135\ \ \ \ \textcolor{keywordflow}{return}\ indice;}
+\DoxyCodeLine{\Hypertarget{stdio_8c_source_l00136}00136\ \}}
+\DoxyCodeLine{\Hypertarget{stdio_8c_source_l00137}00137\ }
+\DoxyCodeLine{\Hypertarget{stdio_8c_source_l00142}\mbox{\hyperlink{stdio_8h_a63c54f1d737929378b379911b1ca4a45}{00142}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{stdio_8c_a63c54f1d737929378b379911b1ca4a45}{printf}}(\textcolor{keywordtype}{char}\ *\ format,\ ...)}
+\DoxyCodeLine{\Hypertarget{stdio_8c_source_l00143}00143\ \{}
+\DoxyCodeLine{\Hypertarget{stdio_8c_source_l00144}00144\ \ \ \ \mbox{\hyperlink{include_2manux_2stdarg_8h_af53f622e3b6c080daeb167c1955d7ec1}{va\_list}}\ argList;}
+\DoxyCodeLine{\Hypertarget{stdio_8c_source_l00145}00145\ \ \ \ \textcolor{keywordtype}{char}\ \ \ \ \ \ chaine[\mbox{\hyperlink{stdio_8c_a6fb514b92925e962cc3576445492ad06}{MAX\_PRINTF\_LENGTH}}];\ \ \ \textcolor{comment}{//\ WARNING,\ il\ faut\ une\ gestion\ dynamique}}
+\DoxyCodeLine{\Hypertarget{stdio_8c_source_l00146}00146\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ attention\ aux\ risques\ de\ telescopage\ avec\ la\ pile\ !}}
+\DoxyCodeLine{\Hypertarget{stdio_8c_source_l00147}00147\ \ \ \ \textcolor{keywordtype}{int}\ \ \ \ \ \ \ result;}
+\DoxyCodeLine{\Hypertarget{stdio_8c_source_l00148}00148\ }
+\DoxyCodeLine{\Hypertarget{stdio_8c_source_l00149}00149\ \ \ \ \mbox{\hyperlink{include_2manux_2stdarg_8h_ade24ac546ea93fde2353ed2db8e89c66}{va\_start}}(argList,\ format);}
+\DoxyCodeLine{\Hypertarget{stdio_8c_source_l00150}00150\ \ \ \ result\ =\ \mbox{\hyperlink{stdio_8c_a0daccbeb6277ebc17e52e3ae03e11c27}{vsnprintf}}(chaine,\ \mbox{\hyperlink{stdio_8c_a6fb514b92925e962cc3576445492ad06}{MAX\_PRINTF\_LENGTH}},\ format,\ argList);}
+\DoxyCodeLine{\Hypertarget{stdio_8c_source_l00151}00151\ \ \ \ \mbox{\hyperlink{include_2manux_2stdarg_8h_acd9b3b9085ec072324c5fdac2b40304e}{va\_end}}(argList);}
+\DoxyCodeLine{\Hypertarget{stdio_8c_source_l00152}00152\ }
+\DoxyCodeLine{\Hypertarget{stdio_8c_source_l00153}00153\ \textcolor{preprocessor}{\#ifdef\ MANU\_FS}}
+\DoxyCodeLine{\Hypertarget{stdio_8c_source_l00154}00154\ \ \ \ \mbox{\hyperlink{stdio_8h_afb8a53c515b7e4b7b0c2d9abf9f7d0c0}{ecrire}}(1,\ chaine,\ result);\ \textcolor{comment}{//\ WARNING\ :\ 1\ à remplacer\ par\ stdout\ par\ exemple}}
+\DoxyCodeLine{\Hypertarget{stdio_8c_source_l00155}00155\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{\Hypertarget{stdio_8c_source_l00156}00156\ \ \ \ \textcolor{comment}{//\ C'est\ exactement\ le\ but\ de\ l'AS\ ecrireConsole}}
+\DoxyCodeLine{\Hypertarget{stdio_8c_source_l00157}00157\ \ \ \ \mbox{\hyperlink{stdio_8h_a861f236a5adfcd353291fd93b2498226}{ecrireConsole}}(chaine,\ result);\ }
+\DoxyCodeLine{\Hypertarget{stdio_8c_source_l00158}00158\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{stdio_8c_source_l00159}00159\ }
+\DoxyCodeLine{\Hypertarget{stdio_8c_source_l00160}00160\ \ \ \ \mbox{\hyperlink{include_2manux_2stdarg_8h_acd9b3b9085ec072324c5fdac2b40304e}{va\_end}}(argList);}
+\DoxyCodeLine{\Hypertarget{stdio_8c_source_l00161}00161\ \}}
+\DoxyCodeLine{\Hypertarget{stdio_8c_source_l00162}00162\ }
+
+\end{DoxyCode}

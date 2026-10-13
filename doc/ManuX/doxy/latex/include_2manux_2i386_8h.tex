@@ -1,0 +1,87 @@
+\doxysection{Référence du fichier /home/manu/\+PROGRAMMATION/\+C/\+Manu\+X/include/manux/i386.h}
+\hypertarget{include_2manux_2i386_8h}{}\label{include_2manux_2i386_8h}\index{/home/manu/PROGRAMMATION/C/ManuX/include/manux/i386.h@{/home/manu/PROGRAMMATION/C/ManuX/include/manux/i386.h}}
+{\ttfamily \#include $<$manux/types.\+h$>$}\newline
+Graphe des dépendances par inclusion de i386.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=251pt]{include_2manux_2i386_8h__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{include_2manux_2i386_8h_a78b6d0d522b49e5b375731d08f4c39fd}{str}}(tr)~   \+\_\+\+\_\+asm\+\_\+\+\_\+("{}str \%0"{}\+: "{}=g"{}(tr));
+\item 
+\#define \mbox{\hyperlink{include_2manux_2i386_8h_a6cdff266109b11c9b9572cfc4a7aeb0f}{ltr}}(tr)~   \+\_\+\+\_\+asm\+\_\+\+\_\+ \+\_\+\+\_\+volatile\+\_\+\+\_\+ ("{}ltr \%\%ax"{}\+::"{}a"{}(tr));
+\item 
+\#define \mbox{\hyperlink{include_2manux_2i386_8h_a13f2b0db4a52c0f033809564cd9830cc}{barriere\+Memoire}}()~  \+\_\+\+\_\+asm\+\_\+\+\_\+("{}mfence"{});
+\item 
+\#define \mbox{\hyperlink{include_2manux_2i386_8h_a7d3db7e7b71d403226d271da40d6101a}{ADDR\+\_\+\+VERS\+\_\+\+PAGE}}(\mbox{\hyperlink{main-bootreg_8c_acc5bda773ae19389879f3886f8ecf123}{a}})~((\mbox{\hyperlink{main-bootreg_8c_acc5bda773ae19389879f3886f8ecf123}{a}})$>$$>$12)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} \mbox{\hyperlink{include_2manux_2i386_8h_aee01d3a42fbcda425a19cbc4bd0194cd}{halt}} (\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}})
+\item 
+\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} \mbox{\hyperlink{include_2manux_2i386_8h_a5ddec76aa3b45e17cc782fa6a0673a6f}{\+\_\+charger\+GDT}} (\mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\+\_\+t}} ad, \mbox{\hyperlink{include_2manux_2types_8h_a273cf69d639a59973b6019625df33e30}{uint16\+\_\+t}} limite)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Documentation des macros}
+\Hypertarget{include_2manux_2i386_8h_a7d3db7e7b71d403226d271da40d6101a}\label{include_2manux_2i386_8h_a7d3db7e7b71d403226d271da40d6101a} 
+\index{i386.h@{i386.h}!ADDR\_VERS\_PAGE@{ADDR\_VERS\_PAGE}}
+\index{ADDR\_VERS\_PAGE@{ADDR\_VERS\_PAGE}!i386.h@{i386.h}}
+\doxysubsubsection{\texorpdfstring{ADDR\_VERS\_PAGE}{ADDR\_VERS\_PAGE}}
+{\footnotesize\ttfamily \#define ADDR\+\_\+\+VERS\+\_\+\+PAGE(\begin{DoxyParamCaption}\item[{}]{\mbox{\hyperlink{main-bootreg_8c_acc5bda773ae19389879f3886f8ecf123}{a}} }\end{DoxyParamCaption})~((\mbox{\hyperlink{main-bootreg_8c_acc5bda773ae19389879f3886f8ecf123}{a}})$>$$>$12)}
+
+
+
+Définition à la ligne \mbox{\hyperlink{include_2manux_2i386_8h_source_l00042}{42}} du fichier \mbox{\hyperlink{include_2manux_2i386_8h_source}{i386.\+h}}.
+
+\Hypertarget{include_2manux_2i386_8h_a13f2b0db4a52c0f033809564cd9830cc}\label{include_2manux_2i386_8h_a13f2b0db4a52c0f033809564cd9830cc} 
+\index{i386.h@{i386.h}!barriereMemoire@{barriereMemoire}}
+\index{barriereMemoire@{barriereMemoire}!i386.h@{i386.h}}
+\doxysubsubsection{\texorpdfstring{barriereMemoire}{barriereMemoire}}
+{\footnotesize\ttfamily \#define barriere\+Memoire(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})~  \+\_\+\+\_\+asm\+\_\+\+\_\+("{}mfence"{});}
+
+
+
+Définition à la ligne \mbox{\hyperlink{include_2manux_2i386_8h_source_l00026}{26}} du fichier \mbox{\hyperlink{include_2manux_2i386_8h_source}{i386.\+h}}.
+
+\Hypertarget{include_2manux_2i386_8h_a6cdff266109b11c9b9572cfc4a7aeb0f}\label{include_2manux_2i386_8h_a6cdff266109b11c9b9572cfc4a7aeb0f} 
+\index{i386.h@{i386.h}!ltr@{ltr}}
+\index{ltr@{ltr}!i386.h@{i386.h}}
+\doxysubsubsection{\texorpdfstring{ltr}{ltr}}
+{\footnotesize\ttfamily \#define ltr(\begin{DoxyParamCaption}\item[{}]{tr }\end{DoxyParamCaption})~   \+\_\+\+\_\+asm\+\_\+\+\_\+ \+\_\+\+\_\+volatile\+\_\+\+\_\+ ("{}ltr \%\%ax"{}\+::"{}a"{}(tr));}
+
+
+
+Définition à la ligne \mbox{\hyperlink{include_2manux_2i386_8h_source_l00023}{23}} du fichier \mbox{\hyperlink{include_2manux_2i386_8h_source}{i386.\+h}}.
+
+\Hypertarget{include_2manux_2i386_8h_a78b6d0d522b49e5b375731d08f4c39fd}\label{include_2manux_2i386_8h_a78b6d0d522b49e5b375731d08f4c39fd} 
+\index{i386.h@{i386.h}!str@{str}}
+\index{str@{str}!i386.h@{i386.h}}
+\doxysubsubsection{\texorpdfstring{str}{str}}
+{\footnotesize\ttfamily \#define str(\begin{DoxyParamCaption}\item[{}]{tr }\end{DoxyParamCaption})~   \+\_\+\+\_\+asm\+\_\+\+\_\+("{}str \%0"{}\+: "{}=g"{}(tr));}
+
+
+
+Définition à la ligne \mbox{\hyperlink{include_2manux_2i386_8h_source_l00019}{19}} du fichier \mbox{\hyperlink{include_2manux_2i386_8h_source}{i386.\+h}}.
+
+
+
+\doxysubsection{Documentation des fonctions}
+\Hypertarget{include_2manux_2i386_8h_a5ddec76aa3b45e17cc782fa6a0673a6f}\label{include_2manux_2i386_8h_a5ddec76aa3b45e17cc782fa6a0673a6f} 
+\index{i386.h@{i386.h}!\_chargerGDT@{\_chargerGDT}}
+\index{\_chargerGDT@{\_chargerGDT}!i386.h@{i386.h}}
+\doxysubsubsection{\texorpdfstring{\_chargerGDT()}{\_chargerGDT()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} \+\_\+charger\+GDT (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\+\_\+t}}}]{ad,  }\item[{\mbox{\hyperlink{include_2manux_2types_8h_a273cf69d639a59973b6019625df33e30}{uint16\+\_\+t}}}]{limite }\end{DoxyParamCaption})}
+
+\Hypertarget{include_2manux_2i386_8h_aee01d3a42fbcda425a19cbc4bd0194cd}\label{include_2manux_2i386_8h_aee01d3a42fbcda425a19cbc4bd0194cd} 
+\index{i386.h@{i386.h}!halt@{halt}}
+\index{halt@{halt}!i386.h@{i386.h}}
+\doxysubsubsection{\texorpdfstring{halt()}{halt()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} halt (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}}}]{ }\end{DoxyParamCaption})}
+

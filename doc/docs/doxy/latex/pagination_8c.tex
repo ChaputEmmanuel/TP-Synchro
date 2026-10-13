@@ -1,0 +1,84 @@
+\doxysection{Référence du fichier /home/manu/\+PROGRAMMATION/\+C/\+Manu\+X/noyau/pagination.c}
+\hypertarget{pagination_8c}{}\label{pagination_8c}\index{/home/manu/PROGRAMMATION/C/ManuX/noyau/pagination.c@{/home/manu/PROGRAMMATION/C/ManuX/noyau/pagination.c}}
+{\ttfamily \#include $<$manux/pagination.\+h$>$}\newline
+{\ttfamily \#include $<$manux/config.\+h$>$}\newline
+{\ttfamily \#include $<$manux/memoire.\+h$>$}\newline
+Graphe des dépendances par inclusion de pagination.\+c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{pagination_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} \mbox{\hyperlink{pagination_8c_a2a1acb91d58e1208fbb730d5aa52254c}{creer\+Table\+Pagination\+Directe}} (\mbox{\hyperlink{pagination_8h_adea7218ca4ee2deb864db4fdd23419d2}{Page\+Directory}} \texorpdfstring{$\ast$}{*}repertoire\+Pagination, int taille\+Memoire\+Etendue)
+\item 
+\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} \mbox{\hyperlink{pagination_8c_aa47bdbd437f2aa3012d479b8858e9e6f}{creer\+Table\+Pagination}} (\mbox{\hyperlink{pagination_8h_adea7218ca4ee2deb864db4fdd23419d2}{Page\+Directory}} \texorpdfstring{$\ast$}{*}repertoire\+Pagination)
+\item 
+int \mbox{\hyperlink{pagination_8c_a84dafc7d068bc475db5b6e2573899abc}{ajouter\+Page}} (\mbox{\hyperlink{pagination_8h_adea7218ca4ee2deb864db4fdd23419d2}{Page\+Directory}} \texorpdfstring{$\ast$}{*}repertoire\+Pagination, \mbox{\hyperlink{include_2manux_2types_8h_a1541e9c22944f11aa406a073c3ddd6ff}{Page}} adresse\+Physique, \mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} \texorpdfstring{$\ast$}{*}adresse\+Virtuelle)
+\item 
+int \mbox{\hyperlink{pagination_8c_a6d1efa14988749e044655482a3330dce}{initialiser\+Pagination}} (int taille\+Memoire\+Etendue)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{pagination_8h_adea7218ca4ee2deb864db4fdd23419d2}{Page\+Directory}} \mbox{\hyperlink{pagination_8c_aae32ea2d4a74900fe2ed79accef923bb}{repertoire\+Pagination\+Systeme}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Documentation des fonctions}
+\Hypertarget{pagination_8c_a84dafc7d068bc475db5b6e2573899abc}\label{pagination_8c_a84dafc7d068bc475db5b6e2573899abc} 
+\index{pagination.c@{pagination.c}!ajouterPage@{ajouterPage}}
+\index{ajouterPage@{ajouterPage}!pagination.c@{pagination.c}}
+\doxysubsubsection{\texorpdfstring{ajouterPage()}{ajouterPage()}}
+{\footnotesize\ttfamily int ajouter\+Page (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{pagination_8h_adea7218ca4ee2deb864db4fdd23419d2}{Page\+Directory}} \texorpdfstring{$\ast$}{*}}]{repertoire\+Pagination,  }\item[{\mbox{\hyperlink{include_2manux_2types_8h_a1541e9c22944f11aa406a073c3ddd6ff}{Page}}}]{adresse\+Physique,  }\item[{\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} \texorpdfstring{$\ast$}{*}}]{adresse\+Virtuelle }\end{DoxyParamCaption})}
+
+
+
+Définition à la ligne \mbox{\hyperlink{pagination_8c_source_l00133}{133}} du fichier \mbox{\hyperlink{pagination_8c_source}{pagination.\+c}}.
+
+\Hypertarget{pagination_8c_aa47bdbd437f2aa3012d479b8858e9e6f}\label{pagination_8c_aa47bdbd437f2aa3012d479b8858e9e6f} 
+\index{pagination.c@{pagination.c}!creerTablePagination@{creerTablePagination}}
+\index{creerTablePagination@{creerTablePagination}!pagination.c@{pagination.c}}
+\doxysubsubsection{\texorpdfstring{creerTablePagination()}{creerTablePagination()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} creer\+Table\+Pagination (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{pagination_8h_adea7218ca4ee2deb864db4fdd23419d2}{Page\+Directory}} \texorpdfstring{$\ast$}{*}}]{repertoire\+Pagination }\end{DoxyParamCaption})}
+
+
+
+Définition à la ligne \mbox{\hyperlink{pagination_8c_source_l00074}{74}} du fichier \mbox{\hyperlink{pagination_8c_source}{pagination.\+c}}.
+
+\Hypertarget{pagination_8c_a2a1acb91d58e1208fbb730d5aa52254c}\label{pagination_8c_a2a1acb91d58e1208fbb730d5aa52254c} 
+\index{pagination.c@{pagination.c}!creerTablePaginationDirecte@{creerTablePaginationDirecte}}
+\index{creerTablePaginationDirecte@{creerTablePaginationDirecte}!pagination.c@{pagination.c}}
+\doxysubsubsection{\texorpdfstring{creerTablePaginationDirecte()}{creerTablePaginationDirecte()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} creer\+Table\+Pagination\+Directe (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{pagination_8h_adea7218ca4ee2deb864db4fdd23419d2}{Page\+Directory}} \texorpdfstring{$\ast$}{*}}]{repertoire\+Pagination,  }\item[{int}]{taille\+Memoire\+Etendue }\end{DoxyParamCaption})}
+
+
+
+Définition à la ligne \mbox{\hyperlink{pagination_8c_source_l00018}{18}} du fichier \mbox{\hyperlink{pagination_8c_source}{pagination.\+c}}.
+
+\Hypertarget{pagination_8c_a6d1efa14988749e044655482a3330dce}\label{pagination_8c_a6d1efa14988749e044655482a3330dce} 
+\index{pagination.c@{pagination.c}!initialiserPagination@{initialiserPagination}}
+\index{initialiserPagination@{initialiserPagination}!pagination.c@{pagination.c}}
+\doxysubsubsection{\texorpdfstring{initialiserPagination()}{initialiserPagination()}}
+{\footnotesize\ttfamily int initialiser\+Pagination (\begin{DoxyParamCaption}\item[{int}]{taille\+Memoire\+Etendue }\end{DoxyParamCaption})}
+
+
+
+Définition à la ligne \mbox{\hyperlink{pagination_8c_source_l00167}{167}} du fichier \mbox{\hyperlink{pagination_8c_source}{pagination.\+c}}.
+
+
+
+\doxysubsection{Documentation des variables}
+\Hypertarget{pagination_8c_aae32ea2d4a74900fe2ed79accef923bb}\label{pagination_8c_aae32ea2d4a74900fe2ed79accef923bb} 
+\index{pagination.c@{pagination.c}!repertoirePaginationSysteme@{repertoirePaginationSysteme}}
+\index{repertoirePaginationSysteme@{repertoirePaginationSysteme}!pagination.c@{pagination.c}}
+\doxysubsubsection{\texorpdfstring{repertoirePaginationSysteme}{repertoirePaginationSysteme}}
+{\footnotesize\ttfamily \mbox{\hyperlink{pagination_8h_adea7218ca4ee2deb864db4fdd23419d2}{Page\+Directory}} repertoire\+Pagination\+Systeme}
+
+
+
+Définition à la ligne \mbox{\hyperlink{pagination_8c_source_l00016}{16}} du fichier \mbox{\hyperlink{pagination_8c_source}{pagination.\+c}}.
+

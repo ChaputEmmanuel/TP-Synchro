@@ -1,0 +1,14 @@
+<map id="/home/manu/PROGRAMMATION/C/ManuX/include/manux/exclusion&#45;mutuelle.h" name="/home/manu/PROGRAMMATION/C/ManuX/include/manux/exclusion&#45;mutuelle.h">
+<area shape="rect" id="Node000001" title="Définition des exlusions mutuelles." alt="" coords="331,5,557,60"/>
+<area shape="rect" id="Node000002" href="$condition_8h.html" title=" " alt="" coords="105,108,332,163"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="374,68,278,110,276,106,372,63"/>
+<area shape="rect" id="Node000004" href="$tubes_8c.html" title=" " alt="" coords="256,211,483,251"/>
+<area shape="poly" id="edge6_Node000001_Node000004" title=" " alt="" coords="417,73,397,109,381,164,374,211,368,210,376,163,392,107,413,70"/>
+<area shape="rect" id="Node000005" href="$exclusion-mutuelle_8c.html" title="Implantation des exclusions mutuelles." alt="" coords="407,108,633,163"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="474,69,502,106,498,110,470,73"/>
+<area shape="rect" id="Node000006" href="$main-verrou-noyau_8c.html" title=": Mise en évidence de a (non) ré&#45;entrance du noyau. On compilera une fois avec la macro MANUX_REENTRANT a..." alt="" coords="657,108,884,163"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="543,62,686,105,685,110,541,67"/>
+<area shape="rect" id="Node000003" href="$condition_8c.html" title="Implantation des opérations atomiques de ManuX." alt="" coords="5,211,232,251"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="182,174,141,213,137,209,178,170"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="274,168,340,208,337,213,272,172"/>
+</map>

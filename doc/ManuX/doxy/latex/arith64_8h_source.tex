@@ -1,0 +1,56 @@
+\doxysection{arith64.\+h}
+\hypertarget{arith64_8h_source}{}\label{arith64_8h_source}\index{/home/manu/PROGRAMMATION/C/ManuX/include/manux/arith64.h@{/home/manu/PROGRAMMATION/C/ManuX/include/manux/arith64.h}}
+\mbox{\hyperlink{arith64_8h}{Aller à la documentation de ce fichier.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{arith64_8h_source_l00001}00001\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{arith64_8h_source_l00002}00002\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{arith64_8h_source_l00003}00003\ \textcolor{preprocessor}{\#ifndef\ ARITH64\_DEF}}
+\DoxyCodeLine{\Hypertarget{arith64_8h_source_l00004}00004\ \textcolor{preprocessor}{\#define\ ARITH64\_DEF}}
+\DoxyCodeLine{\Hypertarget{arith64_8h_source_l00005}00005\ }
+\DoxyCodeLine{\Hypertarget{arith64_8h_source_l00006}\mbox{\hyperlink{arith64_8h_ae5cbcfc8c01a178587935407bbc02a56}{00006}}\ \textcolor{preprocessor}{\#define\ arith64\_u64\ unsigned\ long\ long\ int}}
+\DoxyCodeLine{\Hypertarget{arith64_8h_source_l00007}\mbox{\hyperlink{arith64_8h_aad3271ab92f48b78bca71e2d9f4c1723}{00007}}\ \textcolor{preprocessor}{\#define\ arith64\_s64\ signed\ long\ long\ int}}
+\DoxyCodeLine{\Hypertarget{arith64_8h_source_l00008}\mbox{\hyperlink{arith64_8h_a6571aa5060676d8b0923245ee63a2b46}{00008}}\ \textcolor{preprocessor}{\#define\ arith64\_u32\ unsigned\ int}}
+\DoxyCodeLine{\Hypertarget{arith64_8h_source_l00009}\mbox{\hyperlink{arith64_8h_ab5b8c8efaac3a3bef707b91ef4bccb62}{00009}}\ \textcolor{preprocessor}{\#define\ arith64\_s32\ int}}
+\DoxyCodeLine{\Hypertarget{arith64_8h_source_l00010}00010\ }
+\DoxyCodeLine{\Hypertarget{arith64_8h_source_l00011}\mbox{\hyperlink{unionarith64__word}{00011}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{union}}
+\DoxyCodeLine{\Hypertarget{arith64_8h_source_l00012}00012\ \{}
+\DoxyCodeLine{\Hypertarget{arith64_8h_source_l00013}\mbox{\hyperlink{unionarith64__word_ad192cbe21090ac61ed87ab8fefea7fd8}{00013}}\ \ \ \ \ \mbox{\hyperlink{arith64_8h_ae5cbcfc8c01a178587935407bbc02a56}{arith64\_u64}}\ \mbox{\hyperlink{unionarith64__word_ad192cbe21090ac61ed87ab8fefea7fd8}{u64}};}
+\DoxyCodeLine{\Hypertarget{arith64_8h_source_l00014}\mbox{\hyperlink{unionarith64__word_ae05a2ca8fb9ebfd35615d32938fb4aa3}{00014}}\ \ \ \ \ \mbox{\hyperlink{arith64_8h_aad3271ab92f48b78bca71e2d9f4c1723}{arith64\_s64}}\ \mbox{\hyperlink{unionarith64__word_ae05a2ca8fb9ebfd35615d32938fb4aa3}{s64}};}
+\DoxyCodeLine{\Hypertarget{arith64_8h_source_l00015}00015\ \ \ \ \ \textcolor{keyword}{struct}}
+\DoxyCodeLine{\Hypertarget{arith64_8h_source_l00016}00016\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{arith64_8h_source_l00017}00017\ \textcolor{preprocessor}{\#if\ \_\_BYTE\_ORDER\_\_\ ==\ \_\_ORDER\_BIG\_ENDIAN\_\_}}
+\DoxyCodeLine{\Hypertarget{arith64_8h_source_l00018}\mbox{\hyperlink{unionarith64__word_af56545a03e4b2d08a471a26fe2ab5bb8}{00018}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{arith64_8h_a6571aa5060676d8b0923245ee63a2b46}{arith64\_u32}}\ \mbox{\hyperlink{unionarith64__word_af56545a03e4b2d08a471a26fe2ab5bb8}{hi}};\ \mbox{\hyperlink{arith64_8h_a6571aa5060676d8b0923245ee63a2b46}{arith64\_u32}}\ lo;}
+\DoxyCodeLine{\Hypertarget{arith64_8h_source_l00019}00019\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{\Hypertarget{arith64_8h_source_l00020}00020\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{arith64_8h_a6571aa5060676d8b0923245ee63a2b46}{arith64\_u32}}\ lo;\ \mbox{\hyperlink{arith64_8h_a6571aa5060676d8b0923245ee63a2b46}{arith64\_u32}}\ hi;}
+\DoxyCodeLine{\Hypertarget{arith64_8h_source_l00021}00021\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{arith64_8h_source_l00022}\mbox{\hyperlink{unionarith64__word_a9aece13a5e2ebea3d36c2f5869ef669b}{00022}}\ \ \ \ \ \}\ u32;}
+\DoxyCodeLine{\Hypertarget{arith64_8h_source_l00023}00023\ \ \ \ \ \textcolor{keyword}{struct}}
+\DoxyCodeLine{\Hypertarget{arith64_8h_source_l00024}00024\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{arith64_8h_source_l00025}00025\ \textcolor{preprocessor}{\#if\ \_\_BYTE\_ORDER\_\_\ ==\ \_\_ORDER\_BIG\_ENDIAN\_\_}}
+\DoxyCodeLine{\Hypertarget{arith64_8h_source_l00026}\mbox{\hyperlink{unionarith64__word_ac092b39d9834b3eb31c454315a3ce0b0}{00026}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{arith64_8h_ab5b8c8efaac3a3bef707b91ef4bccb62}{arith64\_s32}}\ \mbox{\hyperlink{unionarith64__word_ac092b39d9834b3eb31c454315a3ce0b0}{hi}};\ \mbox{\hyperlink{arith64_8h_ab5b8c8efaac3a3bef707b91ef4bccb62}{arith64\_s32}}\ lo;}
+\DoxyCodeLine{\Hypertarget{arith64_8h_source_l00027}00027\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{\Hypertarget{arith64_8h_source_l00028}00028\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{arith64_8h_ab5b8c8efaac3a3bef707b91ef4bccb62}{arith64\_s32}}\ lo;\ \mbox{\hyperlink{arith64_8h_ab5b8c8efaac3a3bef707b91ef4bccb62}{arith64\_s32}}\ hi;}
+\DoxyCodeLine{\Hypertarget{arith64_8h_source_l00029}00029\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{arith64_8h_source_l00030}\mbox{\hyperlink{unionarith64__word_a2ead6b8af0a48d6b1d1190da0d241fd4}{00030}}\ \ \ \ \ \}\ s32;}
+\DoxyCodeLine{\Hypertarget{arith64_8h_source_l00031}00031\ \}\ \mbox{\hyperlink{unionarith64__word}{arith64\_word}};}
+\DoxyCodeLine{\Hypertarget{arith64_8h_source_l00032}00032\ }
+\DoxyCodeLine{\Hypertarget{arith64_8h_source_l00033}00033\ \textcolor{comment}{//\ extract\ hi\ and\ lo\ 32-\/bit\ words\ from\ 64-\/bit\ value}}
+\DoxyCodeLine{\Hypertarget{arith64_8h_source_l00034}\mbox{\hyperlink{arith64_8h_a7b340ea7ffe2d8397faf257d06ad0499}{00034}}\ \textcolor{preprocessor}{\#define\ arith64\_hi(n)\ (arith64\_word)\{.u64=n\}.u32.hi}}
+\DoxyCodeLine{\Hypertarget{arith64_8h_source_l00035}\mbox{\hyperlink{arith64_8h_a032b36f0fd9d0392f60e1d831ead8204}{00035}}\ \textcolor{preprocessor}{\#define\ arith64\_lo(n)\ (arith64\_word)\{.u64=n\}.u32.lo}}
+\DoxyCodeLine{\Hypertarget{arith64_8h_source_l00036}00036\ }
+\DoxyCodeLine{\Hypertarget{arith64_8h_source_l00037}00037\ \textcolor{comment}{//\ Negate\ a\ if\ b\ is\ negative,\ via\ invert\ and\ increment.}}
+\DoxyCodeLine{\Hypertarget{arith64_8h_source_l00038}\mbox{\hyperlink{arith64_8h_afff665b35b9678331f4ecd149ddf7629}{00038}}\ \textcolor{preprocessor}{\#define\ arith64\_neg(a,\ b)\ (((a)\ \string^\ ((((arith64\_s64)(b))\ >=\ 0)\ -\/\ 1))\ +\ (((arith64\_s64)(b))\ <\ 0))}}
+\DoxyCodeLine{\Hypertarget{arith64_8h_source_l00039}\mbox{\hyperlink{arith64_8h_a8f5867e27b915c5eb54ebd57b1ace3f4}{00039}}\ \textcolor{preprocessor}{\#define\ arith64\_abs(a)\ arith64\_neg(a,\ a)}}
+\DoxyCodeLine{\Hypertarget{arith64_8h_source_l00040}00040\ }
+\DoxyCodeLine{\Hypertarget{arith64_8h_source_l00041}00041\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{arith64_8h_source_l00042}00042\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{arith64_8h_source_l00043}00043\ \mbox{\hyperlink{arith64_8h_aad3271ab92f48b78bca71e2d9f4c1723}{arith64\_s64}}\ \mbox{\hyperlink{arith64_8h_a90102e050c7a459d19f99108d6b4b4c0}{\_\_moddi3}}(\mbox{\hyperlink{arith64_8h_aad3271ab92f48b78bca71e2d9f4c1723}{arith64\_s64}}\ \mbox{\hyperlink{main-bootreg_8c_acc5bda773ae19389879f3886f8ecf123}{a}},\ \mbox{\hyperlink{arith64_8h_aad3271ab92f48b78bca71e2d9f4c1723}{arith64\_s64}}\ \mbox{\hyperlink{main-bootreg_8c_a7976cd62f9b61a65e8104a3cf7c15099}{b}});}
+\DoxyCodeLine{\Hypertarget{arith64_8h_source_l00044}00044\ }
+\DoxyCodeLine{\Hypertarget{arith64_8h_source_l00045}00045\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{arith64_8h_source_l00046}00046\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{arith64_8h_source_l00047}00047\ \mbox{\hyperlink{arith64_8h_aad3271ab92f48b78bca71e2d9f4c1723}{arith64\_s64}}\ \mbox{\hyperlink{arith64_8h_a56ea63e25db9445bde46e852a916d0cd}{\_\_divdi3}}(\mbox{\hyperlink{arith64_8h_aad3271ab92f48b78bca71e2d9f4c1723}{arith64\_s64}}\ \mbox{\hyperlink{main-bootreg_8c_acc5bda773ae19389879f3886f8ecf123}{a}},\ \mbox{\hyperlink{arith64_8h_aad3271ab92f48b78bca71e2d9f4c1723}{arith64\_s64}}\ \mbox{\hyperlink{main-bootreg_8c_a7976cd62f9b61a65e8104a3cf7c15099}{b}});}
+\DoxyCodeLine{\Hypertarget{arith64_8h_source_l00048}00048\ }
+\DoxyCodeLine{\Hypertarget{arith64_8h_source_l00049}00049\ }
+\DoxyCodeLine{\Hypertarget{arith64_8h_source_l00050}00050\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

@@ -1,0 +1,35 @@
+\doxysection{appel-\/systeme.h}
+\hypertarget{appel-systeme_8h_source}{}\label{appel-systeme_8h_source}\index{/home/manu/PROGRAMMATION/C/ManuX/multiconf/appel-\/systeme.h@{/home/manu/PROGRAMMATION/C/ManuX/multiconf/appel-\/systeme.h}}
+\mbox{\hyperlink{appel-systeme_8h}{Aller à la documentation de ce fichier.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{appel-systeme_8h_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{appel-systeme_8h_source_l00008}00008\ \textcolor{preprocessor}{\#ifdef\ MANUX\_FICHIER\_CONFIG}}
+\DoxyCodeLine{\Hypertarget{appel-systeme_8h_source_l00009}00009\ \textcolor{preprocessor}{\#\ \ \ error\ "{}Cette\ chose\ ne\ devrait\ pas\ se\ produire\ !"{}}}
+\DoxyCodeLine{\Hypertarget{appel-systeme_8h_source_l00010}00010\ \textcolor{preprocessor}{\#\ \ \ include\ MANUX\_FICHIER\_CONFIG}}
+\DoxyCodeLine{\Hypertarget{appel-systeme_8h_source_l00011}00011\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{\Hypertarget{appel-systeme_8h_source_l00012}00012\ \textcolor{preprocessor}{\#ifndef\ MANUX\_CONFIG}}
+\DoxyCodeLine{\Hypertarget{appel-systeme_8h_source_l00013}00013\ \textcolor{preprocessor}{\#define\ MANUX\_CONFIG}}
+\DoxyCodeLine{\Hypertarget{appel-systeme_8h_source_l00014}00014\ }
+\DoxyCodeLine{\Hypertarget{appel-systeme_8h_source_l00015}\mbox{\hyperlink{appel-systeme_8h_aa3594499e1eed61df06d17199e875181}{00015}}\ \textcolor{preprocessor}{\#define\ MANUX\_FICHIER\_MAIN\ main-\/appel-\/systeme}}
+\DoxyCodeLine{\Hypertarget{appel-systeme_8h_source_l00016}\mbox{\hyperlink{appel-systeme_8h_aebb6ade5da1613b93b30fdc922a92f99}{00016}}\ \textcolor{preprocessor}{\#define\ MANUX\_USR\_INIT\ init-\/appel-\/systeme.o}}
+\DoxyCodeLine{\Hypertarget{appel-systeme_8h_source_l00017}00017\ }
+\DoxyCodeLine{\Hypertarget{appel-systeme_8h_source_l00018}00018\ }
+\DoxyCodeLine{\Hypertarget{appel-systeme_8h_source_l00019}00019\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{base_8h}{config/base.h}}>}}
+\DoxyCodeLine{\Hypertarget{appel-systeme_8h_source_l00020}00020\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{plan-memoire-pc_8h}{config/plan-\/memoire-\/pc.h}}>}}
+\DoxyCodeLine{\Hypertarget{appel-systeme_8h_source_l00021}00021\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{pc-i386_8h}{config/pc-\/i386.h}}>}\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Besoin\ des\ interuptions\ pour\ les\ AS}}
+\DoxyCodeLine{\Hypertarget{appel-systeme_8h_source_l00022}00022\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{appels-systeme_8h}{config/appels-\/systeme.h}}>}}
+\DoxyCodeLine{\Hypertarget{appel-systeme_8h_source_l00023}00023\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{gestion-memoire_8h}{config/gestion-\/memoire.h}}>}}
+\DoxyCodeLine{\Hypertarget{appel-systeme_8h_source_l00024}00024\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{include_2config_2taches_8h}{config/taches.h}}>}}
+\DoxyCodeLine{\Hypertarget{appel-systeme_8h_source_l00025}00025\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{include_2config_2console_8h}{config/console.h}}>}}
+\DoxyCodeLine{\Hypertarget{appel-systeme_8h_source_l00026}00026\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{include_2config_2printk_8h}{config/printk.h}}>}}
+\DoxyCodeLine{\Hypertarget{appel-systeme_8h_source_l00027}00027\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{usr_8h}{config/usr.h}}>}}
+\DoxyCodeLine{\Hypertarget{appel-systeme_8h_source_l00028}00028\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{synchronisation_8h}{config/synchronisation.h}}>}}
+\DoxyCodeLine{\Hypertarget{appel-systeme_8h_source_l00029}00029\ \textcolor{preprocessor}{\#undef\ MANUX\_ATOMIQUE\_AUDIT}}
+\DoxyCodeLine{\Hypertarget{appel-systeme_8h_source_l00030}00030\ \textcolor{preprocessor}{\#undef\ MANUX\_CONDITION\_AUDIT}}
+\DoxyCodeLine{\Hypertarget{appel-systeme_8h_source_l00031}00031\ \textcolor{preprocessor}{\#undef\ MANUX\_EXCLUSION\_MUTUELLE\_AUDIT}}
+\DoxyCodeLine{\Hypertarget{appel-systeme_8h_source_l00032}00032\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{verifications_8h}{config/verifications.h}}>}}
+\DoxyCodeLine{\Hypertarget{appel-systeme_8h_source_l00033}00033\ }
+\DoxyCodeLine{\Hypertarget{appel-systeme_8h_source_l00034}00034\ \textcolor{preprocessor}{\#endif\ \ }\textcolor{comment}{//\ MANUX\_CONFIG}}
+\DoxyCodeLine{\Hypertarget{appel-systeme_8h_source_l00035}00035\ \textcolor{preprocessor}{\#endif\ \ }\textcolor{comment}{//\ MANUX\_FICHIER\_CONFIG}}
+
+\end{DoxyCode}

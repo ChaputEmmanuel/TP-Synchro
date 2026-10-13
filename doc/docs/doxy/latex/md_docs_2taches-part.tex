@@ -1,0 +1,41 @@
+\chapter{Gestion d’une tâche}
+\hypertarget{md_docs_2taches-part}{}\label{md_docs_2taches-part}\index{Gestion d’une tâche@{Gestion d’une tâche}}
+\label{md_docs_2taches-part_autotoc_md180}%
+\Hypertarget{md_docs_2taches-part_autotoc_md180}%
+ Nous disposons désormais du minimum permettant d’exécuter quelques instructions et d’en voir les conséquences à l’écran. Je vous propose donc de mettre en place la notion de {\itshape tâche} qui nous permettra de faire avancer “en même temps” plusieurs activités. ManuX devient donc à partir de maintenant un système multitâche.
+
+Attention, pour le moment, ce ne sera que du multitâche collaboratif. En effet, nous n’allons pas encore mettre en place du multitâche {\itshape préemptif}, ce qui signifie que une tâche ne rendra la main (enfin, le processeur) que lorsqu’elle en aura envie !
+
+De plus, nous ne nous intéressons pas non plus à l’ordonnancement, et mettrons en place un simple {\itshape round robin}.\hypertarget{md_docs_2taches-part_autotoc_md181}{}\doxysection{\texorpdfstring{Définition d’une tâche}{Définition d’une tâche}}\label{md_docs_2taches-part_autotoc_md181}
+La structure d’une tâche est définie dans le fichier {\ttfamily \doxylink{tache_8h}{manux/tache.\+h}} au travers d’une struture {\ttfamily Tache}. Afin de nous simplifier la vie, nous allons utiliser dans ManuX l’aide proposée par les processeurs Intel\mbox{[}1\mbox{]}.
+
+De ce fait, la structure {\ttfamily Tache} contient des champs liés au processeur et des champs purement liés au noyau.\hypertarget{md_docs_2taches-part_autotoc_md182}{}\doxysubsection{\texorpdfstring{Champs liés au noyau}{Champs liés au noyau}}\label{md_docs_2taches-part_autotoc_md182}
+\hypertarget{md_docs_2taches-part_autotoc_md183}{}\doxysubsection{\texorpdfstring{Champs liés au processeur}{Champs liés au processeur}}\label{md_docs_2taches-part_autotoc_md183}
+
+\begin{DoxyItemize}
+\item {\ttfamily Intel\+TSS tss} qui permet, comme son nom laisse à penser, de stoquer les informations relatives à l’état de la tâche au niveau du processeur (tss pour {\itshape Task State Segment}). On trouvera des informations sur ce champs dans les documentations Intel. Dans ManuX, une initialisation minimale est faite de cette structure lors de la création d’une tâche dans {\ttfamily creer\+Tache}.
+\item {\ttfamily uint16 indice\+TSSDescriptor} représente l’indice, dans la gdt, du {\itshape tss Descriptor} de la tâche. C’est par un {\ttfamily ljmp} vers ce champs que l’on va activer la tâche.
+\item {\ttfamily Descriptor\+Table \texorpdfstring{$\ast$}{*} ldt} est la table locale de decripteurs associée à cette tâche.
+\end{DoxyItemize}
+
+x\hypertarget{md_docs_2taches-part_autotoc_md184}{}\doxysubsection{\texorpdfstring{Les descripteurs de tâche Intel}{Les descripteurs de tâche Intel}}\label{md_docs_2taches-part_autotoc_md184}
+Le {\itshape Task State Segment} (tss) des processeurs Intel permet de stoquer et de manipuler les informations relatives à une tâche. Dans ManuX, une structure est définie permettant de décrire dans le noyau le tss de chaque tâche \+: la structure {\ttfamily Intel\+TSS} est définie dans {\ttfamily \doxylink{tache_8h}{manux/tache.\+h}}\hypertarget{md_docs_2taches-part_autotoc_md185}{}\doxysection{\texorpdfstring{Création d’une tâche}{Création d’une tâche}}\label{md_docs_2taches-part_autotoc_md185}
+\hypertarget{md_docs_2taches-part_autotoc_md186}{}\doxysection{\texorpdfstring{Basculement vers une tâche}{Basculement vers une tâche}}\label{md_docs_2taches-part_autotoc_md186}
+En ce qui concerne le basculement d’une tâche à l’autre, nous allons profiter des mécanismes fournis par les processeurs Intel au travers de l’instruction {\ttfamily ljmp}. L’\texorpdfstring{$\ast$}{*}\+Indirect far JMP\texorpdfstring{$\ast$}{*} permet en effet de faire un basculement de tâche lorsque l’argument qui lui est passé, sur 48 bits (oui madame, 6 octets !) est constitué d’un sélecteur de segment (sur 16 bits) qui référence un tss puis d’un {\itshape offset} (qui ne sera pas utilisé pour le coup !).
+
+Bref, le basculement d’une tâche vers une autre se résume à une instruction de saut !\hypertarget{md_docs_2taches-part_autotoc_md187}{}\doxysection{\texorpdfstring{Destruction d’une tâche}{Destruction d’une tâche}}\label{md_docs_2taches-part_autotoc_md187}
+\hypertarget{md_docs_2taches-part_autotoc_md188}{}\doxysection{\texorpdfstring{Gestion des listes de tâches}{Gestion des listes de tâches}}\label{md_docs_2taches-part_autotoc_md188}
+Il est évidemment important de ne pas perdre trace des tâches créées sur le système ! Nous allons pour cela les placer dans des listes.
+
+La structure {\ttfamily Liste\+Tache} permettant cela est définie dans le fichier \href{/doxy/html/listetaches_8h_source.html}{\texttt{ {\ttfamily manux/listetaches.\+h}}}(\href{/doxy/html/listetaches_8h.html}{\texttt{ dox}}). Il est extrèmement simple (liste simplement chaînée), donc je ne le détaille pas ici.
+
+Une première liste est définie permettant de conserver toutes les tâches du système. Chaque tâche créée (et non encore détruite) sera donc présente dans cette liste.
+
+D’autres listes seront créées permettant de stoquer les tâches en fonction de leurs activités. Une liste contiendra par exemple les tâches prêtes à être exécutées. D’autres listes contiendront les tâches en attente d’un événement spécifiques (typiquement la disponibilité d’une ressource).
+
+\hypertarget{md_docs_2taches-part_autotoc_md189}{}\doxysubsection{\texorpdfstring{Allocation des éléments de liste}{Allocation des éléments de liste}}\label{md_docs_2taches-part_autotoc_md189}
+Bon, là il faut qu’on parle d’un truc dont je ne suis pas très fier …
+
+Pour ne pas avoir à s’em…bêter ici avec de la gestion dynamique de mémoire, et sûrement aussi dans un intérêt pédagogiqe évident, j’ai fait le choix de positionner les cellules impliquées dans la gestion des listes dans la page mémoire qui est allouée pour chaque tâche.
+
+\mbox{[}1\mbox{]} Les systèmes récents, pour des raisons de performances, n’utilisent pas ces fonctionnalités. 

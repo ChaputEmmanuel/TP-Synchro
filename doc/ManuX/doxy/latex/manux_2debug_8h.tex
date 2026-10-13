@@ -1,0 +1,371 @@
+\doxysection{Référence du fichier /home/manu/\+PROGRAMMATION/\+C/\+Manu\+X/include/manux/debug.h}
+\hypertarget{manux_2debug_8h}{}\label{manux_2debug_8h}\index{/home/manu/PROGRAMMATION/C/ManuX/include/manux/debug.h@{/home/manu/PROGRAMMATION/C/ManuX/include/manux/debug.h}}
+{\ttfamily \#include $<$manux/config.\+h$>$}\newline
+{\ttfamily \#include $<$manux/printk.\+h$>$}\newline
+{\ttfamily \#include $<$manux/stdarg.\+h$>$}\newline
+{\ttfamily \#include $<$manux/scheduler.\+h$>$}\newline
+Graphe des dépendances par inclusion de debug.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{manux_2debug_8h__incl}
+\end{center}
+\end{figure}
+Ce graphe montre quels fichiers incluent directement ou indirectement ce fichier \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{manux_2debug_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{manux_2debug_8h_a933578e200c6ac638f6471f042e7ffc0}{DBG\+\_\+\+KERNEL\+\_\+\+ERREUR}}~0x00000001
+\begin{DoxyCompactList}\small\item\em Définition des différents flags. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{manux_2debug_8h_a97cb921ecb429c2c4c3755b2ca69364b}{DBG\+\_\+\+KERNEL\+\_\+\+START}}~0x00000002
+\item 
+\#define \mbox{\hyperlink{manux_2debug_8h_a93c46e022e34a6b4c0812315c026e836}{DBG\+\_\+\+KERNEL\+\_\+\+PAGIN}}~0x00000004
+\item 
+\#define \mbox{\hyperlink{manux_2debug_8h_a69ed878fe38be7f569a44a0d85138ed6}{DBG\+\_\+\+KERNEL\+\_\+\+SYSFI}}~0x00000008
+\item 
+\#define \mbox{\hyperlink{manux_2debug_8h_ab3bd37bd2b7bb8ec9ae73d8a607a6d56}{DBG\+\_\+\+KERNEL\+\_\+\+ORDON}}~0x00000010
+\item 
+\#define \mbox{\hyperlink{manux_2debug_8h_a19609f5d9c6bdc24183e02a0ee4a7e96}{DBG\+\_\+\+KERNEL\+\_\+\+TACHE}}~0x00000020
+\item 
+\#define \mbox{\hyperlink{manux_2debug_8h_a792aa769935a581bc10439a92a648b6b}{DBG\+\_\+\+KERNEL\+\_\+\+MEMOIRE}}~0x00000040
+\item 
+\#define \mbox{\hyperlink{manux_2debug_8h_afa34597e6ec0f2fec225c45b6408daf9}{DBG\+\_\+\+KERNEL\+\_\+\+AS}}~0x00000080
+\item 
+\#define \mbox{\hyperlink{manux_2debug_8h_a52bf70fba6e2076903fb1be25cfc90c8}{DBG\+\_\+\+KERNEL\+\_\+\+PCI}}~0x00000100
+\item 
+\#define \mbox{\hyperlink{manux_2debug_8h_a4f02878f8fb72005eddf2027f869557d}{DBG\+\_\+\+KERNEL\+\_\+\+NET}}~0x00000200
+\item 
+\#define \mbox{\hyperlink{manux_2debug_8h_a75f152fead74e7da11622606d11d4a96}{DBG\+\_\+\+KERNEL\+\_\+\+VIRTIO}}~0x00000400
+\item 
+\#define \mbox{\hyperlink{manux_2debug_8h_a8d713d223ce338433fb2b615c5c7bc70}{DBG\+\_\+\+KERNEL\+\_\+\+A\+\_\+\+FAIRE}}~0x00000800
+\item 
+\#define \mbox{\hyperlink{manux_2debug_8h_adc079ad5469c49710c9f8cc16a9fb223}{DBG\+\_\+\+KERNEL\+\_\+\+BOOTLOADER}}~0x00001000
+\item 
+\#define \mbox{\hyperlink{manux_2debug_8h_a3e470f6becdc852f2d733ca0ee8cb8f1}{DBG\+\_\+\+KERNEL\+\_\+\+TUBE}}~0x00002000
+\item 
+\#define \mbox{\hyperlink{manux_2debug_8h_a23325f5502b0b95faca503a28b1d5e77}{DBG\+\_\+\+KERNEL\+\_\+\+REGISTRE}}~0x00004000
+\item 
+\#define \mbox{\hyperlink{manux_2debug_8h_a1f680c236714b6616b9b635455d849b5}{DBG\+\_\+\+KERNEL\+\_\+\+ALL}}~0x\+FFFFFFFF
+\item 
+\#define \mbox{\hyperlink{manux_2debug_8h_a0aa3be7488358b17c7ecf87f67fc820d}{\+\_\+masque\+Debugage\+Console}}
+\begin{DoxyCompactList}\small\item\em Définition des masques de débogage. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{manux_2debug_8h_a5da5b3d524cfe49bc2f1799b70c2ef44}{\+\_\+masque\+Debugage\+Fichier}}
+\item 
+\#define \mbox{\hyperlink{manux_2debug_8h_a895b956a2419f199f255ee6542ed1f2d}{masque\+Debugage\+Console}}~\mbox{\hyperlink{manux_2debug_8h_a0aa3be7488358b17c7ecf87f67fc820d}{\+\_\+masque\+Debugage\+Console}}
+\item 
+\#define \mbox{\hyperlink{manux_2debug_8h_a4f75a22599327492938e80d95d6e7805}{masque\+Debugage\+Fichier}}~\mbox{\hyperlink{manux_2debug_8h_a5da5b3d524cfe49bc2f1799b70c2ef44}{\+\_\+masque\+Debugage\+Fichier}}
+\item 
+\#define \mbox{\hyperlink{manux_2debug_8h_ad4cabea5084373436d91b5dc4e8d0a49}{printk\+\_\+debug}}(lvl,  fmt,  args...)
+\item 
+\#define \mbox{\hyperlink{manux_2debug_8h_a94bcf41c2acfb543c52dcb281acba959}{panique\+Noyau}}(fmt,  args...)
+\item 
+\#define \mbox{\hyperlink{manux_2debug_8h_a3153a272f18d0f805028fce7e4337b53}{assert}}(cond)~\{\}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} \mbox{\hyperlink{manux_2debug_8h_afecb2fc4768dcaba6f0098c4a46bff0c}{debug\+Initialiser}} (\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}})
+\begin{DoxyCompactList}\small\item\em Initialisation du sytème de débogage. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Documentation des macros}
+\Hypertarget{manux_2debug_8h_a0aa3be7488358b17c7ecf87f67fc820d}\label{manux_2debug_8h_a0aa3be7488358b17c7ecf87f67fc820d} 
+\index{debug.h@{debug.h}!\_masqueDebugageConsole@{\_masqueDebugageConsole}}
+\index{\_masqueDebugageConsole@{\_masqueDebugageConsole}!debug.h@{debug.h}}
+\doxysubsubsection{\texorpdfstring{\_masqueDebugageConsole}{\_masqueDebugageConsole}}
+{\footnotesize\ttfamily \#define \+\_\+masque\+Debugage\+Console}
+
+{\bfseries Valeur \+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ (0x00000000\ \(\backslash\)}
+\DoxyCodeLine{\ |\ \mbox{\hyperlink{manux_2debug_8h_a75f152fead74e7da11622606d11d4a96}{DBG\_KERNEL\_VIRTIO}}\ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ |\ \mbox{\hyperlink{manux_2debug_8h_a97cb921ecb429c2c4c3755b2ca69364b}{DBG\_KERNEL\_START}}\ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ )}
+
+\end{DoxyCode}
+
+
+Définition des masques de débogage. 
+
+
+
+Définition à la ligne \mbox{\hyperlink{manux_2debug_8h_source_l00041}{41}} du fichier \mbox{\hyperlink{manux_2debug_8h_source}{debug.\+h}}.
+
+\Hypertarget{manux_2debug_8h_a5da5b3d524cfe49bc2f1799b70c2ef44}\label{manux_2debug_8h_a5da5b3d524cfe49bc2f1799b70c2ef44} 
+\index{debug.h@{debug.h}!\_masqueDebugageFichier@{\_masqueDebugageFichier}}
+\index{\_masqueDebugageFichier@{\_masqueDebugageFichier}!debug.h@{debug.h}}
+\doxysubsubsection{\texorpdfstring{\_masqueDebugageFichier}{\_masqueDebugageFichier}}
+{\footnotesize\ttfamily \#define \+\_\+masque\+Debugage\+Fichier}
+
+{\bfseries Valeur \+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (0x00000000\(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ )}
+
+\end{DoxyCode}
+
+
+Définition à la ligne \mbox{\hyperlink{manux_2debug_8h_source_l00045}{45}} du fichier \mbox{\hyperlink{manux_2debug_8h_source}{debug.\+h}}.
+
+\Hypertarget{manux_2debug_8h_a3153a272f18d0f805028fce7e4337b53}\label{manux_2debug_8h_a3153a272f18d0f805028fce7e4337b53} 
+\index{debug.h@{debug.h}!assert@{assert}}
+\index{assert@{assert}!debug.h@{debug.h}}
+\doxysubsubsection{\texorpdfstring{assert}{assert}}
+{\footnotesize\ttfamily \#define assert(\begin{DoxyParamCaption}\item[{}]{cond }\end{DoxyParamCaption})~\{\}}
+
+
+
+Définition à la ligne \mbox{\hyperlink{manux_2debug_8h_source_l00126}{126}} du fichier \mbox{\hyperlink{manux_2debug_8h_source}{debug.\+h}}.
+
+\Hypertarget{manux_2debug_8h_a8d713d223ce338433fb2b615c5c7bc70}\label{manux_2debug_8h_a8d713d223ce338433fb2b615c5c7bc70} 
+\index{debug.h@{debug.h}!DBG\_KERNEL\_A\_FAIRE@{DBG\_KERNEL\_A\_FAIRE}}
+\index{DBG\_KERNEL\_A\_FAIRE@{DBG\_KERNEL\_A\_FAIRE}!debug.h@{debug.h}}
+\doxysubsubsection{\texorpdfstring{DBG\_KERNEL\_A\_FAIRE}{DBG\_KERNEL\_A\_FAIRE}}
+{\footnotesize\ttfamily \#define DBG\+\_\+\+KERNEL\+\_\+\+A\+\_\+\+FAIRE~0x00000800}
+
+
+
+Définition à la ligne \mbox{\hyperlink{manux_2debug_8h_source_l00032}{32}} du fichier \mbox{\hyperlink{manux_2debug_8h_source}{debug.\+h}}.
+
+\Hypertarget{manux_2debug_8h_a1f680c236714b6616b9b635455d849b5}\label{manux_2debug_8h_a1f680c236714b6616b9b635455d849b5} 
+\index{debug.h@{debug.h}!DBG\_KERNEL\_ALL@{DBG\_KERNEL\_ALL}}
+\index{DBG\_KERNEL\_ALL@{DBG\_KERNEL\_ALL}!debug.h@{debug.h}}
+\doxysubsubsection{\texorpdfstring{DBG\_KERNEL\_ALL}{DBG\_KERNEL\_ALL}}
+{\footnotesize\ttfamily \#define DBG\+\_\+\+KERNEL\+\_\+\+ALL~0x\+FFFFFFFF}
+
+
+
+Définition à la ligne \mbox{\hyperlink{manux_2debug_8h_source_l00036}{36}} du fichier \mbox{\hyperlink{manux_2debug_8h_source}{debug.\+h}}.
+
+\Hypertarget{manux_2debug_8h_afa34597e6ec0f2fec225c45b6408daf9}\label{manux_2debug_8h_afa34597e6ec0f2fec225c45b6408daf9} 
+\index{debug.h@{debug.h}!DBG\_KERNEL\_AS@{DBG\_KERNEL\_AS}}
+\index{DBG\_KERNEL\_AS@{DBG\_KERNEL\_AS}!debug.h@{debug.h}}
+\doxysubsubsection{\texorpdfstring{DBG\_KERNEL\_AS}{DBG\_KERNEL\_AS}}
+{\footnotesize\ttfamily \#define DBG\+\_\+\+KERNEL\+\_\+\+AS~0x00000080}
+
+
+
+Définition à la ligne \mbox{\hyperlink{manux_2debug_8h_source_l00028}{28}} du fichier \mbox{\hyperlink{manux_2debug_8h_source}{debug.\+h}}.
+
+\Hypertarget{manux_2debug_8h_adc079ad5469c49710c9f8cc16a9fb223}\label{manux_2debug_8h_adc079ad5469c49710c9f8cc16a9fb223} 
+\index{debug.h@{debug.h}!DBG\_KERNEL\_BOOTLOADER@{DBG\_KERNEL\_BOOTLOADER}}
+\index{DBG\_KERNEL\_BOOTLOADER@{DBG\_KERNEL\_BOOTLOADER}!debug.h@{debug.h}}
+\doxysubsubsection{\texorpdfstring{DBG\_KERNEL\_BOOTLOADER}{DBG\_KERNEL\_BOOTLOADER}}
+{\footnotesize\ttfamily \#define DBG\+\_\+\+KERNEL\+\_\+\+BOOTLOADER~0x00001000}
+
+
+
+Définition à la ligne \mbox{\hyperlink{manux_2debug_8h_source_l00033}{33}} du fichier \mbox{\hyperlink{manux_2debug_8h_source}{debug.\+h}}.
+
+\Hypertarget{manux_2debug_8h_a933578e200c6ac638f6471f042e7ffc0}\label{manux_2debug_8h_a933578e200c6ac638f6471f042e7ffc0} 
+\index{debug.h@{debug.h}!DBG\_KERNEL\_ERREUR@{DBG\_KERNEL\_ERREUR}}
+\index{DBG\_KERNEL\_ERREUR@{DBG\_KERNEL\_ERREUR}!debug.h@{debug.h}}
+\doxysubsubsection{\texorpdfstring{DBG\_KERNEL\_ERREUR}{DBG\_KERNEL\_ERREUR}}
+{\footnotesize\ttfamily \#define DBG\+\_\+\+KERNEL\+\_\+\+ERREUR~0x00000001}
+
+
+
+Définition des différents flags. 
+
+Ma version des assertions et autres outils de debug. \begin{DoxyVerb}                                           (C) Manu Chaput 2000-2025
+\end{DoxyVerb}
+ 
+
+Définition à la ligne \mbox{\hyperlink{manux_2debug_8h_source_l00021}{21}} du fichier \mbox{\hyperlink{manux_2debug_8h_source}{debug.\+h}}.
+
+\Hypertarget{manux_2debug_8h_a792aa769935a581bc10439a92a648b6b}\label{manux_2debug_8h_a792aa769935a581bc10439a92a648b6b} 
+\index{debug.h@{debug.h}!DBG\_KERNEL\_MEMOIRE@{DBG\_KERNEL\_MEMOIRE}}
+\index{DBG\_KERNEL\_MEMOIRE@{DBG\_KERNEL\_MEMOIRE}!debug.h@{debug.h}}
+\doxysubsubsection{\texorpdfstring{DBG\_KERNEL\_MEMOIRE}{DBG\_KERNEL\_MEMOIRE}}
+{\footnotesize\ttfamily \#define DBG\+\_\+\+KERNEL\+\_\+\+MEMOIRE~0x00000040}
+
+
+
+Définition à la ligne \mbox{\hyperlink{manux_2debug_8h_source_l00027}{27}} du fichier \mbox{\hyperlink{manux_2debug_8h_source}{debug.\+h}}.
+
+\Hypertarget{manux_2debug_8h_a4f02878f8fb72005eddf2027f869557d}\label{manux_2debug_8h_a4f02878f8fb72005eddf2027f869557d} 
+\index{debug.h@{debug.h}!DBG\_KERNEL\_NET@{DBG\_KERNEL\_NET}}
+\index{DBG\_KERNEL\_NET@{DBG\_KERNEL\_NET}!debug.h@{debug.h}}
+\doxysubsubsection{\texorpdfstring{DBG\_KERNEL\_NET}{DBG\_KERNEL\_NET}}
+{\footnotesize\ttfamily \#define DBG\+\_\+\+KERNEL\+\_\+\+NET~0x00000200}
+
+
+
+Définition à la ligne \mbox{\hyperlink{manux_2debug_8h_source_l00030}{30}} du fichier \mbox{\hyperlink{manux_2debug_8h_source}{debug.\+h}}.
+
+\Hypertarget{manux_2debug_8h_ab3bd37bd2b7bb8ec9ae73d8a607a6d56}\label{manux_2debug_8h_ab3bd37bd2b7bb8ec9ae73d8a607a6d56} 
+\index{debug.h@{debug.h}!DBG\_KERNEL\_ORDON@{DBG\_KERNEL\_ORDON}}
+\index{DBG\_KERNEL\_ORDON@{DBG\_KERNEL\_ORDON}!debug.h@{debug.h}}
+\doxysubsubsection{\texorpdfstring{DBG\_KERNEL\_ORDON}{DBG\_KERNEL\_ORDON}}
+{\footnotesize\ttfamily \#define DBG\+\_\+\+KERNEL\+\_\+\+ORDON~0x00000010}
+
+
+
+Définition à la ligne \mbox{\hyperlink{manux_2debug_8h_source_l00025}{25}} du fichier \mbox{\hyperlink{manux_2debug_8h_source}{debug.\+h}}.
+
+\Hypertarget{manux_2debug_8h_a93c46e022e34a6b4c0812315c026e836}\label{manux_2debug_8h_a93c46e022e34a6b4c0812315c026e836} 
+\index{debug.h@{debug.h}!DBG\_KERNEL\_PAGIN@{DBG\_KERNEL\_PAGIN}}
+\index{DBG\_KERNEL\_PAGIN@{DBG\_KERNEL\_PAGIN}!debug.h@{debug.h}}
+\doxysubsubsection{\texorpdfstring{DBG\_KERNEL\_PAGIN}{DBG\_KERNEL\_PAGIN}}
+{\footnotesize\ttfamily \#define DBG\+\_\+\+KERNEL\+\_\+\+PAGIN~0x00000004}
+
+
+
+Définition à la ligne \mbox{\hyperlink{manux_2debug_8h_source_l00023}{23}} du fichier \mbox{\hyperlink{manux_2debug_8h_source}{debug.\+h}}.
+
+\Hypertarget{manux_2debug_8h_a52bf70fba6e2076903fb1be25cfc90c8}\label{manux_2debug_8h_a52bf70fba6e2076903fb1be25cfc90c8} 
+\index{debug.h@{debug.h}!DBG\_KERNEL\_PCI@{DBG\_KERNEL\_PCI}}
+\index{DBG\_KERNEL\_PCI@{DBG\_KERNEL\_PCI}!debug.h@{debug.h}}
+\doxysubsubsection{\texorpdfstring{DBG\_KERNEL\_PCI}{DBG\_KERNEL\_PCI}}
+{\footnotesize\ttfamily \#define DBG\+\_\+\+KERNEL\+\_\+\+PCI~0x00000100}
+
+
+
+Définition à la ligne \mbox{\hyperlink{manux_2debug_8h_source_l00029}{29}} du fichier \mbox{\hyperlink{manux_2debug_8h_source}{debug.\+h}}.
+
+\Hypertarget{manux_2debug_8h_a23325f5502b0b95faca503a28b1d5e77}\label{manux_2debug_8h_a23325f5502b0b95faca503a28b1d5e77} 
+\index{debug.h@{debug.h}!DBG\_KERNEL\_REGISTRE@{DBG\_KERNEL\_REGISTRE}}
+\index{DBG\_KERNEL\_REGISTRE@{DBG\_KERNEL\_REGISTRE}!debug.h@{debug.h}}
+\doxysubsubsection{\texorpdfstring{DBG\_KERNEL\_REGISTRE}{DBG\_KERNEL\_REGISTRE}}
+{\footnotesize\ttfamily \#define DBG\+\_\+\+KERNEL\+\_\+\+REGISTRE~0x00004000}
+
+
+
+Définition à la ligne \mbox{\hyperlink{manux_2debug_8h_source_l00035}{35}} du fichier \mbox{\hyperlink{manux_2debug_8h_source}{debug.\+h}}.
+
+\Hypertarget{manux_2debug_8h_a97cb921ecb429c2c4c3755b2ca69364b}\label{manux_2debug_8h_a97cb921ecb429c2c4c3755b2ca69364b} 
+\index{debug.h@{debug.h}!DBG\_KERNEL\_START@{DBG\_KERNEL\_START}}
+\index{DBG\_KERNEL\_START@{DBG\_KERNEL\_START}!debug.h@{debug.h}}
+\doxysubsubsection{\texorpdfstring{DBG\_KERNEL\_START}{DBG\_KERNEL\_START}}
+{\footnotesize\ttfamily \#define DBG\+\_\+\+KERNEL\+\_\+\+START~0x00000002}
+
+
+
+Définition à la ligne \mbox{\hyperlink{manux_2debug_8h_source_l00022}{22}} du fichier \mbox{\hyperlink{manux_2debug_8h_source}{debug.\+h}}.
+
+\Hypertarget{manux_2debug_8h_a69ed878fe38be7f569a44a0d85138ed6}\label{manux_2debug_8h_a69ed878fe38be7f569a44a0d85138ed6} 
+\index{debug.h@{debug.h}!DBG\_KERNEL\_SYSFI@{DBG\_KERNEL\_SYSFI}}
+\index{DBG\_KERNEL\_SYSFI@{DBG\_KERNEL\_SYSFI}!debug.h@{debug.h}}
+\doxysubsubsection{\texorpdfstring{DBG\_KERNEL\_SYSFI}{DBG\_KERNEL\_SYSFI}}
+{\footnotesize\ttfamily \#define DBG\+\_\+\+KERNEL\+\_\+\+SYSFI~0x00000008}
+
+
+
+Définition à la ligne \mbox{\hyperlink{manux_2debug_8h_source_l00024}{24}} du fichier \mbox{\hyperlink{manux_2debug_8h_source}{debug.\+h}}.
+
+\Hypertarget{manux_2debug_8h_a19609f5d9c6bdc24183e02a0ee4a7e96}\label{manux_2debug_8h_a19609f5d9c6bdc24183e02a0ee4a7e96} 
+\index{debug.h@{debug.h}!DBG\_KERNEL\_TACHE@{DBG\_KERNEL\_TACHE}}
+\index{DBG\_KERNEL\_TACHE@{DBG\_KERNEL\_TACHE}!debug.h@{debug.h}}
+\doxysubsubsection{\texorpdfstring{DBG\_KERNEL\_TACHE}{DBG\_KERNEL\_TACHE}}
+{\footnotesize\ttfamily \#define DBG\+\_\+\+KERNEL\+\_\+\+TACHE~0x00000020}
+
+
+
+Définition à la ligne \mbox{\hyperlink{manux_2debug_8h_source_l00026}{26}} du fichier \mbox{\hyperlink{manux_2debug_8h_source}{debug.\+h}}.
+
+\Hypertarget{manux_2debug_8h_a3e470f6becdc852f2d733ca0ee8cb8f1}\label{manux_2debug_8h_a3e470f6becdc852f2d733ca0ee8cb8f1} 
+\index{debug.h@{debug.h}!DBG\_KERNEL\_TUBE@{DBG\_KERNEL\_TUBE}}
+\index{DBG\_KERNEL\_TUBE@{DBG\_KERNEL\_TUBE}!debug.h@{debug.h}}
+\doxysubsubsection{\texorpdfstring{DBG\_KERNEL\_TUBE}{DBG\_KERNEL\_TUBE}}
+{\footnotesize\ttfamily \#define DBG\+\_\+\+KERNEL\+\_\+\+TUBE~0x00002000}
+
+
+
+Définition à la ligne \mbox{\hyperlink{manux_2debug_8h_source_l00034}{34}} du fichier \mbox{\hyperlink{manux_2debug_8h_source}{debug.\+h}}.
+
+\Hypertarget{manux_2debug_8h_a75f152fead74e7da11622606d11d4a96}\label{manux_2debug_8h_a75f152fead74e7da11622606d11d4a96} 
+\index{debug.h@{debug.h}!DBG\_KERNEL\_VIRTIO@{DBG\_KERNEL\_VIRTIO}}
+\index{DBG\_KERNEL\_VIRTIO@{DBG\_KERNEL\_VIRTIO}!debug.h@{debug.h}}
+\doxysubsubsection{\texorpdfstring{DBG\_KERNEL\_VIRTIO}{DBG\_KERNEL\_VIRTIO}}
+{\footnotesize\ttfamily \#define DBG\+\_\+\+KERNEL\+\_\+\+VIRTIO~0x00000400}
+
+
+
+Définition à la ligne \mbox{\hyperlink{manux_2debug_8h_source_l00031}{31}} du fichier \mbox{\hyperlink{manux_2debug_8h_source}{debug.\+h}}.
+
+\Hypertarget{manux_2debug_8h_a895b956a2419f199f255ee6542ed1f2d}\label{manux_2debug_8h_a895b956a2419f199f255ee6542ed1f2d} 
+\index{debug.h@{debug.h}!masqueDebugageConsole@{masqueDebugageConsole}}
+\index{masqueDebugageConsole@{masqueDebugageConsole}!debug.h@{debug.h}}
+\doxysubsubsection{\texorpdfstring{masqueDebugageConsole}{masqueDebugageConsole}}
+{\footnotesize\ttfamily \#define masque\+Debugage\+Console~\mbox{\hyperlink{manux_2debug_8h_a0aa3be7488358b17c7ecf87f67fc820d}{\+\_\+masque\+Debugage\+Console}}}
+
+
+
+Définition à la ligne \mbox{\hyperlink{manux_2debug_8h_source_l00052}{52}} du fichier \mbox{\hyperlink{manux_2debug_8h_source}{debug.\+h}}.
+
+\Hypertarget{manux_2debug_8h_a4f75a22599327492938e80d95d6e7805}\label{manux_2debug_8h_a4f75a22599327492938e80d95d6e7805} 
+\index{debug.h@{debug.h}!masqueDebugageFichier@{masqueDebugageFichier}}
+\index{masqueDebugageFichier@{masqueDebugageFichier}!debug.h@{debug.h}}
+\doxysubsubsection{\texorpdfstring{masqueDebugageFichier}{masqueDebugageFichier}}
+{\footnotesize\ttfamily \#define masque\+Debugage\+Fichier~\mbox{\hyperlink{manux_2debug_8h_a5da5b3d524cfe49bc2f1799b70c2ef44}{\+\_\+masque\+Debugage\+Fichier}}}
+
+
+
+Définition à la ligne \mbox{\hyperlink{manux_2debug_8h_source_l00053}{53}} du fichier \mbox{\hyperlink{manux_2debug_8h_source}{debug.\+h}}.
+
+\Hypertarget{manux_2debug_8h_a94bcf41c2acfb543c52dcb281acba959}\label{manux_2debug_8h_a94bcf41c2acfb543c52dcb281acba959} 
+\index{debug.h@{debug.h}!paniqueNoyau@{paniqueNoyau}}
+\index{paniqueNoyau@{paniqueNoyau}!debug.h@{debug.h}}
+\doxysubsubsection{\texorpdfstring{paniqueNoyau}{paniqueNoyau}}
+{\footnotesize\ttfamily \#define panique\+Noyau(\begin{DoxyParamCaption}\item[{}]{fmt,  }\item[{}]{args... }\end{DoxyParamCaption})}
+
+{\bfseries Valeur \+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\{\(\backslash\)}
+\DoxyCodeLine{\ \ \ printk(\textcolor{stringliteral}{"{}\(\backslash\)n***\ PANIQUE\ NOYAU\ \ ***\(\backslash\)n"{}});\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ printk(\textcolor{stringliteral}{"{}\%s\ (dans\ \%s\ ligne\ \%d)\(\backslash\)n"{}},\ \_\_FUNCTION\_\_,\ \_\_FILE\_\_,\ \_\_LINE\_\_);\ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ printk(\textcolor{stringliteral}{"{}"{}}\ fmt,\ \#\#\ args);\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ asm(\ \textcolor{stringliteral}{"{}hlt"{}}\ );\ \(\backslash\)}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+Définition à la ligne \mbox{\hyperlink{manux_2debug_8h_source_l00107}{107}} du fichier \mbox{\hyperlink{manux_2debug_8h_source}{debug.\+h}}.
+
+\Hypertarget{manux_2debug_8h_ad4cabea5084373436d91b5dc4e8d0a49}\label{manux_2debug_8h_ad4cabea5084373436d91b5dc4e8d0a49} 
+\index{debug.h@{debug.h}!printk\_debug@{printk\_debug}}
+\index{printk\_debug@{printk\_debug}!debug.h@{debug.h}}
+\doxysubsubsection{\texorpdfstring{printk\_debug}{printk\_debug}}
+{\footnotesize\ttfamily \#define printk\+\_\+debug(\begin{DoxyParamCaption}\item[{}]{lvl,  }\item[{}]{fmt,  }\item[{}]{args... }\end{DoxyParamCaption})}
+
+{\bfseries Valeur \+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ \ \textcolor{keywordflow}{if}\ (((lvl)\&\ \mbox{\hyperlink{manux_2debug_8h_a895b956a2419f199f255ee6542ed1f2d}{masqueDebugageConsole}})\ \&\&\ ((lvl)\&\ \mbox{\hyperlink{manux_2debug_8h_a4f75a22599327492938e80d95d6e7805}{masqueDebugageFichier}}))\ \{\ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ printk(\textcolor{stringliteral}{"{}\{7\}\ \%s\ line\ \%d\ :\ "{}}\ fmt,\ \_\_FUNCTION\_\_\ ,\ \_\_LINE\_\_,\ \#\#\ args);\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ ((lvl)\&\ \mbox{\hyperlink{manux_2debug_8h_a4f75a22599327492938e80d95d6e7805}{masqueDebugageFichier}})\ \{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ printk(\textcolor{stringliteral}{"{}(7)\ \%s\ line\ \%d\ :\ "{}}\ fmt,\ \_\_FUNCTION\_\_\ ,\ \_\_LINE\_\_,\ \#\#\ args);\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ ((lvl)\&\ \mbox{\hyperlink{manux_2debug_8h_a895b956a2419f199f255ee6542ed1f2d}{masqueDebugageConsole}})\ \{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ printk(\textcolor{stringliteral}{"{}[7]\ \%s\ line\ \%d\ :\ "{}}\ fmt,\ \_\_FUNCTION\_\_\ ,\ \_\_LINE\_\_,\ \#\#\ args);\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \}}
+
+\end{DoxyCode}
+Une fonction permettant d\textquotesingle{}afficher des messages de debug thématiques et avec un formatage homogène. 
+
+Définition à la ligne \mbox{\hyperlink{manux_2debug_8h_source_l00086}{86}} du fichier \mbox{\hyperlink{manux_2debug_8h_source}{debug.\+h}}.
+
+
+
+\doxysubsection{Documentation des fonctions}
+\Hypertarget{manux_2debug_8h_afecb2fc4768dcaba6f0098c4a46bff0c}\label{manux_2debug_8h_afecb2fc4768dcaba6f0098c4a46bff0c} 
+\index{debug.h@{debug.h}!debugInitialiser@{debugInitialiser}}
+\index{debugInitialiser@{debugInitialiser}!debug.h@{debug.h}}
+\doxysubsubsection{\texorpdfstring{debugInitialiser()}{debugInitialiser()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} debug\+Initialiser (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}}}]{ }\end{DoxyParamCaption})}
+
+
+
+Initialisation du sytème de débogage. 
+
+Cette phase d\textquotesingle{}initialisation n\textquotesingle{}est utile que si les masques de debogage sont implantés sous forme de variables (c\textquotesingle{}est-\/à-\/dire si MANUX\+\_\+\+DEBUGMASK\+\_\+\+VAR est définie) et si le registre est configuré (donc si MANUX\+\_\+\+REGISTRE est définie). Elle sert alors à placer les paramètres dans le registre. 
+
+Définition à la ligne \mbox{\hyperlink{debug_8c_source_l00037}{37}} du fichier \mbox{\hyperlink{debug_8c_source}{debug.\+c}}.
+

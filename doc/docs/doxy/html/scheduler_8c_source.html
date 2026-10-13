@@ -1,0 +1,546 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>My Project:  Fichier source de /home/manu/PROGRAMMATION/C/ManuX/noyau/scheduler.c</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">My Project
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- GÃ©nÃ©rÃ© par Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function() { init_codefold(0); });
+/* @license-end */
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_b49ee5e1e1e78348df5ce57bc52e7bb8.html">noyau</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle"><div class="title">scheduler.c</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="scheduler_8c.html">Aller Ã  la documentation de ce fichier.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">/*----------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment">/*      Implantation des fonctions de base du scheduler.                      */</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment">/*                                                                            */</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment">/* A voir : le paramètre &quot;nouvelleConsole&quot; n&#39;a pas de sens s&#39;il n&#39;y a pas de  */</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment">/* consoles virtuelles, à supprimer dans ce cas ? Ca rendra le code moins     */</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment">/* lisible.                                                                   */</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="comment">/*                                                  (C) Manu Chaput 2000-2025 */</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="comment">/*----------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &lt;manux/config.h&gt;</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &lt;<a class="code" href="scheduler_8h.html">manux/scheduler.h</a>&gt;</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno"><a class="line" href="scheduler_8c.html#ab4e684e106579094bd79a8171c60090a">   12</a></span><span class="preprocessor">#define DEBUG_MANUX_SCHEDULER</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &lt;manux/errno.h&gt;</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#ifdef MANUX_CONSOLE</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">#   include &lt;<a class="code" href="include_2manux_2console_8h.html">manux/console.h</a>&gt;</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="preprocessor">#include &lt;<a class="code" href="io_8h.html">manux/io.h</a>&gt;</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="preprocessor">#include &lt;<a class="code" href="include_2manux_2memoire_8h.html">manux/memoire.h</a>&gt;</span>       <span class="comment">/* NULL, allouerPage */</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="preprocessor">#if defined(MANUX_SYNCHRONISATION)</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="preprocessor">#   include &lt;<a class="code" href="atomique_8h.html">manux/atomique.h</a>&gt;</span>      <span class="comment">/* Pour le verrou sur le scheduler */</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="preprocessor">#   if defined(MANUX_EXCLUSION_MUTUELLE)</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="preprocessor">#      include &lt;<a class="code" href="exclusion-mutuelle_8h.html">manux/exclusion-mutuelle.h</a>&gt;</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="preprocessor">#   endif</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="preprocessor">#   if defined(MANUX_CONDITION)</span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="preprocessor">#      include &lt;<a class="code" href="condition_8h.html">manux/condition.h</a>&gt;</span></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="preprocessor">#   endif</span></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="preprocessor">#include &lt;<a class="code" href="include_2manux_2printk_8h.html">manux/printk.h</a>&gt;</span>        <span class="comment">/* printk() */</span></div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="preprocessor">#include &lt;<a class="code" href="manux_2debug_8h.html">manux/debug.h</a>&gt;</span>         <span class="comment">/* debug() paniqueNoyau() */</span></div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="preprocessor">#include &lt;<a class="code" href="include_2manux_2interruptions_8h.html">manux/interruptions.h</a>&gt;</span> <span class="comment">/* nbTopHorloge */</span></div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="preprocessor">#include &lt;manux/i386.h&gt;</span>          <span class="comment">/* ltr */</span></div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="preprocessor">#include &lt;manux/appelsysteme.h&gt;</span>  <span class="comment">/* console() */</span></div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="preprocessor">#ifdef MANUX_DUMMY_TASK</span></div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="preprocessor">#   include &lt;<a class="code" href="manux_2dummy-task_8h.html">manux/dummy-task.h</a>&gt;</span></div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="keyword">extern</span> <a class="code hl_typedef" href="include_2manux_2types_8h.html#a1aa19b97c742cff758e6532b519954c4">TacheID</a> <a class="code hl_variable" href="scheduler_8c.html#a725a5b194207247d25785e8ec90488d8">numeroProchaineTache</a> ;</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="comment">/*</span></div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="comment"> * Une variable globale permettant d&#39;identifier la tache du scheduler</span></div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno"><a class="line" href="scheduler_8c.html#ae9fc05d7baa2e71defadd7a4537eef5a">   44</a></span><a class="code hl_struct" href="struct__Tache.html">Tache</a> * <a class="code hl_variable" href="scheduler_8c.html#ae9fc05d7baa2e71defadd7a4537eef5a">tacheScheduler</a>;</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno"><a class="line" href="scheduler_8c.html#ac7f7b7ce11b466047d3870130d7b1e6f">   46</a></span><a class="code hl_typedef" href="include_2manux_2types_8h.html#abe4acab18c967c397d24aa95c2d48b27">Temps</a> <a class="code hl_variable" href="scheduler_8c.html#ac7f7b7ce11b466047d3870130d7b1e6f">dateDernierOrdonnancement</a>;  <span class="comment">// En nbTopHorloge</span></div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno"><a class="line" href="scheduler_8c.html#a766adafe551d8f3dfb42acf9abc22761">   47</a></span><a class="code hl_typedef" href="atomique_8h.html#a34aa37778d3701c511b28edcb866cedb">Atomique</a> <a class="code hl_variable" href="scheduler_8c.html#a766adafe551d8f3dfb42acf9abc22761">schedulerEnCours</a> = 0;</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span><span class="comment">/*</span></div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span><span class="comment"> * Ce qui suit n&#39;est pas trés joli, mais ça ne devrait pas rester.</span></div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno"><a class="line" href="scheduler_8h.html#ac0ad7deba8c8b31a1d9f541aa3ba997f">   52</a></span><a class="code hl_typedef" href="include_2manux_2types_8h.html#a5b7544e51b136e716e4eccc0602bafd7">booleen</a> <a class="code hl_variable" href="scheduler_8c.html#ac0ad7deba8c8b31a1d9f541aa3ba997f">basculeConsoleDemandee</a> = <a class="code hl_define" href="include_2manux_2types_8h.html#aa93f0eb578d23995850d61f7d61c55c1">FALSE</a>;</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span> </div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno"><a class="line" href="scheduler_8h.html#a6ab4872c480fd88702e95f13ca8c1bf5">   54</a></span><a class="code hl_typedef" href="include_2manux_2types_8h.html#a5b7544e51b136e716e4eccc0602bafd7">booleen</a> <a class="code hl_variable" href="scheduler_8c.html#a6ab4872c480fd88702e95f13ca8c1bf5">basculerTacheDemande</a> = <a class="code hl_define" href="include_2manux_2types_8h.html#aa8cecfc5c5c054d2875c03e77b7be15d">TRUE</a>; <span class="comment">// WARNING à virer ? C&#39;est pour</span></div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>                     <span class="comment">// faire du &quot;pas à pas&quot;</span></div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span><span class="preprocessor">#if defined(MANUX_TACHES) &amp;&amp; defined(MANUX_SYNCHRONISATION) &amp;&amp; !defined(MANUX_REENTRANT)</span></div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span><a class="code hl_struct" href="struct__ExclusionMutuelle.html">ExclusionMutuelle</a> verrouGeneralDuNoyau;</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span><a class="code hl_typedef" href="include_2manux_2types_8h.html#a1aa19b97c742cff758e6532b519954c4">TacheID</a> tacheDansLeNoyau = 0;</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span> </div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno"><a class="line" href="scheduler_8h.html#a80a9c97323077673833937f0f3cb3059">   76</a></span><a class="code hl_struct" href="struct__ListeTache.html">ListeTache</a> <a class="code hl_variable" href="scheduler_8c.html#a80a9c97323077673833937f0f3cb3059">listeTachesPretes</a>;</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span> </div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno"><a class="line" href="scheduler_8h.html#a0ee9c5d04fc494f6a86b24b993eb30e3">   81</a></span><a class="code hl_struct" href="struct__ListeTache.html">ListeTache</a> <a class="code hl_variable" href="scheduler_8c.html#a0ee9c5d04fc494f6a86b24b993eb30e3">listeToutesLesTaches</a>;</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span> </div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno"><a class="line" href="scheduler_8h.html#a05fd30175a3a21795cc066dab7606b4d">   86</a></span><a class="code hl_struct" href="struct__ListeTache.html">ListeTache</a> <a class="code hl_variable" href="scheduler_8c.html#a05fd30175a3a21795cc066dab7606b4d">listeTachesTerminees</a>;</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span> </div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno"><a class="line" href="scheduler_8h.html#aafdf44b33a86f1bef6141d33a4abb94b">   91</a></span><a class="code hl_struct" href="struct__Tache.html">Tache</a> * <a class="code hl_variable" href="scheduler_8c.html#aafdf44b33a86f1bef6141d33a4abb94b">tacheEnCours</a> = <a class="code hl_define" href="include_2manux_2stddef_8h.html#a070d2ce7b6bb7e5c05602aa8c308d0c4">NULL</a>;</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span> </div>
+<div class="foldopen" id="foldopen00098" data-start="{" data-end="}">
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno"><a class="line" href="scheduler_8h.html#ae00507099d51c08195d42c08daad4f41">   98</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="scheduler_8c.html#ae00507099d51c08195d42c08daad4f41">ordonnanceur</a>(<span class="keywordtype">void</span>)</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>{</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>   <a class="code hl_struct" href="struct__Tache.html">Tache</a> * tachePrecedente = <a class="code hl_variable" href="scheduler_8c.html#aafdf44b33a86f1bef6141d33a4abb94b">tacheEnCours</a>;</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span> </div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>   <a class="code hl_define" href="manux_2debug_8h.html#a3153a272f18d0f805028fce7e4337b53">assert</a>(<a class="code hl_variable" href="scheduler_8c.html#aafdf44b33a86f1bef6141d33a4abb94b">tacheEnCours</a> != <a class="code hl_define" href="include_2manux_2stddef_8h.html#a070d2ce7b6bb7e5c05602aa8c308d0c4">NULL</a>);</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span> </div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>   <a class="code hl_define" href="manux_2debug_8h.html#ad4cabea5084373436d91b5dc4e8d0a49">printk_debug</a>(<a class="code hl_define" href="manux_2debug_8h.html#ab3bd37bd2b7bb8ec9ae73d8a607a6d56">DBG_KERNEL_ORDON</a>, <span class="stringliteral">&quot;in (de tache %d)\n&quot;</span>, tachePrecedente-&gt;<a class="code hl_variable" href="struct__Tache.html#adcc9e272e58793e4bae000102d6537a3">numero</a>);</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>   </div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span><span class="preprocessor">#ifdef MANUX_CONSOLES_VIRTUELLES</span></div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>   <span class="comment">// Basculement entre les consoles virtuelles WARNING pourquoi ici</span></div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>   <span class="comment">// !? A faire faire par dummyTask</span></div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>   <span class="keywordflow">if</span> (<a class="code hl_variable" href="scheduler_8c.html#ac0ad7deba8c8b31a1d9f541aa3ba997f">basculeConsoleDemandee</a>) {</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>      <a class="code hl_variable" href="scheduler_8c.html#ac0ad7deba8c8b31a1d9f541aa3ba997f">basculeConsoleDemandee</a> = <a class="code hl_define" href="include_2manux_2types_8h.html#aa93f0eb578d23995850d61f7d61c55c1">FALSE</a>;</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>      basculerVersConsoleSuivante();</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>   }</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span> </div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>   <span class="comment">// Attention, si la tâche en cours n&#39;est pas préemptible</span></div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>   <span class="keywordflow">if</span> (<a class="code hl_variable" href="scheduler_8c.html#aafdf44b33a86f1bef6141d33a4abb94b">tacheEnCours</a>-&gt;<a class="code hl_variable" href="struct__Tache.html#adf8333ec5a3905476de96e3159051672">nonPreemptible</a>) {</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>      <a class="code hl_define" href="manux_2debug_8h.html#ad4cabea5084373436d91b5dc4e8d0a49">printk_debug</a>(<a class="code hl_define" href="manux_2debug_8h.html#ab3bd37bd2b7bb8ec9ae73d8a607a6d56">DBG_KERNEL_ORDON</a>, <span class="stringliteral">&quot;abandon (tache %d non preemptible)\n&quot;</span>, tachePrecedente-&gt;<a class="code hl_variable" href="struct__Tache.html#adcc9e272e58793e4bae000102d6537a3">numero</a>);</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>      <span class="keywordflow">return</span>;</div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>   }</div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>   </div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>   <span class="comment">// (1) On s&#39;occupe de la tâche en cours</span></div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>  </div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>   <span class="comment">// On cumule le temps d&#39;écution dont elle vient de profiter</span></div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>   <a class="code hl_variable" href="scheduler_8c.html#aafdf44b33a86f1bef6141d33a4abb94b">tacheEnCours</a>-&gt;<a class="code hl_variable" href="struct__Tache.html#a8e4b96d2966bc94de3d6d47cdb10ace0">tempsExecution</a> += (<a class="code hl_variable" href="horloge_8c.html#a1ebf6a786f9fbcd719425d9ebeb027e6">nbTopHorloge</a> - <a class="code hl_variable" href="scheduler_8c.html#ac7f7b7ce11b466047d3870130d7b1e6f">dateDernierOrdonnancement</a>);</div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span> </div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>   <span class="comment">// Si on n&#39;est pas là spontanément, on se considère en cours, mais</span></div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>   <span class="comment">// c&#39;est fini pour le moment !</span></div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>   <span class="keywordflow">if</span> (<a class="code hl_variable" href="scheduler_8c.html#aafdf44b33a86f1bef6141d33a4abb94b">tacheEnCours</a>-&gt;<a class="code hl_variable" href="struct__Tache.html#a52778b74cd5dd7afca337370e89d1668">etat</a> == <a class="code hl_enumvalue" href="tache_8h.html#a079625c76ac29238ace165d5958d82e5a6b2e382d78b8c9db8db762366c22f2b3">Tache_En_Cours</a>) {</div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>      <a class="code hl_variable" href="scheduler_8c.html#aafdf44b33a86f1bef6141d33a4abb94b">tacheEnCours</a>-&gt;<a class="code hl_variable" href="struct__Tache.html#a52778b74cd5dd7afca337370e89d1668">etat</a> = <a class="code hl_enumvalue" href="tache_8h.html#a079625c76ac29238ace165d5958d82e5abd18ea3758daaa8a8012e928416be362">Tache_Prete</a>;</div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>   </div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>      <a class="code hl_function" href="listetaches_8h.html#a47d0e6faac2157f137a3e09608835c79">insererCelluleTache</a>(&amp;<a class="code hl_variable" href="scheduler_8c.html#a80a9c97323077673833937f0f3cb3059">listeTachesPretes</a>,</div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>                          <a class="code hl_variable" href="scheduler_8c.html#aafdf44b33a86f1bef6141d33a4abb94b">tacheEnCours</a>,</div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>                          (<a class="code hl_struct" href="struct__CelluleTache.html">CelluleTache</a>*)<a class="code hl_variable" href="scheduler_8c.html#aafdf44b33a86f1bef6141d33a4abb94b">tacheEnCours</a>+<span class="keyword">sizeof</span>(<a class="code hl_struct" href="struct__Tache.html">Tache</a>));</div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>   }</div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span> </div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>   <span class="comment">// Dans les autres cas, la tâche est sensée être dans une file</span></div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>   <span class="comment">// correspondant à son état</span></div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>   </div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span>   <span class="comment">// (2) on cherche la tâche suivante</span></div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span>   <span class="comment">// On prend la première tâche prête, il y en a au moins une : la dummy</span></div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span>   <a class="code hl_define" href="manux_2debug_8h.html#ad4cabea5084373436d91b5dc4e8d0a49">printk_debug</a>(<a class="code hl_define" href="manux_2debug_8h.html#ab3bd37bd2b7bb8ec9ae73d8a607a6d56">DBG_KERNEL_ORDON</a>, <span class="stringliteral">&quot;on cherche la suivante ...\n&quot;</span>);   </div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span>   <span class="keywordflow">do</span> {</div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>      <a class="code hl_variable" href="scheduler_8c.html#aafdf44b33a86f1bef6141d33a4abb94b">tacheEnCours</a> = <a class="code hl_function" href="listetaches_8h.html#ac5545c3621d37831f73cd58e653f7377">extraireTache</a>(&amp;<a class="code hl_variable" href="scheduler_8c.html#a80a9c97323077673833937f0f3cb3059">listeTachesPretes</a>);</div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>   } <span class="keywordflow">while</span> (<a class="code hl_variable" href="scheduler_8c.html#aafdf44b33a86f1bef6141d33a4abb94b">tacheEnCours</a>-&gt;<a class="code hl_variable" href="struct__Tache.html#a52778b74cd5dd7afca337370e89d1668">etat</a> != <a class="code hl_enumvalue" href="tache_8h.html#a079625c76ac29238ace165d5958d82e5abd18ea3758daaa8a8012e928416be362">Tache_Prete</a>); </div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>   <a class="code hl_define" href="manux_2debug_8h.html#ad4cabea5084373436d91b5dc4e8d0a49">printk_debug</a>(<a class="code hl_define" href="manux_2debug_8h.html#ab3bd37bd2b7bb8ec9ae73d8a607a6d56">DBG_KERNEL_ORDON</a>, <span class="stringliteral">&quot;... ce sera la %d\n&quot;</span>, <a class="code hl_variable" href="scheduler_8c.html#aafdf44b33a86f1bef6141d33a4abb94b">tacheEnCours</a>-&gt;<a class="code hl_variable" href="struct__Tache.html#adcc9e272e58793e4bae000102d6537a3">numero</a>);   </div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span> </div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>   <a class="code hl_variable" href="scheduler_8c.html#aafdf44b33a86f1bef6141d33a4abb94b">tacheEnCours</a>-&gt;<a class="code hl_variable" href="struct__Tache.html#a52778b74cd5dd7afca337370e89d1668">etat</a> = <a class="code hl_enumvalue" href="tache_8h.html#a079625c76ac29238ace165d5958d82e5a6b2e382d78b8c9db8db762366c22f2b3">Tache_En_Cours</a>;</div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span> </div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>   <span class="comment">/* On note la date pour pouvoir mesurer le temps dont elle va profiter */</span></div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>   <a class="code hl_variable" href="scheduler_8c.html#ac7f7b7ce11b466047d3870130d7b1e6f">dateDernierOrdonnancement</a> = <a class="code hl_variable" href="horloge_8c.html#a1ebf6a786f9fbcd719425d9ebeb027e6">nbTopHorloge</a>;</div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span> </div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>   <span class="keywordflow">if</span> (<a class="code hl_variable" href="scheduler_8c.html#aafdf44b33a86f1bef6141d33a4abb94b">tacheEnCours</a> != tachePrecedente){</div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>      <a class="code hl_define" href="manux_2debug_8h.html#ad4cabea5084373436d91b5dc4e8d0a49">printk_debug</a>(<a class="code hl_define" href="manux_2debug_8h.html#ab3bd37bd2b7bb8ec9ae73d8a607a6d56">DBG_KERNEL_ORDON</a>, <span class="stringliteral">&quot;On passe a la tache %d de TSS 0x%x \n&quot;</span>,</div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>         <a class="code hl_variable" href="scheduler_8c.html#aafdf44b33a86f1bef6141d33a4abb94b">tacheEnCours</a>-&gt;<a class="code hl_variable" href="struct__Tache.html#adcc9e272e58793e4bae000102d6537a3">numero</a>,</div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span>         <a class="code hl_variable" href="scheduler_8c.html#aafdf44b33a86f1bef6141d33a4abb94b">tacheEnCours</a>-&gt;<a class="code hl_variable" href="struct__Tache.html#ab249d7e8cd1654617b229e6abee76736">indiceTSSDescriptor</a>);</div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span> </div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>      <span class="comment">/* Une activation de plus pour elle */</span></div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span>      <a class="code hl_variable" href="scheduler_8c.html#aafdf44b33a86f1bef6141d33a4abb94b">tacheEnCours</a>-&gt;<a class="code hl_variable" href="struct__Tache.html#a75f1c6827f13f0d92b905e4f6b0d42e5">nbActivations</a>++;</div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span> </div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>      <a class="code hl_define" href="manux_2debug_8h.html#ad4cabea5084373436d91b5dc4e8d0a49">printk_debug</a>(<a class="code hl_define" href="manux_2debug_8h.html#ab3bd37bd2b7bb8ec9ae73d8a607a6d56">DBG_KERNEL_ORDON</a>, <span class="stringliteral">&quot;out (vers tache %d)\n&quot;</span>, <a class="code hl_variable" href="scheduler_8c.html#aafdf44b33a86f1bef6141d33a4abb94b">tacheEnCours</a>-&gt;<a class="code hl_variable" href="struct__Tache.html#adcc9e272e58793e4bae000102d6537a3">numero</a>);</div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>      <a class="code hl_function" href="tache_8h.html#a0ec51dfb4bb630c26867bc04036b99bd">basculerVersTache</a>(<a class="code hl_variable" href="scheduler_8c.html#aafdf44b33a86f1bef6141d33a4abb94b">tacheEnCours</a>);</div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span>   }</div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span>   <a class="code hl_define" href="manux_2debug_8h.html#ad4cabea5084373436d91b5dc4e8d0a49">printk_debug</a>(<a class="code hl_define" href="manux_2debug_8h.html#ab3bd37bd2b7bb8ec9ae73d8a607a6d56">DBG_KERNEL_ORDON</a>, <span class="stringliteral">&quot;back (vers tache %d)\n&quot;</span>, <a class="code hl_variable" href="scheduler_8c.html#aafdf44b33a86f1bef6141d33a4abb94b">tacheEnCours</a>-&gt;<a class="code hl_variable" href="struct__Tache.html#adcc9e272e58793e4bae000102d6537a3">numero</a>);</div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span>}</div>
+</div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span> </div>
+<div class="foldopen" id="foldopen00171" data-start="{" data-end="}">
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno"><a class="line" href="scheduler_8h.html#aef1e54d9e6a32886461b3dc665654748">  171</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="scheduler_8c.html#aef1e54d9e6a32886461b3dc665654748">ordonnanceurAddTache</a>(<a class="code hl_struct" href="struct__Tache.html">Tache</a> * tache)</div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span>{</div>
+<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span>   <a class="code hl_function" href="listetaches_8h.html#a47d0e6faac2157f137a3e09608835c79">insererCelluleTache</a>(&amp;<a class="code hl_variable" href="scheduler_8c.html#a80a9c97323077673833937f0f3cb3059">listeTachesPretes</a>,</div>
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span>               tache,</div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>               (<a class="code hl_struct" href="struct__CelluleTache.html">CelluleTache</a>*)tache+<span class="keyword">sizeof</span>(<a class="code hl_struct" href="struct__Tache.html">Tache</a>));</div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span>}</div>
+</div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span> </div>
+<div class="foldopen" id="foldopen00181" data-start="{" data-end="}">
+<div class="line"><a id="l00181" name="l00181"></a><span class="lineno"><a class="line" href="scheduler_8h.html#a32c7cefad94adc3dd3953dc5c71b32ad">  181</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="scheduler_8c.html#a32c7cefad94adc3dd3953dc5c71b32ad">initialiserScheduler</a>(<span class="keywordtype">void</span>)</div>
+<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span>{</div>
+<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span>   <a class="code hl_struct" href="struct__Tache.html">Tache</a> * t1; <span class="comment">// Le fil d&#39;exécution en cours, qui deviendra init</span></div>
+<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span><span class="preprocessor">#ifdef MANUX_DUMMY_TASK</span></div>
+<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span>   <a class="code hl_struct" href="struct__Tache.html">Tache</a> * t2; <span class="comment">// Ce sera la &quot;dummy&quot; task</span></div>
+<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span><span class="preprocessor">#endif </span><span class="comment">// MANUX_DUMMY_TASK</span></div>
+<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span> </div>
+<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span>   <a class="code hl_variable" href="scheduler_8c.html#ac7f7b7ce11b466047d3870130d7b1e6f">dateDernierOrdonnancement</a> = <a class="code hl_variable" href="horloge_8c.html#a1ebf6a786f9fbcd719425d9ebeb027e6">nbTopHorloge</a>;</div>
+<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span> </div>
+<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span>   <a class="code hl_define" href="manux_2debug_8h.html#ad4cabea5084373436d91b5dc4e8d0a49">printk_debug</a>(<a class="code hl_define" href="manux_2debug_8h.html#ab3bd37bd2b7bb8ec9ae73d8a607a6d56">DBG_KERNEL_ORDON</a>, <span class="stringliteral">&quot;initialisation du scheduler ...\n&quot;</span>);</div>
+<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span> </div>
+<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span>   <span class="comment">// Initialisation de la liste (vide) des tâches en cours</span></div>
+<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span>   <a class="code hl_function" href="listetaches_8h.html#af5baf3857612a0fabb59ad436aec5b9a">initialiserListeTache</a>(&amp;<a class="code hl_variable" href="scheduler_8c.html#a80a9c97323077673833937f0f3cb3059">listeTachesPretes</a>);</div>
+<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span> </div>
+<div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span>   <span class="comment">// Initialisation de la liste (vide) de toutes les tâches</span></div>
+<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span>   <a class="code hl_function" href="listetaches_8h.html#af5baf3857612a0fabb59ad436aec5b9a">initialiserListeTache</a>(&amp;<a class="code hl_variable" href="scheduler_8c.html#a0ee9c5d04fc494f6a86b24b993eb30e3">listeToutesLesTaches</a>);</div>
+<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span> </div>
+<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span>   <span class="comment">// Initialisation de la liste (vide) des tâches terminées</span></div>
+<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span>   <a class="code hl_function" href="listetaches_8h.html#af5baf3857612a0fabb59ad436aec5b9a">initialiserListeTache</a>(&amp;<a class="code hl_variable" href="scheduler_8c.html#a05fd30175a3a21795cc066dab7606b4d">listeTachesTerminees</a>);</div>
+<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span> </div>
+<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span>   <span class="comment">// Création d&#39;une tâche pour le fil actuel (premier numéro)</span></div>
+<div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span>   t1 = <a class="code hl_function" href="tache_8h.html#ae73130353eaec375c352eee5e35e19ea">tacheCreer</a>(<a class="code hl_define" href="include_2manux_2stddef_8h.html#a070d2ce7b6bb7e5c05602aa8c308d0c4">NULL</a>);</div>
+<div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span>   <span class="keywordflow">if</span> (t1 == <a class="code hl_define" href="include_2manux_2stddef_8h.html#a070d2ce7b6bb7e5c05602aa8c308d0c4">NULL</a>) {</div>
+<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span>      <a class="code hl_define" href="manux_2debug_8h.html#a94bcf41c2acfb543c52dcb281acba959">paniqueNoyau</a>(<span class="stringliteral">&quot;impossible de creer la premiere tache !\n&quot;</span>);</div>
+<div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span>   }</div>
+<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span><span class="preprocessor">#ifdef MANUX_TACHE_CONSOLE   </span></div>
+<div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span>   tacheSetConsole(t1, <a class="code hl_function" href="include_2manux_2console_8h.html#abf2f6aca15463bf0f0114531cea39f15">consoleNoyau</a>());</div>
+<div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span>   <span class="comment">/* Cas particulier de la première tâche : */</span></div>
+<div class="line"><a id="l00210" name="l00210"></a><span class="lineno">  210</span>   <span class="comment">/*   . on la déclare comme en cours.   */</span></div>
+<div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span>   <a class="code hl_variable" href="scheduler_8c.html#aafdf44b33a86f1bef6141d33a4abb94b">tacheEnCours</a> = t1;</div>
+<div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span>   t1-&gt;<a class="code hl_variable" href="struct__Tache.html#a52778b74cd5dd7afca337370e89d1668">etat</a> = <a class="code hl_enumvalue" href="tache_8h.html#a079625c76ac29238ace165d5958d82e5a6b2e382d78b8c9db8db762366c22f2b3">Tache_En_Cours</a>;</div>
+<div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span>   </div>
+<div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span>   <span class="comment">/*   . on charge son task register ;      */</span></div>
+<div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span>   <a class="code hl_define" href="include_2manux_2i386_8h.html#a6cdff266109b11c9b9572cfc4a7aeb0f">ltr</a>(t1-&gt;<a class="code hl_variable" href="struct__Tache.html#ab249d7e8cd1654617b229e6abee76736">indiceTSSDescriptor</a>);</div>
+<div class="line"><a id="l00216" name="l00216"></a><span class="lineno">  216</span>            </div>
+<div class="line"><a id="l00217" name="l00217"></a><span class="lineno">  217</span>   <span class="comment">// Avant de permettre à une deuxième tâche d&#39;entrer en concurrence,</span></div>
+<div class="line"><a id="l00218" name="l00218"></a><span class="lineno">  218</span>   <span class="comment">// il faut s&#39;assurer qu&#39;on a la main sur le noyau.</span></div>
+<div class="line"><a id="l00219" name="l00219"></a><span class="lineno">  219</span><span class="preprocessor">#if !defined(MANUX_REENTRANT) &amp;&amp; defined(MANUX_EXCLUSION_MUTUELLE)</span></div>
+<div class="line"><a id="l00220" name="l00220"></a><span class="lineno">  220</span>   <a class="code hl_define" href="manux_2debug_8h.html#ad4cabea5084373436d91b5dc4e8d0a49">printk_debug</a>(<a class="code hl_define" href="manux_2debug_8h.html#ab3bd37bd2b7bb8ec9ae73d8a607a6d56">DBG_KERNEL_ORDON</a>, <span class="stringliteral">&quot;on verouille le verrou\n&quot;</span>);</div>
+<div class="line"><a id="l00221" name="l00221"></a><span class="lineno">  221</span>   </div>
+<div class="line"><a id="l00222" name="l00222"></a><span class="lineno">  222</span>   <a class="code hl_function" href="exclusion-mutuelle_8h.html#a9b966fcfd5b19565e2734f33eb5bbf1c">exclusionMutuelleEntrer</a>(&amp;verrouGeneralDuNoyau);</div>
+<div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span>   <a class="code hl_define" href="manux_2debug_8h.html#a3153a272f18d0f805028fce7e4337b53">assert</a>(tacheDansLeNoyau == 0);</div>
+<div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span>   tacheDansLeNoyau = <a class="code hl_variable" href="scheduler_8c.html#aafdf44b33a86f1bef6141d33a4abb94b">tacheEnCours</a>-&gt;<a class="code hl_variable" href="struct__Tache.html#adcc9e272e58793e4bae000102d6537a3">numero</a>;</div>
+<div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00226" name="l00226"></a><span class="lineno">  226</span> </div>
+<div class="line"><a id="l00227" name="l00227"></a><span class="lineno">  227</span><span class="preprocessor">#ifdef MANUX_DUMMY_TASK</span></div>
+<div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span>   <a class="code hl_define" href="manux_2debug_8h.html#ad4cabea5084373436d91b5dc4e8d0a49">printk_debug</a>(<a class="code hl_define" href="manux_2debug_8h.html#ab3bd37bd2b7bb8ec9ae73d8a607a6d56">DBG_KERNEL_ORDON</a>, <span class="stringliteral">&quot;creons la dummy\n&quot;</span>);</div>
+<div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span> </div>
+<div class="line"><a id="l00230" name="l00230"></a><span class="lineno">  230</span>   <span class="comment">// Initialisation de la tache &quot;aDummyKernelTask&quot; (numéro 2)</span></div>
+<div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span>   t2 = <a class="code hl_function" href="tache_8h.html#ae73130353eaec375c352eee5e35e19ea">tacheCreer</a>(<a class="code hl_function" href="manux_2dummy-task_8h.html#a93c3a7223e0a1bdb1070c19d45d49494">aDummyKernelTask</a>);</div>
+<div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span>   </div>
+<div class="line"><a id="l00233" name="l00233"></a><span class="lineno">  233</span>   <span class="keywordflow">if</span> (t2 == <a class="code hl_define" href="include_2manux_2stddef_8h.html#a070d2ce7b6bb7e5c05602aa8c308d0c4">NULL</a>) {</div>
+<div class="line"><a id="l00234" name="l00234"></a><span class="lineno">  234</span>      <a class="code hl_define" href="manux_2debug_8h.html#a94bcf41c2acfb543c52dcb281acba959">paniqueNoyau</a>(<span class="stringliteral">&quot;impossible de creer la seconde tache !\n&quot;</span>);</div>
+<div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span>   }</div>
+<div class="line"><a id="l00236" name="l00236"></a><span class="lineno">  236</span> </div>
+<div class="line"><a id="l00237" name="l00237"></a><span class="lineno">  237</span>   <a class="code hl_define" href="manux_2debug_8h.html#ad4cabea5084373436d91b5dc4e8d0a49">printk_debug</a>(<a class="code hl_define" href="manux_2debug_8h.html#ab3bd37bd2b7bb8ec9ae73d8a607a6d56">DBG_KERNEL_ORDON</a>, <span class="stringliteral">&quot;la dummy est la ...\n&quot;</span>);</div>
+<div class="line"><a id="l00238" name="l00238"></a><span class="lineno">  238</span> </div>
+<div class="line"><a id="l00239" name="l00239"></a><span class="lineno">  239</span><span class="preprocessor">#define MANUX_DUMMY_TASK_CONSOLE</span></div>
+<div class="line"><a id="l00240" name="l00240"></a><span class="lineno">  240</span><span class="preprocessor">#ifdef MANUX_TACHE_CONSOLE   </span></div>
+<div class="line"><a id="l00241" name="l00241"></a><span class="lineno">  241</span><span class="preprocessor">#ifdef MANUX_DUMMY_TASK_CONSOLE</span></div>
+<div class="line"><a id="l00242" name="l00242"></a><span class="lineno">  242</span>   tacheSetConsole(t2, creerConsoleVirtuelle());</div>
+<div class="line"><a id="l00243" name="l00243"></a><span class="lineno">  243</span><span class="preprocessor">#else   </span></div>
+<div class="line"><a id="l00244" name="l00244"></a><span class="lineno">  244</span>   tacheSetConsole(t2, <a class="code hl_function" href="include_2manux_2console_8h.html#abf2f6aca15463bf0f0114531cea39f15">consoleNoyau</a>());</div>
+<div class="line"><a id="l00245" name="l00245"></a><span class="lineno">  245</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00246" name="l00246"></a><span class="lineno">  246</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00247" name="l00247"></a><span class="lineno">  247</span> </div>
+<div class="line"><a id="l00248" name="l00248"></a><span class="lineno">  248</span>   <a class="code hl_define" href="manux_2debug_8h.html#ad4cabea5084373436d91b5dc4e8d0a49">printk_debug</a>(<a class="code hl_define" href="manux_2debug_8h.html#ab3bd37bd2b7bb8ec9ae73d8a607a6d56">DBG_KERNEL_ORDON</a>, <span class="stringliteral">&quot;on ajoute la t2 dans l&#39;ordo\n&quot;</span>);</div>
+<div class="line"><a id="l00249" name="l00249"></a><span class="lineno">  249</span>   </div>
+<div class="line"><a id="l00250" name="l00250"></a><span class="lineno">  250</span>   <span class="comment">// A partir de maintenant, nous ne sommes plus seuls</span></div>
+<div class="line"><a id="l00251" name="l00251"></a><span class="lineno">  251</span>   <a class="code hl_function" href="scheduler_8c.html#aef1e54d9e6a32886461b3dc665654748">ordonnanceurAddTache</a>(t2);</div>
+<div class="line"><a id="l00252" name="l00252"></a><span class="lineno">  252</span> </div>
+<div class="line"><a id="l00253" name="l00253"></a><span class="lineno">  253</span><span class="preprocessor">#endif </span><span class="comment">// MANUX_DUMMY_TASK</span></div>
+<div class="line"><a id="l00254" name="l00254"></a><span class="lineno">  254</span>   </div>
+<div class="line"><a id="l00255" name="l00255"></a><span class="lineno">  255</span>   <a class="code hl_define" href="manux_2debug_8h.html#ad4cabea5084373436d91b5dc4e8d0a49">printk_debug</a>(<a class="code hl_define" href="manux_2debug_8h.html#ab3bd37bd2b7bb8ec9ae73d8a607a6d56">DBG_KERNEL_ORDON</a>, <span class="stringliteral">&quot;scheduler is done\n&quot;</span>);</div>
+<div class="line"><a id="l00256" name="l00256"></a><span class="lineno">  256</span>}</div>
+</div>
+<div class="line"><a id="l00257" name="l00257"></a><span class="lineno">  257</span> </div>
+<div class="line"><a id="l00258" name="l00258"></a><span class="lineno">  258</span><span class="preprocessor">#ifdef MANUX_APPELS_SYSTEME</span></div>
+<div class="line"><a id="l00262" name="l00262"></a><span class="lineno">  262</span><span class="keywordtype">int</span> <a class="code hl_function" href="scheduler_8h.html#a2bf4d87db2a0e2c668709171410ea88c">sys_identifiantTache</a>(<span class="keywordtype">void</span>)</div>
+<div class="line"><a id="l00263" name="l00263"></a><span class="lineno">  263</span>{</div>
+<div class="line"><a id="l00264" name="l00264"></a><span class="lineno">  264</span>   <span class="keywordflow">return</span> (<span class="keywordtype">int</span>)<a class="code hl_variable" href="scheduler_8c.html#aafdf44b33a86f1bef6141d33a4abb94b">tacheEnCours</a>-&gt;<a class="code hl_variable" href="struct__Tache.html#adcc9e272e58793e4bae000102d6537a3">numero</a>;</div>
+<div class="line"><a id="l00265" name="l00265"></a><span class="lineno">  265</span>}</div>
+<div class="line"><a id="l00266" name="l00266"></a><span class="lineno">  266</span> </div>
+<div class="line"><a id="l00267" name="l00267"></a><span class="lineno">  267</span><span class="preprocessor">#ifdef MANUX_TACHE_CONSOLE</span></div>
+<div class="line"><a id="l00273" name="l00273"></a><span class="lineno">  273</span><a class="code hl_typedef" href="include_2manux_2types_8h.html#a06896e8c53f721507066c079052171f8">uint32_t</a> <a class="code hl_function" href="scheduler_8h.html#a88d934b613790e1dc8c9a228ec6ce59c">AS_console</a>(<span class="keywordtype">void</span>)</div>
+<div class="line"><a id="l00274" name="l00274"></a><span class="lineno">  274</span>{</div>
+<div class="line"><a id="l00275" name="l00275"></a><span class="lineno">  275</span>   <span class="keywordflow">if</span> (<a class="code hl_variable" href="scheduler_8c.html#a766adafe551d8f3dfb42acf9abc22761">schedulerEnCours</a>) {</div>
+<div class="line"><a id="l00276" name="l00276"></a><span class="lineno">  276</span>      <span class="keywordflow">return</span> (<a class="code hl_typedef" href="include_2manux_2types_8h.html#a06896e8c53f721507066c079052171f8">uint32_t</a>)<a class="code hl_variable" href="scheduler_8c.html#ae9fc05d7baa2e71defadd7a4537eef5a">tacheScheduler</a>-&gt;console;</div>
+<div class="line"><a id="l00277" name="l00277"></a><span class="lineno">  277</span>   } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (<a class="code hl_variable" href="scheduler_8c.html#aafdf44b33a86f1bef6141d33a4abb94b">tacheEnCours</a>) {</div>
+<div class="line"><a id="l00278" name="l00278"></a><span class="lineno">  278</span>      <span class="keywordflow">return</span> (<a class="code hl_typedef" href="include_2manux_2types_8h.html#a06896e8c53f721507066c079052171f8">uint32_t</a>)<a class="code hl_variable" href="scheduler_8c.html#aafdf44b33a86f1bef6141d33a4abb94b">tacheEnCours</a>-&gt;console;</div>
+<div class="line"><a id="l00279" name="l00279"></a><span class="lineno">  279</span>   } <span class="keywordflow">else</span> {</div>
+<div class="line"><a id="l00280" name="l00280"></a><span class="lineno">  280</span>      <span class="keywordflow">return</span> (<a class="code hl_typedef" href="include_2manux_2types_8h.html#a06896e8c53f721507066c079052171f8">uint32_t</a>) <a class="code hl_define" href="include_2manux_2stddef_8h.html#a070d2ce7b6bb7e5c05602aa8c308d0c4">NULL</a>;</div>
+<div class="line"><a id="l00281" name="l00281"></a><span class="lineno">  281</span>   }</div>
+<div class="line"><a id="l00282" name="l00282"></a><span class="lineno">  282</span>}</div>
+<div class="line"><a id="l00283" name="l00283"></a><span class="lineno">  283</span><span class="preprocessor">#endif </span><span class="comment">// MANUX_TACHE_CONSOLE</span></div>
+<div class="line"><a id="l00284" name="l00284"></a><span class="lineno">  284</span> </div>
+<div class="line"><a id="l00288" name="l00288"></a><span class="lineno">  288</span><span class="keywordtype">int</span> <a class="code hl_function" href="scheduler_8h.html#ae066204c3c4fc47d9bc5cd4a9a4c7d39">sys_basculerTache</a>(<a class="code hl_struct" href="struct__ParametreAS.html">ParametreAS</a> as)</div>
+<div class="line"><a id="l00289" name="l00289"></a><span class="lineno">  289</span>{</div>
+<div class="line"><a id="l00290" name="l00290"></a><span class="lineno">  290</span>   (<a class="code hl_function" href="include_2manux_2interruptions_8h.html#a4fda31edc92f8ccd48b6f4bb50f2e7e1">void</a>) as;</div>
+<div class="line"><a id="l00291" name="l00291"></a><span class="lineno">  291</span> </div>
+<div class="line"><a id="l00292" name="l00292"></a><span class="lineno">  292</span>   <a class="code hl_define" href="manux_2debug_8h.html#a3153a272f18d0f805028fce7e4337b53">assert</a>(<a class="code hl_variable" href="scheduler_8c.html#aafdf44b33a86f1bef6141d33a4abb94b">tacheEnCours</a> != <a class="code hl_define" href="include_2manux_2stddef_8h.html#a070d2ce7b6bb7e5c05602aa8c308d0c4">NULL</a>);</div>
+<div class="line"><a id="l00293" name="l00293"></a><span class="lineno">  293</span> </div>
+<div class="line"><a id="l00294" name="l00294"></a><span class="lineno">  294</span>   <a class="code hl_function" href="scheduler_8c.html#ae00507099d51c08195d42c08daad4f41">ordonnanceur</a>();</div>
+<div class="line"><a id="l00295" name="l00295"></a><span class="lineno">  295</span> </div>
+<div class="line"><a id="l00296" name="l00296"></a><span class="lineno">  296</span>   <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a id="l00297" name="l00297"></a><span class="lineno">  297</span>}</div>
+<div class="line"><a id="l00298" name="l00298"></a><span class="lineno">  298</span> </div>
+<div class="line"><a id="l00307" name="l00307"></a><span class="lineno">  307</span><a class="code hl_typedef" href="include_2manux_2types_8h.html#a1aa19b97c742cff758e6532b519954c4">TacheID</a> <a class="code hl_function" href="scheduler_8h.html#a8f577acc503b6c76a2f531bc3c9bf6e3">sys_creerTache</a>(<a class="code hl_struct" href="struct__ParametreAS.html">ParametreAS</a> as, CorpsTache corpsTache, <a class="code hl_typedef" href="include_2manux_2types_8h.html#a5b7544e51b136e716e4eccc0602bafd7">booleen</a> shareConsole)</div>
+<div class="line"><a id="l00308" name="l00308"></a><span class="lineno">  308</span>{</div>
+<div class="line"><a id="l00309" name="l00309"></a><span class="lineno">  309</span>   <a class="code hl_struct" href="struct__Tache.html">Tache</a>   * tache;</div>
+<div class="line"><a id="l00310" name="l00310"></a><span class="lineno">  310</span><span class="preprocessor">#ifdef MANUX_TACHE_CONSOLE</span></div>
+<div class="line"><a id="l00311" name="l00311"></a><span class="lineno">  311</span>   <a class="code hl_struct" href="struct__Console.html">Console</a> * console;</div>
+<div class="line"><a id="l00312" name="l00312"></a><span class="lineno">  312</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00313" name="l00313"></a><span class="lineno">  313</span> </div>
+<div class="line"><a id="l00314" name="l00314"></a><span class="lineno">  314</span>   (<a class="code hl_function" href="include_2manux_2interruptions_8h.html#a4fda31edc92f8ccd48b6f4bb50f2e7e1">void</a>) as;</div>
+<div class="line"><a id="l00315" name="l00315"></a><span class="lineno">  315</span>   </div>
+<div class="line"><a id="l00316" name="l00316"></a><span class="lineno">  316</span>   <a class="code hl_define" href="manux_2debug_8h.html#a3153a272f18d0f805028fce7e4337b53">assert</a>(<a class="code hl_variable" href="scheduler_8c.html#aafdf44b33a86f1bef6141d33a4abb94b">tacheEnCours</a> != <a class="code hl_define" href="include_2manux_2stddef_8h.html#a070d2ce7b6bb7e5c05602aa8c308d0c4">NULL</a>);</div>
+<div class="line"><a id="l00317" name="l00317"></a><span class="lineno">  317</span> </div>
+<div class="line"><a id="l00318" name="l00318"></a><span class="lineno">  318</span>   <a class="code hl_define" href="manux_2debug_8h.html#ad4cabea5084373436d91b5dc4e8d0a49">printk_debug</a>(<a class="code hl_define" href="manux_2debug_8h.html#ab3bd37bd2b7bb8ec9ae73d8a607a6d56">DBG_KERNEL_ORDON</a>, <span class="stringliteral">&quot;corpsTache = 0x%x, share=%d\n&quot;</span>, corpsTache, shareConsole);</div>
+<div class="line"><a id="l00319" name="l00319"></a><span class="lineno">  319</span> </div>
+<div class="line"><a id="l00320" name="l00320"></a><span class="lineno">  320</span>   <span class="comment">// Création de la tâche</span></div>
+<div class="line"><a id="l00321" name="l00321"></a><span class="lineno">  321</span>   tache = <a class="code hl_function" href="tache_8h.html#ae73130353eaec375c352eee5e35e19ea">tacheCreer</a>(corpsTache);</div>
+<div class="line"><a id="l00322" name="l00322"></a><span class="lineno">  322</span>   <span class="keywordflow">if</span> (tache == <a class="code hl_define" href="include_2manux_2stddef_8h.html#a070d2ce7b6bb7e5c05602aa8c308d0c4">NULL</a>) {</div>
+<div class="line"><a id="l00323" name="l00323"></a><span class="lineno">  323</span>      <span class="keywordflow">return</span> -<a class="code hl_define" href="include_2manux_2errno_8h.html#a03e689f378f643d16ea7537918528a48">ENOENT</a>;</div>
+<div class="line"><a id="l00324" name="l00324"></a><span class="lineno">  324</span>   }</div>
+<div class="line"><a id="l00325" name="l00325"></a><span class="lineno">  325</span> </div>
+<div class="line"><a id="l00326" name="l00326"></a><span class="lineno">  326</span><span class="preprocessor">#ifdef MANUX_TACHE_CONSOLE</span></div>
+<div class="line"><a id="l00327" name="l00327"></a><span class="lineno">  327</span>   <span class="comment">// Affectation de la console</span></div>
+<div class="line"><a id="l00328" name="l00328"></a><span class="lineno">  328</span><span class="preprocessor">#   ifdef MANUX_CONSOLES_VIRTUELLES    </span><span class="comment">// WARNING : MANUX_TACHE_CONSOLE plutôt ?</span></div>
+<div class="line"><a id="l00329" name="l00329"></a><span class="lineno">  329</span>   <span class="keywordflow">if</span> (shareConsole) {</div>
+<div class="line"><a id="l00330" name="l00330"></a><span class="lineno">  330</span>      console = <a class="code hl_variable" href="scheduler_8c.html#aafdf44b33a86f1bef6141d33a4abb94b">tacheEnCours</a>-&gt;console;</div>
+<div class="line"><a id="l00331" name="l00331"></a><span class="lineno">  331</span>   } <span class="keywordflow">else</span> {</div>
+<div class="line"><a id="l00332" name="l00332"></a><span class="lineno">  332</span>      console = creerConsoleVirtuelle();</div>
+<div class="line"><a id="l00333" name="l00333"></a><span class="lineno">  333</span>   }</div>
+<div class="line"><a id="l00334" name="l00334"></a><span class="lineno">  334</span><span class="preprocessor">#   else</span></div>
+<div class="line"><a id="l00335" name="l00335"></a><span class="lineno">  335</span>   console = <a class="code hl_function" href="include_2manux_2console_8h.html#abf2f6aca15463bf0f0114531cea39f15">consoleNoyau</a>();</div>
+<div class="line"><a id="l00336" name="l00336"></a><span class="lineno">  336</span><span class="preprocessor">#   endif </span><span class="comment">// MANUX_CONSOLES_VIRTUELLES</span></div>
+<div class="line"><a id="l00337" name="l00337"></a><span class="lineno">  337</span>   tacheSetConsole(tache, console);</div>
+<div class="line"><a id="l00338" name="l00338"></a><span class="lineno">  338</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00339" name="l00339"></a><span class="lineno">  339</span> </div>
+<div class="line"><a id="l00340" name="l00340"></a><span class="lineno">  340</span>   <a class="code hl_function" href="scheduler_8c.html#aef1e54d9e6a32886461b3dc665654748">ordonnanceurAddTache</a>(tache);</div>
+<div class="line"><a id="l00341" name="l00341"></a><span class="lineno">  341</span>   </div>
+<div class="line"><a id="l00342" name="l00342"></a><span class="lineno">  342</span>   <span class="keywordflow">return</span> tache-&gt;<a class="code hl_variable" href="struct__Tache.html#adcc9e272e58793e4bae000102d6537a3">numero</a>;</div>
+<div class="line"><a id="l00343" name="l00343"></a><span class="lineno">  343</span>}</div>
+<div class="line"><a id="l00344" name="l00344"></a><span class="lineno">  344</span><span class="preprocessor">#endif </span><span class="comment">// MANUX_APPELS_SYSTEME</span></div>
+<div class="line"><a id="l00345" name="l00345"></a><span class="lineno">  345</span> </div>
+<div class="foldopen" id="foldopen00349" data-start="{" data-end="}">
+<div class="line"><a id="l00349" name="l00349"></a><span class="lineno"><a class="line" href="scheduler_8h.html#ae922bcf579d9ef3fb82370f3a876029d">  349</a></span><a class="code hl_typedef" href="include_2manux_2types_8h.html#a1aa19b97c742cff758e6532b519954c4">TacheID</a> <a class="code hl_function" href="scheduler_8c.html#ae922bcf579d9ef3fb82370f3a876029d">ordonnanceurCreerTacheNoyau</a>(CorpsTache corpsTache)</div>
+<div class="line"><a id="l00350" name="l00350"></a><span class="lineno">  350</span>{</div>
+<div class="line"><a id="l00351" name="l00351"></a><span class="lineno">  351</span>   <a class="code hl_struct" href="struct__Tache.html">Tache</a>   * tache;</div>
+<div class="line"><a id="l00352" name="l00352"></a><span class="lineno">  352</span>   </div>
+<div class="line"><a id="l00353" name="l00353"></a><span class="lineno">  353</span>   <a class="code hl_define" href="manux_2debug_8h.html#a3153a272f18d0f805028fce7e4337b53">assert</a>(<a class="code hl_variable" href="scheduler_8c.html#aafdf44b33a86f1bef6141d33a4abb94b">tacheEnCours</a> != <a class="code hl_define" href="include_2manux_2stddef_8h.html#a070d2ce7b6bb7e5c05602aa8c308d0c4">NULL</a>);</div>
+<div class="line"><a id="l00354" name="l00354"></a><span class="lineno">  354</span> </div>
+<div class="line"><a id="l00355" name="l00355"></a><span class="lineno">  355</span>   <a class="code hl_define" href="manux_2debug_8h.html#ad4cabea5084373436d91b5dc4e8d0a49">printk_debug</a>(<a class="code hl_define" href="manux_2debug_8h.html#ab3bd37bd2b7bb8ec9ae73d8a607a6d56">DBG_KERNEL_ORDON</a>, <span class="stringliteral">&quot;corpsTache = 0x%x\n&quot;</span>, corpsTache);</div>
+<div class="line"><a id="l00356" name="l00356"></a><span class="lineno">  356</span> </div>
+<div class="line"><a id="l00357" name="l00357"></a><span class="lineno">  357</span>   <span class="comment">// Création de la tâche</span></div>
+<div class="line"><a id="l00358" name="l00358"></a><span class="lineno">  358</span>   tache = <a class="code hl_function" href="tache_8h.html#ae73130353eaec375c352eee5e35e19ea">tacheCreer</a>(corpsTache);</div>
+<div class="line"><a id="l00359" name="l00359"></a><span class="lineno">  359</span>   <span class="keywordflow">if</span> (tache == <a class="code hl_define" href="include_2manux_2stddef_8h.html#a070d2ce7b6bb7e5c05602aa8c308d0c4">NULL</a>) {</div>
+<div class="line"><a id="l00360" name="l00360"></a><span class="lineno">  360</span>      <span class="keywordflow">return</span> -<a class="code hl_define" href="include_2manux_2errno_8h.html#a03e689f378f643d16ea7537918528a48">ENOENT</a>;</div>
+<div class="line"><a id="l00361" name="l00361"></a><span class="lineno">  361</span>   }</div>
+<div class="line"><a id="l00362" name="l00362"></a><span class="lineno">  362</span> </div>
+<div class="line"><a id="l00363" name="l00363"></a><span class="lineno">  363</span><span class="preprocessor">#ifdef MANUX_TACHE_CONSOLE</span></div>
+<div class="line"><a id="l00364" name="l00364"></a><span class="lineno">  364</span>   <span class="comment">// Affectation de la console</span></div>
+<div class="line"><a id="l00365" name="l00365"></a><span class="lineno">  365</span>   tacheSetConsole(tache,  <a class="code hl_function" href="include_2manux_2console_8h.html#abf2f6aca15463bf0f0114531cea39f15">consoleNoyau</a>());</div>
+<div class="line"><a id="l00366" name="l00366"></a><span class="lineno">  366</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00367" name="l00367"></a><span class="lineno">  367</span> </div>
+<div class="line"><a id="l00368" name="l00368"></a><span class="lineno">  368</span>   <a class="code hl_function" href="scheduler_8c.html#aef1e54d9e6a32886461b3dc665654748">ordonnanceurAddTache</a>(tache);</div>
+<div class="line"><a id="l00369" name="l00369"></a><span class="lineno">  369</span>   </div>
+<div class="line"><a id="l00370" name="l00370"></a><span class="lineno">  370</span>   <span class="keywordflow">return</span> tache-&gt;<a class="code hl_variable" href="struct__Tache.html#adcc9e272e58793e4bae000102d6537a3">numero</a>;</div>
+<div class="line"><a id="l00371" name="l00371"></a><span class="lineno">  371</span>}</div>
+</div>
+<div class="line"><a id="l00372" name="l00372"></a><span class="lineno">  372</span> </div>
+<div class="line"><a id="l00373" name="l00373"></a><span class="lineno">  373</span> </div>
+<div class="line"><a id="l00374" name="l00374"></a><span class="lineno">  374</span> </div>
+<div class="line"><a id="l00375" name="l00375"></a><span class="lineno">  375</span> </div>
+<div class="line"><a id="l00376" name="l00376"></a><span class="lineno">  376</span> </div>
+<div class="line"><a id="l00377" name="l00377"></a><span class="lineno">  377</span> </div>
+<div class="line"><a id="l00378" name="l00378"></a><span class="lineno">  378</span> </div>
+<div class="line"><a id="l00379" name="l00379"></a><span class="lineno">  379</span> </div>
+<div class="line"><a id="l00380" name="l00380"></a><span class="lineno">  380</span> </div>
+<div class="line"><a id="l00381" name="l00381"></a><span class="lineno">  381</span> </div>
+<div class="line"><a id="l00382" name="l00382"></a><span class="lineno">  382</span> </div>
+<div class="line"><a id="l00383" name="l00383"></a><span class="lineno">  383</span><span class="preprocessor">#ifdef SUPPRIME</span></div>
+<div class="line"><a id="l00384" name="l00384"></a><span class="lineno">  384</span><span class="comment">/*</span></div>
+<div class="line"><a id="l00385" name="l00385"></a><span class="lineno">  385</span><span class="comment"> * Insertion d&#39;une nouvelle tâche dans l&#39;ordonnanceur. La valeur</span></div>
+<div class="line"><a id="l00386" name="l00386"></a><span class="lineno">  386</span><span class="comment"> * retournée est l&#39;id de la tâche ou un code d&#39;erreur.</span></div>
+<div class="line"><a id="l00387" name="l00387"></a><span class="lineno">  387</span><span class="comment"> * WARNING a virer dès que la précédente est OK</span></div>
+<div class="line"><a id="l00388" name="l00388"></a><span class="lineno">  388</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00389" name="l00389"></a><span class="lineno">  389</span><a class="code hl_typedef" href="include_2manux_2types_8h.html#a1aa19b97c742cff758e6532b519954c4">TacheID</a> ordonnancerTache(CorpsTache corpsTache, console * cons)</div>
+<div class="line"><a id="l00390" name="l00390"></a><span class="lineno">  390</span>{</div>
+<div class="line"><a id="l00391" name="l00391"></a><span class="lineno">  391</span>   <a class="code hl_struct" href="struct__Tache.html">Tache</a>   * tache;</div>
+<div class="line"><a id="l00392" name="l00392"></a><span class="lineno">  392</span> </div>
+<div class="line"><a id="l00393" name="l00393"></a><span class="lineno">  393</span><span class="preprocessor">#ifdef MANUX_TACHE_CONSOLE   </span></div>
+<div class="line"><a id="l00394" name="l00394"></a><span class="lineno">  394</span>   <a class="code hl_struct" href="struct__Console.html">Console</a> * cons;</div>
+<div class="line"><a id="l00395" name="l00395"></a><span class="lineno">  395</span><span class="preprocessor">#   ifdef MANUX_CONSOLES_VIRTUELLES</span></div>
+<div class="line"><a id="l00396" name="l00396"></a><span class="lineno">  396</span>   <span class="keywordflow">if</span> (nouvelleConsole) {</div>
+<div class="line"><a id="l00397" name="l00397"></a><span class="lineno">  397</span>      cons = creerConsoleVirtuelle();</div>
+<div class="line"><a id="l00398" name="l00398"></a><span class="lineno">  398</span>   } <span class="keywordflow">else</span> {</div>
+<div class="line"><a id="l00399" name="l00399"></a><span class="lineno">  399</span>      <span class="keywordflow">if</span> (<a class="code hl_variable" href="scheduler_8c.html#aafdf44b33a86f1bef6141d33a4abb94b">tacheEnCours</a> != <a class="code hl_define" href="include_2manux_2stddef_8h.html#a070d2ce7b6bb7e5c05602aa8c308d0c4">NULL</a>) {</div>
+<div class="line"><a id="l00400" name="l00400"></a><span class="lineno">  400</span>         cons = <a class="code hl_variable" href="scheduler_8c.html#aafdf44b33a86f1bef6141d33a4abb94b">tacheEnCours</a>-&gt;console;</div>
+<div class="line"><a id="l00401" name="l00401"></a><span class="lineno">  401</span>      } <span class="keywordflow">else</span> { <span class="comment">// Pour la première a priori</span></div>
+<div class="line"><a id="l00402" name="l00402"></a><span class="lineno">  402</span>         cons = <a class="code hl_define" href="include_2manux_2stddef_8h.html#a070d2ce7b6bb7e5c05602aa8c308d0c4">NULL</a>;<span class="comment">//consoleNoyau();</span></div>
+<div class="line"><a id="l00403" name="l00403"></a><span class="lineno">  403</span>      }</div>
+<div class="line"><a id="l00404" name="l00404"></a><span class="lineno">  404</span>   }   </div>
+<div class="line"><a id="l00405" name="l00405"></a><span class="lineno">  405</span><span class="preprocessor">#   endif </span><span class="comment">// MANUX_CONSOLES_VIRTUELLES</span></div>
+<div class="line"><a id="l00406" name="l00406"></a><span class="lineno">  406</span><span class="preprocessor">#endif </span><span class="comment">// MANUX_TACHE_CONSOLE</span></div>
+<div class="line"><a id="l00407" name="l00407"></a><span class="lineno">  407</span>   </div>
+<div class="line"><a id="l00408" name="l00408"></a><span class="lineno">  408</span>   <span class="comment">/* Création de la tache */</span></div>
+<div class="line"><a id="l00409" name="l00409"></a><span class="lineno">  409</span><span class="preprocessor">#ifdef MANUX_TACHE_CONSOLE</span></div>
+<div class="line"><a id="l00410" name="l00410"></a><span class="lineno">  410</span>   tache = creerTache(corpsTache, cons);</div>
+<div class="line"><a id="l00411" name="l00411"></a><span class="lineno">  411</span><span class="preprocessor">#else</span></div>
+<div class="line"><a id="l00412" name="l00412"></a><span class="lineno">  412</span>   tache = creerTache(corpsTache);</div>
+<div class="line"><a id="l00413" name="l00413"></a><span class="lineno">  413</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00414" name="l00414"></a><span class="lineno">  414</span>   <span class="keywordflow">if</span> (tache == <a class="code hl_define" href="include_2manux_2stddef_8h.html#a070d2ce7b6bb7e5c05602aa8c308d0c4">NULL</a>) {</div>
+<div class="line"><a id="l00415" name="l00415"></a><span class="lineno">  415</span>      <span class="keywordflow">return</span> -<a class="code hl_define" href="include_2manux_2errno_8h.html#a6a05c923dad0c1208043e9c20a58c8e5">ENOMEM</a>;</div>
+<div class="line"><a id="l00416" name="l00416"></a><span class="lineno">  416</span>   }</div>
+<div class="line"><a id="l00417" name="l00417"></a><span class="lineno">  417</span> </div>
+<div class="line"><a id="l00418" name="l00418"></a><span class="lineno">  418</span>   <span class="comment">/* On insère la nouvelle tâche à la fin de la liste */</span></div>
+<div class="line"><a id="l00419" name="l00419"></a><span class="lineno">  419</span>   <span class="keywordflow">if</span> (corpsTache) {</div>
+<div class="line"><a id="l00420" name="l00420"></a><span class="lineno">  420</span>      <a class="code hl_function" href="listetaches_8h.html#a47d0e6faac2157f137a3e09608835c79">insererCelluleTache</a>(&amp;<a class="code hl_variable" href="scheduler_8c.html#a80a9c97323077673833937f0f3cb3059">listeTachesPretes</a>,</div>
+<div class="line"><a id="l00421" name="l00421"></a><span class="lineno">  421</span>                          tache,</div>
+<div class="line"><a id="l00422" name="l00422"></a><span class="lineno">  422</span>                          (<a class="code hl_struct" href="struct__CelluleTache.html">CelluleTache</a>*)tache+<span class="keyword">sizeof</span>(<a class="code hl_struct" href="struct__Tache.html">Tache</a>));</div>
+<div class="line"><a id="l00423" name="l00423"></a><span class="lineno">  423</span>      <a class="code hl_define" href="manux_2debug_8h.html#ad4cabea5084373436d91b5dc4e8d0a49">printk_debug</a>(<a class="code hl_define" href="manux_2debug_8h.html#a19609f5d9c6bdc24183e02a0ee4a7e96">DBG_KERNEL_TACHE</a>, <span class="stringliteral">&quot;Tache inseree\n&quot;</span>);</div>
+<div class="line"><a id="l00424" name="l00424"></a><span class="lineno">  424</span> </div>
+<div class="line"><a id="l00425" name="l00425"></a><span class="lineno">  425</span>   } <span class="keywordflow">else</span> {</div>
+<div class="line"><a id="l00426" name="l00426"></a><span class="lineno">  426</span>     <span class="comment">//printk(&quot;99999\n&quot;);</span></div>
+<div class="line"><a id="l00427" name="l00427"></a><span class="lineno">  427</span>      <span class="comment">/* Cas particulier de la première tâche : */</span></div>
+<div class="line"><a id="l00428" name="l00428"></a><span class="lineno">  428</span>      <span class="comment">/*   . on charge son task register ;      */</span></div>
+<div class="line"><a id="l00429" name="l00429"></a><span class="lineno">  429</span>      <a class="code hl_define" href="include_2manux_2i386_8h.html#a6cdff266109b11c9b9572cfc4a7aeb0f">ltr</a>(tache-&gt;<a class="code hl_variable" href="struct__Tache.html#ab249d7e8cd1654617b229e6abee76736">indiceTSSDescriptor</a>);</div>
+<div class="line"><a id="l00430" name="l00430"></a><span class="lineno">  430</span>      <span class="comment">/*   . et on la déclare comme en cours.   */</span></div>
+<div class="line"><a id="l00431" name="l00431"></a><span class="lineno">  431</span>      <a class="code hl_variable" href="scheduler_8c.html#aafdf44b33a86f1bef6141d33a4abb94b">tacheEnCours</a> = tache;</div>
+<div class="line"><a id="l00432" name="l00432"></a><span class="lineno">  432</span>   }</div>
+<div class="line"><a id="l00433" name="l00433"></a><span class="lineno">  433</span>   <span class="comment">//printk(&quot;00000\n&quot;);</span></div>
+<div class="line"><a id="l00434" name="l00434"></a><span class="lineno">  434</span>   </div>
+<div class="line"><a id="l00435" name="l00435"></a><span class="lineno">  435</span>   <span class="keywordflow">return</span> tache-&gt;<a class="code hl_variable" href="struct__Tache.html#adcc9e272e58793e4bae000102d6537a3">numero</a>;</div>
+<div class="line"><a id="l00436" name="l00436"></a><span class="lineno">  436</span>}</div>
+<div class="line"><a id="l00437" name="l00437"></a><span class="lineno">  437</span><span class="preprocessor">#endif</span></div>
+<div class="ttc" id="aatomique_8h_html"><div class="ttname"><a href="atomique_8h.html">atomique.h</a></div><div class="ttdoc">DÃ©finition des opÃ©rations de synchronisation de ManuX.</div></div>
+<div class="ttc" id="aatomique_8h_html_a34aa37778d3701c511b28edcb866cedb"><div class="ttname"><a href="atomique_8h.html#a34aa37778d3701c511b28edcb866cedb">Atomique</a></div><div class="ttdeci">uint32_t Atomique</div><div class="ttdef"><b>Definition</b> <a href="atomique_8h_source.html#l00019">atomique.h:19</a></div></div>
+<div class="ttc" id="acondition_8h_html"><div class="ttname"><a href="condition_8h.html">condition.h</a></div></div>
+<div class="ttc" id="aexclusion-mutuelle_8h_html"><div class="ttname"><a href="exclusion-mutuelle_8h.html">exclusion-mutuelle.h</a></div><div class="ttdoc">DÃ©finition des exlusions mutuelles.</div></div>
+<div class="ttc" id="aexclusion-mutuelle_8h_html_a9b966fcfd5b19565e2734f33eb5bbf1c"><div class="ttname"><a href="exclusion-mutuelle_8h.html#a9b966fcfd5b19565e2734f33eb5bbf1c">exclusionMutuelleEntrer</a></div><div class="ttdeci">void exclusionMutuelleEntrer(ExclusionMutuelle *em)</div><div class="ttdoc">EntrÃ©e en exclusion mutuelle.</div><div class="ttdef"><b>Definition</b> <a href="exclusion-mutuelle_8c_source.html#l00134">exclusion-mutuelle.c:134</a></div></div>
+<div class="ttc" id="ahorloge_8c_html_a1ebf6a786f9fbcd719425d9ebeb027e6"><div class="ttname"><a href="horloge_8c.html#a1ebf6a786f9fbcd719425d9ebeb027e6">nbTopHorloge</a></div><div class="ttdeci">Temps nbTopHorloge</div><div class="ttdef"><b>Definition</b> <a href="horloge_8c_source.html#l00022">horloge.c:22</a></div></div>
+<div class="ttc" id="ainclude_2manux_2console_8h_html"><div class="ttname"><a href="include_2manux_2console_8h.html">console.h</a></div><div class="ttdoc">DÃ©finition des fonctions de base d'accÃ©s Ã  la console.</div></div>
+<div class="ttc" id="ainclude_2manux_2console_8h_html_abf2f6aca15463bf0f0114531cea39f15"><div class="ttname"><a href="include_2manux_2console_8h.html#abf2f6aca15463bf0f0114531cea39f15">consoleNoyau</a></div><div class="ttdeci">Console * consoleNoyau(void)</div><div class="ttdoc">Obtention d'un pointeur sur la console par dÃ©faut.</div><div class="ttdef"><b>Definition</b> <a href="console_8c_source.html#l00808">console.c:808</a></div></div>
+<div class="ttc" id="ainclude_2manux_2errno_8h_html_a03e689f378f643d16ea7537918528a48"><div class="ttname"><a href="include_2manux_2errno_8h.html#a03e689f378f643d16ea7537918528a48">ENOENT</a></div><div class="ttdeci">#define ENOENT</div><div class="ttdef"><b>Definition</b> <a href="include_2manux_2errno_8h_source.html#l00012">errno.h:12</a></div></div>
+<div class="ttc" id="ainclude_2manux_2errno_8h_html_a6a05c923dad0c1208043e9c20a58c8e5"><div class="ttname"><a href="include_2manux_2errno_8h.html#a6a05c923dad0c1208043e9c20a58c8e5">ENOMEM</a></div><div class="ttdeci">#define ENOMEM</div><div class="ttdef"><b>Definition</b> <a href="include_2manux_2errno_8h_source.html#l00013">errno.h:13</a></div></div>
+<div class="ttc" id="ainclude_2manux_2i386_8h_html_a6cdff266109b11c9b9572cfc4a7aeb0f"><div class="ttname"><a href="include_2manux_2i386_8h.html#a6cdff266109b11c9b9572cfc4a7aeb0f">ltr</a></div><div class="ttdeci">#define ltr(tr)</div><div class="ttdef"><b>Definition</b> <a href="include_2manux_2i386_8h_source.html#l00023">i386.h:23</a></div></div>
+<div class="ttc" id="ainclude_2manux_2interruptions_8h_html"><div class="ttname"><a href="include_2manux_2interruptions_8h.html">interruptions.h</a></div></div>
+<div class="ttc" id="ainclude_2manux_2interruptions_8h_html_a4fda31edc92f8ccd48b6f4bb50f2e7e1"><div class="ttname"><a href="include_2manux_2interruptions_8h.html#a4fda31edc92f8ccd48b6f4bb50f2e7e1">void</a></div><div class="ttdeci">typedef void(Handler(void))</div></div>
+<div class="ttc" id="ainclude_2manux_2memoire_8h_html"><div class="ttname"><a href="include_2manux_2memoire_8h.html">memoire.h</a></div></div>
+<div class="ttc" id="ainclude_2manux_2printk_8h_html"><div class="ttname"><a href="include_2manux_2printk_8h.html">printk.h</a></div><div class="ttdoc">DÃ©finition des fonctions de base d'entrÃ©e-sortie du noyau.</div></div>
+<div class="ttc" id="ainclude_2manux_2stddef_8h_html_a070d2ce7b6bb7e5c05602aa8c308d0c4"><div class="ttname"><a href="include_2manux_2stddef_8h.html#a070d2ce7b6bb7e5c05602aa8c308d0c4">NULL</a></div><div class="ttdeci">#define NULL</div><div class="ttdef"><b>Definition</b> <a href="include_2manux_2stddef_8h_source.html#l00010">stddef.h:10</a></div></div>
+<div class="ttc" id="ainclude_2manux_2types_8h_html_a06896e8c53f721507066c079052171f8"><div class="ttname"><a href="include_2manux_2types_8h.html#a06896e8c53f721507066c079052171f8">uint32_t</a></div><div class="ttdeci">unsigned long uint32_t</div><div class="ttdef"><b>Definition</b> <a href="include_2manux_2types_8h_source.html#l00020">types.h:20</a></div></div>
+<div class="ttc" id="ainclude_2manux_2types_8h_html_a1aa19b97c742cff758e6532b519954c4"><div class="ttname"><a href="include_2manux_2types_8h.html#a1aa19b97c742cff758e6532b519954c4">TacheID</a></div><div class="ttdeci">uint16_t TacheID</div><div class="ttdef"><b>Definition</b> <a href="include_2manux_2types_8h_source.html#l00061">types.h:61</a></div></div>
+<div class="ttc" id="ainclude_2manux_2types_8h_html_a5b7544e51b136e716e4eccc0602bafd7"><div class="ttname"><a href="include_2manux_2types_8h.html#a5b7544e51b136e716e4eccc0602bafd7">booleen</a></div><div class="ttdeci">int booleen</div><div class="ttdef"><b>Definition</b> <a href="include_2manux_2types_8h_source.html#l00032">types.h:32</a></div></div>
+<div class="ttc" id="ainclude_2manux_2types_8h_html_aa8cecfc5c5c054d2875c03e77b7be15d"><div class="ttname"><a href="include_2manux_2types_8h.html#aa8cecfc5c5c054d2875c03e77b7be15d">TRUE</a></div><div class="ttdeci">#define TRUE</div><div class="ttdef"><b>Definition</b> <a href="include_2manux_2types_8h_source.html#l00036">types.h:36</a></div></div>
+<div class="ttc" id="ainclude_2manux_2types_8h_html_aa93f0eb578d23995850d61f7d61c55c1"><div class="ttname"><a href="include_2manux_2types_8h.html#aa93f0eb578d23995850d61f7d61c55c1">FALSE</a></div><div class="ttdeci">#define FALSE</div><div class="ttdef"><b>Definition</b> <a href="include_2manux_2types_8h_source.html#l00040">types.h:40</a></div></div>
+<div class="ttc" id="ainclude_2manux_2types_8h_html_abe4acab18c967c397d24aa95c2d48b27"><div class="ttname"><a href="include_2manux_2types_8h.html#abe4acab18c967c397d24aa95c2d48b27">Temps</a></div><div class="ttdeci">int32_t Temps</div><div class="ttdef"><b>Definition</b> <a href="include_2manux_2types_8h_source.html#l00071">types.h:71</a></div></div>
+<div class="ttc" id="aio_8h_html"><div class="ttname"><a href="io_8h.html">io.h</a></div></div>
+<div class="ttc" id="alistetaches_8h_html_a47d0e6faac2157f137a3e09608835c79"><div class="ttname"><a href="listetaches_8h.html#a47d0e6faac2157f137a3e09608835c79">insererCelluleTache</a></div><div class="ttdeci">void insererCelluleTache(ListeTache *listeTaches, struct _Tache *tache, CelluleTache *celluleTache)</div><div class="ttdef"><b>Definition</b> <a href="listetaches_8c_source.html#l00017">listetaches.c:17</a></div></div>
+<div class="ttc" id="alistetaches_8h_html_ac5545c3621d37831f73cd58e653f7377"><div class="ttname"><a href="listetaches_8h.html#ac5545c3621d37831f73cd58e653f7377">extraireTache</a></div><div class="ttdeci">struct _Tache * extraireTache(ListeTache *listeTaches)</div><div class="ttdef"><b>Definition</b> <a href="listetaches_8c_source.html#l00046">listetaches.c:46</a></div></div>
+<div class="ttc" id="alistetaches_8h_html_af5baf3857612a0fabb59ad436aec5b9a"><div class="ttname"><a href="listetaches_8h.html#af5baf3857612a0fabb59ad436aec5b9a">initialiserListeTache</a></div><div class="ttdeci">void initialiserListeTache(ListeTache *listeTache)</div><div class="ttdef"><b>Definition</b> <a href="listetaches_8c_source.html#l00011">listetaches.c:11</a></div></div>
+<div class="ttc" id="amanux_2debug_8h_html"><div class="ttname"><a href="manux_2debug_8h.html">debug.h</a></div></div>
+<div class="ttc" id="amanux_2debug_8h_html_a19609f5d9c6bdc24183e02a0ee4a7e96"><div class="ttname"><a href="manux_2debug_8h.html#a19609f5d9c6bdc24183e02a0ee4a7e96">DBG_KERNEL_TACHE</a></div><div class="ttdeci">#define DBG_KERNEL_TACHE</div><div class="ttdef"><b>Definition</b> <a href="manux_2debug_8h_source.html#l00026">debug.h:26</a></div></div>
+<div class="ttc" id="amanux_2debug_8h_html_a3153a272f18d0f805028fce7e4337b53"><div class="ttname"><a href="manux_2debug_8h.html#a3153a272f18d0f805028fce7e4337b53">assert</a></div><div class="ttdeci">#define assert(cond)</div><div class="ttdef"><b>Definition</b> <a href="manux_2debug_8h_source.html#l00130">debug.h:130</a></div></div>
+<div class="ttc" id="amanux_2debug_8h_html_a94bcf41c2acfb543c52dcb281acba959"><div class="ttname"><a href="manux_2debug_8h.html#a94bcf41c2acfb543c52dcb281acba959">paniqueNoyau</a></div><div class="ttdeci">#define paniqueNoyau(fmt, args...)</div><div class="ttdef"><b>Definition</b> <a href="manux_2debug_8h_source.html#l00111">debug.h:111</a></div></div>
+<div class="ttc" id="amanux_2debug_8h_html_ab3bd37bd2b7bb8ec9ae73d8a607a6d56"><div class="ttname"><a href="manux_2debug_8h.html#ab3bd37bd2b7bb8ec9ae73d8a607a6d56">DBG_KERNEL_ORDON</a></div><div class="ttdeci">#define DBG_KERNEL_ORDON</div><div class="ttdef"><b>Definition</b> <a href="manux_2debug_8h_source.html#l00025">debug.h:25</a></div></div>
+<div class="ttc" id="amanux_2debug_8h_html_ad4cabea5084373436d91b5dc4e8d0a49"><div class="ttname"><a href="manux_2debug_8h.html#ad4cabea5084373436d91b5dc4e8d0a49">printk_debug</a></div><div class="ttdeci">#define printk_debug(lvl, fmt, args...)</div><div class="ttdef"><b>Definition</b> <a href="manux_2debug_8h_source.html#l00090">debug.h:90</a></div></div>
+<div class="ttc" id="amanux_2dummy-task_8h_html"><div class="ttname"><a href="manux_2dummy-task_8h.html">dummy-task.h</a></div><div class="ttdoc">DÃ©finition d'une tÃ¢che minimaliste qui est lÃ  pour afficher quelques Ã©lÃ©ments Ã  la demande de lâ€™utili...</div></div>
+<div class="ttc" id="amanux_2dummy-task_8h_html_a93c3a7223e0a1bdb1070c19d45d49494"><div class="ttname"><a href="manux_2dummy-task_8h.html#a93c3a7223e0a1bdb1070c19d45d49494">aDummyKernelTask</a></div><div class="ttdeci">void aDummyKernelTask(void)</div><div class="ttdoc">Le corps d'une tÃ¢che Ã  exÃ©cuter lorsqu'on n'a que Ã§a Ã  faire, ...</div><div class="ttdef"><b>Definition</b> <a href="dummy-task_8c_source.html#l00396">dummy-task.c:396</a></div></div>
+<div class="ttc" id="ascheduler_8c_html_a05fd30175a3a21795cc066dab7606b4d"><div class="ttname"><a href="scheduler_8c.html#a05fd30175a3a21795cc066dab7606b4d">listeTachesTerminees</a></div><div class="ttdeci">ListeTache listeTachesTerminees</div><div class="ttdoc">: La liste des tâches achevées.</div><div class="ttdef"><b>Definition</b> <a href="scheduler_8c_source.html#l00086">scheduler.c:86</a></div></div>
+<div class="ttc" id="ascheduler_8c_html_a0ee9c5d04fc494f6a86b24b993eb30e3"><div class="ttname"><a href="scheduler_8c.html#a0ee9c5d04fc494f6a86b24b993eb30e3">listeToutesLesTaches</a></div><div class="ttdeci">ListeTache listeToutesLesTaches</div><div class="ttdoc">: La liste de toutes les tâches existant sur le système.</div><div class="ttdef"><b>Definition</b> <a href="scheduler_8c_source.html#l00081">scheduler.c:81</a></div></div>
+<div class="ttc" id="ascheduler_8c_html_a32c7cefad94adc3dd3953dc5c71b32ad"><div class="ttname"><a href="scheduler_8c.html#a32c7cefad94adc3dd3953dc5c71b32ad">initialiserScheduler</a></div><div class="ttdeci">void initialiserScheduler(void)</div><div class="ttdoc">Initialisation de l'ordonnanceur.</div><div class="ttdef"><b>Definition</b> <a href="scheduler_8c_source.html#l00181">scheduler.c:181</a></div></div>
+<div class="ttc" id="ascheduler_8c_html_a6ab4872c480fd88702e95f13ca8c1bf5"><div class="ttname"><a href="scheduler_8c.html#a6ab4872c480fd88702e95f13ca8c1bf5">basculerTacheDemande</a></div><div class="ttdeci">booleen basculerTacheDemande</div><div class="ttdef"><b>Definition</b> <a href="scheduler_8c_source.html#l00054">scheduler.c:54</a></div></div>
+<div class="ttc" id="ascheduler_8c_html_a725a5b194207247d25785e8ec90488d8"><div class="ttname"><a href="scheduler_8c.html#a725a5b194207247d25785e8ec90488d8">numeroProchaineTache</a></div><div class="ttdeci">TacheID numeroProchaineTache</div><div class="ttdoc">:Le numero de la prochaine tache (WARNING : et si on cycle ?)</div><div class="ttdef"><b>Definition</b> <a href="tache_8c_source.html#l00034">tache.c:34</a></div></div>
+<div class="ttc" id="ascheduler_8c_html_a766adafe551d8f3dfb42acf9abc22761"><div class="ttname"><a href="scheduler_8c.html#a766adafe551d8f3dfb42acf9abc22761">schedulerEnCours</a></div><div class="ttdeci">Atomique schedulerEnCours</div><div class="ttdef"><b>Definition</b> <a href="scheduler_8c_source.html#l00047">scheduler.c:47</a></div></div>
+<div class="ttc" id="ascheduler_8c_html_a80a9c97323077673833937f0f3cb3059"><div class="ttname"><a href="scheduler_8c.html#a80a9c97323077673833937f0f3cb3059">listeTachesPretes</a></div><div class="ttdeci">ListeTache listeTachesPretes</div><div class="ttdoc">Identifiant de la tâche actuellement en cours d'exécution dans le noyau (0 si aucune)</div><div class="ttdef"><b>Definition</b> <a href="scheduler_8c_source.html#l00076">scheduler.c:76</a></div></div>
+<div class="ttc" id="ascheduler_8c_html_aafdf44b33a86f1bef6141d33a4abb94b"><div class="ttname"><a href="scheduler_8c.html#aafdf44b33a86f1bef6141d33a4abb94b">tacheEnCours</a></div><div class="ttdeci">Tache * tacheEnCours</div><div class="ttdoc">: La tâche en cours</div><div class="ttdef"><b>Definition</b> <a href="scheduler_8c_source.html#l00091">scheduler.c:91</a></div></div>
+<div class="ttc" id="ascheduler_8c_html_ac0ad7deba8c8b31a1d9f541aa3ba997f"><div class="ttname"><a href="scheduler_8c.html#ac0ad7deba8c8b31a1d9f541aa3ba997f">basculeConsoleDemandee</a></div><div class="ttdeci">booleen basculeConsoleDemandee</div><div class="ttdef"><b>Definition</b> <a href="scheduler_8c_source.html#l00052">scheduler.c:52</a></div></div>
+<div class="ttc" id="ascheduler_8c_html_ac7f7b7ce11b466047d3870130d7b1e6f"><div class="ttname"><a href="scheduler_8c.html#ac7f7b7ce11b466047d3870130d7b1e6f">dateDernierOrdonnancement</a></div><div class="ttdeci">Temps dateDernierOrdonnancement</div><div class="ttdef"><b>Definition</b> <a href="scheduler_8c_source.html#l00046">scheduler.c:46</a></div></div>
+<div class="ttc" id="ascheduler_8c_html_ae00507099d51c08195d42c08daad4f41"><div class="ttname"><a href="scheduler_8c.html#ae00507099d51c08195d42c08daad4f41">ordonnanceur</a></div><div class="ttdeci">void ordonnanceur(void)</div><div class="ttdoc">Le coeur de l'ordonnanceur.</div><div class="ttdef"><b>Definition</b> <a href="scheduler_8c_source.html#l00098">scheduler.c:98</a></div></div>
+<div class="ttc" id="ascheduler_8c_html_ae922bcf579d9ef3fb82370f3a876029d"><div class="ttname"><a href="scheduler_8c.html#ae922bcf579d9ef3fb82370f3a876029d">ordonnanceurCreerTacheNoyau</a></div><div class="ttdeci">TacheID ordonnanceurCreerTacheNoyau(CorpsTache corpsTache)</div><div class="ttdoc">Création et ordonnancement d'une tâche noyau.</div><div class="ttdef"><b>Definition</b> <a href="scheduler_8c_source.html#l00349">scheduler.c:349</a></div></div>
+<div class="ttc" id="ascheduler_8c_html_ae9fc05d7baa2e71defadd7a4537eef5a"><div class="ttname"><a href="scheduler_8c.html#ae9fc05d7baa2e71defadd7a4537eef5a">tacheScheduler</a></div><div class="ttdeci">Tache * tacheScheduler</div><div class="ttdef"><b>Definition</b> <a href="scheduler_8c_source.html#l00044">scheduler.c:44</a></div></div>
+<div class="ttc" id="ascheduler_8c_html_aef1e54d9e6a32886461b3dc665654748"><div class="ttname"><a href="scheduler_8c.html#aef1e54d9e6a32886461b3dc665654748">ordonnanceurAddTache</a></div><div class="ttdeci">void ordonnanceurAddTache(Tache *tache)</div><div class="ttdoc">Ajout d'une tâche dans l'ordonnanceur.</div><div class="ttdef"><b>Definition</b> <a href="scheduler_8c_source.html#l00171">scheduler.c:171</a></div></div>
+<div class="ttc" id="ascheduler_8h_html"><div class="ttname"><a href="scheduler_8h.html">scheduler.h</a></div></div>
+<div class="ttc" id="ascheduler_8h_html_a2bf4d87db2a0e2c668709171410ea88c"><div class="ttname"><a href="scheduler_8h.html#a2bf4d87db2a0e2c668709171410ea88c">sys_identifiantTache</a></div><div class="ttdeci">int sys_identifiantTache(void)</div></div>
+<div class="ttc" id="ascheduler_8h_html_a88d934b613790e1dc8c9a228ec6ce59c"><div class="ttname"><a href="scheduler_8h.html#a88d934b613790e1dc8c9a228ec6ce59c">AS_console</a></div><div class="ttdeci">uint32_t AS_console(void)</div></div>
+<div class="ttc" id="ascheduler_8h_html_a8f577acc503b6c76a2f531bc3c9bf6e3"><div class="ttname"><a href="scheduler_8h.html#a8f577acc503b6c76a2f531bc3c9bf6e3">sys_creerTache</a></div><div class="ttdeci">TacheID sys_creerTache(ParametreAS as, CorpsTache corpsTache, booleen shareConsole)</div></div>
+<div class="ttc" id="ascheduler_8h_html_ae066204c3c4fc47d9bc5cd4a9a4c7d39"><div class="ttname"><a href="scheduler_8h.html#ae066204c3c4fc47d9bc5cd4a9a4c7d39">sys_basculerTache</a></div><div class="ttdeci">int sys_basculerTache(ParametreAS as)</div></div>
+<div class="ttc" id="astruct__CelluleTache_html"><div class="ttname"><a href="struct__CelluleTache.html">_CelluleTache</a></div><div class="ttdef"><b>Definition</b> <a href="listetaches_8h_source.html#l00013">listetaches.h:13</a></div></div>
+<div class="ttc" id="astruct__Console_html"><div class="ttname"><a href="struct__Console.html">_Console</a></div><div class="ttdoc">Structure d'une console.</div><div class="ttdef"><b>Definition</b> <a href="include_2manux_2console_8h_source.html#l00037">console.h:37</a></div></div>
+<div class="ttc" id="astruct__ExclusionMutuelle_html"><div class="ttname"><a href="struct__ExclusionMutuelle.html">_ExclusionMutuelle</a></div><div class="ttdoc">DÃ©finition des exclusions mutuelles.</div><div class="ttdef"><b>Definition</b> <a href="exclusion-mutuelle_8h_source.html#l00018">exclusion-mutuelle.h:18</a></div></div>
+<div class="ttc" id="astruct__ListeTache_html"><div class="ttname"><a href="struct__ListeTache.html">_ListeTache</a></div><div class="ttdef"><b>Definition</b> <a href="listetaches_8h_source.html#l00018">listetaches.h:18</a></div></div>
+<div class="ttc" id="astruct__ParametreAS_html"><div class="ttname"><a href="struct__ParametreAS.html">_ParametreAS</a></div><div class="ttdef"><b>Definition</b> <a href="include_2manux_2appelsysteme_8h_source.html#l00030">appelsysteme.h:30</a></div></div>
+<div class="ttc" id="astruct__Tache_html"><div class="ttname"><a href="struct__Tache.html">_Tache</a></div><div class="ttdoc">: DÃ©finition du type dÃ©crivant une tache.</div><div class="ttdef"><b>Definition</b> <a href="tache_8h_source.html#l00083">tache.h:83</a></div></div>
+<div class="ttc" id="astruct__Tache_html_a52778b74cd5dd7afca337370e89d1668"><div class="ttname"><a href="struct__Tache.html#a52778b74cd5dd7afca337370e89d1668">_Tache::etat</a></div><div class="ttdeci">EtatTache etat</div><div class="ttdef"><b>Definition</b> <a href="tache_8h_source.html#l00089">tache.h:89</a></div></div>
+<div class="ttc" id="astruct__Tache_html_a75f1c6827f13f0d92b905e4f6b0d42e5"><div class="ttname"><a href="struct__Tache.html#a75f1c6827f13f0d92b905e4f6b0d42e5">_Tache::nbActivations</a></div><div class="ttdeci">uint32_t nbActivations</div><div class="ttdef"><b>Definition</b> <a href="tache_8h_source.html#l00104">tache.h:104</a></div></div>
+<div class="ttc" id="astruct__Tache_html_a8e4b96d2966bc94de3d6d47cdb10ace0"><div class="ttname"><a href="struct__Tache.html#a8e4b96d2966bc94de3d6d47cdb10ace0">_Tache::tempsExecution</a></div><div class="ttdeci">Temps tempsExecution</div><div class="ttdef"><b>Definition</b> <a href="tache_8h_source.html#l00105">tache.h:105</a></div></div>
+<div class="ttc" id="astruct__Tache_html_ab249d7e8cd1654617b229e6abee76736"><div class="ttname"><a href="struct__Tache.html#ab249d7e8cd1654617b229e6abee76736">_Tache::indiceTSSDescriptor</a></div><div class="ttdeci">uint16_t indiceTSSDescriptor</div><div class="ttdef"><b>Definition</b> <a href="tache_8h_source.html#l00086">tache.h:86</a></div></div>
+<div class="ttc" id="astruct__Tache_html_adcc9e272e58793e4bae000102d6537a3"><div class="ttname"><a href="struct__Tache.html#adcc9e272e58793e4bae000102d6537a3">_Tache::numero</a></div><div class="ttdeci">TacheID numero</div><div class="ttdef"><b>Definition</b> <a href="tache_8h_source.html#l00088">tache.h:88</a></div></div>
+<div class="ttc" id="astruct__Tache_html_adf8333ec5a3905476de96e3159051672"><div class="ttname"><a href="struct__Tache.html#adf8333ec5a3905476de96e3159051672">_Tache::nonPreemptible</a></div><div class="ttdeci">uint8_t nonPreemptible</div><div class="ttdef"><b>Definition</b> <a href="tache_8h_source.html#l00094">tache.h:94</a></div></div>
+<div class="ttc" id="atache_8h_html_a079625c76ac29238ace165d5958d82e5a6b2e382d78b8c9db8db762366c22f2b3"><div class="ttname"><a href="tache_8h.html#a079625c76ac29238ace165d5958d82e5a6b2e382d78b8c9db8db762366c22f2b3">Tache_En_Cours</a></div><div class="ttdeci">@ Tache_En_Cours</div><div class="ttdef"><b>Definition</b> <a href="tache_8h_source.html#l00029">tache.h:29</a></div></div>
+<div class="ttc" id="atache_8h_html_a079625c76ac29238ace165d5958d82e5abd18ea3758daaa8a8012e928416be362"><div class="ttname"><a href="tache_8h.html#a079625c76ac29238ace165d5958d82e5abd18ea3758daaa8a8012e928416be362">Tache_Prete</a></div><div class="ttdeci">@ Tache_Prete</div><div class="ttdef"><b>Definition</b> <a href="tache_8h_source.html#l00030">tache.h:30</a></div></div>
+<div class="ttc" id="atache_8h_html_a0ec51dfb4bb630c26867bc04036b99bd"><div class="ttname"><a href="tache_8h.html#a0ec51dfb4bb630c26867bc04036b99bd">basculerVersTache</a></div><div class="ttdeci">void basculerVersTache(Tache *tache)</div><div class="ttdef"><b>Definition</b> <a href="tache_8c_source.html#l00038">tache.c:38</a></div></div>
+<div class="ttc" id="atache_8h_html_ae73130353eaec375c352eee5e35e19ea"><div class="ttname"><a href="tache_8h.html#ae73130353eaec375c352eee5e35e19ea">tacheCreer</a></div><div class="ttdeci">Tache * tacheCreer(CorpsTache corpsTache)</div><div class="ttdoc">CrÃ©ation d'une nouvelle tÃ¢che.</div><div class="ttdef"><b>Definition</b> <a href="tache_8c_source.html#l00113">tache.c:113</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+GÃ©nÃ©rÃ© par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

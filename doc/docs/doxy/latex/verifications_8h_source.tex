@@ -1,0 +1,116 @@
+\doxysection{verifications.\+h}
+\hypertarget{verifications_8h_source}{}\label{verifications_8h_source}\index{/home/manu/PROGRAMMATION/C/ManuX/include/config/verifications.h@{/home/manu/PROGRAMMATION/C/ManuX/include/config/verifications.h}}
+\mbox{\hyperlink{verifications_8h}{Aller à la documentation de ce fichier.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{verifications_8h_source_l00001}00001\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{verifications_8h_source_l00002}00002\ \textcolor{comment}{/*\ \ \ Et\ maintenant\ quelques\ vérifications\ de\ cohérence\ de\ la\ configuration.\ \ \ */}}
+\DoxyCodeLine{\Hypertarget{verifications_8h_source_l00003}00003\ \textcolor{comment}{/*\ Sans\ exhaustivité\ malheureusement.\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{verifications_8h_source_l00004}00004\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{verifications_8h_source_l00005}00005\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{verifications_8h_source_l00006}00006\ \textcolor{comment}{\ *\ Pour\ la\ première,\ je\ ne\ suis\ pas\ si\ sûr,\ ...}}
+\DoxyCodeLine{\Hypertarget{verifications_8h_source_l00007}00007\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{verifications_8h_source_l00008}00008\ \textcolor{preprocessor}{\#ifdef\ MANUX\_TACHES}}
+\DoxyCodeLine{\Hypertarget{verifications_8h_source_l00009}00009\ \textcolor{preprocessor}{\#\ \ \ ifndef\ MANUX\_GESTION\_MEMOIRE}}
+\DoxyCodeLine{\Hypertarget{verifications_8h_source_l00010}00010\ \textcolor{preprocessor}{\#\ \ \ \ \ \ error\ "{}MANUX\_TACHES\ nécessite\ MANUX\_GESTION\_MEMOIRE\ !"{}}}
+\DoxyCodeLine{\Hypertarget{verifications_8h_source_l00011}00011\ \textcolor{preprocessor}{\#\ \ \ endif}}
+\DoxyCodeLine{\Hypertarget{verifications_8h_source_l00012}00012\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{verifications_8h_source_l00013}00013\ }
+\DoxyCodeLine{\Hypertarget{verifications_8h_source_l00014}00014\ \textcolor{preprocessor}{\#if\ defined(MANUX\_CONSOLES\_VIRTUELLES)\ \&\&\ !defined(MANUX\_CONSOLE)}}
+\DoxyCodeLine{\Hypertarget{verifications_8h_source_l00015}00015\ \textcolor{preprocessor}{\#\ \ \ error\ "{}MANUX\_CONSOLES\_VIRTUELLES\ nécessite\ MANUX\_CONSOLE"{}}}
+\DoxyCodeLine{\Hypertarget{verifications_8h_source_l00016}00016\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{verifications_8h_source_l00017}00017\ }
+\DoxyCodeLine{\Hypertarget{verifications_8h_source_l00018}00018\ \textcolor{preprocessor}{\#if\ defined(MANUX\_VIRTIO\_CONSOLE)\ \&\&\ !defined(MANUX\_FICHIER)}}
+\DoxyCodeLine{\Hypertarget{verifications_8h_source_l00019}00019\ \textcolor{preprocessor}{\#\ \ \ error\ "{}MANUX\_VIRTIO\_CONSOLE\ nécessite\ MANUX\_FICHIER"{}}}
+\DoxyCodeLine{\Hypertarget{verifications_8h_source_l00020}00020\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{verifications_8h_source_l00021}00021\ }
+\DoxyCodeLine{\Hypertarget{verifications_8h_source_l00022}00022\ \textcolor{preprocessor}{\#if\ defined(MANUX\_PRINTK)\ \&\&\ !defined(MANUX\_CONSOLE)}}
+\DoxyCodeLine{\Hypertarget{verifications_8h_source_l00023}00023\ \textcolor{preprocessor}{\#\ \ \ error\ "{}MANUX\_PRINTK\ nécessite\ MANUX\_CONSOLE"{}}}
+\DoxyCodeLine{\Hypertarget{verifications_8h_source_l00024}00024\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{verifications_8h_source_l00025}00025\ }
+\DoxyCodeLine{\Hypertarget{verifications_8h_source_l00026}00026\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{verifications_8h_source_l00027}00027\ \textcolor{comment}{\#if\ defined(MANUX\_CLAVIER\_CONSOLE)\ \&\&\ !defined(MANUX\_APPELS\_SYSTEME)}}
+\DoxyCodeLine{\Hypertarget{verifications_8h_source_l00028}00028\ \textcolor{comment}{\#\ \ \ error\ "{}MANUX\_CLAVIER\_CONSOLE\ nécessite\ MANUX\_APPELS\_SYSTEME"{}}}
+\DoxyCodeLine{\Hypertarget{verifications_8h_source_l00029}00029\ \textcolor{comment}{\#endif}}
+\DoxyCodeLine{\Hypertarget{verifications_8h_source_l00030}00030\ \textcolor{comment}{*/}}
+\DoxyCodeLine{\Hypertarget{verifications_8h_source_l00031}00031\ }
+\DoxyCodeLine{\Hypertarget{verifications_8h_source_l00032}00032\ \textcolor{preprocessor}{\#if\ defined(MANUX\_APPELS\_SYSTEME)\ \&\&\ !defined(MANUX\_LIBI386)}}
+\DoxyCodeLine{\Hypertarget{verifications_8h_source_l00033}00033\ \textcolor{preprocessor}{\#\ \ \ error\ "{}MANUX\_APPELS\_SYSTEME\ nécessite\ MANUX\_LIBI386\ (pour\ les\ interruptions"{}}}
+\DoxyCodeLine{\Hypertarget{verifications_8h_source_l00034}00034\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{verifications_8h_source_l00035}00035\ }
+\DoxyCodeLine{\Hypertarget{verifications_8h_source_l00036}00036\ \textcolor{preprocessor}{\#if\ defined(MANUX\_OUTILS\_SYNCHRO)\ \&\&\ !defined(MANUX\_TACHES)}}
+\DoxyCodeLine{\Hypertarget{verifications_8h_source_l00037}00037\ \textcolor{preprocessor}{\#\ \ \ error\ "{}MANUX\_OUTILS\_SYNCHRO\ nécessite\ MANUX\_TACHES"{}}}
+\DoxyCodeLine{\Hypertarget{verifications_8h_source_l00038}00038\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{verifications_8h_source_l00039}00039\ }
+\DoxyCodeLine{\Hypertarget{verifications_8h_source_l00040}00040\ \textcolor{preprocessor}{\#if\ defined(MANUX\_VIRTIO\_NET)\ \&\&\ !defined(MANUX\_RESEAU)}}
+\DoxyCodeLine{\Hypertarget{verifications_8h_source_l00041}00041\ \textcolor{preprocessor}{\#\ \ \ error\ "{}VIRTIO\_NET\ est\ un\ périphérique\ nécessitant\ MANUX\_RESEAU"{}}}
+\DoxyCodeLine{\Hypertarget{verifications_8h_source_l00042}00042\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{verifications_8h_source_l00043}00043\ }
+\DoxyCodeLine{\Hypertarget{verifications_8h_source_l00044}00044\ \textcolor{preprocessor}{\#if\ defined(MANUX\_VIRTIO\_NET)\ \&\&\ !defined(MANUX\_VIRTIO)}}
+\DoxyCodeLine{\Hypertarget{verifications_8h_source_l00045}00045\ \textcolor{preprocessor}{\#\ \ \ error\ "{}VIRTIO\_NET\ est\ un\ périphérique\ nécessitant\ MANUX\_VIRTIO"{}}}
+\DoxyCodeLine{\Hypertarget{verifications_8h_source_l00046}00046\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{verifications_8h_source_l00047}00047\ }
+\DoxyCodeLine{\Hypertarget{verifications_8h_source_l00048}00048\ \textcolor{preprocessor}{\#if\ defined(MANUX\_VIRTIO)\ \&\&\ !defined(MANUX\_PCI)}}
+\DoxyCodeLine{\Hypertarget{verifications_8h_source_l00049}00049\ \textcolor{preprocessor}{\#\ \ \ error\ "{}VIRTIO\ est\ un\ système\ nécessitant\ MANUX\_PCI"{}}}
+\DoxyCodeLine{\Hypertarget{verifications_8h_source_l00050}00050\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{verifications_8h_source_l00051}00051\ }
+\DoxyCodeLine{\Hypertarget{verifications_8h_source_l00052}00052\ \textcolor{preprocessor}{\#if\ defined(MANUX\_PERIPHERIQUE\_CARACTERE)\ \&\&\ !defined(MANUX\_FICHIER)}}
+\DoxyCodeLine{\Hypertarget{verifications_8h_source_l00053}00053\ \textcolor{preprocessor}{\#\ \ \ error\ "{}Les\ périphériques\ caractères\ nécessitent\ le\ type\ fichier"{}}}
+\DoxyCodeLine{\Hypertarget{verifications_8h_source_l00054}00054\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{verifications_8h_source_l00055}00055\ }
+\DoxyCodeLine{\Hypertarget{verifications_8h_source_l00056}00056\ \textcolor{preprocessor}{\#if\ defined(MANUX\_CLAVIER\_CONSOLE)\ \&\&\ !defined(MANUX\_CLAVIER)}}
+\DoxyCodeLine{\Hypertarget{verifications_8h_source_l00057}00057\ \textcolor{preprocessor}{\#\ \ \ error\ "{}MANUX\_CLAVIER\_CONSOLE\ nécessite\ MANUX\_CLAVIER"{}}}
+\DoxyCodeLine{\Hypertarget{verifications_8h_source_l00058}00058\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{verifications_8h_source_l00059}00059\ }
+\DoxyCodeLine{\Hypertarget{verifications_8h_source_l00060}00060\ \textcolor{preprocessor}{\#if\ defined(MANUX\_KMALLOC)\ \&\&\ !defined(MANUX\_GESTION\_MEMOIRE)}}
+\DoxyCodeLine{\Hypertarget{verifications_8h_source_l00061}00061\ \textcolor{preprocessor}{\#\ \ \ error\ "{}MANUX\_KMALLOC\ nécessite\ MANUX\_GESTION\_MEMOIRE"{}}}
+\DoxyCodeLine{\Hypertarget{verifications_8h_source_l00062}00062\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{verifications_8h_source_l00063}00063\ }
+\DoxyCodeLine{\Hypertarget{verifications_8h_source_l00064}00064\ \textcolor{preprocessor}{\#if\ defined(MANUX\_KMALLOC\_STAT)\ \&\&\ !defined(MANUX\_KMALLOC)}}
+\DoxyCodeLine{\Hypertarget{verifications_8h_source_l00065}00065\ \textcolor{preprocessor}{\#\ \ \ error\ "{}MANUX\_KMALLOC\_STAT\ nécessite\ MANUX\_KMALLOC"{}}}
+\DoxyCodeLine{\Hypertarget{verifications_8h_source_l00066}00066\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{verifications_8h_source_l00067}00067\ }
+\DoxyCodeLine{\Hypertarget{verifications_8h_source_l00068}00068\ \textcolor{preprocessor}{\#if\ defined(MANUX\_TUBES)\ \&\&\ !defined(MANUX\_GESTION\_MEMOIRE)}}
+\DoxyCodeLine{\Hypertarget{verifications_8h_source_l00069}00069\ \textcolor{preprocessor}{\#\ \ \ error\ "{}MANUX\_TUBES\ nécessite\ MANUX\_GESTION\_MEMOIRE"{}}}
+\DoxyCodeLine{\Hypertarget{verifications_8h_source_l00070}00070\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{verifications_8h_source_l00071}00071\ }
+\DoxyCodeLine{\Hypertarget{verifications_8h_source_l00072}00072\ \textcolor{preprocessor}{\#if\ defined(MANUX\_TUBES)\ \&\&\ !defined(MANUX\_KMALLOC)}}
+\DoxyCodeLine{\Hypertarget{verifications_8h_source_l00073}00073\ \textcolor{preprocessor}{\#\ \ \ error\ "{}MANUX\_TUBES\ nécessite\ MANUX\_KMALLOC"{}}}
+\DoxyCodeLine{\Hypertarget{verifications_8h_source_l00074}00074\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{verifications_8h_source_l00075}00075\ }
+\DoxyCodeLine{\Hypertarget{verifications_8h_source_l00076}00076\ \textcolor{preprocessor}{\#if\ defined(MANUX\_ATOMIQUE)\ \&\&\ !defined(MANUX\_TACHES)}}
+\DoxyCodeLine{\Hypertarget{verifications_8h_source_l00077}00077\ \textcolor{preprocessor}{\#\ \ \ error\ "{}MANUX\_ATOMIQUE\ nécessite\ MANUX\_TACHES"{}}}
+\DoxyCodeLine{\Hypertarget{verifications_8h_source_l00078}00078\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{verifications_8h_source_l00079}00079\ }
+\DoxyCodeLine{\Hypertarget{verifications_8h_source_l00080}00080\ \textcolor{preprocessor}{\#if\ defined(MANUX\_ATOMIQUE\_AUDIT)\ \&\&\ !defined(MANUX\_KMALLOC)}}
+\DoxyCodeLine{\Hypertarget{verifications_8h_source_l00081}00081\ \textcolor{preprocessor}{\#\ \ \ error\ "{}MANUX\_ATOMIQUE\_AUDIT\ nécessite\ MANUX\_KMALLOC"{}}}
+\DoxyCodeLine{\Hypertarget{verifications_8h_source_l00082}00082\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{verifications_8h_source_l00083}00083\ }
+\DoxyCodeLine{\Hypertarget{verifications_8h_source_l00084}00084\ \textcolor{preprocessor}{\#if\ defined(MANUX\_EXCLUSION\_MUTUELLE\_AUDIT)\ \&\&\ !defined(MANUX\_KMALLOC)}}
+\DoxyCodeLine{\Hypertarget{verifications_8h_source_l00085}00085\ \textcolor{preprocessor}{\#\ \ \ error\ "{}MANUX\_EXCLUSION\_MUTUELLE\_AUDIT\ nécessite\ MANUX\_KMALLOC"{}}}
+\DoxyCodeLine{\Hypertarget{verifications_8h_source_l00086}00086\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{verifications_8h_source_l00087}00087\ }
+\DoxyCodeLine{\Hypertarget{verifications_8h_source_l00088}00088\ \textcolor{preprocessor}{\#if\ defined(MANUX\_HERITER\_FICHIERS)\ \&\&\ !defined(MANUX\_KMALLOC)}}
+\DoxyCodeLine{\Hypertarget{verifications_8h_source_l00089}00089\ \textcolor{preprocessor}{\#\ \ \ error\ "{}MANUX\_HERITER\_FICHIERS\ nécessite\ MANUX\_KMALLOC"{}}}
+\DoxyCodeLine{\Hypertarget{verifications_8h_source_l00090}00090\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{verifications_8h_source_l00091}00091\ }
+\DoxyCodeLine{\Hypertarget{verifications_8h_source_l00092}00092\ \textcolor{preprocessor}{\#if\ defined(MANUX\_FICHIER)\ \&\&\ !defined(MANUX\_PRINTK)}}
+\DoxyCodeLine{\Hypertarget{verifications_8h_source_l00093}00093\ \textcolor{preprocessor}{\#\ \ \ error\ "{}MANUX\_FICHIER\ nécessite\ MANUX\_PRINTK"{}}}
+\DoxyCodeLine{\Hypertarget{verifications_8h_source_l00094}00094\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{verifications_8h_source_l00095}00095\ }
+\DoxyCodeLine{\Hypertarget{verifications_8h_source_l00096}00096\ \textcolor{preprocessor}{\#if\ defined(MANUX\_GESTION\_MEMOIRE)\ \&\&\ !defined(MANUX\_LIBI386)}}
+\DoxyCodeLine{\Hypertarget{verifications_8h_source_l00097}00097\ \textcolor{preprocessor}{\#\ \ \ error\ "{}MANUX\_GESTION\_MEMOIRE\ nécessite\ MANUX\_LIBI386"{}}}
+\DoxyCodeLine{\Hypertarget{verifications_8h_source_l00098}00098\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{verifications_8h_source_l00099}00099\ }
+\DoxyCodeLine{\Hypertarget{verifications_8h_source_l00100}00100\ \textcolor{preprocessor}{\#if\ defined(MANUX\_REGISTRE)\ \&\&\ !defined(MANUX\_KMALLOC)}}
+\DoxyCodeLine{\Hypertarget{verifications_8h_source_l00101}00101\ \textcolor{preprocessor}{\#\ \ \ error\ "{}MANUX\_REGISTRE\ nécessite\ MANUX\_KMALLOC"{}}}
+\DoxyCodeLine{\Hypertarget{verifications_8h_source_l00102}00102\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{verifications_8h_source_l00103}00103\ }
+\DoxyCodeLine{\Hypertarget{verifications_8h_source_l00104}00104\ \textcolor{preprocessor}{\#if\ defined(MANUX\_DEBUGMASK\_VAR)\ \&\&\ !defined(MANUX\_STDLIB)}}
+\DoxyCodeLine{\Hypertarget{verifications_8h_source_l00105}00105\ \textcolor{preprocessor}{\#\ \ \ error\ "{}MANUX\_DEBUGMASK\_VAR\ nécessite\ MANUX\_STDLIB"{}}}
+\DoxyCodeLine{\Hypertarget{verifications_8h_source_l00106}00106\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{verifications_8h_source_l00107}00107\ }
+\DoxyCodeLine{\Hypertarget{verifications_8h_source_l00108}00108\ \textcolor{preprocessor}{\#if\ defined(MANUX\_DEBUGMASK\_VAR)\ \&\&\ !defined(MANUX\_PRINTK)}}
+\DoxyCodeLine{\Hypertarget{verifications_8h_source_l00109}00109\ \textcolor{preprocessor}{\#\ \ \ error\ "{}MANUX\_DEBUGMASK\_VAR\ nécessite\ MANUX\_PRINTK"{}}}
+\DoxyCodeLine{\Hypertarget{verifications_8h_source_l00110}00110\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

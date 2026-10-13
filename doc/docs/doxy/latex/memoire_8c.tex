@@ -1,0 +1,247 @@
+\doxysection{Référence du fichier /home/manu/\+PROGRAMMATION/\+C/\+Manu\+X/noyau/memoire.c}
+\hypertarget{memoire_8c}{}\label{memoire_8c}\index{/home/manu/PROGRAMMATION/C/ManuX/noyau/memoire.c@{/home/manu/PROGRAMMATION/C/ManuX/noyau/memoire.c}}
+{\ttfamily \#include $<$manux/config.\+h$>$}\newline
+{\ttfamily \#include $<$manux/types.\+h$>$}\newline
+{\ttfamily \#include $<$manux/debug.\+h$>$}\newline
+{\ttfamily \#include $<$manux/memoire.\+h$>$}\newline
+{\ttfamily \#include $<$manux/atomique.\+h$>$}\newline
+{\ttfamily \#include $<$manux/pagination.\+h$>$}\newline
+{\ttfamily \#include $<$manux/console.\+h$>$}\newline
+{\ttfamily \#include $<$manux/i386.\+h$>$}\newline
+Graphe des dépendances par inclusion de memoire.\+c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{memoire_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{memoire_8c_a2d0833c5ad400fa899bbfc035098e3e9}{MANUX\+\_\+\+AFFECTATION\+\_\+\+PAGES}}~0x1000
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} \mbox{\hyperlink{memoire_8c_aee3b45cedb3e2add79c773ed3558a1c8}{liberer\+Page}} (\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} \texorpdfstring{$\ast$}{*}page\+Liberee)
+\item 
+\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} \mbox{\hyperlink{memoire_8c_a4338550e2017b7c95021bdc27e4f3345}{initialiser\+Memoire}} (\mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\+\_\+t}} taille\+Memoire\+De\+Base, \mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\+\_\+t}} taille\+Memoire\+Etendue)
+\begin{DoxyCompactList}\small\item\em Initialisation de la mémoire au niveau pages. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{memoire_8c_ad9072ff00da9e7f32b882e5c1361d46f}{allouer\+Page}} (\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}})
+\item 
+int \mbox{\hyperlink{memoire_8c_a3aef845c64cbb35e0c25f697fd39156a}{nombre\+Pages\+Allouees}} (\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}})
+\item 
+int \mbox{\hyperlink{memoire_8c_a4f075bfff5a918e6ac19bf24be879e96}{nombre\+Pages\+Total}} (\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}})
+\item 
+\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{memoire_8c_a09bebf2806a04211ae6bb6c11ffb6a66}{allouer\+Pages}} (\mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\+\_\+t}} nombre)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\+\_\+t}} \mbox{\hyperlink{memoire_8c_a236ba6714aa86a8d6b11194aacd8f06d}{\+\_\+adresse\+Debut\+ManuX}} \mbox{[}$\,$\mbox{]}
+\begin{DoxyCompactList}\small\item\em Implantation des sous-\/programme de manipulation de la m�moire sous ManuX. On fait pour le moment un truc hyper minimaliste, sans aucune forme de v�rification, le but �tant juste de fournir un service �l�mentaire aux autres parties du noyau afin d\textquotesingle{}en avancer le d�veloppement. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\+\_\+t}} \mbox{\hyperlink{memoire_8c_ac2cf2a9cdeed6732e8b03405b155c559}{\+\_\+adresse\+Fin\+ManuX}} \mbox{[}$\,$\mbox{]}
+\item 
+\mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\+\_\+t}} \mbox{\hyperlink{memoire_8c_a9b3845eb76291c3e41541e9dbba5bd8b}{\+\_\+adresse\+Pile\+ManuX}} \mbox{[}$\,$\mbox{]}
+\item 
+\mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\+\_\+t}} \mbox{\hyperlink{memoire_8c_a37e50039a12a2e84c9f40e3c9badd68e}{\+\_\+adresse\+Limite\+Pile\+ManuX}} \mbox{[}$\,$\mbox{]}
+\item 
+\mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\+\_\+t}} \mbox{\hyperlink{memoire_8c_aa01d90dd8a9ab43fe183ba17befaf7ff}{adresse\+Debut\+ManuX}} = ((\mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\+\_\+t}})\mbox{\hyperlink{memoire_8c_a236ba6714aa86a8d6b11194aacd8f06d}{\+\_\+adresse\+Debut\+ManuX}})
+\item 
+\mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\+\_\+t}} \mbox{\hyperlink{memoire_8c_a7d3baaeec8923e57d98493d7087215a8}{adresse\+Fin\+ManuX}} = ((\mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\+\_\+t}})\mbox{\hyperlink{memoire_8c_ac2cf2a9cdeed6732e8b03405b155c559}{\+\_\+adresse\+Fin\+ManuX}})
+\item 
+\mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\+\_\+t}} \mbox{\hyperlink{memoire_8c_ada7ea2f9b729bc65c1adc6b4afc878f8}{adresse\+Pile\+ManuX}} = ((\mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\+\_\+t}})\mbox{\hyperlink{memoire_8c_a9b3845eb76291c3e41541e9dbba5bd8b}{\+\_\+adresse\+Pile\+ManuX}})
+\item 
+\mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\+\_\+t}} \mbox{\hyperlink{memoire_8c_a40c472c1d550a802484196d93a333c89}{adresse\+Limite\+Pile\+ManuX}} = ((\mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\+\_\+t}})\mbox{\hyperlink{memoire_8c_a37e50039a12a2e84c9f40e3c9badd68e}{\+\_\+adresse\+Limite\+Pile\+ManuX}})
+\item 
+int \mbox{\hyperlink{memoire_8c_a0e9c7b044c6a0b46ab3a7a38d9c4a10a}{nombre\+Pages\+Systeme}} = \mbox{\hyperlink{gestion-memoire_8h_a51d5bb3cbd6cdd278b2886f57507f3b9}{MANUX\+\_\+\+NOMBRE\+\_\+\+PAGES\+\_\+\+SYSTEME}}
+\item 
+\mbox{\hyperlink{include_2manux_2types_8h_a1aa19b97c742cff758e6532b519954c4}{Tache\+ID}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{memoire_8c_ada1d6ba9175cadf17930cb95e1aaf56e}{proprietaire\+Page}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Documentation des macros}
+\Hypertarget{memoire_8c_a2d0833c5ad400fa899bbfc035098e3e9}\label{memoire_8c_a2d0833c5ad400fa899bbfc035098e3e9} 
+\index{memoire.c@{memoire.c}!MANUX\_AFFECTATION\_PAGES@{MANUX\_AFFECTATION\_PAGES}}
+\index{MANUX\_AFFECTATION\_PAGES@{MANUX\_AFFECTATION\_PAGES}!memoire.c@{memoire.c}}
+\doxysubsubsection{\texorpdfstring{MANUX\_AFFECTATION\_PAGES}{MANUX\_AFFECTATION\_PAGES}}
+{\footnotesize\ttfamily \#define MANUX\+\_\+\+AFFECTATION\+\_\+\+PAGES~0x1000}
+
+
+
+Définition à la ligne \mbox{\hyperlink{memoire_8c_source_l00042}{42}} du fichier \mbox{\hyperlink{memoire_8c_source}{memoire.\+c}}.
+
+
+
+\doxysubsection{Documentation des fonctions}
+\Hypertarget{memoire_8c_ad9072ff00da9e7f32b882e5c1361d46f}\label{memoire_8c_ad9072ff00da9e7f32b882e5c1361d46f} 
+\index{memoire.c@{memoire.c}!allouerPage@{allouerPage}}
+\index{allouerPage@{allouerPage}!memoire.c@{memoire.c}}
+\doxysubsubsection{\texorpdfstring{allouerPage()}{allouerPage()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} \texorpdfstring{$\ast$}{*} allouer\+Page (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}}}]{ }\end{DoxyParamCaption})}
+
+
+
+Définition à la ligne \mbox{\hyperlink{memoire_8c_source_l00234}{234}} du fichier \mbox{\hyperlink{memoire_8c_source}{memoire.\+c}}.
+
+\Hypertarget{memoire_8c_a09bebf2806a04211ae6bb6c11ffb6a66}\label{memoire_8c_a09bebf2806a04211ae6bb6c11ffb6a66} 
+\index{memoire.c@{memoire.c}!allouerPages@{allouerPages}}
+\index{allouerPages@{allouerPages}!memoire.c@{memoire.c}}
+\doxysubsubsection{\texorpdfstring{allouerPages()}{allouerPages()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} \texorpdfstring{$\ast$}{*} allouer\+Pages (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\+\_\+t}}}]{nombre }\end{DoxyParamCaption})}
+
+Allocation de plusieurs pages contigues 
+
+Définition à la ligne \mbox{\hyperlink{memoire_8c_source_l00284}{284}} du fichier \mbox{\hyperlink{memoire_8c_source}{memoire.\+c}}.
+
+\Hypertarget{memoire_8c_a4338550e2017b7c95021bdc27e4f3345}\label{memoire_8c_a4338550e2017b7c95021bdc27e4f3345} 
+\index{memoire.c@{memoire.c}!initialiserMemoire@{initialiserMemoire}}
+\index{initialiserMemoire@{initialiserMemoire}!memoire.c@{memoire.c}}
+\doxysubsubsection{\texorpdfstring{initialiserMemoire()}{initialiserMemoire()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} initialiser\+Memoire (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\+\_\+t}}}]{taille\+Memoire\+De\+Base,  }\item[{\mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\+\_\+t}}}]{taille\+Memoire\+Etendue }\end{DoxyParamCaption})}
+
+
+
+Initialisation de la mémoire au niveau pages. 
+
+Cette initialisation est nécessaire avant toute demande d\textquotesingle{}allocation. C\textquotesingle{}est elle qui va permettre de mettre en place le mécanisme d\textquotesingle{}allocation des pages dans le système. 
+
+Définition à la ligne \mbox{\hyperlink{memoire_8c_source_l00103}{103}} du fichier \mbox{\hyperlink{memoire_8c_source}{memoire.\+c}}.
+
+\Hypertarget{memoire_8c_aee3b45cedb3e2add79c773ed3558a1c8}\label{memoire_8c_aee3b45cedb3e2add79c773ed3558a1c8} 
+\index{memoire.c@{memoire.c}!libererPage@{libererPage}}
+\index{libererPage@{libererPage}!memoire.c@{memoire.c}}
+\doxysubsubsection{\texorpdfstring{libererPage()}{libererPage()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} liberer\+Page (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} \texorpdfstring{$\ast$}{*}}]{page\+Liberee }\end{DoxyParamCaption})}
+
+La lib�ration qui va avec 
+
+Définition à la ligne \mbox{\hyperlink{memoire_8c_source_l00081}{81}} du fichier \mbox{\hyperlink{memoire_8c_source}{memoire.\+c}}.
+
+\Hypertarget{memoire_8c_a3aef845c64cbb35e0c25f697fd39156a}\label{memoire_8c_a3aef845c64cbb35e0c25f697fd39156a} 
+\index{memoire.c@{memoire.c}!nombrePagesAllouees@{nombrePagesAllouees}}
+\index{nombrePagesAllouees@{nombrePagesAllouees}!memoire.c@{memoire.c}}
+\doxysubsubsection{\texorpdfstring{nombrePagesAllouees()}{nombrePagesAllouees()}}
+{\footnotesize\ttfamily int nombre\+Pages\+Allouees (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}}}]{ }\end{DoxyParamCaption})}
+
+
+
+Définition à la ligne \mbox{\hyperlink{memoire_8c_source_l00257}{257}} du fichier \mbox{\hyperlink{memoire_8c_source}{memoire.\+c}}.
+
+\Hypertarget{memoire_8c_a4f075bfff5a918e6ac19bf24be879e96}\label{memoire_8c_a4f075bfff5a918e6ac19bf24be879e96} 
+\index{memoire.c@{memoire.c}!nombrePagesTotal@{nombrePagesTotal}}
+\index{nombrePagesTotal@{nombrePagesTotal}!memoire.c@{memoire.c}}
+\doxysubsubsection{\texorpdfstring{nombrePagesTotal()}{nombrePagesTotal()}}
+{\footnotesize\ttfamily int nombre\+Pages\+Total (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}}}]{ }\end{DoxyParamCaption})}
+
+
+
+Définition à la ligne \mbox{\hyperlink{memoire_8c_source_l00262}{262}} du fichier \mbox{\hyperlink{memoire_8c_source}{memoire.\+c}}.
+
+
+
+\doxysubsection{Documentation des variables}
+\Hypertarget{memoire_8c_a236ba6714aa86a8d6b11194aacd8f06d}\label{memoire_8c_a236ba6714aa86a8d6b11194aacd8f06d} 
+\index{memoire.c@{memoire.c}!\_adresseDebutManuX@{\_adresseDebutManuX}}
+\index{\_adresseDebutManuX@{\_adresseDebutManuX}!memoire.c@{memoire.c}}
+\doxysubsubsection{\texorpdfstring{\_adresseDebutManuX}{\_adresseDebutManuX}}
+{\footnotesize\ttfamily \mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\+\_\+t}} \+\_\+adresse\+Debut\+ManuX\mbox{[}$\,$\mbox{]}\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+Implantation des sous-\/programme de manipulation de la m�moire sous ManuX. On fait pour le moment un truc hyper minimaliste, sans aucune forme de v�rification, le but �tant juste de fournir un service �l�mentaire aux autres parties du noyau afin d\textquotesingle{}en avancer le d�veloppement. 
+
+\begin{DoxyVerb}                                              (C) Manu Chaput 2000-2026
+\end{DoxyVerb}
+
+
+Obtention des adresses de base. La r�cup�ration des variables du script du linker est un peu �sot�rique. Voir par exemple \href{https://stackoverflow.com/questions/48561217/how-to-get-value-of-variable-defined-in-ld-linker-script-from-c}{\texttt{ https\+://stackoverflow.\+com/questions/48561217/how-\/to-\/get-\/value-\/of-\/variable-\/defined-\/in-\/ld-\/linker-\/script-\/from-\/c}} pour un exemple, et surtout la doc pour une explication \href{https://sourceware.org/binutils/docs/ld/Source-Code-Reference.html}{\texttt{ https\+://sourceware.\+org/binutils/docs/ld/\+Source-\/\+Code-\/\+Reference.\+html}} \Hypertarget{memoire_8c_ac2cf2a9cdeed6732e8b03405b155c559}\label{memoire_8c_ac2cf2a9cdeed6732e8b03405b155c559} 
+\index{memoire.c@{memoire.c}!\_adresseFinManuX@{\_adresseFinManuX}}
+\index{\_adresseFinManuX@{\_adresseFinManuX}!memoire.c@{memoire.c}}
+\doxysubsubsection{\texorpdfstring{\_adresseFinManuX}{\_adresseFinManuX}}
+{\footnotesize\ttfamily \mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\+\_\+t}} \+\_\+adresse\+Fin\+ManuX\mbox{[}$\,$\mbox{]}}
+
+
+
+Définition à la ligne \mbox{\hyperlink{memoire_8c_source_l00028}{28}} du fichier \mbox{\hyperlink{memoire_8c_source}{memoire.\+c}}.
+
+\Hypertarget{memoire_8c_a37e50039a12a2e84c9f40e3c9badd68e}\label{memoire_8c_a37e50039a12a2e84c9f40e3c9badd68e} 
+\index{memoire.c@{memoire.c}!\_adresseLimitePileManuX@{\_adresseLimitePileManuX}}
+\index{\_adresseLimitePileManuX@{\_adresseLimitePileManuX}!memoire.c@{memoire.c}}
+\doxysubsubsection{\texorpdfstring{\_adresseLimitePileManuX}{\_adresseLimitePileManuX}}
+{\footnotesize\ttfamily \mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\+\_\+t}} \+\_\+adresse\+Limite\+Pile\+ManuX\mbox{[}$\,$\mbox{]}}
+
+
+
+Définition à la ligne \mbox{\hyperlink{memoire_8c_source_l00030}{30}} du fichier \mbox{\hyperlink{memoire_8c_source}{memoire.\+c}}.
+
+\Hypertarget{memoire_8c_a9b3845eb76291c3e41541e9dbba5bd8b}\label{memoire_8c_a9b3845eb76291c3e41541e9dbba5bd8b} 
+\index{memoire.c@{memoire.c}!\_adressePileManuX@{\_adressePileManuX}}
+\index{\_adressePileManuX@{\_adressePileManuX}!memoire.c@{memoire.c}}
+\doxysubsubsection{\texorpdfstring{\_adressePileManuX}{\_adressePileManuX}}
+{\footnotesize\ttfamily \mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\+\_\+t}} \+\_\+adresse\+Pile\+ManuX\mbox{[}$\,$\mbox{]}}
+
+
+
+Définition à la ligne \mbox{\hyperlink{memoire_8c_source_l00029}{29}} du fichier \mbox{\hyperlink{memoire_8c_source}{memoire.\+c}}.
+
+\Hypertarget{memoire_8c_aa01d90dd8a9ab43fe183ba17befaf7ff}\label{memoire_8c_aa01d90dd8a9ab43fe183ba17befaf7ff} 
+\index{memoire.c@{memoire.c}!adresseDebutManuX@{adresseDebutManuX}}
+\index{adresseDebutManuX@{adresseDebutManuX}!memoire.c@{memoire.c}}
+\doxysubsubsection{\texorpdfstring{adresseDebutManuX}{adresseDebutManuX}}
+{\footnotesize\ttfamily \mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\+\_\+t}} adresse\+Debut\+ManuX = ((\mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\+\_\+t}})\mbox{\hyperlink{memoire_8c_a236ba6714aa86a8d6b11194aacd8f06d}{\+\_\+adresse\+Debut\+ManuX}})}
+
+
+
+Définition à la ligne \mbox{\hyperlink{memoire_8c_source_l00032}{32}} du fichier \mbox{\hyperlink{memoire_8c_source}{memoire.\+c}}.
+
+\Hypertarget{memoire_8c_a7d3baaeec8923e57d98493d7087215a8}\label{memoire_8c_a7d3baaeec8923e57d98493d7087215a8} 
+\index{memoire.c@{memoire.c}!adresseFinManuX@{adresseFinManuX}}
+\index{adresseFinManuX@{adresseFinManuX}!memoire.c@{memoire.c}}
+\doxysubsubsection{\texorpdfstring{adresseFinManuX}{adresseFinManuX}}
+{\footnotesize\ttfamily \mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\+\_\+t}} adresse\+Fin\+ManuX = ((\mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\+\_\+t}})\mbox{\hyperlink{memoire_8c_ac2cf2a9cdeed6732e8b03405b155c559}{\+\_\+adresse\+Fin\+ManuX}})}
+
+
+
+Définition à la ligne \mbox{\hyperlink{memoire_8c_source_l00033}{33}} du fichier \mbox{\hyperlink{memoire_8c_source}{memoire.\+c}}.
+
+\Hypertarget{memoire_8c_a40c472c1d550a802484196d93a333c89}\label{memoire_8c_a40c472c1d550a802484196d93a333c89} 
+\index{memoire.c@{memoire.c}!adresseLimitePileManuX@{adresseLimitePileManuX}}
+\index{adresseLimitePileManuX@{adresseLimitePileManuX}!memoire.c@{memoire.c}}
+\doxysubsubsection{\texorpdfstring{adresseLimitePileManuX}{adresseLimitePileManuX}}
+{\footnotesize\ttfamily \mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\+\_\+t}} adresse\+Limite\+Pile\+ManuX = ((\mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\+\_\+t}})\mbox{\hyperlink{memoire_8c_a37e50039a12a2e84c9f40e3c9badd68e}{\+\_\+adresse\+Limite\+Pile\+ManuX}})}
+
+
+
+Définition à la ligne \mbox{\hyperlink{memoire_8c_source_l00035}{35}} du fichier \mbox{\hyperlink{memoire_8c_source}{memoire.\+c}}.
+
+\Hypertarget{memoire_8c_ada7ea2f9b729bc65c1adc6b4afc878f8}\label{memoire_8c_ada7ea2f9b729bc65c1adc6b4afc878f8} 
+\index{memoire.c@{memoire.c}!adressePileManuX@{adressePileManuX}}
+\index{adressePileManuX@{adressePileManuX}!memoire.c@{memoire.c}}
+\doxysubsubsection{\texorpdfstring{adressePileManuX}{adressePileManuX}}
+{\footnotesize\ttfamily \mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\+\_\+t}} adresse\+Pile\+ManuX = ((\mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\+\_\+t}})\mbox{\hyperlink{memoire_8c_a9b3845eb76291c3e41541e9dbba5bd8b}{\+\_\+adresse\+Pile\+ManuX}})}
+
+
+
+Définition à la ligne \mbox{\hyperlink{memoire_8c_source_l00034}{34}} du fichier \mbox{\hyperlink{memoire_8c_source}{memoire.\+c}}.
+
+\Hypertarget{memoire_8c_a0e9c7b044c6a0b46ab3a7a38d9c4a10a}\label{memoire_8c_a0e9c7b044c6a0b46ab3a7a38d9c4a10a} 
+\index{memoire.c@{memoire.c}!nombrePagesSysteme@{nombrePagesSysteme}}
+\index{nombrePagesSysteme@{nombrePagesSysteme}!memoire.c@{memoire.c}}
+\doxysubsubsection{\texorpdfstring{nombrePagesSysteme}{nombrePagesSysteme}}
+{\footnotesize\ttfamily int nombre\+Pages\+Systeme = \mbox{\hyperlink{gestion-memoire_8h_a51d5bb3cbd6cdd278b2886f57507f3b9}{MANUX\+\_\+\+NOMBRE\+\_\+\+PAGES\+\_\+\+SYSTEME}}}
+
+
+
+Définition à la ligne \mbox{\hyperlink{memoire_8c_source_l00048}{48}} du fichier \mbox{\hyperlink{memoire_8c_source}{memoire.\+c}}.
+
+\Hypertarget{memoire_8c_ada1d6ba9175cadf17930cb95e1aaf56e}\label{memoire_8c_ada1d6ba9175cadf17930cb95e1aaf56e} 
+\index{memoire.c@{memoire.c}!proprietairePage@{proprietairePage}}
+\index{proprietairePage@{proprietairePage}!memoire.c@{memoire.c}}
+\doxysubsubsection{\texorpdfstring{proprietairePage}{proprietairePage}}
+{\footnotesize\ttfamily \mbox{\hyperlink{include_2manux_2types_8h_a1aa19b97c742cff758e6532b519954c4}{Tache\+ID}}\texorpdfstring{$\ast$}{*} proprietaire\+Page}
+
+
+
+Définition à la ligne \mbox{\hyperlink{memoire_8c_source_l00056}{56}} du fichier \mbox{\hyperlink{memoire_8c_source}{memoire.\+c}}.
+

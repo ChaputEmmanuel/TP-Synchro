@@ -12,12 +12,11 @@
 #   include <manux/kmalloc.h>
 #endif
 
-#define MANUX_DEBUG_FS_BASE
-
 /**
  * @brief Lecture dans un fichier
  * @param f le fichier doit être != NULL
  */
+static
 int fichierLire(Fichier * f, void * buffer, int nbOctets)
 {
    int result = -EBADF;
@@ -57,7 +56,8 @@ int sys_fermer(ParametreAS as, int fd)
 {
    Fichier * f;
    int result = EBADF;
-
+   (void) as;
+   
    printk_debug(DBG_KERNEL_SYSFI, "in\n");
    
    if (tacheEnCours == NULL) {
@@ -81,7 +81,8 @@ int sys_ecrire(ParametreAS as, int fd, void * buffer, int nbOctets)
 {
    Fichier * f;
    int result;
-
+   (void) as;
+   
    printk_debug(DBG_KERNEL_SYSFI, "sys_ecrire fd = %d, b = %d, nb = %d IN\n", fd, buffer, nbOctets);
 
    if (tacheEnCours == NULL) {
@@ -104,7 +105,8 @@ int sys_lire(ParametreAS as, int fd, void * buffer, int nbOctets)
 {
    Fichier * f;
    int result;
-
+   (void) as;
+   
    printk_debug(DBG_KERNEL_SYSFI, "sys_lire fd = %d, b = %d, nb = %d IN\n", fd, buffer, nbOctets);
 
    if (tacheEnCours == NULL) {
@@ -124,7 +126,7 @@ int sys_lire(ParametreAS as, int fd, void * buffer, int nbOctets)
 }
 #endif //MANUX_APPELS_SYSTEME
 
-void sfInitialiser()
+void sfInitialiser(void)
 {
 #ifdef MANUX_APPELS_SYSTEME
    definirAppelSysteme(NBAS_FERMER, sys_fermer);
@@ -197,7 +199,7 @@ Fichier * fichierDupliquer(Fichier * f)
       // On fait une coie simple, ...
       bcopy(f, result, sizeof(Fichier));
 
-      // ... et on invoque la méthdode d'ouverture, si elle a des
+      // ... et on invoque la méthode d'ouverture, si elle a des
       // décomptes à faire, par exemple
       if (f->iNoeud->methodesFichier->ouvrir != NULL) {
  	 res = f->iNoeud->methodesFichier->ouvrir(f->iNoeud, result, f->fanions, f->mode);

@@ -2,12 +2,13 @@
  * @file: noyau/main-nop.c
  * @brief: Un noyau qui ne fait rien
  *                                                                           
- *                                                     (C) Manu Chaput 2000-2023
+ *                                                     (C) Manu Chaput 2000-2026
  */
 #include <manux/config.h>
 
-void startManuX()
+void startManuX(void);
+
+void startManuX(void)
 {
-  while (1 == 1) {};
-}   /* startManuX */
+}   // startManuX
 

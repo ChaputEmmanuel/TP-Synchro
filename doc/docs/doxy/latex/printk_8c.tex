@@ -1,0 +1,85 @@
+\doxysection{Référence du fichier /home/manu/\+PROGRAMMATION/\+C/\+Manu\+X/lib/printk.c}
+\hypertarget{printk_8c}{}\label{printk_8c}\index{/home/manu/PROGRAMMATION/C/ManuX/lib/printk.c@{/home/manu/PROGRAMMATION/C/ManuX/lib/printk.c}}
+{\ttfamily \#include $<$manux/kmalloc-\/zs.\+h$>$}\newline
+{\ttfamily \#include $<$manux/scheduler.\+h$>$}\newline
+{\ttfamily \#include $<$manux/printk.\+h$>$}\newline
+{\ttfamily \#include $<$manux/console.\+h$>$}\newline
+{\ttfamily \#include $<$manux/appelsysteme.\+h$>$}\newline
+{\ttfamily \#include $<$manux/memoire.\+h$>$}\newline
+{\ttfamily \#include $<$manux/debug.\+h$>$}\newline
+{\ttfamily \#include $<$manux/arith64.\+h$>$}\newline
+Graphe des dépendances par inclusion de printk.\+c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{printk_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{printk_8c_a751b71485e6bb228423b412943328232}{chiffre}}~"{}0123456789abcdef"{}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{printk_8c_aa5a2042f078fa0c6e569acc563f2dac5}{snprintk}} (char \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{include_2manux_2i386_8h_a78b6d0d522b49e5b375731d08f4c39fd}{str}}, \mbox{\hyperlink{include_2manux_2stddef_8h_acf18a0d6c4b39d531e021702e9a77984}{size\+\_\+t}} l, char \texorpdfstring{$\ast$}{*}format,...)
+\begin{DoxyCompactList}\small\item\em \+: Écriture formattée dans une chaîne de caractères \end{DoxyCompactList}\item 
+\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} \mbox{\hyperlink{printk_8c_a25b30e8bbadd54650c56895999dd808f}{printk}} (char \texorpdfstring{$\ast$}{*}format,...)
+\begin{DoxyCompactList}\small\item\em La fonction d\textquotesingle{}affichage à utiliser dans le noyau. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+@bried Implantion des fonctions de base d\textquotesingle{}entrée-\/sortie. ~\newline
+ \begin{DoxyVerb}                                                (C) Manu Chaput 2000-2026 
+\end{DoxyVerb}
+ 
+
+Définition dans le fichier \mbox{\hyperlink{printk_8c_source}{printk.\+c}}.
+
+
+
+\doxysubsection{Documentation des macros}
+\Hypertarget{printk_8c_a751b71485e6bb228423b412943328232}\label{printk_8c_a751b71485e6bb228423b412943328232} 
+\index{printk.c@{printk.c}!chiffre@{chiffre}}
+\index{chiffre@{chiffre}!printk.c@{printk.c}}
+\doxysubsubsection{\texorpdfstring{chiffre}{chiffre}}
+{\footnotesize\ttfamily \#define chiffre~"{}0123456789abcdef"{}}
+
+
+
+Définition à la ligne \mbox{\hyperlink{printk_8c_source_l00024}{24}} du fichier \mbox{\hyperlink{printk_8c_source}{printk.\+c}}.
+
+
+
+\doxysubsection{Documentation des fonctions}
+\Hypertarget{printk_8c_a25b30e8bbadd54650c56895999dd808f}\label{printk_8c_a25b30e8bbadd54650c56895999dd808f} 
+\index{printk.c@{printk.c}!printk@{printk}}
+\index{printk@{printk}!printk.c@{printk.c}}
+\doxysubsubsection{\texorpdfstring{printk()}{printk()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} printk (\begin{DoxyParamCaption}\item[{char \texorpdfstring{$\ast$}{*}}]{format,  }\item[{}]{... }\end{DoxyParamCaption})}
+
+
+
+La fonction d\textquotesingle{}affichage à utiliser dans le noyau. 
+
+Fonction principale d\textquotesingle{}affichage dans le noyau.
+
+Elle utilise le journal s\textquotesingle{}il y en a un, et sinon la console du noyau. 
+
+Définition à la ligne \mbox{\hyperlink{printk_8c_source_l00166}{166}} du fichier \mbox{\hyperlink{printk_8c_source}{printk.\+c}}.
+
+\Hypertarget{printk_8c_aa5a2042f078fa0c6e569acc563f2dac5}\label{printk_8c_aa5a2042f078fa0c6e569acc563f2dac5} 
+\index{printk.c@{printk.c}!snprintk@{snprintk}}
+\index{snprintk@{snprintk}!printk.c@{printk.c}}
+\doxysubsubsection{\texorpdfstring{snprintk()}{snprintk()}}
+{\footnotesize\ttfamily int snprintk (\begin{DoxyParamCaption}\item[{char \texorpdfstring{$\ast$}{*}}]{str,  }\item[{\mbox{\hyperlink{include_2manux_2stddef_8h_acf18a0d6c4b39d531e021702e9a77984}{size\+\_\+t}}}]{l,  }\item[{char \texorpdfstring{$\ast$}{*}}]{format,  }\item[{}]{... }\end{DoxyParamCaption})}
+
+
+
+\+: Écriture formattée dans une chaîne de caractères 
+
+C\textquotesingle{}est cette fonction qui doit être utilisée pour écrire dans une chaîne de caractères 
+
+Définition à la ligne \mbox{\hyperlink{printk_8c_source_l00148}{148}} du fichier \mbox{\hyperlink{printk_8c_source}{printk.\+c}}.
+

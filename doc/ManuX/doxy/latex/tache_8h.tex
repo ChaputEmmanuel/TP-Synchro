@@ -1,0 +1,234 @@
+\doxysection{Référence du fichier /home/manu/\+PROGRAMMATION/\+C/\+Manu\+X/include/manux/tache.h}
+\hypertarget{tache_8h}{}\label{tache_8h}\index{/home/manu/PROGRAMMATION/C/ManuX/include/manux/tache.h@{/home/manu/PROGRAMMATION/C/ManuX/include/manux/tache.h}}
+{\ttfamily \#include $<$manux/config.\+h$>$}\newline
+{\ttfamily \#include $<$manux/types.\+h$>$}\newline
+{\ttfamily \#include $<$manux/interruptions.\+h$>$}\newline
+{\ttfamily \#include $<$manux/segment.\+h$>$}\newline
+{\ttfamily \#include $<$manux/fichier.\+h$>$}\newline
+Graphe des dépendances par inclusion de tache.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{tache_8h__incl}
+\end{center}
+\end{figure}
+Ce graphe montre quels fichiers incluent directement ou indirectement ce fichier \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{tache_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct__IntelTSS}{\+\_\+\+Intel\+TSS}}
+\item 
+struct \mbox{\hyperlink{struct__Tache}{\+\_\+\+Tache}}
+\begin{DoxyCompactList}\small\item\em \+: Définition du type décrivant une tache. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{tache_8h_acdde11eb37bf8b0a6bdad4612335ae58}{LDT\+\_\+\+NB\+\_\+\+BYTES}}~1024 /\texorpdfstring{$\ast$}{*} WARNING, pas top \texorpdfstring{$\ast$}{*}/
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Définitions de type}
+\begin{DoxyCompactItemize}
+\item 
+typedef enum \mbox{\hyperlink{tache_8h_a079625c76ac29238ace165d5958d82e5}{\+\_\+\+Etat\+Tache}} \mbox{\hyperlink{tache_8h_a4ef64c3567697a3cbcb901cc34fbf3bd}{Etat\+Tache}}
+\item 
+typedef struct \mbox{\hyperlink{struct__IntelTSS}{\+\_\+\+Intel\+TSS}} \mbox{\hyperlink{tache_8h_af5b9601373a4046cda03c6c8f1a17f98}{Intel\+TSS}}
+\item 
+typedef struct \mbox{\hyperlink{struct__Tache}{\+\_\+\+Tache}} \mbox{\hyperlink{tache_8h_a5e93bfec061525341810ac895de87af3}{Tache}}
+\begin{DoxyCompactList}\small\item\em \+: Définition du type décrivant une tache. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Énumérations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{tache_8h_a079625c76ac29238ace165d5958d82e5}{\+\_\+\+Etat\+Tache}} \{ \mbox{\hyperlink{tache_8h_a079625c76ac29238ace165d5958d82e5a6b2e382d78b8c9db8db762366c22f2b3}{Tache\+\_\+\+En\+\_\+\+Cours}} = 1
+, \mbox{\hyperlink{tache_8h_a079625c76ac29238ace165d5958d82e5abd18ea3758daaa8a8012e928416be362}{Tache\+\_\+\+Prete}} = 2
+, \mbox{\hyperlink{tache_8h_a079625c76ac29238ace165d5958d82e5a110b28c8c38510bc8d8deec91a117f99}{Tache\+\_\+\+Bloquee}} = 3
+, \mbox{\hyperlink{tache_8h_a079625c76ac29238ace165d5958d82e5a36920ae871fc48a1e7cd206327af7f6b}{Tache\+\_\+\+Terminee}} = 4
+ \}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+typedef \mbox{\hyperlink{tache_8h_a8cdfdbee5b3891f88dff0dc3a94cfdce}{void}} (Corps\+Tache(void))
+\item 
+\mbox{\hyperlink{tache_8h_a5e93bfec061525341810ac895de87af3}{Tache}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{tache_8h_ae73130353eaec375c352eee5e35e19ea}{tache\+Creer}} (Corps\+Tache corps\+Tache)
+\begin{DoxyCompactList}\small\item\em Création d\textquotesingle{}une nouvelle tâche. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} \mbox{\hyperlink{tache_8h_a0ec51dfb4bb630c26867bc04036b99bd}{basculer\+Vers\+Tache}} (\mbox{\hyperlink{tache_8h_a5e93bfec061525341810ac895de87af3}{Tache}} \texorpdfstring{$\ast$}{*}tache)
+\item 
+\mbox{\hyperlink{include_2manux_2types_8h_a1aa19b97c742cff758e6532b519954c4}{Tache\+ID}} \mbox{\hyperlink{tache_8h_a2865950b5889449d62cf32a5e077f2aa}{sys\+Fork}} (\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}})
+\item 
+\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} \mbox{\hyperlink{tache_8h_af485409e4fc8a5c06ff9e06e50de8647}{afficher\+Etat\+Une\+Tache}} (\mbox{\hyperlink{tache_8h_a5e93bfec061525341810ac895de87af3}{Tache}} \texorpdfstring{$\ast$}{*}tache)
+\begin{DoxyCompactList}\small\item\em Affichage de l\textquotesingle{}état d\textquotesingle{}une tâche à des fins de debug. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} \mbox{\hyperlink{tache_8h_a86f9c6ef6df4fb54c3cbb5fa14061f63}{afficher\+Etat\+Taches}} (\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}})
+\begin{DoxyCompactList}\small\item\em Affichage des tâches. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{tache_8h_a5e93bfec061525341810ac895de87af3}{Tache}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{tache_8h_a3312a33abf1a07a9ef3bbf2697a0dbc2}{tache\+Courante}}
+\begin{DoxyCompactList}\small\item\em Chaque tâche pourra voir les infos la concernant via cette variable. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Documentation des macros}
+\Hypertarget{tache_8h_acdde11eb37bf8b0a6bdad4612335ae58}\label{tache_8h_acdde11eb37bf8b0a6bdad4612335ae58} 
+\index{tache.h@{tache.h}!LDT\_NB\_BYTES@{LDT\_NB\_BYTES}}
+\index{LDT\_NB\_BYTES@{LDT\_NB\_BYTES}!tache.h@{tache.h}}
+\doxysubsubsection{\texorpdfstring{LDT\_NB\_BYTES}{LDT\_NB\_BYTES}}
+{\footnotesize\ttfamily \#define LDT\+\_\+\+NB\+\_\+\+BYTES~1024 /\texorpdfstring{$\ast$}{*} WARNING, pas top \texorpdfstring{$\ast$}{*}/}
+
+
+
+Définition à la ligne \mbox{\hyperlink{tache_8h_source_l00023}{23}} du fichier \mbox{\hyperlink{tache_8h_source}{tache.\+h}}.
+
+
+
+\doxysubsection{Documentation des définitions de type}
+\Hypertarget{tache_8h_a4ef64c3567697a3cbcb901cc34fbf3bd}\label{tache_8h_a4ef64c3567697a3cbcb901cc34fbf3bd} 
+\index{tache.h@{tache.h}!EtatTache@{EtatTache}}
+\index{EtatTache@{EtatTache}!tache.h@{tache.h}}
+\doxysubsubsection{\texorpdfstring{EtatTache}{EtatTache}}
+{\footnotesize\ttfamily typedef enum \mbox{\hyperlink{tache_8h_a079625c76ac29238ace165d5958d82e5}{\+\_\+\+Etat\+Tache}} \mbox{\hyperlink{tache_8h_a4ef64c3567697a3cbcb901cc34fbf3bd}{Etat\+Tache}}}
+
+\Hypertarget{tache_8h_af5b9601373a4046cda03c6c8f1a17f98}\label{tache_8h_af5b9601373a4046cda03c6c8f1a17f98} 
+\index{tache.h@{tache.h}!IntelTSS@{IntelTSS}}
+\index{IntelTSS@{IntelTSS}!tache.h@{tache.h}}
+\doxysubsubsection{\texorpdfstring{IntelTSS}{IntelTSS}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{struct__IntelTSS}{\+\_\+\+Intel\+TSS}} \mbox{\hyperlink{tache_8h_af5b9601373a4046cda03c6c8f1a17f98}{Intel\+TSS}}}
+
+\Hypertarget{tache_8h_a5e93bfec061525341810ac895de87af3}\label{tache_8h_a5e93bfec061525341810ac895de87af3} 
+\index{tache.h@{tache.h}!Tache@{Tache}}
+\index{Tache@{Tache}!tache.h@{tache.h}}
+\doxysubsubsection{\texorpdfstring{Tache}{Tache}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{struct__Tache}{\+\_\+\+Tache}} \mbox{\hyperlink{tache_8h_a5e93bfec061525341810ac895de87af3}{Tache}}}
+
+
+
+\+: Définition du type décrivant une tache. 
+
+
+
+\doxysubsection{Documentation du type de l\textquotesingle{}énumération}
+\Hypertarget{tache_8h_a079625c76ac29238ace165d5958d82e5}\label{tache_8h_a079625c76ac29238ace165d5958d82e5} 
+\index{tache.h@{tache.h}!\_EtatTache@{\_EtatTache}}
+\index{\_EtatTache@{\_EtatTache}!tache.h@{tache.h}}
+\doxysubsubsection{\texorpdfstring{\_EtatTache}{\_EtatTache}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{tache_8h_a079625c76ac29238ace165d5958d82e5}{\+\_\+\+Etat\+Tache}}}
+
+\begin{DoxyEnumFields}{Valeurs énumérées}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Tache\_En\_Cours@{Tache\_En\_Cours}!tache.h@{tache.h}}\index{tache.h@{tache.h}!Tache\_En\_Cours@{Tache\_En\_Cours}}}\Hypertarget{tache_8h_a079625c76ac29238ace165d5958d82e5a6b2e382d78b8c9db8db762366c22f2b3}\label{tache_8h_a079625c76ac29238ace165d5958d82e5a6b2e382d78b8c9db8db762366c22f2b3} 
+Tache\+\_\+\+En\+\_\+\+Cours&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Tache\_Prete@{Tache\_Prete}!tache.h@{tache.h}}\index{tache.h@{tache.h}!Tache\_Prete@{Tache\_Prete}}}\Hypertarget{tache_8h_a079625c76ac29238ace165d5958d82e5abd18ea3758daaa8a8012e928416be362}\label{tache_8h_a079625c76ac29238ace165d5958d82e5abd18ea3758daaa8a8012e928416be362} 
+Tache\+\_\+\+Prete&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Tache\_Bloquee@{Tache\_Bloquee}!tache.h@{tache.h}}\index{tache.h@{tache.h}!Tache\_Bloquee@{Tache\_Bloquee}}}\Hypertarget{tache_8h_a079625c76ac29238ace165d5958d82e5a110b28c8c38510bc8d8deec91a117f99}\label{tache_8h_a079625c76ac29238ace165d5958d82e5a110b28c8c38510bc8d8deec91a117f99} 
+Tache\+\_\+\+Bloquee&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Tache\_Terminee@{Tache\_Terminee}!tache.h@{tache.h}}\index{tache.h@{tache.h}!Tache\_Terminee@{Tache\_Terminee}}}\Hypertarget{tache_8h_a079625c76ac29238ace165d5958d82e5a36920ae871fc48a1e7cd206327af7f6b}\label{tache_8h_a079625c76ac29238ace165d5958d82e5a36920ae871fc48a1e7cd206327af7f6b} 
+Tache\+\_\+\+Terminee&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Définition à la ligne \mbox{\hyperlink{tache_8h_source_l00028}{28}} du fichier \mbox{\hyperlink{tache_8h_source}{tache.\+h}}.
+
+
+
+\doxysubsection{Documentation des fonctions}
+\Hypertarget{tache_8h_a86f9c6ef6df4fb54c3cbb5fa14061f63}\label{tache_8h_a86f9c6ef6df4fb54c3cbb5fa14061f63} 
+\index{tache.h@{tache.h}!afficherEtatTaches@{afficherEtatTaches}}
+\index{afficherEtatTaches@{afficherEtatTaches}!tache.h@{tache.h}}
+\doxysubsubsection{\texorpdfstring{afficherEtatTaches()}{afficherEtatTaches()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} afficher\+Etat\+Taches (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}}}]{ }\end{DoxyParamCaption})}
+
+
+
+Affichage des tâches. 
+
+Affichage des tâches. 
+
+Définition à la ligne \mbox{\hyperlink{tache_8c_source_l00373}{373}} du fichier \mbox{\hyperlink{tache_8c_source}{tache.\+c}}.
+
+\Hypertarget{tache_8h_af485409e4fc8a5c06ff9e06e50de8647}\label{tache_8h_af485409e4fc8a5c06ff9e06e50de8647} 
+\index{tache.h@{tache.h}!afficherEtatUneTache@{afficherEtatUneTache}}
+\index{afficherEtatUneTache@{afficherEtatUneTache}!tache.h@{tache.h}}
+\doxysubsubsection{\texorpdfstring{afficherEtatUneTache()}{afficherEtatUneTache()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} afficher\+Etat\+Une\+Tache (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{tache_8h_a5e93bfec061525341810ac895de87af3}{Tache}} \texorpdfstring{$\ast$}{*}}]{tache }\end{DoxyParamCaption})}
+
+
+
+Affichage de l\textquotesingle{}état d\textquotesingle{}une tâche à des fins de debug. 
+
+Affichage de l\textquotesingle{}état d\textquotesingle{}une tâche à des fins de debug. 
+
+Définition à la ligne \mbox{\hyperlink{tache_8c_source_l00353}{353}} du fichier \mbox{\hyperlink{tache_8c_source}{tache.\+c}}.
+
+\Hypertarget{tache_8h_a0ec51dfb4bb630c26867bc04036b99bd}\label{tache_8h_a0ec51dfb4bb630c26867bc04036b99bd} 
+\index{tache.h@{tache.h}!basculerVersTache@{basculerVersTache}}
+\index{basculerVersTache@{basculerVersTache}!tache.h@{tache.h}}
+\doxysubsubsection{\texorpdfstring{basculerVersTache()}{basculerVersTache()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} basculer\+Vers\+Tache (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{tache_8h_a5e93bfec061525341810ac895de87af3}{Tache}} \texorpdfstring{$\ast$}{*}}]{tache }\end{DoxyParamCaption})}
+
+
+
+Définition à la ligne \mbox{\hyperlink{tache_8c_source_l00038}{38}} du fichier \mbox{\hyperlink{tache_8c_source}{tache.\+c}}.
+
+\Hypertarget{tache_8h_a2865950b5889449d62cf32a5e077f2aa}\label{tache_8h_a2865950b5889449d62cf32a5e077f2aa} 
+\index{tache.h@{tache.h}!sysFork@{sysFork}}
+\index{sysFork@{sysFork}!tache.h@{tache.h}}
+\doxysubsubsection{\texorpdfstring{sysFork()}{sysFork()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{include_2manux_2types_8h_a1aa19b97c742cff758e6532b519954c4}{Tache\+ID}} sys\+Fork (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}}}]{ }\end{DoxyParamCaption})}
+
+\Hypertarget{tache_8h_ae73130353eaec375c352eee5e35e19ea}\label{tache_8h_ae73130353eaec375c352eee5e35e19ea} 
+\index{tache.h@{tache.h}!tacheCreer@{tacheCreer}}
+\index{tacheCreer@{tacheCreer}!tache.h@{tache.h}}
+\doxysubsubsection{\texorpdfstring{tacheCreer()}{tacheCreer()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{tache_8h_a5e93bfec061525341810ac895de87af3}{Tache}} \texorpdfstring{$\ast$}{*} tache\+Creer (\begin{DoxyParamCaption}\item[{Corps\+Tache}]{corps\+Tache }\end{DoxyParamCaption})}
+
+
+
+Création d\textquotesingle{}une nouvelle tâche. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em corps\+Tache} & pointeur vers la fonction à exécuter par la tâche \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+pointeur vers la tâche créée, NULL en cas d\textquotesingle{}erreur.
+\end{DoxyReturn}
+Attention, elle doit ensuite être insérée dans la liste des tâches en cours.
+
+Création d\textquotesingle{}une nouvelle tâche.
+
+Attention, elle n\textquotesingle{}est pas ins�r�e dans la liste des t�ches pr�tes, elle ne sera donc pas ex�cut�e tant que ce ne sera pas fait. 
+
+Définition à la ligne \mbox{\hyperlink{tache_8c_source_l00113}{113}} du fichier \mbox{\hyperlink{tache_8c_source}{tache.\+c}}.
+
+\Hypertarget{tache_8h_a8cdfdbee5b3891f88dff0dc3a94cfdce}\label{tache_8h_a8cdfdbee5b3891f88dff0dc3a94cfdce} 
+\index{tache.h@{tache.h}!void@{void}}
+\index{void@{void}!tache.h@{tache.h}}
+\doxysubsubsection{\texorpdfstring{void()}{void()}}
+{\footnotesize\ttfamily typedef void (\begin{DoxyParamCaption}\item[{Corps\+Tache(void)}]{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Documentation des variables}
+\Hypertarget{tache_8h_a3312a33abf1a07a9ef3bbf2697a0dbc2}\label{tache_8h_a3312a33abf1a07a9ef3bbf2697a0dbc2} 
+\index{tache.h@{tache.h}!tacheCourante@{tacheCourante}}
+\index{tacheCourante@{tacheCourante}!tache.h@{tache.h}}
+\doxysubsubsection{\texorpdfstring{tacheCourante}{tacheCourante}}
+{\footnotesize\ttfamily \mbox{\hyperlink{tache_8h_a5e93bfec061525341810ac895de87af3}{Tache}}\texorpdfstring{$\ast$}{*} tache\+Courante\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+Chaque tâche pourra voir les infos la concernant via cette variable. 
+

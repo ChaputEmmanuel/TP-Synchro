@@ -1,0 +1,64 @@
+\doxysection{RÃ©fÃ©rence du fichier /home/manu/\+PROGRAMMATION/\+C/\+Manu\+X/noyau/main-\/reentrance.c}
+\hypertarget{main-reentrance_8c}{}\label{main-reentrance_8c}\index{/home/manu/PROGRAMMATION/C/ManuX/noyau/main-\/reentrance.c@{/home/manu/PROGRAMMATION/C/ManuX/noyau/main-\/reentrance.c}}
+
+
+Démonstration de la différence entre un noyau réentrant et un noyau non réentrant.  
+
+
+{\ttfamily \#include $<$manux/config.\+h$>$}\newline
+{\ttfamily \#include $<$manux/errno.\+h$>$}\newline
+{\ttfamily \#include $<$manux/debug.\+h$>$}\newline
+{\ttfamily \#include $<$manux/console.\+h$>$}\newline
+{\ttfamily \#include $<$manux/kmalloc.\+h$>$}\newline
+{\ttfamily \#include $<$manux/printk.\+h$>$}\newline
+{\ttfamily \#include $<$manux/memoire.\+h$>$}\newline
+{\ttfamily \#include $<$manux/bootloader.\+h$>$}\newline
+Graphe des dÃ©pendances par inclusion de main-\/reentrance.c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{main-reentrance_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} \mbox{\hyperlink{main-reentrance_8c_a02fd73d861ef2e4aabb38c0c9ff82947}{init}} ()
+\item 
+\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} \mbox{\hyperlink{main-reentrance_8c_a3568df994044ade7d37160ef731c223f}{start\+ManuX}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description dÃ©taillÃ©e}
+Démonstration de la différence entre un noyau réentrant et un noyau non réentrant. 
+
+\begin{DoxyVerb}                                                     (C) Manu Chaput 2025
+\end{DoxyVerb}
+ 
+
+DÃ©finition dans le fichier \mbox{\hyperlink{main-reentrance_8c_source}{main-\/reentrance.\+c}}.
+
+
+
+\doxysubsection{Documentation des fonctions}
+\Hypertarget{main-reentrance_8c_a02fd73d861ef2e4aabb38c0c9ff82947}\label{main-reentrance_8c_a02fd73d861ef2e4aabb38c0c9ff82947} 
+\index{main-\/reentrance.c@{main-\/reentrance.c}!init@{init}}
+\index{init@{init}!main-\/reentrance.c@{main-\/reentrance.c}}
+\doxysubsubsection{\texorpdfstring{init()}{init()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} init (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+DÃ©finition Ã  la ligne \mbox{\hyperlink{init-acces-concurrent_8c_source_l00074}{74}} du fichier \mbox{\hyperlink{init-acces-concurrent_8c_source}{init-\/acces-\/concurrent.\+c}}.
+
+\Hypertarget{main-reentrance_8c_a3568df994044ade7d37160ef731c223f}\label{main-reentrance_8c_a3568df994044ade7d37160ef731c223f} 
+\index{main-\/reentrance.c@{main-\/reentrance.c}!startManuX@{startManuX}}
+\index{startManuX@{startManuX}!main-\/reentrance.c@{main-\/reentrance.c}}
+\doxysubsubsection{\texorpdfstring{startManuX()}{startManuX()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} start\+ManuX (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}}}]{ }\end{DoxyParamCaption})}
+
+
+
+DÃ©finition Ã  la ligne \mbox{\hyperlink{main-reentrance_8c_source_l00019}{19}} du fichier \mbox{\hyperlink{main-reentrance_8c_source}{main-\/reentrance.\+c}}.
+

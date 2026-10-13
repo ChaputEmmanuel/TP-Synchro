@@ -1,0 +1,9 @@
+<map id="/home/manu/PROGRAMMATION/C/ManuX/include/manux/ecran.h" name="/home/manu/PROGRAMMATION/C/ManuX/include/manux/ecran.h">
+<area shape="rect" id="Node000001" title="Définition des caractéristiques de base de l&#39;écran." alt="" coords="99,5,325,60"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,108,128,133"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="169,62,99,103,97,99,166,58"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="153,108,271,133"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="215,60,215,94,209,94,209,60"/>
+<area shape="rect" id="Node000004" href="$ascii_8h.html" title="Définition des codes ASCII (C) Manu Chaput 2026&#45;2026." alt="" coords="295,108,409,133"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="256,58,323,98,320,103,253,62"/>
+</map>

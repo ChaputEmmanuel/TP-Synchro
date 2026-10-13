@@ -1,0 +1,49 @@
+<map id="/home/manu/PROGRAMMATION/C/ManuX/i386/segment.c" name="/home/manu/PROGRAMMATION/C/ManuX/i386/segment.c">
+<area shape="rect" id="Node000001" title=" " alt="" coords="252,5,479,45"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="112,93,229,119"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="320,48,213,91,211,86,318,43"/>
+<area shape="rect" id="Node000003" href="$manux_2debug_8h.html" title=" " alt="" coords="304,93,427,119"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="368,46,368,79,363,79,363,46"/>
+<area shape="rect" id="Node000005" href="$include_2manux_2printk_8h.html" title="Définition des fonctions de base d&#39;entrée&#45;sortie du noyau." alt="" coords="155,167,277,192"/>
+<area shape="poly" id="edge29_Node000001_Node000005" title=" " alt="" coords="345,47,294,95,237,158,233,154,290,91,342,43"/>
+<area shape="rect" id="Node000012" href="$segment_8h.html" title=" " alt="" coords="835,313,975,339"/>
+<area shape="poly" id="edge28_Node000001_Node000012" title=" " alt="" coords="479,30,593,47,656,62,720,83,782,110,840,144,891,187,934,239,940,255,939,272,925,303,920,301,934,271,935,255,930,241,888,191,837,149,779,114,718,88,655,67,592,52,479,35"/>
+<area shape="rect" id="Node000018" title=" " alt="" coords="1075,93,1186,119"/>
+<area shape="poly" id="edge27_Node000001_Node000018" title=" " alt="" coords="479,33,743,57,1056,91,1062,91,1062,97,1056,96,743,62,479,38"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="255,313,377,339"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="367,119,358,182,341,266,329,301,324,300,336,265,353,181,362,119"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="342,121,254,163,252,158,340,116"/>
+<area shape="rect" id="Node000006" href="$include_2manux_2stdarg_8h.html" title=" " alt="" coords="203,240,327,265"/>
+<area shape="poly" id="edge8_Node000003_Node000006" title=" " alt="" coords="359,121,283,230,279,227,355,118"/>
+<area shape="rect" id="Node000008" href="$scheduler_8h.html" title=" " alt="" coords="601,167,746,192"/>
+<area shape="poly" id="edge9_Node000003_Node000008" title=" " alt="" coords="415,116,611,161,610,166,414,121"/>
+<area shape="poly" id="edge5_Node000005_Node000004" title=" " alt="" coords="209,194,191,227,188,246,193,264,218,289,250,306,248,311,215,294,188,267,183,247,186,226,204,191"/>
+<area shape="poly" id="edge6_Node000005_Node000006" title=" " alt="" coords="226,191,252,227,247,230,222,194"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="5,240,128,265"/>
+<area shape="poly" id="edge7_Node000005_Node000007" title=" " alt="" coords="193,194,105,236,102,232,191,190"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="734,460,853,485"/>
+<area shape="poly" id="edge10_Node000008_Node000009" title=" " alt="" coords="746,181,791,187,839,198,888,214,933,238,955,253,969,269,980,288,989,313,993,339,986,364,972,386,952,405,900,436,847,458,845,453,898,431,948,401,968,382,982,362,988,339,984,314,975,290,965,272,951,257,931,242,886,219,838,203,790,193,746,187"/>
+<area shape="rect" id="Node000010" href="$tache_8h.html" title=" " alt="" coords="454,240,573,265"/>
+<area shape="poly" id="edge11_Node000008_Node000010" title=" " alt="" coords="649,194,553,237,551,232,647,190"/>
+<area shape="rect" id="Node000015" title=" " alt="" coords="249,387,423,412"/>
+<area shape="poly" id="edge26_Node000008_Node000015" title=" " alt="" coords="601,187,561,193,520,203,479,219,443,242,423,264,414,286,406,311,392,340,360,378,355,375,387,337,401,309,409,285,419,261,440,238,477,215,518,198,560,188,600,182"/>
+<area shape="rect" id="Node000016" href="$listetaches_8h.html" title=" " alt="" coords="596,240,751,265"/>
+<area shape="poly" id="edge22_Node000008_Node000016" title=" " alt="" coords="676,192,676,226,671,226,671,192"/>
+<area shape="rect" id="Node000017" href="$atomique_8h.html" title="Définition des opérations de synchronisation de ManuX." alt="" coords="775,240,921,265"/>
+<area shape="poly" id="edge23_Node000008_Node000017" title=" " alt="" coords="696,190,801,233,799,237,694,194"/>
+<area shape="poly" id="edge12_Node000010_Node000004" title=" " alt="" coords="483,268,362,311,360,306,481,263"/>
+<area shape="poly" id="edge13_Node000010_Node000009" title=" " alt="" coords="533,263,561,284,589,312,605,339,612,364,621,387,639,410,679,436,723,454,721,459,676,441,636,414,616,389,607,366,600,341,585,315,557,288,530,268"/>
+<area shape="rect" id="Node000011" href="$include_2manux_2interruptions_8h.html" title=" " alt="" coords="650,387,817,412"/>
+<area shape="poly" id="edge14_Node000010_Node000011" title=" " alt="" coords="541,263,585,284,632,311,676,344,713,375,710,380,673,348,629,316,582,289,539,268"/>
+<area shape="poly" id="edge16_Node000010_Node000012" title=" " alt="" coords="573,262,829,308,828,313,572,267"/>
+<area shape="rect" id="Node000013" href="$fichier_8h.html" title=" " alt="" coords="452,313,575,339"/>
+<area shape="poly" id="edge18_Node000010_Node000013" title=" " alt="" coords="516,266,516,300,511,300,511,266"/>
+<area shape="poly" id="edge15_Node000011_Node000009" title=" " alt="" coords="745,411,777,448,773,451,741,414"/>
+<area shape="poly" id="edge17_Node000012_Node000009" title=" " alt="" coords="906,339,896,374,875,414,853,437,828,455,825,451,850,433,871,410,891,372,901,338"/>
+<area shape="rect" id="Node000014" href="$inoeud_8h.html" title=": description des noeuds d&#39;information (C) Manu Chaput 2002&#45;2023" alt="" coords="447,387,574,412"/>
+<area shape="poly" id="edge19_Node000013_Node000014" title=" " alt="" coords="516,339,514,373,509,373,510,339"/>
+<area shape="poly" id="edge21_Node000013_Node000015" title=" " alt="" coords="486,341,378,384,376,379,484,336"/>
+<area shape="poly" id="edge20_Node000014_Node000009" title=" " alt="" coords="557,409,735,454,734,459,555,415"/>
+<area shape="poly" id="edge25_Node000017_Node000008" title=" " alt="" coords="825,242,720,199,722,194,827,237"/>
+<area shape="poly" id="edge24_Node000017_Node000009" title=" " alt="" coords="844,267,834,288,825,314,824,341,829,362,833,385,831,413,813,450,808,448,825,411,828,385,824,363,819,341,820,313,829,286,839,264"/>
+</map>

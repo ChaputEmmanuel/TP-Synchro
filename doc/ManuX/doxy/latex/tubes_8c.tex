@@ -1,0 +1,122 @@
+\doxysection{Référence du fichier /home/manu/\+PROGRAMMATION/\+C/\+Manu\+X/sf/tubes.c}
+\hypertarget{tubes_8c}{}\label{tubes_8c}\index{/home/manu/PROGRAMMATION/C/ManuX/sf/tubes.c@{/home/manu/PROGRAMMATION/C/ManuX/sf/tubes.c}}
+{\ttfamily \#include $<$manux/tubes.\+h$>$}\newline
+{\ttfamily \#include $<$manux/debug.\+h$>$}\newline
+{\ttfamily \#include $<$manux/tache.\+h$>$}\newline
+{\ttfamily \#include $<$manux/scheduler.\+h$>$}\newline
+{\ttfamily \#include $<$manux/fichier.\+h$>$}\newline
+{\ttfamily \#include $<$manux/errno.\+h$>$}\newline
+{\ttfamily \#include $<$manux/memoire.\+h$>$}\newline
+{\ttfamily \#include $<$manux/kmalloc.\+h$>$}\newline
+{\ttfamily \#include $<$manux/string.\+h$>$}\newline
+{\ttfamily \#include $<$manux/exclusion-\/mutuelle.\+h$>$}\newline
+{\ttfamily \#include $<$manux/condition.\+h$>$}\newline
+Graphe des dépendances par inclusion de tubes.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{tubes_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct__tube}{\+\_\+tube}}
+\begin{DoxyCompactList}\small\item\em \+: Définition d\textquotesingle{}un tube \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{tubes_8c_a11a2841272722af2c2afcc248807b6ed}{MANUX\+\_\+\+TUBE\+\_\+\+NB\+\_\+\+PAGES}}~1
+\begin{DoxyCompactList}\small\item\em Capacité mémoire d\textquotesingle{}un tube, en nombre de pages. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{tubes_8c_a96586f352ed31f0b53acb31b4e0571d2}{MANUX\+\_\+\+TUBE\+\_\+\+CAPACITE}}~(\mbox{\hyperlink{gestion-memoire_8h_ae8ff0cb54526f5b759984090d013d49f}{MANUX\+\_\+\+TAILLE\+\_\+\+PAGE}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{tubes_8c_a11a2841272722af2c2afcc248807b6ed}{MANUX\+\_\+\+TUBE\+\_\+\+NB\+\_\+\+PAGES}})
+\item 
+\#define \mbox{\hyperlink{tubes_8c_a3acffbd305ee72dcd4593c0d8af64a4f}{MIN}}(\mbox{\hyperlink{main-bootreg_8c_acc5bda773ae19389879f3886f8ecf123}{a}},  \mbox{\hyperlink{main-bootreg_8c_a7976cd62f9b61a65e8104a3cf7c15099}{b}})~(((\mbox{\hyperlink{main-bootreg_8c_acc5bda773ae19389879f3886f8ecf123}{a}}) $<$ (\mbox{\hyperlink{main-bootreg_8c_a7976cd62f9b61a65e8104a3cf7c15099}{b}})) ? (\mbox{\hyperlink{main-bootreg_8c_acc5bda773ae19389879f3886f8ecf123}{a}}) \+: (\mbox{\hyperlink{main-bootreg_8c_a7976cd62f9b61a65e8104a3cf7c15099}{b}}))
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Définitions de type}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \mbox{\hyperlink{struct__tube}{\+\_\+tube}} \mbox{\hyperlink{tubes_8c_aca5425d8ca3e161985e7d26c320de212}{Tube}}
+\begin{DoxyCompactList}\small\item\em \+: Définition d\textquotesingle{}un tube \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{fichier_8h_aa50864b665282e0139a9fbea6eab26d4}{Methodes\+Fichier}} \mbox{\hyperlink{tubes_8c_a1764fca777b9bdb8ccc3d8dd4613ce96}{tube\+Methodes\+Fichier}}
+\begin{DoxyCompactList}\small\item\em Déclaration des méthodes permettant de traiter un tube comme un fichier. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Documentation des macros}
+\Hypertarget{tubes_8c_a96586f352ed31f0b53acb31b4e0571d2}\label{tubes_8c_a96586f352ed31f0b53acb31b4e0571d2} 
+\index{tubes.c@{tubes.c}!MANUX\_TUBE\_CAPACITE@{MANUX\_TUBE\_CAPACITE}}
+\index{MANUX\_TUBE\_CAPACITE@{MANUX\_TUBE\_CAPACITE}!tubes.c@{tubes.c}}
+\doxysubsubsection{\texorpdfstring{MANUX\_TUBE\_CAPACITE}{MANUX\_TUBE\_CAPACITE}}
+{\footnotesize\ttfamily \#define MANUX\+\_\+\+TUBE\+\_\+\+CAPACITE~(\mbox{\hyperlink{gestion-memoire_8h_ae8ff0cb54526f5b759984090d013d49f}{MANUX\+\_\+\+TAILLE\+\_\+\+PAGE}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{tubes_8c_a11a2841272722af2c2afcc248807b6ed}{MANUX\+\_\+\+TUBE\+\_\+\+NB\+\_\+\+PAGES}})}
+
+
+
+Définition à la ligne \mbox{\hyperlink{tubes_8c_source_l00031}{31}} du fichier \mbox{\hyperlink{tubes_8c_source}{tubes.\+c}}.
+
+\Hypertarget{tubes_8c_a11a2841272722af2c2afcc248807b6ed}\label{tubes_8c_a11a2841272722af2c2afcc248807b6ed} 
+\index{tubes.c@{tubes.c}!MANUX\_TUBE\_NB\_PAGES@{MANUX\_TUBE\_NB\_PAGES}}
+\index{MANUX\_TUBE\_NB\_PAGES@{MANUX\_TUBE\_NB\_PAGES}!tubes.c@{tubes.c}}
+\doxysubsubsection{\texorpdfstring{MANUX\_TUBE\_NB\_PAGES}{MANUX\_TUBE\_NB\_PAGES}}
+{\footnotesize\ttfamily \#define MANUX\+\_\+\+TUBE\+\_\+\+NB\+\_\+\+PAGES~1}
+
+
+
+Capacité mémoire d\textquotesingle{}un tube, en nombre de pages. 
+
+
+
+Définition à la ligne \mbox{\hyperlink{tubes_8c_source_l00029}{29}} du fichier \mbox{\hyperlink{tubes_8c_source}{tubes.\+c}}.
+
+\Hypertarget{tubes_8c_a3acffbd305ee72dcd4593c0d8af64a4f}\label{tubes_8c_a3acffbd305ee72dcd4593c0d8af64a4f} 
+\index{tubes.c@{tubes.c}!MIN@{MIN}}
+\index{MIN@{MIN}!tubes.c@{tubes.c}}
+\doxysubsubsection{\texorpdfstring{MIN}{MIN}}
+{\footnotesize\ttfamily \#define MIN(\begin{DoxyParamCaption}\item[{}]{\mbox{\hyperlink{main-bootreg_8c_acc5bda773ae19389879f3886f8ecf123}{a}},  }\item[{}]{\mbox{\hyperlink{main-bootreg_8c_a7976cd62f9b61a65e8104a3cf7c15099}{b}} }\end{DoxyParamCaption})~(((\mbox{\hyperlink{main-bootreg_8c_acc5bda773ae19389879f3886f8ecf123}{a}}) $<$ (\mbox{\hyperlink{main-bootreg_8c_a7976cd62f9b61a65e8104a3cf7c15099}{b}})) ? (\mbox{\hyperlink{main-bootreg_8c_acc5bda773ae19389879f3886f8ecf123}{a}}) \+: (\mbox{\hyperlink{main-bootreg_8c_a7976cd62f9b61a65e8104a3cf7c15099}{b}}))}
+
+
+
+Définition à la ligne \mbox{\hyperlink{tubes_8c_source_l00033}{33}} du fichier \mbox{\hyperlink{tubes_8c_source}{tubes.\+c}}.
+
+
+
+\doxysubsection{Documentation des définitions de type}
+\Hypertarget{tubes_8c_aca5425d8ca3e161985e7d26c320de212}\label{tubes_8c_aca5425d8ca3e161985e7d26c320de212} 
+\index{tubes.c@{tubes.c}!Tube@{Tube}}
+\index{Tube@{Tube}!tubes.c@{tubes.c}}
+\doxysubsubsection{\texorpdfstring{Tube}{Tube}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{struct__tube}{\+\_\+tube}} \mbox{\hyperlink{tubes_8c_aca5425d8ca3e161985e7d26c320de212}{Tube}}}
+
+
+
+\+: Définition d\textquotesingle{}un tube 
+
+
+
+\doxysubsection{Documentation des variables}
+\Hypertarget{tubes_8c_a1764fca777b9bdb8ccc3d8dd4613ce96}\label{tubes_8c_a1764fca777b9bdb8ccc3d8dd4613ce96} 
+\index{tubes.c@{tubes.c}!tubeMethodesFichier@{tubeMethodesFichier}}
+\index{tubeMethodesFichier@{tubeMethodesFichier}!tubes.c@{tubes.c}}
+\doxysubsubsection{\texorpdfstring{tubeMethodesFichier}{tubeMethodesFichier}}
+{\footnotesize\ttfamily \mbox{\hyperlink{fichier_8h_aa50864b665282e0139a9fbea6eab26d4}{Methodes\+Fichier}} tube\+Methodes\+Fichier}
+
+{\bfseries Valeur initiale \+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ \{}
+\DoxyCodeLine{\ \ \ .ouvrir\ =\ tubeOuvrir,}
+\DoxyCodeLine{\ \ \ .fermer\ =\ tubeFermer,}
+\DoxyCodeLine{\ \ \ .ecrire\ =\ tubeEcrire,}
+\DoxyCodeLine{\ \ \ .lire\ =\ tubeLire}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+Déclaration des méthodes permettant de traiter un tube comme un fichier. 
+
+
+
+Définition à la ligne \mbox{\hyperlink{tubes_8c_source_l00024}{24}} du fichier \mbox{\hyperlink{tubes_8c_source}{tubes.\+c}}.
+

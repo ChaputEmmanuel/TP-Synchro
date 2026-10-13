@@ -1,0 +1,56 @@
+\doxysection{stdlib.\+c}
+\hypertarget{stdlib_8c_source}{}\label{stdlib_8c_source}\index{/home/manu/PROGRAMMATION/C/ManuX/lib/stdlib.c@{/home/manu/PROGRAMMATION/C/ManuX/lib/stdlib.c}}
+\mbox{\hyperlink{stdlib_8c}{Aller à la documentation de ce fichier.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{stdlib_8c_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{stdlib_8c_source_l00004}00004\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{manux_2stdlib_8h}{manux/stdlib.h}}>}}
+\DoxyCodeLine{\Hypertarget{stdlib_8c_source_l00005}00005\ }
+\DoxyCodeLine{\Hypertarget{stdlib_8c_source_l00006}00006\ \textcolor{keyword}{static}\ \mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\_t}}\ valeurAleatoire\ =\ 4832;}
+\DoxyCodeLine{\Hypertarget{stdlib_8c_source_l00007}\mbox{\hyperlink{stdlib_8c_ada0c01ede140c79965af404372b6d2a0}{00007}}\ \mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\_t}}\ \mbox{\hyperlink{stdlib_8c_ada0c01ede140c79965af404372b6d2a0}{factMult}}\ =\ 742938285;}
+\DoxyCodeLine{\Hypertarget{stdlib_8c_source_l00008}00008\ }
+\DoxyCodeLine{\Hypertarget{stdlib_8c_source_l00012}\mbox{\hyperlink{manux_2stdlib_8h_ad6001b066295ad1e959c9501d409bf28}{00012}}\ \mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\_t}}\ \mbox{\hyperlink{stdlib_8c_ad6001b066295ad1e959c9501d409bf28}{rand}}(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\Hypertarget{stdlib_8c_source_l00013}00013\ \{}
+\DoxyCodeLine{\Hypertarget{stdlib_8c_source_l00014}00014\ \ \ \ valeurAleatoire\ =\ (valeurAleatoire\ *\ \mbox{\hyperlink{stdlib_8c_ada0c01ede140c79965af404372b6d2a0}{factMult}})\ \%\ 2147483647;}
+\DoxyCodeLine{\Hypertarget{stdlib_8c_source_l00015}00015\ \ \ \ \textcolor{keywordflow}{return}\ valeurAleatoire\ \%\ (\mbox{\hyperlink{manux_2stdlib_8h_a690f251553b39fd4f31894826141b61a}{RAND\_MAX}}\ +\ 1);}
+\DoxyCodeLine{\Hypertarget{stdlib_8c_source_l00016}00016\ \}}
+\DoxyCodeLine{\Hypertarget{stdlib_8c_source_l00017}00017\ }
+\DoxyCodeLine{\Hypertarget{stdlib_8c_source_l00021}\mbox{\hyperlink{manux_2stdlib_8h_a04e5a7570081c1690eab05b17421afa1}{00021}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{stdlib_8c_a04e5a7570081c1690eab05b17421afa1}{srand}}(\mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\_t}}\ graine)}
+\DoxyCodeLine{\Hypertarget{stdlib_8c_source_l00022}00022\ \{}
+\DoxyCodeLine{\Hypertarget{stdlib_8c_source_l00023}00023\ \ \ \ valeurAleatoire\ =\ graine;}
+\DoxyCodeLine{\Hypertarget{stdlib_8c_source_l00024}00024\ \}}
+\DoxyCodeLine{\Hypertarget{stdlib_8c_source_l00025}00025\ }
+\DoxyCodeLine{\Hypertarget{stdlib_8c_source_l00026}\mbox{\hyperlink{manux_2stdlib_8h_a2fcb3e4ef2147f927ecc1e2018d227c0}{00026}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{stdlib_8c_a2fcb3e4ef2147f927ecc1e2018d227c0}{atoi}}(\textcolor{keywordtype}{char}\ *\ ch)}
+\DoxyCodeLine{\Hypertarget{stdlib_8c_source_l00027}00027\ \{}
+\DoxyCodeLine{\Hypertarget{stdlib_8c_source_l00028}00028\ \ \ \ \textcolor{keywordtype}{int}\ i\ =\ 0,\ result\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{stdlib_8c_source_l00029}00029\ }
+\DoxyCodeLine{\Hypertarget{stdlib_8c_source_l00030}00030\ \ \ \ \textcolor{keywordflow}{while}\ ((ch[i]\ >=\ \textcolor{charliteral}{'0'})\ \&\&\ (ch[i]\ <=\ \textcolor{charliteral}{'9'}))\ \{}
+\DoxyCodeLine{\Hypertarget{stdlib_8c_source_l00031}00031\ \ \ \ \ \ \ result\ =\ 10\ *\ result\ +\ ch[i++]\ -\/\ \textcolor{charliteral}{'0'};}
+\DoxyCodeLine{\Hypertarget{stdlib_8c_source_l00032}00032\ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stdlib_8c_source_l00033}00033\ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{\Hypertarget{stdlib_8c_source_l00034}00034\ \}}
+\DoxyCodeLine{\Hypertarget{stdlib_8c_source_l00035}00035\ }
+\DoxyCodeLine{\Hypertarget{stdlib_8c_source_l00036}\mbox{\hyperlink{manux_2stdlib_8h_af7d33f72f92288b6d3d5978e255b2fa9}{00036}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{stdlib_8c_af7d33f72f92288b6d3d5978e255b2fa9}{atoihex}}(\textcolor{keywordtype}{char}\ *\ ch)}
+\DoxyCodeLine{\Hypertarget{stdlib_8c_source_l00037}00037\ \{}
+\DoxyCodeLine{\Hypertarget{stdlib_8c_source_l00038}00038\ \ \ \ \textcolor{keywordtype}{int}\ i\ =\ 2,\ result\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{stdlib_8c_source_l00039}00039\ }
+\DoxyCodeLine{\Hypertarget{stdlib_8c_source_l00040}00040\ \ \ \ \textcolor{keywordflow}{if}\ ((ch[0]\ ==\ \textcolor{charliteral}{'0'})\ \&\&\ (ch[1]\ ==\ \textcolor{charliteral}{'x'}))\ \{}
+\DoxyCodeLine{\Hypertarget{stdlib_8c_source_l00041}00041\ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{stdlib_8c_source_l00042}00042\ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (\ \ \ ((ch[i]\ >=\ \textcolor{charliteral}{'0'})\ \&\&\ (ch[i]\ <=\ \textcolor{charliteral}{'9'}))}
+\DoxyCodeLine{\Hypertarget{stdlib_8c_source_l00043}00043\ \ \ \ \ \ \ \ \ ||\ ((ch[i]\ >=\ \textcolor{charliteral}{'A'})\ \&\&\ (ch[i]\ <=\ \textcolor{charliteral}{'F'}))\ }
+\DoxyCodeLine{\Hypertarget{stdlib_8c_source_l00044}00044\ \ \ \ \ \ \ \ \ \ \ \ \ ||\ ((ch[i]\ >=\ \textcolor{charliteral}{'a'})\ \&\&\ (ch[i]\ <=\ \textcolor{charliteral}{'f'})))\ \{}
+\DoxyCodeLine{\Hypertarget{stdlib_8c_source_l00045}00045\ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ ((ch[i]\ >=\ \textcolor{charliteral}{'0'})\ \&\&\ (ch[i]\ <=\ \textcolor{charliteral}{'9'}))\ \{}
+\DoxyCodeLine{\Hypertarget{stdlib_8c_source_l00046}00046\ \ \ \ \ \ \ \ \ \ \ \ \ result\ =\ 16\ *\ result\ +\ ch[i]\ -\/\ \textcolor{charliteral}{'0'};}
+\DoxyCodeLine{\Hypertarget{stdlib_8c_source_l00047}00047\ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ ((ch[i]\ >=\ \textcolor{charliteral}{'A'})\ \&\&\ (ch[i]\ <=\ \textcolor{charliteral}{'F'}))\ \{}
+\DoxyCodeLine{\Hypertarget{stdlib_8c_source_l00048}00048\ \ \ \ \ \ \ \ \ \ \ \ \ result\ =\ 16\ *\ result\ +\ 10\ +\ ch[i]\ -\/\ \textcolor{charliteral}{'A'};}
+\DoxyCodeLine{\Hypertarget{stdlib_8c_source_l00049}00049\ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{stdlib_8c_source_l00050}00050\ \ \ \ \ \ \ \ result\ =\ 16\ *\ result\ +\ 10\ +\ ch[i]\ -\/\ \textcolor{charliteral}{'a'};}
+\DoxyCodeLine{\Hypertarget{stdlib_8c_source_l00051}00051\ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stdlib_8c_source_l00052}00052\ \ \ \ \ \ \ \ \ \ i++;}
+\DoxyCodeLine{\Hypertarget{stdlib_8c_source_l00053}00053\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stdlib_8c_source_l00054}00054\ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stdlib_8c_source_l00055}00055\ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{\Hypertarget{stdlib_8c_source_l00056}00056\ \}}
+\DoxyCodeLine{\Hypertarget{stdlib_8c_source_l00057}00057\ }
+\DoxyCodeLine{\Hypertarget{stdlib_8c_source_l00058}00058\ }
+
+\end{DoxyCode}

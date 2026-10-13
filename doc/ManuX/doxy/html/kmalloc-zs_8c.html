@@ -1,0 +1,383 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>My Project: Référence du fichier /home/manu/PROGRAMMATION/C/ManuX/noyau/kmalloc-zs.c</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">My Project
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_b49ee5e1e1e78348df5ce57bc52e7bb8.html">noyau</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">Classes</a> &#124;
+<a href="#define-members">Macros</a> &#124;
+<a href="#typedef-members">Définitions de type</a> &#124;
+<a href="#func-members">Fonctions</a> &#124;
+<a href="#var-members">Variables</a>  </div>
+  <div class="headertitle"><div class="title">Référence du fichier kmalloc-zs.c</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Allocation mémoire multi-usage pour des tailles jusqu'à 4092 octets.  
+<a href="#details">Plus de détails...</a></p>
+<div class="textblock"><code>#include &lt;<a class="el" href="manux_2debug_8h_source.html">manux/debug.h</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="include_2manux_2memoire_8h_source.html">manux/memoire.h</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="kmalloc-zs_8h_source.html">manux/kmalloc-zs.h</a>&gt;</code><br />
+</div><div class="textblock"><div class="dynheader">
+Graphe des dépendances par inclusion de kmalloc-zs.c:</div>
+<div class="dyncontent">
+<div class="center"><img src="kmalloc-zs_8c__incl.png" border="0" usemap="#a_2home_2manu_2PROGRAMMATION_2C_2ManuX_2noyau_2kmalloc-zs_8c" alt=""/></div>
+<map name="a_2home_2manu_2PROGRAMMATION_2C_2ManuX_2noyau_2kmalloc-zs_8c" id="a_2home_2manu_2PROGRAMMATION_2C_2ManuX_2noyau_2kmalloc-zs_8c">
+<area shape="rect" title="Allocation mémoire multi&#45;usage pour des tailles jusqu&#39;à 4092 octets." alt="" coords="847,5,1073,45"/>
+<area shape="rect" href="manux_2debug_8h.html" title=" " alt="" coords="704,93,827,119"/>
+<area shape="poly" title=" " alt="" coords="914,48,808,91,806,86,912,43"/>
+<area shape="rect" href="include_2manux_2memoire_8h.html" title=" " alt="" coords="949,167,1091,192"/>
+<area shape="poly" title=" " alt="" coords="966,45,975,79,988,118,1007,154,1002,157,983,120,970,81,961,46"/>
+<area shape="rect" href="kmalloc-zs_8h.html" title="Une implatation simple de kmalloc fondé sur les zones siamoises (buddy areas) (C) Emmanuel Chaput 202..." alt="" coords="997,93,1152,119"/>
+<area shape="poly" title=" " alt="" coords="989,43,1048,83,1045,88,986,48"/>
+<area shape="rect" title=" " alt="" coords="731,313,853,339"/>
+<area shape="poly" title=" " alt="" coords="757,121,735,147,714,184,702,225,702,245,709,264,728,287,752,305,749,309,724,291,704,267,697,246,697,224,709,181,731,144,752,117"/>
+<area shape="rect" href="include_2manux_2printk_8h.html" title="Définition des fonctions de base d&#39;entrée&#45;sortie du noyau." alt="" coords="803,167,925,192"/>
+<area shape="poly" title=" " alt="" coords="783,117,838,156,835,161,780,121"/>
+<area shape="rect" href="include_2manux_2stdarg_8h.html" title=" " alt="" coords="719,240,843,265"/>
+<area shape="poly" title=" " alt="" coords="769,119,781,226,776,227,764,119"/>
+<area shape="rect" href="scheduler_8h.html" title=" " alt="" coords="342,167,487,192"/>
+<area shape="poly" title=" " alt="" coords="709,121,485,167,484,161,708,116"/>
+<area shape="poly" title=" " alt="" coords="868,192,867,226,864,247,857,267,841,289,823,307,819,303,837,285,852,264,859,246,862,226,862,192"/>
+<area shape="poly" title=" " alt="" coords="852,194,807,233,803,229,849,190"/>
+<area shape="rect" title=" " alt="" coords="919,240,1041,265"/>
+<area shape="poly" title=" " alt="" coords="884,190,951,230,948,235,881,194"/>
+<area shape="rect" title=" " alt="" coords="558,460,677,485"/>
+<area shape="poly" title=" " alt="" coords="342,186,295,191,243,202,191,218,143,242,83,280,33,321,16,342,9,363,12,386,27,410,52,423,100,434,241,450,404,461,544,467,544,472,404,466,241,456,99,439,50,428,23,414,7,388,4,363,12,339,29,317,80,276,140,238,189,213,242,197,294,186,341,181"/>
+<area shape="rect" href="tache_8h.html" title=" " alt="" coords="355,240,474,265"/>
+<area shape="poly" title=" " alt="" coords="417,192,417,226,412,226,412,192"/>
+<area shape="rect" title=" " alt="" coords="38,387,213,412"/>
+<area shape="poly" title=" " alt="" coords="342,192,238,212,194,225,166,242,145,272,133,307,128,343,127,373,121,373,122,342,128,306,140,270,162,238,192,221,237,206,341,187"/>
+<area shape="rect" href="listetaches_8h.html" title=" " alt="" coords="176,240,331,265"/>
+<area shape="poly" title=" " alt="" coords="390,194,293,237,291,232,388,190"/>
+<area shape="rect" href="atomique_8h.html" title="Définition des opérations de synchronisation de ManuX." alt="" coords="498,240,643,265"/>
+<area shape="poly" title=" " alt="" coords="434,190,527,232,524,237,432,194"/>
+<area shape="poly" title=" " alt="" coords="474,262,718,308,717,313,473,268"/>
+<area shape="poly" title=" " alt="" coords="475,261,558,281,593,295,615,312,631,345,636,382,633,418,627,447,622,446,628,417,631,382,626,347,611,315,590,300,556,287,473,266"/>
+<area shape="rect" href="include_2manux_2interruptions_8h.html" title=" " alt="" coords="387,387,554,412"/>
+<area shape="poly" title=" " alt="" coords="422,265,464,373,459,375,417,267"/>
+<area shape="rect" href="segment_8h.html" title=" " alt="" coords="462,313,602,339"/>
+<area shape="poly" title=" " alt="" coords="435,263,502,304,500,308,432,268"/>
+<area shape="rect" href="fichier_8h.html" title=" " alt="" coords="239,313,361,339"/>
+<area shape="poly" title=" " alt="" coords="398,268,332,308,329,304,395,263"/>
+<area shape="poly" title=" " alt="" coords="495,410,582,452,580,456,493,414"/>
+<area shape="poly" title=" " alt="" coords="541,338,606,447,601,449,537,340"/>
+<area shape="rect" href="inoeud_8h.html" title=": description des noeuds d&#39;information (C) Manu Chaput 2002&#45;2023" alt="" coords="237,387,363,412"/>
+<area shape="poly" title=" " alt="" coords="303,339,303,373,297,373,297,339"/>
+<area shape="poly" title=" " alt="" coords="273,341,167,384,165,379,271,336"/>
+<area shape="poly" title=" " alt="" coords="351,409,553,454,552,460,350,415"/>
+<area shape="poly" title=" " alt="" coords="551,242,458,200,460,195,553,237"/>
+<area shape="poly" title=" " alt="" coords="604,263,636,282,652,296,664,312,675,339,677,362,673,385,664,413,654,434,641,451,636,448,649,431,659,411,667,384,672,361,669,340,659,315,648,299,633,286,601,268"/>
+<area shape="poly" title=" " alt="" coords="1016,194,995,229,991,227,1011,191"/>
+<area shape="poly" title=" " alt="" coords="1033,191,1056,225,1061,246,1056,267,1021,311,979,349,931,380,881,406,830,427,779,443,691,464,690,458,778,438,828,422,879,401,929,376,975,345,1017,307,1051,264,1056,246,1051,227,1029,194"/>
+<area shape="poly" title=" " alt="" coords="1085,117,1114,173,1127,211,1132,251,1132,328,1128,345,1118,360,1103,375,1082,388,1029,410,964,428,819,454,691,469,690,463,818,449,962,423,1027,405,1079,383,1099,370,1114,357,1123,343,1127,327,1127,252,1121,212,1109,175,1080,120"/>
+<area shape="poly" title=" " alt="" coords="1068,121,1039,157,1035,154,1063,117"/>
+</map>
+</div>
+</div>
+<p><a href="kmalloc-zs_8c_source.html">Aller au code source de ce fichier.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct__enteteBlocMemoire.html">_enteteBlocMemoire</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Description d'un bloc mémoire fourni à l'utilisateur En fait, on ne lui fourni que le pointeur vers la partie qu'il peut utiliser.  <a href="struct__enteteBlocMemoire.html#details">Plus de détails...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:a39753000a6c327c0f33daa798d5b7357" id="r_a39753000a6c327c0f33daa798d5b7357"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="kmalloc-zs_8c.html#a39753000a6c327c0f33daa798d5b7357">MANUX_KMALLOC_MAGIQUE</a>&#160;&#160;&#160;0x4832</td></tr>
+<tr class="memdesc:a39753000a6c327c0f33daa798d5b7357"><td class="mdescLeft">&#160;</td><td class="mdescRight">Un nombre qui nous permettra d'avoir un peu plus confiance dans les blocs mémoire rendus par l'utilisateur.  <br /></td></tr>
+<tr class="separator:a39753000a6c327c0f33daa798d5b7357"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae89de83ab36636d777d5dcde5b1675a8" id="r_ae89de83ab36636d777d5dcde5b1675a8"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="kmalloc-zs_8c.html#ae89de83ab36636d777d5dcde5b1675a8">MANUX_KMALLOC_ORDRE_MIN</a>&#160;&#160;&#160;3</td></tr>
+<tr class="memdesc:ae89de83ab36636d777d5dcde5b1675a8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Log2 de la taille max allouée.  <br /></td></tr>
+<tr class="separator:ae89de83ab36636d777d5dcde5b1675a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a68c5237b82c6bd6925f8767b62dbf6a4" id="r_a68c5237b82c6bd6925f8767b62dbf6a4"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="kmalloc-zs_8c.html#a68c5237b82c6bd6925f8767b62dbf6a4">MANUX_KMALLOC_ORDRE_MAX</a>&#160;&#160;&#160;12</td></tr>
+<tr class="separator:a68c5237b82c6bd6925f8767b62dbf6a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
+Définitions de type</h2></td></tr>
+<tr class="memitem:a9ddc11628cf9571287c41a7fdbde4549" id="r_a9ddc11628cf9571287c41a7fdbde4549"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="struct__enteteBlocMemoire.html">_enteteBlocMemoire</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="kmalloc-zs_8c.html#a9ddc11628cf9571287c41a7fdbde4549">enteteBlocMemoire</a></td></tr>
+<tr class="memdesc:a9ddc11628cf9571287c41a7fdbde4549"><td class="mdescLeft">&#160;</td><td class="mdescRight">Description d'un bloc mémoire fourni à l'utilisateur En fait, on ne lui fourni que le pointeur vers la partie qu'il peut utiliser.  <br /></td></tr>
+<tr class="separator:a9ddc11628cf9571287c41a7fdbde4549"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Fonctions</h2></td></tr>
+<tr class="memitem:a38572ad17b1c7b521cafcf12f5737a16" id="r_a38572ad17b1c7b521cafcf12f5737a16"><td class="memItemLeft" align="right" valign="top"><a class="el" href="include_2manux_2interruptions_8h.html#a4fda31edc92f8ccd48b6f4bb50f2e7e1">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="kmalloc-zs_8c.html#a38572ad17b1c7b521cafcf12f5737a16">kmallocAfficherStatistiques</a> (char *prefixe)</td></tr>
+<tr class="separator:a38572ad17b1c7b521cafcf12f5737a16"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9834d71816871b865956b59d641f602f" id="r_a9834d71816871b865956b59d641f602f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="include_2manux_2interruptions_8h.html#a4fda31edc92f8ccd48b6f4bb50f2e7e1">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="kmalloc-zs_8c.html#a9834d71816871b865956b59d641f602f">kmallocInitialisation</a> (<a class="el" href="include_2manux_2interruptions_8h.html#a4fda31edc92f8ccd48b6f4bb50f2e7e1">void</a>)</td></tr>
+<tr class="memdesc:a9834d71816871b865956b59d641f602f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialisation du sytème kmalloc.  <br /></td></tr>
+<tr class="separator:a9834d71816871b865956b59d641f602f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af549fce4aa887cd31918e6c5dd0950f5" id="r_af549fce4aa887cd31918e6c5dd0950f5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="include_2manux_2interruptions_8h.html#a4fda31edc92f8ccd48b6f4bb50f2e7e1">void</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="kmalloc-zs_8c.html#af549fce4aa887cd31918e6c5dd0950f5">kmalloc</a> (<a class="el" href="include_2manux_2stddef_8h.html#acf18a0d6c4b39d531e021702e9a77984">size_t</a> n)</td></tr>
+<tr class="memdesc:af549fce4aa887cd31918e6c5dd0950f5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Allocation d'une zone de n octets.  <br /></td></tr>
+<tr class="separator:af549fce4aa887cd31918e6c5dd0950f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af7105034bf054e37218d6ade20db4684" id="r_af7105034bf054e37218d6ade20db4684"><td class="memItemLeft" align="right" valign="top"><a class="el" href="include_2manux_2interruptions_8h.html#a4fda31edc92f8ccd48b6f4bb50f2e7e1">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="kmalloc-zs_8c.html#af7105034bf054e37218d6ade20db4684">kfree</a> (<a class="el" href="include_2manux_2interruptions_8h.html#a4fda31edc92f8ccd48b6f4bb50f2e7e1">void</a> *p)</td></tr>
+<tr class="memdesc:af7105034bf054e37218d6ade20db4684"><td class="mdescLeft">&#160;</td><td class="mdescRight">Libération d'une zone mémoire allouée Si le bloc avait été légitiment alloué, il est réintégré dans les listes de blocs libres, si possible en le fusionnant avec son bloc siamois de sorte à reconstituer un plus gros bloc.  <br /></td></tr>
+<tr class="separator:af7105034bf054e37218d6ade20db4684"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:a8a4e30f5bbfcad6f64ab7a4de58cb256" id="r_a8a4e30f5bbfcad6f64ab7a4de58cb256"><td class="memItemLeft" align="right" valign="top"><a class="el" href="kmalloc-zs_8c.html#a9ddc11628cf9571287c41a7fdbde4549">enteteBlocMemoire</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="kmalloc-zs_8c.html#a8a4e30f5bbfcad6f64ab7a4de58cb256">blocsLibres</a> [<a class="el" href="kmalloc-zs_8c.html#a68c5237b82c6bd6925f8767b62dbf6a4">MANUX_KMALLOC_ORDRE_MAX</a>+1] = {<a class="el" href="include_2manux_2stddef_8h.html#a070d2ce7b6bb7e5c05602aa8c308d0c4">NULL</a>}</td></tr>
+<tr class="memdesc:a8a4e30f5bbfcad6f64ab7a4de58cb256"><td class="mdescLeft">&#160;</td><td class="mdescRight">Listes d'entêtes de blos libres.  <br /></td></tr>
+<tr class="separator:a8a4e30f5bbfcad6f64ab7a4de58cb256"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
+<div class="textblock"><p>Allocation mémoire multi-usage pour des tailles jusqu'à 4092 octets. </p>
+<p>La technique utilisée ici est celle des zones siamoises (buddy system) </p>
+
+<p class="definition">Définition dans le fichier <a class="el" href="kmalloc-zs_8c_source.html">kmalloc-zs.c</a>.</p>
+</div><h2 class="groupheader">Documentation des macros</h2>
+<a id="a39753000a6c327c0f33daa798d5b7357" name="a39753000a6c327c0f33daa798d5b7357"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a39753000a6c327c0f33daa798d5b7357">&#9670;&#160;</a></span>MANUX_KMALLOC_MAGIQUE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define MANUX_KMALLOC_MAGIQUE&#160;&#160;&#160;0x4832</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Un nombre qui nous permettra d'avoir un peu plus confiance dans les blocs mémoire rendus par l'utilisateur. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="kmalloc-zs_8c_source.html#l00017">17</a> du fichier <a class="el" href="kmalloc-zs_8c_source.html">kmalloc-zs.c</a>.</p>
+
+</div>
+</div>
+<a id="a68c5237b82c6bd6925f8767b62dbf6a4" name="a68c5237b82c6bd6925f8767b62dbf6a4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a68c5237b82c6bd6925f8767b62dbf6a4">&#9670;&#160;</a></span>MANUX_KMALLOC_ORDRE_MAX</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define MANUX_KMALLOC_ORDRE_MAX&#160;&#160;&#160;12</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="kmalloc-zs_8c_source.html#l00023">23</a> du fichier <a class="el" href="kmalloc-zs_8c_source.html">kmalloc-zs.c</a>.</p>
+
+</div>
+</div>
+<a id="ae89de83ab36636d777d5dcde5b1675a8" name="ae89de83ab36636d777d5dcde5b1675a8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae89de83ab36636d777d5dcde5b1675a8">&#9670;&#160;</a></span>MANUX_KMALLOC_ORDRE_MIN</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define MANUX_KMALLOC_ORDRE_MIN&#160;&#160;&#160;3</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Log2 de la taille max allouée. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="kmalloc-zs_8c_source.html#l00022">22</a> du fichier <a class="el" href="kmalloc-zs_8c_source.html">kmalloc-zs.c</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Documentation des définitions de type</h2>
+<a id="a9ddc11628cf9571287c41a7fdbde4549" name="a9ddc11628cf9571287c41a7fdbde4549"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9ddc11628cf9571287c41a7fdbde4549">&#9670;&#160;</a></span>enteteBlocMemoire</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef struct <a class="el" href="struct__enteteBlocMemoire.html">_enteteBlocMemoire</a> <a class="el" href="kmalloc-zs_8c.html#a9ddc11628cf9571287c41a7fdbde4549">enteteBlocMemoire</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Description d'un bloc mémoire fourni à l'utilisateur En fait, on ne lui fourni que le pointeur vers la partie qu'il peut utiliser. </p>
+<p>L'entête est une union car elle peut prendre deux formes. Lorsque le bloc est alloué et fourni à l'utilisateur, on y stocque un nombre "magique" qu'on espère retrouver, et une taille qui nous permettra de savoir combien d'octets ont été alloués. Lorsque le bloc est libre, on utilise cet entête pour mettre en place une liste chaînée. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Documentation des fonctions</h2>
+<a id="af7105034bf054e37218d6ade20db4684" name="af7105034bf054e37218d6ade20db4684"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af7105034bf054e37218d6ade20db4684">&#9670;&#160;</a></span>kfree()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="include_2manux_2interruptions_8h.html#a4fda31edc92f8ccd48b6f4bb50f2e7e1">void</a> kfree </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="include_2manux_2interruptions_8h.html#a4fda31edc92f8ccd48b6f4bb50f2e7e1">void</a> *&#160;</td>
+          <td class="paramname"><em>p</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Libération d'une zone mémoire allouée Si le bloc avait été légitiment alloué, il est réintégré dans les listes de blocs libres, si possible en le fusionnant avec son bloc siamois de sorte à reconstituer un plus gros bloc. </p>
+<p>Libération d'une zone mémoire allouée. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="kmalloc-zs_8c_source.html#l00265">265</a> du fichier <a class="el" href="kmalloc-zs_8c_source.html">kmalloc-zs.c</a>.</p>
+
+</div>
+</div>
+<a id="af549fce4aa887cd31918e6c5dd0950f5" name="af549fce4aa887cd31918e6c5dd0950f5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af549fce4aa887cd31918e6c5dd0950f5">&#9670;&#160;</a></span>kmalloc()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="include_2manux_2interruptions_8h.html#a4fda31edc92f8ccd48b6f4bb50f2e7e1">void</a> * kmalloc </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="include_2manux_2stddef_8h.html#acf18a0d6c4b39d531e021702e9a77984">size_t</a>&#160;</td>
+          <td class="paramname"><em>n</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Allocation d'une zone de n octets. </p>
+<dl class="section return"><dt>Renvoie</dt><dd>Pointeur sur la zone en cas de succès, NULL en cas d'échec </dd></dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="kmalloc-zs_8c_source.html#l00139">139</a> du fichier <a class="el" href="kmalloc-zs_8c_source.html">kmalloc-zs.c</a>.</p>
+
+</div>
+</div>
+<a id="a38572ad17b1c7b521cafcf12f5737a16" name="a38572ad17b1c7b521cafcf12f5737a16"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a38572ad17b1c7b521cafcf12f5737a16">&#9670;&#160;</a></span>kmallocAfficherStatistiques()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="include_2manux_2interruptions_8h.html#a4fda31edc92f8ccd48b6f4bb50f2e7e1">void</a> kmallocAfficherStatistiques </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>prefixe</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="kmalloc-zs_8c_source.html#l00058">58</a> du fichier <a class="el" href="kmalloc-zs_8c_source.html">kmalloc-zs.c</a>.</p>
+
+</div>
+</div>
+<a id="a9834d71816871b865956b59d641f602f" name="a9834d71816871b865956b59d641f602f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9834d71816871b865956b59d641f602f">&#9670;&#160;</a></span>kmallocInitialisation()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="include_2manux_2interruptions_8h.html#a4fda31edc92f8ccd48b6f4bb50f2e7e1">void</a> kmallocInitialisation </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="include_2manux_2interruptions_8h.html#a4fda31edc92f8ccd48b6f4bb50f2e7e1">void</a>&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Initialisation du sytème kmalloc. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="kmalloc-zs_8c_source.html#l00080">80</a> du fichier <a class="el" href="kmalloc-zs_8c_source.html">kmalloc-zs.c</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Documentation des variables</h2>
+<a id="a8a4e30f5bbfcad6f64ab7a4de58cb256" name="a8a4e30f5bbfcad6f64ab7a4de58cb256"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8a4e30f5bbfcad6f64ab7a4de58cb256">&#9670;&#160;</a></span>blocsLibres</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="kmalloc-zs_8c.html#a9ddc11628cf9571287c41a7fdbde4549">enteteBlocMemoire</a>* blocsLibres[<a class="el" href="kmalloc-zs_8c.html#a68c5237b82c6bd6925f8767b62dbf6a4">MANUX_KMALLOC_ORDRE_MAX</a>+1] = {<a class="el" href="include_2manux_2stddef_8h.html#a070d2ce7b6bb7e5c05602aa8c308d0c4">NULL</a>}</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Listes d'entêtes de blos libres. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="kmalloc-zs_8c_source.html#l00050">50</a> du fichier <a class="el" href="kmalloc-zs_8c_source.html">kmalloc-zs.c</a>.</p>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

@@ -1,0 +1,138 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>My Project:  Fichier source de /home/manu/PROGRAMMATION/C/ManuX/noyau/debug.c</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">My Project
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function() { init_codefold(0); });
+/* @license-end */
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_b49ee5e1e1e78348df5ce57bc52e7bb8.html">noyau</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle"><div class="title">debug.c</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="debug_8c.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &lt;<a class="code" href="manux_2debug_8h.html">manux/debug.h</a>&gt;</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &lt;<a class="code" href="include_2manux_2printk_8h.html">manux/printk.h</a>&gt;</span>    <span class="comment">// snprintk</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &lt;<a class="code" href="manux_2stdlib_8h.html">manux/stdlib.h</a>&gt;</span>    <span class="comment">// atoihex</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &lt;<a class="code" href="include_2manux_2registre_8h.html">manux/registre.h</a>&gt;</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#ifdef MANUX_DEBUGMASK_VAR</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><a class="code hl_typedef" href="include_2manux_2types_8h.html#a06896e8c53f721507066c079052171f8">uint32_t</a> <a class="code hl_define" href="manux_2debug_8h.html#a895b956a2419f199f255ee6542ed1f2d">masqueDebugageConsole</a> = <a class="code hl_define" href="manux_2debug_8h.html#a0aa3be7488358b17c7ecf87f67fc820d">_masqueDebugageConsole</a>;</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><a class="code hl_typedef" href="include_2manux_2types_8h.html#a06896e8c53f721507066c079052171f8">uint32_t</a> <a class="code hl_define" href="manux_2debug_8h.html#a4f75a22599327492938e80d95d6e7805">masqueDebugageFichier</a> = <a class="code hl_define" href="manux_2debug_8h.html#a5da5b3d524cfe49bc2f1799b70c2ef44">_masqueDebugageFichier</a>;</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="keyword">static</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="keywordtype">void</span> debugMiseAJourMasque(<span class="keywordtype">void</span> * masque, <span class="keywordtype">char</span> * valeur)</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>{</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>   <a class="code hl_typedef" href="include_2manux_2types_8h.html#a06896e8c53f721507066c079052171f8">uint32_t</a> * _masque = (<a class="code hl_typedef" href="include_2manux_2types_8h.html#a06896e8c53f721507066c079052171f8">uint32_t</a> *)masque;</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>   *_masque = <a class="code hl_function" href="manux_2stdlib_8h.html#af7d33f72f92288b6d3d5978e255b2fa9">atoihex</a>(valeur);</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>}</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
+<div class="foldopen" id="foldopen00037" data-start="{" data-end="}">
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="manux_2debug_8h.html#afecb2fc4768dcaba6f0098c4a46bff0c">   37</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="debug_8c.html#afecb2fc4768dcaba6f0098c4a46bff0c">debugInitialiser</a>(<span class="keywordtype">void</span>)</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>{</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="preprocessor">#if defined(MANUX_DEBUGMASK_VAR) &amp;&amp; defined(MANUX_REGISTRE)</span></div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>   <span class="keywordtype">char</span> v[32];</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>   <a class="code hl_function" href="include_2manux_2printk_8h.html#aa5a2042f078fa0c6e569acc563f2dac5">snprintk</a>(v, 32, <span class="stringliteral">&quot;0x%x&quot;</span>, <a class="code hl_define" href="manux_2debug_8h.html#a0aa3be7488358b17c7ecf87f67fc820d">_masqueDebugageConsole</a>);</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>   <a class="code hl_function" href="include_2manux_2registre_8h.html#af63f1d827d195edd2d25338101785bf2">registreSystemeAffecterParametre</a>(v, &amp;<a class="code hl_define" href="manux_2debug_8h.html#a895b956a2419f199f255ee6542ed1f2d">masqueDebugageConsole</a>, debugMiseAJourMasque,</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>                    <span class="stringliteral">&quot;debug&quot;</span>, <span class="stringliteral">&quot;masque&quot;</span>, <span class="stringliteral">&quot;console&quot;</span>, <a class="code hl_define" href="include_2manux_2stddef_8h.html#a070d2ce7b6bb7e5c05602aa8c308d0c4">NULL</a>);</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>   <a class="code hl_function" href="include_2manux_2printk_8h.html#aa5a2042f078fa0c6e569acc563f2dac5">snprintk</a>(v, 32, <span class="stringliteral">&quot;0x%x&quot;</span>, <a class="code hl_define" href="manux_2debug_8h.html#a0aa3be7488358b17c7ecf87f67fc820d">_masqueDebugageConsole</a>);</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>   <a class="code hl_function" href="include_2manux_2registre_8h.html#af63f1d827d195edd2d25338101785bf2">registreSystemeAffecterParametre</a>(v, &amp;<a class="code hl_define" href="manux_2debug_8h.html#a4f75a22599327492938e80d95d6e7805">masqueDebugageFichier</a>, debugMiseAJourMasque,</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>                    <span class="stringliteral">&quot;debug&quot;</span>, <span class="stringliteral">&quot;masque&quot;</span>, <span class="stringliteral">&quot;fichier&quot;</span>, <a class="code hl_define" href="include_2manux_2stddef_8h.html#a070d2ce7b6bb7e5c05602aa8c308d0c4">NULL</a>);</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>}</div>
+</div>
+<div class="ttc" id="adebug_8c_html_afecb2fc4768dcaba6f0098c4a46bff0c"><div class="ttname"><a href="debug_8c.html#afecb2fc4768dcaba6f0098c4a46bff0c">debugInitialiser</a></div><div class="ttdeci">void debugInitialiser(void)</div><div class="ttdoc">Initialisation du sytème de débogage.</div><div class="ttdef"><b>Definition</b> <a href="debug_8c_source.html#l00037">debug.c:37</a></div></div>
+<div class="ttc" id="ainclude_2manux_2printk_8h_html"><div class="ttname"><a href="include_2manux_2printk_8h.html">printk.h</a></div><div class="ttdoc">Définition des fonctions de base d'entrée-sortie du noyau.</div></div>
+<div class="ttc" id="ainclude_2manux_2printk_8h_html_aa5a2042f078fa0c6e569acc563f2dac5"><div class="ttname"><a href="include_2manux_2printk_8h.html#aa5a2042f078fa0c6e569acc563f2dac5">snprintk</a></div><div class="ttdeci">int snprintk(char *str, size_t l, char *format,...)</div><div class="ttdoc">: Écriture formattée dans une chaîne de caractères</div><div class="ttdef"><b>Definition</b> <a href="printk_8c_source.html#l00148">printk.c:148</a></div></div>
+<div class="ttc" id="ainclude_2manux_2registre_8h_html"><div class="ttname"><a href="include_2manux_2registre_8h.html">registre.h</a></div><div class="ttdoc">Gestion des registres (outils permettant de stocker des paramètres)</div></div>
+<div class="ttc" id="ainclude_2manux_2registre_8h_html_af63f1d827d195edd2d25338101785bf2"><div class="ttname"><a href="include_2manux_2registre_8h.html#af63f1d827d195edd2d25338101785bf2">registreSystemeAffecterParametre</a></div><div class="ttdeci">void registreSystemeAffecterParametre(char *valeur, void *prive, registreMiseAJour miseAJour,...)</div><div class="ttdoc">Ajouter un paramètre au registre système de ManuX.</div><div class="ttdef"><b>Definition</b> <a href="registre_8c_source.html#l00565">registre.c:565</a></div></div>
+<div class="ttc" id="ainclude_2manux_2stddef_8h_html_a070d2ce7b6bb7e5c05602aa8c308d0c4"><div class="ttname"><a href="include_2manux_2stddef_8h.html#a070d2ce7b6bb7e5c05602aa8c308d0c4">NULL</a></div><div class="ttdeci">#define NULL</div><div class="ttdef"><b>Definition</b> <a href="include_2manux_2stddef_8h_source.html#l00010">stddef.h:10</a></div></div>
+<div class="ttc" id="ainclude_2manux_2types_8h_html_a06896e8c53f721507066c079052171f8"><div class="ttname"><a href="include_2manux_2types_8h.html#a06896e8c53f721507066c079052171f8">uint32_t</a></div><div class="ttdeci">unsigned long uint32_t</div><div class="ttdef"><b>Definition</b> <a href="include_2manux_2types_8h_source.html#l00020">types.h:20</a></div></div>
+<div class="ttc" id="amanux_2debug_8h_html"><div class="ttname"><a href="manux_2debug_8h.html">debug.h</a></div></div>
+<div class="ttc" id="amanux_2debug_8h_html_a0aa3be7488358b17c7ecf87f67fc820d"><div class="ttname"><a href="manux_2debug_8h.html#a0aa3be7488358b17c7ecf87f67fc820d">_masqueDebugageConsole</a></div><div class="ttdeci">#define _masqueDebugageConsole</div><div class="ttdoc">Définition des masques de débogage.</div><div class="ttdef"><b>Definition</b> <a href="manux_2debug_8h_source.html#l00041">debug.h:41</a></div></div>
+<div class="ttc" id="amanux_2debug_8h_html_a4f75a22599327492938e80d95d6e7805"><div class="ttname"><a href="manux_2debug_8h.html#a4f75a22599327492938e80d95d6e7805">masqueDebugageFichier</a></div><div class="ttdeci">#define masqueDebugageFichier</div><div class="ttdef"><b>Definition</b> <a href="manux_2debug_8h_source.html#l00053">debug.h:53</a></div></div>
+<div class="ttc" id="amanux_2debug_8h_html_a5da5b3d524cfe49bc2f1799b70c2ef44"><div class="ttname"><a href="manux_2debug_8h.html#a5da5b3d524cfe49bc2f1799b70c2ef44">_masqueDebugageFichier</a></div><div class="ttdeci">#define _masqueDebugageFichier</div><div class="ttdef"><b>Definition</b> <a href="manux_2debug_8h_source.html#l00045">debug.h:45</a></div></div>
+<div class="ttc" id="amanux_2debug_8h_html_a895b956a2419f199f255ee6542ed1f2d"><div class="ttname"><a href="manux_2debug_8h.html#a895b956a2419f199f255ee6542ed1f2d">masqueDebugageConsole</a></div><div class="ttdeci">#define masqueDebugageConsole</div><div class="ttdef"><b>Definition</b> <a href="manux_2debug_8h_source.html#l00052">debug.h:52</a></div></div>
+<div class="ttc" id="amanux_2stdlib_8h_html"><div class="ttname"><a href="manux_2stdlib_8h.html">stdlib.h</a></div><div class="ttdoc">Définition de quelques fonctions de base (C) Manu Chaput 2020-2023.</div></div>
+<div class="ttc" id="amanux_2stdlib_8h_html_af7d33f72f92288b6d3d5978e255b2fa9"><div class="ttname"><a href="manux_2stdlib_8h.html#af7d33f72f92288b6d3d5978e255b2fa9">atoihex</a></div><div class="ttdeci">int atoihex(char *ch)</div><div class="ttdoc">Version hexadécimale de atoi()</div><div class="ttdef"><b>Definition</b> <a href="stdlib_8c_source.html#l00036">stdlib.c:36</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

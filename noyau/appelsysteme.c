@@ -1,8 +1,9 @@
-/*----------------------------------------------------------------------------*/
-/*      Implantation des sous-programmes de gestion des appels système.       */
-/*                                                                            */
-/*                                                  (C) Manu Chaput 2000-2021 */
-/*----------------------------------------------------------------------------*/
+/**
+   @file noyau/appelsysteme.c
+   @brief Implantation des sous-programmes de gestion des appels système.
+
+                                                     (C) Manu Chaput 2000-2025
+*/
 #include <manux/appelsysteme.h>
 
 #include <manux/errno.h>
@@ -18,7 +19,7 @@
 #   include <manux/tubes.h>       // sys_tube
 #endif
 #if defined(MANUX_TACHES) && !defined(MANUX_REENTRANT)
-#   include <manux/atomique.h>    // Mutex
+#   include <manux/exclusion-mutuelle.h>    // Mutex
 #endif
 
 #include <manux/horloge.h>
@@ -28,18 +29,57 @@ void * vecteurAppelsSysteme[NB_MAX_APPELS_SYSTEME];
 /**
  * @brief : Implantation de l'appel système inutile (pour tests)
  */
+static
 int sys_dumbAS(ParametreAS as)
 {
+   (void) as;
    printk("I am so useless, ...\n");
 
    attenteMilliSecondes(500);
+
+   printk("It took me some time, ...\n");
    
    return 4832;
 }
 
+#ifdef MANUX_AS_TEST_SYNCHRO
+/**
+ * @brief : Implantation d'un appel système permettant d'illustrer la
+ * synchronisation
+ *
+ *   La valeur du compteur est incrémentée de inc et une attente est
+ * réalisée en fonction du paramètre action.
+ */
+static int testSynchroCompteur = 0;
+#define MANUX_AS_TEST_SYNCHRO_DELAI 500
+
+static int sys_testSynchroAS(__attribute__((unused)) ParametreAS as, int inc, int action)
+{
+   int x;
+
+   x = testSynchroCompteur;
+
+   switch (action) {
+      case 1 :
+         ordonnanceur();
+      break;
+      case 2:
+         attenteMilliSecondes(MANUX_AS_TEST_SYNCHRO_DELAI);
+      break;
+      default :
+   }
+
+   x += inc;
+   testSynchroCompteur = x;
+   
+   return testSynchroCompteur;
+}
+#endif // MANUX_AS_TEST_SYNCHRO
+
 /**
  * @brief : Implantation de l'appel système par défaut
  */
+static
 int sys_erreurAS(ParametreAS as)
 {
    paniqueNoyau("Appel systeme %d non implante !\n", as.eax);
@@ -65,7 +105,7 @@ int definirAppelSysteme(int num, void * appel)
    }
 }
 
-void initialiserAppelsSysteme()
+void initialiserAppelsSysteme(void)
 {
    printk_debug(DBG_KERNEL_AS, "vecteur des AS = 0x%x\n", vecteurAppelsSysteme);
 
@@ -74,6 +114,10 @@ void initialiserAppelsSysteme()
    }
    
    definirAppelSysteme(NBAS_DUMB, sys_dumbAS);
+
+#ifdef MANUX_AS_TEST_SYNCHRO
+   definirAppelSysteme(NBAS_TEST_SYNC, sys_testSynchroAS);
+#endif
    
    /* Envoyer une chaîne de caractères sur la console */
    definirAppelSysteme(NBAS_ECRIRE_CONS, sys_ecrireConsole);
@@ -100,10 +144,13 @@ void initialiserAppelsSysteme()
 
 #if defined(MANUX_TACHES) && !defined(MANUX_REENTRANT)
    tacheDansLeNoyau= 0;
-   initialiserExclusionMutuelle(&verrouGeneralDuNoyau);
+   exclusionMutuelleInitialiser(&verrouGeneralDuNoyau);
 #endif   
 }
 
+/**
+ * @brief Prélude à un appel système
+ */
 void entrerAppelSysteme(uint32_t num)
 {
    printk_debug(DBG_KERNEL_AS, "Appel sys %d IN\n", num);
@@ -116,7 +163,7 @@ void entrerAppelSysteme(uint32_t num)
 #   ifdef MANUX_TUBE_REENTRANT
    if (num != NBAS_TUBE) {
 #   endif
-   entrerExclusionMutuelle(&verrouGeneralDuNoyau);
+   exclusionMutuelleEntrer(&verrouGeneralDuNoyau);
    assert(tacheDansLeNoyau == 0);
    tacheDansLeNoyau = tacheEnCours->numero;
 #   ifdef MANUX_TUBE_REENTRANT
@@ -129,6 +176,9 @@ void entrerAppelSysteme(uint32_t num)
 #endif   
 }
 
+/**
+ * @brief Fin d'un appel système
+ */
 void sortirAppelSysteme(uint32_t num)
 {
    
@@ -143,7 +193,7 @@ void sortirAppelSysteme(uint32_t num)
    if (num != NBAS_TUBE) {
 #   endif
    tacheDansLeNoyau = 0;
-   sortirExclusionMutuelle(&verrouGeneralDuNoyau);
+   exclusionMutuelleSortir(&verrouGeneralDuNoyau);
 #   ifdef MANUX_TUBE_REENTRANT
    }
 #   endif

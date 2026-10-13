@@ -1,0 +1,70 @@
+\doxysection{appelsysteme.\+h}
+\hypertarget{include_2manux_2appelsysteme_8h_source}{}\label{include_2manux_2appelsysteme_8h_source}\index{/home/manu/PROGRAMMATION/C/ManuX/include/manux/appelsysteme.h@{/home/manu/PROGRAMMATION/C/ManuX/include/manux/appelsysteme.h}}
+\mbox{\hyperlink{include_2manux_2appelsysteme_8h}{Aller à la documentation de ce fichier.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{include_2manux_2appelsysteme_8h_source_l00001}00001\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{include_2manux_2appelsysteme_8h_source_l00002}00002\ \textcolor{comment}{/*\ \ \ \ \ \ Implantation\ des\ appels\ système\ de\ Manux.\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{include_2manux_2appelsysteme_8h_source_l00003}00003\ \textcolor{comment}{/*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{include_2manux_2appelsysteme_8h_source_l00004}00004\ \textcolor{comment}{/*\ \ \ \ \ \ Attention,\ il\ s'agit\ donc\ bien\ ici\ de\ la\ partie\ noyau\ !\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{include_2manux_2appelsysteme_8h_source_l00005}00005\ \textcolor{comment}{/*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{include_2manux_2appelsysteme_8h_source_l00006}00006\ \textcolor{comment}{/*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (C)\ Manu\ Chaput\ 2000-\/2021\ */}}
+\DoxyCodeLine{\Hypertarget{include_2manux_2appelsysteme_8h_source_l00007}00007\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{include_2manux_2appelsysteme_8h_source_l00008}00008\ \textcolor{preprocessor}{\#ifndef\ APPEL\_SYSTEME\_DEF}}
+\DoxyCodeLine{\Hypertarget{include_2manux_2appelsysteme_8h_source_l00009}00009\ \textcolor{preprocessor}{\#define\ APPEL\_SYSTEME\_DEF}}
+\DoxyCodeLine{\Hypertarget{include_2manux_2appelsysteme_8h_source_l00010}00010\ }
+\DoxyCodeLine{\Hypertarget{include_2manux_2appelsysteme_8h_source_l00011}00011\ \textcolor{preprocessor}{\#include\ <manux/appelsystemenum.h>}\ \ \textcolor{comment}{/*\ Les\ numéros\ des\ AS\ définis\ */}}
+\DoxyCodeLine{\Hypertarget{include_2manux_2appelsysteme_8h_source_l00012}00012\ \textcolor{preprocessor}{\#include\ <manux/types.h>}}
+\DoxyCodeLine{\Hypertarget{include_2manux_2appelsysteme_8h_source_l00013}00013\ }
+\DoxyCodeLine{\Hypertarget{include_2manux_2appelsysteme_8h_source_l00014}00014\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{include_2manux_2appelsysteme_8h_source_l00015}00015\ \textcolor{comment}{\ *\ Définition\ du\ nombre\ maximal\ d'appels\ système}}
+\DoxyCodeLine{\Hypertarget{include_2manux_2appelsysteme_8h_source_l00016}00016\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{include_2manux_2appelsysteme_8h_source_l00017}00017\ \textcolor{preprocessor}{\#ifndef\ NB\_MAX\_APPELS\_SYSTEME}}
+\DoxyCodeLine{\Hypertarget{include_2manux_2appelsysteme_8h_source_l00018}\mbox{\hyperlink{include_2manux_2appelsysteme_8h_aed080930d50d6014826e9bafa7af5b1a}{00018}}\ \textcolor{preprocessor}{\#\ \ \ define\ NB\_MAX\_APPELS\_SYSTEME\ 16}}
+\DoxyCodeLine{\Hypertarget{include_2manux_2appelsysteme_8h_source_l00019}00019\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{include_2manux_2appelsysteme_8h_source_l00020}00020\ }
+\DoxyCodeLine{\Hypertarget{include_2manux_2appelsysteme_8h_source_l00021}00021\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{include_2manux_2appelsysteme_8h_source_l00022}00022\ \textcolor{comment}{\ *\ Tableau\ des\ appels\ systeme}}
+\DoxyCodeLine{\Hypertarget{include_2manux_2appelsysteme_8h_source_l00023}00023\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{include_2manux_2appelsysteme_8h_source_l00024}00024\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{void}\ *\ \mbox{\hyperlink{include_2manux_2appelsysteme_8h_a6a3be0481ad3feffe2f40d25cb35b01f}{vecteurAppelsSysteme}}[\mbox{\hyperlink{include_2manux_2appelsysteme_8h_aed080930d50d6014826e9bafa7af5b1a}{NB\_MAX\_APPELS\_SYSTEME}}];}
+\DoxyCodeLine{\Hypertarget{include_2manux_2appelsysteme_8h_source_l00025}00025\ }
+\DoxyCodeLine{\Hypertarget{include_2manux_2appelsysteme_8h_source_l00026}00026\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{include_2manux_2appelsysteme_8h_source_l00027}00027\ \textcolor{comment}{\ *\ Type\ du\ premier\ paramètre\ de\ chaque\ appel\ système\ (dû\ au}}
+\DoxyCodeLine{\Hypertarget{include_2manux_2appelsysteme_8h_source_l00028}00028\ \textcolor{comment}{\ *\ séquencement\ des\ appels).\ WARNING\ a\ expliquer.}}
+\DoxyCodeLine{\Hypertarget{include_2manux_2appelsysteme_8h_source_l00029}00029\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{include_2manux_2appelsysteme_8h_source_l00030}\mbox{\hyperlink{struct__ParametreAS}{00030}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__ParametreAS}{\_ParametreAS}}\ \{}
+\DoxyCodeLine{\Hypertarget{include_2manux_2appelsysteme_8h_source_l00031}\mbox{\hyperlink{struct__ParametreAS_af9f0f28e81bafb4b4cae759c3f070bd0}{00031}}\ \ \ \ \mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\_t}}\ \mbox{\hyperlink{struct__ParametreAS_af9f0f28e81bafb4b4cae759c3f070bd0}{eax}};}
+\DoxyCodeLine{\Hypertarget{include_2manux_2appelsysteme_8h_source_l00032}\mbox{\hyperlink{struct__ParametreAS_ab9870d0d3fdd5629f38332ed20f4ba3a}{00032}}\ \ \ \ \mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\_t}}\ \mbox{\hyperlink{struct__ParametreAS_ab9870d0d3fdd5629f38332ed20f4ba3a}{ecx}};}
+\DoxyCodeLine{\Hypertarget{include_2manux_2appelsysteme_8h_source_l00033}\mbox{\hyperlink{struct__ParametreAS_a4e4d556ef9d81066d705d79b5b0f3b33}{00033}}\ \ \ \ \mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\_t}}\ \mbox{\hyperlink{struct__ParametreAS_a4e4d556ef9d81066d705d79b5b0f3b33}{edx}};}
+\DoxyCodeLine{\Hypertarget{include_2manux_2appelsysteme_8h_source_l00034}\mbox{\hyperlink{struct__ParametreAS_a1b3a05ef1816fc552f558cbd12fad697}{00034}}\ \ \ \ \mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\_t}}\ \mbox{\hyperlink{struct__ParametreAS_a1b3a05ef1816fc552f558cbd12fad697}{ebx}};}
+\DoxyCodeLine{\Hypertarget{include_2manux_2appelsysteme_8h_source_l00035}\mbox{\hyperlink{struct__ParametreAS_ad7320d73ce7d092fca728bf07f2cec3a}{00035}}\ \ \ \ \mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\_t}}\ \mbox{\hyperlink{struct__ParametreAS_ad7320d73ce7d092fca728bf07f2cec3a}{esp}};}
+\DoxyCodeLine{\Hypertarget{include_2manux_2appelsysteme_8h_source_l00036}\mbox{\hyperlink{struct__ParametreAS_a8d0786125834fae1808541b9c7cfd5d8}{00036}}\ \ \ \ \mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\_t}}\ \mbox{\hyperlink{struct__ParametreAS_a8d0786125834fae1808541b9c7cfd5d8}{ebp}};}
+\DoxyCodeLine{\Hypertarget{include_2manux_2appelsysteme_8h_source_l00037}\mbox{\hyperlink{struct__ParametreAS_a55dc89d82d409f3f90e943942642c987}{00037}}\ \ \ \ \mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\_t}}\ \mbox{\hyperlink{struct__ParametreAS_a55dc89d82d409f3f90e943942642c987}{esi}};}
+\DoxyCodeLine{\Hypertarget{include_2manux_2appelsysteme_8h_source_l00038}\mbox{\hyperlink{struct__ParametreAS_a7e667b07699a25e937a2b650de8e0ee1}{00038}}\ \ \ \ \mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\_t}}\ \mbox{\hyperlink{struct__ParametreAS_a7e667b07699a25e937a2b650de8e0ee1}{edi}};}
+\DoxyCodeLine{\Hypertarget{include_2manux_2appelsysteme_8h_source_l00039}\mbox{\hyperlink{struct__ParametreAS_a7fd99f15b904f7662c9424706ef1316a}{00039}}\ \ \ \ \mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\_t}}\ \mbox{\hyperlink{struct__ParametreAS_a7fd99f15b904f7662c9424706ef1316a}{adresseRetourInterruption}};\ \textcolor{comment}{//\ retour\ DE\ l'IT}}
+\DoxyCodeLine{\Hypertarget{include_2manux_2appelsysteme_8h_source_l00040}\mbox{\hyperlink{struct__ParametreAS_a9b2ceeac57d7e387d73c8f4f5e57c9ca}{00040}}\ \ \ \ \mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\_t}}\ \mbox{\hyperlink{struct__ParametreAS_a9b2ceeac57d7e387d73c8f4f5e57c9ca}{eflags}};}
+\DoxyCodeLine{\Hypertarget{include_2manux_2appelsysteme_8h_source_l00041}\mbox{\hyperlink{struct__ParametreAS_a867bfcad36c71769807d38b1952302c0}{00041}}\ \ \ \ \mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\_t}}\ \mbox{\hyperlink{struct__ParametreAS_a867bfcad36c71769807d38b1952302c0}{csretour}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ retour\ DE\ l'interface}}
+\DoxyCodeLine{\Hypertarget{include_2manux_2appelsysteme_8h_source_l00042}\mbox{\hyperlink{struct__ParametreAS_a120161cd780b8084a4bee922f7cc06cb}{00042}}\ \ \ \ \mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\_t}}\ \mbox{\hyperlink{struct__ParametreAS_a120161cd780b8084a4bee922f7cc06cb}{adresseRetourInterface}};\ \ \ \ \textcolor{comment}{//\ retour\ DE\ l'interface}}
+\DoxyCodeLine{\Hypertarget{include_2manux_2appelsysteme_8h_source_l00043}\mbox{\hyperlink{include_2manux_2appelsysteme_8h_a9c54ff02dcc0e0b383c91a12a5e9c992}{00043}}\ \}\ \mbox{\hyperlink{include_2manux_2appelsysteme_8h_a9c54ff02dcc0e0b383c91a12a5e9c992}{ParametreAS}};}
+\DoxyCodeLine{\Hypertarget{include_2manux_2appelsysteme_8h_source_l00044}00044\ }
+\DoxyCodeLine{\Hypertarget{include_2manux_2appelsysteme_8h_source_l00045}00045\ }
+\DoxyCodeLine{\Hypertarget{include_2manux_2appelsysteme_8h_source_l00046}00046\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{include_2manux_2appelsysteme_8h_ab2afb7ddcc5b7c7d47eb2f88c1dc0282}{definirAppelSysteme}}(\textcolor{keywordtype}{int}\ num,\ \textcolor{keywordtype}{void}\ *\ appel);}
+\DoxyCodeLine{\Hypertarget{include_2manux_2appelsysteme_8h_source_l00047}00047\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{include_2manux_2appelsysteme_8h_source_l00048}00048\ \textcolor{comment}{\ *\ Définition\ de\ la\ fonction\ appel\ comme\ appel\ système\ de\ numéro\ num.}}
+\DoxyCodeLine{\Hypertarget{include_2manux_2appelsysteme_8h_source_l00049}00049\ \textcolor{comment}{\ *\ Code\ de\ retour:}}
+\DoxyCodeLine{\Hypertarget{include_2manux_2appelsysteme_8h_source_l00050}00050\ \textcolor{comment}{\ *\ \ \ \ 0\ \ \ \ \ \ \ \ \ succés}}
+\DoxyCodeLine{\Hypertarget{include_2manux_2appelsysteme_8h_source_l00051}00051\ \textcolor{comment}{\ *\ \ \ \ EINVAL\ \ \ \ num\ n'est\ pas\ dans\ l'intervalle\ correct}}
+\DoxyCodeLine{\Hypertarget{include_2manux_2appelsysteme_8h_source_l00052}00052\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{include_2manux_2appelsysteme_8h_source_l00053}00053\ }
+\DoxyCodeLine{\Hypertarget{include_2manux_2appelsysteme_8h_source_l00054}00054\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{include_2manux_2appelsysteme_8h_ae9c459f3384b085e316b0d43a308d69b}{initialiserAppelsSysteme}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{include_2manux_2appelsysteme_8h_source_l00055}00055\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{include_2manux_2appelsysteme_8h_source_l00056}00056\ \textcolor{comment}{\ *\ Initialisation\ des\ appels\ systèmes\ prédéfinis.}}
+\DoxyCodeLine{\Hypertarget{include_2manux_2appelsysteme_8h_source_l00057}00057\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{include_2manux_2appelsysteme_8h_source_l00058}00058\ }
+\DoxyCodeLine{\Hypertarget{include_2manux_2appelsysteme_8h_source_l00062}00062\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{include_2manux_2appelsysteme_8h_a8690365ab42febd44ff8842b106fd8c7}{entrerAppelSysteme}}(\mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\_t}}\ num);}
+\DoxyCodeLine{\Hypertarget{include_2manux_2appelsysteme_8h_source_l00063}00063\ }
+\DoxyCodeLine{\Hypertarget{include_2manux_2appelsysteme_8h_source_l00064}00064\ }
+\DoxyCodeLine{\Hypertarget{include_2manux_2appelsysteme_8h_source_l00068}00068\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{include_2manux_2appelsysteme_8h_ae628937cde201d4c003072368703ae3c}{sortirAppelSysteme}}(\mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\_t}}\ num);}
+\DoxyCodeLine{\Hypertarget{include_2manux_2appelsysteme_8h_source_l00069}00069\ }
+\DoxyCodeLine{\Hypertarget{include_2manux_2appelsysteme_8h_source_l00070}00070\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

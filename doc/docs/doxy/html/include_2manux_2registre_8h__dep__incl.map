@@ -1,0 +1,17 @@
+<map id="/home/manu/PROGRAMMATION/C/ManuX/include/manux/registre.h" name="/home/manu/PROGRAMMATION/C/ManuX/include/manux/registre.h">
+<area shape="rect" id="Node000001" title="Gestion des registres (outils permettant de stocker des paramètres)" alt="" coords="760,5,987,60"/>
+<area shape="rect" id="Node000002" href="$registre_8c.html" title="Mise en oeuvre de la notion de registre permettant de gérer des paramètres de façon structurée." alt="" coords="5,108,232,148"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="746,50,244,111,232,112,232,107,244,105,746,45"/>
+<area shape="rect" id="Node000003" href="$bootloader_8c.html" title="Gestion de l&#39;interfaçage avec le bootloader." alt="" coords="256,108,483,148"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="747,60,472,111,471,105,746,55"/>
+<area shape="rect" id="Node000004" href="$debug_8c.html" title="Les outils de débogage." alt="" coords="507,108,733,148"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="790,67,672,110,670,105,788,62"/>
+<area shape="rect" id="Node000005" href="$main-bootreg_8c.html" title=": Comment peupler le registre en fonction des paramètres de la ligne de commande obtenus par le bootl..." alt="" coords="758,108,989,148"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="876,74,876,108,871,108,871,74"/>
+<area shape="rect" id="Node000006" href="$main-debmaskdyn-reg_8c.html" title=": Comment utiliser les options du bootloader pour modifier les masques de débogage via le registre." alt="" coords="1013,108,1304,148"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="967,62,1102,105,1100,111,966,67"/>
+<area shape="rect" id="Node000007" href="$main-registre_8c.html" title=":" alt="" coords="1329,108,1559,148"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="1001,52,1329,105,1328,111,1000,57"/>
+<area shape="rect" id="Node000008" href="$main_8c.html" title=": Un exemple de début de noyau." alt="" coords="1584,108,1811,148"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="1001,43,1264,70,1572,105,1584,107,1584,112,1572,111,1264,75,1000,48"/>
+</map>

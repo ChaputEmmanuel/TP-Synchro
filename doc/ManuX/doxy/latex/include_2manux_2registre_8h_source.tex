@@ -1,0 +1,40 @@
+\doxysection{registre.\+h}
+\hypertarget{include_2manux_2registre_8h_source}{}\label{include_2manux_2registre_8h_source}\index{/home/manu/PROGRAMMATION/C/ManuX/include/manux/registre.h@{/home/manu/PROGRAMMATION/C/ManuX/include/manux/registre.h}}
+\mbox{\hyperlink{include_2manux_2registre_8h}{Aller à la documentation de ce fichier.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{include_2manux_2registre_8h_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{include_2manux_2registre_8h_source_l00070}00070\ \textcolor{preprocessor}{\#ifndef\ REGISTRE\_DEF}}
+\DoxyCodeLine{\Hypertarget{include_2manux_2registre_8h_source_l00071}00071\ \textcolor{preprocessor}{\#define\ REGISTRE\_DEF}}
+\DoxyCodeLine{\Hypertarget{include_2manux_2registre_8h_source_l00072}00072\ }
+\DoxyCodeLine{\Hypertarget{include_2manux_2registre_8h_source_l00073}00073\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{include_2manux_2stdarg_8h}{manux/stdarg.h}}>}}
+\DoxyCodeLine{\Hypertarget{include_2manux_2registre_8h_source_l00074}00074\ \textcolor{preprocessor}{\#include\ <manux/types.h>}\ \ \ \textcolor{comment}{//\ uint32\_t}}
+\DoxyCodeLine{\Hypertarget{include_2manux_2registre_8h_source_l00075}00075\ }
+\DoxyCodeLine{\Hypertarget{include_2manux_2registre_8h_source_l00079}\mbox{\hyperlink{include_2manux_2registre_8h_a595908c85440ba4ee2f66e3c4fe8af66}{00079}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__registre}{\_registre}}\ \mbox{\hyperlink{struct__registre}{registre}};}
+\DoxyCodeLine{\Hypertarget{include_2manux_2registre_8h_source_l00080}00080\ }
+\DoxyCodeLine{\Hypertarget{include_2manux_2registre_8h_source_l00084}\mbox{\hyperlink{include_2manux_2registre_8h_a95437a522404deb16971b572adf51cfd}{00084}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__parametre}{\_parametre}}\ \mbox{\hyperlink{struct__parametre}{parametre}};}
+\DoxyCodeLine{\Hypertarget{include_2manux_2registre_8h_source_l00085}00085\ }
+\DoxyCodeLine{\Hypertarget{include_2manux_2registre_8h_source_l00089}\mbox{\hyperlink{include_2manux_2registre_8h_afd4880d0c171af4503c438127130d952}{00089}}\ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}}\ (*\ \mbox{\hyperlink{include_2manux_2registre_8h_afd4880d0c171af4503c438127130d952}{registreMiseAJour}})\ (\textcolor{keywordtype}{void}\ *,\ \textcolor{keywordtype}{char}\ *)\ ;}
+\DoxyCodeLine{\Hypertarget{include_2manux_2registre_8h_source_l00090}00090\ }
+\DoxyCodeLine{\Hypertarget{include_2manux_2registre_8h_source_l00094}00094\ \mbox{\hyperlink{struct__registre}{registre}}\ *\ \mbox{\hyperlink{include_2manux_2registre_8h_ada651fa62bac9f50a35bdd1908f8e06e}{registreCreer}}(\textcolor{keywordtype}{char}\ *\ \mbox{\hyperlink{struct__parametre_aa77922b04627a8c0323b78baeec9a67a}{nom}});}
+\DoxyCodeLine{\Hypertarget{include_2manux_2registre_8h_source_l00095}00095\ }
+\DoxyCodeLine{\Hypertarget{include_2manux_2registre_8h_source_l00101}00101\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{include_2manux_2registre_8h_af2366204c72efe94513974eae9daa194}{registreAffecterParametre}}(\mbox{\hyperlink{struct__registre}{registre}}\ *\ reg,}
+\DoxyCodeLine{\Hypertarget{include_2manux_2registre_8h_source_l00102}00102\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{char}\ *\ \mbox{\hyperlink{struct__parametre_a2ce1a66027872ecb698cab62ff30a800}{valeur}},}
+\DoxyCodeLine{\Hypertarget{include_2manux_2registre_8h_source_l00103}00103\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ *\ \mbox{\hyperlink{struct__parametre_a622eef42d3625804e61d9f185f58acfe}{prive}},}
+\DoxyCodeLine{\Hypertarget{include_2manux_2registre_8h_source_l00104}00104\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{include_2manux_2registre_8h_afd4880d0c171af4503c438127130d952}{registreMiseAJour}}\ \mbox{\hyperlink{struct__parametre_ac53328d96c17ceb1f42a54989599bb5b}{miseAJour}},}
+\DoxyCodeLine{\Hypertarget{include_2manux_2registre_8h_source_l00105}00105\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ...);}
+\DoxyCodeLine{\Hypertarget{include_2manux_2registre_8h_source_l00106}00106\ }
+\DoxyCodeLine{\Hypertarget{include_2manux_2registre_8h_source_l00110}00110\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{include_2manux_2registre_8h_a63129c6b1232b7c3a5b4e21103ef0d2c}{registreSystemeInitialiser}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{include_2manux_2registre_8h_source_l00111}00111\ }
+\DoxyCodeLine{\Hypertarget{include_2manux_2registre_8h_source_l00115}00115\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{include_2manux_2registre_8h_af63f1d827d195edd2d25338101785bf2}{registreSystemeAffecterParametre}}(\textcolor{keywordtype}{char}\ *\ \mbox{\hyperlink{struct__parametre_a2ce1a66027872ecb698cab62ff30a800}{valeur}},}
+\DoxyCodeLine{\Hypertarget{include_2manux_2registre_8h_source_l00116}00116\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ *\ \mbox{\hyperlink{struct__parametre_a622eef42d3625804e61d9f185f58acfe}{prive}},}
+\DoxyCodeLine{\Hypertarget{include_2manux_2registre_8h_source_l00117}00117\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{include_2manux_2registre_8h_afd4880d0c171af4503c438127130d952}{registreMiseAJour}}\ \mbox{\hyperlink{struct__parametre_ac53328d96c17ceb1f42a54989599bb5b}{miseAJour}},}
+\DoxyCodeLine{\Hypertarget{include_2manux_2registre_8h_source_l00118}00118\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ...);}
+\DoxyCodeLine{\Hypertarget{include_2manux_2registre_8h_source_l00119}00119\ }
+\DoxyCodeLine{\Hypertarget{include_2manux_2registre_8h_source_l00126}00126\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{include_2manux_2registre_8h_aac56ec2b1aa7909b6b41aedc1db7313f}{registreSystemeAjouterC}}(\textcolor{keywordtype}{char}\ *\ chaine);}
+\DoxyCodeLine{\Hypertarget{include_2manux_2registre_8h_source_l00127}00127\ }
+\DoxyCodeLine{\Hypertarget{include_2manux_2registre_8h_source_l00131}00131\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{include_2manux_2registre_8h_a6252c3aafdbed147bac05b3556453ac7}{registreSystemeAfficher}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{include_2manux_2registre_8h_source_l00132}00132\ }
+\DoxyCodeLine{\Hypertarget{include_2manux_2registre_8h_source_l00133}00133\ \textcolor{preprocessor}{\#endif\ \ \ }\textcolor{comment}{//\ REGISTRE}}
+\DoxyCodeLine{\Hypertarget{include_2manux_2registre_8h_source_l00134}00134\ }
+
+\end{DoxyCode}

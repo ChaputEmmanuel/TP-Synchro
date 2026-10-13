@@ -1,0 +1,983 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>My Project: Référence du fichier /home/manu/PROGRAMMATION/C/ManuX/include/manux/virtio.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">My Project
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_7ae9ae23548caaa7aeb1f148c6e00073.html">manux</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#define-members">Macros</a> &#124;
+<a href="#func-members">Fonctions</a> &#124;
+<a href="#var-members">Variables</a>  </div>
+  <div class="headertitle"><div class="title">Référence du fichier virtio.h</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &lt;<a class="el" href="manux_2pci_8h_source.html">manux/pci.h</a>&gt;</code><br />
+<code>#include &lt;manux/types.h&gt;</code><br />
+</div><div class="textblock"><div class="dynheader">
+Graphe des dépendances par inclusion de virtio.h:</div>
+<div class="dyncontent">
+<div class="center"><img src="manux_2virtio_8h__incl.png" border="0" usemap="#a_2home_2manu_2PROGRAMMATION_2C_2ManuX_2include_2manux_2virtio_8h" alt=""/></div>
+<map name="a_2home_2manu_2PROGRAMMATION_2C_2ManuX_2include_2manux_2virtio_8h" id="a_2home_2manu_2PROGRAMMATION_2C_2ManuX_2include_2manux_2virtio_8h">
+<area shape="rect" title=" " alt="" coords="53,5,280,60"/>
+<area shape="rect" href="manux_2pci_8h.html" title=" " alt="" coords="71,108,174,133"/>
+<area shape="poly" title=" " alt="" coords="156,61,137,97,133,94,151,59"/>
+<area shape="rect" title=" " alt="" coords="153,181,271,207"/>
+<area shape="poly" title=" " alt="" coords="177,59,208,167,202,169,172,61"/>
+<area shape="rect" title=" " alt="" coords="5,181,128,207"/>
+<area shape="poly" title=" " alt="" coords="116,135,86,172,82,169,111,132"/>
+<area shape="poly" title=" " alt="" coords="139,131,188,170,185,175,135,135"/>
+</map>
+</div>
+</div><div class="textblock"><div class="dynheader">
+Ce graphe montre quels fichiers incluent directement ou indirectement ce fichier :</div>
+<div class="dyncontent">
+<div class="center"><img src="manux_2virtio_8h__dep__incl.png" border="0" usemap="#a_2home_2manu_2PROGRAMMATION_2C_2ManuX_2include_2manux_2virtio_8hdep" alt=""/></div>
+<map name="a_2home_2manu_2PROGRAMMATION_2C_2ManuX_2include_2manux_2virtio_8hdep" id="a_2home_2manu_2PROGRAMMATION_2C_2ManuX_2include_2manux_2virtio_8hdep">
+<area shape="rect" title=" " alt="" coords="793,5,1019,60"/>
+<area shape="rect" href="virtio-console_8h.html" title="Définition des éléments de base des consoles virtio." alt="" coords="406,108,633,163"/>
+<area shape="poly" title=" " alt="" coords="793,66,621,111,619,105,792,61"/>
+<area shape="rect" href="include_2manux_2virtio-net_8h.html" title=" " alt="" coords="793,108,1019,163"/>
+<area shape="poly" title=" " alt="" coords="909,74,909,108,903,108,903,74"/>
+<area shape="rect" href="virtio_8c.html" title=" " alt="" coords="1043,115,1270,155"/>
+<area shape="poly" title=" " alt="" coords="985,63,1111,113,1109,118,983,67"/>
+<area shape="rect" href="main-virtio-cons_8c.html" title=": Un exemple de début de noyau." alt="" coords="5,218,255,258"/>
+<area shape="poly" title=" " alt="" coords="405,169,204,220,202,215,404,164"/>
+<area shape="rect" href="main-virtio-journal_8c.html" title=" " alt="" coords="279,211,506,265"/>
+<area shape="poly" title=" " alt="" coords="477,174,427,213,424,208,474,169"/>
+<area shape="rect" href="virtio-console_8c.html" title="Implantation de la console de type virtio." alt="" coords="530,218,762,258"/>
+<area shape="poly" title=" " alt="" coords="565,169,624,216,620,220,562,173"/>
+<area shape="rect" href="main-virtio-net_8c.html" title=" " alt="" coords="786,218,1026,258"/>
+<area shape="poly" title=" " alt="" coords="909,177,909,218,903,218,903,177"/>
+<area shape="rect" href="virtio-net_8c.html" title=" " alt="" coords="1050,218,1277,258"/>
+<area shape="poly" title=" " alt="" coords="987,165,1116,215,1114,220,985,170"/>
+</map>
+</div>
+</div>
+<p><a href="manux_2virtio_8h_source.html">Aller au code source de ce fichier.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:a8115952f83de7ee4a2e78a68b9768ae4" id="r_a8115952f83de7ee4a2e78a68b9768ae4"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="manux_2virtio_8h.html#a8115952f83de7ee4a2e78a68b9768ae4">MANUX_VIRTIO_NB_MAX_FILES</a>&#160;&#160;&#160;3</td></tr>
+<tr class="separator:a8115952f83de7ee4a2e78a68b9768ae4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abd1fd54d3752cd6b4048adf26185a9e2" id="r_abd1fd54d3752cd6b4048adf26185a9e2"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="manux_2virtio_8h.html#abd1fd54d3752cd6b4048adf26185a9e2">PCI_VENDEUR_VIRTIO</a>&#160;&#160;&#160;0x1AF4</td></tr>
+<tr class="separator:abd1fd54d3752cd6b4048adf26185a9e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1f5bb63742f93f3e024d029e969c9ebc" id="r_a1f5bb63742f93f3e024d029e969c9ebc"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="manux_2virtio_8h.html#a1f5bb63742f93f3e024d029e969c9ebc">PCI_PERIPHERIQUE_VIRTIO_NET</a>&#160;&#160;&#160;0x1000</td></tr>
+<tr class="separator:a1f5bb63742f93f3e024d029e969c9ebc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2d5c8760e871b37dd666c6ffc7f73beb" id="r_a2d5c8760e871b37dd666c6ffc7f73beb"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="manux_2virtio_8h.html#a2d5c8760e871b37dd666c6ffc7f73beb">PCI_PERIPHERIQUE_VIRTIO_CONSOLE</a>&#160;&#160;&#160;0x1003</td></tr>
+<tr class="separator:a2d5c8760e871b37dd666c6ffc7f73beb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0bf8bb3f47d683ef24e98be8cc181507" id="r_a0bf8bb3f47d683ef24e98be8cc181507"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="manux_2virtio_8h.html#a0bf8bb3f47d683ef24e98be8cc181507">VIRTIO_RESET</a>&#160;&#160;&#160;0x00</td></tr>
+<tr class="separator:a0bf8bb3f47d683ef24e98be8cc181507"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0ad6c59930e1ce2700aa25d22f5830c0" id="r_a0ad6c59930e1ce2700aa25d22f5830c0"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="manux_2virtio_8h.html#a0ad6c59930e1ce2700aa25d22f5830c0">VIRTIO_ACKNOWLEDGE</a>&#160;&#160;&#160;0x01</td></tr>
+<tr class="separator:a0ad6c59930e1ce2700aa25d22f5830c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4fb4cdeef8eaa5100abc25654b7c0bf9" id="r_a4fb4cdeef8eaa5100abc25654b7c0bf9"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="manux_2virtio_8h.html#a4fb4cdeef8eaa5100abc25654b7c0bf9">VIRTIO_DRIVER</a>&#160;&#160;&#160;0x02</td></tr>
+<tr class="separator:a4fb4cdeef8eaa5100abc25654b7c0bf9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a76bf5da5c683247105cff72421a401aa" id="r_a76bf5da5c683247105cff72421a401aa"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="manux_2virtio_8h.html#a76bf5da5c683247105cff72421a401aa">VIRTIO_DRIVER_OK</a>&#160;&#160;&#160;0x04</td></tr>
+<tr class="separator:a76bf5da5c683247105cff72421a401aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adf8974dcda7f78e14c7d2095fe673670" id="r_adf8974dcda7f78e14c7d2095fe673670"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="manux_2virtio_8h.html#adf8974dcda7f78e14c7d2095fe673670">VIRTIO_FEATURES_OK</a>&#160;&#160;&#160;0x08</td></tr>
+<tr class="separator:adf8974dcda7f78e14c7d2095fe673670"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af2be61c8bf06c0ccb2981edc68b550c8" id="r_af2be61c8bf06c0ccb2981edc68b550c8"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="manux_2virtio_8h.html#af2be61c8bf06c0ccb2981edc68b550c8">VIRTIO_F_RING_INDIRECT_DESC</a>&#160;&#160;&#160;0x10000000</td></tr>
+<tr class="separator:af2be61c8bf06c0ccb2981edc68b550c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab38199ceadff677543608d047faef801" id="r_ab38199ceadff677543608d047faef801"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="manux_2virtio_8h.html#ab38199ceadff677543608d047faef801">VIRTIO_F_RING_EVENT_IDX</a>&#160;&#160;&#160;0x20000000</td></tr>
+<tr class="separator:ab38199ceadff677543608d047faef801"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a18a8ea706e6bf42f254942310ce22018" id="r_a18a8ea706e6bf42f254942310ce22018"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="manux_2virtio_8h.html#a18a8ea706e6bf42f254942310ce22018">VIRTIO_HIST_CAPA_EQUIP</a>&#160;&#160;&#160;0x00</td></tr>
+<tr class="separator:a18a8ea706e6bf42f254942310ce22018"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a02a76460dc0eda80bd6458313c57349c" id="r_a02a76460dc0eda80bd6458313c57349c"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="manux_2virtio_8h.html#a02a76460dc0eda80bd6458313c57349c">VIRTIO_HIST_CAPA_PILOTE</a>&#160;&#160;&#160;0x04</td></tr>
+<tr class="separator:a02a76460dc0eda80bd6458313c57349c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab95cde33094c871d2a43a107932583da" id="r_ab95cde33094c871d2a43a107932583da"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="manux_2virtio_8h.html#ab95cde33094c871d2a43a107932583da">VIRTIO_HIST_ADDRESS_FILE</a>&#160;&#160;&#160;0x08</td></tr>
+<tr class="separator:ab95cde33094c871d2a43a107932583da"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4650a29bab89174d53d283b2f655abba" id="r_a4650a29bab89174d53d283b2f655abba"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="manux_2virtio_8h.html#a4650a29bab89174d53d283b2f655abba">VIRTIO_HIST_TAILLE_FILE</a>&#160;&#160;&#160;0x0C</td></tr>
+<tr class="separator:a4650a29bab89174d53d283b2f655abba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4892b6f194bc60cffd9fd6122d10f9ba" id="r_a4892b6f194bc60cffd9fd6122d10f9ba"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="manux_2virtio_8h.html#a4892b6f194bc60cffd9fd6122d10f9ba">VIRTIO_HIST_FILE_SEL</a>&#160;&#160;&#160;0x0E</td></tr>
+<tr class="separator:a4892b6f194bc60cffd9fd6122d10f9ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0dd520c4c9ecbac4e54726cec15ac922" id="r_a0dd520c4c9ecbac4e54726cec15ac922"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="manux_2virtio_8h.html#a0dd520c4c9ecbac4e54726cec15ac922">VIRTIO_HIST_FILE_NOTIF</a>&#160;&#160;&#160;0x10</td></tr>
+<tr class="separator:a0dd520c4c9ecbac4e54726cec15ac922"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a64a73d12ded9bb64f4d3b759a36394fc" id="r_a64a73d12ded9bb64f4d3b759a36394fc"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="manux_2virtio_8h.html#a64a73d12ded9bb64f4d3b759a36394fc">VIRTIO_HIST_ETAT</a>&#160;&#160;&#160;0x12</td></tr>
+<tr class="separator:a64a73d12ded9bb64f4d3b759a36394fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adc3d7827e53dc913f0706947a110b300" id="r_adc3d7827e53dc913f0706947a110b300"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="manux_2virtio_8h.html#adc3d7827e53dc913f0706947a110b300">VIRTIO_HIST_ISR</a>&#160;&#160;&#160;0x13</td></tr>
+<tr class="separator:adc3d7827e53dc913f0706947a110b300"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac98030127cfdd5b7e53a4756a38d3e28" id="r_ac98030127cfdd5b7e53a4756a38d3e28"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="manux_2virtio_8h.html#ac98030127cfdd5b7e53a4756a38d3e28">VRING_DESC_F_NEXT</a>&#160;&#160;&#160;1</td></tr>
+<tr class="separator:ac98030127cfdd5b7e53a4756a38d3e28"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a74fe2dbfe07fd3d386e87e7e7a921691" id="r_a74fe2dbfe07fd3d386e87e7e7a921691"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="manux_2virtio_8h.html#a74fe2dbfe07fd3d386e87e7e7a921691">VRING_DESC_F_WRITE</a>&#160;&#160;&#160;2</td></tr>
+<tr class="separator:a74fe2dbfe07fd3d386e87e7e7a921691"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Fonctions</h2></td></tr>
+<tr class="memitem:ac163b2e97d1947206a39de24bb61f6cd" id="r_ac163b2e97d1947206a39de24bb61f6cd"><td class="memItemLeft" align="right" valign="top">struct&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="manux_2virtio_8h.html#ac163b2e97d1947206a39de24bb61f6cd">__attribute__</a> ((__packed__)) _VirtioDescripteurBuffer</td></tr>
+<tr class="separator:ac163b2e97d1947206a39de24bb61f6cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4c591d0f2cd08e9d586138bbf25ef2d3" id="r_a4c591d0f2cd08e9d586138bbf25ef2d3"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="manux_2virtio_8h.html#a4c591d0f2cd08e9d586138bbf25ef2d3">virtioInitPeripheriquePCI</a> (<a class="el" href="manux_2virtio_8h.html#ae5ce3884f555c701f9f8099645f09fe5">VirtioPeripherique</a> *vp, int PCINum, <a class="el" href="include_2manux_2types_8h.html#a06896e8c53f721507066c079052171f8">uint32_t</a> masque)</td></tr>
+<tr class="separator:a4c591d0f2cd08e9d586138bbf25ef2d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a23087510e5490671c78fb8e7a99bb208" id="r_a23087510e5490671c78fb8e7a99bb208"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="manux_2virtio_8h.html#a23087510e5490671c78fb8e7a99bb208">virtioFournirBuffer</a> (<a class="el" href="manux_2virtio_8h.html#ae5ce3884f555c701f9f8099645f09fe5">VirtioPeripherique</a> *vp, <a class="el" href="include_2manux_2types_8h.html#a273cf69d639a59973b6019625df33e30">uint16_t</a> id, <a class="el" href="include_2manux_2interruptions_8h.html#a4fda31edc92f8ccd48b6f4bb50f2e7e1">void</a> *bu, int lg, <a class="el" href="include_2manux_2types_8h.html#a273cf69d639a59973b6019625df33e30">uint16_t</a> fl)</td></tr>
+<tr class="memdesc:a23087510e5490671c78fb8e7a99bb208"><td class="mdescLeft">&#160;</td><td class="mdescRight">: Fournir un buffer au périphérique.  <br /></td></tr>
+<tr class="separator:a23087510e5490671c78fb8e7a99bb208"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa3eee079eb5936797e7aea41dddf9f8f" id="r_aa3eee079eb5936797e7aea41dddf9f8f"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="manux_2virtio_8h.html#aa3eee079eb5936797e7aea41dddf9f8f">virtioFournirBuffers</a> (<a class="el" href="manux_2virtio_8h.html#ae5ce3884f555c701f9f8099645f09fe5">VirtioPeripherique</a> *vp, <a class="el" href="include_2manux_2types_8h.html#a273cf69d639a59973b6019625df33e30">uint16_t</a> id, <a class="el" href="include_2manux_2interruptions_8h.html#a4fda31edc92f8ccd48b6f4bb50f2e7e1">void</a> *bu[], int lg[], int nb, <a class="el" href="include_2manux_2types_8h.html#a273cf69d639a59973b6019625df33e30">uint16_t</a> fl)</td></tr>
+<tr class="memdesc:aa3eee079eb5936797e7aea41dddf9f8f"><td class="mdescLeft">&#160;</td><td class="mdescRight">: Fournir un(e chaine de) buffer(s) au périphérique.  <br /></td></tr>
+<tr class="separator:aa3eee079eb5936797e7aea41dddf9f8f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aad0abebf096dcffb576a391ef8d1ec09" id="r_aad0abebf096dcffb576a391ef8d1ec09"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="manux_2virtio_8h.html#aad0abebf096dcffb576a391ef8d1ec09">virtioFileRecupererBuffers</a> (<a class="el" href="manux_2virtio_8h.html#a3f078bcc0894ca39b56f2af3bce4be7f">VirtioFileVirtuelle</a> *fv, <a class="el" href="include_2manux_2interruptions_8h.html#a4fda31edc92f8ccd48b6f4bb50f2e7e1">void</a> *bu[], int lg[], int nb)</td></tr>
+<tr class="memdesc:aad0abebf096dcffb576a391ef8d1ec09"><td class="mdescLeft">&#160;</td><td class="mdescRight">on va récupérer des buffers  <br /></td></tr>
+<tr class="separator:aad0abebf096dcffb576a391ef8d1ec09"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a519d7149faa9d7fce1d52e67b6e7f342" id="r_a519d7149faa9d7fce1d52e67b6e7f342"><td class="memItemLeft" align="right" valign="top"><a class="el" href="include_2manux_2interruptions_8h.html#a4fda31edc92f8ccd48b6f4bb50f2e7e1">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="manux_2virtio_8h.html#a519d7149faa9d7fce1d52e67b6e7f342">virtioFileInterdireInterruption</a> (<a class="el" href="manux_2virtio_8h.html#a3f078bcc0894ca39b56f2af3bce4be7f">VirtioFileVirtuelle</a> *fv)</td></tr>
+<tr class="separator:a519d7149faa9d7fce1d52e67b6e7f342"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a463360d60781bf28d8d47ea1a8e7e496" id="r_a463360d60781bf28d8d47ea1a8e7e496"><td class="memItemLeft" align="right" valign="top"><a class="el" href="include_2manux_2interruptions_8h.html#a4fda31edc92f8ccd48b6f4bb50f2e7e1">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="manux_2virtio_8h.html#a463360d60781bf28d8d47ea1a8e7e496">virtioFileAutoriserInterruption</a> (<a class="el" href="manux_2virtio_8h.html#a3f078bcc0894ca39b56f2af3bce4be7f">VirtioFileVirtuelle</a> *fv)</td></tr>
+<tr class="separator:a463360d60781bf28d8d47ea1a8e7e496"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:a127ee3bd259d3fe2f28ae79dc92d5c8e" id="r_a127ee3bd259d3fe2f28ae79dc92d5c8e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="manux_2virtio_8h.html#a127ee3bd259d3fe2f28ae79dc92d5c8e">VirtioDescripteurBuffer</a></td></tr>
+<tr class="separator:a127ee3bd259d3fe2f28ae79dc92d5c8e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac5fff7fd3b85f66c9af5b1513d8dd48a" id="r_ac5fff7fd3b85f66c9af5b1513d8dd48a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="manux_2virtio_8h.html#ac5fff7fd3b85f66c9af5b1513d8dd48a">VirtioBufferDisponible</a></td></tr>
+<tr class="separator:ac5fff7fd3b85f66c9af5b1513d8dd48a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a28361e3cba02dc1562f91a82929e4dbc" id="r_a28361e3cba02dc1562f91a82929e4dbc"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="manux_2virtio_8h.html#a28361e3cba02dc1562f91a82929e4dbc">VirtioElementUtilise</a></td></tr>
+<tr class="separator:a28361e3cba02dc1562f91a82929e4dbc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7dd7aeaced1fdc2450b3ba514603b4d0" id="r_a7dd7aeaced1fdc2450b3ba514603b4d0"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="manux_2virtio_8h.html#a7dd7aeaced1fdc2450b3ba514603b4d0">VirtioBufferUtilise</a></td></tr>
+<tr class="separator:a7dd7aeaced1fdc2450b3ba514603b4d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3f078bcc0894ca39b56f2af3bce4be7f" id="r_a3f078bcc0894ca39b56f2af3bce4be7f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="manux_2virtio_8h.html#a3f078bcc0894ca39b56f2af3bce4be7f">VirtioFileVirtuelle</a></td></tr>
+<tr class="separator:a3f078bcc0894ca39b56f2af3bce4be7f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae5ce3884f555c701f9f8099645f09fe5" id="r_ae5ce3884f555c701f9f8099645f09fe5"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="manux_2virtio_8h.html#ae5ce3884f555c701f9f8099645f09fe5">VirtioPeripherique</a></td></tr>
+<tr class="separator:ae5ce3884f555c701f9f8099645f09fe5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
+<div class="textblock"><p>WARNING : les fonctions fournirBuffers et recupererBuffers sont à revoir. A priori en l'état, elles devraient fonctionner vu l'usage que j'en fais. Mais je ne cherche pas à savoir quels descripteurs de buffers sont libres, juste combien sont libres, et je les utilise en round robin. On peut espérer qu'ils soient consommés et rendu dans l'ordre dans lequel ils sont fournis, donc ça passe. Mais il serait plus prudent de mettre en place une liste des descripteurs libres (en plus c'est super simple).</p>
+<p>WARNING : je voudrais mettre toutes les définitions de types dans le .c, mais le soucis c'est qu'elles doivent ensuite être utilisées via des pointeurs (cf le premier champs de virtioReseauPeriph) et comme pour le moment je n'ai pas de malloc, ... </p>
+
+<p class="definition">Définition dans le fichier <a class="el" href="manux_2virtio_8h_source.html">virtio.h</a>.</p>
+</div><h2 class="groupheader">Documentation des macros</h2>
+<a id="a8115952f83de7ee4a2e78a68b9768ae4" name="a8115952f83de7ee4a2e78a68b9768ae4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8115952f83de7ee4a2e78a68b9768ae4">&#9670;&#160;</a></span>MANUX_VIRTIO_NB_MAX_FILES</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define MANUX_VIRTIO_NB_MAX_FILES&#160;&#160;&#160;3</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Toujours pour éviter de jouer avec des structures dynamiques, nous allons limiter le nombre de files virtuelles de chaque équipement de type virtio. Tant qu'on ne fait que des périphériques réseau, on n'a besoin que de deux files, ... </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="manux_2virtio_8h_source.html#l00032">32</a> du fichier <a class="el" href="manux_2virtio_8h_source.html">virtio.h</a>.</p>
+
+</div>
+</div>
+<a id="a2d5c8760e871b37dd666c6ffc7f73beb" name="a2d5c8760e871b37dd666c6ffc7f73beb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2d5c8760e871b37dd666c6ffc7f73beb">&#9670;&#160;</a></span>PCI_PERIPHERIQUE_VIRTIO_CONSOLE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define PCI_PERIPHERIQUE_VIRTIO_CONSOLE&#160;&#160;&#160;0x1003</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="manux_2virtio_8h_source.html#l00040">40</a> du fichier <a class="el" href="manux_2virtio_8h_source.html">virtio.h</a>.</p>
+
+</div>
+</div>
+<a id="a1f5bb63742f93f3e024d029e969c9ebc" name="a1f5bb63742f93f3e024d029e969c9ebc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1f5bb63742f93f3e024d029e969c9ebc">&#9670;&#160;</a></span>PCI_PERIPHERIQUE_VIRTIO_NET</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define PCI_PERIPHERIQUE_VIRTIO_NET&#160;&#160;&#160;0x1000</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="manux_2virtio_8h_source.html#l00039">39</a> du fichier <a class="el" href="manux_2virtio_8h_source.html">virtio.h</a>.</p>
+
+</div>
+</div>
+<a id="abd1fd54d3752cd6b4048adf26185a9e2" name="abd1fd54d3752cd6b4048adf26185a9e2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abd1fd54d3752cd6b4048adf26185a9e2">&#9670;&#160;</a></span>PCI_VENDEUR_VIRTIO</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define PCI_VENDEUR_VIRTIO&#160;&#160;&#160;0x1AF4</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Les identifiants de vendeur et équipements </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="manux_2virtio_8h_source.html#l00038">38</a> du fichier <a class="el" href="manux_2virtio_8h_source.html">virtio.h</a>.</p>
+
+</div>
+</div>
+<a id="a0ad6c59930e1ce2700aa25d22f5830c0" name="a0ad6c59930e1ce2700aa25d22f5830c0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0ad6c59930e1ce2700aa25d22f5830c0">&#9670;&#160;</a></span>VIRTIO_ACKNOWLEDGE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define VIRTIO_ACKNOWLEDGE&#160;&#160;&#160;0x01</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="manux_2virtio_8h_source.html#l00046">46</a> du fichier <a class="el" href="manux_2virtio_8h_source.html">virtio.h</a>.</p>
+
+</div>
+</div>
+<a id="a4fb4cdeef8eaa5100abc25654b7c0bf9" name="a4fb4cdeef8eaa5100abc25654b7c0bf9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4fb4cdeef8eaa5100abc25654b7c0bf9">&#9670;&#160;</a></span>VIRTIO_DRIVER</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define VIRTIO_DRIVER&#160;&#160;&#160;0x02</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="manux_2virtio_8h_source.html#l00047">47</a> du fichier <a class="el" href="manux_2virtio_8h_source.html">virtio.h</a>.</p>
+
+</div>
+</div>
+<a id="a76bf5da5c683247105cff72421a401aa" name="a76bf5da5c683247105cff72421a401aa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a76bf5da5c683247105cff72421a401aa">&#9670;&#160;</a></span>VIRTIO_DRIVER_OK</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define VIRTIO_DRIVER_OK&#160;&#160;&#160;0x04</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="manux_2virtio_8h_source.html#l00048">48</a> du fichier <a class="el" href="manux_2virtio_8h_source.html">virtio.h</a>.</p>
+
+</div>
+</div>
+<a id="ab38199ceadff677543608d047faef801" name="ab38199ceadff677543608d047faef801"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab38199ceadff677543608d047faef801">&#9670;&#160;</a></span>VIRTIO_F_RING_EVENT_IDX</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define VIRTIO_F_RING_EVENT_IDX&#160;&#160;&#160;0x20000000</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="manux_2virtio_8h_source.html#l00055">55</a> du fichier <a class="el" href="manux_2virtio_8h_source.html">virtio.h</a>.</p>
+
+</div>
+</div>
+<a id="af2be61c8bf06c0ccb2981edc68b550c8" name="af2be61c8bf06c0ccb2981edc68b550c8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af2be61c8bf06c0ccb2981edc68b550c8">&#9670;&#160;</a></span>VIRTIO_F_RING_INDIRECT_DESC</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define VIRTIO_F_RING_INDIRECT_DESC&#160;&#160;&#160;0x10000000</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Les caractéristiques générales </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="manux_2virtio_8h_source.html#l00054">54</a> du fichier <a class="el" href="manux_2virtio_8h_source.html">virtio.h</a>.</p>
+
+</div>
+</div>
+<a id="adf8974dcda7f78e14c7d2095fe673670" name="adf8974dcda7f78e14c7d2095fe673670"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adf8974dcda7f78e14c7d2095fe673670">&#9670;&#160;</a></span>VIRTIO_FEATURES_OK</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define VIRTIO_FEATURES_OK&#160;&#160;&#160;0x08</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="manux_2virtio_8h_source.html#l00049">49</a> du fichier <a class="el" href="manux_2virtio_8h_source.html">virtio.h</a>.</p>
+
+</div>
+</div>
+<a id="ab95cde33094c871d2a43a107932583da" name="ab95cde33094c871d2a43a107932583da"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab95cde33094c871d2a43a107932583da">&#9670;&#160;</a></span>VIRTIO_HIST_ADDRESS_FILE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define VIRTIO_HIST_ADDRESS_FILE&#160;&#160;&#160;0x08</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="manux_2virtio_8h_source.html#l00064">64</a> du fichier <a class="el" href="manux_2virtio_8h_source.html">virtio.h</a>.</p>
+
+</div>
+</div>
+<a id="a18a8ea706e6bf42f254942310ce22018" name="a18a8ea706e6bf42f254942310ce22018"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a18a8ea706e6bf42f254942310ce22018">&#9670;&#160;</a></span>VIRTIO_HIST_CAPA_EQUIP</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define VIRTIO_HIST_CAPA_EQUIP&#160;&#160;&#160;0x00</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>La position des champs principaux de configuration d'une interface conforme à la spécification 0.9.5 [3] (dite "legacy" dans [1] mais avec une organisation différente!) </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="manux_2virtio_8h_source.html#l00062">62</a> du fichier <a class="el" href="manux_2virtio_8h_source.html">virtio.h</a>.</p>
+
+</div>
+</div>
+<a id="a02a76460dc0eda80bd6458313c57349c" name="a02a76460dc0eda80bd6458313c57349c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a02a76460dc0eda80bd6458313c57349c">&#9670;&#160;</a></span>VIRTIO_HIST_CAPA_PILOTE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define VIRTIO_HIST_CAPA_PILOTE&#160;&#160;&#160;0x04</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="manux_2virtio_8h_source.html#l00063">63</a> du fichier <a class="el" href="manux_2virtio_8h_source.html">virtio.h</a>.</p>
+
+</div>
+</div>
+<a id="a64a73d12ded9bb64f4d3b759a36394fc" name="a64a73d12ded9bb64f4d3b759a36394fc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a64a73d12ded9bb64f4d3b759a36394fc">&#9670;&#160;</a></span>VIRTIO_HIST_ETAT</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define VIRTIO_HIST_ETAT&#160;&#160;&#160;0x12</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="manux_2virtio_8h_source.html#l00069">69</a> du fichier <a class="el" href="manux_2virtio_8h_source.html">virtio.h</a>.</p>
+
+</div>
+</div>
+<a id="a0dd520c4c9ecbac4e54726cec15ac922" name="a0dd520c4c9ecbac4e54726cec15ac922"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0dd520c4c9ecbac4e54726cec15ac922">&#9670;&#160;</a></span>VIRTIO_HIST_FILE_NOTIF</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define VIRTIO_HIST_FILE_NOTIF&#160;&#160;&#160;0x10</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="manux_2virtio_8h_source.html#l00068">68</a> du fichier <a class="el" href="manux_2virtio_8h_source.html">virtio.h</a>.</p>
+
+</div>
+</div>
+<a id="a4892b6f194bc60cffd9fd6122d10f9ba" name="a4892b6f194bc60cffd9fd6122d10f9ba"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4892b6f194bc60cffd9fd6122d10f9ba">&#9670;&#160;</a></span>VIRTIO_HIST_FILE_SEL</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define VIRTIO_HIST_FILE_SEL&#160;&#160;&#160;0x0E</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="manux_2virtio_8h_source.html#l00067">67</a> du fichier <a class="el" href="manux_2virtio_8h_source.html">virtio.h</a>.</p>
+
+</div>
+</div>
+<a id="adc3d7827e53dc913f0706947a110b300" name="adc3d7827e53dc913f0706947a110b300"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adc3d7827e53dc913f0706947a110b300">&#9670;&#160;</a></span>VIRTIO_HIST_ISR</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define VIRTIO_HIST_ISR&#160;&#160;&#160;0x13</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="manux_2virtio_8h_source.html#l00070">70</a> du fichier <a class="el" href="manux_2virtio_8h_source.html">virtio.h</a>.</p>
+
+</div>
+</div>
+<a id="a4650a29bab89174d53d283b2f655abba" name="a4650a29bab89174d53d283b2f655abba"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4650a29bab89174d53d283b2f655abba">&#9670;&#160;</a></span>VIRTIO_HIST_TAILLE_FILE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define VIRTIO_HIST_TAILLE_FILE&#160;&#160;&#160;0x0C</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="manux_2virtio_8h_source.html#l00066">66</a> du fichier <a class="el" href="manux_2virtio_8h_source.html">virtio.h</a>.</p>
+
+</div>
+</div>
+<a id="a0bf8bb3f47d683ef24e98be8cc181507" name="a0bf8bb3f47d683ef24e98be8cc181507"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0bf8bb3f47d683ef24e98be8cc181507">&#9670;&#160;</a></span>VIRTIO_RESET</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define VIRTIO_RESET&#160;&#160;&#160;0x00</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Les bits d'état du pilote </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="manux_2virtio_8h_source.html#l00045">45</a> du fichier <a class="el" href="manux_2virtio_8h_source.html">virtio.h</a>.</p>
+
+</div>
+</div>
+<a id="ac98030127cfdd5b7e53a4756a38d3e28" name="ac98030127cfdd5b7e53a4756a38d3e28"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac98030127cfdd5b7e53a4756a38d3e28">&#9670;&#160;</a></span>VRING_DESC_F_NEXT</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define VRING_DESC_F_NEXT&#160;&#160;&#160;1</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Les flags de paramètrage des files </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="manux_2virtio_8h_source.html#l00075">75</a> du fichier <a class="el" href="manux_2virtio_8h_source.html">virtio.h</a>.</p>
+
+</div>
+</div>
+<a id="a74fe2dbfe07fd3d386e87e7e7a921691" name="a74fe2dbfe07fd3d386e87e7e7a921691"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a74fe2dbfe07fd3d386e87e7e7a921691">&#9670;&#160;</a></span>VRING_DESC_F_WRITE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define VRING_DESC_F_WRITE&#160;&#160;&#160;2</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="manux_2virtio_8h_source.html#l00076">76</a> du fichier <a class="el" href="manux_2virtio_8h_source.html">virtio.h</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Documentation des fonctions</h2>
+<a id="ac163b2e97d1947206a39de24bb61f6cd" name="ac163b2e97d1947206a39de24bb61f6cd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac163b2e97d1947206a39de24bb61f6cd">&#9670;&#160;</a></span>__attribute__()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct __attribute__ </td>
+          <td>(</td>
+          <td class="paramtype">(__packed__)&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Description d'un buffer (voir par exemple struct vring_desc dans [1] Section 2.4.4 ou dans [3] annexe A)</p>
+<p>Description d'un buffer "disponible" ([3] Section 2.3.4)</p>
+<p>Description des éléments utilisés</p>
+<p>Description d'un buffer "utilisé"</p>
+<p>Description d'une file virtuelle. Le format de cette structure n'est pas imposé par virtio, car elle est utilisée uniquement dans ce pilote.</p>
+<p>Description d'un périphérique virtio </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="manux_2virtio_8h_source.html#l00001">1</a> du fichier <a class="el" href="manux_2virtio_8h_source.html">virtio.h</a>.</p>
+
+</div>
+</div>
+<a id="a463360d60781bf28d8d47ea1a8e7e496" name="a463360d60781bf28d8d47ea1a8e7e496"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a463360d60781bf28d8d47ea1a8e7e496">&#9670;&#160;</a></span>virtioFileAutoriserInterruption()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="include_2manux_2interruptions_8h.html#a4fda31edc92f8ccd48b6f4bb50f2e7e1">void</a> virtioFileAutoriserInterruption </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="manux_2virtio_8h.html#a3f078bcc0894ca39b56f2af3bce4be7f">VirtioFileVirtuelle</a> *&#160;</td>
+          <td class="paramname"><em>fv</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="virtio_8c_source.html#l00450">450</a> du fichier <a class="el" href="virtio_8c_source.html">virtio.c</a>.</p>
+
+</div>
+</div>
+<a id="a519d7149faa9d7fce1d52e67b6e7f342" name="a519d7149faa9d7fce1d52e67b6e7f342"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a519d7149faa9d7fce1d52e67b6e7f342">&#9670;&#160;</a></span>virtioFileInterdireInterruption()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="include_2manux_2interruptions_8h.html#a4fda31edc92f8ccd48b6f4bb50f2e7e1">void</a> virtioFileInterdireInterruption </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="manux_2virtio_8h.html#a3f078bcc0894ca39b56f2af3bce4be7f">VirtioFileVirtuelle</a> *&#160;</td>
+          <td class="paramname"><em>fv</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="virtio_8c_source.html#l00444">444</a> du fichier <a class="el" href="virtio_8c_source.html">virtio.c</a>.</p>
+
+</div>
+</div>
+<a id="aad0abebf096dcffb576a391ef8d1ec09" name="aad0abebf096dcffb576a391ef8d1ec09"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aad0abebf096dcffb576a391ef8d1ec09">&#9670;&#160;</a></span>virtioFileRecupererBuffers()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int virtioFileRecupererBuffers </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="manux_2virtio_8h.html#a3f078bcc0894ca39b56f2af3bce4be7f">VirtioFileVirtuelle</a> *&#160;</td>
+          <td class="paramname"><em>fv</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="include_2manux_2interruptions_8h.html#a4fda31edc92f8ccd48b6f4bb50f2e7e1">void</a> *&#160;</td>
+          <td class="paramname"><em>bu</em>[], </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>lg</em>[], </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>nb</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>on va récupérer des buffers </p>
+<p>En travaux !!</p>
+<dl class="section return"><dt>Renvoie</dt><dd>Le nombre de pointeurs initialisés</dd></dl>
+<p>Voir [3] section 2.4.2 "Receiving Used Buffers From The Device"</p>
+<p>On fait au plus simple : on renvoie un ensembles de buffers. Attention, on revnoie des pointeurs vers les buffers virtio, pas de nouveaux pointeurs alloués. L'appelant doit donc immédiatement en recopier le contenu. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="virtio_8c_source.html#l00387">387</a> du fichier <a class="el" href="virtio_8c_source.html">virtio.c</a>.</p>
+
+</div>
+</div>
+<a id="a23087510e5490671c78fb8e7a99bb208" name="a23087510e5490671c78fb8e7a99bb208"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a23087510e5490671c78fb8e7a99bb208">&#9670;&#160;</a></span>virtioFournirBuffer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int virtioFournirBuffer </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="manux_2virtio_8h.html#ae5ce3884f555c701f9f8099645f09fe5">VirtioPeripherique</a> *&#160;</td>
+          <td class="paramname"><em>vp</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="include_2manux_2types_8h.html#a273cf69d639a59973b6019625df33e30">uint16_t</a>&#160;</td>
+          <td class="paramname"><em>id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="include_2manux_2interruptions_8h.html#a4fda31edc92f8ccd48b6f4bb50f2e7e1">void</a> *&#160;</td>
+          <td class="paramname"><em>bu</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>lg</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="include_2manux_2types_8h.html#a273cf69d639a59973b6019625df33e30">uint16_t</a>&#160;</td>
+          <td class="paramname"><em>fl</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>: Fournir un buffer au périphérique. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">vp</td><td>le périphérique virtio concerné </td></tr>
+    <tr><td class="paramname">id</td><td>index de la file </td></tr>
+    <tr><td class="paramname">bu</td><td>le buffer (pointeur sur les données/la place) </td></tr>
+    <tr><td class="paramname">lg</td><td>la taille du buffer </td></tr>
+    <tr><td class="paramname">fl</td><td>lecture/écriture (VRING_DESC_F_WRITE ou 0) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>le nombre de buffer effectivement fournis</dd></dl>
+<p>C'est effectivement le pointeur bu qui est fourni, donc l'appelant ne doit pas le libérer !</p>
+<p>: Fournir un buffer au périphérique.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">vp</td><td>le périphérique concerné </td></tr>
+    <tr><td class="paramname">id</td><td>numéro de la file sur le périphérique </td></tr>
+    <tr><td class="paramname">bu</td><td>le buffer (pointeur sur les données/la place) </td></tr>
+    <tr><td class="paramname">lg</td><td>la taille du buffer </td></tr>
+    <tr><td class="paramname">fl</td><td>lecture/écriture (VRING_DESC_F_WRITE ou 0) </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="virtio_8c_source.html#l00283">283</a> du fichier <a class="el" href="virtio_8c_source.html">virtio.c</a>.</p>
+
+</div>
+</div>
+<a id="aa3eee079eb5936797e7aea41dddf9f8f" name="aa3eee079eb5936797e7aea41dddf9f8f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa3eee079eb5936797e7aea41dddf9f8f">&#9670;&#160;</a></span>virtioFournirBuffers()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int virtioFournirBuffers </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="manux_2virtio_8h.html#ae5ce3884f555c701f9f8099645f09fe5">VirtioPeripherique</a> *&#160;</td>
+          <td class="paramname"><em>vp</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="include_2manux_2types_8h.html#a273cf69d639a59973b6019625df33e30">uint16_t</a>&#160;</td>
+          <td class="paramname"><em>id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="include_2manux_2interruptions_8h.html#a4fda31edc92f8ccd48b6f4bb50f2e7e1">void</a> *&#160;</td>
+          <td class="paramname"><em>bu</em>[], </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>lg</em>[], </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>nb</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="include_2manux_2types_8h.html#a273cf69d639a59973b6019625df33e30">uint16_t</a>&#160;</td>
+          <td class="paramname"><em>fl</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>: Fournir un(e chaine de) buffer(s) au périphérique. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">fv</td><td>la file sur laquelle placer ce(s) buffer(s) </td></tr>
+    <tr><td class="paramname">id</td><td>index de la file </td></tr>
+    <tr><td class="paramname">bu</td><td>les buffers (tableau de pointeurs sur les données/la place) </td></tr>
+    <tr><td class="paramname">lg</td><td>la taille des buffers </td></tr>
+    <tr><td class="paramname">nb</td><td>le nombre de buffers </td></tr>
+    <tr><td class="paramname">fl</td><td>lecture/écriture (VRING_DESC_F_WRITE ou 0) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>le nombre de buffers effectivement fournis</dd></dl>
+<p>C'est effectivement les pointeurs passés dans bu qui sont fournis, donc l'appelant ne doit pas les libérer ! S'il y a plusieurs buffers (nb &gt; 1) c'est sous forme d'une chaîne qu'ils sont fournis</p>
+<p>: Fournir un(e chaine de) buffer(s) au périphérique.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">vp</td><td>le périphérique virtio concerné </td></tr>
+    <tr><td class="paramname">id</td><td>index de la file </td></tr>
+    <tr><td class="paramname">bu</td><td>les buffers (tableau de pointeurs sur les données/la place) </td></tr>
+    <tr><td class="paramname">lg</td><td>la taille des buffers </td></tr>
+    <tr><td class="paramname">nb</td><td>le nombre de buffers </td></tr>
+    <tr><td class="paramname">fl</td><td>lecture/écriture (VRING_DESC_F_WRITE ou 0) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>le nombre de buffers réellement fournis</dd></dl>
+<p>L'idée est de fournir une chaîne de buffers . WARNING pas d'erreur gérée ! </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="virtio_8c_source.html#l00304">304</a> du fichier <a class="el" href="virtio_8c_source.html">virtio.c</a>.</p>
+
+</div>
+</div>
+<a id="a4c591d0f2cd08e9d586138bbf25ef2d3" name="a4c591d0f2cd08e9d586138bbf25ef2d3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4c591d0f2cd08e9d586138bbf25ef2d3">&#9670;&#160;</a></span>virtioInitPeripheriquePCI()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int virtioInitPeripheriquePCI </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="manux_2virtio_8h.html#ae5ce3884f555c701f9f8099645f09fe5">VirtioPeripherique</a> *&#160;</td>
+          <td class="paramname"><em>vp</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>PCINum</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="include_2manux_2types_8h.html#a06896e8c53f721507066c079052171f8">uint32_t</a>&#160;</td>
+          <td class="paramname"><em>masque</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Initialisation d'un périphérique de type virtio accédé en PCI. L'essentiel de ce qui suit est conforme à la v0.9.5 a priori, pas à la v1.0</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">vp</td><td>pointeur sur une structure déjà allouée (ou statique) </td></tr>
+    <tr><td class="paramname">PCINum</td><td>l'identifiant PCI </td></tr>
+    <tr><td class="paramname">masque</td><td>les caractéristiques à <em>ne pas</em> utiliser</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Initialisation d'un périphérique de type virtio accédé en PCI. L'essentiel de ce qui suit est conforme à la v0.9.5 a priori, (voir [3] section 2.2.1), mais pas à la v1.0</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">vp</td><td>pointeur sur une structure déjà allouée (ou statique) </td></tr>
+    <tr><td class="paramname">PCINum</td><td>l'identifiant PCI </td></tr>
+    <tr><td class="paramname">masque</td><td>les caractéristiques à <em>ne pas</em> utiliser </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="virtio_8c_source.html#l00173">173</a> du fichier <a class="el" href="virtio_8c_source.html">virtio.c</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Documentation des variables</h2>
+<a id="ac5fff7fd3b85f66c9af5b1513d8dd48a" name="ac5fff7fd3b85f66c9af5b1513d8dd48a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac5fff7fd3b85f66c9af5b1513d8dd48a">&#9670;&#160;</a></span>VirtioBufferDisponible</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">VirtioBufferDisponible</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="manux_2virtio_8h_source.html#l00098">98</a> du fichier <a class="el" href="manux_2virtio_8h_source.html">virtio.h</a>.</p>
+
+</div>
+</div>
+<a id="a7dd7aeaced1fdc2450b3ba514603b4d0" name="a7dd7aeaced1fdc2450b3ba514603b4d0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7dd7aeaced1fdc2450b3ba514603b4d0">&#9670;&#160;</a></span>VirtioBufferUtilise</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">VirtioBufferUtilise</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="manux_2virtio_8h_source.html#l00116">116</a> du fichier <a class="el" href="manux_2virtio_8h_source.html">virtio.h</a>.</p>
+
+</div>
+</div>
+<a id="a127ee3bd259d3fe2f28ae79dc92d5c8e" name="a127ee3bd259d3fe2f28ae79dc92d5c8e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a127ee3bd259d3fe2f28ae79dc92d5c8e">&#9670;&#160;</a></span>VirtioDescripteurBuffer</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">VirtioDescripteurBuffer</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="manux_2virtio_8h_source.html#l00088">88</a> du fichier <a class="el" href="manux_2virtio_8h_source.html">virtio.h</a>.</p>
+
+</div>
+</div>
+<a id="a28361e3cba02dc1562f91a82929e4dbc" name="a28361e3cba02dc1562f91a82929e4dbc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a28361e3cba02dc1562f91a82929e4dbc">&#9670;&#160;</a></span>VirtioElementUtilise</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">VirtioElementUtilise</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="manux_2virtio_8h_source.html#l00106">106</a> du fichier <a class="el" href="manux_2virtio_8h_source.html">virtio.h</a>.</p>
+
+</div>
+</div>
+<a id="a3f078bcc0894ca39b56f2af3bce4be7f" name="a3f078bcc0894ca39b56f2af3bce4be7f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3f078bcc0894ca39b56f2af3bce4be7f">&#9670;&#160;</a></span>VirtioFileVirtuelle</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">VirtioFileVirtuelle</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="manux_2virtio_8h_source.html#l00133">133</a> du fichier <a class="el" href="manux_2virtio_8h_source.html">virtio.h</a>.</p>
+
+</div>
+</div>
+<a id="ae5ce3884f555c701f9f8099645f09fe5" name="ae5ce3884f555c701f9f8099645f09fe5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae5ce3884f555c701f9f8099645f09fe5">&#9670;&#160;</a></span>VirtioPeripherique</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">VirtioPeripherique</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="manux_2virtio_8h_source.html#l00142">142</a> du fichier <a class="el" href="manux_2virtio_8h_source.html">virtio.h</a>.</p>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

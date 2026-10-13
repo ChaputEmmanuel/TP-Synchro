@@ -1,0 +1,122 @@
+\doxysection{Référence du fichier /home/manu/\+PROGRAMMATION/\+C/\+Manu\+X/noyau/main.c}
+\hypertarget{main_8c}{}\label{main_8c}\index{/home/manu/PROGRAMMATION/C/ManuX/noyau/main.c@{/home/manu/PROGRAMMATION/C/ManuX/noyau/main.c}}
+
+
+\+: Un exemple de d�but de noyau.  
+
+
+{\ttfamily \#include $<$manux/config.\+h$>$}\newline
+{\ttfamily \#include $<$manux/bootloader.\+h$>$}\newline
+{\ttfamily \#include $<$manux/registre.\+h$>$}\newline
+{\ttfamily \#include $<$manux/errno.\+h$>$}\newline
+{\ttfamily \#include $<$manux/console.\+h$>$}\newline
+{\ttfamily \#include $<$manux/clavier.\+h$>$}\newline
+{\ttfamily \#include $<$manux/tache.\+h$>$}\newline
+{\ttfamily \#include $<$manux/horloge.\+h$>$}\newline
+{\ttfamily \#include $<$manux/scheduler.\+h$>$}\newline
+{\ttfamily \#include $<$manux/interruptions.\+h$>$}\newline
+{\ttfamily \#include $<$manux/io.\+h$>$}\newline
+{\ttfamily \#include $<$manux/segment.\+h$>$}\newline
+{\ttfamily \#include $<$manux/memoire.\+h$>$}\newline
+{\ttfamily \#include $<$manux/stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$manux/kmalloc.\+h$>$}\newline
+{\ttfamily \#include $<$manux/atomique.\+h$>$}\newline
+{\ttfamily \#include $<$manux/appelsysteme.\+h$>$}\newline
+{\ttfamily \#include $<$manux/pci.\+h$>$}\newline
+{\ttfamily \#include $<$manux/ramdisk.\+h$>$}\newline
+{\ttfamily \#include $<$manux/printk.\+h$>$}\newline
+{\ttfamily \#include $<$manux/debug.\+h$>$}\newline
+{\ttfamily \#include $<$manux/limites.\+h$>$}\newline
+{\ttfamily \#include $<$manux/pagination.\+h$>$}\newline
+{\ttfamily \#include $<$manux/journal.\+h$>$}\newline
+{\ttfamily \#include $<$manux/fichier.\+h$>$}\newline
+{\ttfamily \#include $<$manux/virtio-\/net.\+h$>$}\newline
+{\ttfamily \#include $<$manux/virtio-\/console.\+h$>$}\newline
+Graphe des dépendances par inclusion de main.\+c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{main_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} \mbox{\hyperlink{main_8c_a21bf9d845e4ae7f33652b85730016a11}{start\+ManuX}} (\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}})
+\item 
+\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} \mbox{\hyperlink{main_8c_a2858154e2009b0e6e616f313177762bc}{init}} (\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}})
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{inoeud_8h_a27ca90a5da64ab349726ed0513ec6e73}{INoeud}} \mbox{\hyperlink{main_8c_a025b00386237bd94848dfda7561bc35a}{i\+Noeud\+Virtio\+Console}}
+\item 
+\mbox{\hyperlink{fichier_8h_af21b1af90951b2649333714c85dfe197}{Fichier}} \mbox{\hyperlink{main_8c_ae51ed4923ff3dc7cd81a10324b2eaac4}{fichier\+Virtio\+Console}}
+\item 
+\mbox{\hyperlink{inoeud_8h_a27ca90a5da64ab349726ed0513ec6e73}{INoeud}} \mbox{\hyperlink{main_8c_a972ff77e8e64fb59c5b315287496a83e}{i\+Noeud\+Console}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+\+: Un exemple de d�but de noyau. 
+
+J\textquotesingle{}int�gre � peu pr�s tout dans ce noyau, donc r�guli�rement il ne compile pas ou ne fonctionne pas. (C) Manu Chaput 2000-\/2026 
+
+Définition dans le fichier \mbox{\hyperlink{main_8c_source}{main.\+c}}.
+
+
+
+\doxysubsection{Documentation des fonctions}
+\Hypertarget{main_8c_a2858154e2009b0e6e616f313177762bc}\label{main_8c_a2858154e2009b0e6e616f313177762bc} 
+\index{main.c@{main.c}!init@{init}}
+\index{init@{init}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{init()}{init()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}}}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+Définition à la ligne \mbox{\hyperlink{init-acces-concurrent_8c_source_l00074}{74}} du fichier \mbox{\hyperlink{init-acces-concurrent_8c_source}{init-\/acces-\/concurrent.\+c}}.
+
+\Hypertarget{main_8c_a21bf9d845e4ae7f33652b85730016a11}\label{main_8c_a21bf9d845e4ae7f33652b85730016a11} 
+\index{main.c@{main.c}!startManuX@{startManuX}}
+\index{startManuX@{startManuX}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{startManuX()}{startManuX()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} start\+ManuX (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}}}]{ }\end{DoxyParamCaption})}
+
+
+
+Définition à la ligne \mbox{\hyperlink{main_8c_source_l00050}{50}} du fichier \mbox{\hyperlink{main_8c_source}{main.\+c}}.
+
+
+
+\doxysubsection{Documentation des variables}
+\Hypertarget{main_8c_ae51ed4923ff3dc7cd81a10324b2eaac4}\label{main_8c_ae51ed4923ff3dc7cd81a10324b2eaac4} 
+\index{main.c@{main.c}!fichierVirtioConsole@{fichierVirtioConsole}}
+\index{fichierVirtioConsole@{fichierVirtioConsole}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{fichierVirtioConsole}{fichierVirtioConsole}}
+{\footnotesize\ttfamily \mbox{\hyperlink{fichier_8h_af21b1af90951b2649333714c85dfe197}{Fichier}} fichier\+Virtio\+Console}
+
+
+
+Définition à la ligne \mbox{\hyperlink{main_8c_source_l00043}{43}} du fichier \mbox{\hyperlink{main_8c_source}{main.\+c}}.
+
+\Hypertarget{main_8c_a972ff77e8e64fb59c5b315287496a83e}\label{main_8c_a972ff77e8e64fb59c5b315287496a83e} 
+\index{main.c@{main.c}!iNoeudConsole@{iNoeudConsole}}
+\index{iNoeudConsole@{iNoeudConsole}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{iNoeudConsole}{iNoeudConsole}}
+{\footnotesize\ttfamily \mbox{\hyperlink{inoeud_8h_a27ca90a5da64ab349726ed0513ec6e73}{INoeud}} i\+Noeud\+Console}
+
+Configuration de la console 
+
+Définition à la ligne \mbox{\hyperlink{main_8c_source_l00048}{48}} du fichier \mbox{\hyperlink{main_8c_source}{main.\+c}}.
+
+\Hypertarget{main_8c_a025b00386237bd94848dfda7561bc35a}\label{main_8c_a025b00386237bd94848dfda7561bc35a} 
+\index{main.c@{main.c}!iNoeudVirtioConsole@{iNoeudVirtioConsole}}
+\index{iNoeudVirtioConsole@{iNoeudVirtioConsole}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{iNoeudVirtioConsole}{iNoeudVirtioConsole}}
+{\footnotesize\ttfamily \mbox{\hyperlink{inoeud_8h_a27ca90a5da64ab349726ed0513ec6e73}{INoeud}} i\+Noeud\+Virtio\+Console}
+
+
+
+Définition à la ligne \mbox{\hyperlink{main_8c_source_l00042}{42}} du fichier \mbox{\hyperlink{main_8c_source}{main.\+c}}.
+

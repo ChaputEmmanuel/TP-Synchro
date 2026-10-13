@@ -1,0 +1,76 @@
+\doxysection{pagination.\+h}
+\hypertarget{pagination_8h_source}{}\label{pagination_8h_source}\index{/home/manu/PROGRAMMATION/C/ManuX/include/manux/pagination.h@{/home/manu/PROGRAMMATION/C/ManuX/include/manux/pagination.h}}
+\mbox{\hyperlink{pagination_8h}{Aller à la documentation de ce fichier.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{pagination_8h_source_l00001}00001\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{pagination_8h_source_l00002}00002\ \textcolor{comment}{/*\ \ \ \ \ \ Définition\ des\ types\ et\ opérations\ spécifiques\ au\ mécanisme\ de\ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{pagination_8h_source_l00003}00003\ \textcolor{comment}{/*\ \ \ pagination.\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{pagination_8h_source_l00004}00004\ \textcolor{comment}{/*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{pagination_8h_source_l00005}00005\ \textcolor{comment}{/*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (C)\ Manu\ Chaput\ 2000\ */}}
+\DoxyCodeLine{\Hypertarget{pagination_8h_source_l00006}00006\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{pagination_8h_source_l00007}00007\ \textcolor{preprocessor}{\#ifndef\ PAGINATION\_DEF}}
+\DoxyCodeLine{\Hypertarget{pagination_8h_source_l00008}00008\ \textcolor{preprocessor}{\#define\ PAGINATION\_DEF}}
+\DoxyCodeLine{\Hypertarget{pagination_8h_source_l00009}00009\ }
+\DoxyCodeLine{\Hypertarget{pagination_8h_source_l00010}00010\ \textcolor{preprocessor}{\#include\ <manux/types.h>}}
+\DoxyCodeLine{\Hypertarget{pagination_8h_source_l00011}00011\ }
+\DoxyCodeLine{\Hypertarget{pagination_8h_source_l00012}00012\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{pagination_8h_source_l00013}00013\ \textcolor{comment}{\ *\ Type\ d'une\ entrée\ dans\ un\ répertoire\ de\ pages\ (PDE\ pour}}
+\DoxyCodeLine{\Hypertarget{pagination_8h_source_l00014}00014\ \textcolor{comment}{\ *\ "{}Page\ Directory\ Entry"{}).}}
+\DoxyCodeLine{\Hypertarget{pagination_8h_source_l00015}00015\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{pagination_8h_source_l00016}\mbox{\hyperlink{pagination_8h_ae31d66db215ea0e4bfc3a67d9a5bf710}{00016}}\ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\_t}}\ \mbox{\hyperlink{pagination_8h_ae31d66db215ea0e4bfc3a67d9a5bf710}{PDE}};}
+\DoxyCodeLine{\Hypertarget{pagination_8h_source_l00017}00017\ }
+\DoxyCodeLine{\Hypertarget{pagination_8h_source_l00018}00018\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{pagination_8h_source_l00019}00019\ \textcolor{comment}{\ *\ Type\ d'une\ entrée\ dans\ un\ répertoire\ de\ tables\ (PTE\ pour}}
+\DoxyCodeLine{\Hypertarget{pagination_8h_source_l00020}00020\ \textcolor{comment}{\ *\ "{}Page\ Table\ Entry"{}).}}
+\DoxyCodeLine{\Hypertarget{pagination_8h_source_l00021}00021\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{pagination_8h_source_l00022}\mbox{\hyperlink{pagination_8h_a03d3d48eaf697d7ee51ef3d4d3f6b820}{00022}}\ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\_t}}\ \mbox{\hyperlink{pagination_8h_a03d3d48eaf697d7ee51ef3d4d3f6b820}{PTE}};}
+\DoxyCodeLine{\Hypertarget{pagination_8h_source_l00023}00023\ }
+\DoxyCodeLine{\Hypertarget{pagination_8h_source_l00024}00024\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{pagination_8h_source_l00025}00025\ \textcolor{comment}{\ *\ Un\ répertoire\ de\ pages\ est\ simplement\ un\ tableau\ de\ PDE}}
+\DoxyCodeLine{\Hypertarget{pagination_8h_source_l00026}00026\ \textcolor{comment}{\ *\ (1024\ max).}}
+\DoxyCodeLine{\Hypertarget{pagination_8h_source_l00027}00027\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{pagination_8h_source_l00028}\mbox{\hyperlink{pagination_8h_adea7218ca4ee2deb864db4fdd23419d2}{00028}}\ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{pagination_8h_ae31d66db215ea0e4bfc3a67d9a5bf710}{PDE}}\ *\ \mbox{\hyperlink{pagination_8h_adea7218ca4ee2deb864db4fdd23419d2}{PageDirectory}};}
+\DoxyCodeLine{\Hypertarget{pagination_8h_source_l00029}00029\ }
+\DoxyCodeLine{\Hypertarget{pagination_8h_source_l00030}00030\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{pagination_8h_source_l00031}00031\ \textcolor{comment}{\ *\ Une\ table\ de\ pages\ est\ simplement\ un\ tableau\ de\ PTE}}
+\DoxyCodeLine{\Hypertarget{pagination_8h_source_l00032}00032\ \textcolor{comment}{\ *\ (1024\ max).}}
+\DoxyCodeLine{\Hypertarget{pagination_8h_source_l00033}00033\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{pagination_8h_source_l00034}\mbox{\hyperlink{pagination_8h_a75fa2b04fd71debc723e861daccb9e1c}{00034}}\ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{pagination_8h_a03d3d48eaf697d7ee51ef3d4d3f6b820}{PTE}}\ *\ \mbox{\hyperlink{pagination_8h_a75fa2b04fd71debc723e861daccb9e1c}{PageTable}};}
+\DoxyCodeLine{\Hypertarget{pagination_8h_source_l00035}00035\ }
+\DoxyCodeLine{\Hypertarget{pagination_8h_source_l00036}00036\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{pagination_8h_source_l00037}00037\ \textcolor{comment}{\ *\ Répertoire\ de\ pagination\ global\ au\ système.\ Le\ but\ est\ d'avoir\ une}}
+\DoxyCodeLine{\Hypertarget{pagination_8h_source_l00038}00038\ \textcolor{comment}{\ *\ première\ configuration\ de\ la\ pagination,\ qui\ donne\ une\ vision\ "{}flat"{}}}
+\DoxyCodeLine{\Hypertarget{pagination_8h_source_l00039}00039\ \textcolor{comment}{\ *\ de\ la\ mémoire.}}
+\DoxyCodeLine{\Hypertarget{pagination_8h_source_l00040}00040\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{pagination_8h_source_l00041}00041\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{pagination_8h_adea7218ca4ee2deb864db4fdd23419d2}{PageDirectory}}\ \mbox{\hyperlink{pagination_8h_aae32ea2d4a74900fe2ed79accef923bb}{repertoirePaginationSysteme}};}
+\DoxyCodeLine{\Hypertarget{pagination_8h_source_l00042}00042\ }
+\DoxyCodeLine{\Hypertarget{pagination_8h_source_l00043}00043\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{pagination_8h_a2a1acb91d58e1208fbb730d5aa52254c}{creerTablePaginationDirecte}}(\mbox{\hyperlink{pagination_8h_adea7218ca4ee2deb864db4fdd23419d2}{PageDirectory}}\ *\ repertoirePagination,}
+\DoxyCodeLine{\Hypertarget{pagination_8h_source_l00044}00044\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ tailleMemoireEtendue);}
+\DoxyCodeLine{\Hypertarget{pagination_8h_source_l00045}00045\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{pagination_8h_source_l00046}00046\ \textcolor{comment}{\ *\ Initialisation\ d'une\ table\ de\ pagination\ "{}directe"{},\ c'est\ à\ dire}}
+\DoxyCodeLine{\Hypertarget{pagination_8h_source_l00047}00047\ \textcolor{comment}{\ *\ qui\ conserve\ les\ adresses\ physiques\ dans\ l'espace\ virtuel.}}
+\DoxyCodeLine{\Hypertarget{pagination_8h_source_l00048}00048\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{pagination_8h_source_l00049}00049\ }
+\DoxyCodeLine{\Hypertarget{pagination_8h_source_l00050}00050\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{pagination_8h_aa47bdbd437f2aa3012d479b8858e9e6f}{creerTablePagination}}(\mbox{\hyperlink{pagination_8h_adea7218ca4ee2deb864db4fdd23419d2}{PageDirectory}}\ *\ repertoirePagination);}
+\DoxyCodeLine{\Hypertarget{pagination_8h_source_l00051}00051\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{pagination_8h_source_l00052}00052\ \textcolor{comment}{\ *\ Initialisation\ d'une\ table\ de\ pagination\ pour\ une\ nouvelle\ tâche.}}
+\DoxyCodeLine{\Hypertarget{pagination_8h_source_l00053}00053\ \textcolor{comment}{\ *\ elle\ est\ créée\ dans\ la\ zone\ pointée\ par\ repertoirePagination\ et}}
+\DoxyCodeLine{\Hypertarget{pagination_8h_source_l00054}00054\ \textcolor{comment}{\ *\ englobe\ les\ pages\ réservées\ au\ système.}}
+\DoxyCodeLine{\Hypertarget{pagination_8h_source_l00055}00055\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{pagination_8h_source_l00056}00056\ }
+\DoxyCodeLine{\Hypertarget{pagination_8h_source_l00057}00057\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{pagination_8h_a84dafc7d068bc475db5b6e2573899abc}{ajouterPage}}(\mbox{\hyperlink{pagination_8h_adea7218ca4ee2deb864db4fdd23419d2}{PageDirectory}}\ *\ repertoirePagination,}
+\DoxyCodeLine{\Hypertarget{pagination_8h_source_l00058}00058\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{include_2manux_2types_8h_a1541e9c22944f11aa406a073c3ddd6ff}{Page}}\ \ \ \ \ \ \ \ \ \ \ \ adressePhysique,}
+\DoxyCodeLine{\Hypertarget{pagination_8h_source_l00059}00059\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \ \ \ \ \ \ \ \ \ *\ adresseVirtuelle);}
+\DoxyCodeLine{\Hypertarget{pagination_8h_source_l00060}00060\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{pagination_8h_source_l00061}00061\ \textcolor{comment}{\ *\ Ajout\ d'une\ page\ dans\ l'espace\ d'adressage\ virtuel\ d'une}}
+\DoxyCodeLine{\Hypertarget{pagination_8h_source_l00062}00062\ \textcolor{comment}{\ *\ tâche\ à\ l'adresse\ voulue.}}
+\DoxyCodeLine{\Hypertarget{pagination_8h_source_l00063}00063\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{pagination_8h_source_l00064}00064\ }
+\DoxyCodeLine{\Hypertarget{pagination_8h_source_l00065}00065\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{pagination_8h_a6d1efa14988749e044655482a3330dce}{initialiserPagination}}(\textcolor{keywordtype}{int}\ tailleMemoireEtendue);}
+\DoxyCodeLine{\Hypertarget{pagination_8h_source_l00066}00066\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{pagination_8h_source_l00067}00067\ \textcolor{comment}{\ *\ Initialisation\ de\ la\ mémoire\ virtuelle}}
+\DoxyCodeLine{\Hypertarget{pagination_8h_source_l00068}00068\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{pagination_8h_source_l00069}00069\ }
+\DoxyCodeLine{\Hypertarget{pagination_8h_source_l00070}00070\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

@@ -1,0 +1,35 @@
+\doxysection{systeme-\/fichiers.h}
+\hypertarget{systeme-fichiers_8h_source}{}\label{systeme-fichiers_8h_source}\index{/home/manu/PROGRAMMATION/C/ManuX/include/config/systeme-\/fichiers.h@{/home/manu/PROGRAMMATION/C/ManuX/include/config/systeme-\/fichiers.h}}
+\mbox{\hyperlink{systeme-fichiers_8h}{Aller à la documentation de ce fichier.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{systeme-fichiers_8h_source_l00001}00001\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{systeme-fichiers_8h_source_l00002}00002\ \textcolor{comment}{/*\ Définition\ d'une\ interface\ de\ type\ fichiers.\ Elle\ pourra\ permettre\ un\ accès*/}}
+\DoxyCodeLine{\Hypertarget{systeme-fichiers_8h_source_l00003}00003\ \textcolor{comment}{/*\ homogène\ à\ différentes\ ressources\ (par\ exemple\ la\ console),\ et\ elle\ sera\ \ \ */}}
+\DoxyCodeLine{\Hypertarget{systeme-fichiers_8h_source_l00004}00004\ \textcolor{comment}{/*\ évidemment\ nécessaire\ pour\ implanter\ un\ système\ de\ fichiers.\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{systeme-fichiers_8h_source_l00005}00005\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{systeme-fichiers_8h_source_l00006}\mbox{\hyperlink{systeme-fichiers_8h_a911857a669fd0f015aed2ca0b885f31f}{00006}}\ \textcolor{preprocessor}{\#define\ MANUX\_FICHIER}}
+\DoxyCodeLine{\Hypertarget{systeme-fichiers_8h_source_l00007}00007\ }
+\DoxyCodeLine{\Hypertarget{systeme-fichiers_8h_source_l00008}00008\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{systeme-fichiers_8h_source_l00009}00009\ \textcolor{comment}{\ *\ Le\ nombre\ maximal\ de\ fichiers\ manipulés\ par\ un\ processus}}
+\DoxyCodeLine{\Hypertarget{systeme-fichiers_8h_source_l00010}00010\ \textcolor{comment}{\ *\ WARNING\ :\ sans\ aucun\ intéret\ pour\ le\ moment\ !}}
+\DoxyCodeLine{\Hypertarget{systeme-fichiers_8h_source_l00011}00011\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{systeme-fichiers_8h_source_l00012}00012\ \textcolor{preprocessor}{\#ifndef\ MANUX\_NB\_MAX\_FICHIERS}}
+\DoxyCodeLine{\Hypertarget{systeme-fichiers_8h_source_l00013}\mbox{\hyperlink{systeme-fichiers_8h_ab48eeeaee9e09747cccab91a13744206}{00013}}\ \textcolor{preprocessor}{\#\ \ \ define\ MANUX\_NB\_MAX\_FICHIERS\ \ 4}}
+\DoxyCodeLine{\Hypertarget{systeme-fichiers_8h_source_l00014}00014\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{systeme-fichiers_8h_source_l00015}00015\ }
+\DoxyCodeLine{\Hypertarget{systeme-fichiers_8h_source_l00019}\mbox{\hyperlink{systeme-fichiers_8h_a7995feaa81f4ff28834f6a7b7f66bc30}{00019}}\ \textcolor{preprocessor}{\#define\ MANUX\_INOEUDS}}
+\DoxyCodeLine{\Hypertarget{systeme-fichiers_8h_source_l00020}00020\ }
+\DoxyCodeLine{\Hypertarget{systeme-fichiers_8h_source_l00024}\mbox{\hyperlink{systeme-fichiers_8h_a2c31f21affeb15e2b1b7daa7042d1bf4}{00024}}\ \textcolor{preprocessor}{\#define\ MANUX\_TUBES}}
+\DoxyCodeLine{\Hypertarget{systeme-fichiers_8h_source_l00025}00025\ }
+\DoxyCodeLine{\Hypertarget{systeme-fichiers_8h_source_l00029}\mbox{\hyperlink{systeme-fichiers_8h_acc8fe09ff4806e8021d721cd8329a800}{00029}}\ \textcolor{preprocessor}{\#define\ MANUX\_TUBE\_REENTRANT}}
+\DoxyCodeLine{\Hypertarget{systeme-fichiers_8h_source_l00030}00030\ }
+\DoxyCodeLine{\Hypertarget{systeme-fichiers_8h_source_l00034}\mbox{\hyperlink{systeme-fichiers_8h_a934225171b6be7e497ce31550e67b49e}{00034}}\ \textcolor{preprocessor}{\#define\ MANUX\_HERITER\_FICHIERS}}
+\DoxyCodeLine{\Hypertarget{systeme-fichiers_8h_source_l00035}00035\ }
+\DoxyCodeLine{\Hypertarget{systeme-fichiers_8h_source_l00036}00036\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{systeme-fichiers_8h_source_l00037}00037\ \textcolor{comment}{/*\ Définition\ de\ périphérique\ caractère.\ En\ pause,\ je\ n'en\ vois\ pas\ la\ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{systeme-fichiers_8h_source_l00038}00038\ \textcolor{comment}{/*\ nécessité\ pour\ le\ moment\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{systeme-fichiers_8h_source_l00039}00039\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{systeme-fichiers_8h_source_l00040}00040\ \textcolor{comment}{//\#define\ MANUX\_PERIPHERIQUE\_CARACTERE}}
+\DoxyCodeLine{\Hypertarget{systeme-fichiers_8h_source_l00041}00041\ }
+
+\end{DoxyCode}

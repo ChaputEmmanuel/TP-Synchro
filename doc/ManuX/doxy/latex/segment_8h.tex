@@ -1,0 +1,177 @@
+\doxysection{Référence du fichier /home/manu/\+PROGRAMMATION/\+C/\+Manu\+X/include/manux/segment.h}
+\hypertarget{segment_8h}{}\label{segment_8h}\index{/home/manu/PROGRAMMATION/C/ManuX/include/manux/segment.h@{/home/manu/PROGRAMMATION/C/ManuX/include/manux/segment.h}}
+{\ttfamily \#include $<$manux/types.\+h$>$}\newline
+Graphe des dépendances par inclusion de segment.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=250pt]{segment_8h__incl}
+\end{center}
+\end{figure}
+Ce graphe montre quels fichiers incluent directement ou indirectement ce fichier \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{segment_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct__DescSegment}{\+\_\+\+Desc\+Segment}}
+\item 
+struct \mbox{\hyperlink{struct__DescTSS}{\+\_\+\+Desc\+TSS}}
+\item 
+union \mbox{\hyperlink{union__Descripteur}{\+\_\+\+Descripteur}}
+\item 
+struct \mbox{\hyperlink{struct__DescriptorTable}{\+\_\+\+Descriptor\+Table}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{segment_8h_ad22f59f7521cefe856cda77319352e17}{taille\+GDTSysteme}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Définitions de type}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \mbox{\hyperlink{struct__DescSegment}{\+\_\+\+Desc\+Segment}} \mbox{\hyperlink{segment_8h_a80cb7bf88a72fbe13bc4539da990ce5b}{Desc\+Segment}}
+\item 
+typedef struct \mbox{\hyperlink{struct__DescTSS}{\+\_\+\+Desc\+TSS}} \mbox{\hyperlink{segment_8h_a41dfd815a374d24765469d03fc858d6e}{Desc\+TSS}}
+\item 
+typedef union \mbox{\hyperlink{union__Descripteur}{\+\_\+\+Descripteur}} \mbox{\hyperlink{segment_8h_ad0ea392665f248eb1c5d00bdd69fe1f4}{Descripteur}}
+\item 
+typedef struct \mbox{\hyperlink{struct__DescriptorTable}{\+\_\+\+Descriptor\+Table}} \mbox{\hyperlink{segment_8h_ae5e4cb3889e9015f7648c7208c5aad01}{Descriptor\+Table}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} \mbox{\hyperlink{segment_8h_ae0e123e68e81d00dad08bd7a0215e9a8}{initialiser\+GDT}} (\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}})
+\item 
+\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} \mbox{\hyperlink{segment_8h_a9d73adba0d9db3f42a705fd1789e113e}{charger\+GDT}} (\mbox{\hyperlink{segment_8h_ae5e4cb3889e9015f7648c7208c5aad01}{Descriptor\+Table}} \texorpdfstring{$\ast$}{*}gdt)
+\item 
+\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} \mbox{\hyperlink{segment_8h_a7fa1329c2ae053fa9ef8b91043bd02d2}{charger\+LDT}} (\mbox{\hyperlink{segment_8h_ae5e4cb3889e9015f7648c7208c5aad01}{Descriptor\+Table}} \texorpdfstring{$\ast$}{*}ldt)
+\item 
+int \mbox{\hyperlink{segment_8h_a98c72dee0a629fb7b8ac0171521c52cc}{ajouter\+Desc\+TSS}} (\mbox{\hyperlink{segment_8h_ae5e4cb3889e9015f7648c7208c5aad01}{Descriptor\+Table}} \texorpdfstring{$\ast$}{*}dt, \mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} \texorpdfstring{$\ast$}{*}adresse, \mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\+\_\+t}} limite, \mbox{\hyperlink{include_2manux_2types_8h_a5b7544e51b136e716e4eccc0602bafd7}{booleen}} busy\+Task)
+\item 
+int \mbox{\hyperlink{segment_8h_a89a9fc5562cf33c6869b1d0df950d1a6}{set\+Descripteur\+Segment}} (\mbox{\hyperlink{segment_8h_ae5e4cb3889e9015f7648c7208c5aad01}{Descriptor\+Table}} \texorpdfstring{$\ast$}{*}dt, \mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\+\_\+t}} adresse, \mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\+\_\+t}} limite, \mbox{\hyperlink{include_2manux_2types_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}} type, \mbox{\hyperlink{include_2manux_2types_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}} gd0a)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{segment_8h_ae5e4cb3889e9015f7648c7208c5aad01}{Descriptor\+Table}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{segment_8h_aa7b2be909929911d7772352d013a9480}{gdt\+Systeme}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Documentation des macros}
+\Hypertarget{segment_8h_ad22f59f7521cefe856cda77319352e17}\label{segment_8h_ad22f59f7521cefe856cda77319352e17} 
+\index{segment.h@{segment.h}!tailleGDTSysteme@{tailleGDTSysteme}}
+\index{tailleGDTSysteme@{tailleGDTSysteme}!segment.h@{segment.h}}
+\doxysubsubsection{\texorpdfstring{tailleGDTSysteme}{tailleGDTSysteme}}
+{\footnotesize\ttfamily \#define taille\+GDTSysteme}
+
+{\bfseries Valeur \+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (\textcolor{keyword}{sizeof}(int)+\ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{int})+\ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{segment_8h_aa7b2be909929911d7772352d013a9480}{gdtSysteme}}-\/>\mbox{\hyperlink{struct__DescriptorTable_af383a85f6ad710d325447d0b36cd0dc8}{taille}}*\textcolor{keyword}{sizeof}(\mbox{\hyperlink{segment_8h_ad0ea392665f248eb1c5d00bdd69fe1f4}{Descripteur}}))}
+
+\end{DoxyCode}
+
+
+Définition à la ligne \mbox{\hyperlink{segment_8h_source_l00050}{50}} du fichier \mbox{\hyperlink{segment_8h_source}{segment.\+h}}.
+
+
+
+\doxysubsection{Documentation des définitions de type}
+\Hypertarget{segment_8h_ad0ea392665f248eb1c5d00bdd69fe1f4}\label{segment_8h_ad0ea392665f248eb1c5d00bdd69fe1f4} 
+\index{segment.h@{segment.h}!Descripteur@{Descripteur}}
+\index{Descripteur@{Descripteur}!segment.h@{segment.h}}
+\doxysubsubsection{\texorpdfstring{Descripteur}{Descripteur}}
+{\footnotesize\ttfamily typedef union \mbox{\hyperlink{union__Descripteur}{\+\_\+\+Descripteur}} \mbox{\hyperlink{segment_8h_ad0ea392665f248eb1c5d00bdd69fe1f4}{Descripteur}}}
+
+\Hypertarget{segment_8h_ae5e4cb3889e9015f7648c7208c5aad01}\label{segment_8h_ae5e4cb3889e9015f7648c7208c5aad01} 
+\index{segment.h@{segment.h}!DescriptorTable@{DescriptorTable}}
+\index{DescriptorTable@{DescriptorTable}!segment.h@{segment.h}}
+\doxysubsubsection{\texorpdfstring{DescriptorTable}{DescriptorTable}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{struct__DescriptorTable}{\+\_\+\+Descriptor\+Table}} \mbox{\hyperlink{segment_8h_ae5e4cb3889e9015f7648c7208c5aad01}{Descriptor\+Table}}}
+
+\Hypertarget{segment_8h_a80cb7bf88a72fbe13bc4539da990ce5b}\label{segment_8h_a80cb7bf88a72fbe13bc4539da990ce5b} 
+\index{segment.h@{segment.h}!DescSegment@{DescSegment}}
+\index{DescSegment@{DescSegment}!segment.h@{segment.h}}
+\doxysubsubsection{\texorpdfstring{DescSegment}{DescSegment}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{struct__DescSegment}{\+\_\+\+Desc\+Segment}} \mbox{\hyperlink{segment_8h_a80cb7bf88a72fbe13bc4539da990ce5b}{Desc\+Segment}}}
+
+\Hypertarget{segment_8h_a41dfd815a374d24765469d03fc858d6e}\label{segment_8h_a41dfd815a374d24765469d03fc858d6e} 
+\index{segment.h@{segment.h}!DescTSS@{DescTSS}}
+\index{DescTSS@{DescTSS}!segment.h@{segment.h}}
+\doxysubsubsection{\texorpdfstring{DescTSS}{DescTSS}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{struct__DescTSS}{\+\_\+\+Desc\+TSS}} \mbox{\hyperlink{segment_8h_a41dfd815a374d24765469d03fc858d6e}{Desc\+TSS}}}
+
+
+
+\doxysubsection{Documentation des fonctions}
+\Hypertarget{segment_8h_a98c72dee0a629fb7b8ac0171521c52cc}\label{segment_8h_a98c72dee0a629fb7b8ac0171521c52cc} 
+\index{segment.h@{segment.h}!ajouterDescTSS@{ajouterDescTSS}}
+\index{ajouterDescTSS@{ajouterDescTSS}!segment.h@{segment.h}}
+\doxysubsubsection{\texorpdfstring{ajouterDescTSS()}{ajouterDescTSS()}}
+{\footnotesize\ttfamily int ajouter\+Desc\+TSS (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{segment_8h_ae5e4cb3889e9015f7648c7208c5aad01}{Descriptor\+Table}} \texorpdfstring{$\ast$}{*}}]{dt,  }\item[{\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} \texorpdfstring{$\ast$}{*}}]{adresse,  }\item[{\mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\+\_\+t}}}]{limite,  }\item[{\mbox{\hyperlink{include_2manux_2types_8h_a5b7544e51b136e716e4eccc0602bafd7}{booleen}}}]{busy\+Task }\end{DoxyParamCaption})}
+
+
+
+Définition à la ligne \mbox{\hyperlink{segment_8c_source_l00211}{211}} du fichier \mbox{\hyperlink{segment_8c_source}{segment.\+c}}.
+
+\Hypertarget{segment_8h_a9d73adba0d9db3f42a705fd1789e113e}\label{segment_8h_a9d73adba0d9db3f42a705fd1789e113e} 
+\index{segment.h@{segment.h}!chargerGDT@{chargerGDT}}
+\index{chargerGDT@{chargerGDT}!segment.h@{segment.h}}
+\doxysubsubsection{\texorpdfstring{chargerGDT()}{chargerGDT()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} charger\+GDT (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{segment_8h_ae5e4cb3889e9015f7648c7208c5aad01}{Descriptor\+Table}} \texorpdfstring{$\ast$}{*}}]{gdt }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Définition à la ligne \mbox{\hyperlink{segment_8c_source_l00065}{65}} du fichier \mbox{\hyperlink{segment_8c_source}{segment.\+c}}.
+
+\Hypertarget{segment_8h_a7fa1329c2ae053fa9ef8b91043bd02d2}\label{segment_8h_a7fa1329c2ae053fa9ef8b91043bd02d2} 
+\index{segment.h@{segment.h}!chargerLDT@{chargerLDT}}
+\index{chargerLDT@{chargerLDT}!segment.h@{segment.h}}
+\doxysubsubsection{\texorpdfstring{chargerLDT()}{chargerLDT()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} charger\+LDT (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{segment_8h_ae5e4cb3889e9015f7648c7208c5aad01}{Descriptor\+Table}} \texorpdfstring{$\ast$}{*}}]{ldt }\end{DoxyParamCaption})}
+
+
+
+Définition à la ligne \mbox{\hyperlink{segment_8c_source_l00137}{137}} du fichier \mbox{\hyperlink{segment_8c_source}{segment.\+c}}.
+
+\Hypertarget{segment_8h_ae0e123e68e81d00dad08bd7a0215e9a8}\label{segment_8h_ae0e123e68e81d00dad08bd7a0215e9a8} 
+\index{segment.h@{segment.h}!initialiserGDT@{initialiserGDT}}
+\index{initialiserGDT@{initialiserGDT}!segment.h@{segment.h}}
+\doxysubsubsection{\texorpdfstring{initialiserGDT()}{initialiserGDT()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} initialiser\+GDT (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}}}]{ }\end{DoxyParamCaption})}
+
+
+
+Définition à la ligne \mbox{\hyperlink{segment_8c_source_l00156}{156}} du fichier \mbox{\hyperlink{segment_8c_source}{segment.\+c}}.
+
+\Hypertarget{segment_8h_a89a9fc5562cf33c6869b1d0df950d1a6}\label{segment_8h_a89a9fc5562cf33c6869b1d0df950d1a6} 
+\index{segment.h@{segment.h}!setDescripteurSegment@{setDescripteurSegment}}
+\index{setDescripteurSegment@{setDescripteurSegment}!segment.h@{segment.h}}
+\doxysubsubsection{\texorpdfstring{setDescripteurSegment()}{setDescripteurSegment()}}
+{\footnotesize\ttfamily int set\+Descripteur\+Segment (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{segment_8h_ae5e4cb3889e9015f7648c7208c5aad01}{Descriptor\+Table}} \texorpdfstring{$\ast$}{*}}]{dt,  }\item[{\mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\+\_\+t}}}]{adresse,  }\item[{\mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\+\_\+t}}}]{limite,  }\item[{\mbox{\hyperlink{include_2manux_2types_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}}}]{type,  }\item[{\mbox{\hyperlink{include_2manux_2types_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}}}]{gd0a }\end{DoxyParamCaption})}
+
+
+
+Définition à la ligne \mbox{\hyperlink{segment_8c_source_l00019}{19}} du fichier \mbox{\hyperlink{segment_8c_source}{segment.\+c}}.
+
+
+
+\doxysubsection{Documentation des variables}
+\Hypertarget{segment_8h_aa7b2be909929911d7772352d013a9480}\label{segment_8h_aa7b2be909929911d7772352d013a9480} 
+\index{segment.h@{segment.h}!gdtSysteme@{gdtSysteme}}
+\index{gdtSysteme@{gdtSysteme}!segment.h@{segment.h}}
+\doxysubsubsection{\texorpdfstring{gdtSysteme}{gdtSysteme}}
+{\footnotesize\ttfamily \mbox{\hyperlink{segment_8h_ae5e4cb3889e9015f7648c7208c5aad01}{Descriptor\+Table}}\texorpdfstring{$\ast$}{*} gdt\+Systeme\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+Définition à la ligne \mbox{\hyperlink{segment_8c_source_l00012}{12}} du fichier \mbox{\hyperlink{segment_8c_source}{segment.\+c}}.
+

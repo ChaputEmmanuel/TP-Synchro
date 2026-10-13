@@ -1,0 +1,72 @@
+\doxysection{listetaches.\+c}
+\hypertarget{listetaches_8c_source}{}\label{listetaches_8c_source}\index{/home/manu/PROGRAMMATION/C/ManuX/noyau/listetaches.c@{/home/manu/PROGRAMMATION/C/ManuX/noyau/listetaches.c}}
+\mbox{\hyperlink{listetaches_8c}{Aller Ã  la documentation de ce fichier.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{listetaches_8c_source_l00001}00001\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{listetaches_8c_source_l00002}00002\ \textcolor{comment}{/*\ \ \ \ \ \ Implantation\ des\ sous-\/programmes\ de\ gestion\ des\ listes\ de\ taches.\ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{listetaches_8c_source_l00003}00003\ \textcolor{comment}{/*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{listetaches_8c_source_l00004}00004\ \textcolor{comment}{/*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (C)\ Manu\ Chaput\ 2000\ */}}
+\DoxyCodeLine{\Hypertarget{listetaches_8c_source_l00005}00005\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{listetaches_8c_source_l00006}00006\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{listetaches_8h}{manux/listetaches.h}}>}}
+\DoxyCodeLine{\Hypertarget{listetaches_8c_source_l00007}00007\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{tache_8h}{manux/tache.h}}>}}
+\DoxyCodeLine{\Hypertarget{listetaches_8c_source_l00008}00008\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{manux_2debug_8h}{manux/debug.h}}>}\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ assert\ */}}
+\DoxyCodeLine{\Hypertarget{listetaches_8c_source_l00009}00009\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{include_2manux_2memoire_8h}{manux/memoire.h}}>}\ \ \ \ \ \ \ \textcolor{comment}{/*\ NULL\ */}}
+\DoxyCodeLine{\Hypertarget{listetaches_8c_source_l00010}00010\ }
+\DoxyCodeLine{\Hypertarget{listetaches_8c_source_l00011}\mbox{\hyperlink{listetaches_8h_af5baf3857612a0fabb59ad436aec5b9a}{00011}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{listetaches_8c_af5baf3857612a0fabb59ad436aec5b9a}{initialiserListeTache}}(\mbox{\hyperlink{struct__ListeTache}{ListeTache}}\ *\ listeTache)}
+\DoxyCodeLine{\Hypertarget{listetaches_8c_source_l00012}00012\ \{}
+\DoxyCodeLine{\Hypertarget{listetaches_8c_source_l00013}00013\ \ \ \ listeTache-\/>\mbox{\hyperlink{struct__ListeTache_ac30c886b3b35a885ecd6589631a8220d}{tete}}\ =\ \mbox{\hyperlink{include_2manux_2stddef_8h_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}};}
+\DoxyCodeLine{\Hypertarget{listetaches_8c_source_l00014}00014\ \ \ \ listeTache-\/>\mbox{\hyperlink{struct__ListeTache_ac9112c95044ae4454ea8d7ee11ef77f7}{queue}}\ =\ \mbox{\hyperlink{include_2manux_2stddef_8h_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}};}
+\DoxyCodeLine{\Hypertarget{listetaches_8c_source_l00015}00015\ \}}
+\DoxyCodeLine{\Hypertarget{listetaches_8c_source_l00016}00016\ }
+\DoxyCodeLine{\Hypertarget{listetaches_8c_source_l00017}\mbox{\hyperlink{listetaches_8h_a47d0e6faac2157f137a3e09608835c79}{00017}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{listetaches_8c_af826161a42187c55ece7b56ecbd60254}{insererCelluleTache}}(\mbox{\hyperlink{struct__ListeTache}{ListeTache}}\ \ \ *\ listeTaches,}
+\DoxyCodeLine{\Hypertarget{listetaches_8c_source_l00018}00018\ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct__Tache}{Tache}}\ \ \ \ \ \ \ \ *\ tache,}
+\DoxyCodeLine{\Hypertarget{listetaches_8c_source_l00019}00019\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct__CelluleTache}{CelluleTache}}\ *\ celluleTache)}
+\DoxyCodeLine{\Hypertarget{listetaches_8c_source_l00020}00020\ \{}
+\DoxyCodeLine{\Hypertarget{listetaches_8c_source_l00021}00021\ \ \ \ \mbox{\hyperlink{manux_2debug_8h_a3153a272f18d0f805028fce7e4337b53}{assert}}(listeTaches\ !=\ \mbox{\hyperlink{include_2manux_2stddef_8h_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}});}
+\DoxyCodeLine{\Hypertarget{listetaches_8c_source_l00022}00022\ \ \ \ \mbox{\hyperlink{manux_2debug_8h_a3153a272f18d0f805028fce7e4337b53}{assert}}(tache\ !=\ \mbox{\hyperlink{include_2manux_2stddef_8h_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}});}
+\DoxyCodeLine{\Hypertarget{listetaches_8c_source_l00023}00023\ \ \ \ \mbox{\hyperlink{manux_2debug_8h_a3153a272f18d0f805028fce7e4337b53}{assert}}(celluleTache\ !=\ \mbox{\hyperlink{include_2manux_2stddef_8h_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}});}
+\DoxyCodeLine{\Hypertarget{listetaches_8c_source_l00024}00024\ }
+\DoxyCodeLine{\Hypertarget{listetaches_8c_source_l00025}00025\ \ \ \ celluleTache-\/>\mbox{\hyperlink{struct__CelluleTache_a2a1ac3d6c4f2620e3c19089e2a706203}{tache}}\ =\ tache;}
+\DoxyCodeLine{\Hypertarget{listetaches_8c_source_l00026}00026\ }
+\DoxyCodeLine{\Hypertarget{listetaches_8c_source_l00027}00027\ \ \ \ celluleTache-\/>\mbox{\hyperlink{struct__CelluleTache_a9d6a6ee2889b11eeb2d18376426e0c3a}{suivant}}\ =\ \mbox{\hyperlink{include_2manux_2stddef_8h_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}};}
+\DoxyCodeLine{\Hypertarget{listetaches_8c_source_l00028}00028\ }
+\DoxyCodeLine{\Hypertarget{listetaches_8c_source_l00029}00029\ \ \ \ \textcolor{comment}{/*\ L'élément\ se\ retrouve\ aprés l'actuel\ dernier\ */}}
+\DoxyCodeLine{\Hypertarget{listetaches_8c_source_l00030}00030\ \ \ \ \textcolor{keywordflow}{if}\ (listeTaches-\/>\mbox{\hyperlink{struct__ListeTache_ac9112c95044ae4454ea8d7ee11ef77f7}{queue}}\ !=\ \mbox{\hyperlink{include_2manux_2stddef_8h_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}})\ \{}
+\DoxyCodeLine{\Hypertarget{listetaches_8c_source_l00031}00031\ \ \ \ \ \ listeTaches-\/>\mbox{\hyperlink{struct__ListeTache_ac9112c95044ae4454ea8d7ee11ef77f7}{queue}}-\/>\mbox{\hyperlink{struct__CelluleTache_a9d6a6ee2889b11eeb2d18376426e0c3a}{suivant}}\ =\ celluleTache;}
+\DoxyCodeLine{\Hypertarget{listetaches_8c_source_l00032}00032\ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{listetaches_8c_source_l00033}00033\ }
+\DoxyCodeLine{\Hypertarget{listetaches_8c_source_l00034}00034\ \ \ \ \textcolor{comment}{/*\ L'élément\ inséré\ se\ retrouve\ à la\ fin\ */}}
+\DoxyCodeLine{\Hypertarget{listetaches_8c_source_l00035}00035\ \ \ \ listeTaches-\/>\mbox{\hyperlink{struct__ListeTache_ac9112c95044ae4454ea8d7ee11ef77f7}{queue}}\ =\ celluleTache;}
+\DoxyCodeLine{\Hypertarget{listetaches_8c_source_l00036}00036\ }
+\DoxyCodeLine{\Hypertarget{listetaches_8c_source_l00037}00037\ \ \ \ \textcolor{comment}{/*\ Si\ la\ liste\ était\ vide,\ il\ se\ retrouve\ aussi\ en\ tête\ */}}
+\DoxyCodeLine{\Hypertarget{listetaches_8c_source_l00038}00038\ \ \ \ \textcolor{keywordflow}{if}\ (listeTaches-\/>\mbox{\hyperlink{struct__ListeTache_ac30c886b3b35a885ecd6589631a8220d}{tete}}\ ==\ \mbox{\hyperlink{include_2manux_2stddef_8h_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}})\ \{}
+\DoxyCodeLine{\Hypertarget{listetaches_8c_source_l00039}00039\ \ \ \ \ \ \ listeTaches-\/>\mbox{\hyperlink{struct__ListeTache_ac30c886b3b35a885ecd6589631a8220d}{tete}}\ =\ celluleTache;}
+\DoxyCodeLine{\Hypertarget{listetaches_8c_source_l00040}00040\ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{listetaches_8c_source_l00041}00041\ }
+\DoxyCodeLine{\Hypertarget{listetaches_8c_source_l00042}00042\ \ \ \ \mbox{\hyperlink{manux_2debug_8h_a3153a272f18d0f805028fce7e4337b53}{assert}}(listeTaches-\/>\mbox{\hyperlink{struct__ListeTache_ac30c886b3b35a885ecd6589631a8220d}{tete}}\ !=\ \mbox{\hyperlink{include_2manux_2stddef_8h_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}});}
+\DoxyCodeLine{\Hypertarget{listetaches_8c_source_l00043}00043\ \ \ \ \mbox{\hyperlink{manux_2debug_8h_a3153a272f18d0f805028fce7e4337b53}{assert}}(listeTaches-\/>\mbox{\hyperlink{struct__ListeTache_ac9112c95044ae4454ea8d7ee11ef77f7}{queue}}-\/>\mbox{\hyperlink{struct__CelluleTache_a2a1ac3d6c4f2620e3c19089e2a706203}{tache}}\ ==\ tache);}
+\DoxyCodeLine{\Hypertarget{listetaches_8c_source_l00044}00044\ \}}
+\DoxyCodeLine{\Hypertarget{listetaches_8c_source_l00045}00045\ }
+\DoxyCodeLine{\Hypertarget{listetaches_8c_source_l00046}\mbox{\hyperlink{listetaches_8h_ac5545c3621d37831f73cd58e653f7377}{00046}}\ \mbox{\hyperlink{struct__Tache}{Tache}}\ *\ \mbox{\hyperlink{listetaches_8c_aa8fd1f9573182c09a512998348874033}{extraireTache}}(\mbox{\hyperlink{struct__ListeTache}{ListeTache}}\ *\ listeTaches)}
+\DoxyCodeLine{\Hypertarget{listetaches_8c_source_l00047}00047\ \{}
+\DoxyCodeLine{\Hypertarget{listetaches_8c_source_l00048}00048\ \ \ \ \mbox{\hyperlink{struct__CelluleTache}{CelluleTache}}\ *\ celluleTache;}
+\DoxyCodeLine{\Hypertarget{listetaches_8c_source_l00049}00049\ }
+\DoxyCodeLine{\Hypertarget{listetaches_8c_source_l00050}00050\ \ \ \ celluleTache\ =\ listeTaches-\/>\mbox{\hyperlink{struct__ListeTache_ac30c886b3b35a885ecd6589631a8220d}{tete}};}
+\DoxyCodeLine{\Hypertarget{listetaches_8c_source_l00051}00051\ \ \ }
+\DoxyCodeLine{\Hypertarget{listetaches_8c_source_l00052}00052\ \ \ \ \textcolor{comment}{/*\ Si\ c'est\ la\ dernière\ */}}
+\DoxyCodeLine{\Hypertarget{listetaches_8c_source_l00053}00053\ \ \ \ \textcolor{keywordflow}{if}\ (celluleTache\ ==\ listeTaches-\/>\mbox{\hyperlink{struct__ListeTache_ac9112c95044ae4454ea8d7ee11ef77f7}{queue}})\ \{}
+\DoxyCodeLine{\Hypertarget{listetaches_8c_source_l00054}00054\ \ \ \ \ \ \ listeTaches-\/>\mbox{\hyperlink{struct__ListeTache_ac9112c95044ae4454ea8d7ee11ef77f7}{queue}}\ =\ \mbox{\hyperlink{include_2manux_2stddef_8h_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}};}
+\DoxyCodeLine{\Hypertarget{listetaches_8c_source_l00055}00055\ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{listetaches_8c_source_l00056}00056\ }
+\DoxyCodeLine{\Hypertarget{listetaches_8c_source_l00057}00057\ \ \ \ \textcolor{comment}{/*\ On\ sort\ la\ cellule\ de\ la\ liste\ et\ on\ la\ renvoie\ */}}
+\DoxyCodeLine{\Hypertarget{listetaches_8c_source_l00058}00058\ \ \ \ \textcolor{keywordflow}{if}\ (celluleTache\ !=\ \mbox{\hyperlink{include_2manux_2stddef_8h_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}})\ \{}
+\DoxyCodeLine{\Hypertarget{listetaches_8c_source_l00059}00059\ \ \ \ \ \ \ listeTaches-\/>\mbox{\hyperlink{struct__ListeTache_ac30c886b3b35a885ecd6589631a8220d}{tete}}\ =\ celluleTache-\/>\mbox{\hyperlink{struct__CelluleTache_a9d6a6ee2889b11eeb2d18376426e0c3a}{suivant}};}
+\DoxyCodeLine{\Hypertarget{listetaches_8c_source_l00060}00060\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ celluleTache-\/>\mbox{\hyperlink{struct__CelluleTache_a2a1ac3d6c4f2620e3c19089e2a706203}{tache}};}
+\DoxyCodeLine{\Hypertarget{listetaches_8c_source_l00061}00061\ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{listetaches_8c_source_l00062}00062\ }
+\DoxyCodeLine{\Hypertarget{listetaches_8c_source_l00063}00063\ \ \ \ \textcolor{comment}{/*\ Si\ on\ est\ encore\ là, c'est\ que\ la\ liste\ est\ vide\ */}}
+\DoxyCodeLine{\Hypertarget{listetaches_8c_source_l00064}00064\ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{include_2manux_2stddef_8h_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}};}
+\DoxyCodeLine{\Hypertarget{listetaches_8c_source_l00065}00065\ \}}
+\DoxyCodeLine{\Hypertarget{listetaches_8c_source_l00066}00066\ }
+
+\end{DoxyCode}

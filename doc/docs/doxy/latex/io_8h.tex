@@ -1,0 +1,111 @@
+\doxysection{Référence du fichier /home/manu/\+PROGRAMMATION/\+C/\+Manu\+X/include/manux/io.h}
+\hypertarget{io_8h}{}\label{io_8h}\index{/home/manu/PROGRAMMATION/C/ManuX/include/manux/io.h@{/home/manu/PROGRAMMATION/C/ManuX/include/manux/io.h}}
+Ce graphe montre quels fichiers incluent directement ou indirectement ce fichier \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{io_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{io_8h_a01385861b7c9bd988991a73868c29905}{outb}}(port,  octet)~  asm volatile ("{}outb \%\%al, \%1"{}\+:: "{}a"{}(octet), "{}Nd"{}((\mbox{\hyperlink{include_2manux_2types_8h_a273cf69d639a59973b6019625df33e30}{uint16\+\_\+t}})port))
+\begin{DoxyCompactList}\small\item\em Emission d\textquotesingle{}un octet sur un port. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{io_8h_a4f4a2af12435f72838eae7049d0ca6ee}{inb}}(port,  adresse\+Octet)~   asm volatile ("{}inb \%1, \%\%al"{}\+: "{}=a"{}(adresse\+Octet)\+: "{}Nd"{}((\mbox{\hyperlink{include_2manux_2types_8h_a273cf69d639a59973b6019625df33e30}{uint16\+\_\+t}})port))
+\begin{DoxyCompactList}\small\item\em Lecture d\textquotesingle{}un octet depuis un port. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{io_8h_a1138b9ac37047ae0832c08a831682cc0}{outw}}(port,  mot)~   asm volatile ("{}outw \%\%ax, \%1"{}\+:: "{}a"{}(mot), "{}Nd"{}((\mbox{\hyperlink{include_2manux_2types_8h_a273cf69d639a59973b6019625df33e30}{uint16\+\_\+t}})port))
+\begin{DoxyCompactList}\small\item\em Emission d\textquotesingle{}un mot sur un port. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{io_8h_a4e2d82d8ed0c3f06ee8672a770436c9f}{inw}}(port,  adresse\+Mot)~   asm volatile ("{}inw \%1, \%\%ax"{}\+: "{}=a"{}(adresse\+Mot)\+: "{}Nd"{}((\mbox{\hyperlink{include_2manux_2types_8h_a273cf69d639a59973b6019625df33e30}{uint16\+\_\+t}})port))
+\begin{DoxyCompactList}\small\item\em Lecture d\textquotesingle{}un mot depuis un port. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{io_8h_a92a4b4982e75909904a35aef114cc3de}{outl}}(port,  lng)~   asm volatile ("{}outl \%\%\mbox{\hyperlink{include_2manux_2types_8h_a93d929ad1fc57af9d4f1793c361fb4f2}{eax}}, \%1"{}\+:: "{}a"{}(lng), "{}Nd"{}((\mbox{\hyperlink{include_2manux_2types_8h_a273cf69d639a59973b6019625df33e30}{uint16\+\_\+t}})port))
+\begin{DoxyCompactList}\small\item\em Emission d\textquotesingle{}un long sur un port. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{io_8h_a58dac80d57e8fe473d87545a4d78ad53}{inl}}(port,  adresse\+Long)~   asm volatile("{}inl \%\%dx, \%\%eax"{}\+: "{}=a"{}(adresse\+Long)\+: "{}d"{}((\mbox{\hyperlink{include_2manux_2types_8h_a273cf69d639a59973b6019625df33e30}{uint16\+\_\+t}})port))
+\begin{DoxyCompactList}\small\item\em Lecture d\textquotesingle{}un long depuis un port. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Documentation des macros}
+\Hypertarget{io_8h_a4f4a2af12435f72838eae7049d0ca6ee}\label{io_8h_a4f4a2af12435f72838eae7049d0ca6ee} 
+\index{io.h@{io.h}!inb@{inb}}
+\index{inb@{inb}!io.h@{io.h}}
+\doxysubsubsection{\texorpdfstring{inb}{inb}}
+{\footnotesize\ttfamily \#define inb(\begin{DoxyParamCaption}\item[{}]{port,  }\item[{}]{adresse\+Octet }\end{DoxyParamCaption})~   asm volatile ("{}inb \%1, \%\%al"{}\+: "{}=a"{}(adresse\+Octet)\+: "{}Nd"{}((\mbox{\hyperlink{include_2manux_2types_8h_a273cf69d639a59973b6019625df33e30}{uint16\+\_\+t}})port))}
+
+
+
+Lecture d\textquotesingle{}un octet depuis un port. 
+
+
+
+Définition à la ligne \mbox{\hyperlink{io_8h_source_l00019}{19}} du fichier \mbox{\hyperlink{io_8h_source}{io.\+h}}.
+
+\Hypertarget{io_8h_a58dac80d57e8fe473d87545a4d78ad53}\label{io_8h_a58dac80d57e8fe473d87545a4d78ad53} 
+\index{io.h@{io.h}!inl@{inl}}
+\index{inl@{inl}!io.h@{io.h}}
+\doxysubsubsection{\texorpdfstring{inl}{inl}}
+{\footnotesize\ttfamily \#define inl(\begin{DoxyParamCaption}\item[{}]{port,  }\item[{}]{adresse\+Long }\end{DoxyParamCaption})~   asm volatile("{}inl \%\%dx, \%\%eax"{}\+: "{}=a"{}(adresse\+Long)\+: "{}d"{}((\mbox{\hyperlink{include_2manux_2types_8h_a273cf69d639a59973b6019625df33e30}{uint16\+\_\+t}})port))}
+
+
+
+Lecture d\textquotesingle{}un long depuis un port. 
+
+
+
+Définition à la ligne \mbox{\hyperlink{io_8h_source_l00043}{43}} du fichier \mbox{\hyperlink{io_8h_source}{io.\+h}}.
+
+\Hypertarget{io_8h_a4e2d82d8ed0c3f06ee8672a770436c9f}\label{io_8h_a4e2d82d8ed0c3f06ee8672a770436c9f} 
+\index{io.h@{io.h}!inw@{inw}}
+\index{inw@{inw}!io.h@{io.h}}
+\doxysubsubsection{\texorpdfstring{inw}{inw}}
+{\footnotesize\ttfamily \#define inw(\begin{DoxyParamCaption}\item[{}]{port,  }\item[{}]{adresse\+Mot }\end{DoxyParamCaption})~   asm volatile ("{}inw \%1, \%\%ax"{}\+: "{}=a"{}(adresse\+Mot)\+: "{}Nd"{}((\mbox{\hyperlink{include_2manux_2types_8h_a273cf69d639a59973b6019625df33e30}{uint16\+\_\+t}})port))}
+
+
+
+Lecture d\textquotesingle{}un mot depuis un port. 
+
+
+
+Définition à la ligne \mbox{\hyperlink{io_8h_source_l00031}{31}} du fichier \mbox{\hyperlink{io_8h_source}{io.\+h}}.
+
+\Hypertarget{io_8h_a01385861b7c9bd988991a73868c29905}\label{io_8h_a01385861b7c9bd988991a73868c29905} 
+\index{io.h@{io.h}!outb@{outb}}
+\index{outb@{outb}!io.h@{io.h}}
+\doxysubsubsection{\texorpdfstring{outb}{outb}}
+{\footnotesize\ttfamily \#define outb(\begin{DoxyParamCaption}\item[{}]{port,  }\item[{}]{octet }\end{DoxyParamCaption})~  asm volatile ("{}outb \%\%al, \%1"{}\+:: "{}a"{}(octet), "{}Nd"{}((\mbox{\hyperlink{include_2manux_2types_8h_a273cf69d639a59973b6019625df33e30}{uint16\+\_\+t}})port))}
+
+
+
+Emission d\textquotesingle{}un octet sur un port. 
+
+
+
+Définition à la ligne \mbox{\hyperlink{io_8h_source_l00013}{13}} du fichier \mbox{\hyperlink{io_8h_source}{io.\+h}}.
+
+\Hypertarget{io_8h_a92a4b4982e75909904a35aef114cc3de}\label{io_8h_a92a4b4982e75909904a35aef114cc3de} 
+\index{io.h@{io.h}!outl@{outl}}
+\index{outl@{outl}!io.h@{io.h}}
+\doxysubsubsection{\texorpdfstring{outl}{outl}}
+{\footnotesize\ttfamily \#define outl(\begin{DoxyParamCaption}\item[{}]{port,  }\item[{}]{lng }\end{DoxyParamCaption})~   asm volatile ("{}outl \%\%\mbox{\hyperlink{include_2manux_2types_8h_a93d929ad1fc57af9d4f1793c361fb4f2}{eax}}, \%1"{}\+:: "{}a"{}(lng), "{}Nd"{}((\mbox{\hyperlink{include_2manux_2types_8h_a273cf69d639a59973b6019625df33e30}{uint16\+\_\+t}})port))}
+
+
+
+Emission d\textquotesingle{}un long sur un port. 
+
+
+
+Définition à la ligne \mbox{\hyperlink{io_8h_source_l00037}{37}} du fichier \mbox{\hyperlink{io_8h_source}{io.\+h}}.
+
+\Hypertarget{io_8h_a1138b9ac37047ae0832c08a831682cc0}\label{io_8h_a1138b9ac37047ae0832c08a831682cc0} 
+\index{io.h@{io.h}!outw@{outw}}
+\index{outw@{outw}!io.h@{io.h}}
+\doxysubsubsection{\texorpdfstring{outw}{outw}}
+{\footnotesize\ttfamily \#define outw(\begin{DoxyParamCaption}\item[{}]{port,  }\item[{}]{mot }\end{DoxyParamCaption})~   asm volatile ("{}outw \%\%ax, \%1"{}\+:: "{}a"{}(mot), "{}Nd"{}((\mbox{\hyperlink{include_2manux_2types_8h_a273cf69d639a59973b6019625df33e30}{uint16\+\_\+t}})port))}
+
+
+
+Emission d\textquotesingle{}un mot sur un port. 
+
+
+
+Définition à la ligne \mbox{\hyperlink{io_8h_source_l00025}{25}} du fichier \mbox{\hyperlink{io_8h_source}{io.\+h}}.
+

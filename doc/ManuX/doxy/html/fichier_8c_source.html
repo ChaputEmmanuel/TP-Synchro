@@ -1,0 +1,343 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>My Project:  Fichier source de /home/manu/PROGRAMMATION/C/ManuX/sf/fichier.c</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">My Project
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function() { init_codefold(0); });
+/* @license-end */
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_904888ac7d20b5625bb8d47b235146bd.html">sf</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle"><div class="title">fichier.c</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="fichier_8c.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">/*----------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment">/*      Implantation des fichiers de Manux.                                   */</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment">/*                                                                            */</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment">/*                                                  (C) Manu Chaput 2002-2023 */</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment">/*----------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &lt;<a class="code" href="fichier_8h.html">manux/fichier.h</a>&gt;</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &lt;<a class="code" href="manux_2debug_8h.html">manux/debug.h</a>&gt;</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &lt;manux/string.h&gt;</span>       <span class="comment">// bcopy</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &lt;<a class="code" href="scheduler_8h.html">manux/scheduler.h</a>&gt;</span>    <span class="comment">// tacheEnCours</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &lt;manux/errno.h&gt;</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#ifdef MANUX_KMALLOC</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#   include &lt;<a class="code" href="include_2manux_2kmalloc_8h.html">manux/kmalloc.h</a>&gt;</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="keyword">static</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="keywordtype">int</span> fichierLire(<a class="code hl_struct" href="struct__Fichier.html">Fichier</a> * f, <span class="keywordtype">void</span> * buffer, <span class="keywordtype">int</span> nbOctets)</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>{</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>   <span class="keywordtype">int</span> result = -<a class="code hl_define" href="include_2manux_2errno_8h.html#ac54507d66b43ad12f9356257323c0018">EBADF</a>;</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>   <span class="keywordflow">if</span> (f-&gt;<a class="code hl_variable" href="struct__Fichier.html#a56519e60d0981ec5edef4b0fb0c38010">fanions</a> &amp; <a class="code hl_define" href="fichier_8h.html#a7a68c9ffaac7dbcd652225dd7c06a54b">O_RDONLY</a>) {</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>      <a class="code hl_define" href="manux_2debug_8h.html#ad4cabea5084373436d91b5dc4e8d0a49">printk_debug</a>(<a class="code hl_define" href="manux_2debug_8h.html#a69ed878fe38be7f569a44a0d85138ed6">DBG_KERNEL_SYSFI</a>, <span class="stringliteral">&quot;on invoque 0x%x\n&quot;</span>, f-&gt;<a class="code hl_variable" href="struct__Fichier.html#a2701084fbf362681f2d2480b1b323de7">iNoeud</a>-&gt;<a class="code hl_variable" href="struct__INoeud.html#ab6ac2683b253e58d522492afa706a7d9">methodesFichier</a>-&gt;<a class="code hl_variable" href="struct__MethodesFichier.html#a5b1b2c44bada2f0ade23befa3b48834f">lire</a>);</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>   </div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>      <span class="comment">// On invoque la méthode associée</span></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>      result = f-&gt;<a class="code hl_variable" href="struct__Fichier.html#a2701084fbf362681f2d2480b1b323de7">iNoeud</a>-&gt;<a class="code hl_variable" href="struct__INoeud.html#ab6ac2683b253e58d522492afa706a7d9">methodesFichier</a>-&gt;<a class="code hl_variable" href="struct__MethodesFichier.html#a5b1b2c44bada2f0ade23befa3b48834f">lire</a>(f, buffer, nbOctets);</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>   }</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>   </div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>   <a class="code hl_define" href="manux_2debug_8h.html#ad4cabea5084373436d91b5dc4e8d0a49">printk_debug</a>(<a class="code hl_define" href="manux_2debug_8h.html#a69ed878fe38be7f569a44a0d85138ed6">DBG_KERNEL_SYSFI</a>, <span class="stringliteral">&quot;on renvoie %d\n&quot;</span>, result);</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>   <span class="keywordflow">return</span> result;</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>}</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
+<div class="foldopen" id="foldopen00036" data-start="{" data-end="}">
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno"><a class="line" href="fichier_8h.html#abc65f3c0efeb699107be0fb3dede5098">   36</a></span><span class="keywordtype">int</span> <a class="code hl_function" href="fichier_8c.html#abc65f3c0efeb699107be0fb3dede5098">fichierEcrire</a>(<a class="code hl_struct" href="struct__Fichier.html">Fichier</a> * f, <span class="keywordtype">void</span> * buffer, <span class="keywordtype">int</span> nbOctets)</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>{</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>   <span class="keywordtype">int</span> result = -<a class="code hl_define" href="include_2manux_2errno_8h.html#ac54507d66b43ad12f9356257323c0018">EBADF</a>;</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>   <span class="keywordflow">if</span> (f-&gt;<a class="code hl_variable" href="struct__Fichier.html#a56519e60d0981ec5edef4b0fb0c38010">fanions</a> &amp; <a class="code hl_define" href="fichier_8h.html#a11b644a8526139c4cc1850dac1271ced">O_WRONLY</a>) {</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>      <a class="code hl_define" href="manux_2debug_8h.html#ad4cabea5084373436d91b5dc4e8d0a49">printk_debug</a>(<a class="code hl_define" href="manux_2debug_8h.html#a69ed878fe38be7f569a44a0d85138ed6">DBG_KERNEL_SYSFI</a>, <span class="stringliteral">&quot;on invoque 0x%x\n&quot;</span>, f-&gt;<a class="code hl_variable" href="struct__Fichier.html#a2701084fbf362681f2d2480b1b323de7">iNoeud</a>-&gt;<a class="code hl_variable" href="struct__INoeud.html#ab6ac2683b253e58d522492afa706a7d9">methodesFichier</a>-&gt;<a class="code hl_variable" href="struct__MethodesFichier.html#a9c0e50e5e0612aab9df6a94f36947942">ecrire</a>);</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>      <span class="comment">// On invoque la méthode associée</span></div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>      result = f-&gt;<a class="code hl_variable" href="struct__Fichier.html#a2701084fbf362681f2d2480b1b323de7">iNoeud</a>-&gt;<a class="code hl_variable" href="struct__INoeud.html#ab6ac2683b253e58d522492afa706a7d9">methodesFichier</a>-&gt;<a class="code hl_variable" href="struct__MethodesFichier.html#a9c0e50e5e0612aab9df6a94f36947942">ecrire</a>(f, buffer, nbOctets);</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>   }</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>   <a class="code hl_define" href="manux_2debug_8h.html#ad4cabea5084373436d91b5dc4e8d0a49">printk_debug</a>(<a class="code hl_define" href="manux_2debug_8h.html#a69ed878fe38be7f569a44a0d85138ed6">DBG_KERNEL_SYSFI</a>, <span class="stringliteral">&quot;on renvoie %d\n&quot;</span>, result);</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>   </div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>   <span class="keywordflow">return</span> result;</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>}</div>
+</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span><span class="preprocessor">#ifdef MANUX_APPELS_SYSTEME</span></div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span><span class="keywordtype">int</span> sys_fermer(<a class="code hl_struct" href="struct__ParametreAS.html">ParametreAS</a> as, <span class="keywordtype">int</span> <a class="code hl_variable" href="init-acces-concurrent_8c.html#a62d2d983a3da1fde907ff0f255bf4956">fd</a>)</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>{</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>   <a class="code hl_struct" href="struct__Fichier.html">Fichier</a> * f;</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>   <span class="keywordtype">int</span> result = <a class="code hl_define" href="include_2manux_2errno_8h.html#ac54507d66b43ad12f9356257323c0018">EBADF</a>;</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>   (<a class="code hl_function" href="include_2manux_2interruptions_8h.html#a4fda31edc92f8ccd48b6f4bb50f2e7e1">void</a>) as;</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>   </div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>   <a class="code hl_define" href="manux_2debug_8h.html#ad4cabea5084373436d91b5dc4e8d0a49">printk_debug</a>(<a class="code hl_define" href="manux_2debug_8h.html#a69ed878fe38be7f569a44a0d85138ed6">DBG_KERNEL_SYSFI</a>, <span class="stringliteral">&quot;in\n&quot;</span>);</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>   </div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>   <span class="keywordflow">if</span> (<a class="code hl_variable" href="scheduler_8h.html#aafdf44b33a86f1bef6141d33a4abb94b">tacheEnCours</a> == <a class="code hl_define" href="include_2manux_2stddef_8h.html#a070d2ce7b6bb7e5c05602aa8c308d0c4">NULL</a>) {</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>      <a class="code hl_define" href="manux_2debug_8h.html#ad4cabea5084373436d91b5dc4e8d0a49">printk_debug</a>(<a class="code hl_define" href="manux_2debug_8h.html#a69ed878fe38be7f569a44a0d85138ed6">DBG_KERNEL_SYSFI</a>, <span class="stringliteral">&quot;pas de tache en cours !\n&quot;</span>);</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>      result = <a class="code hl_define" href="include_2manux_2errno_8h.html#a2d1678d5a7cc8ce499643f3b8957def4">EINVAL</a>;</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>   } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (<a class="code hl_variable" href="scheduler_8h.html#aafdf44b33a86f1bef6141d33a4abb94b">tacheEnCours</a>-&gt;fichiers[<a class="code hl_variable" href="init-acces-concurrent_8c.html#a62d2d983a3da1fde907ff0f255bf4956">fd</a>] == <a class="code hl_define" href="include_2manux_2stddef_8h.html#a070d2ce7b6bb7e5c05602aa8c308d0c4">NULL</a>) {</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>      <a class="code hl_define" href="manux_2debug_8h.html#ad4cabea5084373436d91b5dc4e8d0a49">printk_debug</a>(<a class="code hl_define" href="manux_2debug_8h.html#a69ed878fe38be7f569a44a0d85138ed6">DBG_KERNEL_SYSFI</a>, <span class="stringliteral">&quot;pas de fichier %d !\n&quot;</span>, <a class="code hl_variable" href="init-acces-concurrent_8c.html#a62d2d983a3da1fde907ff0f255bf4956">fd</a>);</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>      result = <a class="code hl_define" href="include_2manux_2errno_8h.html#ace942f794d14d0a78a32b559495b61fd">EPASDEF</a>;</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>   } <span class="keywordflow">else</span> {</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>      f = <a class="code hl_variable" href="scheduler_8h.html#aafdf44b33a86f1bef6141d33a4abb94b">tacheEnCours</a>-&gt;fichiers[<a class="code hl_variable" href="init-acces-concurrent_8c.html#a62d2d983a3da1fde907ff0f255bf4956">fd</a>]; </div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>      result = <a class="code hl_function" href="fichier_8c.html#a00fc4fac4da6a7b5c9206308bc159c9d">fichierFermer</a>(f);</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span> </div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>      <span class="comment">// WARNING : libérer l&#39;emplacement dans les fichiers de la tâche</span></div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>   }</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>   </div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>   <span class="keywordflow">return</span> result;</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>   </div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>}</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span> </div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span><span class="keywordtype">int</span> sys_ecrire(<a class="code hl_struct" href="struct__ParametreAS.html">ParametreAS</a> as, <span class="keywordtype">int</span> <a class="code hl_variable" href="init-acces-concurrent_8c.html#a62d2d983a3da1fde907ff0f255bf4956">fd</a>, <span class="keywordtype">void</span> * buffer, <span class="keywordtype">int</span> nbOctets)</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>{</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>   <a class="code hl_struct" href="struct__Fichier.html">Fichier</a> * f;</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>   <span class="keywordtype">int</span> result;</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>   (<a class="code hl_function" href="include_2manux_2interruptions_8h.html#a4fda31edc92f8ccd48b6f4bb50f2e7e1">void</a>) as;</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>   </div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>   <a class="code hl_define" href="manux_2debug_8h.html#ad4cabea5084373436d91b5dc4e8d0a49">printk_debug</a>(<a class="code hl_define" href="manux_2debug_8h.html#a69ed878fe38be7f569a44a0d85138ed6">DBG_KERNEL_SYSFI</a>, <span class="stringliteral">&quot;sys_ecrire fd = %d, b = %d, nb = %d IN\n&quot;</span>, <a class="code hl_variable" href="init-acces-concurrent_8c.html#a62d2d983a3da1fde907ff0f255bf4956">fd</a>, buffer, nbOctets);</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span> </div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>   <span class="keywordflow">if</span> (<a class="code hl_variable" href="scheduler_8h.html#aafdf44b33a86f1bef6141d33a4abb94b">tacheEnCours</a> == <a class="code hl_define" href="include_2manux_2stddef_8h.html#a070d2ce7b6bb7e5c05602aa8c308d0c4">NULL</a>) {</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>      <a class="code hl_define" href="manux_2debug_8h.html#ad4cabea5084373436d91b5dc4e8d0a49">printk_debug</a>(<a class="code hl_define" href="manux_2debug_8h.html#a69ed878fe38be7f569a44a0d85138ed6">DBG_KERNEL_SYSFI</a>, <span class="stringliteral">&quot;pas de tache en cours !\n&quot;</span>);</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>      result = -<a class="code hl_define" href="include_2manux_2errno_8h.html#a2d1678d5a7cc8ce499643f3b8957def4">EINVAL</a>;</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>   } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (<a class="code hl_variable" href="scheduler_8h.html#aafdf44b33a86f1bef6141d33a4abb94b">tacheEnCours</a>-&gt;fichiers[<a class="code hl_variable" href="init-acces-concurrent_8c.html#a62d2d983a3da1fde907ff0f255bf4956">fd</a>] == <a class="code hl_define" href="include_2manux_2stddef_8h.html#a070d2ce7b6bb7e5c05602aa8c308d0c4">NULL</a>) {</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>      <a class="code hl_define" href="manux_2debug_8h.html#ad4cabea5084373436d91b5dc4e8d0a49">printk_debug</a>(<a class="code hl_define" href="manux_2debug_8h.html#a69ed878fe38be7f569a44a0d85138ed6">DBG_KERNEL_SYSFI</a>, <span class="stringliteral">&quot;pas de fichier %d !\n&quot;</span>, <a class="code hl_variable" href="init-acces-concurrent_8c.html#a62d2d983a3da1fde907ff0f255bf4956">fd</a>);</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>      result = -<a class="code hl_define" href="include_2manux_2errno_8h.html#ace942f794d14d0a78a32b559495b61fd">EPASDEF</a>;</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>   } <span class="keywordflow">else</span> {</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>      f = <a class="code hl_variable" href="scheduler_8h.html#aafdf44b33a86f1bef6141d33a4abb94b">tacheEnCours</a>-&gt;fichiers[<a class="code hl_variable" href="init-acces-concurrent_8c.html#a62d2d983a3da1fde907ff0f255bf4956">fd</a>]; </div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>      <a class="code hl_define" href="manux_2debug_8h.html#ad4cabea5084373436d91b5dc4e8d0a49">printk_debug</a>(<a class="code hl_define" href="manux_2debug_8h.html#a69ed878fe38be7f569a44a0d85138ed6">DBG_KERNEL_SYSFI</a>, <span class="stringliteral">&quot;sys_ecrire : fd=%d, file=%x\n&quot;</span>, <a class="code hl_variable" href="init-acces-concurrent_8c.html#a62d2d983a3da1fde907ff0f255bf4956">fd</a>, f);</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>      result = <a class="code hl_function" href="fichier_8c.html#abc65f3c0efeb699107be0fb3dede5098">fichierEcrire</a>(f, buffer, nbOctets);</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>      <a class="code hl_define" href="manux_2debug_8h.html#ad4cabea5084373436d91b5dc4e8d0a49">printk_debug</a>(<a class="code hl_define" href="manux_2debug_8h.html#a69ed878fe38be7f569a44a0d85138ed6">DBG_KERNEL_SYSFI</a>, <span class="stringliteral">&quot;sys_ecrire : res = %d\n&quot;</span>, result);</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>   }</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>   </div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>   <span class="keywordflow">return</span> result;</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>}</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span> </div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span><span class="keywordtype">int</span> sys_lire(<a class="code hl_struct" href="struct__ParametreAS.html">ParametreAS</a> as, <span class="keywordtype">int</span> <a class="code hl_variable" href="init-acces-concurrent_8c.html#a62d2d983a3da1fde907ff0f255bf4956">fd</a>, <span class="keywordtype">void</span> * buffer, <span class="keywordtype">int</span> nbOctets)</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>{</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>   <a class="code hl_struct" href="struct__Fichier.html">Fichier</a> * f;</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>   <span class="keywordtype">int</span> result;</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>   (<a class="code hl_function" href="include_2manux_2interruptions_8h.html#a4fda31edc92f8ccd48b6f4bb50f2e7e1">void</a>) as;</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>   </div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>   <a class="code hl_define" href="manux_2debug_8h.html#ad4cabea5084373436d91b5dc4e8d0a49">printk_debug</a>(<a class="code hl_define" href="manux_2debug_8h.html#a69ed878fe38be7f569a44a0d85138ed6">DBG_KERNEL_SYSFI</a>, <span class="stringliteral">&quot;sys_lire fd = %d, b = %d, nb = %d IN\n&quot;</span>, <a class="code hl_variable" href="init-acces-concurrent_8c.html#a62d2d983a3da1fde907ff0f255bf4956">fd</a>, buffer, nbOctets);</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span> </div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>   <span class="keywordflow">if</span> (<a class="code hl_variable" href="scheduler_8h.html#aafdf44b33a86f1bef6141d33a4abb94b">tacheEnCours</a> == <a class="code hl_define" href="include_2manux_2stddef_8h.html#a070d2ce7b6bb7e5c05602aa8c308d0c4">NULL</a>) {</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>      <a class="code hl_define" href="manux_2debug_8h.html#ad4cabea5084373436d91b5dc4e8d0a49">printk_debug</a>(<a class="code hl_define" href="manux_2debug_8h.html#a69ed878fe38be7f569a44a0d85138ed6">DBG_KERNEL_SYSFI</a>, <span class="stringliteral">&quot;pas de tache en cours !\n&quot;</span>);</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>      result = -<a class="code hl_define" href="include_2manux_2errno_8h.html#a2d1678d5a7cc8ce499643f3b8957def4">EINVAL</a>;</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>   } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (<a class="code hl_variable" href="scheduler_8h.html#aafdf44b33a86f1bef6141d33a4abb94b">tacheEnCours</a>-&gt;fichiers[<a class="code hl_variable" href="init-acces-concurrent_8c.html#a62d2d983a3da1fde907ff0f255bf4956">fd</a>] == <a class="code hl_define" href="include_2manux_2stddef_8h.html#a070d2ce7b6bb7e5c05602aa8c308d0c4">NULL</a>) {</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>      <a class="code hl_define" href="manux_2debug_8h.html#ad4cabea5084373436d91b5dc4e8d0a49">printk_debug</a>(<a class="code hl_define" href="manux_2debug_8h.html#a69ed878fe38be7f569a44a0d85138ed6">DBG_KERNEL_SYSFI</a>, <span class="stringliteral">&quot;pas de fichier %d !\n&quot;</span>, <a class="code hl_variable" href="init-acces-concurrent_8c.html#a62d2d983a3da1fde907ff0f255bf4956">fd</a>);</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>      result = -<a class="code hl_define" href="include_2manux_2errno_8h.html#ace942f794d14d0a78a32b559495b61fd">EPASDEF</a>;</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>   } <span class="keywordflow">else</span> {</div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>      f = <a class="code hl_variable" href="scheduler_8h.html#aafdf44b33a86f1bef6141d33a4abb94b">tacheEnCours</a>-&gt;fichiers[<a class="code hl_variable" href="init-acces-concurrent_8c.html#a62d2d983a3da1fde907ff0f255bf4956">fd</a>]; </div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>      <a class="code hl_define" href="manux_2debug_8h.html#ad4cabea5084373436d91b5dc4e8d0a49">printk_debug</a>(<a class="code hl_define" href="manux_2debug_8h.html#a69ed878fe38be7f569a44a0d85138ed6">DBG_KERNEL_SYSFI</a>, <span class="stringliteral">&quot;sys_lire : fd=%d, file=%x\n&quot;</span>, <a class="code hl_variable" href="init-acces-concurrent_8c.html#a62d2d983a3da1fde907ff0f255bf4956">fd</a>, f);</div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>      result = fichierLire(f, buffer, nbOctets);</div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>      <a class="code hl_define" href="manux_2debug_8h.html#ad4cabea5084373436d91b5dc4e8d0a49">printk_debug</a>(<a class="code hl_define" href="manux_2debug_8h.html#a69ed878fe38be7f569a44a0d85138ed6">DBG_KERNEL_SYSFI</a>, <span class="stringliteral">&quot;sys_lire : res = %d\n&quot;</span>, result);</div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>   }</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>   </div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>   <span class="keywordflow">return</span> result;</div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>}</div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span><span class="preprocessor">#endif </span><span class="comment">//MANUX_APPELS_SYSTEME</span></div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span> </div>
+<div class="foldopen" id="foldopen00129" data-start="{" data-end="}">
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno"><a class="line" href="fichier_8h.html#a431c9fdbc351bde6f9c419267bd5adc5">  129</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="fichier_8c.html#a431c9fdbc351bde6f9c419267bd5adc5">sfInitialiser</a>(<span class="keywordtype">void</span>)</div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>{</div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span><span class="preprocessor">#ifdef MANUX_APPELS_SYSTEME</span></div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>   <a class="code hl_function" href="include_2manux_2appelsysteme_8h.html#ab2afb7ddcc5b7c7d47eb2f88c1dc0282">definirAppelSysteme</a>(<a class="code hl_define" href="include_2manux_2appelsystemenum_8h.html#a8bc3e6338e5b025a7e139f7e33181447">NBAS_FERMER</a>, sys_fermer);</div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>   <a class="code hl_function" href="include_2manux_2appelsysteme_8h.html#ab2afb7ddcc5b7c7d47eb2f88c1dc0282">definirAppelSysteme</a>(<a class="code hl_define" href="include_2manux_2appelsystemenum_8h.html#af6f2b6432cfa9ae465218edc7dce87d8">NBAS_ECRIRE</a>, sys_ecrire);</div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>   <a class="code hl_function" href="include_2manux_2appelsysteme_8h.html#ab2afb7ddcc5b7c7d47eb2f88c1dc0282">definirAppelSysteme</a>(<a class="code hl_define" href="include_2manux_2appelsystemenum_8h.html#aaf3a5c58d84af2705d30a45914274b7c">NBAS_LIRE</a>, sys_lire);</div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>}</div>
+</div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span> </div>
+<div class="foldopen" id="foldopen00145" data-start="{" data-end="}">
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno"><a class="line" href="fichier_8h.html#ab4279a068c868f6efab9279aa021bc76">  145</a></span><span class="keywordtype">int</span> <a class="code hl_function" href="fichier_8c.html#ab4279a068c868f6efab9279aa021bc76">fichierOuvrir</a>(<a class="code hl_struct" href="struct__INoeud.html">INoeud</a> * iNoeud, <a class="code hl_struct" href="struct__Fichier.html">Fichier</a> * f, <a class="code hl_typedef" href="include_2manux_2types_8h.html#a273cf69d639a59973b6019625df33e30">uint16_t</a> fanions, <a class="code hl_typedef" href="include_2manux_2types_8h.html#a273cf69d639a59973b6019625df33e30">uint16_t</a> mode)</div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>{</div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>   <span class="keywordtype">int</span> result = <a class="code hl_define" href="include_2manux_2errno_8h.html#a7c87371c2c584aeb5a722830670b9bfd">ESUCCES</a>;</div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>  </div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>   <a class="code hl_define" href="manux_2debug_8h.html#ad4cabea5084373436d91b5dc4e8d0a49">printk_debug</a>(<a class="code hl_define" href="manux_2debug_8h.html#a69ed878fe38be7f569a44a0d85138ed6">DBG_KERNEL_SYSFI</a>, <span class="stringliteral">&quot;IN&quot;</span>);</div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span> </div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>   <span class="comment">// WARNING, plein de précautions à prendre !</span></div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span> </div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>   f-&gt;<a class="code hl_variable" href="struct__Fichier.html#a2701084fbf362681f2d2480b1b323de7">iNoeud</a> = iNoeud;</div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>   f-&gt;<a class="code hl_variable" href="struct__Fichier.html#a56519e60d0981ec5edef4b0fb0c38010">fanions</a> = fanions;</div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span>   f-&gt;<a class="code hl_variable" href="struct__Fichier.html#ac64af7e18d98ddd6dfa617ea39eff2d2">mode</a> = mode;</div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span> </div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>   <span class="keywordflow">if</span> (iNoeud-&gt;<a class="code hl_variable" href="struct__INoeud.html#ab6ac2683b253e58d522492afa706a7d9">methodesFichier</a>-&gt;<a class="code hl_variable" href="struct__MethodesFichier.html#a3e23aaea9f7edd7b7cac7b95cb574d19">ouvrir</a>) {</div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span>      result = iNoeud-&gt;<a class="code hl_variable" href="struct__INoeud.html#ab6ac2683b253e58d522492afa706a7d9">methodesFichier</a>-&gt;<a class="code hl_variable" href="struct__MethodesFichier.html#a3e23aaea9f7edd7b7cac7b95cb574d19">ouvrir</a>(iNoeud, f, fanions, mode);</div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>   }</div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span> </div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>   <span class="comment">//printk_debug(DBG_KERNEL_SYSFI, &quot;OUT&quot;);</span></div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span>   <span class="keywordflow">return</span> result;</div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span>}</div>
+</div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span> </div>
+<div class="foldopen" id="foldopen00168" data-start="{" data-end="}">
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno"><a class="line" href="fichier_8h.html#a00fc4fac4da6a7b5c9206308bc159c9d">  168</a></span><span class="keywordtype">int</span> <a class="code hl_function" href="fichier_8c.html#a00fc4fac4da6a7b5c9206308bc159c9d">fichierFermer</a>(<a class="code hl_struct" href="struct__Fichier.html">Fichier</a> * f)</div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span>{</div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span>   <span class="keywordtype">int</span> result = <a class="code hl_define" href="include_2manux_2errno_8h.html#ac54507d66b43ad12f9356257323c0018">EBADF</a>;</div>
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span>  </div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span>   <a class="code hl_define" href="manux_2debug_8h.html#ad4cabea5084373436d91b5dc4e8d0a49">printk_debug</a>(<a class="code hl_define" href="manux_2debug_8h.html#a69ed878fe38be7f569a44a0d85138ed6">DBG_KERNEL_SYSFI</a>, <span class="stringliteral">&quot;IN&quot;</span>);</div>
+<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span> </div>
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span>   <span class="keywordflow">if</span> (f-&gt;<a class="code hl_variable" href="struct__Fichier.html#a2701084fbf362681f2d2480b1b323de7">iNoeud</a>-&gt;<a class="code hl_variable" href="struct__INoeud.html#ab6ac2683b253e58d522492afa706a7d9">methodesFichier</a>-&gt;<a class="code hl_variable" href="struct__MethodesFichier.html#a06f81e89f851134e20527a4846781442">fermer</a>) {</div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>      result = f-&gt;<a class="code hl_variable" href="struct__Fichier.html#a2701084fbf362681f2d2480b1b323de7">iNoeud</a>-&gt;<a class="code hl_variable" href="struct__INoeud.html#ab6ac2683b253e58d522492afa706a7d9">methodesFichier</a>-&gt;<a class="code hl_variable" href="struct__MethodesFichier.html#a06f81e89f851134e20527a4846781442">fermer</a>(f);</div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span>   }</div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span> </div>
+<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span>   <span class="comment">//printk_debug(DBG_KERNEL_SYSFI, &quot;OUT&quot;);</span></div>
+<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span>   <span class="keywordflow">return</span> result;</div>
+<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span>}</div>
+</div>
+<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span> </div>
+<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span><span class="preprocessor">#ifdef MANUX_KMALLOC</span></div>
+<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span><a class="code hl_struct" href="struct__Fichier.html">Fichier</a> * fichierDupliquer(<a class="code hl_struct" href="struct__Fichier.html">Fichier</a> * f)</div>
+<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span>{</div>
+<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span>   <span class="keywordtype">int</span> res;</div>
+<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span>   <a class="code hl_struct" href="struct__Fichier.html">Fichier</a> * result;</div>
+<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span> </div>
+<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span>   result = <a class="code hl_function" href="kmalloc-zs_8h.html#af549fce4aa887cd31918e6c5dd0950f5">kmalloc</a>(<span class="keyword">sizeof</span>(<a class="code hl_struct" href="struct__Fichier.html">Fichier</a>));</div>
+<div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span> </div>
+<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span>   <span class="keywordflow">if</span> (result == <a class="code hl_define" href="include_2manux_2stddef_8h.html#a070d2ce7b6bb7e5c05602aa8c308d0c4">NULL</a>) {</div>
+<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span>      <a class="code hl_define" href="manux_2debug_8h.html#a94bcf41c2acfb543c52dcb281acba959">paniqueNoyau</a>(<span class="stringliteral">&quot;Plus de memoire !\n&quot;</span>);</div>
+<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span>   } <span class="keywordflow">else</span> {</div>
+<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span>      <span class="comment">// On fait une coie simple, ...</span></div>
+<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span>      <a class="code hl_function" href="include_2manux_2string_8h.html#a37010cca25d22c6942c90bf65ae9cc0d">bcopy</a>(f, result, <span class="keyword">sizeof</span>(<a class="code hl_struct" href="struct__Fichier.html">Fichier</a>));</div>
+<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span> </div>
+<div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span>      <span class="comment">// ... et on invoque la méthode d&#39;ouverture, si elle a des</span></div>
+<div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span>      <span class="comment">// décomptes à faire, par exemple</span></div>
+<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span>      <span class="keywordflow">if</span> (f-&gt;<a class="code hl_variable" href="struct__Fichier.html#a2701084fbf362681f2d2480b1b323de7">iNoeud</a>-&gt;<a class="code hl_variable" href="struct__INoeud.html#ab6ac2683b253e58d522492afa706a7d9">methodesFichier</a>-&gt;<a class="code hl_variable" href="struct__MethodesFichier.html#a3e23aaea9f7edd7b7cac7b95cb574d19">ouvrir</a> != <a class="code hl_define" href="include_2manux_2stddef_8h.html#a070d2ce7b6bb7e5c05602aa8c308d0c4">NULL</a>) {</div>
+<div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span>     res = f-&gt;<a class="code hl_variable" href="struct__Fichier.html#a2701084fbf362681f2d2480b1b323de7">iNoeud</a>-&gt;<a class="code hl_variable" href="struct__INoeud.html#ab6ac2683b253e58d522492afa706a7d9">methodesFichier</a>-&gt;<a class="code hl_variable" href="struct__MethodesFichier.html#a3e23aaea9f7edd7b7cac7b95cb574d19">ouvrir</a>(f-&gt;<a class="code hl_variable" href="struct__Fichier.html#a2701084fbf362681f2d2480b1b323de7">iNoeud</a>, result, f-&gt;<a class="code hl_variable" href="struct__Fichier.html#a56519e60d0981ec5edef4b0fb0c38010">fanions</a>, f-&gt;<a class="code hl_variable" href="struct__Fichier.html#ac64af7e18d98ddd6dfa617ea39eff2d2">mode</a>);</div>
+<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span>     <span class="keywordflow">if</span> (res != <a class="code hl_define" href="include_2manux_2errno_8h.html#a7c87371c2c584aeb5a722830670b9bfd">ESUCCES</a>) {</div>
+<div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span>            <a class="code hl_function" href="kmalloc-zs_8h.html#af7105034bf054e37218d6ade20db4684">kfree</a>(result);</div>
+<div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span>        result = <a class="code hl_define" href="include_2manux_2stddef_8h.html#a070d2ce7b6bb7e5c05602aa8c308d0c4">NULL</a>;</div>
+<div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span>     }</div>
+<div class="line"><a id="l00210" name="l00210"></a><span class="lineno">  210</span>      }</div>
+<div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span>   }</div>
+<div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span>   </div>
+<div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span>   <span class="keywordflow">return</span> result;</div>
+<div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span>}</div>
+<div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span> </div>
+<div class="line"><a id="l00219" name="l00219"></a><span class="lineno">  219</span><a class="code hl_struct" href="struct__Fichier.html">Fichier</a> * fichierCreer(<a class="code hl_struct" href="struct__INoeud.html">INoeud</a> * iNoeud, <a class="code hl_typedef" href="include_2manux_2types_8h.html#a273cf69d639a59973b6019625df33e30">uint16_t</a> fanions, <a class="code hl_typedef" href="include_2manux_2types_8h.html#a273cf69d639a59973b6019625df33e30">uint16_t</a> mode)</div>
+<div class="line"><a id="l00220" name="l00220"></a><span class="lineno">  220</span>{</div>
+<div class="line"><a id="l00221" name="l00221"></a><span class="lineno">  221</span>   <a class="code hl_struct" href="struct__Fichier.html">Fichier</a> * result = <a class="code hl_function" href="kmalloc-zs_8h.html#af549fce4aa887cd31918e6c5dd0950f5">kmalloc</a>(<span class="keyword">sizeof</span>(<a class="code hl_struct" href="struct__Fichier.html">Fichier</a>));</div>
+<div class="line"><a id="l00222" name="l00222"></a><span class="lineno">  222</span> </div>
+<div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span>   <span class="comment">//   printk_debug(DBG_KERNEL_SYSFI, &quot;IN&quot;);</span></div>
+<div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span>   <span class="keywordflow">if</span> (<a class="code hl_function" href="fichier_8c.html#ab4279a068c868f6efab9279aa021bc76">fichierOuvrir</a>(iNoeud, result, fanions, mode) == <a class="code hl_define" href="include_2manux_2errno_8h.html#a7c87371c2c584aeb5a722830670b9bfd">ESUCCES</a>) {</div>
+<div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span>      <span class="keywordflow">return</span> result;</div>
+<div class="line"><a id="l00226" name="l00226"></a><span class="lineno">  226</span>   } <span class="keywordflow">else</span> {</div>
+<div class="line"><a id="l00227" name="l00227"></a><span class="lineno">  227</span>      <a class="code hl_function" href="kmalloc-zs_8h.html#af7105034bf054e37218d6ade20db4684">kfree</a>(result);</div>
+<div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span>      <span class="keywordflow">return</span> <a class="code hl_define" href="include_2manux_2stddef_8h.html#a070d2ce7b6bb7e5c05602aa8c308d0c4">NULL</a>;</div>
+<div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span>   }</div>
+<div class="line"><a id="l00230" name="l00230"></a><span class="lineno">  230</span>}</div>
+<div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span><span class="preprocessor">#endif </span><span class="comment">// MANUX_KMALLOC</span></div>
+<div class="ttc" id="afichier_8c_html_a00fc4fac4da6a7b5c9206308bc159c9d"><div class="ttname"><a href="fichier_8c.html#a00fc4fac4da6a7b5c9206308bc159c9d">fichierFermer</a></div><div class="ttdeci">int fichierFermer(Fichier *f)</div><div class="ttdoc">Fermeture d'un fichier.</div><div class="ttdef"><b>Definition</b> <a href="fichier_8c_source.html#l00168">fichier.c:168</a></div></div>
+<div class="ttc" id="afichier_8c_html_a431c9fdbc351bde6f9c419267bd5adc5"><div class="ttname"><a href="fichier_8c.html#a431c9fdbc351bde6f9c419267bd5adc5">sfInitialiser</a></div><div class="ttdeci">void sfInitialiser(void)</div><div class="ttdef"><b>Definition</b> <a href="fichier_8c_source.html#l00129">fichier.c:129</a></div></div>
+<div class="ttc" id="afichier_8c_html_ab4279a068c868f6efab9279aa021bc76"><div class="ttname"><a href="fichier_8c.html#ab4279a068c868f6efab9279aa021bc76">fichierOuvrir</a></div><div class="ttdeci">int fichierOuvrir(INoeud *iNoeud, Fichier *f, uint16_t fanions, uint16_t mode)</div><div class="ttdoc">: Ouverture d'un fichier.</div><div class="ttdef"><b>Definition</b> <a href="fichier_8c_source.html#l00145">fichier.c:145</a></div></div>
+<div class="ttc" id="afichier_8c_html_abc65f3c0efeb699107be0fb3dede5098"><div class="ttname"><a href="fichier_8c.html#abc65f3c0efeb699107be0fb3dede5098">fichierEcrire</a></div><div class="ttdeci">int fichierEcrire(Fichier *f, void *buffer, int nbOctets)</div><div class="ttdef"><b>Definition</b> <a href="fichier_8c_source.html#l00036">fichier.c:36</a></div></div>
+<div class="ttc" id="afichier_8h_html"><div class="ttname"><a href="fichier_8h.html">fichier.h</a></div></div>
+<div class="ttc" id="afichier_8h_html_a11b644a8526139c4cc1850dac1271ced"><div class="ttname"><a href="fichier_8h.html#a11b644a8526139c4cc1850dac1271ced">O_WRONLY</a></div><div class="ttdeci">#define O_WRONLY</div><div class="ttdef"><b>Definition</b> <a href="fichier_8h_source.html#l00028">fichier.h:28</a></div></div>
+<div class="ttc" id="afichier_8h_html_a7a68c9ffaac7dbcd652225dd7c06a54b"><div class="ttname"><a href="fichier_8h.html#a7a68c9ffaac7dbcd652225dd7c06a54b">O_RDONLY</a></div><div class="ttdeci">#define O_RDONLY</div><div class="ttdoc">Les différents fanions.</div><div class="ttdef"><b>Definition</b> <a href="fichier_8h_source.html#l00027">fichier.h:27</a></div></div>
+<div class="ttc" id="ainclude_2manux_2appelsysteme_8h_html_ab2afb7ddcc5b7c7d47eb2f88c1dc0282"><div class="ttname"><a href="include_2manux_2appelsysteme_8h.html#ab2afb7ddcc5b7c7d47eb2f88c1dc0282">definirAppelSysteme</a></div><div class="ttdeci">int definirAppelSysteme(int num, void *appel)</div><div class="ttdef"><b>Definition</b> <a href="appelsysteme_8c_source.html#l00090">appelsysteme.c:90</a></div></div>
+<div class="ttc" id="ainclude_2manux_2appelsystemenum_8h_html_a8bc3e6338e5b025a7e139f7e33181447"><div class="ttname"><a href="include_2manux_2appelsystemenum_8h.html#a8bc3e6338e5b025a7e139f7e33181447">NBAS_FERMER</a></div><div class="ttdeci">#define NBAS_FERMER</div><div class="ttdef"><b>Definition</b> <a href="include_2manux_2appelsystemenum_8h_source.html#l00036">appelsystemenum.h:36</a></div></div>
+<div class="ttc" id="ainclude_2manux_2appelsystemenum_8h_html_aaf3a5c58d84af2705d30a45914274b7c"><div class="ttname"><a href="include_2manux_2appelsystemenum_8h.html#aaf3a5c58d84af2705d30a45914274b7c">NBAS_LIRE</a></div><div class="ttdeci">#define NBAS_LIRE</div><div class="ttdef"><b>Definition</b> <a href="include_2manux_2appelsystemenum_8h_source.html#l00032">appelsystemenum.h:32</a></div></div>
+<div class="ttc" id="ainclude_2manux_2appelsystemenum_8h_html_af6f2b6432cfa9ae465218edc7dce87d8"><div class="ttname"><a href="include_2manux_2appelsystemenum_8h.html#af6f2b6432cfa9ae465218edc7dce87d8">NBAS_ECRIRE</a></div><div class="ttdeci">#define NBAS_ECRIRE</div><div class="ttdef"><b>Definition</b> <a href="include_2manux_2appelsystemenum_8h_source.html#l00026">appelsystemenum.h:26</a></div></div>
+<div class="ttc" id="ainclude_2manux_2errno_8h_html_a2d1678d5a7cc8ce499643f3b8957def4"><div class="ttname"><a href="include_2manux_2errno_8h.html#a2d1678d5a7cc8ce499643f3b8957def4">EINVAL</a></div><div class="ttdeci">#define EINVAL</div><div class="ttdef"><b>Definition</b> <a href="include_2manux_2errno_8h_source.html#l00014">errno.h:14</a></div></div>
+<div class="ttc" id="ainclude_2manux_2errno_8h_html_a7c87371c2c584aeb5a722830670b9bfd"><div class="ttname"><a href="include_2manux_2errno_8h.html#a7c87371c2c584aeb5a722830670b9bfd">ESUCCES</a></div><div class="ttdeci">#define ESUCCES</div><div class="ttdef"><b>Definition</b> <a href="include_2manux_2errno_8h_source.html#l00010">errno.h:10</a></div></div>
+<div class="ttc" id="ainclude_2manux_2errno_8h_html_ac54507d66b43ad12f9356257323c0018"><div class="ttname"><a href="include_2manux_2errno_8h.html#ac54507d66b43ad12f9356257323c0018">EBADF</a></div><div class="ttdeci">#define EBADF</div><div class="ttdef"><b>Definition</b> <a href="include_2manux_2errno_8h_source.html#l00011">errno.h:11</a></div></div>
+<div class="ttc" id="ainclude_2manux_2errno_8h_html_ace942f794d14d0a78a32b559495b61fd"><div class="ttname"><a href="include_2manux_2errno_8h.html#ace942f794d14d0a78a32b559495b61fd">EPASDEF</a></div><div class="ttdeci">#define EPASDEF</div><div class="ttdef"><b>Definition</b> <a href="include_2manux_2errno_8h_source.html#l00015">errno.h:15</a></div></div>
+<div class="ttc" id="ainclude_2manux_2interruptions_8h_html_a4fda31edc92f8ccd48b6f4bb50f2e7e1"><div class="ttname"><a href="include_2manux_2interruptions_8h.html#a4fda31edc92f8ccd48b6f4bb50f2e7e1">void</a></div><div class="ttdeci">typedef void(Handler(void))</div></div>
+<div class="ttc" id="ainclude_2manux_2kmalloc_8h_html"><div class="ttname"><a href="include_2manux_2kmalloc_8h.html">kmalloc.h</a></div><div class="ttdoc">Définition de kmalloc.</div></div>
+<div class="ttc" id="ainclude_2manux_2stddef_8h_html_a070d2ce7b6bb7e5c05602aa8c308d0c4"><div class="ttname"><a href="include_2manux_2stddef_8h.html#a070d2ce7b6bb7e5c05602aa8c308d0c4">NULL</a></div><div class="ttdeci">#define NULL</div><div class="ttdef"><b>Definition</b> <a href="include_2manux_2stddef_8h_source.html#l00010">stddef.h:10</a></div></div>
+<div class="ttc" id="ainclude_2manux_2string_8h_html_a37010cca25d22c6942c90bf65ae9cc0d"><div class="ttname"><a href="include_2manux_2string_8h.html#a37010cca25d22c6942c90bf65ae9cc0d">bcopy</a></div><div class="ttdeci">void bcopy(const void *src, void *dest, int n)</div><div class="ttdef"><b>Definition</b> <a href="string_8c_source.html#l00035">string.c:35</a></div></div>
+<div class="ttc" id="ainclude_2manux_2types_8h_html_a273cf69d639a59973b6019625df33e30"><div class="ttname"><a href="include_2manux_2types_8h.html#a273cf69d639a59973b6019625df33e30">uint16_t</a></div><div class="ttdeci">unsigned short uint16_t</div><div class="ttdef"><b>Definition</b> <a href="include_2manux_2types_8h_source.html#l00016">types.h:16</a></div></div>
+<div class="ttc" id="ainit-acces-concurrent_8c_html_a62d2d983a3da1fde907ff0f255bf4956"><div class="ttname"><a href="init-acces-concurrent_8c.html#a62d2d983a3da1fde907ff0f255bf4956">fd</a></div><div class="ttdeci">int fd[2]</div><div class="ttdef"><b>Definition</b> <a href="init-acces-concurrent_8c_source.html#l00024">init-acces-concurrent.c:24</a></div></div>
+<div class="ttc" id="akmalloc-zs_8h_html_af549fce4aa887cd31918e6c5dd0950f5"><div class="ttname"><a href="kmalloc-zs_8h.html#af549fce4aa887cd31918e6c5dd0950f5">kmalloc</a></div><div class="ttdeci">void * kmalloc(size_t n)</div><div class="ttdoc">Allocation d'une zone de n octets.</div><div class="ttdef"><b>Definition</b> <a href="kmalloc-zs_8c_source.html#l00139">kmalloc-zs.c:139</a></div></div>
+<div class="ttc" id="akmalloc-zs_8h_html_af7105034bf054e37218d6ade20db4684"><div class="ttname"><a href="kmalloc-zs_8h.html#af7105034bf054e37218d6ade20db4684">kfree</a></div><div class="ttdeci">void kfree(void *p)</div><div class="ttdoc">Libération d'une zone mémoire allouée.</div><div class="ttdef"><b>Definition</b> <a href="kmalloc-zs_8c_source.html#l00265">kmalloc-zs.c:265</a></div></div>
+<div class="ttc" id="amanux_2debug_8h_html"><div class="ttname"><a href="manux_2debug_8h.html">debug.h</a></div></div>
+<div class="ttc" id="amanux_2debug_8h_html_a69ed878fe38be7f569a44a0d85138ed6"><div class="ttname"><a href="manux_2debug_8h.html#a69ed878fe38be7f569a44a0d85138ed6">DBG_KERNEL_SYSFI</a></div><div class="ttdeci">#define DBG_KERNEL_SYSFI</div><div class="ttdef"><b>Definition</b> <a href="manux_2debug_8h_source.html#l00024">debug.h:24</a></div></div>
+<div class="ttc" id="amanux_2debug_8h_html_a94bcf41c2acfb543c52dcb281acba959"><div class="ttname"><a href="manux_2debug_8h.html#a94bcf41c2acfb543c52dcb281acba959">paniqueNoyau</a></div><div class="ttdeci">#define paniqueNoyau(fmt, args...)</div><div class="ttdef"><b>Definition</b> <a href="manux_2debug_8h_source.html#l00107">debug.h:107</a></div></div>
+<div class="ttc" id="amanux_2debug_8h_html_ad4cabea5084373436d91b5dc4e8d0a49"><div class="ttname"><a href="manux_2debug_8h.html#ad4cabea5084373436d91b5dc4e8d0a49">printk_debug</a></div><div class="ttdeci">#define printk_debug(lvl, fmt, args...)</div><div class="ttdef"><b>Definition</b> <a href="manux_2debug_8h_source.html#l00086">debug.h:86</a></div></div>
+<div class="ttc" id="ascheduler_8h_html"><div class="ttname"><a href="scheduler_8h.html">scheduler.h</a></div></div>
+<div class="ttc" id="ascheduler_8h_html_aafdf44b33a86f1bef6141d33a4abb94b"><div class="ttname"><a href="scheduler_8h.html#aafdf44b33a86f1bef6141d33a4abb94b">tacheEnCours</a></div><div class="ttdeci">Tache * tacheEnCours</div><div class="ttdoc">: L'identification de la tâche en cours</div><div class="ttdef"><b>Definition</b> <a href="scheduler_8c_source.html#l00088">scheduler.c:88</a></div></div>
+<div class="ttc" id="astruct__Fichier_html"><div class="ttname"><a href="struct__Fichier.html">_Fichier</a></div><div class="ttdoc">: Qu'est-ce qu'un fichier ouvert du point de vue du noyau ?</div><div class="ttdef"><b>Definition</b> <a href="fichier_8h_source.html#l00046">fichier.h:46</a></div></div>
+<div class="ttc" id="astruct__Fichier_html_a2701084fbf362681f2d2480b1b323de7"><div class="ttname"><a href="struct__Fichier.html#a2701084fbf362681f2d2480b1b323de7">_Fichier::iNoeud</a></div><div class="ttdeci">INoeud * iNoeud</div><div class="ttdoc">Caractérisation de la structure.</div><div class="ttdef"><b>Definition</b> <a href="fichier_8h_source.html#l00048">fichier.h:48</a></div></div>
+<div class="ttc" id="astruct__Fichier_html_a56519e60d0981ec5edef4b0fb0c38010"><div class="ttname"><a href="struct__Fichier.html#a56519e60d0981ec5edef4b0fb0c38010">_Fichier::fanions</a></div><div class="ttdeci">uint16_t fanions</div><div class="ttdoc">O_RDONLY, O_NONBLOCK, O_SYNC.</div><div class="ttdef"><b>Definition</b> <a href="fichier_8h_source.html#l00050">fichier.h:50</a></div></div>
+<div class="ttc" id="astruct__Fichier_html_ac64af7e18d98ddd6dfa617ea39eff2d2"><div class="ttname"><a href="struct__Fichier.html#ac64af7e18d98ddd6dfa617ea39eff2d2">_Fichier::mode</a></div><div class="ttdeci">uint16_t mode</div><div class="ttdoc">FMODE_READ, FMODE_WRITE, ... pour création.</div><div class="ttdef"><b>Definition</b> <a href="fichier_8h_source.html#l00049">fichier.h:49</a></div></div>
+<div class="ttc" id="astruct__INoeud_html"><div class="ttname"><a href="struct__INoeud.html">_INoeud</a></div><div class="ttdoc">: Un INoeud représente un fichier, d'un point de vue statique Il s'agit donc de la description d'un f...</div><div class="ttdef"><b>Definition</b> <a href="inoeud_8h_source.html#l00027">inoeud.h:27</a></div></div>
+<div class="ttc" id="astruct__INoeud_html_ab6ac2683b253e58d522492afa706a7d9"><div class="ttname"><a href="struct__INoeud.html#ab6ac2683b253e58d522492afa706a7d9">_INoeud::methodesFichier</a></div><div class="ttdeci">MethodesFichier * methodesFichier</div><div class="ttdef"><b>Definition</b> <a href="inoeud_8h_source.html#l00030">inoeud.h:30</a></div></div>
+<div class="ttc" id="astruct__MethodesFichier_html_a06f81e89f851134e20527a4846781442"><div class="ttname"><a href="struct__MethodesFichier.html#a06f81e89f851134e20527a4846781442">_MethodesFichier::fermer</a></div><div class="ttdeci">int(* fermer)(Fichier *f)</div><div class="ttdef"><b>Definition</b> <a href="fichier_8h_source.html#l00038">fichier.h:38</a></div></div>
+<div class="ttc" id="astruct__MethodesFichier_html_a3e23aaea9f7edd7b7cac7b95cb574d19"><div class="ttname"><a href="struct__MethodesFichier.html#a3e23aaea9f7edd7b7cac7b95cb574d19">_MethodesFichier::ouvrir</a></div><div class="ttdeci">int(* ouvrir)(INoeud *iNoeud, Fichier *f, uint16_t fanions, uint16_t mode)</div><div class="ttdef"><b>Definition</b> <a href="fichier_8h_source.html#l00037">fichier.h:37</a></div></div>
+<div class="ttc" id="astruct__MethodesFichier_html_a5b1b2c44bada2f0ade23befa3b48834f"><div class="ttname"><a href="struct__MethodesFichier.html#a5b1b2c44bada2f0ade23befa3b48834f">_MethodesFichier::lire</a></div><div class="ttdeci">size_t(* lire)(Fichier *f, void *buffer, size_t nbOctets)</div><div class="ttdef"><b>Definition</b> <a href="fichier_8h_source.html#l00040">fichier.h:40</a></div></div>
+<div class="ttc" id="astruct__MethodesFichier_html_a9c0e50e5e0612aab9df6a94f36947942"><div class="ttname"><a href="struct__MethodesFichier.html#a9c0e50e5e0612aab9df6a94f36947942">_MethodesFichier::ecrire</a></div><div class="ttdeci">size_t(* ecrire)(Fichier *f, void *buffer, size_t nbOctets)</div><div class="ttdef"><b>Definition</b> <a href="fichier_8h_source.html#l00039">fichier.h:39</a></div></div>
+<div class="ttc" id="astruct__ParametreAS_html"><div class="ttname"><a href="struct__ParametreAS.html">_ParametreAS</a></div><div class="ttdef"><b>Definition</b> <a href="include_2manux_2appelsysteme_8h_source.html#l00030">appelsysteme.h:30</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

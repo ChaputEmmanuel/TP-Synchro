@@ -1,0 +1,120 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>My Project: Les registres</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">My Project
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+</div><!-- top -->
+<div><div class="header">
+  <div class="headertitle"><div class="title">Les registres</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><p><a class="anchor" id="autotoc_md132"></a> La notion de <em>registre</em> permet de définir dans ManuX des structures de données pouvant être utilisées pour paramétrer les différents sous-systèmes.</p>
+<p>L’objectif est de permettre en particulier de faire passer lors du <em>boot</em> au noyau des paramètres qui pourront écraser les valeurs par défaut de certaines variables.</p>
+<p>On pensera par exemple à un masque de débogage ou à une adresse ip définie en dur dans le code mais que l’on pourra changer <em>via</em> la commande de <em>boot</em>.</p>
+<p>À titre d’exemple, le noyau ManuX utilise une variable qui contient un masque permettant de définir quels messages sont affichés durant l’exécution du système.</p>
+<p>Voici l’exécution du système alors que cette variable est initialisée à sa valeur par défaut (<code>0x3</code>) qui n’active que l’affichage des messages de démarrage et les éventuels messages d’erreur :</p>
+<p><img src="images/reg-param-1-res.png" alt="image" class="inline"/></p>
+<p>Voici maintenant le même noyau démarré puis exécuté avec une valeur différente de sorte à afficher les messages de type “à faire”. La première image montre l’utilisation du <em>bootloader</em> pour modifier la valeur de la variable :</p>
+<p><img src="images/reg-param-802.png" alt="image" class="inline"/></p>
+<p>Nous avons ici choisi la valeur <code>0x802</code> qui active l’affichage des message “à faire” (<code>0x800</code>)et les messages de démarrage (<code>0x2</code>). L’image suivante montre alors l’exécution du noyau :</p>
+<p><img src="images/reg-param-802-res.png" alt="image" class="inline"/></p>
+<p>C’est au travers de l’utilisation d’un registre que cette variable est manipulée ici.</p>
+<h1><a class="anchor" id="autotoc_md133"></a>
+Définition d’un registre</h1>
+<p>Un registre est une abstraction permettant de stocker des informations dans une structure arborescente. L’objectif est le paramétrage d’un (sous-)système donc les informations stockées sont simplement de courtes chaînes de caractères.</p>
+<p>Le principe est que chaque entrée dans le registre (que nous appellerons un <em>paramètre</em>) est liée à une variable au travers d’une fonction de mise-à-jour de la variable.</p>
+<p>La variable ne doit alors <em>jamais être modifiée directement</em>, mais uniquement au travers d’une modification du paramètre correspondant dans le registre. La variable sera alors mise-à-jour automatiquement au travers de la fonction associée.</p>
+<h1><a class="anchor" id="autotoc_md134"></a>
+Implantation d’un registre</h1>
+<p>Les registres sont définis dans <a href="/doxy/html/registre_8h_source.html"><code>manux/registre.h</code></a>(<a href="/doxy/html/registre_8h.html">dox</a>) et implantés dans <a href="/doxy/html/registre_8c_source.html"><code>lib/registre.c</code></a>(<a href="/doxy/html/registre_8c.html">dox</a>).</p>
+<p>La fonction principale pour peupler le registre est la suivante </p><pre class="fragment">void registreAffecterParametre(registre * reg,
+                               char * valeur,
+                               void * prive,
+                               registreMiseAJour miseAJour,
+                               ...);
+</pre> <h1><a class="anchor" id="autotoc_md135"></a>
+Le registre système</h1>
+<p>Le registre <code>ManuX-Param</code> est destiné à contenir les paramètres du noyau ManuX.</p>
+<h1><a class="anchor" id="autotoc_md136"></a>
+Exemple d’utilisation</h1>
+<p>Un exemple d’utilisation simple du registre est donné dans <a href="/doxy/html/registre_8h_source.html"><code>multiconf/registre.h</code></a>(<a href="/doxy/html/registre_8h.html">dox</a>). Le code est dans le fichier <a href="/doxy/html/main-registre_8c_source.html"><code>noyau/main-registre.c</code></a>(<a href="/doxy/html/main-registre_8c.html">dox</a>).</p>
+<p>Dans ce fichier, 4 paramètres sont initialisés de différentes façons :</p>
+<ul>
+<li><code>a</code> reçoit une valeur au démarage, puis sa fonction de mise-à-jour lui est affectée avec une valeur par défaut, qui n’est donc pas utilisée.</li>
+<li><code>b</code> reçoit une valeur au démarage, puis sa fonction de mise-à-jour lui est affectée sans valeur par défaut.</li>
+<li><code>c</code> ne reçoit pas de valeur au démarage, puis sa fonction de mise-à-jour lui est affectée avec une valeur par défaut, qui est donc utilisée.</li>
+<li><code>d</code> reçoit une valeur au démarage, puis sa fonction de mise-à-jour lui est affectée avec une valeur par défaut, qui n’est donc pas utilisée, mais une nouvelle valeur lui est ensuite affectée, qui est celle finalement utilisée.</li>
+</ul>
+<p>Par soucis de simplicité, on n’utilise pas ici les outils de <em>boot</em> pour passer des paramètres, mais cela ne change rien. </p>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

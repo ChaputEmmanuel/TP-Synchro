@@ -1,0 +1,33 @@
+\chapter{index}
+\hypertarget{md_docs_2index}{}\label{md_docs_2index}\index{index@{index}}
+{\itshape {\bfseries{(Attention, la version actuelle de cette documentation contient des liens cassés car l’outil mkdocs ne les gère pas correctement. Désolé, je suis sur le coup !)}}}\hypertarget{md_docs_2index_autotoc_md39}{}\doxysection{\texorpdfstring{Manu\+X-\/32}{ManuX-32}}\label{md_docs_2index_autotoc_md39}
+Bienvenue dans le monde merveilleux de ManuX !\hypertarget{md_docs_2index_autotoc_md40}{}\doxysubsection{\texorpdfstring{Allons-\/y, let’s go, c’est parti les amis !}{Allons-y, let’s go, c’est parti les amis !}}\label{md_docs_2index_autotoc_md40}
+Le code source complet peut être téléchargé de la façon suivante \+: \begin{DoxyVerb} $ git clone git@github.com:ChaputEmmanuel/Manux.git
+\end{DoxyVerb}
+ il sera alors compilé \+: \begin{DoxyVerb} $ cd ManuX
+ $ make CFG=printk
+\end{DoxyVerb}
+ puis on pourra le démarrer \+: \begin{DoxyVerb} $ make run
+\end{DoxyVerb}
+ Sous vos yeux ébahis apparaît alors une fenêtre ressemblant à ceci \+:
+
+
+
+On peut également créer une image iso intégrant plusieurs noyaux différents puis lancer le tout \+: \begin{DoxyVerb} $ make multiso
+ $ make runiso
+\end{DoxyVerb}
+ Mais c’est une autre histoire, on verra ça dans la section dédiée aux outils.\hypertarget{md_docs_2index_autotoc_md41}{}\doxysubsection{\texorpdfstring{Si ça marche, tant mieux, tu peux sauter une case}{Si ça marche, tant mieux, tu peux sauter une case}}\label{md_docs_2index_autotoc_md41}
+La compilation et l’exécution du noyau nécessitent un certain nombre d’outils que je vais tenter de lister ici brièvement et sur lesquels je reviendrai dans la section \href{\#section:outils}{\texttt{ \mbox{[}section\+:outils\mbox{]}}} dédiée aux outils.
+
+Pour être bref, sur une distribution Linux moderne, l’installation des outils suivants devraient suffire \+: \begin{DoxyVerb} # apt install gcc xorriso nasm qemu-system-i386 mtools pandoc
+\end{DoxyVerb}
+ \hypertarget{md_docs_2index_autotoc_md42}{}\doxysubsection{\texorpdfstring{Ok, mais ensuite ?}{Ok, mais ensuite ?}}\label{md_docs_2index_autotoc_md42}
+Si vous avez réussi la première épreuve, vous avez donc un système sur lequel vous pouvez compiler et faire tourner {\itshape ManuX} . Félicitation et bienvenue dans mon monde …
+
+Les différentes sections de ce document, forcément pas très à jour, vous permettront de comprendre comment cela fonctionne et d’y apporter vos modifications.
+
+Bon courage !
+
+Ou plutôt, comme dirait Gandalf “\texorpdfstring{$\ast$}{*}\+Fuyez pauvres fous !\texorpdfstring{$\ast$}{*}”
+
+À partir de là, je suggère de parcourir la section présentant “la version courte”, dont l’objectif est de vous permettre de déterminer où aller chercher la suite des informations. 

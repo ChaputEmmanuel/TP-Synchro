@@ -1,0 +1,608 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>My Project: Référence du fichier /home/manu/PROGRAMMATION/C/ManuX/include/manux/printk.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">My Project
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_7ae9ae23548caaa7aeb1f148c6e00073.html">manux</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#define-members">Macros</a> &#124;
+<a href="#func-members">Fonctions</a>  </div>
+  <div class="headertitle"><div class="title">Référence du fichier printk.h</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Définition des fonctions de base d'entrée-sortie du noyau. <br  />
+  
+<a href="#details">Plus de détails...</a></p>
+<div class="textblock"><code>#include &lt;manux/config.h&gt;</code><br />
+<code>#include &lt;<a class="el" href="include_2manux_2stdarg_8h_source.html">manux/stdarg.h</a>&gt;</code><br />
+<code>#include &lt;manux/stddef.h&gt;</code><br />
+</div><div class="textblock"><div class="dynheader">
+Graphe des dépendances par inclusion de printk.h:</div>
+<div class="dyncontent">
+<div class="center"><img src="include_2manux_2printk_8h__incl.png" border="0" usemap="#a_2home_2manu_2PROGRAMMATION_2C_2ManuX_2include_2manux_2printk_8h" alt=""/></div>
+<map name="a_2home_2manu_2PROGRAMMATION_2C_2ManuX_2include_2manux_2printk_8h" id="a_2home_2manu_2PROGRAMMATION_2C_2ManuX_2include_2manux_2printk_8h">
+<area shape="rect" title="Définition des fonctions de base d&#39;entrée&#45;sortie du noyau." alt="" coords="101,5,328,60"/>
+<area shape="rect" title=" " alt="" coords="5,108,128,133"/>
+<area shape="poly" title=" " alt="" coords="171,62,100,103,97,99,168,58"/>
+<area shape="rect" href="include_2manux_2stdarg_8h.html" title=" " alt="" coords="153,108,277,133"/>
+<area shape="poly" title=" " alt="" coords="217,60,217,94,212,94,212,60"/>
+<area shape="rect" title=" " alt="" coords="301,108,424,133"/>
+<area shape="poly" title=" " alt="" coords="261,58,332,99,330,103,259,62"/>
+</map>
+</div>
+</div><div class="textblock"><div class="dynheader">
+Ce graphe montre quels fichiers incluent directement ou indirectement ce fichier :</div>
+<div class="dyncontent">
+<div class="center"><img src="include_2manux_2printk_8h__dep__incl.png" border="0" usemap="#a_2home_2manu_2PROGRAMMATION_2C_2ManuX_2include_2manux_2printk_8hdep" alt=""/></div>
+<map name="a_2home_2manu_2PROGRAMMATION_2C_2ManuX_2include_2manux_2printk_8hdep" id="a_2home_2manu_2PROGRAMMATION_2C_2ManuX_2include_2manux_2printk_8hdep">
+<area shape="rect" title="Définition des fonctions de base d&#39;entrée&#45;sortie du noyau." alt="" coords="4541,5,4768,60"/>
+<area shape="rect" href="horloge_8c.html" title="Implantation des sous&#45;programmes de gestion de l&#39;horloge matérielle." alt="" coords="5,218,232,258"/>
+<area shape="poly" title=" " alt="" coords="4527,37,3822,40,2773,50,2218,60,1694,72,1243,89,902,111,706,133,512,163,206,221,205,215,511,157,705,128,901,105,1242,84,1694,67,2218,54,2773,45,3822,35,4527,32"/>
+<area shape="rect" href="interruptions_8c.html" title=": Implémentation des sous&#45;programmes de gestion des déroutements" alt="" coords="256,218,483,258"/>
+<area shape="poly" title=" " alt="" coords="4527,38,3491,59,2763,81,2017,111,1588,127,1254,140,1093,149,921,163,726,184,495,213,452,221,451,215,494,208,725,179,921,158,1093,144,1254,134,1588,122,2017,105,2763,75,3491,54,4527,33"/>
+<area shape="rect" href="segment_8c.html" title=" " alt="" coords="507,218,733,258"/>
+<area shape="poly" title=" " alt="" coords="4528,41,3841,68,2916,111,2467,138,2017,165,1824,173,1659,175,1380,174,1246,175,1102,181,938,193,746,213,701,221,700,215,745,208,938,187,1101,176,1246,170,1380,169,1659,170,1823,167,2017,160,2467,133,2916,105,3840,63,4528,36"/>
+<area shape="rect" href="manux_2debug_8h.html" title=" " alt="" coords="4289,108,4516,163"/>
+<area shape="poly" title=" " alt="" coords="4578,67,4469,110,4467,105,4576,62"/>
+<area shape="rect" href="printk_8c.html" title=" " alt="" coords="757,218,984,258"/>
+<area shape="poly" title=" " alt="" coords="4528,42,4029,66,3712,86,3391,111,3257,125,3154,139,3050,153,2916,165,2624,180,2376,184,2158,181,1955,175,1752,171,1534,173,1287,186,996,213,950,221,949,215,996,208,1287,180,1534,168,1752,166,1955,170,2158,176,2376,179,2624,175,2916,160,3049,148,3153,134,3257,120,3390,105,3711,81,4029,61,4527,36"/>
+<area shape="rect" href="registre_8c.html" title="Mise en oeuvre de la notion de registre permettant de gérer des paramètres de façon structurée." alt="" coords="1008,218,1235,258"/>
+<area shape="poly" title=" " alt="" coords="4528,41,4136,62,3895,82,3654,111,3580,124,3523,139,3466,153,3391,165,3221,183,3066,194,2789,203,2546,200,2319,189,2091,179,1848,176,1572,185,1417,196,1247,213,1201,221,1200,215,1246,208,1416,191,1572,179,1848,170,2092,174,2319,184,2546,194,2789,198,3065,189,3221,177,3390,160,3465,148,3521,134,3579,119,3653,105,3895,77,4136,57,4528,35"/>
+<area shape="rect" href="appelsysteme_8c.html" title="Implantation des sous&#45;programmes de gestion des appels système." alt="" coords="1259,218,1493,258"/>
+<area shape="poly" title=" " alt="" coords="4527,38,4380,44,4201,56,4005,77,3811,111,3767,124,3733,139,3699,153,3654,165,3557,179,3446,190,3186,201,2892,204,2581,201,1975,196,1715,200,1603,205,1506,213,1458,221,1457,215,1505,208,1602,200,1715,194,1975,190,2581,196,2892,199,3186,196,3445,184,3557,174,3653,160,3698,148,3731,134,3765,119,3810,105,4004,72,4200,50,4380,38,4527,33"/>
+<area shape="rect" href="debug_8c.html" title="Les outils de débogage." alt="" coords="1517,218,1744,258"/>
+<area shape="poly" title=" " alt="" coords="4528,44,4195,69,4032,88,3966,99,3916,111,3886,123,3864,138,3842,153,3811,165,3754,175,3668,183,3428,193,3123,199,2786,201,2142,203,1900,206,1756,213,1710,221,1709,215,1756,208,1900,201,2142,198,2786,196,3123,194,3428,188,3668,177,3753,170,3810,160,3840,148,3861,134,3883,119,3914,105,3965,93,4032,82,4195,63,4527,38"/>
+<area shape="rect" href="dummy-task_8c.html" title="Implantation d&#39;une tâche de fond du noyau, surtout utile pour de l&#39;affichage pour le moment...." alt="" coords="1768,218,1995,258"/>
+<area shape="poly" title=" " alt="" coords="4528,43,4388,53,4234,67,4093,86,4036,98,3993,110,3971,123,3955,138,3940,153,3916,165,3863,177,3784,186,3561,198,3278,203,2964,205,2365,205,2141,207,2007,213,1961,221,1960,215,2006,208,2141,202,2365,200,2964,200,3278,198,3561,192,3783,180,3862,171,3914,160,3937,148,3952,134,3967,119,3991,106,4035,93,4092,81,4234,62,4388,48,4527,38"/>
+<area shape="rect" href="main-acces-concurrent_8c.html" title="Un exemple pitoyable de début de noyau." alt="" coords="2019,211,2245,265"/>
+<area shape="poly" title=" " alt="" coords="4528,44,4403,53,4267,67,4144,86,4094,98,4057,110,4038,123,4026,138,4014,153,3993,165,3945,177,3874,186,3672,199,3415,205,3129,207,2584,206,2380,208,2258,213,2246,215,2245,210,2257,208,2379,202,2584,201,3129,202,3415,200,3672,194,3873,181,3944,172,3991,160,4010,149,4022,134,4035,119,4055,106,4093,93,4143,81,4266,62,4402,48,4528,38"/>
+<area shape="rect" href="main-bootparam_8c.html" title=": Un exemple de noyau montrant le passage de paramètres au boot." alt="" coords="2270,218,2522,258"/>
+<area shape="poly" title=" " alt="" coords="4528,45,4416,55,4296,69,4189,87,4147,98,4115,110,4097,123,4087,138,4076,152,4057,165,4016,176,3953,185,3776,198,3550,204,3299,207,2820,207,2641,209,2534,213,2484,221,2483,215,2533,208,2641,203,2820,202,3299,202,3550,199,3776,192,3952,180,4014,171,4055,160,4072,149,4083,134,4094,119,4112,106,4145,93,4188,82,4296,64,4415,50,4528,40"/>
+<area shape="rect" href="main-bootreg_8c.html" title=": Comment peupler le registre en fonction des paramètres de la ligne de commande obtenus par le bootl..." alt="" coords="2546,218,2777,258"/>
+<area shape="poly" title=" " alt="" coords="4528,47,4324,71,4232,89,4168,110,4152,123,4143,137,4132,152,4114,165,4078,175,4024,184,3870,196,3674,202,3456,205,3039,207,2883,209,2790,213,2744,221,2743,215,2789,208,2883,203,3039,202,3456,200,3674,197,3870,190,4023,178,4077,170,4112,160,4129,149,4138,135,4148,119,4165,106,4231,84,4324,66,4527,41"/>
+<area shape="rect" href="main-debmaskdyn-reg_8c.html" title=": Comment utiliser les options du bootloader pour modifier les masques de débogage via le registre." alt="" coords="2801,218,3092,258"/>
+<area shape="poly" title=" " alt="" coords="4528,49,4352,74,4274,91,4220,110,4204,123,4195,137,4185,152,4168,165,4139,174,4095,181,3972,192,3639,203,3305,208,3104,213,3049,221,3048,215,3104,208,3304,202,3639,198,3972,186,4095,176,4138,169,4165,160,4182,149,4191,135,4200,119,4217,106,4273,86,4351,69,4527,44"/>
+<area shape="rect" href="main-debmaskdyn_8c.html" title=": Comment utiliser les options du bootloader pour modifier les masques de débogage." alt="" coords="3117,218,3382,258"/>
+<area shape="poly" title=" " alt="" coords="4528,44,4468,52,4404,66,4339,85,4279,110,4261,123,4251,138,4239,152,4220,165,4184,177,4143,187,4045,200,3932,207,3812,208,3577,207,3476,208,3395,213,3345,221,3344,215,3394,208,3475,203,3577,202,3812,203,3932,201,4044,195,4142,182,4183,172,4217,160,4235,149,4246,135,4257,120,4276,106,4338,80,4403,60,4467,47,4527,39"/>
+<area shape="rect" href="main-memoire_8c.html" title="Un exemple pitoyable de début de noyau." alt="" coords="7447,218,7687,258"/>
+<area shape="poly" title=" " alt="" coords="4615,72,4596,94,4582,118,4577,141,4580,151,4587,160,4626,170,4721,178,5043,190,5491,198,6001,202,6964,205,7435,208,7484,215,7483,221,7434,213,6964,210,6001,207,5490,203,5043,195,4720,183,4625,175,4584,165,4576,153,4572,141,4577,116,4591,91,4611,68"/>
+<area shape="rect" href="main-outil-synchro_8c.html" title=": Un exemple de début de noyau." alt="" coords="7711,211,7937,265"/>
+<area shape="poly" title=" " alt="" coords="4637,73,4629,96,4625,120,4627,142,4638,161,4651,166,4680,170,4781,179,5128,192,5609,199,6158,203,7193,205,7699,208,7711,209,7710,215,7698,213,7193,210,6158,209,5609,205,5128,197,4781,184,4679,176,4649,171,4634,165,4622,144,4619,120,4624,95,4632,72"/>
+<area shape="rect" href="main-reentrance_8c.html" title="Démonstration de la différence entre un noyau réentrant et un noyau non réentrant." alt="" coords="7961,218,8212,258"/>
+<area shape="poly" title=" " alt="" coords="4655,73,4663,121,4673,143,4688,160,4734,170,4844,178,5214,190,5726,198,6311,202,7411,205,7950,208,8001,215,8000,221,7949,213,7411,210,6311,207,5726,203,5214,195,4843,183,4734,175,4685,165,4668,146,4658,122,4650,74"/>
+<area shape="rect" href="main-registre_8c.html" title=":" alt="" coords="8237,218,8467,258"/>
+<area shape="poly" title=" " alt="" coords="4676,71,4708,125,4724,147,4738,160,4790,168,4908,175,5304,186,6476,198,7651,203,8224,208,8272,215,8271,221,8224,213,7650,208,6476,203,5304,191,4907,180,4789,173,4736,165,4720,151,4703,128,4672,74"/>
+<area shape="rect" href="main-verrou-noyau_8c.html" title=": Mise en évidence de a (non) ré&#45;entrance du noyau. On compilera une fois avec la macro MANUX_REENTRANT a..." alt="" coords="8492,211,8719,265"/>
+<area shape="poly" title=" " alt="" coords="4697,68,4738,106,4762,137,4772,150,4789,160,4815,167,4859,174,4992,185,5181,193,5416,199,5985,205,6628,206,7844,203,8271,203,8480,208,8492,209,8491,215,8480,213,8270,208,7844,208,6628,212,5985,211,5415,204,5181,198,4992,190,4858,179,4814,173,4787,165,4769,154,4757,141,4734,110,4693,71"/>
+<area shape="rect" href="main-virtio-journal_8c.html" title=" " alt="" coords="8743,211,8969,265"/>
+<area shape="poly" title=" " alt="" coords="4719,65,4783,106,4800,122,4810,137,4822,149,4840,160,4867,167,4913,174,5055,185,5254,193,5501,199,6101,205,6779,206,8060,202,8510,203,8731,208,8743,209,8742,215,8730,213,8510,208,8060,207,6779,211,6101,210,5501,204,5254,198,5054,190,4913,179,4866,173,4838,165,4818,154,4806,140,4796,125,4780,110,4716,69"/>
+<area shape="rect" href="main-virtio-net_8c.html" title=" " alt="" coords="8993,218,9233,258"/>
+<area shape="poly" title=" " alt="" coords="4745,63,4789,82,4831,106,4849,121,4860,136,4872,149,4890,160,4920,167,4968,174,5117,185,5326,193,5586,199,6217,206,6930,206,8276,202,8749,203,8982,208,9031,215,9030,221,8981,213,8749,208,8276,208,6930,212,6217,211,5586,205,5326,199,5116,190,4967,179,4919,173,4888,165,4868,153,4856,139,4845,125,4828,110,4786,87,4743,67"/>
+<area shape="rect" href="scheduler_8c.html" title=" " alt="" coords="9257,218,9484,258"/>
+<area shape="poly" title=" " alt="" coords="4777,62,4830,81,4880,106,4899,121,4910,136,4922,149,4941,160,4972,168,5023,175,5179,186,5400,194,5673,200,6338,206,7087,207,8504,202,9001,202,9246,208,9293,215,9292,221,9245,213,9001,207,8504,207,7087,212,6338,212,5673,206,5400,200,5179,191,5022,180,4971,173,4939,165,4919,153,4906,139,4895,124,4877,110,4828,86,4775,67"/>
+<area shape="rect" href="tache_8c.html" title="Implantation des sous&#45;programmes de gestion des tâches." alt="" coords="9508,218,9735,258"/>
+<area shape="poly" title=" " alt="" coords="4782,52,4857,73,4929,106,4947,120,4957,135,4968,149,4985,160,5053,168,5206,175,5720,186,7237,197,8755,202,9271,204,9496,208,9543,215,9542,221,9496,213,9271,209,8755,207,7237,202,5720,191,5206,181,5052,174,4983,165,4964,153,4953,138,4943,124,4927,110,4855,78,4781,57"/>
+<area shape="rect" href="clavier_8c.html" title=" " alt="" coords="4996,115,5223,155"/>
+<area shape="poly" title=" " alt="" coords="4782,59,5025,113,5024,118,4781,64"/>
+<area shape="rect" href="main-appel-systeme_8c.html" title=" " alt="" coords="5247,108,5473,163"/>
+<area shape="poly" title=" " alt="" coords="4782,45,4995,70,5235,105,5247,107,5246,113,5234,111,4994,75,4781,50"/>
+<area shape="rect" href="main-delai_8c.html" title=" " alt="" coords="5497,115,5724,155"/>
+<area shape="poly" title=" " alt="" coords="4782,38,5102,62,5294,81,5486,105,5528,113,5527,118,5485,111,5293,86,5101,67,4781,43"/>
+<area shape="rect" href="main-interruptions_8c.html" title=" " alt="" coords="5748,115,6012,155"/>
+<area shape="poly" title=" " alt="" coords="4782,35,5206,57,5471,78,5736,105,5785,113,5785,118,5736,111,5470,83,5206,63,4782,41"/>
+<area shape="rect" href="main-journal_09fichier_8c.html" title=" " alt="" coords="6036,108,6263,163"/>
+<area shape="poly" title=" " alt="" coords="4782,32,5014,36,5324,47,5672,69,5850,85,6024,105,6036,107,6035,112,6024,111,5850,91,5672,75,5323,53,5014,41,4782,37"/>
+<area shape="rect" href="main-journal_8c.html" title=" " alt="" coords="6287,115,6513,155"/>
+<area shape="poly" title=" " alt="" coords="4782,30,5053,32,5424,41,5847,64,6063,82,6275,105,6320,113,6319,118,6274,111,6063,87,5846,70,5423,47,5053,37,4782,36"/>
+<area shape="rect" href="main-kmalloc_8c.html" title="Un exemple de noyau utilisant les fonctions de kmalloc." alt="" coords="6538,115,6771,155"/>
+<area shape="poly" title=" " alt="" coords="4782,34,5160,42,5663,57,6161,78,6368,91,6526,105,6572,113,6571,118,6525,111,6368,96,6161,83,5663,62,5160,48,4782,39"/>
+<area shape="rect" href="main-printk_8c.html" title="Exemple d&#39;utilisation de printk et de certains codes ANSI." alt="" coords="6796,115,7023,155"/>
+<area shape="poly" title=" " alt="" coords="4782,33,5208,40,5786,54,6362,75,6602,89,6784,105,6830,113,6829,118,6784,111,6602,94,6362,80,5785,59,5208,45,4782,38"/>
+<area shape="rect" href="main-taches_8c.html" title=": Démonstration d&#39;utilisation des tâches" alt="" coords="7047,115,7273,155"/>
+<area shape="poly" title=" " alt="" coords="4782,32,5252,38,5903,51,6556,72,6829,87,7035,105,7081,113,7080,118,7034,111,6828,93,6556,78,5903,56,5252,43,4782,38"/>
+<area shape="rect" href="main-test-synchro_8c.html" title="Démonstration des besoins de sychronisation (C) Manu Chaput 2025." alt="" coords="7297,108,7524,163"/>
+<area shape="poly" title=" " alt="" coords="4782,32,5296,36,6020,48,6397,57,6750,70,7055,86,7286,105,7297,107,7297,112,7285,111,7055,91,6750,75,6397,63,6020,53,5296,42,4782,37"/>
+<area shape="poly" title=" " alt="" coords="4275,140,3427,147,2167,161,954,183,508,197,244,213,198,221,197,215,244,208,507,192,954,178,2167,156,3427,142,4275,135"/>
+<area shape="poly" title=" " alt="" coords="4275,140,3473,148,2292,163,1158,185,741,198,495,213,449,221,448,215,494,208,741,193,1158,179,2292,157,3473,143,4275,135"/>
+<area shape="poly" title=" " alt="" coords="4276,142,2306,178,1245,199,746,213,700,221,699,215,745,208,1245,194,2306,173,4275,136"/>
+<area shape="rect" href="console_8c.html" title="Implantation des fonctions de base d&#39;accés à la console." alt="" coords="6945,218,7172,258"/>
+<area shape="poly" title=" " alt="" coords="4530,159,4535,160,4725,178,4899,190,5059,197,5208,199,5480,194,5734,182,5988,170,6261,166,6409,169,6570,176,6744,189,6934,208,6980,215,6979,221,6933,213,6743,194,6569,182,6409,174,6261,171,5988,176,5734,187,5480,199,5208,204,5059,202,4899,195,4724,183,4534,165,4529,165"/>
+<area shape="poly" title=" " alt="" coords="4276,143,3391,165,2866,170,2192,172,1846,175,1519,182,1229,195,996,213,950,221,949,215,996,208,1229,189,1518,177,1846,170,2192,166,2866,164,3391,160,4276,137"/>
+<area shape="poly" title=" " alt="" coords="4276,144,3653,165,3126,171,2449,172,2101,176,1772,183,1481,195,1247,213,1201,221,1200,215,1246,208,1481,189,1772,177,2101,170,2449,167,3126,165,3653,160,4275,139"/>
+<area shape="poly" title=" " alt="" coords="4276,146,3811,165,3306,172,2657,175,2324,178,2008,185,1730,196,1506,213,1458,221,1457,215,1505,208,1729,191,2008,179,2324,173,2657,169,3306,167,3811,160,4276,140"/>
+<area shape="rect" href="bootloader_8c.html" title="Gestion de l&#39;interfaçage avec le bootloader." alt="" coords="7196,218,7423,258"/>
+<area shape="poly" title=" " alt="" coords="4530,159,4535,160,4745,180,4937,193,5114,200,5278,202,5579,196,5859,182,6140,168,6441,163,6605,166,6782,174,6974,187,7184,208,7231,215,7230,221,7184,213,6974,193,6782,179,6605,171,6441,168,6140,174,5860,187,5579,201,5278,207,5114,205,4937,198,4744,185,4534,165,4529,165"/>
+<area shape="rect" href="condition_8c.html" title="Implantation des opérations atomiques de ManuX." alt="" coords="3407,218,3633,258"/>
+<area shape="poly" title=" " alt="" coords="4276,165,4271,165,4095,183,3958,189,3821,195,3646,213,3603,221,3602,215,3645,208,3820,189,3958,183,4095,178,4270,160,4275,159"/>
+<area shape="poly" title=" " alt="" coords="4276,147,3915,165,3442,173,2834,176,2227,185,1966,196,1756,213,1710,221,1709,215,1756,208,1966,191,2227,180,2834,170,3442,168,3915,160,4276,142"/>
+<area shape="poly" title=" " alt="" coords="4275,149,3992,165,3557,174,2998,178,2440,187,2200,198,2007,213,1961,221,1960,215,2006,208,2200,192,2440,182,2998,172,3557,169,3992,160,4275,143"/>
+<area shape="rect" href="exclusion-mutuelle_8c.html" title="Implantation des exclusions mutuelles." alt="" coords="3657,211,3884,265"/>
+<area shape="poly" title=" " alt="" coords="4276,164,4271,165,4166,180,4084,189,4001,198,3896,213,3885,215,3884,210,3896,208,4001,193,4083,184,4165,175,4270,160,4275,159"/>
+<area shape="rect" href="kmalloc-zs_8c.html" title="Allocation mémoire multi&#45;usage pour des tailles jusqu&#39;à 4092 octets." alt="" coords="3908,218,4135,258"/>
+<area shape="poly" title=" " alt="" coords="4291,169,4094,220,4092,215,4290,164"/>
+<area shape="rect" href="listetaches_8c.html" title=" " alt="" coords="4159,218,4385,258"/>
+<area shape="poly" title=" " alt="" coords="4359,173,4298,220,4295,216,4356,169"/>
+<area shape="poly" title=" " alt="" coords="4276,150,4056,165,3782,175,3550,177,3155,170,2965,168,2761,173,2530,186,2258,213,2246,215,2245,210,2257,208,2530,181,2761,167,2965,163,3155,165,3550,172,3782,170,4056,160,4276,145"/>
+<area shape="poly" title=" " alt="" coords="4276,152,4114,165,3873,176,3669,180,3322,177,3155,176,2976,180,2773,191,2534,213,2484,221,2483,215,2533,208,2773,186,2976,174,3155,170,3322,171,3669,175,3873,171,4113,160,4276,147"/>
+<area shape="poly" title=" " alt="" coords="4276,155,4167,165,3957,177,3779,181,3477,179,3331,178,3175,182,2998,192,2790,213,2743,221,2743,215,2789,208,2998,187,3175,176,3331,173,3477,174,3779,176,3957,172,4166,160,4275,150"/>
+<area shape="poly" title=" " alt="" coords="4276,159,4219,165,4049,178,3906,185,3661,187,3417,191,3273,198,3104,213,3049,221,3048,215,3104,208,3273,193,3417,185,3661,182,3905,179,4049,173,4218,160,4275,154"/>
+<area shape="poly" title=" " alt="" coords="4276,165,4271,165,4138,179,4025,187,3833,191,3641,194,3528,200,3395,213,3344,221,3344,215,3394,208,3527,195,3640,188,3833,185,4025,182,4138,174,4270,160,4275,159"/>
+<area shape="poly" title=" " alt="" coords="4530,159,4535,160,4765,181,4975,195,5169,203,5348,206,5677,199,5985,184,6292,169,6621,162,6801,165,6995,173,7205,187,7435,208,7484,215,7483,221,7434,213,7205,192,6994,178,6801,170,6621,168,6292,174,5985,189,5678,204,5348,211,5168,209,4975,201,4764,187,4534,165,4529,165"/>
+<area shape="poly" title=" " alt="" coords="4530,154,4586,160,4889,175,5266,180,6143,176,6593,174,7019,176,7396,186,7558,196,7699,208,7711,209,7710,215,7698,213,7558,201,7396,192,7019,181,6593,179,6143,181,5266,185,4889,180,4585,165,4530,160"/>
+<area shape="poly" title=" " alt="" coords="4530,150,4636,160,4959,172,5361,177,6294,174,6773,172,7226,176,7627,187,7800,196,7950,208,8001,215,8000,221,7949,213,7799,201,7627,192,7226,181,6773,178,6294,179,5361,182,4959,178,4636,165,4530,156"/>
+<area shape="poly" title=" " alt="" coords="4530,148,4687,160,5032,170,5461,173,6457,168,6968,167,7452,171,7880,184,8064,194,8224,208,8272,215,8271,221,8224,213,8064,199,7880,189,7452,176,6968,172,6457,173,5461,178,5032,176,4687,165,4530,153"/>
+<area shape="poly" title=" " alt="" coords="4530,146,4737,160,5103,169,5556,171,6610,164,7152,163,7663,168,8116,182,8311,193,8480,208,8492,209,8491,215,8480,213,8311,198,8116,187,7663,173,7152,168,6610,170,5556,176,5103,174,4737,165,4529,151"/>
+<area shape="rect" href="main-virtio-cons_8c.html" title=": Un exemple de début de noyau." alt="" coords="4410,218,4659,258"/>
+<area shape="poly" title=" " alt="" coords="4450,169,4511,216,4508,220,4446,173"/>
+<area shape="poly" title=" " alt="" coords="4530,144,4788,160,5173,168,5651,169,6761,162,7331,160,7870,165,8347,180,8553,192,8731,208,8743,209,8742,215,8730,213,8552,198,8347,185,7870,171,7331,166,6761,167,5651,174,5173,174,4788,165,4530,150"/>
+<area shape="poly" title=" " alt="" coords="4530,143,4839,160,5130,165,5616,168,6911,172,8206,183,8691,193,8865,200,8982,208,9031,215,9030,221,8981,213,8864,205,8691,198,8206,188,6911,178,5616,173,5130,170,4839,165,4530,149"/>
+<area shape="rect" href="main_8c.html" title=": Un exemple de début de noyau." alt="" coords="4684,218,4911,258"/>
+<area shape="poly" title=" " alt="" coords="4519,163,4724,215,4723,220,4518,169"/>
+<area shape="rect" href="memoire_8c.html" title=" " alt="" coords="4935,218,5161,258"/>
+<area shape="poly" title=" " alt="" coords="4530,159,4535,160,4644,175,4729,184,4814,192,4923,208,4963,215,4962,221,4922,213,4814,198,4728,189,4643,180,4534,165,4529,164"/>
+<area shape="rect" href="pci_8c.html" title=": Fonctions de manipulation du bus PCI" alt="" coords="5185,218,5412,258"/>
+<area shape="poly" title=" " alt="" coords="4530,159,4535,160,4714,178,4854,183,4994,189,5174,208,5216,215,5216,221,5173,213,4994,194,4854,189,4714,183,4534,165,4529,165"/>
+<area shape="poly" title=" " alt="" coords="4530,142,4889,160,5196,164,5706,167,7068,170,7783,174,8430,181,8940,192,9123,199,9246,208,9293,215,9292,221,9245,213,9122,204,8940,197,8430,186,7783,179,7068,176,5706,172,5196,170,4889,165,4530,148"/>
+<area shape="poly" title=" " alt="" coords="4530,142,4940,160,5260,164,5795,166,7219,169,7967,173,8643,180,9177,191,9368,199,9496,208,9543,215,9542,221,9496,213,9367,204,9176,196,8643,185,7967,178,7219,175,5795,171,5260,169,4940,165,4530,147"/>
+<area shape="rect" href="virtio-console_8c.html" title="Implantation de la console de type virtio." alt="" coords="5436,218,5668,258"/>
+<area shape="poly" title=" " alt="" coords="4530,159,4535,160,4670,174,4784,181,4979,184,5175,186,5289,194,5424,208,5469,215,5469,221,5424,213,5289,199,5175,192,4979,189,4784,186,4669,179,4534,165,4529,165"/>
+<area shape="rect" href="virtio-net_8c.html" title=" " alt="" coords="5692,218,5919,258"/>
+<area shape="poly" title=" " alt="" coords="4530,159,4535,160,4709,177,4856,184,4986,185,5107,183,5229,181,5359,183,5507,190,5680,208,5725,215,5724,221,5680,213,5506,196,5359,188,5229,186,5107,188,4986,190,4856,189,4708,182,4534,165,4529,165"/>
+<area shape="rect" href="virtio_8c.html" title=" " alt="" coords="5943,218,6169,258"/>
+<area shape="poly" title=" " alt="" coords="4530,159,4535,160,4747,179,4926,187,5085,187,5233,183,5381,179,5539,179,5719,188,5931,208,5977,215,5976,221,5930,213,5719,193,5539,185,5381,184,5233,188,5085,192,4926,192,4746,185,4534,165,4529,165"/>
+<area shape="rect" href="buffer-reseau_8c.html" title="(C) Manu Chaput 2025" alt="" coords="6193,211,6420,265"/>
+<area shape="poly" title=" " alt="" coords="4530,159,4535,160,4785,182,4997,190,5184,189,5358,183,5533,177,5720,176,5932,185,6182,208,6193,210,6193,215,6181,213,5931,190,5720,181,5533,182,5358,188,5184,194,4997,195,4784,187,4534,165,4529,165"/>
+<area shape="rect" href="reseau_8c.html" title="Implantation des éléments principaux du sous système réseau." alt="" coords="6444,218,6671,258"/>
+<area shape="poly" title=" " alt="" coords="4530,159,4535,160,4823,185,5067,193,5282,190,5483,182,5684,175,5900,173,6144,182,6432,208,6479,215,6478,221,6432,213,6144,187,5900,178,5685,180,5484,188,5283,196,5067,198,4822,190,4534,165,4529,165"/>
+<area shape="rect" href="fichier_8c.html" title=" " alt="" coords="6695,218,6921,258"/>
+<area shape="poly" title=" " alt="" coords="4530,159,4535,160,4705,176,4861,187,5137,196,5381,192,5609,182,5836,173,6080,169,6357,179,6513,191,6683,208,6729,215,6728,221,6682,213,6512,196,6357,184,6080,175,5836,178,5609,188,5381,197,5137,201,4860,193,4705,182,4534,165,4529,165"/>
+</map>
+</div>
+</div>
+<p><a href="include_2manux_2printk_8h_source.html">Aller au code source de ce fichier.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:a2e912bb35c8b6d14f83c896d207fe49c" id="r_a2e912bb35c8b6d14f83c896d207fe49c"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="include_2manux_2printk_8h.html#a2e912bb35c8b6d14f83c896d207fe49c">MAX_PRINTK_LENGTH</a>&#160;&#160;&#160;2048</td></tr>
+<tr class="separator:a2e912bb35c8b6d14f83c896d207fe49c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a73c782e80962a1e5eae4811bc8569b16" id="r_a73c782e80962a1e5eae4811bc8569b16"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="include_2manux_2printk_8h.html#a73c782e80962a1e5eae4811bc8569b16">PRINTK_PANIQUE</a>&#160;&#160;&#160;&quot;{0}&quot;</td></tr>
+<tr class="memdesc:a73c782e80962a1e5eae4811bc8569b16"><td class="mdescLeft">&#160;</td><td class="mdescRight">Les différentes préfixes pour les niveaux de criticité  <br /></td></tr>
+<tr class="separator:a73c782e80962a1e5eae4811bc8569b16"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3b2cab22ef5658820e862f6171f27f63" id="r_a3b2cab22ef5658820e862f6171f27f63"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="include_2manux_2printk_8h.html#a3b2cab22ef5658820e862f6171f27f63">PRINTK_URGENCE</a>&#160;&#160;&#160;&quot;{1}&quot;</td></tr>
+<tr class="separator:a3b2cab22ef5658820e862f6171f27f63"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a08a69e546e1f4ef9f2e1f3dcd1441ebc" id="r_a08a69e546e1f4ef9f2e1f3dcd1441ebc"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="include_2manux_2printk_8h.html#a08a69e546e1f4ef9f2e1f3dcd1441ebc">PRINTK_CRITIQUE</a>&#160;&#160;&#160;&quot;{2}&quot;</td></tr>
+<tr class="separator:a08a69e546e1f4ef9f2e1f3dcd1441ebc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae6ff7e2c3fa70e08a97b35be55caa024" id="r_ae6ff7e2c3fa70e08a97b35be55caa024"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="include_2manux_2printk_8h.html#ae6ff7e2c3fa70e08a97b35be55caa024">PRINTK_ERREUR</a>&#160;&#160;&#160;&quot;{3}&quot;</td></tr>
+<tr class="separator:ae6ff7e2c3fa70e08a97b35be55caa024"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a67ebfa242264b0817d4c86852c94c86a" id="r_a67ebfa242264b0817d4c86852c94c86a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="include_2manux_2printk_8h.html#a67ebfa242264b0817d4c86852c94c86a">PRINTK_ATTENTION</a>&#160;&#160;&#160;&quot;{4}&quot;</td></tr>
+<tr class="separator:a67ebfa242264b0817d4c86852c94c86a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2149cea5488c3d9a0ddfe8a58f4cddce" id="r_a2149cea5488c3d9a0ddfe8a58f4cddce"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="include_2manux_2printk_8h.html#a2149cea5488c3d9a0ddfe8a58f4cddce">PRINTK_NOTIFICATION</a>&#160;&#160;&#160;&quot;{5}&quot;</td></tr>
+<tr class="separator:a2149cea5488c3d9a0ddfe8a58f4cddce"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a98ecd1b850cab8f481a642c72e48d123" id="r_a98ecd1b850cab8f481a642c72e48d123"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="include_2manux_2printk_8h.html#a98ecd1b850cab8f481a642c72e48d123">PRINTK_INFORMATION</a>&#160;&#160;&#160;&quot;{6}&quot;</td></tr>
+<tr class="separator:a98ecd1b850cab8f481a642c72e48d123"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2a73abbb0814a289e22ba4f7347f4657" id="r_a2a73abbb0814a289e22ba4f7347f4657"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="include_2manux_2printk_8h.html#a2a73abbb0814a289e22ba4f7347f4657">PRINTK_DEBUGAGE</a>&#160;&#160;&#160;&quot;{7}&quot;</td></tr>
+<tr class="separator:a2a73abbb0814a289e22ba4f7347f4657"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7d5a6dcede19ea52bd0064cb40d66a25" id="r_a7d5a6dcede19ea52bd0064cb40d66a25"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="include_2manux_2printk_8h.html#a7d5a6dcede19ea52bd0064cb40d66a25">printkc</a>&#160;&#160;&#160;<a class="el" href="include_2manux_2printk_8h.html#a25b30e8bbadd54650c56895999dd808f">printk</a></td></tr>
+<tr class="memdesc:a7d5a6dcede19ea52bd0064cb40d66a25"><td class="mdescLeft">&#160;</td><td class="mdescRight">Une version de printk qui écrit dans la console de la tâche en cours.  <br /></td></tr>
+<tr class="separator:a7d5a6dcede19ea52bd0064cb40d66a25"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Fonctions</h2></td></tr>
+<tr class="memitem:a25b30e8bbadd54650c56895999dd808f" id="r_a25b30e8bbadd54650c56895999dd808f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="include_2manux_2interruptions_8h.html#a4fda31edc92f8ccd48b6f4bb50f2e7e1">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="include_2manux_2printk_8h.html#a25b30e8bbadd54650c56895999dd808f">printk</a> (char *format,...)</td></tr>
+<tr class="memdesc:a25b30e8bbadd54650c56895999dd808f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fonction principale d'affichage dans le noyau.  <br /></td></tr>
+<tr class="separator:a25b30e8bbadd54650c56895999dd808f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac21da4c54dd944bb35eb829d40301d29" id="r_ac21da4c54dd944bb35eb829d40301d29"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="include_2manux_2printk_8h.html#ac21da4c54dd944bb35eb829d40301d29">sprintk</a> (char *<a class="el" href="include_2manux_2i386_8h.html#a78b6d0d522b49e5b375731d08f4c39fd">str</a>, char *format,...)</td></tr>
+<tr class="memdesc:ac21da4c54dd944bb35eb829d40301d29"><td class="mdescLeft">&#160;</td><td class="mdescRight">: Écriture formattée dans une chaîne de caractères  <br /></td></tr>
+<tr class="separator:ac21da4c54dd944bb35eb829d40301d29"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aabca9ebaaab18b531b2fe7bdd757ac8f" id="r_aabca9ebaaab18b531b2fe7bdd757ac8f"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="include_2manux_2printk_8h.html#aabca9ebaaab18b531b2fe7bdd757ac8f">vsprintk</a> (char *<a class="el" href="include_2manux_2i386_8h.html#a78b6d0d522b49e5b375731d08f4c39fd">str</a>, char *format, <a class="el" href="include_2manux_2stdarg_8h.html#af53f622e3b6c080daeb167c1955d7ec1">va_list</a> argList)</td></tr>
+<tr class="memdesc:aabca9ebaaab18b531b2fe7bdd757ac8f"><td class="mdescLeft">&#160;</td><td class="mdescRight">: Écriture formattée dans une chaîne de caractères  <br /></td></tr>
+<tr class="separator:aabca9ebaaab18b531b2fe7bdd757ac8f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa5a2042f078fa0c6e569acc563f2dac5" id="r_aa5a2042f078fa0c6e569acc563f2dac5"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="include_2manux_2printk_8h.html#aa5a2042f078fa0c6e569acc563f2dac5">snprintk</a> (char *<a class="el" href="include_2manux_2i386_8h.html#a78b6d0d522b49e5b375731d08f4c39fd">str</a>, <a class="el" href="include_2manux_2stddef_8h.html#acf18a0d6c4b39d531e021702e9a77984">size_t</a> l, char *format,...)</td></tr>
+<tr class="memdesc:aa5a2042f078fa0c6e569acc563f2dac5"><td class="mdescLeft">&#160;</td><td class="mdescRight">: Écriture formattée dans une chaîne de caractères  <br /></td></tr>
+<tr class="separator:aa5a2042f078fa0c6e569acc563f2dac5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
+<div class="textblock"><p>Définition des fonctions de base d'entrée-sortie du noyau. <br  />
+ </p>
+<pre class="fragment">                                             (C) Manu Chaput 2000-2023 
+</pre> 
+<p class="definition">Définition dans le fichier <a class="el" href="include_2manux_2printk_8h_source.html">printk.h</a>.</p>
+</div><h2 class="groupheader">Documentation des macros</h2>
+<a id="a2e912bb35c8b6d14f83c896d207fe49c" name="a2e912bb35c8b6d14f83c896d207fe49c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2e912bb35c8b6d14f83c896d207fe49c">&#9670;&#160;</a></span>MAX_PRINTK_LENGTH</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define MAX_PRINTK_LENGTH&#160;&#160;&#160;2048</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Longueur maximale d'une chaîne affichable (à supprimer dès qu'on aura de la mémoire dynamique) </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="include_2manux_2printk_8h_source.html#l00021">21</a> du fichier <a class="el" href="include_2manux_2printk_8h_source.html">printk.h</a>.</p>
+
+</div>
+</div>
+<a id="a67ebfa242264b0817d4c86852c94c86a" name="a67ebfa242264b0817d4c86852c94c86a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a67ebfa242264b0817d4c86852c94c86a">&#9670;&#160;</a></span>PRINTK_ATTENTION</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define PRINTK_ATTENTION&#160;&#160;&#160;&quot;{4}&quot;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="include_2manux_2printk_8h_source.html#l00030">30</a> du fichier <a class="el" href="include_2manux_2printk_8h_source.html">printk.h</a>.</p>
+
+</div>
+</div>
+<a id="a08a69e546e1f4ef9f2e1f3dcd1441ebc" name="a08a69e546e1f4ef9f2e1f3dcd1441ebc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a08a69e546e1f4ef9f2e1f3dcd1441ebc">&#9670;&#160;</a></span>PRINTK_CRITIQUE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define PRINTK_CRITIQUE&#160;&#160;&#160;&quot;{2}&quot;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="include_2manux_2printk_8h_source.html#l00028">28</a> du fichier <a class="el" href="include_2manux_2printk_8h_source.html">printk.h</a>.</p>
+
+</div>
+</div>
+<a id="a2a73abbb0814a289e22ba4f7347f4657" name="a2a73abbb0814a289e22ba4f7347f4657"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2a73abbb0814a289e22ba4f7347f4657">&#9670;&#160;</a></span>PRINTK_DEBUGAGE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define PRINTK_DEBUGAGE&#160;&#160;&#160;&quot;{7}&quot;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="include_2manux_2printk_8h_source.html#l00033">33</a> du fichier <a class="el" href="include_2manux_2printk_8h_source.html">printk.h</a>.</p>
+
+</div>
+</div>
+<a id="ae6ff7e2c3fa70e08a97b35be55caa024" name="ae6ff7e2c3fa70e08a97b35be55caa024"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae6ff7e2c3fa70e08a97b35be55caa024">&#9670;&#160;</a></span>PRINTK_ERREUR</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define PRINTK_ERREUR&#160;&#160;&#160;&quot;{3}&quot;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="include_2manux_2printk_8h_source.html#l00029">29</a> du fichier <a class="el" href="include_2manux_2printk_8h_source.html">printk.h</a>.</p>
+
+</div>
+</div>
+<a id="a98ecd1b850cab8f481a642c72e48d123" name="a98ecd1b850cab8f481a642c72e48d123"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a98ecd1b850cab8f481a642c72e48d123">&#9670;&#160;</a></span>PRINTK_INFORMATION</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define PRINTK_INFORMATION&#160;&#160;&#160;&quot;{6}&quot;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="include_2manux_2printk_8h_source.html#l00032">32</a> du fichier <a class="el" href="include_2manux_2printk_8h_source.html">printk.h</a>.</p>
+
+</div>
+</div>
+<a id="a2149cea5488c3d9a0ddfe8a58f4cddce" name="a2149cea5488c3d9a0ddfe8a58f4cddce"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2149cea5488c3d9a0ddfe8a58f4cddce">&#9670;&#160;</a></span>PRINTK_NOTIFICATION</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define PRINTK_NOTIFICATION&#160;&#160;&#160;&quot;{5}&quot;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="include_2manux_2printk_8h_source.html#l00031">31</a> du fichier <a class="el" href="include_2manux_2printk_8h_source.html">printk.h</a>.</p>
+
+</div>
+</div>
+<a id="a73c782e80962a1e5eae4811bc8569b16" name="a73c782e80962a1e5eae4811bc8569b16"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a73c782e80962a1e5eae4811bc8569b16">&#9670;&#160;</a></span>PRINTK_PANIQUE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define PRINTK_PANIQUE&#160;&#160;&#160;&quot;{0}&quot;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Les différentes préfixes pour les niveaux de criticité </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="include_2manux_2printk_8h_source.html#l00026">26</a> du fichier <a class="el" href="include_2manux_2printk_8h_source.html">printk.h</a>.</p>
+
+</div>
+</div>
+<a id="a3b2cab22ef5658820e862f6171f27f63" name="a3b2cab22ef5658820e862f6171f27f63"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3b2cab22ef5658820e862f6171f27f63">&#9670;&#160;</a></span>PRINTK_URGENCE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define PRINTK_URGENCE&#160;&#160;&#160;&quot;{1}&quot;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="include_2manux_2printk_8h_source.html#l00027">27</a> du fichier <a class="el" href="include_2manux_2printk_8h_source.html">printk.h</a>.</p>
+
+</div>
+</div>
+<a id="a7d5a6dcede19ea52bd0064cb40d66a25" name="a7d5a6dcede19ea52bd0064cb40d66a25"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7d5a6dcede19ea52bd0064cb40d66a25">&#9670;&#160;</a></span>printkc</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define printkc&#160;&#160;&#160;<a class="el" href="include_2manux_2printk_8h.html#a25b30e8bbadd54650c56895999dd808f">printk</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Une version de printk qui écrit dans la console de la tâche en cours. </p>
+<p>C'est un peu un printf en monde noyau, ... </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="include_2manux_2printk_8h_source.html#l00061">61</a> du fichier <a class="el" href="include_2manux_2printk_8h_source.html">printk.h</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Documentation des fonctions</h2>
+<a id="a25b30e8bbadd54650c56895999dd808f" name="a25b30e8bbadd54650c56895999dd808f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a25b30e8bbadd54650c56895999dd808f">&#9670;&#160;</a></span>printk()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="include_2manux_2interruptions_8h.html#a4fda31edc92f8ccd48b6f4bb50f2e7e1">void</a> printk </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>format</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>...</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Fonction principale d'affichage dans le noyau. </p>
+<p>Un grand classique. Elle construit une chaîne de caractères puis l'envoie au journal. Si le journal n'est pas actif (MANUX_JOURNAL non défini) alors la chaîne est envoyée sur la console spécifique au noyau.</p>
+<p>Les formats gérés pour le moment :</p>
+<p>%[n][l[l]]{dxo} s <br  />
+ Fonction principale d'affichage dans le noyau.</p>
+<p>Elle utilise le journal s'il y en a un, et sinon la console du noyau. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="printk_8c_source.html#l00166">166</a> du fichier <a class="el" href="printk_8c_source.html">printk.c</a>.</p>
+
+</div>
+</div>
+<a id="aa5a2042f078fa0c6e569acc563f2dac5" name="aa5a2042f078fa0c6e569acc563f2dac5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa5a2042f078fa0c6e569acc563f2dac5">&#9670;&#160;</a></span>snprintk()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int snprintk </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>str</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="include_2manux_2stddef_8h.html#acf18a0d6c4b39d531e021702e9a77984">size_t</a>&#160;</td>
+          <td class="paramname"><em>l</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>format</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>...</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>: Écriture formattée dans une chaîne de caractères </p>
+<p>C'est cette fonction qui doit être utilisée pour écrire dans une chaîne de caractères </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="printk_8c_source.html#l00148">148</a> du fichier <a class="el" href="printk_8c_source.html">printk.c</a>.</p>
+
+</div>
+</div>
+<a id="ac21da4c54dd944bb35eb829d40301d29" name="ac21da4c54dd944bb35eb829d40301d29"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac21da4c54dd944bb35eb829d40301d29">&#9670;&#160;</a></span>sprintk()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int sprintk </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>str</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>format</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>...</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>: Écriture formattée dans une chaîne de caractères </p>
+
+</div>
+</div>
+<a id="aabca9ebaaab18b531b2fe7bdd757ac8f" name="aabca9ebaaab18b531b2fe7bdd757ac8f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aabca9ebaaab18b531b2fe7bdd757ac8f">&#9670;&#160;</a></span>vsprintk()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int vsprintk </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>str</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>format</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="include_2manux_2stdarg_8h.html#af53f622e3b6c080daeb167c1955d7ec1">va_list</a>&#160;</td>
+          <td class="paramname"><em>argList</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>: Écriture formattée dans une chaîne de caractères </p>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

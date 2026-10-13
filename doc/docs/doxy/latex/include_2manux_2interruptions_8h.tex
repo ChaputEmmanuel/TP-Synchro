@@ -1,0 +1,188 @@
+\doxysection{Référence du fichier /home/manu/\+PROGRAMMATION/\+C/\+Manu\+X/include/manux/interruptions.h}
+\hypertarget{include_2manux_2interruptions_8h}{}\label{include_2manux_2interruptions_8h}\index{/home/manu/PROGRAMMATION/C/ManuX/include/manux/interruptions.h@{/home/manu/PROGRAMMATION/C/ManuX/include/manux/interruptions.h}}
+{\ttfamily \#include $<$manux/types.\+h$>$}\newline
+Graphe des dépendances par inclusion de interruptions.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=250pt]{include_2manux_2interruptions_8h__incl}
+\end{center}
+\end{figure}
+Ce graphe montre quels fichiers incluent directement ou indirectement ce fichier \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{include_2manux_2interruptions_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structTaskGateDescriptor}{Task\+Gate\+Descriptor}}
+\item 
+struct \mbox{\hyperlink{structInterruptGate}{Interrupt\+Gate}}
+\item 
+struct \mbox{\hyperlink{structTrapGate}{Trap\+Gate}}
+\item 
+union \mbox{\hyperlink{unionIDTGate}{IDTGate}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{include_2manux_2interruptions_8h_a68c330e94fe121eba993e5a5973c3162}{cli}}()~\+\_\+\+\_\+asm\+\_\+\+\_\+("{}cli"{}\+::);
+\item 
+\#define \mbox{\hyperlink{include_2manux_2interruptions_8h_ac5d15f274bc9b1e96230f3d3c60fd1f8}{sti}}()~\+\_\+\+\_\+asm\+\_\+\+\_\+("{}sti"{}\+::);
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Définitions de type}
+\begin{DoxyCompactItemize}
+\item 
+typedef \mbox{\hyperlink{unionIDTGate}{IDTGate}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{include_2manux_2interruptions_8h_a6cffd840f089c59ab7cbfe7daa931438}{IDT}}
+\item 
+typedef \mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}}(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{include_2manux_2interruptions_8h_a4b86502c050e73afc4f906e73dc06cec}{Fonction\+Gestion\+Exception}}) (Tous\+Registres registres, \mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\+\_\+t}} eip, \mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\+\_\+t}} cs, \mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\+\_\+t}} e\+Flags, \mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\+\_\+t}} num\+Ex, \mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\+\_\+t}} err\+Code)
+\item 
+typedef \mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}}(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{include_2manux_2interruptions_8h_aeba1bb9393b1868b44581e72a4206150}{Fonction\+Gestion\+Interruption}}) (Tous\+Registres registres, \mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\+\_\+t}} eip, \mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\+\_\+t}} cs, \mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\+\_\+t}} e\+Flags, \mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\+\_\+t}} num\+It)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+typedef \mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} (Handler(void))
+\item 
+\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} \mbox{\hyperlink{include_2manux_2interruptions_8h_a8bab70dd2ead4ff36a0c2de9b3d3aff8}{initialiser\+IDT}} (\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}})
+\begin{DoxyCompactList}\small\item\em ! Initialiser l\textquotesingle{}IDT (Interrupt Description Table) \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{include_2manux_2interruptions_8h_a30b0f4c7aa0fe2acf51d23228cd34a38}{definir\+Fonction\+Gestion\+Interruption}} (int num, \mbox{\hyperlink{include_2manux_2interruptions_8h_aeba1bb9393b1868b44581e72a4206150}{Fonction\+Gestion\+Interruption}} fg)
+\item 
+\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} \mbox{\hyperlink{include_2manux_2interruptions_8h_a1c93a6acba307c0339b7208e55cf9c29}{gestion\+Interruption}} (Tous\+Registres registres, \mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\+\_\+t}} num\+It, \mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\+\_\+t}} eip, \mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\+\_\+t}} cs, \mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\+\_\+t}} e\+Flags)
+\begin{DoxyCompactList}\small\item\em \+: Fonction de base de gestion d\textquotesingle{}une exception \end{DoxyCompactList}\item 
+\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} \mbox{\hyperlink{include_2manux_2interruptions_8h_ab8ede39e92b659dc067644ea9a5d43ba}{gestion\+Exception}} (Tous\+Registres registres, \mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\+\_\+t}} num\+Ex, \mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\+\_\+t}} err\+Code, \mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\+\_\+t}} eip, \mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\+\_\+t}} cs, \mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\+\_\+t}} e\+Flags)
+\begin{DoxyCompactList}\small\item\em \+: Fonction de base de gestion d\textquotesingle{}une exception \end{DoxyCompactList}\item 
+\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} \mbox{\hyperlink{include_2manux_2interruptions_8h_ad045bb2309fda8ce932e293b5959e08c}{set\+Frequence\+Timer}} (\mbox{\hyperlink{include_2manux_2types_8h_a273cf69d639a59973b6019625df33e30}{uint16\+\_\+t}} freq\+Hz)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Documentation des macros}
+\Hypertarget{include_2manux_2interruptions_8h_a68c330e94fe121eba993e5a5973c3162}\label{include_2manux_2interruptions_8h_a68c330e94fe121eba993e5a5973c3162} 
+\index{interruptions.h@{interruptions.h}!cli@{cli}}
+\index{cli@{cli}!interruptions.h@{interruptions.h}}
+\doxysubsubsection{\texorpdfstring{cli}{cli}}
+{\footnotesize\ttfamily \#define cli(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})~\+\_\+\+\_\+asm\+\_\+\+\_\+("{}cli"{}\+::);}
+
+Définition de la fonction de gestion d\textquotesingle{}une interuption \begin{DoxyReturn}{Renvoie}
+\+: 0 si c\textquotesingle{}est bon 
+\end{DoxyReturn}
+
+
+Définition à la ligne \mbox{\hyperlink{include_2manux_2interruptions_8h_source_l00086}{86}} du fichier \mbox{\hyperlink{include_2manux_2interruptions_8h_source}{interruptions.\+h}}.
+
+\Hypertarget{include_2manux_2interruptions_8h_ac5d15f274bc9b1e96230f3d3c60fd1f8}\label{include_2manux_2interruptions_8h_ac5d15f274bc9b1e96230f3d3c60fd1f8} 
+\index{interruptions.h@{interruptions.h}!sti@{sti}}
+\index{sti@{sti}!interruptions.h@{interruptions.h}}
+\doxysubsubsection{\texorpdfstring{sti}{sti}}
+{\footnotesize\ttfamily \#define sti(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})~\+\_\+\+\_\+asm\+\_\+\+\_\+("{}sti"{}\+::);}
+
+
+
+Définition à la ligne \mbox{\hyperlink{include_2manux_2interruptions_8h_source_l00092}{92}} du fichier \mbox{\hyperlink{include_2manux_2interruptions_8h_source}{interruptions.\+h}}.
+
+
+
+\doxysubsection{Documentation des définitions de type}
+\Hypertarget{include_2manux_2interruptions_8h_a4b86502c050e73afc4f906e73dc06cec}\label{include_2manux_2interruptions_8h_a4b86502c050e73afc4f906e73dc06cec} 
+\index{interruptions.h@{interruptions.h}!FonctionGestionException@{FonctionGestionException}}
+\index{FonctionGestionException@{FonctionGestionException}!interruptions.h@{interruptions.h}}
+\doxysubsubsection{\texorpdfstring{FonctionGestionException}{FonctionGestionException}}
+{\footnotesize\ttfamily typedef \mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}}(\texorpdfstring{$\ast$}{*} Fonction\+Gestion\+Exception) (Tous\+Registres registres, \mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\+\_\+t}} eip, \mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\+\_\+t}} cs, \mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\+\_\+t}} e\+Flags, \mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\+\_\+t}} num\+Ex, \mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\+\_\+t}} err\+Code)}
+
+Le type d\textquotesingle{}une fonction de gestion d\textquotesingle{}exception 
+
+Définition à la ligne \mbox{\hyperlink{include_2manux_2interruptions_8h_source_l00068}{68}} du fichier \mbox{\hyperlink{include_2manux_2interruptions_8h_source}{interruptions.\+h}}.
+
+\Hypertarget{include_2manux_2interruptions_8h_aeba1bb9393b1868b44581e72a4206150}\label{include_2manux_2interruptions_8h_aeba1bb9393b1868b44581e72a4206150} 
+\index{interruptions.h@{interruptions.h}!FonctionGestionInterruption@{FonctionGestionInterruption}}
+\index{FonctionGestionInterruption@{FonctionGestionInterruption}!interruptions.h@{interruptions.h}}
+\doxysubsubsection{\texorpdfstring{FonctionGestionInterruption}{FonctionGestionInterruption}}
+{\footnotesize\ttfamily typedef \mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}}(\texorpdfstring{$\ast$}{*} Fonction\+Gestion\+Interruption) (Tous\+Registres registres, \mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\+\_\+t}} eip, \mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\+\_\+t}} cs, \mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\+\_\+t}} e\+Flags, \mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\+\_\+t}} num\+It)}
+
+Le type d\textquotesingle{}une fonction de gestion d\textquotesingle{}interruption 
+
+Définition à la ligne \mbox{\hyperlink{include_2manux_2interruptions_8h_source_l00075}{75}} du fichier \mbox{\hyperlink{include_2manux_2interruptions_8h_source}{interruptions.\+h}}.
+
+\Hypertarget{include_2manux_2interruptions_8h_a6cffd840f089c59ab7cbfe7daa931438}\label{include_2manux_2interruptions_8h_a6cffd840f089c59ab7cbfe7daa931438} 
+\index{interruptions.h@{interruptions.h}!IDT@{IDT}}
+\index{IDT@{IDT}!interruptions.h@{interruptions.h}}
+\doxysubsubsection{\texorpdfstring{IDT}{IDT}}
+{\footnotesize\ttfamily typedef \mbox{\hyperlink{unionIDTGate}{IDTGate}}\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{include_2manux_2interruptions_8h_a6cffd840f089c59ab7cbfe7daa931438}{IDT}}}
+
+
+
+Définition à la ligne \mbox{\hyperlink{include_2manux_2interruptions_8h_source_l00053}{53}} du fichier \mbox{\hyperlink{include_2manux_2interruptions_8h_source}{interruptions.\+h}}.
+
+
+
+\doxysubsection{Documentation des fonctions}
+\Hypertarget{include_2manux_2interruptions_8h_a30b0f4c7aa0fe2acf51d23228cd34a38}\label{include_2manux_2interruptions_8h_a30b0f4c7aa0fe2acf51d23228cd34a38} 
+\index{interruptions.h@{interruptions.h}!definirFonctionGestionInterruption@{definirFonctionGestionInterruption}}
+\index{definirFonctionGestionInterruption@{definirFonctionGestionInterruption}!interruptions.h@{interruptions.h}}
+\doxysubsubsection{\texorpdfstring{definirFonctionGestionInterruption()}{definirFonctionGestionInterruption()}}
+{\footnotesize\ttfamily int definir\+Fonction\+Gestion\+Interruption (\begin{DoxyParamCaption}\item[{int}]{num,  }\item[{\mbox{\hyperlink{include_2manux_2interruptions_8h_aeba1bb9393b1868b44581e72a4206150}{Fonction\+Gestion\+Interruption}}}]{fg }\end{DoxyParamCaption})}
+
+D�finition de la fonction de gestion d\textquotesingle{}une interruption \begin{DoxyReturn}{Renvoie}
+\+: 0 si c\textquotesingle{}est bon 
+\end{DoxyReturn}
+
+
+Définition à la ligne \mbox{\hyperlink{interruptions_8c_source_l00174}{174}} du fichier \mbox{\hyperlink{interruptions_8c_source}{interruptions.\+c}}.
+
+\Hypertarget{include_2manux_2interruptions_8h_ab8ede39e92b659dc067644ea9a5d43ba}\label{include_2manux_2interruptions_8h_ab8ede39e92b659dc067644ea9a5d43ba} 
+\index{interruptions.h@{interruptions.h}!gestionException@{gestionException}}
+\index{gestionException@{gestionException}!interruptions.h@{interruptions.h}}
+\doxysubsubsection{\texorpdfstring{gestionException()}{gestionException()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} gestion\+Exception (\begin{DoxyParamCaption}\item[{Tous\+Registres}]{registres,  }\item[{\mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\+\_\+t}}}]{num\+Ex,  }\item[{\mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\+\_\+t}}}]{err\+Code,  }\item[{\mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\+\_\+t}}}]{eip,  }\item[{\mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\+\_\+t}}}]{cs,  }\item[{\mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\+\_\+t}}}]{e\+Flags }\end{DoxyParamCaption})}
+
+
+
+\+: Fonction de base de gestion d\textquotesingle{}une exception 
+
+
+
+Définition à la ligne \mbox{\hyperlink{interruptions_8c_source_l00083}{83}} du fichier \mbox{\hyperlink{interruptions_8c_source}{interruptions.\+c}}.
+
+\Hypertarget{include_2manux_2interruptions_8h_a1c93a6acba307c0339b7208e55cf9c29}\label{include_2manux_2interruptions_8h_a1c93a6acba307c0339b7208e55cf9c29} 
+\index{interruptions.h@{interruptions.h}!gestionInterruption@{gestionInterruption}}
+\index{gestionInterruption@{gestionInterruption}!interruptions.h@{interruptions.h}}
+\doxysubsubsection{\texorpdfstring{gestionInterruption()}{gestionInterruption()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} gestion\+Interruption (\begin{DoxyParamCaption}\item[{Tous\+Registres}]{registres,  }\item[{\mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\+\_\+t}}}]{num\+It,  }\item[{\mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\+\_\+t}}}]{eip,  }\item[{\mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\+\_\+t}}}]{cs,  }\item[{\mbox{\hyperlink{include_2manux_2types_8h_a06896e8c53f721507066c079052171f8}{uint32\+\_\+t}}}]{e\+Flags }\end{DoxyParamCaption})}
+
+
+
+\+: Fonction de base de gestion d\textquotesingle{}une exception 
+
+
+
+Définition à la ligne \mbox{\hyperlink{interruptions_8c_source_l00119}{119}} du fichier \mbox{\hyperlink{interruptions_8c_source}{interruptions.\+c}}.
+
+\Hypertarget{include_2manux_2interruptions_8h_a8bab70dd2ead4ff36a0c2de9b3d3aff8}\label{include_2manux_2interruptions_8h_a8bab70dd2ead4ff36a0c2de9b3d3aff8} 
+\index{interruptions.h@{interruptions.h}!initialiserIDT@{initialiserIDT}}
+\index{initialiserIDT@{initialiserIDT}!interruptions.h@{interruptions.h}}
+\doxysubsubsection{\texorpdfstring{initialiserIDT()}{initialiserIDT()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} initialiser\+IDT (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}}}]{ }\end{DoxyParamCaption})}
+
+
+
+! Initialiser l\textquotesingle{}IDT (Interrupt Description Table) 
+
+@brieg Initialisation de de la table des descripteurs d\textquotesingle{}interruption 
+
+Définition à la ligne \mbox{\hyperlink{interruptions_8c_source_l00185}{185}} du fichier \mbox{\hyperlink{interruptions_8c_source}{interruptions.\+c}}.
+
+\Hypertarget{include_2manux_2interruptions_8h_ad045bb2309fda8ce932e293b5959e08c}\label{include_2manux_2interruptions_8h_ad045bb2309fda8ce932e293b5959e08c} 
+\index{interruptions.h@{interruptions.h}!setFrequenceTimer@{setFrequenceTimer}}
+\index{setFrequenceTimer@{setFrequenceTimer}!interruptions.h@{interruptions.h}}
+\doxysubsubsection{\texorpdfstring{setFrequenceTimer()}{setFrequenceTimer()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}{void}} set\+Frequence\+Timer (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{include_2manux_2types_8h_a273cf69d639a59973b6019625df33e30}{uint16\+\_\+t}}}]{freq\+Hz }\end{DoxyParamCaption})}
+
+\Hypertarget{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1}\label{include_2manux_2interruptions_8h_a4fda31edc92f8ccd48b6f4bb50f2e7e1} 
+\index{interruptions.h@{interruptions.h}!void@{void}}
+\index{void@{void}!interruptions.h@{interruptions.h}}
+\doxysubsubsection{\texorpdfstring{void()}{void()}}
+{\footnotesize\ttfamily typedef void (\begin{DoxyParamCaption}\item[{Handler(void)}]{ }\end{DoxyParamCaption})}
+

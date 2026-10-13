@@ -1,5 +1,6 @@
 /**
  * @file virtio-console.c
+ * @brief Implantation de la console de type virtio
  *
  * A faire : la gestion de la mémoire n'est pas terrible ! J'alloue
  * une page pour chaque nouveau message et je la supprime lorsque je
@@ -26,7 +27,7 @@
 #include <manux/string.h>
 
 /**
- * Description d'un périphérique virtio console
+ * @brif Description d'un périphérique virtio console
  */
 typedef struct VirtioConsole_t {
    VirtioPeripherique    virtioPeripherique; 
@@ -34,15 +35,22 @@ typedef struct VirtioConsole_t {
 } VirtioConsole;
 
 /**
+ * @brief Variable globale stockant la seule console virtio !
  * WARNING : pour le moment on crée un unique périphérique
  */
 VirtioConsole virtioConsole; 
- static int    nbPageAlloueesIci = 0;
+
+static int    nbPageAlloueesIci = 0;
 
 /**
- * Gestion des buffers utilisés par le périphérique
+ * @brief Gestion des buffers utilisés par le périphérique
+ *
+ * Cette fonction va voir si quelquechose est dispo
+ * Elle doit sûrement disparaître, mais je vais tenter de faire un
+ * peu de polling
  */
 #define NB_BUFF_TRAITES 16
+static
 void virtioConsoleTraiterBuffers(VirtioConsole * vc)
 {
    void *bf [NB_BUFF_TRAITES];
@@ -61,7 +69,7 @@ void virtioConsoleTraiterBuffers(VirtioConsole * vc)
 	     bf, lg, NB_BUFF_TRAITES);
       //printk("[7] OK !\n");
 
-      // WARNING Pas top
+      // WARNING Pas top, est-ce qu'il faut vraiment des désallouer !?
       for (int n = 0; n < nbLu; n++) {
 	 libererPage(bf[n]);
          nbPageAlloueesIci --;
@@ -79,6 +87,7 @@ void virtioConsoleTraiterBuffers(VirtioConsole * vc)
 /**
  *  Cf [3] section 2.4.2
  */
+static
 void virtioConsoleGestionInt(void * pr)
 {
    VirtioConsole * vc = (VirtioConsole *) pr;
@@ -104,6 +113,7 @@ void virtioConsoleGestionInt(void * pr)
  * @brief Initialisation d'un périphérique console virtio
  *
  */
+static
 int virtioConsoleInitPeripherique(int PCINumeroPeripherique)
 {
    PCIEquipement       * pciEquip = PCIEquipementNumero(PCINumeroPeripherique);
@@ -163,6 +173,7 @@ MethodesFichier virtioConsoleMethodesFichier;
 /**
  * @brief : fonction d'écriture dans un périphérique virtio-console
  */
+static
 size_t virtioConsoleEcrire(Fichier * f, void * b, size_t l)
 {
    VirtioConsole * vc = (VirtioConsole *)f->prive;
@@ -203,15 +214,25 @@ size_t virtioConsoleEcrire(Fichier * f, void * b, size_t l)
 /**
  * @brief : fonction de lecture dans un périphérique virtio-console
  */
+static
 size_t virtioConsoleLire(Fichier * f, void * b, size_t l)
 {
+   (void) f;
+   (void) b;
+   (void) l;
+ 
    printk_debug(DBG_KERNEL_VIRTIO, "in\n");
 
    return 0;
 }
 
+static
 int virtioConsoleOuvrir(INoeud * iNoeud, Fichier * f, uint16_t fanions, uint16_t mode)
 {
+   (void) iNoeud;
+   (void) fanions;
+   (void) mode;
+
    f->prive = &virtioConsole; // WARNING, il peut y en avoir plusieurs 
 
    return ESUCCES;
@@ -264,4 +285,16 @@ int virtioConsoleInitialisation(INoeud * iNoeudVirtioConsole)
    return ESUCCES;
 }
 
+#ifdef MANUX_VIRTIO_AUDIT
+/**
+ * @brief Affichage de la console, à des fins de debug
+ */
+void virtioConsoleAfficher(void)
+{
+   VirtioConsole * vc = &virtioConsole;
 
+   printk("Console virtio 0x%x (%d it):\n", vc, vc->nbItRecues);
+   printk("   Etat de sa file :\n");
+}
+
+#endif // MANUX_VIRTIO_AUDIT
