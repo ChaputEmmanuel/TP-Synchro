@@ -1,0 +1,11 @@
+.$(ASM_EXT).bin :
+	$(ASM) $(ASM_DEF) $(ASM_BIN_OPT) $< -o $@
+
+.$(ASM_EXT).elf :
+	$(ASM) $(ASM_DEF) $(ASM_ELF_OPT) $< -o $@
+
+.c.o :
+	$(CC) $(CFLAGS) -c $<
+
+.ld.lds :
+	$(CC) $(CFLAGS) -E -P -x c $< >  $@

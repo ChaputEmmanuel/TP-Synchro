@@ -1,0 +1,56 @@
+#==========================================================================
+# Les paramètres de gcc
+#
+#   "-fno-stack-protector" permet d'éviter les "undefined references to
+# `__stack_chk_fail'" sur les GCC récents
+#
+#   "-nostdinc -fno-builtin -nodefaultlibs -nostartfiles" permettent
+# de n'utiliser aucune fonctions prédéfinies ou de librairies standard
+#
+#   Architecture
+#     -march=386            Avant j'utilisais -m686
+#     -m32                  int, long, and pointer types to 32 bits
+#
+#   Warning
+#     -Wall                 Active beaucoup de warnings classiques, mais pas tous.
+#     -Wextra               Ajoute des warnings plus stricts : paramètres inutilisés, comparaisons douteuses, etc.
+#     -Wmissing-prototypes  Toutes les fonctions doivent être static ou déclarées dans le .h  !
+#
+#   Optimisation
+#     -O2 par défaut
+#     -O0 pour debuguer
+#
+#==========================================================================
+CC	= gcc
+
+CFLAGS   = -fno-pie -m32 -march=i386  \
+           -g -ggdb -gdwarf  \
+	   -I$(ROOTDIR)/include  \
+           -nostdinc -fno-builtin -nodefaultlibs -nostartfiles \
+           -fno-toplevel-reorder \
+           -fno-stack-protector \
+           -O4 \
+	   -Wall \
+	   -Wextra\
+	   -Werror=implicit-function-declaration \
+	   -Wstrict-prototypes \
+	   -Wmissing-prototypes	   \
+	   
+	 # -mpreferred-stack-boundary=2 (par défaut c'est 4, d'où des "sub $0x10,%esp")
+         # -fomit-frame-pointer
+
+CFLAGS   +=   $(if $(MANUX_FICHIER_CONFIG), --include $(MANUX_FICHIER_CONFIG))
+
+#..........................................................................
+#   Les flags pour le monde utilisateur
+#..........................................................................
+UCFLAGS   = -fno-pie -m32 -march=i686 -Wall \
+           -I../usr/include \
+           -nostdinc -fno-builtin \
+           -fomit-frame-pointer \
+           -fno-toplevel-reorder \
+           -fno-stack-protector \
+           -O2
+
+#UCFLAGS   +=   $(if $(MANUX_FICHIER_CONFIG), --include $(MANUX_FICHIER_CONFIG))
+
